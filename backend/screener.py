@@ -99,6 +99,53 @@ def get_most_common_entry_strategy(trades):
     except:
         return '未知'
 
+def check_macd_zero_axis_pre_filter(df, signal_idx, signal_state, lookback_days=5):
+    """
+    MACD零轴启动策略的预筛选过滤器：排除五日内价格上涨超过5%的情况
+    
+    Args:
+        df: 股票数据DataFrame
+        signal_idx: 信号出现的索引
+        signal_state: 信号状态
+        lookback_days: 回看天数
+    
+    Returns:
+        tuple: (是否应该排除, 排除原因)
+    """
+    try:
+        # 只对MACD零轴启动策略进行过滤
+        if signal_state not in ['PRE', 'MID', 'POST']:
+            return False, ""
+        
+        # 获取信号前5天的数据
+        start_idx = max(0, signal_idx - lookback_days)
+        end_idx = signal_idx
+        
+        if start_idx >= end_idx:
+            return False, ""
+        
+        # 计算5日内的最大涨幅
+        lookback_data = df.iloc[start_idx:end_idx + 1]
+        if len(lookback_data) < 2:
+            return False, ""
+        
+        # 获取5日前的收盘价和信号当天的最高价
+        base_price = lookback_data.iloc[0]['close']  # 5日前收盘价
+        current_high = df.iloc[signal_idx]['high']    # 信号当天最高价
+        
+        # 计算涨幅
+        price_increase = (current_high - base_price) / base_price
+        
+        # 如果5日内涨幅超过5%，则排除
+        if price_increase > 0.05:
+            return True, f"五日内涨幅{price_increase:.1%}超过5%，排除追高风险"
+        
+        return False, ""
+        
+    except Exception as e:
+        print(f"MACD零轴预筛选过滤器检查失败: {e}")
+        return False, ""
+
 def worker(args):
     """多进程工作函数 - 增强版本，包含回测统计"""
     file_path, market = args
@@ -146,10 +193,18 @@ def worker(args):
             signal_series = strategies.apply_macd_zero_axis_strategy(df)
             signal_state = signal_series.iloc[-1]
             if signal_state in ['PRE', 'MID', 'POST']:
+                # 检查MACD零轴启动的过滤条件：排除五日内涨幅超过5%的情况
+                should_exclude, exclude_reason = check_macd_zero_axis_pre_filter(df, len(df) - 1, signal_state)
+                
+                if should_exclude:
+                    logger.info(f"{stock_code_full} 被过滤: {exclude_reason}")
+                    return None
+                
                 # 计算回测统计
                 backtest_stats = calculate_backtest_stats(df, signal_series)
                 result_base.update({
                     'signal_state': signal_state,
+                    'filter_status': 'passed',
                     **backtest_stats
                 })
                 return result_base

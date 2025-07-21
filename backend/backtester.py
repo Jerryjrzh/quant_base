@@ -7,6 +7,53 @@ MAX_LOOKAHEAD_DAYS = 30
 # 涨幅超过多少被认为是一次“成功的”交易
 PROFIT_TARGET_FOR_SUCCESS = 0.05 
 
+def check_macd_zero_axis_filter(df, signal_idx, signal_state, lookback_days=5):
+    """
+    MACD零轴启动策略的过滤器：排除五日内价格上涨超过5%的情况
+    
+    Args:
+        df: 股票数据DataFrame
+        signal_idx: 信号出现的索引
+        signal_state: 信号状态
+        lookback_days: 回看天数
+    
+    Returns:
+        tuple: (是否应该排除, 排除原因)
+    """
+    try:
+        # 只对MACD零轴启动策略进行过滤
+        if signal_state not in ['PRE', 'MID', 'POST']:
+            return False, ""
+        
+        # 获取信号前5天的数据
+        start_idx = max(0, signal_idx - lookback_days)
+        end_idx = signal_idx
+        
+        if start_idx >= end_idx:
+            return False, ""
+        
+        # 计算5日内的最大涨幅
+        lookback_data = df.iloc[start_idx:end_idx + 1]
+        if len(lookback_data) < 2:
+            return False, ""
+        
+        # 获取5日前的收盘价和信号当天的最高价
+        base_price = lookback_data.iloc[0]['close']  # 5日前收盘价
+        current_high = df.loc[signal_idx, 'high']    # 信号当天最高价
+        
+        # 计算涨幅
+        price_increase = (current_high - base_price) / base_price
+        
+        # 如果5日内涨幅超过5%，则排除
+        if price_increase > 0.05:
+            return True, f"五日内涨幅{price_increase:.1%}超过5%，排除追高风险"
+        
+        return False, ""
+        
+    except Exception as e:
+        print(f"MACD零轴过滤器检查失败: {e}")
+        return False, ""
+
 def get_optimal_entry_price(df, signal_idx, signal_state, lookback_days=5, lookahead_days=3):
     """
     根据信号状态确定最佳入场价格
@@ -19,9 +66,15 @@ def get_optimal_entry_price(df, signal_idx, signal_state, lookback_days=5, looka
         lookahead_days: 向后查找天数
     
     Returns:
-        tuple: (最佳入场价格, 入场日期索引, 入场策略说明)
+        tuple: (最佳入场价格, 入场日期索引, 入场策略说明, 是否被过滤)
     """
     try:
+        # 首先检查MACD零轴启动的过滤条件
+        should_exclude, exclude_reason = check_macd_zero_axis_filter(df, signal_idx, signal_state, lookback_days)
+        
+        if should_exclude:
+            return None, signal_idx, exclude_reason, True
+        
         if signal_state == 'PRE':
             # PRE状态：预期即将突破，在信号后1-3天内寻找低点买入
             start_idx = signal_idx + 1
@@ -32,15 +85,15 @@ def get_optimal_entry_price(df, signal_idx, signal_state, lookback_days=5, looka
                 # 寻找最低价对应的日期
                 min_idx = window_data['low'].idxmin()
                 entry_price = df.loc[min_idx, 'low']
-                return entry_price, min_idx, f"PRE状态-信号后{min_idx - signal_idx}天低点买入"
+                return entry_price, min_idx, f"PRE状态-信号后{min_idx - signal_idx}天低点买入", False
             else:
                 # 如果没有未来数据，使用信号当天收盘价
-                return df.loc[signal_idx, 'close'], signal_idx, "PRE状态-信号当天收盘价"
+                return df.loc[signal_idx, 'close'], signal_idx, "PRE状态-信号当天收盘价", False
                 
         elif signal_state == 'MID':
             # MID状态：正在突破中，立即买入或在当天低点买入
             entry_price = df.loc[signal_idx, 'low']  # 使用当天低点
-            return entry_price, signal_idx, "MID状态-当天低点买入"
+            return entry_price, signal_idx, "MID状态-当天低点买入", False
             
         elif signal_state == 'POST':
             # POST状态：已经突破，可能需要回调买入
@@ -53,19 +106,19 @@ def get_optimal_entry_price(df, signal_idx, signal_state, lookback_days=5, looka
                 # 寻找回调低点
                 min_idx = window_data['low'].idxmin()
                 entry_price = df.loc[min_idx, 'low']
-                return entry_price, min_idx, f"POST状态-信号前{signal_idx - min_idx}天回调低点买入"
+                return entry_price, min_idx, f"POST状态-信号前{signal_idx - min_idx}天回调低点买入", False
             else:
-                return df.loc[signal_idx, 'close'], signal_idx, "POST状态-信号当天收盘价"
+                return df.loc[signal_idx, 'close'], signal_idx, "POST状态-信号当天收盘价", False
                 
         else:
             # 布尔类型信号或其他情况，使用传统方法
             entry_price = df.loc[signal_idx, 'close']
-            return entry_price, signal_idx, "传统方法-信号当天收盘价"
+            return entry_price, signal_idx, "传统方法-信号当天收盘价", False
             
     except Exception as e:
         print(f"获取最佳入场价格时出错: {e}")
         # 出错时使用收盘价作为备选
-        return df.loc[signal_idx, 'close'], signal_idx, "异常情况-使用收盘价"
+        return df.loc[signal_idx, 'close'], signal_idx, "异常情况-使用收盘价", False
 
 def run_backtest(df, signal_series):
     """
@@ -92,9 +145,13 @@ def run_backtest(df, signal_series):
             signal_state = signal_states[i]
             
             # 根据信号状态获取最佳入场价格
-            entry_price, actual_entry_idx, entry_strategy = get_optimal_entry_price(
-                df, signal_idx, signal_state
-            )
+            entry_result = get_optimal_entry_price(df, signal_idx, signal_state)
+            entry_price, actual_entry_idx, entry_strategy, is_filtered = entry_result
+            
+            # 如果信号被过滤，跳过此信号
+            if is_filtered:
+                print(f"信号被过滤: {entry_strategy}")
+                continue
             
             # 定义未来30天的观察窗口（从实际入场日开始）
             window_start_idx = actual_entry_idx + 1

@@ -103,7 +103,7 @@
         }
         
         /* 按钮样式 */
-        .history-button, .refresh-button {
+        .history-button, .refresh-button, .multi-timeframe-button {
             margin-left: 1em;
             padding: 0.5em 1em;
             border: none;
@@ -124,6 +124,13 @@
         }
         .refresh-button:hover {
             background-color: #229954;
+        }
+        .multi-timeframe-button {
+            background-color: #9b59b6;
+            color: white;
+        }
+        .multi-timeframe-button:hover {
+            background-color: #8e44ad;
         }
         
         /* 历史报告模态窗口样式 */
@@ -246,6 +253,119 @@
             color: #721c24;
         }
         
+        /* 多周期分析样式 */
+        .consensus-overview {
+            display: flex;
+            gap: 2em;
+            margin-bottom: 2em;
+        }
+        .consensus-score {
+            text-align: center;
+        }
+        .score-circle {
+            width: 80px;
+            height: 80px;
+            border: 4px solid #95a5a6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        .score-value {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .consensus-details {
+            flex: 1;
+        }
+        .consensus-item {
+            margin-bottom: 0.5em;
+        }
+        .consensus-item .label {
+            font-weight: bold;
+            margin-right: 0.5em;
+        }
+        .recommendation-buy { color: #27ae60; font-weight: bold; }
+        .recommendation-watch { color: #f39c12; font-weight: bold; }
+        .recommendation-hold { color: #95a5a6; font-weight: bold; }
+        
+        .timeframe-signals h5 {
+            margin-bottom: 1em;
+            color: #495057;
+        }
+        .signals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+        }
+        .signal-item {
+            background: white;
+            padding: 1em;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .timeframe-name {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 0.5em;
+        }
+        .signal-state {
+            color: #6c757d;
+            font-size: 12px;
+            margin-bottom: 0.5em;
+        }
+        .strength-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.3em;
+        }
+        .strength-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        .strength-text {
+            font-size: 11px;
+            color: #6c757d;
+        }
+        
+        .timeframe-selector {
+            margin-bottom: 1em;
+        }
+        .timeframe-selector select {
+            padding: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-left: 0.5em;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+        .overview-card {
+            background: white;
+            padding: 1em;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .overview-card h5 {
+            margin: 0 0 0.5em 0;
+            color: #495057;
+        }
+        .overview-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+            margin: 0;
+        }
+        
         #chart-container { width: 100%; height: 800px; }
     </style>
 </head>
@@ -262,6 +382,7 @@
         </select>
         <button id="history-btn" class="history-button">📊 查看历史报告</button>
         <button id="refresh-btn" class="refresh-button">🔄 刷新数据</button>
+        <button id="multi-timeframe-btn" class="multi-timeframe-button">⏰ 多周期分析</button>
     </div>
     
     <div id="backtest-results" style="display: none;">
@@ -355,6 +476,55 @@
                     <p>追踪历史筛选出的股票在后续时间的实际表现</p>
                 </div>
                 <div id="performance-tracking"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 多周期分析模态窗口 -->
+    <div id="multi-timeframe-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⏰ 多周期分析</h2>
+                <span class="close" id="multi-close">&times;</span>
+            </div>
+            
+            <div class="history-tabs">
+                <button class="history-tab active" data-tab="consensus">共振分析</button>
+                <button class="history-tab" data-tab="timeframes">周期对比</button>
+                <button class="history-tab" data-tab="details">详细数据</button>
+            </div>
+            
+            <div id="consensus-content" class="history-content active">
+                <div class="report-summary">
+                    <h4>多周期共振分析</h4>
+                    <div id="consensus-summary"></div>
+                </div>
+                <div id="consensus-chart"></div>
+            </div>
+            
+            <div id="timeframes-content" class="history-content">
+                <div class="report-summary">
+                    <h4>各周期对比分析</h4>
+                    <div class="timeframe-selector">
+                        <label>选择周期:</label>
+                        <select id="timeframe-select">
+                            <option value="daily">日线</option>
+                            <option value="60min">60分钟</option>
+                            <option value="30min">30分钟</option>
+                            <option value="15min">15分钟</option>
+                            <option value="5min">5分钟</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="timeframe-chart"></div>
+            </div>
+            
+            <div id="details-content" class="history-content">
+                <div class="report-summary">
+                    <h4>多周期详细数据</h4>
+                    <p>各周期的技术指标和信号状态详情</p>
+                </div>
+                <div id="details-table"></div>
             </div>
         </div>
     </div>
