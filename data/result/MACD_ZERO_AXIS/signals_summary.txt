@@ -1,0 +1,1502 @@
+[
+    {
+        "stock_code": "sh601216",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603759",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh688101",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600193",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh601919",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600237",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh600197",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh688376",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh600548",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600886",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh603977",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600859",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600279",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh603660",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600063",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh688629",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600243",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600165",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh688055",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh688701",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600903",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603733",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600391",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh603880",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600054",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600138",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600271",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh601989",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600012",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh603587",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603222",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603216",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600303",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600184",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh688004",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600936",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600691",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh601015",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh601728",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600281",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600435",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh601789",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh603023",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600792",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh601688",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh603375",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603021",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh688277",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600624",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600892",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh688377",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600495",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh601225",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600461",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600651",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh688779",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600688",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600163",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600388",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh601001",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh688329",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600127",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh601018",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh688616",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh688135",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603718",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh688586",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600339",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603077",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600257",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh603589",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600328",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600130",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh603808",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600968",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600198",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh688620",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600029",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603053",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600568",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600115",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600283",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600262",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600917",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600727",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600117",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603607",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh601995",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh603668",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh603867",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh603393",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600561",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh601600",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600223",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603121",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh601118",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh600637",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh603078",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600834",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603010",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh601808",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh603679",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh688659",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh688122",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh603100",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600925",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sh600075",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600599",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sh600776",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600246",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sh600491",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000516",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300055",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002172",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300691",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300095",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300667",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz000688",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz000017",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz300629",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz003032",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz002707",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300411",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz300094",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002226",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300067",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002421",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz002431",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz001218",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002813",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000949",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300232",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002072",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000589",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300808",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300045",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002405",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300137",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz300217",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz002858",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300165",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz002203",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002996",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz002522",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002182",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300129",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002601",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz000727",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300988",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002219",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz000983",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000788",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz000630",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300133",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz002771",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002567",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002005",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300664",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002583",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002136",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002516",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000610",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002108",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002510",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300293",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300313",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300865",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300596",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300952",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002165",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002301",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz003038",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000609",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300128",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000812",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300389",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300338",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz300201",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz300219",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300484",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300098",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002272",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300281",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300862",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300385",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002231",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300109",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300031",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002973",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002148",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002297",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300074",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300210",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000897",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002496",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300305",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002023",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002179",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300640",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300510",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz003816",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300575",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002238",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300655",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300189",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002391",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz000703",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300252",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300136",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300050",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000700",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz000931",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz300096",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300099",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300477",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000576",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300291",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002812",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002972",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz000639",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300710",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz000536",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000661",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300448",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz000980",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002407",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300261",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002291",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002703",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300762",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002723",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300107",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz000810",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300420",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300400",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz000039",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002167",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002199",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300027",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz000701",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300755",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002877",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300047",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz300054",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300078",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300659",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz300721",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "MID"
+    },
+    {
+        "stock_code": "sz002105",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "POST"
+    },
+    {
+        "stock_code": "sz000793",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    },
+    {
+        "stock_code": "sz002122",
+        "strategy": "MACD_ZERO_AXIS",
+        "date": "2025-07-18",
+        "signal_state": "PRE"
+    }
+]

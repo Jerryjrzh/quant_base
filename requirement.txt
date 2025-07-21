@@ -1,0 +1,10 @@
+pandas
+numpy
+flask
+flask-cors
+pyecharts
+scikit-learn
+matplotlib
+requests
+python-dotenv
+gunicorn

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>量化分析平台</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 1em; }
+        #controls { margin-bottom: 1em; }
+        /* <<< 新增：回测结果区域的样式 */
+        #backtest-results {
+            margin-top: 1em;
+            padding: 1em;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #backtest-results h3 { margin-top: 0; }
+        #backtest-results span { font-weight: bold; margin: 0 1em 0 0.5em; color: #333; }
+        /* >>> 新增结束 */
+        
+        /* 图例样式 */
+        .legend-container {
+            margin: 1em 0;
+            padding: 1em;
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+        .legend-container h4 {
+            margin-top: 0;
+            margin-bottom: 0.8em;
+            color: #333;
+        }
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        .legend-icon {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .legend-icon.success { color: #27ae60; }
+        .legend-icon.fail { color: #2c3e50; }
+        .legend-icon.pre { color: #f5b041; }
+        .legend-icon.post { color: #3498db; }
+        .legend-icon.mid { color: #e74c3c; }
+        .legend-text {
+            font-size: 13px;
+            color: #555;
+        }
+        
+        /* 状态统计样式 */
+        .state-stats-container {
+            margin-top: 1em;
+            padding: 1em;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+        .state-stats-container h4 {
+            margin-top: 0;
+            margin-bottom: 0.8em;
+            color: #495057;
+        }
+        .state-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1em;
+        }
+        .state-stat-item {
+            background: white;
+            padding: 0.8em;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .state-name {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 0.5em;
+            color: #343a40;
+        }
+        .state-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em;
+        }
+        .state-details span {
+            font-size: 12px;
+            background: #e9ecef;
+            padding: 0.2em 0.5em;
+            border-radius: 3px;
+            color: #495057;
+        }
+        .backtest-summary {
+            margin-bottom: 1em;
+        }
+        
+        /* 按钮样式 */
+        .history-button, .refresh-button {
+            margin-left: 1em;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .history-button {
+            background-color: #3498db;
+            color: white;
+        }
+        .history-button:hover {
+            background-color: #2980b9;
+        }
+        .refresh-button {
+            background-color: #27ae60;
+            color: white;
+        }
+        .refresh-button:hover {
+            background-color: #229954;
+        }
+        
+        /* 历史报告模态窗口样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 2% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #000;
+        }
+        
+        /* 历史报告内容样式 */
+        .history-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .history-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            border-bottom: 2px solid transparent;
+        }
+        .history-tab.active {
+            border-bottom-color: #3498db;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .history-tab:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .history-content {
+            display: none;
+        }
+        .history-content.active {
+            display: block;
+        }
+        
+        .report-summary {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .report-summary h4 {
+            margin-top: 0;
+            color: #495057;
+        }
+        
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .history-table th,
+        .history-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .history-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+        }
+        .history-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .reliability-indicator {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .reliability-high {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .reliability-medium {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .reliability-low {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        #chart-container { width: 100%; height: 800px; }
+    </style>
+</head>
+<body>
+    <h1>股票筛选与复盘</h1>
+    <div id="controls">
+        <label for="stock-select">选择股票:</label>
+        <select id="stock-select"></select>
+        <label for="strategy-select">选择策略:</label>
+        <select id="strategy-select">
+            <option value="PRE_CROSS">临界金叉</option>
+            <option value="TRIPLE_CROSS">三重金叉</option>
+            <option value="MACD_ZERO_AXIS">MACD零轴启动</option>
+        </select>
+        <button id="history-btn" class="history-button">📊 查看历史报告</button>
+        <button id="refresh-btn" class="refresh-button">🔄 刷新数据</button>
+    </div>
+    
+    <div id="backtest-results" style="display: none;">
+        <h3>策略历史表现回测</h3>
+        <div class="backtest-summary">
+            <p>
+                总信号次数:<span id="total-signals"></span>
+                历史胜率:<span id="win-rate"></span>
+                平均最大收益:<span id="avg-max-profit"></span>
+                平均最大回撤:<span id="avg-max-drawdown"></span>
+                预期达峰天数:<span id="avg-days-to-peak"></span>
+            </p>
+        </div>
+        
+        <div id="state-statistics" class="state-stats-container">
+            <h4>📊 各状态表现统计</h4>
+            <div id="state-stats-content"></div>
+        </div>
+    </div>
+    
+    <!-- 图例说明 -->
+    <div id="legend" class="legend-container">
+        <h4>📊 信号图标说明</h4>
+        <div class="legend-items">
+            <div class="legend-item">
+                <span class="legend-icon success">●</span>
+                <span class="legend-text">成功信号 (收益 ≥ 5%)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-icon fail">✗</span>
+                <span class="legend-text">失败信号 (收益 < 5%)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-icon pre">●</span>
+                <span class="legend-text">PRE - 预交叉状态</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-icon post">●</span>
+                <span class="legend-text">POST - 后交叉状态</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-icon mid">▲</span>
+                <span class="legend-text">MID - 中间状态</span>
+            </div>
+        </div>
+    </div>
+    <div id="chart-container"></div>
+    
+    <!-- 历史报告模态窗口 -->
+    <div id="history-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📊 历史筛选报告分析</h2>
+                <span class="close">&times;</span>
+            </div>
+            
+            <div class="history-tabs">
+                <button class="history-tab active" data-tab="overview">总览</button>
+                <button class="history-tab" data-tab="reports">历史报告</button>
+                <button class="history-tab" data-tab="reliability">可靠性分析</button>
+                <button class="history-tab" data-tab="performance">表现追踪</button>
+            </div>
+            
+            <div id="overview-content" class="history-content active">
+                <div class="report-summary">
+                    <h4>策略总体表现概览</h4>
+                    <div id="overview-stats"></div>
+                </div>
+                <div id="overview-charts"></div>
+            </div>
+            
+            <div id="reports-content" class="history-content">
+                <div class="report-summary">
+                    <h4>历史筛选报告列表</h4>
+                    <p>以下是所有历史筛选报告，按时间倒序排列</p>
+                </div>
+                <div id="reports-list"></div>
+            </div>
+            
+            <div id="reliability-content" class="history-content">
+                <div class="report-summary">
+                    <h4>数据可靠性分析</h4>
+                    <p>基于历史表现数据，评估当前筛选结果的可靠性</p>
+                </div>
+                <div id="reliability-analysis"></div>
+            </div>
+            
+            <div id="performance-content" class="history-content">
+                <div class="report-summary">
+                    <h4>历史信号表现追踪</h4>
+                    <p>追踪历史筛选出的股票在后续时间的实际表现</p>
+                </div>
+                <div id="performance-tracking"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>

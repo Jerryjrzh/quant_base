@@ -1,0 +1,47 @@
+[
+    {
+        "stock_code": "sh600548",
+        "strategy": "TRIPLE_CROSS",
+        "date": "2025-07-18"
+    },
+    {
+        "stock_code": "sh600886",
+        "strategy": "TRIPLE_CROSS",
+        "date": "2025-07-18"
+    },
+    {
+        "stock_code": "sh600688",
+        "strategy": "TRIPLE_CROSS",
+        "date": "2025-07-18"
+    },
+    {
+        "stock_code": "sh600529",
+        "strategy": "TRIPLE_CROSS",
+        "date": "2025-07-18"
+    },
+    {
+        "stock_code": "sh600363",
+        "strategy": "TRIPLE_CROSS",
+        "date": "2025-07-18"
+    },
+    {
+        "stock_code": "sh603501",
+        "strategy": "TRIPLE_CROSS",
+        "date": "2025-07-18"
+    },
+    {
+        "stock_code": "sh603100",
+        "strategy": "TRIPLE_CROSS",
+        "date": "2025-07-18"
+    },
+    {
+        "stock_code": "sz000949",
+        "strategy": "TRIPLE_CROSS",
+        "date": "2025-07-18"
+    },
+    {
+        "stock_code": "sz002165",
+        "strategy": "TRIPLE_CROSS",
+        "date": "2025-07-18"
+    }
+]
