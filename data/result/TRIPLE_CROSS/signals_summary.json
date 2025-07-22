@@ -1,47 +1,54 @@
 [
     {
-        "stock_code": "sh600548",
+        "stock_code": "sh603017",
         "strategy": "TRIPLE_CROSS",
-        "date": "2025-07-18"
+        "date": "2025-07-21",
+        "scan_timestamp": "2025-07-22 17:59:04",
+        "quality_score": 85,
+        "cross_stage": "CROSS_MOMENT",
+        "filter_status": "passed",
+        "total_signals": 3,
+        "win_rate": "66.7%",
+        "avg_max_profit": "17.6%",
+        "avg_max_drawdown": "0.0%",
+        "avg_days_to_peak": "12.5 天",
+        "state_statistics": {
+            "MID": {
+                "count": 3,
+                "win_rate": "66.7%",
+                "avg_max_profit": "17.6%",
+                "avg_max_drawdown": "0.0%",
+                "avg_days_to_peak": "12.5 天"
+            }
+        },
+        "best_trade_profit": "35.8%",
+        "worst_trade_profit": "2.4%",
+        "avg_entry_strategy": "MID状态-当天低点买入"
     },
     {
-        "stock_code": "sh600886",
+        "stock_code": "sz002455",
         "strategy": "TRIPLE_CROSS",
-        "date": "2025-07-18"
-    },
-    {
-        "stock_code": "sh600688",
-        "strategy": "TRIPLE_CROSS",
-        "date": "2025-07-18"
-    },
-    {
-        "stock_code": "sh600529",
-        "strategy": "TRIPLE_CROSS",
-        "date": "2025-07-18"
-    },
-    {
-        "stock_code": "sh600363",
-        "strategy": "TRIPLE_CROSS",
-        "date": "2025-07-18"
-    },
-    {
-        "stock_code": "sh603501",
-        "strategy": "TRIPLE_CROSS",
-        "date": "2025-07-18"
-    },
-    {
-        "stock_code": "sh603100",
-        "strategy": "TRIPLE_CROSS",
-        "date": "2025-07-18"
-    },
-    {
-        "stock_code": "sz000949",
-        "strategy": "TRIPLE_CROSS",
-        "date": "2025-07-18"
-    },
-    {
-        "stock_code": "sz002165",
-        "strategy": "TRIPLE_CROSS",
-        "date": "2025-07-18"
+        "date": "2025-07-21",
+        "scan_timestamp": "2025-07-22 17:59:05",
+        "quality_score": 85,
+        "cross_stage": "CROSS_MOMENT",
+        "filter_status": "passed",
+        "total_signals": 6,
+        "win_rate": "50.0%",
+        "avg_max_profit": "20.4%",
+        "avg_max_drawdown": "-1.6%",
+        "avg_days_to_peak": "5.3 天",
+        "state_statistics": {
+            "MID": {
+                "count": 6,
+                "win_rate": "50.0%",
+                "avg_max_profit": "20.4%",
+                "avg_max_drawdown": "-1.6%",
+                "avg_days_to_peak": "5.3 天"
+            }
+        },
+        "best_trade_profit": "42.3%",
+        "worst_trade_profit": "2.2%",
+        "avg_entry_strategy": "MID状态-当天低点买入"
     }
 ]

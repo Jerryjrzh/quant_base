@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-22T19:33:40.824277",
+  "stock_code": "sz300230",
+  "current_price": 5.08,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 5.13,
+    "target_price_2": 5.11,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009842519685039335,
+    "discount_2": -0.0059055118110236705,
+    "stop_loss": {
+      "conservative": 4.93,
+      "moderate": 4.67,
+      "aggressive": 4.67,
+      "technical": 4.89
+    },
+    "take_profit": {
+      "conservative": 5.49,
+      "moderate": 5.59,
+      "aggressive": 6.1
+    }
+  }
+}

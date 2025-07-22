@@ -1,0 +1,123 @@
+{
+    "TRIPLE_CROSS": {
+        "macd": {
+            "fast_period": 12,
+            "slow_period": 26,
+            "signal_period": 9,
+            "dea_threshold": 0.05,
+            "zero_axis_range": 0.01
+        },
+        "kdj": {
+            "n_period": 9,
+            "k_period": 3,
+            "d_period": 3,
+            "d_low_threshold": 50.0,
+            "d_high_threshold": 70.0,
+            "k_d_gap_threshold": 5.0
+        },
+        "rsi": {
+            "period_short": 6,
+            "period_long": 12,
+            "period_extra": 24,
+            "oversold_threshold": 30.0,
+            "overbought_threshold": 70.0,
+            "neutral_low": 40.0,
+            "neutral_high": 60.0
+        },
+        "volume": {
+            "lookback_days": 5,
+            "volume_ratio_threshold": 0.8,
+            "volume_surge_threshold": 1.5
+        },
+        "price": {
+            "trend_lookback_days": 10,
+            "volatility_threshold": 0.05,
+            "price_change_threshold": 0.1
+        },
+        "filter": {
+            "min_win_rate": 0.4,
+            "min_signals": 3,
+            "min_avg_profit": 0.08,
+            "max_drawdown": -0.15,
+            "max_days_to_peak": 45,
+            "quality_score_threshold": 70
+        },
+        "require_all_cross": true,
+        "allow_partial_cross": false
+    },
+    "PRE_CROSS": {
+        "macd": {
+            "fast_period": 12,
+            "slow_period": 26,
+            "signal_period": 9,
+            "dea_threshold": 0.1,
+            "zero_axis_range": 0.01
+        },
+        "kdj": {
+            "n_period": 9,
+            "k_period": 3,
+            "d_period": 3,
+            "d_low_threshold": 50.0,
+            "d_high_threshold": 70.0,
+            "k_d_gap_threshold": 5.0
+        },
+        "rsi": {
+            "period_short": 6,
+            "period_long": 12,
+            "period_extra": 24,
+            "oversold_threshold": 30.0,
+            "overbought_threshold": 70.0,
+            "neutral_low": 40.0,
+            "neutral_high": 60.0
+        },
+        "volume": {
+            "lookback_days": 5,
+            "volume_ratio_threshold": 0.8,
+            "volume_surge_threshold": 1.5
+        },
+        "price": {
+            "trend_lookback_days": 10,
+            "volatility_threshold": 0.05,
+            "price_change_threshold": 0.1
+        },
+        "filter": {
+            "min_win_rate": 0.35,
+            "min_signals": 3,
+            "min_avg_profit": 0.08,
+            "max_drawdown": -0.15,
+            "max_days_to_peak": 45,
+            "quality_score_threshold": 70
+        },
+        "macd_dea_threshold": 0.1,
+        "kdj_momentum_required": true
+    },
+    "MACD_ZERO_AXIS": {
+        "macd": {
+            "fast_period": 12,
+            "slow_period": 26,
+            "signal_period": 9,
+            "dea_threshold": 0.05,
+            "zero_axis_range": 0.01
+        },
+        "volume": {
+            "lookback_days": 5,
+            "volume_ratio_threshold": 0.8,
+            "volume_surge_threshold": 1.5
+        },
+        "price": {
+            "trend_lookback_days": 10,
+            "volatility_threshold": 0.05,
+            "price_change_threshold": 0.1
+        },
+        "filter": {
+            "min_win_rate": 0.45,
+            "min_signals": 3,
+            "min_avg_profit": 0.08,
+            "max_drawdown": -0.15,
+            "max_days_to_peak": 45,
+            "quality_score_threshold": 70
+        },
+        "post_cross_days": 3,
+        "zero_axis_sensitivity": 0.01
+    }
+}

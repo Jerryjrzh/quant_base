@@ -219,6 +219,209 @@ document.addEventListener('DOMContentLoaded', function () {
     const historyTabs = document.querySelectorAll('.history-tab');
     const historyContents = document.querySelectorAll('.history-content');
     
+    // 深度扫描相关元素
+    const deepScanSection = document.getElementById('deep-scan-section');
+    const refreshDeepScanBtn = document.getElementById('refresh-deep-scan');
+    const stockGrid = document.getElementById('stock-grid');
+    const totalAnalyzedEl = document.getElementById('total-analyzed');
+    const aGradeCountEl = document.getElementById('a-grade-count');
+    const priceEvalCountEl = document.getElementById('price-eval-count');
+    const buyRecCountEl = document.getElementById('buy-rec-count');
+    
+    // 深度扫描功能
+    if (refreshDeepScanBtn) refreshDeepScanBtn.addEventListener('click', loadDeepScanResults);
+    
+    // 页面加载时检查是否有深度扫描结果
+    loadDeepScanResults();
+    
+    function loadDeepScanResults() {
+        fetch('/api/deep_scan_results')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.log('深度扫描结果未找到:', data.error);
+                    deepScanSection.style.display = 'none';
+                    return;
+                }
+                
+                displayDeepScanResults(data);
+                deepScanSection.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error loading deep scan results:', error);
+                deepScanSection.style.display = 'none';
+            });
+    }
+    
+    function displayDeepScanResults(data) {
+        // 更新统计数据
+        if (totalAnalyzedEl) totalAnalyzedEl.textContent = data.summary.total_analyzed;
+        if (aGradeCountEl) aGradeCountEl.textContent = data.summary.a_grade_count;
+        if (priceEvalCountEl) priceEvalCountEl.textContent = data.summary.price_evaluated_count;
+        if (buyRecCountEl) buyRecCountEl.textContent = data.summary.buy_recommendations;
+        
+        // 显示股票卡片
+        displayStockCards(data.results);
+    }
+    
+    function displayStockCards(stocks) {
+        if (!stockGrid) return;
+        
+        if (!stocks || stocks.length === 0) {
+            stockGrid.innerHTML = '<p>暂无深度扫描结果</p>';
+            return;
+        }
+        
+        let html = '';
+        
+        stocks.forEach(stock => {
+            const gradeClass = `grade-${stock.grade.toLowerCase()}`;
+            const cardClass = `stock-card ${gradeClass}`;
+            
+            // 价格变化颜色
+            const priceChangeColor = stock.price_change_30d >= 0 ? '#28a745' : '#dc3545';
+            const priceChangeSign = stock.price_change_30d >= 0 ? '+' : '';
+            
+            // 操作按钮样式
+            const actionClass = stock.action.toLowerCase();
+            
+            html += `
+                <div class="${cardClass}">
+                    <div class="stock-header">
+                        <span class="stock-code">${stock.stock_code}</span>
+                        <span class="stock-grade ${gradeClass}">${stock.grade}级</span>
+                    </div>
+                    
+                    <div class="stock-info">
+                        <div class="info-item">
+                            <span class="info-label">评分:</span>
+                            <span class="info-value">${stock.score.toFixed(1)}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">当前价格:</span>
+                            <span class="info-value">¥${stock.current_price.toFixed(2)}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">30天涨跌:</span>
+                            <span class="info-value" style="color: ${priceChangeColor};">
+                                ${priceChangeSign}${(stock.price_change_30d * 100).toFixed(1)}%
+                            </span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">波动率:</span>
+                            <span class="info-value">${(stock.volatility * 100).toFixed(1)}%</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">信号数:</span>
+                            <span class="info-value">${stock.signal_count}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">信心度:</span>
+                            <span class="info-value">${(stock.confidence * 100).toFixed(0)}%</span>
+                        </div>
+                    </div>
+                    
+                    ${stock.has_price_evaluation ? generatePriceEvaluationHtml(stock.price_evaluation) : ''}
+                    
+                    <button class="action-button ${actionClass}" onclick="viewStockDetail('${stock.stock_code}')">
+                        ${getActionText(stock.action)}
+                    </button>
+                </div>
+            `;
+        });
+        
+        stockGrid.innerHTML = html;
+    }
+    
+    function generatePriceEvaluationHtml(priceEval) {
+        if (!priceEval || priceEval.error) {
+            return '';
+        }
+        
+        const details = priceEval.evaluation_details || {};
+        
+        let html = `
+            <div class="price-evaluation">
+                <div class="price-evaluation-header">
+                    💰 价格评估
+                </div>
+        `;
+        
+        if (details.entry_strategy) {
+            html += `
+                <div class="info-item">
+                    <span class="info-label">入场策略:</span>
+                    <span class="info-value">${details.entry_strategy}</span>
+                </div>
+            `;
+        }
+        
+        if (details.target_price_1) {
+            html += `
+                <div class="info-item">
+                    <span class="info-label">目标价1:</span>
+                    <span class="info-value">¥${details.target_price_1.toFixed(2)}</span>
+                </div>
+            `;
+        }
+        
+        if (details.target_price_2) {
+            html += `
+                <div class="info-item">
+                    <span class="info-label">目标价2:</span>
+                    <span class="info-value">¥${details.target_price_2.toFixed(2)}</span>
+                </div>
+            `;
+        }
+        
+        if (details.stop_loss && details.stop_loss.moderate) {
+            html += `
+                <div class="info-item">
+                    <span class="info-label">建议止损:</span>
+                    <span class="info-value">¥${details.stop_loss.moderate.toFixed(2)}</span>
+                </div>
+            `;
+        }
+        
+        html += '</div>';
+        return html;
+    }
+    
+    function getActionText(action) {
+        const actionTexts = {
+            'BUY': '🟢 买入',
+            'HOLD': '🟡 持有',
+            'WATCH': '🟠 观察',
+            'AVOID': '🔴 回避'
+        };
+        return actionTexts[action] || action;
+    }
+    
+    function viewStockDetail(stockCode) {
+        // 切换到该股票的详细分析
+        if (stockSelect) {
+            // 检查股票是否在选择列表中
+            const options = stockSelect.querySelectorAll('option');
+            let found = false;
+            
+            for (let option of options) {
+                if (option.value === stockCode) {
+                    stockSelect.value = stockCode;
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (found) {
+                loadChart();
+                // 滚动到图表区域
+                chartContainer.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert(`股票 ${stockCode} 不在当前策略的信号列表中，无法查看详细图表`);
+            }
+        }
+    }
+    
     // 历史报告功能
     if (historyBtn) historyBtn.addEventListener('click', showHistoryModal);
     if (refreshBtn) refreshBtn.addEventListener('click', refreshData);
@@ -737,5 +940,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 2000);
     }
 
+    // 悬浮图例交互功能
+    const legendToggle = document.getElementById('legend-toggle');
+    const legendContent = document.getElementById('legend-content');
+    
+    if (legendToggle && legendContent) {
+        legendToggle.addEventListener('click', function() {
+            legendContent.classList.toggle('show');
+        });
+        
+        // 点击其他地方关闭图例
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('#legend')) {
+                legendContent.classList.remove('show');
+            }
+        });
+    }
+    
     populateStockList();
 });

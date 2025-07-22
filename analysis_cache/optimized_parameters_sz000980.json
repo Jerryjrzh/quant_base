@@ -1,0 +1,31 @@
+{
+  "stock_code": "sz000980",
+  "optimization_date": "2025-07-22T17:52:18.914499",
+  "best_parameters": {
+    "pre_entry_discount": 0.05,
+    "pre_entry_discount_2": 0.05,
+    "mid_entry_premium": 0.01,
+    "post_entry_discount": 0.05,
+    "conservative_stop": 0.03,
+    "moderate_stop": 0.08,
+    "aggressive_stop": 0.08,
+    "conservative_profit": 0.08,
+    "moderate_profit": 0.1,
+    "aggressive_profit": 0.2,
+    "conservative_position": 0.3,
+    "moderate_position": 0.5,
+    "aggressive_position": 0.7,
+    "support_lookback": 20,
+    "resistance_lookback": 20,
+    "ma_periods": [
+      5,
+      10,
+      20
+    ],
+    "max_holding_days": 30,
+    "trend_confirm_days": 5,
+    "volume_threshold": 2.0
+  },
+  "best_score": 0.3904451591461053,
+  "optimization_target": "composite_score"
+}

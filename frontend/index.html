@@ -7,7 +7,8 @@
     <style>
         body { font-family: sans-serif; padding: 1em; }
         #controls { margin-bottom: 1em; }
-        /* <<< 新增：回测结果区域的样式 */
+        
+        /* 回测结果区域的样式 */
         #backtest-results {
             margin-top: 1em;
             padding: 1em;
@@ -17,43 +18,277 @@
         }
         #backtest-results h3 { margin-top: 0; }
         #backtest-results span { font-weight: bold; margin: 0 1em 0 0.5em; color: #333; }
-        /* >>> 新增结束 */
         
-        /* 图例样式 */
-        .legend-container {
-            margin: 1em 0;
+        /* 深度扫描结果样式 */
+        #deep-scan-section {
+            margin-top: 2em;
             padding: 1em;
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
         }
-        .legend-container h4 {
-            margin-top: 0;
-            margin-bottom: 0.8em;
+        
+        #deep-scan-results {
+            margin-top: 1em;
+            background: white;
+            border-radius: 8px;
+            padding: 1em;
             color: #333;
         }
-        .legend-items {
+        
+        .deep-scan-header {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1em;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1em;
         }
-        .legend-item {
+        
+        .deep-scan-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 1em;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #007bff;
+        }
+        
+        .stat-card.a-grade { border-left-color: #28a745; }
+        .stat-card.price-eval { border-left-color: #ffc107; }
+        .stat-card.buy-rec { border-left-color: #17a2b8; }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+        .stat-card.a-grade .stat-number { color: #28a745; }
+        .stat-card.price-eval .stat-number { color: #ffc107; }
+        .stat-card.buy-rec .stat-number { color: #17a2b8; }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 0.5em;
+        }
+        
+        .stock-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1em;
+            margin-top: 1em;
+        }
+        
+        .stock-card {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1em;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .stock-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .stock-card.grade-a {
+            border-left: 4px solid #28a745;
+            background: linear-gradient(135deg, #d4edda 0%, #f8f9fa 100%);
+        }
+        
+        .stock-card.grade-b {
+            border-left: 4px solid #007bff;
+        }
+        
+        .stock-card.grade-c {
+            border-left: 4px solid #ffc107;
+        }
+        
+        .stock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5em;
+        }
+        
+        .stock-code {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .stock-grade {
+            padding: 0.2em 0.6em;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .grade-a { background: #28a745; color: white; }
+        .grade-b { background: #007bff; color: white; }
+        .grade-c { background: #ffc107; color: #212529; }
+        .grade-d { background: #6c757d; color: white; }
+        .grade-f { background: #dc3545; color: white; }
+        
+        .stock-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5em;
+            margin: 0.5em 0;
+            font-size: 0.9em;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .info-label {
+            color: #6c757d;
+        }
+        
+        .info-value {
+            font-weight: 500;
+        }
+        
+        .price-evaluation {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 0.8em;
+            margin-top: 0.8em;
+        }
+        
+        .price-evaluation-header {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 0.5em;
             display: flex;
             align-items: center;
             gap: 0.5em;
         }
+        
+        .action-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 0.5em;
+            transition: background 0.2s;
+        }
+        
+        .action-button:hover {
+            background: #0056b3;
+        }
+        
+        .action-button.buy { background: #28a745; }
+        .action-button.buy:hover { background: #1e7e34; }
+        .action-button.hold { background: #ffc107; color: #212529; }
+        .action-button.hold:hover { background: #e0a800; }
+        .action-button.watch { background: #17a2b8; }
+        .action-button.watch:hover { background: #138496; }
+        
+        /* 悬浮图例样式 */
+        .legend-floating {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            z-index: 100;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 280px;
+        }
+        
+        .legend-toggle {
+            padding: 0.8em 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            background: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+            border-bottom: 1px solid #e9ecef;
+            user-select: none;
+        }
+        
+        .legend-toggle:hover {
+            background: #e9ecef;
+        }
+        
+        .legend-toggle .legend-icon {
+            font-size: 16px;
+        }
+        
+        .legend-toggle .legend-text {
+            font-weight: 500;
+            color: #495057;
+            font-size: 14px;
+        }
+        
+        .legend-content {
+            display: none;
+            padding: 1em;
+            background: white;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .legend-content.show {
+            display: block;
+        }
+        
+        .legend-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8em;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+            padding: 0.4em 0;
+        }
+        
         .legend-icon {
             font-size: 14px;
             font-weight: bold;
+            min-width: 20px;
+            text-align: center;
         }
+        
         .legend-icon.success { color: #27ae60; }
         .legend-icon.fail { color: #2c3e50; }
         .legend-icon.pre { color: #f5b041; }
         .legend-icon.post { color: #3498db; }
         .legend-icon.mid { color: #e74c3c; }
+        
         .legend-text {
             font-size: 13px;
             color: #555;
+            line-height: 1.4;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .legend-floating {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 1em 0;
+                max-width: none;
+            }
         }
         
         /* 状态统计样式 */
@@ -103,7 +338,7 @@
         }
         
         /* 按钮样式 */
-        .history-button, .refresh-button, .multi-timeframe-button {
+        .history-button, .refresh-button, .multi-timeframe-button, .deep-scan-button {
             margin-left: 1em;
             padding: 0.5em 1em;
             border: none;
@@ -131,6 +366,13 @@
         }
         .multi-timeframe-button:hover {
             background-color: #8e44ad;
+        }
+        .deep-scan-button {
+            background-color: #e67e22;
+            color: white;
+        }
+        .deep-scan-button:hover {
+            background-color: #d35400;
         }
         
         /* 历史报告模态窗口样式 */
@@ -366,7 +608,7 @@
             margin: 0;
         }
         
-        #chart-container { width: 100%; height: 800px; }
+        #chart-container { width: 100%; height: 900px; }
     </style>
 </head>
 <body>
@@ -383,6 +625,7 @@
         <button id="history-btn" class="history-button">📊 查看历史报告</button>
         <button id="refresh-btn" class="refresh-button">🔄 刷新数据</button>
         <button id="multi-timeframe-btn" class="multi-timeframe-button">⏰ 多周期分析</button>
+        <button id="deep-scan-btn" class="deep-scan-button">🔍 深度扫描</button>
     </div>
     
     <div id="backtest-results" style="display: none;">
@@ -403,33 +646,71 @@
         </div>
     </div>
     
-    <!-- 图例说明 -->
-    <div id="legend" class="legend-container">
-        <h4>📊 信号图标说明</h4>
-        <div class="legend-items">
-            <div class="legend-item">
-                <span class="legend-icon success">●</span>
-                <span class="legend-text">成功信号 (收益 ≥ 5%)</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-icon fail">✗</span>
-                <span class="legend-text">失败信号 (收益 < 5%)</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-icon pre">●</span>
-                <span class="legend-text">PRE - 预交叉状态</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-icon post">●</span>
-                <span class="legend-text">POST - 后交叉状态</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-icon mid">▲</span>
-                <span class="legend-text">MID - 中间状态</span>
+    <!-- 悬浮图例说明 -->
+    <div id="legend" class="legend-floating">
+        <div class="legend-toggle" id="legend-toggle">
+            <span class="legend-icon">📊</span>
+            <span class="legend-text">图标说明</span>
+        </div>
+        <div class="legend-content" id="legend-content">
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="legend-icon success">●</span>
+                    <span class="legend-text">成功信号 (收益 ≥ 5%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon fail">✗</span>
+                    <span class="legend-text">失败信号 (收益 < 5%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon pre">●</span>
+                    <span class="legend-text">PRE - 预交叉状态</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon post">●</span>
+                    <span class="legend-text">POST - 后交叉状态</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon mid">▲</span>
+                    <span class="legend-text">MID - 中间状态</span>
+                </div>
             </div>
         </div>
     </div>
     <div id="chart-container"></div>
+    
+    <!-- 深度扫描结果区域 -->
+    <div id="deep-scan-section" style="display: none;">
+        <div class="deep-scan-header">
+            <h2>🔍 深度扫描结果</h2>
+            <button id="refresh-deep-scan" class="action-button">🔄 刷新深度扫描</button>
+        </div>
+        
+        <div id="deep-scan-results">
+            <div class="deep-scan-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-analyzed">0</div>
+                    <div class="stat-label">总分析数量</div>
+                </div>
+                <div class="stat-card a-grade">
+                    <div class="stat-number" id="a-grade-count">0</div>
+                    <div class="stat-label">A级股票</div>
+                </div>
+                <div class="stat-card price-eval">
+                    <div class="stat-number" id="price-eval-count">0</div>
+                    <div class="stat-label">价格评估</div>
+                </div>
+                <div class="stat-card buy-rec">
+                    <div class="stat-number" id="buy-rec-count">0</div>
+                    <div class="stat-label">买入推荐</div>
+                </div>
+            </div>
+            
+            <div id="stock-grid" class="stock-grid">
+                <!-- 股票卡片将在这里动态生成 -->
+            </div>
+        </div>
+    </div>
     
     <!-- 历史报告模态窗口 -->
     <div id="history-modal" class="modal">

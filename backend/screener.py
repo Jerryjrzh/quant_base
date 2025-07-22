@@ -8,12 +8,14 @@ import data_loader
 import strategies
 import backtester
 import indicators
+from win_rate_filter import WinRateFilter, AdvancedTripleCrossFilter
 
 # --- 配置 ---
 BASE_PATH = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
 MARKETS = ['sh', 'sz', 'bj']
 STRATEGY_TO_RUN = 'MACD_ZERO_AXIS' 
-
+#STRATEGY_TO_RUN = 'TRIPLE_CROSS' 
+#STRATEGY_TO_RUN = 'PRE_CROSS'
 # --- 路径定义 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_PATH = os.path.abspath(os.path.join(backend_dir, '..', 'data', 'result'))
@@ -36,8 +38,10 @@ def calculate_backtest_stats(df, signal_series):
     """计算细化的回测统计信息"""
     try:
         # 计算技术指标（回测需要）
-        df['dif'], df['dea'] = indicators.calculate_macd(df)
-        df['k'], df['d'], df['j'] = indicators.calculate_kdj(df)
+        macd_values = indicators.calculate_macd(df)
+        df['dif'], df['dea'] = macd_values[0], macd_values[1]
+        kdj_values = indicators.calculate_kdj(df)
+        df['k'], df['d'], df['j'] = kdj_values[0], kdj_values[1], kdj_values[2]
         
         # 执行细化回测
         backtest_results = backtester.run_backtest(df, signal_series)
@@ -61,12 +65,12 @@ def calculate_backtest_stats(df, signal_series):
                 trades = backtest_results['trades']
                 if trades:
                     # 最佳表现交易
-                    best_trade = max(trades, key=lambda x: x['max_pnl'])
-                    worst_trade = min(trades, key=lambda x: x['max_pnl'])
+                    best_trade = max(trades, key=lambda x: x['actual_max_pnl'])
+                    worst_trade = min(trades, key=lambda x: x['actual_max_pnl'])
                     
                     stats.update({
-                        'best_trade_profit': f"{best_trade['max_pnl']:.1%}",
-                        'worst_trade_profit': f"{worst_trade['max_pnl']:.1%}",
+                        'best_trade_profit': f"{best_trade['actual_max_pnl']:.1%}",
+                        'worst_trade_profit': f"{worst_trade['actual_max_pnl']:.1%}",
                         'avg_entry_strategy': get_most_common_entry_strategy(trades)
                     })
             
@@ -146,6 +150,59 @@ def check_macd_zero_axis_pre_filter(df, signal_idx, signal_state, lookback_days=
         print(f"MACD零轴预筛选过滤器检查失败: {e}")
         return False, ""
 
+def check_triple_cross_enhanced_filter(df, signal_idx, stock_code):
+    """
+    TRIPLE_CROSS策略的增强过滤器：结合胜率筛选和交叉阶段分析
+    
+    Args:
+        df: 股票数据DataFrame
+        signal_idx: 信号出现的索引
+        stock_code: 股票代码
+    
+    Returns:
+        tuple: (是否应该排除, 排除原因, 详细信息)
+    """
+    try:
+        # 1. 使用增强版过滤器
+        advanced_filter = AdvancedTripleCrossFilter()
+        should_exclude, exclude_reason, quality_score, cross_stage = advanced_filter.enhanced_triple_cross_filter(df, signal_idx)
+        
+        if should_exclude:
+            return True, exclude_reason, {
+                'quality_score': quality_score,
+                'cross_stage': cross_stage,
+                'filter_type': 'advanced_quality'
+            }
+        
+        # 2. 胜率过滤器检查
+        signal_series = strategies.apply_triple_cross(df)
+        if signal_series is not None:
+            win_rate_filter = WinRateFilter(min_win_rate=0.4, min_signals=3, min_avg_profit=0.08)
+            should_exclude_wr, exclude_reason_wr, backtest_stats = win_rate_filter.should_exclude_stock(df, signal_series, stock_code)
+            
+            if should_exclude_wr:
+                return True, f"胜率筛选: {exclude_reason_wr}", {
+                    'quality_score': quality_score,
+                    'cross_stage': cross_stage,
+                    'filter_type': 'win_rate',
+                    'backtest_stats': backtest_stats
+                }
+        
+        # 3. 通过所有筛选
+        return False, "通过增强筛选", {
+            'quality_score': quality_score,
+            'cross_stage': cross_stage,
+            'filter_type': 'passed',
+            'backtest_stats': backtest_stats if 'backtest_stats' in locals() else {}
+        }
+        
+    except Exception as e:
+        return True, f"增强过滤器执行失败: {e}", {
+            'quality_score': 0,
+            'cross_stage': 'UNKNOWN',
+            'filter_type': 'error'
+        }
+
 def worker(args):
     """多进程工作函数 - 增强版本，包含回测统计"""
     file_path, market = args
@@ -184,9 +241,21 @@ def worker(args):
         elif STRATEGY_TO_RUN == 'TRIPLE_CROSS':
             signal_series = strategies.apply_triple_cross(df)
             if signal_series is not None and signal_series.iloc[-1]:
+                # 使用增强版TRIPLE_CROSS过滤器
+                should_exclude, exclude_reason, filter_details = check_triple_cross_enhanced_filter(df, len(df) - 1, stock_code_full)
+                
+                if should_exclude:
+                    logger.info(f"{stock_code_full} 被过滤: {exclude_reason}")
+                    return None
+                
                 # 计算回测统计
                 backtest_stats = calculate_backtest_stats(df, signal_series)
-                result_base.update(backtest_stats)
+                result_base.update({
+                    'quality_score': filter_details.get('quality_score', 0),
+                    'cross_stage': filter_details.get('cross_stage', 'UNKNOWN'),
+                    'filter_status': 'passed',
+                    **backtest_stats
+                })
                 return result_base
                 
         elif STRATEGY_TO_RUN == 'MACD_ZERO_AXIS':
@@ -293,26 +362,52 @@ def generate_summary_report(passed_stocks):
     
     return summary
 
+def trigger_deep_scan(passed_stocks):
+    """触发深度扫描"""
+    if not passed_stocks:
+        print("⚠️ 没有通过筛选的股票，跳过深度扫描")
+        return
+    
+    print(f"\n🔍 触发深度扫描...")
+    print(f"📊 筛选出 {len(passed_stocks)} 只股票进行深度分析")
+    
+    # 提取股票代码
+    stock_codes = [stock['stock_code'] for stock in passed_stocks]
+    
+    try:
+        # 导入深度扫描模块
+        from run_enhanced_screening import analyze_multiple_stocks
+        
+        # 执行深度扫描
+        deep_scan_results = analyze_multiple_stocks(stock_codes, use_optimized_params=True, max_workers=32)
+        
+        print(f"✅ 深度扫描完成")
+        return deep_scan_results
+        
+    except Exception as e:
+        print(f"❌ 深度扫描失败: {e}")
+        return None
+
 def main():
-    """主执行函数 - 增强版本"""
+    """主执行函数 - 增强版本，集成深度扫描"""
     start_time = datetime.now()
     logger.info(f"===== 开始执行批量筛选, 策略: {STRATEGY_TO_RUN} =====")
-    print(f"开始执行批量筛选, 策略: {STRATEGY_TO_RUN}")
-    print(f"扫描时间: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"🚀 开始执行批量筛选, 策略: {STRATEGY_TO_RUN}")
+    print(f"⏰ 扫描时间: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
     
     all_files = []
     for market in MARKETS:
         path = os.path.join(BASE_PATH, market, 'lday', '*.day')
         files = glob.glob(path)
         if not files:
-            print(f"警告: 在路径 {path} 未找到任何文件。")
+            print(f"⚠️ 警告: 在路径 {path} 未找到任何文件。")
         all_files.extend([(f, market) for f in files])
     
     if not all_files:
-        print("错误: 未能在任何市场目录下找到日线文件，请检查BASE_PATH配置。")
+        print("❌ 错误: 未能在任何市场目录下找到日线文件，请检查BASE_PATH配置。")
         return
 
-    print(f"共找到 {len(all_files)} 个日线文件，开始多进程处理...")
+    print(f"📊 共找到 {len(all_files)} 个日线文件，开始多进程处理...")
     
     with Pool(processes=cpu_count()) as pool:
         results = pool.map(worker, all_files)
@@ -320,6 +415,8 @@ def main():
     passed_stocks = [r for r in results if r is not None]
     end_time = datetime.now()
     processing_time = (end_time - start_time).total_seconds()
+    
+    print(f"📈 初步筛选完成，通过筛选: {len(passed_stocks)} 只股票")
     
     # 保存详细信号列表
     output_file = os.path.join(RESULT_DIR, 'signals_summary.json')
@@ -361,17 +458,82 @@ def main():
                        f"收益: {stock.get('avg_max_profit', 'N/A')}, "
                        f"天数: {stock.get('avg_days_to_peak', 'N/A')}\n")
     
-    print(f"\n筛选完成！")
-    print(f"发现信号: {len(passed_stocks)} 个")
-    print(f"处理耗时: {processing_time:.2f} 秒")
-    print(f"平均胜率: {summary_report['scan_summary']['avg_win_rate']}")
-    print(f"平均收益: {summary_report['scan_summary']['avg_profit_rate']}")
-    print(f"结果已保存至:")
+    print(f"\n📊 初步筛选完成！")
+    print(f"🎯 发现信号: {len(passed_stocks)} 个")
+    print(f"⏱️ 处理耗时: {processing_time:.2f} 秒")
+    print(f"📈 平均胜率: {summary_report['scan_summary']['avg_win_rate']}")
+    print(f"💰 平均收益: {summary_report['scan_summary']['avg_profit_rate']}")
+    print(f"📄 结果已保存至:")
     print(f"  - 信号列表: {output_file}")
     print(f"  - 汇总报告: {summary_file}")
     print(f"  - 文本报告: {text_report_file}")
     
-    logger.info(f"===== 筛选完成！共找到 {len(passed_stocks)} 个信号，耗时 {processing_time:.2f} 秒 =====")
+    # 触发深度扫描
+    if len(passed_stocks) > 0:
+        print(f"\n" + "="*60)
+        print(f"🔍 启动深度扫描阶段")
+        print(f"="*60)
+        
+        deep_scan_results = trigger_deep_scan(passed_stocks)
+        
+        if deep_scan_results:
+            # 统计深度扫描结果
+            valid_deep_results = {k: v for k, v in deep_scan_results.items() if 'error' not in v}
+            a_grade_stocks = [k for k, v in valid_deep_results.items() if v.get('overall_score', {}).get('grade') == 'A']
+            price_evaluated_stocks = [k for k, v in valid_deep_results.items() if 'price_evaluation' in v]
+            
+            print(f"\n🎉 深度扫描结果:")
+            print(f"📊 深度分析成功: {len(valid_deep_results)}/{len(passed_stocks)}")
+            print(f"🏆 A级股票发现: {len(a_grade_stocks)}")
+            print(f"💰 价格评估完成: {len(price_evaluated_stocks)}")
+            
+            if a_grade_stocks:
+                print(f"\n🌟 A级股票列表:")
+                for stock_code in a_grade_stocks:
+                    result = valid_deep_results[stock_code]
+                    score = result['overall_score']['total_score']
+                    price = result['basic_analysis']['current_price']
+                    action = result['recommendation']['action']
+                    price_eval_mark = " 💰" if 'price_evaluation' in result else ""
+                    print(f"  🏆 {stock_code}: {score:.1f}分, ¥{price:.2f}, {action}{price_eval_mark}")
+            
+            # 保存深度扫描汇总到筛选报告
+            summary_report['deep_scan_summary'] = {
+                'total_analyzed': len(valid_deep_results),
+                'a_grade_count': len(a_grade_stocks),
+                'price_evaluated_count': len(price_evaluated_stocks),
+                'a_grade_stocks': a_grade_stocks
+            }
+            
+            # 更新汇总报告文件
+            with open(summary_file, 'w', encoding='utf-8') as f:
+                json.dump(summary_report, f, ensure_ascii=False, indent=4)
+            
+            # 更新文本报告
+            with open(text_report_file, 'a', encoding='utf-8') as f:
+                f.write(f"\n=== 深度扫描结果 ===\n")
+                f.write(f"深度分析成功: {len(valid_deep_results)}/{len(passed_stocks)}\n")
+                f.write(f"A级股票发现: {len(a_grade_stocks)}\n")
+                f.write(f"价格评估完成: {len(price_evaluated_stocks)}\n\n")
+                
+                if a_grade_stocks:
+                    f.write("=== A级股票详情 ===\n")
+                    for stock_code in a_grade_stocks:
+                        result = valid_deep_results[stock_code]
+                        score = result['overall_score']['total_score']
+                        price = result['basic_analysis']['current_price']
+                        action = result['recommendation']['action']
+                        confidence = result['recommendation']['confidence']
+                        price_eval_mark = " [已评估]" if 'price_evaluation' in result else ""
+                        f.write(f"{stock_code}: {score:.1f}分, ¥{price:.2f}, {action} "
+                               f"(信心度: {confidence:.1%}){price_eval_mark}\n")
+    else:
+        print(f"\n⚠️ 未发现符合条件的股票，跳过深度扫描")
+    
+    total_time = (datetime.now() - start_time).total_seconds()
+    print(f"\n🎉 完整扫描流程结束！总耗时: {total_time:.2f} 秒")
+    
+    logger.info(f"===== 完整扫描完成！初步筛选: {len(passed_stocks)} 个信号，总耗时: {total_time:.2f} 秒 =====")
 
 if __name__ == '__main__':
     main()

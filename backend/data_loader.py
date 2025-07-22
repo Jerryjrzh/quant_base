@@ -27,79 +27,10 @@ def get_daily_data(file_path):
 
 def get_5min_data(file_path):
     """从.lc5文件读取5分钟线数据"""
-    data = []
-    record_size = 32
-    # 5分钟线数据格式：日期时间(4字节) + 开高低收(各4字节) + 成交量(4字节) + 成交额(4字节) + 保留字段(8字节)
-    unpack_format = '<IIIIIIfI'
-    unpack_size = struct.calcsize(unpack_format)
-    
-    try:
-        with open(file_path, 'rb') as f:
-            while True:
-                chunk = f.read(record_size)
-                if len(chunk) < record_size: 
-                    break
-                try:
-                    # 解析5分钟线数据
-                    datetime_int, open_p, high_p, low_p, close_p, volume, amount, reserved = struct.unpack(unpack_format, chunk[:unpack_size])
-                    
-                    # 价格数据除以100转换为实际价格
-                    open_p, high_p, low_p, close_p = open_p / 100, high_p / 100, low_p / 100, close_p / 100
-                    
-                    # 跳过无效数据
-                    if open_p <= 0 or high_p <= 0 or low_p <= 0 or close_p <= 0:
-                        continue
-                    
-                    # 解析日期时间
-                    # 格式通常为：YYYYMMDDHHMMSS 或类似格式
-                    try:
-                        if datetime_int > 99999999:  # 包含时间信息
-                            # 假设格式为 YYYYMMDDHHMM
-                            date_part = datetime_int // 10000
-                            time_part = datetime_int % 10000
-                            hour = time_part // 100
-                            minute = time_part % 100
-                            
-                            year = date_part // 10000
-                            month = (date_part % 10000) // 100
-                            day = date_part % 100
-                            
-                            dt = datetime(year, month, day, hour, minute)
-                        else:
-                            # 只有日期信息，默认时间为09:30
-                            dt = datetime.strptime(str(datetime_int), '%Y%m%d')
-                            dt = dt.replace(hour=9, minute=30)
-                    except (ValueError, OverflowError):
-                        continue
-                    
-                    data.append({
-                        'datetime': dt,
-                        'date': dt.date(),
-                        'time': dt.time(),
-                        'open': open_p,
-                        'high': high_p,
-                        'low': low_p,
-                        'close': close_p,
-                        'volume': volume,
-                        'amount': amount
-                    })
-                    
-                except (struct.error, ValueError, OverflowError) as e:
-                    continue
-                    
-    except FileNotFoundError:
-        print(f"5分钟线文件不存在: {file_path}")
-        return None
-    except Exception as e:
-        print(f"读取5分钟线数据失败: {e}")
-        return None
-    
-    if not data:
-        return None
-    
-    # 转换为DataFrame并按时间排序
-    df = pd.DataFrame(data).sort_values('datetime').reset_index(drop=True)
-    return df
+    print(f"⚠️ 5分钟数据解析功能暂时禁用，因为存在格式解析问题")
+    print(f"文件路径: {file_path}")
+    print(f"建议：当前版本请使用日线数据进行分析")
+    return None
 
 def get_multi_timeframe_data(stock_code, base_path=None):
     """获取多周期数据（日线 + 5分钟线）"""

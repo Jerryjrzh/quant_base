@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-22T18:13:48.745479",
+  "stock_code": "sh603080",
+  "current_price": 17.82,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 16.93,
+    "target_price_2": 16.93,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04994388327721664,
+    "discount_2": 0.04994388327721664,
+    "stop_loss": {
+      "conservative": 17.29,
+      "moderate": 16.39,
+      "aggressive": 16.39,
+      "technical": 17.23
+    },
+    "take_profit": {
+      "conservative": 19.25,
+      "moderate": 19.6,
+      "aggressive": 21.38
+    }
+  }
+}

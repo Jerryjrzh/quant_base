@@ -31,10 +31,183 @@ def get_signals_summary():
     except FileNotFoundError:
         return jsonify({"error": f"Signal file not found for strategy '{strategy}'. Have you run screener.py?"}), 404
 
+@app.route('/api/deep_scan_results')
+def get_deep_scan_results():
+    """获取深度扫描结果"""
+    try:
+        # 查找最新的深度扫描结果
+        enhanced_dir = os.path.join(RESULT_PATH, 'ENHANCED_ANALYSIS')
+        if not os.path.exists(enhanced_dir):
+            return jsonify({"error": "深度扫描结果目录不存在"}), 404
+        
+        # 获取最新的分析文件
+        json_files = glob.glob(os.path.join(enhanced_dir, 'enhanced_analysis_*.json'))
+        if not json_files:
+            return jsonify({"error": "未找到深度扫描结果"}), 404
+        
+        latest_file = max(json_files, key=os.path.getctime)
+        
+        with open(latest_file, 'r', encoding='utf-8') as f:
+            results = json.load(f)
+        
+        # 处理结果，提取关键信息
+        processed_results = []
+        for stock_code, result in results.items():
+            if 'error' not in result:
+                processed_result = {
+                    'stock_code': stock_code,
+                    'score': result.get('overall_score', {}).get('total_score', 0),
+                    'grade': result.get('overall_score', {}).get('grade', 'F'),
+                    'action': result.get('recommendation', {}).get('action', 'UNKNOWN'),
+                    'confidence': result.get('recommendation', {}).get('confidence', 0),
+                    'current_price': result.get('basic_analysis', {}).get('current_price', 0),
+                    'price_change_30d': result.get('basic_analysis', {}).get('price_change_30d', 0),
+                    'volatility': result.get('basic_analysis', {}).get('volatility', 0),
+                    'signal_count': result.get('basic_analysis', {}).get('signal_count', 0),
+                    'has_price_evaluation': 'price_evaluation' in result,
+                    'price_evaluation': result.get('price_evaluation', {})
+                }
+                processed_results.append(processed_result)
+        
+        # 按评分排序
+        processed_results.sort(key=lambda x: x['score'], reverse=True)
+        
+        return jsonify({
+            'results': processed_results,
+            'summary': {
+                'total_analyzed': len(processed_results),
+                'a_grade_count': len([r for r in processed_results if r['grade'] == 'A']),
+                'price_evaluated_count': len([r for r in processed_results if r['has_price_evaluation']]),
+                'buy_recommendations': len([r for r in processed_results if r['action'] == 'BUY'])
+            },
+            'file_path': latest_file,
+            'timestamp': os.path.getctime(latest_file)
+        })
+        
+    except Exception as e:
+        return jsonify({"error": f"获取深度扫描结果失败: {str(e)}"}), 500
+
+@app.route('/api/price_evaluations')
+def get_price_evaluations():
+    """获取价格评估记录"""
+    try:
+        eval_dir = os.path.join(RESULT_PATH, 'PRICE_EVALUATION')
+        if not os.path.exists(eval_dir):
+            return jsonify({"error": "价格评估目录不存在"}), 404
+        
+        summary_file = os.path.join(eval_dir, 'price_evaluations_summary.jsonl')
+        if not os.path.exists(summary_file):
+            return jsonify({"evaluations": [], "count": 0})
+        
+        evaluations = []
+        with open(summary_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                if line.strip():
+                    evaluations.append(json.loads(line))
+        
+        # 按时间排序，最新的在前
+        evaluations.sort(key=lambda x: x.get('evaluation_time', ''), reverse=True)
+        
+        return jsonify({
+            'evaluations': evaluations,
+            'count': len(evaluations)
+        })
+        
+    except Exception as e:
+        return jsonify({"error": f"获取价格评估记录失败: {str(e)}"}), 500
+
+@app.route('/api/trigger_deep_scan', methods=['POST'])
+def trigger_deep_scan_api():
+    """触发深度扫描API"""
+    try:
+        data = request.get_json()
+        stock_codes = data.get('stock_codes', [])
+        max_workers = data.get('max_workers', 4)
+        
+        if not stock_codes:
+            return jsonify({"error": "请提供股票代码列表"}), 400
+        
+        # 导入深度扫描模块
+        import sys
+        sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+        from run_enhanced_screening import deep_scan_stocks
+        
+        # 执行深度扫描
+        results = deep_scan_stocks(stock_codes, use_optimized_params=True, max_workers=max_workers)
+        
+        # 统计结果
+        valid_results = {k: v for k, v in results.items() if 'error' not in v}
+        a_grade_count = len([k for k, v in valid_results.items() if v.get('overall_score', {}).get('grade') == 'A'])
+        price_eval_count = len([k for k, v in valid_results.items() if 'price_evaluation' in v])
+        
+        return jsonify({
+            'success': True,
+            'message': '深度扫描完成',
+            'summary': {
+                'total_requested': len(stock_codes),
+                'total_analyzed': len(valid_results),
+                'a_grade_count': a_grade_count,
+                'price_evaluated_count': price_eval_count
+            }
+        })
+        
+    except Exception as e:
+        return jsonify({"error": f"深度扫描失败: {str(e)}"}), 500
+
+@app.route('/api/run_deep_scan', methods=['POST'])
+def run_deep_scan_from_signals():
+    """从当前信号列表触发深度扫描"""
+    try:
+        strategy = request.args.get('strategy', 'PRE_CROSS')
+        
+        # 读取当前策略的信号列表
+        signals_file = os.path.join(RESULT_PATH, strategy, 'signals_summary.json')
+        if not os.path.exists(signals_file):
+            return jsonify({"error": f"未找到策略 {strategy} 的信号文件"}), 404
+        
+        with open(signals_file, 'r', encoding='utf-8') as f:
+            signals_data = json.load(f)
+        
+        if not signals_data:
+            return jsonify({"error": "当前策略没有信号数据"}), 400
+        
+        # 提取股票代码
+        stock_codes = [signal['stock_code'] for signal in signals_data]
+        
+        # 导入深度扫描模块
+        import sys
+        sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+        from run_enhanced_screening import deep_scan_stocks
+        
+        # 执行深度扫描
+        results = deep_scan_stocks(stock_codes, use_optimized_params=True, max_workers=6)
+        
+        # 统计结果
+        valid_results = {k: v for k, v in results.items() if 'error' not in v}
+        a_grade_count = len([k for k, v in valid_results.items() if v.get('overall_score', {}).get('grade') == 'A'])
+        price_eval_count = len([k for k, v in valid_results.items() if 'price_evaluation' in v])
+        buy_rec_count = len([k for k, v in valid_results.items() if v.get('recommendation', {}).get('action') == 'BUY'])
+        
+        return jsonify({
+            'success': True,
+            'message': f'深度扫描完成，分析了 {len(stock_codes)} 只股票',
+            'summary': {
+                'total_requested': len(stock_codes),
+                'total_analyzed': len(valid_results),
+                'a_grade_count': a_grade_count,
+                'price_evaluated_count': price_eval_count,
+                'buy_recommendations': buy_rec_count
+            },
+            'strategy': strategy
+        })
+        
+    except Exception as e:
+        return jsonify({"error": f"深度扫描失败: {str(e)}"}), 500
+
 @app.route('/api/history_reports')
 def get_history_reports():
     """获取历史筛选报告列表"""
-    strategy = request.args.get('strategy', 'PRE_CROSS')
+    strategy = request.args.get('strategy', 'MACD_ZERO_AXIS')
     strategy_dir = os.path.join(RESULT_PATH, strategy)
     
     if not os.path.exists(strategy_dir):
@@ -382,9 +555,16 @@ def get_stock_analysis(stock_code):
         # 计算技术指标
         df['ma13'] = df['close'].rolling(13).mean()
         df['ma45'] = df['close'].rolling(45).mean()
-        df['dif'], df['dea'] = indicators.calculate_macd(df)
-        df['k'], df['d'], df['j'] = indicators.calculate_kdj(df)
-        df['rsi6'], df['rsi12'], df['rsi24'] = [indicators.calculate_rsi(df, p) for p in [6, 12, 24]]
+        macd_values = indicators.calculate_macd(df)
+        df['dif'], df['dea'] = macd_values[0], macd_values[1]
+        kdj_values = indicators.calculate_kdj(df)
+        df['k'], df['d'], df['j'] = kdj_values[0], kdj_values[1], kdj_values[2]
+        # 使用配置系统中的RSI参数
+        from strategy_config import get_strategy_config
+        config = get_strategy_config('TRIPLE_CROSS')
+        rsi_periods = [config.rsi.period_short, config.rsi.period_long, config.rsi.period_extra]
+        rsi_values = [indicators.calculate_rsi(df, p) for p in rsi_periods]
+        df['rsi6'], df['rsi12'], df['rsi24'] = rsi_values[0], rsi_values[1], rsi_values[2]
         
         # 应用策略
         signals = None

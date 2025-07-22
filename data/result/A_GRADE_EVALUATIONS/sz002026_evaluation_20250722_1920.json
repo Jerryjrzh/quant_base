@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-22T19:20:51.623480",
+  "stock_code": "sz002026",
+  "current_price": 11.91,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 11.31,
+    "target_price_2": 11.31,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05037783375314858,
+    "discount_2": 0.05037783375314858,
+    "stop_loss": {
+      "conservative": 11.55,
+      "moderate": 10.96,
+      "aggressive": 10.96,
+      "technical": 11.62
+    },
+    "take_profit": {
+      "conservative": 12.86,
+      "moderate": 13.1,
+      "aggressive": 14.29
+    }
+  }
+}

@@ -120,30 +120,147 @@ def get_optimal_entry_price(df, signal_idx, signal_state, lookback_days=5, looka
         # 出错时使用收盘价作为备选
         return df.loc[signal_idx, 'close'], signal_idx, "异常情况-使用收盘价", False
 
+def group_signals_by_cycle(df, signal_series):
+    """将PRE/MID/POST信号按周期分组，每个周期只计算一次回测"""
+    if signal_series.dtype == bool:
+        # 为布尔信号创建简单的周期信息
+        return [(idx, 'MID', {'start_idx': idx, 'pre_idx': None, 'mid_idx': idx, 'post_idx': None}) 
+                for idx in df.index[signal_series]]
+    
+    signal_cycles = []
+    current_cycle = None
+    
+    for idx, state in signal_series.items():
+        if state == '':
+            continue
+            
+        if state == 'PRE':
+            # 开始新周期
+            if current_cycle is None:
+                current_cycle = {'start_idx': idx, 'pre_idx': idx, 'mid_idx': None, 'post_idx': None}
+        elif state == 'MID' and current_cycle is not None:
+            current_cycle['mid_idx'] = idx
+        elif state == 'POST' and current_cycle is not None:
+            current_cycle['post_idx'] = idx
+            # 结束当前周期
+            signal_cycles.append(current_cycle)
+            current_cycle = None
+        elif state == 'MID' and current_cycle is None:
+            # 独立的MID信号
+            signal_cycles.append({'start_idx': idx, 'pre_idx': None, 'mid_idx': idx, 'post_idx': None})
+    
+    # 处理未完成的周期
+    if current_cycle is not None:
+        signal_cycles.append(current_cycle)
+    
+    # 转换为回测用的格式：选择最佳入场点
+    cycle_signals = []
+    for cycle in signal_cycles:
+        # 优先选择PRE，其次MID，最后POST
+        if cycle['pre_idx'] is not None:
+            cycle_signals.append((cycle['pre_idx'], 'PRE', cycle))
+        elif cycle['mid_idx'] is not None:
+            cycle_signals.append((cycle['mid_idx'], 'MID', cycle))
+        elif cycle['post_idx'] is not None:
+            cycle_signals.append((cycle['post_idx'], 'POST', cycle))
+    
+    return cycle_signals
+
+def check_trend_confirmation(df, entry_idx, confirmation_days=5):
+    """检查入场后的趋势确认"""
+    try:
+        # 获取入场后的确认期数据
+        confirm_start = entry_idx + 1
+        confirm_end = min(confirm_start + confirmation_days, len(df))
+        
+        if confirm_start >= len(df):
+            return False, "无后续数据"
+        
+        confirm_data = df.iloc[confirm_start:confirm_end]
+        if confirm_data.empty:
+            return False, "确认期数据不足"
+        
+        entry_price = df.iloc[entry_idx]['close']
+        
+        # 计算确认期内的价格趋势
+        price_changes = []
+        for i, row in confirm_data.iterrows():
+            change = (row['close'] - entry_price) / entry_price
+            price_changes.append(change)
+        
+        # 趋势确认条件：
+        # 1. 确认期内至少有60%的交易日收盘价高于入场价
+        # 2. 确认期结束时价格不能低于入场价超过2%
+        positive_days = sum(1 for change in price_changes if change > 0)
+        positive_ratio = positive_days / len(price_changes)
+        
+        final_change = price_changes[-1] if price_changes else -1
+        
+        trend_confirmed = positive_ratio >= 0.6 and final_change > -0.02
+        
+        reason = f"确认期{confirmation_days}天，上涨天数比例{positive_ratio:.1%}，期末涨幅{final_change:.1%}"
+        
+        return trend_confirmed, reason
+        
+    except Exception as e:
+        return False, f"趋势确认检查失败: {e}"
+
+def find_cycle_bottom_and_top(df, cycle_info):
+    """找到一个信号周期内的价格底部和顶部"""
+    try:
+        start_idx = cycle_info['start_idx']
+        
+        # 确定周期结束点：如果有POST，用POST+5天；否则用开始点+15天
+        if cycle_info['post_idx'] is not None:
+            cycle_end = min(cycle_info['post_idx'] + 5, len(df) - 1)
+        else:
+            cycle_end = min(start_idx + 15, len(df) - 1)
+        
+        # 获取周期内的数据
+        cycle_data = df.iloc[start_idx:cycle_end + 1]
+        
+        if cycle_data.empty:
+            return None, None, None, None
+        
+        # 找到最低点（底部）
+        bottom_idx = cycle_data['low'].idxmin()
+        bottom_price = df.loc[bottom_idx, 'low']
+        
+        # 从底部开始向后找最高点（顶部）
+        top_search_start = max(bottom_idx, start_idx)
+        top_search_end = min(top_search_start + MAX_LOOKAHEAD_DAYS, len(df) - 1)
+        
+        top_data = df.iloc[top_search_start:top_search_end + 1]
+        if top_data.empty:
+            return bottom_idx, bottom_price, None, None
+        
+        top_idx = top_data['high'].idxmax()
+        top_price = df.loc[top_idx, 'high']
+        
+        return bottom_idx, bottom_price, top_idx, top_price
+        
+    except Exception as e:
+        print(f"寻找周期底部和顶部失败: {e}")
+        return None, None, None, None
+
 def run_backtest(df, signal_series):
     """
-    细化的回测函数，根据signal_state优化入场点
+    优化的回测函数：按周期分组，从底部到顶部计算收益，添加趋势确认
     """
     if signal_series is None:
         return {"total_signals": 0, "message": "无信号数据"}
-        
-    if signal_series.dtype == bool:
-        entry_indices = df.index[signal_series]
-        signal_states = ['MID'] * len(entry_indices)  # 布尔信号默认为MID状态
-    else:
-        entry_indices = df.index[signal_series != '']
-        signal_states = [signal_series.loc[idx] for idx in entry_indices]
-
-    if entry_indices.empty:
-        return {"total_signals": 0, "message": "在历史数据中未发现信号点"}
+    
+    # 按周期分组信号
+    cycle_signals = group_signals_by_cycle(df, signal_series)
+    
+    if not cycle_signals:
+        return {"total_signals": 0, "message": "在历史数据中未发现有效信号周期"}
 
     trades = []
     valid_entry_indices = []
     
-    for i, signal_idx in enumerate(entry_indices):
+    for signal_idx, signal_state, cycle_info in cycle_signals:
         try:
-            signal_state = signal_states[i]
-            
             # 根据信号状态获取最佳入场价格
             entry_result = get_optimal_entry_price(df, signal_idx, signal_state)
             entry_price, actual_entry_idx, entry_strategy, is_filtered = entry_result
@@ -153,33 +270,38 @@ def run_backtest(df, signal_series):
                 print(f"信号被过滤: {entry_strategy}")
                 continue
             
-            # 定义未来30天的观察窗口（从实际入场日开始）
-            window_start_idx = actual_entry_idx + 1
-            window_end_idx = min(window_start_idx + MAX_LOOKAHEAD_DAYS, len(df))
+            # 检查趋势确认
+            trend_confirmed, trend_reason = check_trend_confirmation(df, actual_entry_idx)
             
-            if window_start_idx >= len(df):
+            # 找到周期内的底部和顶部
+            bottom_idx, bottom_price, top_idx, top_price = find_cycle_bottom_and_top(df, cycle_info)
+            
+            if bottom_idx is None or top_idx is None:
+                print(f"无法确定周期{signal_idx}的底部或顶部")
                 continue
-                
-            future_data = df.iloc[window_start_idx:window_end_idx]
             
-            if future_data.empty:
-                continue
-
-            # 找到窗口内的最高价及其位置
-            peak_price = future_data['high'].max()
-            peak_idx = future_data['high'].idxmax()
+            # 使用底部价格作为基准计算收益（更真实的收益计算）
+            cycle_max_pnl = (top_price - bottom_price) / bottom_price
             
-            # 同时记录最低价，用于分析最大回撤
-            trough_price = future_data['low'].min()
-            trough_idx = future_data['low'].idxmin()
+            # 计算实际入场价格的收益
+            if top_price and entry_price:
+                actual_max_pnl = (top_price - entry_price) / entry_price
+            else:
+                actual_max_pnl = 0
             
-            # 计算收益指标
-            max_pnl = (peak_price - entry_price) / entry_price
-            max_drawdown = (trough_price - entry_price) / entry_price
-            days_to_peak = peak_idx - actual_entry_idx
-            days_to_trough = trough_idx - actual_entry_idx
+            # 计算最大回撤（从入场价到周期内最低价）
+            cycle_data = df.iloc[actual_entry_idx:top_idx + 1] if top_idx > actual_entry_idx else df.iloc[actual_entry_idx:actual_entry_idx + 1]
+            if not cycle_data.empty:
+                trough_price = cycle_data['low'].min()
+                max_drawdown = (trough_price - entry_price) / entry_price
+            else:
+                max_drawdown = 0
             
-            is_success = max_pnl >= PROFIT_TARGET_FOR_SUCCESS
+            # 计算时间指标
+            days_to_peak = top_idx - actual_entry_idx if top_idx > actual_entry_idx else 0
+            
+            # 成功判定：考虑趋势确认和收益目标
+            is_success = trend_confirmed and actual_max_pnl >= PROFIT_TARGET_FOR_SUCCESS
             
             trade_info = {
                 "signal_idx": int(signal_idx),
@@ -187,24 +309,29 @@ def run_backtest(df, signal_series):
                 "entry_idx": int(actual_entry_idx),
                 "entry_price": float(entry_price),
                 "entry_strategy": entry_strategy,
-                "peak_price": float(peak_price),
-                "trough_price": float(trough_price),
-                "max_pnl": float(max_pnl),
+                "bottom_idx": int(bottom_idx),
+                "bottom_price": float(bottom_price),
+                "top_idx": int(top_idx) if top_idx is not None else None,
+                "top_price": float(top_price) if top_price is not None else None,
+                "cycle_max_pnl": float(cycle_max_pnl),
+                "actual_max_pnl": float(actual_max_pnl),
                 "max_drawdown": float(max_drawdown),
                 "days_to_peak": int(days_to_peak),
-                "days_to_trough": int(days_to_trough),
-                "is_success": bool(is_success)
+                "trend_confirmed": trend_confirmed,
+                "trend_reason": trend_reason,
+                "is_success": bool(is_success),
+                "cycle_info": cycle_info
             }
             
             trades.append(trade_info)
             valid_entry_indices.append(int(signal_idx))
             
         except Exception as e:
-            print(f"Error processing entry at index {signal_idx}: {e}")
+            print(f"Error processing cycle signal at index {signal_idx}: {e}")
             continue
 
     if not trades:
-        return {"total_signals": len(entry_indices), "message": "信号点过于靠近数据末尾，无法完成回测"}
+        return {"total_signals": len(cycle_signals), "message": "信号周期过于靠近数据末尾，无法完成回测"}
 
     # 按信号状态分组统计
     state_stats = {}
@@ -219,7 +346,7 @@ def run_backtest(df, signal_series):
     successful_trades = [t for t in trades if t['is_success']]
     win_rate = len(successful_trades) / total_signals if total_signals > 0 else 0
     
-    avg_max_profit = np.mean([t['max_pnl'] for t in trades])
+    avg_max_profit = np.mean([t['actual_max_pnl'] for t in trades])
     avg_max_drawdown = np.mean([t['max_drawdown'] for t in trades])
     avg_days_to_peak = np.mean([t['days_to_peak'] for t in successful_trades]) if successful_trades else 0
     
@@ -228,7 +355,7 @@ def run_backtest(df, signal_series):
     for state, state_trades in state_stats.items():
         state_successful = [t for t in state_trades if t['is_success']]
         state_win_rate = len(state_successful) / len(state_trades) if state_trades else 0
-        state_avg_profit = np.mean([t['max_pnl'] for t in state_trades]) if state_trades else 0
+        state_avg_profit = np.mean([t['actual_max_pnl'] for t in state_trades]) if state_trades else 0
         state_avg_drawdown = np.mean([t['max_drawdown'] for t in state_trades]) if state_trades else 0
         state_avg_days = np.mean([t['days_to_peak'] for t in state_successful]) if state_successful else 0
         
