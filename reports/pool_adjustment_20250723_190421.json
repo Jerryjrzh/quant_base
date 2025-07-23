@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "adjustments": {
+    "promoted": [],
+    "demoted": [],
+    "removed": [],
+    "credibility_updated": []
+  },
+  "summary": {
+    "total_promoted": 0,
+    "total_demoted": 0,
+    "total_removed": 0,
+    "total_credibility_updated": 0
+  },
+  "adjustment_time": "2025-07-23T19:04:21.863673"
+}

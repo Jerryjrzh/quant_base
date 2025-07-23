@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T12:23:35.816725",
+  "stock_code": "sh603036",
+  "current_price": 17.05,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 16.2,
+    "target_price_2": 16.2,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.049853372434017676,
+    "discount_2": 0.049853372434017676,
+    "stop_loss": {
+      "conservative": 16.54,
+      "moderate": 15.69,
+      "aggressive": 15.69,
+      "technical": 16.58
+    },
+    "take_profit": {
+      "conservative": 18.41,
+      "moderate": 18.76,
+      "aggressive": 20.46
+    }
+  }
+}

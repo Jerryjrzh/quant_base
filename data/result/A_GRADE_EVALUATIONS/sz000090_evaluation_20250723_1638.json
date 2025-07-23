@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T16:38:56.002521",
+  "stock_code": "sz000090",
+  "current_price": 3.73,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 3.77,
+    "target_price_2": 3.76,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010723860589812341,
+    "discount_2": -0.008042895442359197,
+    "stop_loss": {
+      "conservative": 3.62,
+      "moderate": 3.43,
+      "aggressive": 3.43,
+      "technical": 3.56
+    },
+    "take_profit": {
+      "conservative": 4.03,
+      "moderate": 4.1,
+      "aggressive": 4.48
+    }
+  }
+}

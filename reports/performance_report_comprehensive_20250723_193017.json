@@ -1,0 +1,423 @@
+{
+  "report_type": "comprehensive",
+  "report_date": "2025-07-23T19:30:17.645876",
+  "system_overview": {
+    "total_stocks": 12,
+    "active_stocks": 12,
+    "avg_score": 0.6734683427406049,
+    "avg_credibility": 1.0,
+    "total_signals": 9,
+    "total_successes": 0,
+    "overall_win_rate": 0.0,
+    "grade_distribution": {
+      "A": 1,
+      "B": 7,
+      "C": 4
+    },
+    "recent_signals": 9,
+    "last_updated": "2025-07-23T19:30:17.645873"
+  },
+  "performance_analysis": {
+    "analysis_results": {
+      "sh600276": {
+        "stock_code": "sh600276",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sh600276",
+          "overall_score": 0.8873937565778884,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.5207281495848396,
+          "historical_avg_return": 0.08266726422952933,
+          "total_signals": 2,
+          "total_successes": 0,
+          "last_signal_date": "2025-07-23T19:30:17.509611",
+          "recent_signals": 2,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {
+          "insufficient_data": true
+        },
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.643207"
+      },
+      "sz000858": {
+        "stock_code": "sz000858",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sz000858",
+          "overall_score": 0.7857208493650116,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.6260011089516921,
+          "historical_avg_return": 0.05429253998005773,
+          "total_signals": 0,
+          "total_successes": 0,
+          "last_signal_date": null,
+          "recent_signals": 0,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {},
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.643451"
+      },
+      "sh600519": {
+        "stock_code": "sh600519",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sh600519",
+          "overall_score": 0.7427841409272242,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.7038286938644449,
+          "historical_avg_return": 0.06285722968433692,
+          "total_signals": 1,
+          "total_successes": 0,
+          "last_signal_date": "2025-07-23T19:30:17.509644",
+          "recent_signals": 1,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {
+          "insufficient_data": true
+        },
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.643643"
+      },
+      "sz300760": {
+        "stock_code": "sz300760",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sz300760",
+          "overall_score": 0.7424758972184864,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.6158969955177483,
+          "historical_avg_return": 0.05583129372661795,
+          "total_signals": 0,
+          "total_successes": 0,
+          "last_signal_date": null,
+          "recent_signals": 0,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {},
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.643819"
+      },
+      "sz000002": {
+        "stock_code": "sz000002",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sz000002",
+          "overall_score": 0.7276071447451435,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.7512391116457335,
+          "historical_avg_return": 0.03366907424164065,
+          "total_signals": 1,
+          "total_successes": 0,
+          "last_signal_date": "2025-07-23T19:30:17.509657",
+          "recent_signals": 1,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {
+          "insufficient_data": true
+        },
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.643989"
+      },
+      "sh600000": {
+        "stock_code": "sh600000",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sh600000",
+          "overall_score": 0.7101921024268232,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.7804818890023129,
+          "historical_avg_return": 0.09996123973436215,
+          "total_signals": 2,
+          "total_successes": 0,
+          "last_signal_date": "2025-07-23T19:30:17.509666",
+          "recent_signals": 2,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {
+          "insufficient_data": true
+        },
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.644285"
+      },
+      "sh600030": {
+        "stock_code": "sh600030",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sh600030",
+          "overall_score": 0.6678576935272337,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.646937669353457,
+          "historical_avg_return": 0.06324134973149277,
+          "total_signals": 0,
+          "total_successes": 0,
+          "last_signal_date": null,
+          "recent_signals": 0,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {},
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.644742"
+      },
+      "sz002415": {
+        "stock_code": "sz002415",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sz002415",
+          "overall_score": 0.6155932168444684,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.7341330167404836,
+          "historical_avg_return": 0.0863068737167299,
+          "total_signals": 0,
+          "total_successes": 0,
+          "last_signal_date": null,
+          "recent_signals": 0,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {},
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.645019"
+      },
+      "sh601988": {
+        "stock_code": "sh601988",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sh601988",
+          "overall_score": 0.570518592787076,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.7680257309880284,
+          "historical_avg_return": 0.08569323286129597,
+          "total_signals": 0,
+          "total_successes": 0,
+          "last_signal_date": null,
+          "recent_signals": 0,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {},
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.645211"
+      },
+      "sz300059": {
+        "stock_code": "sz300059",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sz300059",
+          "overall_score": 0.5619762044694818,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.7544841433992978,
+          "historical_avg_return": 0.022327517004324574,
+          "total_signals": 2,
+          "total_successes": 0,
+          "last_signal_date": "2025-07-23T19:30:17.509697",
+          "recent_signals": 2,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {
+          "insufficient_data": true
+        },
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.645398"
+      },
+      "sh600887": {
+        "stock_code": "sh600887",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sh600887",
+          "overall_score": 0.5438747160924494,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.666083414888956,
+          "historical_avg_return": 0.022128275762690636,
+          "total_signals": 1,
+          "total_successes": 0,
+          "last_signal_date": "2025-07-23T19:30:17.509709",
+          "recent_signals": 1,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {
+          "insufficient_data": true
+        },
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.645571"
+      },
+      "sz300015": {
+        "stock_code": "sz300015",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sz300015",
+          "overall_score": 0.5256257979059703,
+          "credibility_score": 1.0,
+          "historical_win_rate": 0.7318872464122048,
+          "historical_avg_return": 0.11392782402776422,
+          "total_signals": 0,
+          "total_successes": 0,
+          "last_signal_date": null,
+          "recent_signals": 0,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "DECLINING"
+        },
+        "advanced_metrics": {},
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:30:17.645738"
+      }
+    },
+    "summary_statistics": {
+      "total_analyzed": 12,
+      "excellent_performers": 0,
+      "good_performers": 0,
+      "average_performers": 0,
+      "poor_performers": 12,
+      "avg_win_rate": 0,
+      "avg_return": 0,
+      "avg_sharpe_ratio": 0
+    },
+    "analysis_time": "2025-07-23T19:30:17.645740"
+  },
+  "top_performers": [],
+  "risk_analysis": {
+    "risk_distribution": {
+      "VERY_LOW": 0,
+      "LOW": 0,
+      "MEDIUM": 12,
+      "HIGH": 0,
+      "VERY_HIGH": 0
+    },
+    "total_analyzed": 12,
+    "high_risk_percentage": 0.0
+  },
+  "recommendations": [
+    "系统整体胜率偏低，建议全面优化策略参数",
+    "优秀表现股票比例较低，建议加强股票筛选标准"
+  ]
+}

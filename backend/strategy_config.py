@@ -343,3 +343,78 @@ class StrategyConfigManager:
 
 # 导入numpy用于计算
 import numpy as np
+
+# 全局配置管理器实例
+_config_manager = None
+
+def get_config_manager():
+    """获取配置管理器实例"""
+    global _config_manager
+    if _config_manager is None:
+        _config_manager = StrategyConfigManager()
+    return _config_manager
+
+def get_strategy_config(strategy_name: str):
+    """获取策略配置（兼容性函数）"""
+    # 这是一个兼容性函数，用于支持旧的代码
+    # 返回一个简单的配置对象
+    class DefaultConfig:
+        def __init__(self):
+            # RSI配置
+            class RSIConfig:
+                def __init__(self):
+                    self.period_short = 6
+                    self.period_long = 14
+                    self.period_extra = 21
+                    self.oversold = 30
+                    self.overbought = 70
+            
+            # MACD配置
+            class MACDConfig:
+                def __init__(self):
+                    self.fast_period = 12
+                    self.slow_period = 26
+                    self.signal_period = 9
+            
+            # KDJ配置
+            class KDJConfig:
+                def __init__(self):
+                    self.period = 9
+                    self.k_period = 3
+                    self.d_period = 3
+                    self.oversold = 20
+                    self.overbought = 80
+            
+            self.rsi = RSIConfig()
+            self.macd = MACDConfig()
+            self.kdj = KDJConfig()
+            
+            # 策略特定参数
+            self.pre_cross_days = 5
+            self.post_cross_days = 3
+            self.volume_threshold = 1.5
+            self.price_change_threshold = 0.02
+    
+    return DefaultConfig()
+
+def update_strategy_config(strategy_name: str, config_dict: dict):
+    """更新策略配置（兼容性函数）"""
+    # 这是一个兼容性函数，暂时不实现具体功能
+    print(f"更新策略配置: {strategy_name}")
+    return True
+
+def validate_strategy_config(config):
+    """验证策略配置（兼容性函数）"""
+    # 这是一个兼容性函数，暂时返回True
+    return True
+
+def list_available_strategies():
+    """列出可用策略（兼容性函数）"""
+    return ['TRIPLE_CROSS', 'PRE_CROSS', 'MACD_ZERO_AXIS']
+
+# 兼容性变量和函数
+config_manager = get_config_manager()
+
+def config_debugger(message: str):
+    """配置调试器（兼容性函数）"""
+    print(f"[CONFIG DEBUG] {message}")

@@ -1,0 +1,3920 @@
+{
+  "sh000001": {
+    "stock_code": "sh000001",
+    "analysis_date": "2025-07-23T08:54:35.571669",
+    "basic_analysis": {
+      "current_price": 3559.79,
+      "price_change_30d": 0.051692556768158954,
+      "price_change_90d": 0.053245281567416126,
+      "volatility": 0.16993409269656065,
+      "signal_count": 11,
+      "recent_signal_count": 10,
+      "trend_direction": "up",
+      "ma20": 3483.1354999999994,
+      "ma60": 3399.999333333333
+    },
+    "parametric_analysis": {
+      "using_optimized_params": true,
+      "parameters": "TradingParameters(pre_entry_discount=0.05, pre_entry_discount_2=0.05, mid_entry_premium=0.01, post_entry_discount=0.05, conservative_stop=0.03, moderate_stop=0.08, aggressive_stop=0.08, conservative_profit=0.08, moderate_profit=0.15, aggressive_profit=0.2, conservative_position=0.3, moderate_position=0.5, aggressive_position=0.7, support_lookback=20, resistance_lookback=20, ma_periods=[5, 10, 20], max_holding_days=30, trend_confirm_days=5, volume_threshold=2.0)",
+      "backtest_result": {
+        "total_trades": 11,
+        "winning_trades": 6,
+        "losing_trades": 5,
+        "win_rate": 0.5454545454545454,
+        "avg_pnl": 0.00901897935602099,
+        "avg_win": 0.07013187309064171,
+        "avg_loss": -0.06431649312552387,
+        "max_win": 0.14999999999999988,
+        "max_loss": -0.08000000000000002,
+        "avg_holding_days": 24.09090909090909,
+        "profit_factor": 1.308501810640108,
+        "trades_detail": [
+          {
+            "signal_date": "2020-06-17",
+            "signal_state": "MID",
+            "entry_price": 2965.2287,
+            "exit_price": 3410.013005,
+            "exit_date": "2020-07-08",
+            "holding_days": 13,
+            "pnl_pct": 0.14999999999999988,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-06-30",
+            "signal_state": "PRE",
+            "entry_price": 3411.64,
+            "exit_price": 3532.62,
+            "exit_date": "2021-08-11",
+            "holding_days": 30,
+            "pnl_pct": 0.03546095133132453,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2021-07-01",
+            "signal_state": "MID",
+            "entry_price": 3624.6678,
+            "exit_price": 3334.6943760000004,
+            "exit_date": "2021-07-28",
+            "holding_days": 19,
+            "pnl_pct": -0.07999999999999995,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-08-06",
+            "signal_state": "PRE",
+            "entry_price": 3285.3185,
+            "exit_price": 3613.97,
+            "exit_date": "2021-09-17",
+            "holding_days": 30,
+            "pnl_pct": 0.10003641960437015,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2021-11-12",
+            "signal_state": "PRE",
+            "entry_price": 3362.145,
+            "exit_price": 3618.05,
+            "exit_date": "2021-12-24",
+            "holding_days": 30,
+            "pnl_pct": 0.07611361199472366,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-09-07",
+            "signal_state": "MID",
+            "entry_price": 3278.7529,
+            "exit_price": 3016.452668,
+            "exit_date": "2022-10-10",
+            "holding_days": 17,
+            "pnl_pct": -0.08000000000000002,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2024-01-25",
+            "signal_state": "MID",
+            "entry_price": 2935.1711,
+            "exit_price": 2700.3574120000003,
+            "exit_date": "2024-02-02",
+            "holding_days": 6,
+            "pnl_pct": -0.0799999999999999,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2024-04-26",
+            "signal_state": "MID",
+            "entry_price": 3119.5263999999997,
+            "exit_price": 3028.92,
+            "exit_date": "2024-06-13",
+            "holding_days": 30,
+            "pnl_pct": -0.029044921690677045,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-07-02",
+            "signal_state": "MID",
+            "entry_price": 3026.9801,
+            "exit_price": 2867.95,
+            "exit_date": "2024-08-13",
+            "holding_days": 30,
+            "pnl_pct": -0.05253754393694243,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-03-07",
+            "signal_state": "PRE",
+            "entry_price": 3203.9225,
+            "exit_price": 3291.43,
+            "exit_date": "2025-04-21",
+            "holding_days": 30,
+            "pnl_pct": 0.02731261445930721,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-03-10",
+            "signal_state": "PRE",
+            "entry_price": 3197.852,
+            "exit_price": 3299.76,
+            "exit_date": "2025-04-22",
+            "holding_days": 30,
+            "pnl_pct": 0.03186764115412482,
+            "exit_reason": "超时出场"
+          }
+        ],
+        "parameters_used": {
+          "pre_entry_discount": 0.05,
+          "pre_entry_discount_2": 0.05,
+          "mid_entry_premium": 0.01,
+          "post_entry_discount": 0.05,
+          "conservative_stop": 0.03,
+          "moderate_stop": 0.08,
+          "aggressive_stop": 0.08,
+          "conservative_profit": 0.08,
+          "moderate_profit": 0.15,
+          "aggressive_profit": 0.2,
+          "conservative_position": 0.3,
+          "moderate_position": 0.5,
+          "aggressive_position": 0.7,
+          "support_lookback": 20,
+          "resistance_lookback": 20,
+          "ma_periods": [
+            5,
+            10,
+            20
+          ],
+          "max_holding_days": 30,
+          "trend_confirm_days": 5,
+          "volume_threshold": 2.0
+        },
+        "risk_level": "moderate"
+      },
+      "best_advisor": "<parametric_advisor.ParametricTradingAdvisor object at 0x7617b2c57380>"
+    },
+    "trading_advice": {
+      "latest_signal_date": "2025-03-10",
+      "latest_signal_state": "PRE",
+      "advice": {
+        "signal_info": {
+          "date": "2025-03-10",
+          "signal_state": "PRE",
+          "current_price": 3366.16,
+          "parameters_used": {
+            "pre_entry_discount": 0.05,
+            "pre_entry_discount_2": 0.05,
+            "mid_entry_premium": 0.01,
+            "post_entry_discount": 0.05,
+            "conservative_stop": 0.03,
+            "moderate_stop": 0.08,
+            "aggressive_stop": 0.08,
+            "conservative_profit": 0.08,
+            "moderate_profit": 0.15,
+            "aggressive_profit": 0.2,
+            "conservative_position": 0.3,
+            "moderate_position": 0.5,
+            "aggressive_position": 0.7,
+            "support_lookback": 20,
+            "resistance_lookback": 20,
+            "ma_periods": [
+              5,
+              10,
+              20
+            ],
+            "max_holding_days": 30,
+            "trend_confirm_days": 5,
+            "volume_threshold": 2.0
+          }
+        },
+        "entry_strategies": [
+          {
+            "strategy": "参数化分批建仓",
+            "entry_price_1": 3197.85,
+            "entry_price_2": 3197.85,
+            "position_allocation": "首次30%，回调后加仓20%",
+            "rationale": "基于5.0%和5.0%折扣参数"
+          },
+          {
+            "strategy": "参数化支撑位买入",
+            "entry_price_1": 3357.2,
+            "entry_price_2": 3353.81,
+            "position_allocation": "支撑位附近50%仓位",
+            "rationale": "基于20天支撑位计算"
+          }
+        ],
+        "risk_management": {
+          "stop_loss_levels": {
+            "conservative": 3265.18,
+            "moderate": 3096.87,
+            "aggressive": 3096.87,
+            "technical": 3290.06
+          },
+          "take_profit_levels": {
+            "conservative": 3635.45,
+            "moderate": 3871.08,
+            "aggressive": 4039.39
+          },
+          "position_sizing": {
+            "conservative": "30%",
+            "moderate": "50%",
+            "aggressive": "70%"
+          },
+          "max_holding_period": "30个交易日"
+        },
+        "timing_advice": {}
+      }
+    },
+    "risk_assessment": {
+      "volatility": 0.16993409269656065,
+      "max_drawdown": -0.2726996234560757,
+      "signal_count": 11,
+      "signal_density": 0.00818452380952381,
+      "trend_stability": 0.9915789894197683,
+      "overall_risk_score": 0.6840933261847527,
+      "risk_level": "medium"
+    },
+    "overall_score": {
+      "total_score": 74.18132419343614,
+      "max_score": 100,
+      "score_percentage": 0.7418132419343614,
+      "grade": "B"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "grade": "B",
+      "confidence": 0.7418132419343614,
+      "reason": "综合评分优秀，技术指标良好，建议买入",
+      "risk_warning": "投资有风险，建议结合个人风险承受能力决策"
+    }
+  },
+  "sz000001": {
+    "stock_code": "sz000001",
+    "analysis_date": "2025-07-23T08:54:45.878874",
+    "basic_analysis": {
+      "current_price": 12.61,
+      "price_change_30d": 0.06773920406435215,
+      "price_change_90d": 0.08613264427217916,
+      "volatility": 0.30590786224943334,
+      "signal_count": 348,
+      "recent_signal_count": 10,
+      "trend_direction": "up",
+      "ma20": 12.5445,
+      "ma60": 11.814166666666667
+    },
+    "parametric_analysis": {
+      "using_optimized_params": true,
+      "parameters": "TradingParameters(pre_entry_discount=0.05, pre_entry_discount_2=0.05, mid_entry_premium=0.01, post_entry_discount=0.05, conservative_stop=0.03, moderate_stop=0.08, aggressive_stop=0.08, conservative_profit=0.08, moderate_profit=0.1, aggressive_profit=0.2, conservative_position=0.3, moderate_position=0.5, aggressive_position=0.7, support_lookback=20, resistance_lookback=20, ma_periods=[5, 10, 20], max_holding_days=20, trend_confirm_days=5, volume_threshold=2.0)",
+      "backtest_result": {
+        "total_trades": 348,
+        "winning_trades": 256,
+        "losing_trades": 92,
+        "win_rate": 0.735632183908046,
+        "avg_pnl": 0.0440096741821753,
+        "avg_win": 0.07755966507778334,
+        "avg_loss": -0.04934682222299486,
+        "max_win": 0.10000000000000019,
+        "max_loss": -0.08000000000000006,
+        "avg_holding_days": 13.568965517241379,
+        "profit_factor": 4.373497395679156,
+        "trades_detail": [
+          {
+            "signal_date": "2020-01-13",
+            "signal_state": "PRE",
+            "entry_price": 16.1405,
+            "exit_price": 14.84926,
+            "exit_date": "2020-02-03",
+            "holding_days": 9,
+            "pnl_pct": -0.08000000000000002,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2020-01-20",
+            "signal_state": "PRE",
+            "entry_price": 15.627499999999998,
+            "exit_price": 14.377299999999998,
+            "exit_date": "2020-02-03",
+            "holding_days": 4,
+            "pnl_pct": -0.07999999999999999,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2020-02-12",
+            "signal_state": "PRE",
+            "entry_price": 14.0315,
+            "exit_price": 15.434650000000001,
+            "exit_date": "2020-02-20",
+            "holding_days": 6,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-02-13",
+            "signal_state": "PRE",
+            "entry_price": 13.9175,
+            "exit_price": 15.309250000000002,
+            "exit_date": "2020-02-17",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-02-14",
+            "signal_state": "PRE",
+            "entry_price": 14.2785,
+            "exit_price": 15.70635,
+            "exit_date": "2020-02-21",
+            "holding_days": 5,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-02-17",
+            "signal_state": "MID",
+            "entry_price": 15.5237,
+            "exit_price": 14.281804000000001,
+            "exit_date": "2020-03-13",
+            "holding_days": 19,
+            "pnl_pct": -0.07999999999999992,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2020-02-18",
+            "signal_state": "POST",
+            "entry_price": 14.44,
+            "exit_price": 13.2848,
+            "exit_date": "2020-03-17",
+            "holding_days": 20,
+            "pnl_pct": -0.07999999999999993,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2020-02-19",
+            "signal_state": "POST",
+            "entry_price": 14.478,
+            "exit_price": 13.31976,
+            "exit_date": "2020-03-17",
+            "holding_days": 19,
+            "pnl_pct": -0.07999999999999995,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2020-03-26",
+            "signal_state": "PRE",
+            "entry_price": 12.407,
+            "exit_price": 13.6477,
+            "exit_date": "2020-04-21",
+            "holding_days": 17,
+            "pnl_pct": 0.10000000000000003,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-03-27",
+            "signal_state": "PRE",
+            "entry_price": 12.4925,
+            "exit_price": 13.5,
+            "exit_date": "2020-04-27",
+            "holding_days": 20,
+            "pnl_pct": 0.08064838903342007,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2020-03-30",
+            "signal_state": "PRE",
+            "entry_price": 12.293,
+            "exit_price": 13.5223,
+            "exit_date": "2020-04-21",
+            "holding_days": 15,
+            "pnl_pct": 0.10000000000000003,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-03-31",
+            "signal_state": "MID",
+            "entry_price": 12.928,
+            "exit_price": 14.02,
+            "exit_date": "2020-04-29",
+            "holding_days": 20,
+            "pnl_pct": 0.08446782178217811,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2020-04-01",
+            "signal_state": "POST",
+            "entry_price": 12.2455,
+            "exit_price": 13.47005,
+            "exit_date": "2020-04-21",
+            "holding_days": 13,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-04-02",
+            "signal_state": "POST",
+            "entry_price": 12.3215,
+            "exit_price": 13.553650000000001,
+            "exit_date": "2020-04-21",
+            "holding_days": 12,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-05-20",
+            "signal_state": "PRE",
+            "entry_price": 12.834499999999998,
+            "exit_price": 12.85,
+            "exit_date": "2020-06-17",
+            "holding_days": 20,
+            "pnl_pct": 0.0012076824184815288,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2020-05-26",
+            "signal_state": "PRE",
+            "entry_price": 12.387999999999998,
+            "exit_price": 13.6268,
+            "exit_date": "2020-06-02",
+            "holding_days": 5,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-05-27",
+            "signal_state": "PRE",
+            "entry_price": 12.35,
+            "exit_price": 13.585,
+            "exit_date": "2020-06-02",
+            "holding_days": 4,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-05-28",
+            "signal_state": "PRE",
+            "entry_price": 12.4165,
+            "exit_price": 13.658150000000001,
+            "exit_date": "2020-06-03",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-05-29",
+            "signal_state": "PRE",
+            "entry_price": 12.35,
+            "exit_price": 13.585,
+            "exit_date": "2020-06-02",
+            "holding_days": 2,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-06-01",
+            "signal_state": "PRE",
+            "entry_price": 12.654,
+            "exit_price": 13.12,
+            "exit_date": "2020-07-01",
+            "holding_days": 20,
+            "pnl_pct": 0.03682629998419466,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2020-06-02",
+            "signal_state": "MID",
+            "entry_price": 13.685500000000001,
+            "exit_price": 12.590660000000002,
+            "exit_date": "2020-06-18",
+            "holding_days": 12,
+            "pnl_pct": -0.07999999999999996,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2020-06-03",
+            "signal_state": "POST",
+            "entry_price": 12.862999999999998,
+            "exit_price": 14.149299999999998,
+            "exit_date": "2020-07-03",
+            "holding_days": 20,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-06-04",
+            "signal_state": "POST",
+            "entry_price": 12.891499999999999,
+            "exit_price": 14.18065,
+            "exit_date": "2020-07-03",
+            "holding_days": 19,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-06-19",
+            "signal_state": "PRE",
+            "entry_price": 12.16,
+            "exit_price": 13.376000000000001,
+            "exit_date": "2020-07-02",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-06-24",
+            "signal_state": "PRE",
+            "entry_price": 12.16,
+            "exit_price": 13.376000000000001,
+            "exit_date": "2020-07-02",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-06-29",
+            "signal_state": "PRE",
+            "entry_price": 12.16,
+            "exit_price": 13.376000000000001,
+            "exit_date": "2020-07-02",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-06-30",
+            "signal_state": "PRE",
+            "entry_price": 12.16,
+            "exit_price": 13.376000000000001,
+            "exit_date": "2020-07-02",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-07-01",
+            "signal_state": "MID",
+            "entry_price": 13.251199999999999,
+            "exit_price": 14.57632,
+            "exit_date": "2020-07-06",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-07-02",
+            "signal_state": "POST",
+            "entry_price": 12.7585,
+            "exit_price": 14.034350000000002,
+            "exit_date": "2020-07-03",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-07-20",
+            "signal_state": "PRE",
+            "entry_price": 13.9935,
+            "exit_price": 15.19,
+            "exit_date": "2020-08-17",
+            "holding_days": 20,
+            "pnl_pct": 0.085503983992568,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2020-08-04",
+            "signal_state": "PRE",
+            "entry_price": 13.338,
+            "exit_price": 14.671800000000001,
+            "exit_date": "2020-08-17",
+            "holding_days": 9,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-08-05",
+            "signal_state": "PRE",
+            "entry_price": 13.072,
+            "exit_price": 14.3792,
+            "exit_date": "2020-08-11",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-08-06",
+            "signal_state": "PRE",
+            "entry_price": 13.205,
+            "exit_price": 14.525500000000001,
+            "exit_date": "2020-08-11",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-08-07",
+            "signal_state": "PRE",
+            "entry_price": 13.014999999999999,
+            "exit_price": 14.3165,
+            "exit_date": "2020-08-11",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-08-10",
+            "signal_state": "PRE",
+            "entry_price": 13.2525,
+            "exit_price": 14.57775,
+            "exit_date": "2020-08-11",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000003,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-08-11",
+            "signal_state": "MID",
+            "entry_price": 14.2713,
+            "exit_price": 15.43,
+            "exit_date": "2020-09-08",
+            "holding_days": 20,
+            "pnl_pct": 0.08119092163993466,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2020-08-12",
+            "signal_state": "POST",
+            "entry_price": 13.661,
+            "exit_price": 15.0271,
+            "exit_date": "2020-08-17",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-08-13",
+            "signal_state": "POST",
+            "entry_price": 13.470999999999998,
+            "exit_price": 14.8181,
+            "exit_date": "2020-08-17",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-08-28",
+            "signal_state": "MID",
+            "entry_price": 15.281300000000002,
+            "exit_price": 15.19,
+            "exit_date": "2020-09-25",
+            "holding_days": 20,
+            "pnl_pct": -0.005974622577922176,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2020-08-31",
+            "signal_state": "POST",
+            "entry_price": 14.325999999999999,
+            "exit_price": 15.7586,
+            "exit_date": "2020-09-18",
+            "holding_days": 14,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-09-01",
+            "signal_state": "POST",
+            "entry_price": 14.383,
+            "exit_price": 15.8213,
+            "exit_date": "2020-09-18",
+            "holding_days": 13,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-09-30",
+            "signal_state": "PRE",
+            "entry_price": 14.411499999999998,
+            "exit_price": 15.852649999999999,
+            "exit_date": "2020-10-12",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000003,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-10-09",
+            "signal_state": "PRE",
+            "entry_price": 14.421,
+            "exit_price": 15.863100000000001,
+            "exit_date": "2020-10-12",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-10-12",
+            "signal_state": "PRE",
+            "entry_price": 15.105,
+            "exit_price": 16.6155,
+            "exit_date": "2020-10-15",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-10-13",
+            "signal_state": "MID",
+            "entry_price": 16.220599999999997,
+            "exit_price": 17.84266,
+            "exit_date": "2020-10-19",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-10-14",
+            "signal_state": "POST",
+            "entry_price": 15.2285,
+            "exit_price": 16.751350000000002,
+            "exit_date": "2020-10-15",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-10-15",
+            "signal_state": "POST",
+            "entry_price": 15.731999999999998,
+            "exit_price": 17.3052,
+            "exit_date": "2020-10-16",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-11-10",
+            "signal_state": "PRE",
+            "entry_price": 17.2045,
+            "exit_price": 18.924950000000003,
+            "exit_date": "2020-11-19",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000019,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-11-18",
+            "signal_state": "PRE",
+            "entry_price": 17.537,
+            "exit_price": 19.2907,
+            "exit_date": "2020-11-23",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-11-19",
+            "signal_state": "PRE",
+            "entry_price": 17.9075,
+            "exit_price": 19.69825,
+            "exit_date": "2020-11-25",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-11-20",
+            "signal_state": "MID",
+            "entry_price": 19.0486,
+            "exit_price": 18.36,
+            "exit_date": "2020-12-18",
+            "holding_days": 20,
+            "pnl_pct": -0.03614963829362793,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2020-11-23",
+            "signal_state": "POST",
+            "entry_price": 18.639,
+            "exit_price": 20.5029,
+            "exit_date": "2020-11-30",
+            "holding_days": 5,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-12-28",
+            "signal_state": "PRE",
+            "entry_price": 17.9075,
+            "exit_price": 19.69825,
+            "exit_date": "2021-01-07",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-12-29",
+            "signal_state": "PRE",
+            "entry_price": 18.2115,
+            "exit_price": 20.032650000000004,
+            "exit_date": "2021-01-08",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2020-12-30",
+            "signal_state": "MID",
+            "entry_price": 19.392,
+            "exit_price": 17.84064,
+            "exit_date": "2021-01-05",
+            "holding_days": 3,
+            "pnl_pct": -0.07999999999999995,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2020-12-31",
+            "signal_state": "POST",
+            "entry_price": 18.372999999999998,
+            "exit_price": 20.2103,
+            "exit_date": "2021-01-11",
+            "holding_days": 6,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-01-06",
+            "signal_state": "MID",
+            "entry_price": 19.755599999999998,
+            "exit_price": 21.73116,
+            "exit_date": "2021-01-15",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-01-07",
+            "signal_state": "POST",
+            "entry_price": 18.904999999999998,
+            "exit_price": 20.7955,
+            "exit_date": "2021-01-12",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000017,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-03-18",
+            "signal_state": "PRE",
+            "entry_price": 20.6435,
+            "exit_price": 20.26,
+            "exit_date": "2021-04-16",
+            "holding_days": 20,
+            "pnl_pct": -0.01857727614018931,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2021-03-22",
+            "signal_state": "PRE",
+            "entry_price": 20.4725,
+            "exit_price": 21.69,
+            "exit_date": "2021-04-20",
+            "holding_days": 20,
+            "pnl_pct": 0.059470020759555556,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2021-03-23",
+            "signal_state": "PRE",
+            "entry_price": 20.168499999999998,
+            "exit_price": 22.18535,
+            "exit_date": "2021-04-21",
+            "holding_days": 20,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-03-25",
+            "signal_state": "PRE",
+            "entry_price": 19.7125,
+            "exit_price": 21.68375,
+            "exit_date": "2021-03-30",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-03-26",
+            "signal_state": "PRE",
+            "entry_price": 20.083,
+            "exit_price": 22.0913,
+            "exit_date": "2021-04-01",
+            "holding_days": 4,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-03-29",
+            "signal_state": "MID",
+            "entry_price": 21.7049,
+            "exit_price": 19.968508,
+            "exit_date": "2021-04-16",
+            "holding_days": 13,
+            "pnl_pct": -0.07999999999999995,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-03-30",
+            "signal_state": "POST",
+            "entry_price": 20.833499999999997,
+            "exit_price": 22.91685,
+            "exit_date": "2021-04-21",
+            "holding_days": 15,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-04-19",
+            "signal_state": "PRE",
+            "entry_price": 20.092499999999998,
+            "exit_price": 22.10175,
+            "exit_date": "2021-04-21",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-04-20",
+            "signal_state": "MID",
+            "entry_price": 21.9069,
+            "exit_price": 24.097590000000004,
+            "exit_date": "2021-04-26",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-05-18",
+            "signal_state": "MID",
+            "entry_price": 24.139,
+            "exit_price": 23.26,
+            "exit_date": "2021-06-16",
+            "holding_days": 20,
+            "pnl_pct": -0.036414101661212055,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2021-05-25",
+            "signal_state": "MID",
+            "entry_price": 24.846,
+            "exit_price": 22.858320000000003,
+            "exit_date": "2021-06-15",
+            "holding_days": 14,
+            "pnl_pct": -0.07999999999999989,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-05-26",
+            "signal_state": "POST",
+            "entry_price": 23.7595,
+            "exit_price": 23.08,
+            "exit_date": "2021-06-24",
+            "holding_days": 20,
+            "pnl_pct": -0.028599086681117065,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2021-05-27",
+            "signal_state": "POST",
+            "entry_price": 23.5505,
+            "exit_price": 23.36,
+            "exit_date": "2021-06-25",
+            "holding_days": 20,
+            "pnl_pct": -0.008089000233540694,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2021-06-04",
+            "signal_state": "PRE",
+            "entry_price": 23.313,
+            "exit_price": 21.44796,
+            "exit_date": "2021-07-05",
+            "holding_days": 20,
+            "pnl_pct": -0.08000000000000003,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-06-07",
+            "signal_state": "PRE",
+            "entry_price": 23.085,
+            "exit_price": 21.238200000000003,
+            "exit_date": "2021-07-05",
+            "holding_days": 19,
+            "pnl_pct": -0.07999999999999992,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-06-08",
+            "signal_state": "PRE",
+            "entry_price": 23.3035,
+            "exit_price": 21.439220000000002,
+            "exit_date": "2021-07-05",
+            "holding_days": 18,
+            "pnl_pct": -0.07999999999999989,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-06-09",
+            "signal_state": "PRE",
+            "entry_price": 23.417499999999997,
+            "exit_price": 21.544099999999997,
+            "exit_date": "2021-07-05",
+            "holding_days": 17,
+            "pnl_pct": -0.08000000000000002,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-07-01",
+            "signal_state": "PRE",
+            "entry_price": 22.04,
+            "exit_price": 20.2768,
+            "exit_date": "2021-07-21",
+            "holding_days": 14,
+            "pnl_pct": -0.07999999999999989,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-07-06",
+            "signal_state": "PRE",
+            "entry_price": 21.641000000000002,
+            "exit_price": 19.909720000000004,
+            "exit_date": "2021-07-26",
+            "holding_days": 14,
+            "pnl_pct": -0.0799999999999999,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-07-07",
+            "signal_state": "PRE",
+            "entry_price": 21.4225,
+            "exit_price": 19.7087,
+            "exit_date": "2021-07-26",
+            "holding_days": 13,
+            "pnl_pct": -0.07999999999999996,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-07-16",
+            "signal_state": "PRE",
+            "entry_price": 20.273,
+            "exit_price": 18.65116,
+            "exit_date": "2021-07-26",
+            "holding_days": 6,
+            "pnl_pct": -0.07999999999999995,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-07-19",
+            "signal_state": "PRE",
+            "entry_price": 20.1495,
+            "exit_price": 18.53754,
+            "exit_date": "2021-07-26",
+            "holding_days": 5,
+            "pnl_pct": -0.07999999999999999,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-08-06",
+            "signal_state": "PRE",
+            "entry_price": 16.967,
+            "exit_price": 18.6637,
+            "exit_date": "2021-08-09",
+            "holding_days": 1,
+            "pnl_pct": 0.1,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-08-09",
+            "signal_state": "MID",
+            "entry_price": 19.2506,
+            "exit_price": 21.17566,
+            "exit_date": "2021-08-18",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-09-02",
+            "signal_state": "PRE",
+            "entry_price": 17.479999999999997,
+            "exit_price": 19.227999999999998,
+            "exit_date": "2021-09-07",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-09-03",
+            "signal_state": "PRE",
+            "entry_price": 17.137999999999998,
+            "exit_price": 18.8518,
+            "exit_date": "2021-09-07",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000017,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-09-06",
+            "signal_state": "PRE",
+            "entry_price": 17.5275,
+            "exit_price": 19.280250000000002,
+            "exit_date": "2021-09-07",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-09-07",
+            "signal_state": "MID",
+            "entry_price": 19.432399999999998,
+            "exit_price": 17.877807999999998,
+            "exit_date": "2021-09-22",
+            "holding_days": 9,
+            "pnl_pct": -0.07999999999999999,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-09-08",
+            "signal_state": "POST",
+            "entry_price": 18.2685,
+            "exit_price": 20.09535,
+            "exit_date": "2021-09-10",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-09-29",
+            "signal_state": "PRE",
+            "entry_price": 17.242499999999996,
+            "exit_price": 18.966749999999998,
+            "exit_date": "2021-10-11",
+            "holding_days": 3,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-09-30",
+            "signal_state": "PRE",
+            "entry_price": 17.0335,
+            "exit_price": 18.73685,
+            "exit_date": "2021-10-08",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-10-08",
+            "signal_state": "PRE",
+            "entry_price": 17.708,
+            "exit_price": 19.4788,
+            "exit_date": "2021-10-11",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-10-11",
+            "signal_state": "MID",
+            "entry_price": 19.593999999999998,
+            "exit_price": 18.02648,
+            "exit_date": "2021-11-02",
+            "holding_days": 16,
+            "pnl_pct": -0.07999999999999992,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-11-15",
+            "signal_state": "PRE",
+            "entry_price": 17.508499999999998,
+            "exit_price": 18.27,
+            "exit_date": "2021-12-13",
+            "holding_days": 20,
+            "pnl_pct": 0.043493160464917135,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2021-11-16",
+            "signal_state": "PRE",
+            "entry_price": 17.308999999999997,
+            "exit_price": 19.0399,
+            "exit_date": "2021-12-09",
+            "holding_days": 17,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-11-17",
+            "signal_state": "PRE",
+            "entry_price": 17.2045,
+            "exit_price": 18.924950000000003,
+            "exit_date": "2021-12-09",
+            "holding_days": 16,
+            "pnl_pct": 0.10000000000000019,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-11-19",
+            "signal_state": "PRE",
+            "entry_price": 17.242499999999996,
+            "exit_price": 18.966749999999998,
+            "exit_date": "2021-12-09",
+            "holding_days": 14,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-11-22",
+            "signal_state": "MID",
+            "entry_price": 18.3012,
+            "exit_price": 17.52,
+            "exit_date": "2021-12-20",
+            "holding_days": 20,
+            "pnl_pct": -0.0426857255261951,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2021-12-01",
+            "signal_state": "PRE",
+            "entry_price": 16.758,
+            "exit_price": 18.4338,
+            "exit_date": "2021-12-06",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-12-02",
+            "signal_state": "PRE",
+            "entry_price": 16.7105,
+            "exit_price": 18.38155,
+            "exit_date": "2021-12-06",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-12-03",
+            "signal_state": "MID",
+            "entry_price": 17.8265,
+            "exit_price": 16.40038,
+            "exit_date": "2021-12-31",
+            "holding_days": 20,
+            "pnl_pct": -0.08000000000000006,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2021-12-06",
+            "signal_state": "POST",
+            "entry_price": 17.195,
+            "exit_price": 18.9145,
+            "exit_date": "2021-12-09",
+            "holding_days": 3,
+            "pnl_pct": 0.1,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2021-12-07",
+            "signal_state": "POST",
+            "entry_price": 17.537,
+            "exit_price": 17.15,
+            "exit_date": "2022-01-05",
+            "holding_days": 20,
+            "pnl_pct": -0.02206762844272113,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-01-04",
+            "signal_state": "PRE",
+            "entry_price": 15.827,
+            "exit_price": 17.4097,
+            "exit_date": "2022-01-10",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-01-05",
+            "signal_state": "PRE",
+            "entry_price": 16.292499999999997,
+            "exit_price": 16.86,
+            "exit_date": "2022-02-09",
+            "holding_days": 20,
+            "pnl_pct": 0.0348319779039437,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-01-06",
+            "signal_state": "PRE",
+            "entry_price": 16.264,
+            "exit_price": 16.99,
+            "exit_date": "2022-02-10",
+            "holding_days": 20,
+            "pnl_pct": 0.044638465322183914,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-01-07",
+            "signal_state": "MID",
+            "entry_price": 17.372,
+            "exit_price": 15.982240000000001,
+            "exit_date": "2022-01-28",
+            "holding_days": 15,
+            "pnl_pct": -0.07999999999999995,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2022-01-10",
+            "signal_state": "POST",
+            "entry_price": 16.3305,
+            "exit_price": 16.58,
+            "exit_date": "2022-02-14",
+            "holding_days": 20,
+            "pnl_pct": 0.015278160497228964,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-01-11",
+            "signal_state": "POST",
+            "entry_price": 16.5395,
+            "exit_price": 16.28,
+            "exit_date": "2022-02-15",
+            "holding_days": 20,
+            "pnl_pct": -0.015689712506423967,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-01-18",
+            "signal_state": "PRE",
+            "entry_price": 15.693999999999999,
+            "exit_price": 17.2634,
+            "exit_date": "2022-01-20",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-01-19",
+            "signal_state": "PRE",
+            "entry_price": 15.674999999999999,
+            "exit_price": 17.2425,
+            "exit_date": "2022-01-20",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-01-20",
+            "signal_state": "MID",
+            "entry_price": 17.5033,
+            "exit_price": 16.103036,
+            "exit_date": "2022-01-28",
+            "holding_days": 6,
+            "pnl_pct": -0.08,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2022-01-21",
+            "signal_state": "POST",
+            "entry_price": 16.4825,
+            "exit_price": 15.9,
+            "exit_date": "2022-02-25",
+            "holding_days": 20,
+            "pnl_pct": -0.03534051266494775,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-01-24",
+            "signal_state": "POST",
+            "entry_price": 16.34,
+            "exit_price": 15.75,
+            "exit_date": "2022-02-28",
+            "holding_days": 20,
+            "pnl_pct": -0.036107711138310884,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-02-07",
+            "signal_state": "PRE",
+            "entry_price": 15.5705,
+            "exit_price": 17.12755,
+            "exit_date": "2022-02-11",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-02-08",
+            "signal_state": "PRE",
+            "entry_price": 15.988499999999998,
+            "exit_price": 14.70942,
+            "exit_date": "2022-03-07",
+            "holding_days": 19,
+            "pnl_pct": -0.07999999999999992,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2022-02-09",
+            "signal_state": "MID",
+            "entry_price": 17.0286,
+            "exit_price": 15.666312000000001,
+            "exit_date": "2022-02-28",
+            "holding_days": 13,
+            "pnl_pct": -0.07999999999999996,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2022-02-10",
+            "signal_state": "POST",
+            "entry_price": 16.1405,
+            "exit_price": 14.84926,
+            "exit_date": "2022-03-07",
+            "holding_days": 17,
+            "pnl_pct": -0.08000000000000002,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2022-02-11",
+            "signal_state": "POST",
+            "entry_price": 16.245,
+            "exit_price": 14.945400000000001,
+            "exit_date": "2022-03-07",
+            "holding_days": 16,
+            "pnl_pct": -0.07999999999999999,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2022-03-01",
+            "signal_state": "PRE",
+            "entry_price": 15.123999999999999,
+            "exit_price": 13.91408,
+            "exit_date": "2022-03-09",
+            "holding_days": 6,
+            "pnl_pct": -0.0799999999999999,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2022-03-03",
+            "signal_state": "PRE",
+            "entry_price": 14.9245,
+            "exit_price": 13.730540000000001,
+            "exit_date": "2022-03-09",
+            "holding_days": 4,
+            "pnl_pct": -0.07999999999999992,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2022-03-17",
+            "signal_state": "PRE",
+            "entry_price": 13.7275,
+            "exit_price": 15.10025,
+            "exit_date": "2022-03-22",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-03-18",
+            "signal_state": "PRE",
+            "entry_price": 13.964999999999998,
+            "exit_price": 15.3615,
+            "exit_date": "2022-03-31",
+            "holding_days": 9,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-03-21",
+            "signal_state": "MID",
+            "entry_price": 14.735899999999999,
+            "exit_price": 16.20949,
+            "exit_date": "2022-04-06",
+            "holding_days": 10,
+            "pnl_pct": 0.09999999999999999,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-03-22",
+            "signal_state": "POST",
+            "entry_price": 14.421,
+            "exit_price": 15.863100000000001,
+            "exit_date": "2022-04-06",
+            "holding_days": 9,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-04-27",
+            "signal_state": "PRE",
+            "entry_price": 14.8675,
+            "exit_price": 14.08,
+            "exit_date": "2022-05-30",
+            "holding_days": 20,
+            "pnl_pct": -0.052967882966201425,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-04-28",
+            "signal_state": "PRE",
+            "entry_price": 14.8675,
+            "exit_price": 14.16,
+            "exit_date": "2022-05-31",
+            "holding_days": 20,
+            "pnl_pct": -0.04758701866487302,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-05-05",
+            "signal_state": "PRE",
+            "entry_price": 14.554,
+            "exit_price": 13.95,
+            "exit_date": "2022-06-02",
+            "holding_days": 20,
+            "pnl_pct": -0.041500618386697885,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-05-17",
+            "signal_state": "PRE",
+            "entry_price": 13.9745,
+            "exit_price": 14.74,
+            "exit_date": "2022-06-15",
+            "holding_days": 20,
+            "pnl_pct": 0.05477834627356967,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-05-18",
+            "signal_state": "PRE",
+            "entry_price": 14.0125,
+            "exit_price": 14.44,
+            "exit_date": "2022-06-16",
+            "holding_days": 20,
+            "pnl_pct": 0.0305084745762712,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-05-19",
+            "signal_state": "PRE",
+            "entry_price": 13.889,
+            "exit_price": 14.45,
+            "exit_date": "2022-06-17",
+            "holding_days": 20,
+            "pnl_pct": 0.04039167686658506,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-05-20",
+            "signal_state": "PRE",
+            "entry_price": 14.268999999999998,
+            "exit_price": 14.34,
+            "exit_date": "2022-06-20",
+            "holding_days": 20,
+            "pnl_pct": 0.0049758217114024466,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-05-23",
+            "signal_state": "MID",
+            "entry_price": 14.9783,
+            "exit_price": 13.780036,
+            "exit_date": "2022-06-06",
+            "holding_days": 9,
+            "pnl_pct": -0.08,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2022-05-31",
+            "signal_state": "PRE",
+            "entry_price": 13.452,
+            "exit_price": 14.797200000000002,
+            "exit_date": "2022-06-15",
+            "holding_days": 10,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-06-01",
+            "signal_state": "PRE",
+            "entry_price": 13.376,
+            "exit_price": 14.713600000000001,
+            "exit_date": "2022-06-15",
+            "holding_days": 9,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-06-06",
+            "signal_state": "PRE",
+            "entry_price": 13.4615,
+            "exit_price": 14.80765,
+            "exit_date": "2022-06-15",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-06-07",
+            "signal_state": "PRE",
+            "entry_price": 13.452,
+            "exit_price": 14.797200000000002,
+            "exit_date": "2022-06-15",
+            "holding_days": 6,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-06-08",
+            "signal_state": "MID",
+            "entry_price": 14.3016,
+            "exit_price": 14.53,
+            "exit_date": "2022-07-06",
+            "holding_days": 20,
+            "pnl_pct": 0.01597024109190572,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-06-09",
+            "signal_state": "POST",
+            "entry_price": 13.632499999999999,
+            "exit_price": 14.99575,
+            "exit_date": "2022-06-15",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-06-10",
+            "signal_state": "POST",
+            "entry_price": 13.604,
+            "exit_price": 14.9644,
+            "exit_date": "2022-06-15",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-07-28",
+            "signal_state": "PRE",
+            "entry_price": 12.236,
+            "exit_price": 12.62,
+            "exit_date": "2022-08-25",
+            "holding_days": 20,
+            "pnl_pct": 0.031382804838182295,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-07-29",
+            "signal_state": "PRE",
+            "entry_price": 12.046,
+            "exit_price": 12.61,
+            "exit_date": "2022-08-26",
+            "holding_days": 20,
+            "pnl_pct": 0.04682052133488296,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-08-04",
+            "signal_state": "PRE",
+            "entry_price": 11.552,
+            "exit_price": 12.7072,
+            "exit_date": "2022-08-19",
+            "holding_days": 11,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-08-05",
+            "signal_state": "PRE",
+            "entry_price": 11.6945,
+            "exit_price": 12.51,
+            "exit_date": "2022-09-02",
+            "holding_days": 20,
+            "pnl_pct": 0.06973363546966524,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-08-08",
+            "signal_state": "PRE",
+            "entry_price": 11.589999999999998,
+            "exit_price": 12.748999999999999,
+            "exit_date": "2022-08-19",
+            "holding_days": 9,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-08-09",
+            "signal_state": "PRE",
+            "entry_price": 11.514,
+            "exit_price": 12.6654,
+            "exit_date": "2022-08-19",
+            "holding_days": 8,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-08-10",
+            "signal_state": "PRE",
+            "entry_price": 11.457,
+            "exit_price": 12.602700000000002,
+            "exit_date": "2022-08-19",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-08-11",
+            "signal_state": "MID",
+            "entry_price": 12.4735,
+            "exit_price": 12.36,
+            "exit_date": "2022-09-08",
+            "holding_days": 20,
+            "pnl_pct": -0.009099290495851217,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-08-12",
+            "signal_state": "POST",
+            "entry_price": 11.761000000000001,
+            "exit_price": 12.72,
+            "exit_date": "2022-09-09",
+            "holding_days": 20,
+            "pnl_pct": 0.08154068531587447,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-08-15",
+            "signal_state": "POST",
+            "entry_price": 11.504499999999998,
+            "exit_price": 12.65495,
+            "exit_date": "2022-08-19",
+            "holding_days": 4,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-10-12",
+            "signal_state": "PRE",
+            "entry_price": 11.02,
+            "exit_price": 10.89,
+            "exit_date": "2022-11-09",
+            "holding_days": 20,
+            "pnl_pct": -0.011796733212341108,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-10-14",
+            "signal_state": "PRE",
+            "entry_price": 10.953499999999998,
+            "exit_price": 11.43,
+            "exit_date": "2022-11-11",
+            "holding_days": 20,
+            "pnl_pct": 0.04350207696170188,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2022-10-17",
+            "signal_state": "PRE",
+            "entry_price": 10.906,
+            "exit_price": 11.9966,
+            "exit_date": "2022-11-14",
+            "holding_days": 20,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-10-18",
+            "signal_state": "PRE",
+            "entry_price": 10.906,
+            "exit_price": 11.9966,
+            "exit_date": "2022-11-14",
+            "holding_days": 19,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-10-19",
+            "signal_state": "PRE",
+            "entry_price": 10.725499999999998,
+            "exit_price": 11.79805,
+            "exit_date": "2022-11-14",
+            "holding_days": 18,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-10-26",
+            "signal_state": "PRE",
+            "entry_price": 10.126999999999999,
+            "exit_price": 11.1397,
+            "exit_date": "2022-11-11",
+            "holding_days": 12,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-10-27",
+            "signal_state": "PRE",
+            "entry_price": 10.145999999999999,
+            "exit_price": 11.1606,
+            "exit_date": "2022-11-11",
+            "holding_days": 11,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-10-31",
+            "signal_state": "PRE",
+            "entry_price": 9.822999999999999,
+            "exit_price": 10.805299999999999,
+            "exit_date": "2022-11-04",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-11-01",
+            "signal_state": "PRE",
+            "entry_price": 10.1365,
+            "exit_price": 11.15015,
+            "exit_date": "2022-11-11",
+            "holding_days": 8,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-11-02",
+            "signal_state": "PRE",
+            "entry_price": 10.0985,
+            "exit_price": 11.10835,
+            "exit_date": "2022-11-11",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-11-03",
+            "signal_state": "PRE",
+            "entry_price": 9.918,
+            "exit_price": 10.9098,
+            "exit_date": "2022-11-07",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-11-04",
+            "signal_state": "MID",
+            "entry_price": 10.9282,
+            "exit_price": 12.021020000000002,
+            "exit_date": "2022-11-14",
+            "holding_days": 6,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-11-07",
+            "signal_state": "POST",
+            "entry_price": 10.336,
+            "exit_price": 11.369600000000002,
+            "exit_date": "2022-11-11",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-11-08",
+            "signal_state": "POST",
+            "entry_price": 10.3075,
+            "exit_price": 11.33825,
+            "exit_date": "2022-11-11",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-12-23",
+            "signal_state": "PRE",
+            "entry_price": 12.331,
+            "exit_price": 13.5641,
+            "exit_date": "2023-01-03",
+            "holding_days": 6,
+            "pnl_pct": 0.10000000000000003,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-12-27",
+            "signal_state": "PRE",
+            "entry_price": 12.4545,
+            "exit_price": 13.699950000000001,
+            "exit_date": "2023-01-03",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-12-28",
+            "signal_state": "PRE",
+            "entry_price": 12.483,
+            "exit_price": 13.731300000000001,
+            "exit_date": "2023-01-03",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000003,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-12-29",
+            "signal_state": "PRE",
+            "entry_price": 12.378499999999999,
+            "exit_price": 13.61635,
+            "exit_date": "2023-01-03",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2022-12-30",
+            "signal_state": "PRE",
+            "entry_price": 12.501999999999999,
+            "exit_price": 13.7522,
+            "exit_date": "2023-01-03",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-01-03",
+            "signal_state": "PRE",
+            "entry_price": 13.081499999999998,
+            "exit_price": 14.38965,
+            "exit_date": "2023-01-04",
+            "holding_days": 1,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-01-04",
+            "signal_state": "MID",
+            "entry_price": 14.4632,
+            "exit_price": 14.04,
+            "exit_date": "2023-02-08",
+            "holding_days": 20,
+            "pnl_pct": -0.029260467946236057,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-01-05",
+            "signal_state": "POST",
+            "entry_price": 13.756,
+            "exit_price": 15.1316,
+            "exit_date": "2023-01-16",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-02-21",
+            "signal_state": "PRE",
+            "entry_price": 13.395,
+            "exit_price": 12.7,
+            "exit_date": "2023-03-21",
+            "holding_days": 20,
+            "pnl_pct": -0.051885031728256835,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-02-22",
+            "signal_state": "PRE",
+            "entry_price": 13.318999999999999,
+            "exit_price": 12.79,
+            "exit_date": "2023-03-22",
+            "holding_days": 20,
+            "pnl_pct": -0.039717696523763044,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-02-23",
+            "signal_state": "PRE",
+            "entry_price": 13.3475,
+            "exit_price": 12.9,
+            "exit_date": "2023-03-23",
+            "holding_days": 20,
+            "pnl_pct": -0.03352687769245175,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-02-24",
+            "signal_state": "PRE",
+            "entry_price": 13.166999999999998,
+            "exit_price": 12.82,
+            "exit_date": "2023-03-24",
+            "holding_days": 20,
+            "pnl_pct": -0.026353763195868293,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-02-28",
+            "signal_state": "PRE",
+            "entry_price": 13.091,
+            "exit_price": 14.4001,
+            "exit_date": "2023-03-02",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-03-01",
+            "signal_state": "PRE",
+            "entry_price": 13.4615,
+            "exit_price": 12.53,
+            "exit_date": "2023-03-29",
+            "holding_days": 20,
+            "pnl_pct": -0.06919734056383017,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-03-02",
+            "signal_state": "MID",
+            "entry_price": 14.3824,
+            "exit_price": 13.231808000000001,
+            "exit_date": "2023-03-09",
+            "holding_days": 5,
+            "pnl_pct": -0.07999999999999997,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2023-03-03",
+            "signal_state": "POST",
+            "entry_price": 13.575499999999998,
+            "exit_price": 12.48946,
+            "exit_date": "2023-03-27",
+            "holding_days": 16,
+            "pnl_pct": -0.07999999999999992,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2023-03-21",
+            "signal_state": "PRE",
+            "entry_price": 12.065,
+            "exit_price": 12.85,
+            "exit_date": "2023-04-19",
+            "holding_days": 20,
+            "pnl_pct": 0.06506423539162869,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-03-22",
+            "signal_state": "PRE",
+            "entry_price": 12.1505,
+            "exit_price": 12.75,
+            "exit_date": "2023-04-20",
+            "holding_days": 20,
+            "pnl_pct": 0.049339533352537004,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-03-23",
+            "signal_state": "PRE",
+            "entry_price": 12.254999999999999,
+            "exit_price": 12.5,
+            "exit_date": "2023-04-21",
+            "holding_days": 20,
+            "pnl_pct": 0.01999184006527956,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-03-24",
+            "signal_state": "PRE",
+            "entry_price": 12.179,
+            "exit_price": 12.1,
+            "exit_date": "2023-04-24",
+            "holding_days": 20,
+            "pnl_pct": -0.006486575252483835,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-03-27",
+            "signal_state": "PRE",
+            "entry_price": 11.969999999999999,
+            "exit_price": 13.167,
+            "exit_date": "2023-04-18",
+            "holding_days": 15,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-03-28",
+            "signal_state": "PRE",
+            "entry_price": 12.008,
+            "exit_price": 12.12,
+            "exit_date": "2023-04-26",
+            "holding_days": 20,
+            "pnl_pct": 0.00932711525649568,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-03-29",
+            "signal_state": "PRE",
+            "entry_price": 11.9035,
+            "exit_price": 13.09385,
+            "exit_date": "2023-04-18",
+            "holding_days": 13,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-03-30",
+            "signal_state": "PRE",
+            "entry_price": 12.046,
+            "exit_price": 12.55,
+            "exit_date": "2023-04-28",
+            "holding_days": 20,
+            "pnl_pct": 0.041839614809895516,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-03-31",
+            "signal_state": "PRE",
+            "entry_price": 11.9035,
+            "exit_price": 13.09385,
+            "exit_date": "2023-04-18",
+            "holding_days": 11,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-04-03",
+            "signal_state": "MID",
+            "entry_price": 12.7967,
+            "exit_price": 12.91,
+            "exit_date": "2023-05-05",
+            "holding_days": 20,
+            "pnl_pct": 0.008853845131948129,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-04-04",
+            "signal_state": "POST",
+            "entry_price": 12.0175,
+            "exit_price": 13.21925,
+            "exit_date": "2023-05-08",
+            "holding_days": 20,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-04-06",
+            "signal_state": "POST",
+            "entry_price": 11.950999999999999,
+            "exit_price": 13.146099999999999,
+            "exit_date": "2023-04-18",
+            "holding_days": 8,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-04-27",
+            "signal_state": "PRE",
+            "entry_price": 11.646999999999998,
+            "exit_price": 12.8117,
+            "exit_date": "2023-05-04",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000016,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-04-28",
+            "signal_state": "PRE",
+            "entry_price": 11.9225,
+            "exit_price": 13.11475,
+            "exit_date": "2023-05-08",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-05-04",
+            "signal_state": "MID",
+            "entry_price": 12.8573,
+            "exit_price": 11.828716,
+            "exit_date": "2023-05-25",
+            "holding_days": 15,
+            "pnl_pct": -0.08000000000000003,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2023-05-05",
+            "signal_state": "POST",
+            "entry_price": 12.2645,
+            "exit_price": 13.490950000000002,
+            "exit_date": "2023-05-09",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-05-08",
+            "signal_state": "POST",
+            "entry_price": 12.654,
+            "exit_price": 11.641680000000001,
+            "exit_date": "2023-05-31",
+            "holding_days": 17,
+            "pnl_pct": -0.07999999999999992,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2023-05-26",
+            "signal_state": "PRE",
+            "entry_price": 11.495,
+            "exit_price": 11.28,
+            "exit_date": "2023-06-27",
+            "holding_days": 20,
+            "pnl_pct": -0.018703784254023477,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-05-29",
+            "signal_state": "PRE",
+            "entry_price": 11.381,
+            "exit_price": 11.3,
+            "exit_date": "2023-06-28",
+            "holding_days": 20,
+            "pnl_pct": -0.00711712503294961,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-06-02",
+            "signal_state": "PRE",
+            "entry_price": 11.333499999999999,
+            "exit_price": 11.4,
+            "exit_date": "2023-07-04",
+            "holding_days": 20,
+            "pnl_pct": 0.005867560771165248,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-06-05",
+            "signal_state": "PRE",
+            "entry_price": 11.314499999999999,
+            "exit_price": 11.34,
+            "exit_date": "2023-07-05",
+            "holding_days": 20,
+            "pnl_pct": 0.002253745194219892,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-06-06",
+            "signal_state": "PRE",
+            "entry_price": 11.248,
+            "exit_price": 11.24,
+            "exit_date": "2023-07-06",
+            "holding_days": 20,
+            "pnl_pct": -0.0007112375533427383,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-06-07",
+            "signal_state": "PRE",
+            "entry_price": 11.342999999999998,
+            "exit_price": 11.2,
+            "exit_date": "2023-07-07",
+            "holding_days": 20,
+            "pnl_pct": -0.01260689411972132,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-06-08",
+            "signal_state": "MID",
+            "entry_price": 12.2412,
+            "exit_price": 11.261904,
+            "exit_date": "2023-06-26",
+            "holding_days": 10,
+            "pnl_pct": -0.07999999999999999,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2023-06-09",
+            "signal_state": "POST",
+            "entry_price": 11.286,
+            "exit_price": 11.21,
+            "exit_date": "2023-07-11",
+            "holding_days": 20,
+            "pnl_pct": -0.006734006734006622,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-06-16",
+            "signal_state": "PRE",
+            "entry_price": 11.0485,
+            "exit_price": 11.25,
+            "exit_date": "2023-07-18",
+            "holding_days": 20,
+            "pnl_pct": 0.018237769833008944,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-06-27",
+            "signal_state": "PRE",
+            "entry_price": 10.716,
+            "exit_price": 11.72,
+            "exit_date": "2023-07-25",
+            "holding_days": 20,
+            "pnl_pct": 0.09369167599850704,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-06-28",
+            "signal_state": "PRE",
+            "entry_price": 10.735,
+            "exit_price": 11.67,
+            "exit_date": "2023-07-26",
+            "holding_days": 20,
+            "pnl_pct": 0.08709827666511416,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-06-29",
+            "signal_state": "PRE",
+            "entry_price": 10.620999999999999,
+            "exit_price": 11.6831,
+            "exit_date": "2023-07-25",
+            "holding_days": 18,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-06-30",
+            "signal_state": "PRE",
+            "entry_price": 10.6685,
+            "exit_price": 11.73535,
+            "exit_date": "2023-07-26",
+            "holding_days": 18,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-07-03",
+            "signal_state": "MID",
+            "entry_price": 11.6049,
+            "exit_price": 12.32,
+            "exit_date": "2023-07-31",
+            "holding_days": 20,
+            "pnl_pct": 0.061620522365552446,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-07-04",
+            "signal_state": "POST",
+            "entry_price": 10.83,
+            "exit_price": 11.913,
+            "exit_date": "2023-07-28",
+            "holding_days": 18,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-07-05",
+            "signal_state": "POST",
+            "entry_price": 10.773,
+            "exit_price": 11.8503,
+            "exit_date": "2023-07-27",
+            "holding_days": 16,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-08-25",
+            "signal_state": "PRE",
+            "entry_price": 10.6685,
+            "exit_price": 11.73535,
+            "exit_date": "2023-08-28",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-08-28",
+            "signal_state": "PRE",
+            "entry_price": 10.943999999999999,
+            "exit_price": 11.22,
+            "exit_date": "2023-09-25",
+            "holding_days": 20,
+            "pnl_pct": 0.025219298245614183,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-08-29",
+            "signal_state": "PRE",
+            "entry_price": 10.7445,
+            "exit_price": 11.16,
+            "exit_date": "2023-09-26",
+            "holding_days": 20,
+            "pnl_pct": 0.03867094792684627,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-08-31",
+            "signal_state": "PRE",
+            "entry_price": 10.573500000000001,
+            "exit_price": 11.2,
+            "exit_date": "2023-09-28",
+            "holding_days": 20,
+            "pnl_pct": 0.05925190334326365,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-09-01",
+            "signal_state": "PRE",
+            "entry_price": 10.754,
+            "exit_price": 11.11,
+            "exit_date": "2023-10-09",
+            "holding_days": 20,
+            "pnl_pct": 0.033103961316719346,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-09-04",
+            "signal_state": "PRE",
+            "entry_price": 10.982,
+            "exit_price": 11.02,
+            "exit_date": "2023-10-10",
+            "holding_days": 20,
+            "pnl_pct": 0.003460207612456771,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-09-05",
+            "signal_state": "PRE",
+            "entry_price": 10.820500000000001,
+            "exit_price": 10.98,
+            "exit_date": "2023-10-11",
+            "holding_days": 20,
+            "pnl_pct": 0.01474053879210753,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-09-06",
+            "signal_state": "MID",
+            "entry_price": 11.5443,
+            "exit_price": 11.11,
+            "exit_date": "2023-10-12",
+            "holding_days": 20,
+            "pnl_pct": -0.03762029746281718,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-09-07",
+            "signal_state": "POST",
+            "entry_price": 10.763499999999999,
+            "exit_price": 11.0,
+            "exit_date": "2023-10-13",
+            "holding_days": 20,
+            "pnl_pct": 0.021972406745018006,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-09-22",
+            "signal_state": "PRE",
+            "entry_price": 10.677999999999999,
+            "exit_price": 10.45,
+            "exit_date": "2023-10-30",
+            "holding_days": 20,
+            "pnl_pct": -0.021352313167259766,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-09-25",
+            "signal_state": "MID",
+            "entry_price": 11.3322,
+            "exit_price": 10.425624000000001,
+            "exit_date": "2023-10-25",
+            "holding_days": 16,
+            "pnl_pct": -0.07999999999999995,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2023-09-27",
+            "signal_state": "POST",
+            "entry_price": 10.6115,
+            "exit_price": 10.48,
+            "exit_date": "2023-11-02",
+            "holding_days": 20,
+            "pnl_pct": -0.012392215992083972,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-10-12",
+            "signal_state": "PRE",
+            "entry_price": 10.554499999999999,
+            "exit_price": 10.49,
+            "exit_date": "2023-11-09",
+            "holding_days": 20,
+            "pnl_pct": -0.006111137429532322,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-10-16",
+            "signal_state": "PRE",
+            "entry_price": 10.459499999999998,
+            "exit_price": 10.25,
+            "exit_date": "2023-11-13",
+            "holding_days": 20,
+            "pnl_pct": -0.020029638128017446,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-10-17",
+            "signal_state": "PRE",
+            "entry_price": 10.469,
+            "exit_price": 10.27,
+            "exit_date": "2023-11-14",
+            "holding_days": 20,
+            "pnl_pct": -0.01900850128952143,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-10-24",
+            "signal_state": "PRE",
+            "entry_price": 10.0225,
+            "exit_price": 10.28,
+            "exit_date": "2023-11-21",
+            "holding_days": 20,
+            "pnl_pct": 0.02569219256672472,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-10-26",
+            "signal_state": "PRE",
+            "entry_price": 9.8895,
+            "exit_price": 10.15,
+            "exit_date": "2023-11-23",
+            "holding_days": 20,
+            "pnl_pct": 0.026341068810354456,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-10-27",
+            "signal_state": "PRE",
+            "entry_price": 9.927499999999998,
+            "exit_price": 10.1,
+            "exit_date": "2023-11-24",
+            "holding_days": 20,
+            "pnl_pct": 0.01737597582472941,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-10-30",
+            "signal_state": "PRE",
+            "entry_price": 9.927499999999998,
+            "exit_price": 10.01,
+            "exit_date": "2023-11-27",
+            "holding_days": 20,
+            "pnl_pct": 0.008310249307479362,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-10-31",
+            "signal_state": "PRE",
+            "entry_price": 9.937000000000001,
+            "exit_price": 9.95,
+            "exit_date": "2023-11-28",
+            "holding_days": 20,
+            "pnl_pct": 0.0013082419241217795,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-11-01",
+            "signal_state": "PRE",
+            "entry_price": 9.956,
+            "exit_price": 9.72,
+            "exit_date": "2023-11-29",
+            "holding_days": 20,
+            "pnl_pct": -0.023704298915226886,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-11-02",
+            "signal_state": "PRE",
+            "entry_price": 9.956,
+            "exit_price": 9.68,
+            "exit_date": "2023-11-30",
+            "holding_days": 20,
+            "pnl_pct": -0.027721976697468845,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-11-03",
+            "signal_state": "MID",
+            "entry_price": 10.584800000000001,
+            "exit_price": 9.738016000000002,
+            "exit_date": "2023-11-29",
+            "holding_days": 18,
+            "pnl_pct": -0.07999999999999995,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2023-11-06",
+            "signal_state": "POST",
+            "entry_price": 10.155499999999998,
+            "exit_price": 9.63,
+            "exit_date": "2023-12-04",
+            "holding_days": 20,
+            "pnl_pct": -0.051745359657328294,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-11-07",
+            "signal_state": "POST",
+            "entry_price": 10.069999999999999,
+            "exit_price": 9.48,
+            "exit_date": "2023-12-05",
+            "holding_days": 20,
+            "pnl_pct": -0.058589870903674096,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-11-15",
+            "signal_state": "MID",
+            "entry_price": 10.4737,
+            "exit_price": 9.635804,
+            "exit_date": "2023-11-30",
+            "holding_days": 11,
+            "pnl_pct": -0.0799999999999999,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2023-11-20",
+            "signal_state": "PRE",
+            "entry_price": 9.680499999999999,
+            "exit_price": 9.13,
+            "exit_date": "2023-12-18",
+            "holding_days": 20,
+            "pnl_pct": -0.05686689737100334,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-11-21",
+            "signal_state": "MID",
+            "entry_price": 10.3828,
+            "exit_price": 9.552176,
+            "exit_date": "2023-12-05",
+            "holding_days": 10,
+            "pnl_pct": -0.08000000000000003,
+            "exit_reason": "止损"
+          },
+          {
+            "signal_date": "2023-12-06",
+            "signal_state": "PRE",
+            "entry_price": 9.025,
+            "exit_price": 9.11,
+            "exit_date": "2024-01-04",
+            "holding_days": 20,
+            "pnl_pct": 0.009418282548476351,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-07",
+            "signal_state": "PRE",
+            "entry_price": 8.968,
+            "exit_price": 9.27,
+            "exit_date": "2024-01-05",
+            "holding_days": 20,
+            "pnl_pct": 0.033675289919714496,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-11",
+            "signal_state": "PRE",
+            "entry_price": 8.882499999999999,
+            "exit_price": 9.18,
+            "exit_date": "2024-01-09",
+            "holding_days": 20,
+            "pnl_pct": 0.03349282296650732,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-12",
+            "signal_state": "PRE",
+            "entry_price": 8.949,
+            "exit_price": 9.09,
+            "exit_date": "2024-01-10",
+            "holding_days": 20,
+            "pnl_pct": 0.015755950385517938,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-14",
+            "signal_state": "PRE",
+            "entry_price": 8.6925,
+            "exit_price": 9.19,
+            "exit_date": "2024-01-12",
+            "holding_days": 20,
+            "pnl_pct": 0.05723324705205622,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-15",
+            "signal_state": "PRE",
+            "entry_price": 8.749500000000001,
+            "exit_price": 9.21,
+            "exit_date": "2024-01-15",
+            "holding_days": 20,
+            "pnl_pct": 0.052631578947368376,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-18",
+            "signal_state": "PRE",
+            "entry_price": 8.6735,
+            "exit_price": 9.34,
+            "exit_date": "2024-01-16",
+            "holding_days": 20,
+            "pnl_pct": 0.07684325820026508,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-19",
+            "signal_state": "PRE",
+            "entry_price": 8.645,
+            "exit_price": 9.23,
+            "exit_date": "2024-01-17",
+            "holding_days": 20,
+            "pnl_pct": 0.06766917293233093,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-20",
+            "signal_state": "PRE",
+            "entry_price": 8.578499999999998,
+            "exit_price": 9.43635,
+            "exit_date": "2023-12-28",
+            "holding_days": 6,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2023-12-21",
+            "signal_state": "MID",
+            "entry_price": 9.2617,
+            "exit_price": 9.17,
+            "exit_date": "2024-01-19",
+            "holding_days": 20,
+            "pnl_pct": -0.009900990099009842,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-22",
+            "signal_state": "POST",
+            "entry_price": 8.739999999999998,
+            "exit_price": 9.1,
+            "exit_date": "2024-01-22",
+            "holding_days": 20,
+            "pnl_pct": 0.04118993135011456,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2023-12-25",
+            "signal_state": "POST",
+            "entry_price": 8.7305,
+            "exit_price": 9.16,
+            "exit_date": "2024-01-23",
+            "holding_days": 20,
+            "pnl_pct": 0.0491953496363325,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-03-11",
+            "signal_state": "PRE",
+            "entry_price": 9.9465,
+            "exit_price": 10.28,
+            "exit_date": "2024-04-10",
+            "holding_days": 20,
+            "pnl_pct": 0.03352938219474177,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-03-12",
+            "signal_state": "PRE",
+            "entry_price": 10.032,
+            "exit_price": 10.25,
+            "exit_date": "2024-04-11",
+            "holding_days": 20,
+            "pnl_pct": 0.0217304625199362,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-03-15",
+            "signal_state": "PRE",
+            "entry_price": 10.069999999999999,
+            "exit_price": 10.28,
+            "exit_date": "2024-04-16",
+            "holding_days": 20,
+            "pnl_pct": 0.020854021847070595,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-03-18",
+            "signal_state": "PRE",
+            "entry_price": 10.012999999999998,
+            "exit_price": 10.62,
+            "exit_date": "2024-04-17",
+            "holding_days": 20,
+            "pnl_pct": 0.06062119244981536,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-03-21",
+            "signal_state": "PRE",
+            "entry_price": 9.9465,
+            "exit_price": 10.94115,
+            "exit_date": "2024-04-18",
+            "holding_days": 18,
+            "pnl_pct": 0.1,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-03-26",
+            "signal_state": "PRE",
+            "entry_price": 10.069999999999999,
+            "exit_price": 10.61,
+            "exit_date": "2024-04-25",
+            "holding_days": 20,
+            "pnl_pct": 0.05362462760675283,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-03-27",
+            "signal_state": "PRE",
+            "entry_price": 10.003499999999999,
+            "exit_price": 11.00385,
+            "exit_date": "2024-04-18",
+            "holding_days": 14,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-03-29",
+            "signal_state": "PRE",
+            "entry_price": 9.994,
+            "exit_price": 10.993400000000001,
+            "exit_date": "2024-04-18",
+            "holding_days": 12,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-04-01",
+            "signal_state": "PRE",
+            "entry_price": 10.108,
+            "exit_price": 10.89,
+            "exit_date": "2024-05-06",
+            "holding_days": 20,
+            "pnl_pct": 0.07736446379105659,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-04-15",
+            "signal_state": "PRE",
+            "entry_price": 9.7755,
+            "exit_price": 10.75305,
+            "exit_date": "2024-04-18",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-04-16",
+            "signal_state": "PRE",
+            "entry_price": 9.765999999999998,
+            "exit_price": 10.7426,
+            "exit_date": "2024-04-18",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-04-17",
+            "signal_state": "PRE",
+            "entry_price": 10.088999999999999,
+            "exit_price": 11.0979,
+            "exit_date": "2024-05-06",
+            "holding_days": 10,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-04-18",
+            "signal_state": "MID",
+            "entry_price": 10.908000000000001,
+            "exit_price": 11.55,
+            "exit_date": "2024-05-21",
+            "holding_days": 20,
+            "pnl_pct": 0.0588558855885588,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-04-19",
+            "signal_state": "POST",
+            "entry_price": 10.155499999999998,
+            "exit_price": 11.17105,
+            "exit_date": "2024-05-16",
+            "holding_days": 16,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-06-07",
+            "signal_state": "PRE",
+            "entry_price": 10.4405,
+            "exit_price": 9.93,
+            "exit_date": "2024-07-08",
+            "holding_days": 20,
+            "pnl_pct": -0.048896125664479706,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-06-12",
+            "signal_state": "PRE",
+            "entry_price": 10.336,
+            "exit_price": 10.14,
+            "exit_date": "2024-07-10",
+            "holding_days": 20,
+            "pnl_pct": -0.018962848297213595,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-06-25",
+            "signal_state": "PRE",
+            "entry_price": 9.575999999999999,
+            "exit_price": 10.18,
+            "exit_date": "2024-07-23",
+            "holding_days": 20,
+            "pnl_pct": 0.06307435254803687,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-06-26",
+            "signal_state": "PRE",
+            "entry_price": 9.575999999999999,
+            "exit_price": 10.13,
+            "exit_date": "2024-07-24",
+            "holding_days": 20,
+            "pnl_pct": 0.05785296574770281,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-06-27",
+            "signal_state": "PRE",
+            "entry_price": 9.6235,
+            "exit_price": 10.09,
+            "exit_date": "2024-07-25",
+            "holding_days": 20,
+            "pnl_pct": 0.04847508702654958,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-06-28",
+            "signal_state": "PRE",
+            "entry_price": 9.6425,
+            "exit_price": 10.03,
+            "exit_date": "2024-07-26",
+            "holding_days": 20,
+            "pnl_pct": 0.04018667358050291,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-07-01",
+            "signal_state": "PRE",
+            "entry_price": 9.8325,
+            "exit_price": 10.11,
+            "exit_date": "2024-07-29",
+            "holding_days": 20,
+            "pnl_pct": 0.028222730739893197,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-07-02",
+            "signal_state": "MID",
+            "entry_price": 10.504000000000001,
+            "exit_price": 10.08,
+            "exit_date": "2024-07-30",
+            "holding_days": 20,
+            "pnl_pct": -0.04036557501904048,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-07-03",
+            "signal_state": "POST",
+            "entry_price": 9.7945,
+            "exit_price": 10.27,
+            "exit_date": "2024-07-31",
+            "holding_days": 20,
+            "pnl_pct": 0.04854765429577827,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-07-04",
+            "signal_state": "POST",
+            "entry_price": 9.747,
+            "exit_price": 10.27,
+            "exit_date": "2024-08-01",
+            "holding_days": 20,
+            "pnl_pct": 0.05365753565199546,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-07-31",
+            "signal_state": "MID",
+            "entry_price": 10.3727,
+            "exit_price": 10.33,
+            "exit_date": "2024-08-28",
+            "holding_days": 20,
+            "pnl_pct": -0.004116575240776264,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-08-01",
+            "signal_state": "POST",
+            "entry_price": 9.756499999999999,
+            "exit_price": 10.13,
+            "exit_date": "2024-08-29",
+            "holding_days": 20,
+            "pnl_pct": 0.038282170860452186,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-08-09",
+            "signal_state": "PRE",
+            "entry_price": 9.537999999999998,
+            "exit_price": 10.4918,
+            "exit_date": "2024-08-23",
+            "holding_days": 10,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-08-12",
+            "signal_state": "PRE",
+            "entry_price": 9.5095,
+            "exit_price": 10.46045,
+            "exit_date": "2024-08-23",
+            "holding_days": 9,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-08-15",
+            "signal_state": "PRE",
+            "entry_price": 9.5285,
+            "exit_price": 10.48135,
+            "exit_date": "2024-08-23",
+            "holding_days": 6,
+            "pnl_pct": 0.10000000000000017,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-08-16",
+            "signal_state": "MID",
+            "entry_price": 10.231300000000001,
+            "exit_price": 9.7,
+            "exit_date": "2024-09-13",
+            "holding_days": 20,
+            "pnl_pct": -0.05192888489243807,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-08-19",
+            "signal_state": "POST",
+            "entry_price": 9.7755,
+            "exit_price": 9.77,
+            "exit_date": "2024-09-18",
+            "holding_days": 20,
+            "pnl_pct": -0.0005626310674645406,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-08-20",
+            "signal_state": "POST",
+            "entry_price": 9.822999999999999,
+            "exit_price": 9.81,
+            "exit_date": "2024-09-19",
+            "holding_days": 20,
+            "pnl_pct": -0.0013234246156976612,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-09-06",
+            "signal_state": "PRE",
+            "entry_price": 9.575999999999999,
+            "exit_price": 10.5336,
+            "exit_date": "2024-09-25",
+            "holding_days": 11,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-09-13",
+            "signal_state": "PRE",
+            "entry_price": 9.214999999999998,
+            "exit_price": 10.136499999999998,
+            "exit_date": "2024-09-24",
+            "holding_days": 5,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-09-18",
+            "signal_state": "PRE",
+            "entry_price": 9.2815,
+            "exit_price": 10.20965,
+            "exit_date": "2024-09-24",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-09-19",
+            "signal_state": "PRE",
+            "entry_price": 9.3195,
+            "exit_price": 10.25145,
+            "exit_date": "2024-09-24",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000006,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-09-20",
+            "signal_state": "PRE",
+            "entry_price": 9.405,
+            "exit_price": 10.3455,
+            "exit_date": "2024-09-24",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-09-23",
+            "signal_state": "PRE",
+            "entry_price": 9.537999999999998,
+            "exit_price": 10.4918,
+            "exit_date": "2024-09-25",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-09-24",
+            "signal_state": "MID",
+            "entry_price": 10.4737,
+            "exit_price": 11.52107,
+            "exit_date": "2024-09-27",
+            "holding_days": 3,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-09-25",
+            "signal_state": "POST",
+            "entry_price": 9.975,
+            "exit_price": 10.9725,
+            "exit_date": "2024-09-26",
+            "holding_days": 1,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-11-05",
+            "signal_state": "PRE",
+            "entry_price": 11.067499999999999,
+            "exit_price": 11.49,
+            "exit_date": "2024-12-03",
+            "holding_days": 20,
+            "pnl_pct": 0.038174836232211545,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-11-06",
+            "signal_state": "PRE",
+            "entry_price": 10.9725,
+            "exit_price": 11.46,
+            "exit_date": "2024-12-04",
+            "holding_days": 20,
+            "pnl_pct": 0.04442925495557081,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-11-07",
+            "signal_state": "PRE",
+            "entry_price": 11.314499999999999,
+            "exit_price": 11.44,
+            "exit_date": "2024-12-05",
+            "holding_days": 20,
+            "pnl_pct": 0.011091961642140671,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-11-08",
+            "signal_state": "PRE",
+            "entry_price": 11.134,
+            "exit_price": 11.66,
+            "exit_date": "2024-12-06",
+            "holding_days": 20,
+            "pnl_pct": 0.04724268007903716,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-11-13",
+            "signal_state": "PRE",
+            "entry_price": 11.029499999999999,
+            "exit_price": 11.73,
+            "exit_date": "2024-12-11",
+            "holding_days": 20,
+            "pnl_pct": 0.06351149190806489,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-11-18",
+            "signal_state": "PRE",
+            "entry_price": 11.1625,
+            "exit_price": 11.57,
+            "exit_date": "2024-12-16",
+            "holding_days": 20,
+            "pnl_pct": 0.036506159014557726,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-11-19",
+            "signal_state": "PRE",
+            "entry_price": 11.096,
+            "exit_price": 11.53,
+            "exit_date": "2024-12-17",
+            "holding_days": 20,
+            "pnl_pct": 0.039113193943763454,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-11-20",
+            "signal_state": "PRE",
+            "entry_price": 11.058,
+            "exit_price": 11.65,
+            "exit_date": "2024-12-18",
+            "holding_days": 20,
+            "pnl_pct": 0.05353590160969439,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-11-27",
+            "signal_state": "PRE",
+            "entry_price": 10.820500000000001,
+            "exit_price": 11.902550000000002,
+            "exit_date": "2024-12-10",
+            "holding_days": 9,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-11-28",
+            "signal_state": "PRE",
+            "entry_price": 10.773,
+            "exit_price": 11.8503,
+            "exit_date": "2024-12-10",
+            "holding_days": 8,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-11-29",
+            "signal_state": "PRE",
+            "entry_price": 10.811,
+            "exit_price": 11.892100000000001,
+            "exit_date": "2024-12-10",
+            "holding_days": 7,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-12-02",
+            "signal_state": "PRE",
+            "entry_price": 10.820500000000001,
+            "exit_price": 11.902550000000002,
+            "exit_date": "2024-12-10",
+            "holding_days": 6,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-12-03",
+            "signal_state": "PRE",
+            "entry_price": 10.9155,
+            "exit_price": 12.007050000000001,
+            "exit_date": "2024-12-25",
+            "holding_days": 16,
+            "pnl_pct": 0.10000000000000014,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-12-04",
+            "signal_state": "PRE",
+            "entry_price": 10.887,
+            "exit_price": 11.975700000000002,
+            "exit_date": "2024-12-25",
+            "holding_days": 15,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-12-05",
+            "signal_state": "PRE",
+            "entry_price": 10.867999999999999,
+            "exit_price": 11.954799999999999,
+            "exit_date": "2024-12-25",
+            "holding_days": 14,
+            "pnl_pct": 0.10000000000000003,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2024-12-06",
+            "signal_state": "MID",
+            "entry_price": 11.7766,
+            "exit_price": 11.44,
+            "exit_date": "2025-01-06",
+            "holding_days": 20,
+            "pnl_pct": -0.02858210349336826,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-12-09",
+            "signal_state": "POST",
+            "entry_price": 11.0865,
+            "exit_price": 11.51,
+            "exit_date": "2025-01-07",
+            "holding_days": 20,
+            "pnl_pct": 0.03819961214089214,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-12-10",
+            "signal_state": "POST",
+            "entry_price": 11.200499999999998,
+            "exit_price": 11.5,
+            "exit_date": "2025-01-08",
+            "holding_days": 20,
+            "pnl_pct": 0.026739877684032135,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-12-23",
+            "signal_state": "MID",
+            "entry_price": 11.8473,
+            "exit_price": 11.33,
+            "exit_date": "2025-01-21",
+            "holding_days": 20,
+            "pnl_pct": -0.04366395718855778,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-12-24",
+            "signal_state": "POST",
+            "entry_price": 11.267,
+            "exit_price": 11.09,
+            "exit_date": "2025-01-22",
+            "holding_days": 20,
+            "pnl_pct": -0.015709594390698467,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2024-12-25",
+            "signal_state": "POST",
+            "entry_price": 11.324,
+            "exit_price": 11.32,
+            "exit_date": "2025-01-23",
+            "holding_days": 20,
+            "pnl_pct": -0.0003532320734722324,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-01-07",
+            "signal_state": "PRE",
+            "entry_price": 10.9345,
+            "exit_price": 11.42,
+            "exit_date": "2025-02-12",
+            "holding_days": 20,
+            "pnl_pct": 0.044400749919978055,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-01-08",
+            "signal_state": "PRE",
+            "entry_price": 10.924999999999999,
+            "exit_price": 11.5,
+            "exit_date": "2025-02-13",
+            "holding_days": 20,
+            "pnl_pct": 0.05263157894736852,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-01-14",
+            "signal_state": "PRE",
+            "entry_price": 10.811,
+            "exit_price": 11.892100000000001,
+            "exit_date": "2025-02-18",
+            "holding_days": 19,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-01-15",
+            "signal_state": "PRE",
+            "entry_price": 10.906,
+            "exit_price": 11.66,
+            "exit_date": "2025-02-20",
+            "holding_days": 20,
+            "pnl_pct": 0.06913625527232711,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-01-16",
+            "signal_state": "PRE",
+            "entry_price": 10.9915,
+            "exit_price": 11.64,
+            "exit_date": "2025-02-21",
+            "holding_days": 20,
+            "pnl_pct": 0.059000136469089776,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-01-17",
+            "signal_state": "PRE",
+            "entry_price": 10.8775,
+            "exit_price": 11.59,
+            "exit_date": "2025-02-24",
+            "holding_days": 20,
+            "pnl_pct": 0.06550218340611358,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-01-20",
+            "signal_state": "PRE",
+            "entry_price": 10.849,
+            "exit_price": 11.933900000000001,
+            "exit_date": "2025-02-18",
+            "holding_days": 15,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-01-23",
+            "signal_state": "PRE",
+            "entry_price": 10.754,
+            "exit_price": 11.8294,
+            "exit_date": "2025-02-18",
+            "holding_days": 12,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-01-24",
+            "signal_state": "PRE",
+            "entry_price": 10.773,
+            "exit_price": 11.8503,
+            "exit_date": "2025-02-18",
+            "holding_days": 11,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-01-27",
+            "signal_state": "PRE",
+            "entry_price": 10.8965,
+            "exit_price": 11.51,
+            "exit_date": "2025-03-04",
+            "holding_days": 20,
+            "pnl_pct": 0.056302482448492654,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-02-05",
+            "signal_state": "MID",
+            "entry_price": 11.483699999999999,
+            "exit_price": 11.66,
+            "exit_date": "2025-03-05",
+            "holding_days": 20,
+            "pnl_pct": 0.015352194850091979,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-02-06",
+            "signal_state": "POST",
+            "entry_price": 10.792,
+            "exit_price": 11.8712,
+            "exit_date": "2025-02-18",
+            "holding_days": 8,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-02-07",
+            "signal_state": "POST",
+            "entry_price": 10.811,
+            "exit_price": 11.892100000000001,
+            "exit_date": "2025-02-18",
+            "holding_days": 7,
+            "pnl_pct": 0.1000000000000001,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-03-05",
+            "signal_state": "PRE",
+            "entry_price": 11.077,
+            "exit_price": 11.37,
+            "exit_date": "2025-04-02",
+            "holding_days": 20,
+            "pnl_pct": 0.026451205199963822,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-03-06",
+            "signal_state": "MID",
+            "entry_price": 11.746300000000002,
+            "exit_price": 11.34,
+            "exit_date": "2025-04-03",
+            "holding_days": 20,
+            "pnl_pct": -0.034589615453376944,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-03-07",
+            "signal_state": "POST",
+            "entry_price": 11.0865,
+            "exit_price": 10.7,
+            "exit_date": "2025-04-07",
+            "holding_days": 20,
+            "pnl_pct": -0.03486221981689441,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-03-25",
+            "signal_state": "PRE",
+            "entry_price": 10.8585,
+            "exit_price": 11.01,
+            "exit_date": "2025-04-23",
+            "holding_days": 20,
+            "pnl_pct": 0.013952203343003216,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-03-27",
+            "signal_state": "PRE",
+            "entry_price": 10.820500000000001,
+            "exit_price": 11.01,
+            "exit_date": "2025-04-25",
+            "holding_days": 20,
+            "pnl_pct": 0.01751305392541924,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-03-28",
+            "signal_state": "PRE",
+            "entry_price": 10.782499999999999,
+            "exit_price": 11.0,
+            "exit_date": "2025-04-28",
+            "holding_days": 20,
+            "pnl_pct": 0.02017157431022501,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-04-01",
+            "signal_state": "PRE",
+            "entry_price": 10.706499999999998,
+            "exit_price": 10.91,
+            "exit_date": "2025-04-30",
+            "holding_days": 20,
+            "pnl_pct": 0.01900714519217315,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-04-02",
+            "signal_state": "PRE",
+            "entry_price": 10.801499999999999,
+            "exit_price": 10.96,
+            "exit_date": "2025-05-06",
+            "holding_days": 20,
+            "pnl_pct": 0.014673887885941941,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-04-03",
+            "signal_state": "PRE",
+            "entry_price": 10.773,
+            "exit_price": 11.03,
+            "exit_date": "2025-05-07",
+            "holding_days": 20,
+            "pnl_pct": 0.023855936136637862,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-04-10",
+            "signal_state": "PRE",
+            "entry_price": 10.355,
+            "exit_price": 11.29,
+            "exit_date": "2025-05-13",
+            "holding_days": 20,
+            "pnl_pct": 0.09029454369869616,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-04-11",
+            "signal_state": "PRE",
+            "entry_price": 10.3455,
+            "exit_price": 11.38005,
+            "exit_date": "2025-05-14",
+            "holding_days": 20,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-04-14",
+            "signal_state": "PRE",
+            "entry_price": 10.3835,
+            "exit_price": 11.421850000000001,
+            "exit_date": "2025-05-14",
+            "holding_days": 19,
+            "pnl_pct": 0.10000000000000012,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-04-15",
+            "signal_state": "PRE",
+            "entry_price": 10.402499999999998,
+            "exit_price": 11.442749999999998,
+            "exit_date": "2025-05-14",
+            "holding_days": 18,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-04-16",
+            "signal_state": "PRE",
+            "entry_price": 10.45,
+            "exit_price": 11.495000000000001,
+            "exit_date": "2025-05-15",
+            "holding_days": 18,
+            "pnl_pct": 0.10000000000000017,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-04-17",
+            "signal_state": "PRE",
+            "entry_price": 10.507,
+            "exit_price": 11.39,
+            "exit_date": "2025-05-20",
+            "holding_days": 20,
+            "pnl_pct": 0.08403921195393556,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-04-18",
+            "signal_state": "MID",
+            "entry_price": 11.2918,
+            "exit_price": 11.48,
+            "exit_date": "2025-05-21",
+            "holding_days": 20,
+            "pnl_pct": 0.016666961866132958,
+            "exit_reason": "超时出场"
+          },
+          {
+            "signal_date": "2025-04-21",
+            "signal_state": "POST",
+            "entry_price": 10.469,
+            "exit_price": 11.5159,
+            "exit_date": "2025-05-21",
+            "holding_days": 19,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-04-22",
+            "signal_state": "POST",
+            "entry_price": 10.488,
+            "exit_price": 11.536800000000001,
+            "exit_date": "2025-05-21",
+            "holding_days": 18,
+            "pnl_pct": 0.10000000000000017,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-06-16",
+            "signal_state": "PRE",
+            "entry_price": 11.200499999999998,
+            "exit_price": 12.320549999999999,
+            "exit_date": "2025-06-26",
+            "holding_days": 8,
+            "pnl_pct": 0.10000000000000009,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-06-20",
+            "signal_state": "PRE",
+            "entry_price": 11.248,
+            "exit_price": 12.3728,
+            "exit_date": "2025-06-26",
+            "holding_days": 4,
+            "pnl_pct": 0.10000000000000005,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-06-23",
+            "signal_state": "MID",
+            "entry_price": 12.0493,
+            "exit_price": 13.254230000000002,
+            "exit_date": "2025-07-10",
+            "holding_days": 13,
+            "pnl_pct": 0.10000000000000007,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-06-24",
+            "signal_state": "POST",
+            "entry_price": 11.333499999999999,
+            "exit_price": 12.466849999999999,
+            "exit_date": "2025-06-26",
+            "holding_days": 2,
+            "pnl_pct": 0.10000000000000002,
+            "exit_reason": "止盈"
+          },
+          {
+            "signal_date": "2025-06-25",
+            "signal_state": "POST",
+            "entry_price": 11.457,
+            "exit_price": 12.602700000000002,
+            "exit_date": "2025-07-04",
+            "holding_days": 7,
+            "pnl_pct": 0.10000000000000013,
+            "exit_reason": "止盈"
+          }
+        ],
+        "parameters_used": {
+          "pre_entry_discount": 0.05,
+          "pre_entry_discount_2": 0.05,
+          "mid_entry_premium": 0.01,
+          "post_entry_discount": 0.05,
+          "conservative_stop": 0.03,
+          "moderate_stop": 0.08,
+          "aggressive_stop": 0.08,
+          "conservative_profit": 0.08,
+          "moderate_profit": 0.1,
+          "aggressive_profit": 0.2,
+          "conservative_position": 0.3,
+          "moderate_position": 0.5,
+          "aggressive_position": 0.7,
+          "support_lookback": 20,
+          "resistance_lookback": 20,
+          "ma_periods": [
+            5,
+            10,
+            20
+          ],
+          "max_holding_days": 20,
+          "trend_confirm_days": 5,
+          "volume_threshold": 2.0
+        },
+        "risk_level": "moderate"
+      },
+      "best_advisor": "<parametric_advisor.ParametricTradingAdvisor object at 0x7617b356cda0>"
+    },
+    "trading_advice": {
+      "latest_signal_date": "2025-06-25",
+      "latest_signal_state": "POST",
+      "advice": {
+        "signal_info": {
+          "date": "2025-06-25",
+          "signal_state": "POST",
+          "current_price": 12.06,
+          "parameters_used": {
+            "pre_entry_discount": 0.05,
+            "pre_entry_discount_2": 0.05,
+            "mid_entry_premium": 0.01,
+            "post_entry_discount": 0.05,
+            "conservative_stop": 0.03,
+            "moderate_stop": 0.08,
+            "aggressive_stop": 0.08,
+            "conservative_profit": 0.08,
+            "moderate_profit": 0.1,
+            "aggressive_profit": 0.2,
+            "conservative_position": 0.3,
+            "moderate_position": 0.5,
+            "aggressive_position": 0.7,
+            "support_lookback": 20,
+            "resistance_lookback": 20,
+            "ma_periods": [
+              5,
+              10,
+              20
+            ],
+            "max_holding_days": 20,
+            "trend_confirm_days": 5,
+            "volume_threshold": 2.0
+          }
+        },
+        "entry_strategies": [
+          {
+            "strategy": "参数化回调买入",
+            "entry_price_1": 11.46,
+            "entry_price_2": 11.16,
+            "position_allocation": "等待5%回调后建仓",
+            "rationale": "基于5.0%回调参数"
+          }
+        ],
+        "risk_management": {
+          "stop_loss_levels": {
+            "conservative": 11.7,
+            "moderate": 11.1,
+            "aggressive": 11.1,
+            "technical": 11.65
+          },
+          "take_profit_levels": {
+            "conservative": 13.02,
+            "moderate": 13.27,
+            "aggressive": 14.47
+          },
+          "position_sizing": {
+            "conservative": "30%",
+            "moderate": "50%",
+            "aggressive": "70%"
+          },
+          "max_holding_period": "20个交易日"
+        },
+        "timing_advice": {}
+      }
+    },
+    "risk_assessment": {
+      "volatility": 0.30590786224943334,
+      "max_drawdown": -0.6389444222311076,
+      "signal_count": 348,
+      "signal_density": 0.25892857142857145,
+      "trend_stability": 0.9880225157154102,
+      "overall_risk_score": 0.5447262897995466,
+      "risk_level": "medium"
+    },
+    "overall_score": {
+      "total_score": 81.28119257537163,
+      "max_score": 100,
+      "score_percentage": 0.8128119257537163,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "grade": "A",
+      "confidence": 0.8128119257537163,
+      "reason": "综合评分优秀，技术指标良好，建议买入",
+      "risk_warning": "投资有风险，建议结合个人风险承受能力决策"
+    },
+    "price_evaluation": {
+      "evaluation_time": "2025-07-23T08:54:45.879000",
+      "stock_code": "sz000001",
+      "current_price": 12.61,
+      "grade": "A",
+      "evaluation_details": {
+        "entry_strategy": "参数化回调买入",
+        "target_price_1": 11.46,
+        "target_price_2": 11.16,
+        "position_allocation": "等待5%回调后建仓",
+        "discount_1": 0.09119746233148285,
+        "discount_2": 0.11498810467882628,
+        "stop_loss": {
+          "conservative": 11.7,
+          "moderate": 11.1,
+          "aggressive": 11.1,
+          "technical": 11.65
+        },
+        "take_profit": {
+          "conservative": 13.02,
+          "moderate": 13.27,
+          "aggressive": 14.47
+        }
+      }
+    }
+  }
+}

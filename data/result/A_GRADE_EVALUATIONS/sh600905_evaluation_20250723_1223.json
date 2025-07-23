@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T12:23:04.501316",
+  "stock_code": "sh600905",
+  "current_price": 4.37,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 4.41,
+    "target_price_2": 4.4,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009153318077803212,
+    "discount_2": -0.00686498855835246,
+    "stop_loss": {
+      "conservative": 4.24,
+      "moderate": 4.02,
+      "aggressive": 4.02,
+      "technical": 4.23
+    },
+    "take_profit": {
+      "conservative": 4.72,
+      "moderate": 4.81,
+      "aggressive": 5.24
+    }
+  }
+}

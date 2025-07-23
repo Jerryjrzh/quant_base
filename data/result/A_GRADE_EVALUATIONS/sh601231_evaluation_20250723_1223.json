@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T12:23:27.410191",
+  "stock_code": "sh601231",
+  "current_price": 14.62,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 14.77,
+    "target_price_2": 14.71,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010259917920656659,
+    "discount_2": -0.006155950752394093,
+    "stop_loss": {
+      "conservative": 14.18,
+      "moderate": 13.45,
+      "aggressive": 13.45,
+      "technical": 14.2
+    },
+    "take_profit": {
+      "conservative": 15.79,
+      "moderate": 16.08,
+      "aggressive": 17.54
+    }
+  }
+}

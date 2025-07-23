@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T12:24:11.658715",
+  "stock_code": "sz000554",
+  "current_price": 6.93,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 6.58,
+    "target_price_2": 6.58,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.050505050505050456,
+    "discount_2": 0.050505050505050456,
+    "stop_loss": {
+      "conservative": 6.72,
+      "moderate": 6.38,
+      "aggressive": 6.38,
+      "technical": 6.77
+    },
+    "take_profit": {
+      "conservative": 7.48,
+      "moderate": 7.62,
+      "aggressive": 8.32
+    }
+  }
+}

@@ -13,14 +13,19 @@ import strategies
 import indicators
 from parametric_advisor import ParametricTradingAdvisor, TradingParameters
 from trading_advisor import TradingAdvisor
+from performance_optimizer import OptimizedParameterSearch, SmartCache
 
 class EnhancedTradingAnalyzer:
-    """增强交易分析器"""
+    """增强交易分析器 - 性能优化版本"""
     
     def __init__(self):
         self.base_path = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
         self.cache_dir = "analysis_cache"
         os.makedirs(self.cache_dir, exist_ok=True)
+        
+        # 初始化性能优化组件
+        self.parameter_search = OptimizedParameterSearch(max_workers=32)
+        self.smart_cache = SmartCache()
     
     def analyze_stock_comprehensive(self, stock_code, use_optimized_params=True):
         """综合分析单只股票"""
@@ -174,8 +179,15 @@ class EnhancedTradingAnalyzer:
             return {'error': f'参数化分析失败: {e}'}
     
     def _quick_optimize(self, df, signals):
-        """快速参数优化（减少搜索空间）"""
+        """快速参数优化（增强多线程版本）"""
         try:
+            from concurrent.futures import ThreadPoolExecutor, as_completed
+            import itertools
+            import multiprocessing
+            import time
+            
+            start_time = time.time()
+            
             # 简化的参数搜索空间
             param_ranges = {
                 'pre_entry_discount': [0.02, 0.03, 0.05],
@@ -184,37 +196,81 @@ class EnhancedTradingAnalyzer:
                 'max_holding_days': [20, 30]
             }
             
+            combinations = list(itertools.product(*param_ranges.values()))
+            total_combinations = len(combinations)
+            
+            # 动态确定线程数
+            max_workers = min(multiprocessing.cpu_count() * 2, total_combinations, 32)
+            
+            print(f"⚙️ 参数优化: 测试 {total_combinations} 种组合 (线程数: {max_workers})")
+            
+            def test_parameter_combination(combination):
+                """测试单个参数组合"""
+                try:
+                    test_params = TradingParameters()
+                    test_params.pre_entry_discount = combination[0]
+                    test_params.moderate_stop = combination[1]
+                    test_params.moderate_profit = combination[2]
+                    test_params.max_holding_days = combination[3]
+                    
+                    test_advisor = ParametricTradingAdvisor(test_params)
+                    result = test_advisor.backtest_parameters(df, signals, 'moderate')
+                    
+                    if 'error' not in result and result['total_trades'] >= 1:
+                        # 综合评分：胜率 * 0.6 + 平均收益 * 0.4
+                        score = result['win_rate'] * 0.6 + max(0, result['avg_pnl']) * 0.4
+                        return (score, test_params, result)
+                    else:
+                        return (0, None, None)
+                except Exception as e:
+                    return (0, None, None)
+            
             best_params = None
             best_score = -1
+            best_result = None
+            completed = 0
             
-            import itertools
-            combinations = list(itertools.product(*param_ranges.values()))
+            # 使用多线程并行测试参数组合
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                # 批量提交任务
+                future_to_combination = {
+                    executor.submit(test_parameter_combination, combo): combo 
+                    for combo in combinations
+                }
+                
+                # 处理完成的任务
+                for future in as_completed(future_to_combination):
+                    completed += 1
+                    
+                    # 每完成25%显示一次进度
+                    if completed % max(1, total_combinations // 4) == 0 or completed == total_combinations:
+                        progress = completed / total_combinations * 100
+                        elapsed = time.time() - start_time
+                        print(f"   ⏳ 参数优化进度: {progress:.1f}% ({completed}/{total_combinations}, 耗时: {elapsed:.1f}秒)")
+                    
+                    try:
+                        score, params, result = future.result()
+                        if score > best_score:
+                            best_score = score
+                            best_params = params
+                            best_result = result
+                    except Exception as e:
+                        continue
             
-            for combination in combinations:
-                test_params = TradingParameters()
-                test_params.pre_entry_discount = combination[0]
-                test_params.moderate_stop = combination[1]
-                test_params.moderate_profit = combination[2]
-                test_params.max_holding_days = combination[3]
-                
-                test_advisor = ParametricTradingAdvisor(test_params)
-                result = test_advisor.backtest_parameters(df, signals, 'moderate')
-                
-                if 'error' not in result and result['total_trades'] >= 1:
-                    # 综合评分：胜率 * 0.6 + 平均收益 * 0.4
-                    score = result['win_rate'] * 0.6 + max(0, result['avg_pnl']) * 0.4
-                    if score > best_score:
-                        best_score = score
-                        best_params = test_params
+            total_time = time.time() - start_time
+            print(f"✅ 参数优化完成! 耗时: {total_time:.2f}秒, 最佳得分: {best_score:.3f}")
             
             return {
                 'best_parameters': best_params,
                 'best_score': best_score,
-                'optimization_target': 'composite_score'
+                'best_result': best_result,
+                'optimization_target': 'composite_score',
+                'combinations_tested': total_combinations,
+                'optimization_time': total_time
             }
             
         except Exception as e:
-            print(f"快速优化失败: {e}")
+            print(f"❌ 快速优化失败: {e}")
             return None
     
     def _save_optimization_result(self, stock_code, result):
@@ -428,25 +484,48 @@ class EnhancedTradingAnalyzer:
         except Exception as e:
             return {'error': f'生成建议失败: {e}'}
     
-    def batch_analyze_stocks(self, stock_codes, use_optimized_params=True):
-        """批量分析股票"""
-        print(f"🚀 开始批量分析 {len(stock_codes)} 只股票")
+    def batch_analyze_stocks(self, stock_codes, use_optimized_params=True, max_workers=None):
+        """批量分析股票 (多线程版本)"""
+        from concurrent.futures import ThreadPoolExecutor, as_completed
+        import multiprocessing
+        
+        # 自动确定线程数
+        if max_workers is None:
+            max_workers = min(multiprocessing.cpu_count() * 2, len(stock_codes), 16)
+        
+        print(f"🚀 开始多线程批量分析 {len(stock_codes)} 只股票 (线程数: {max_workers})")
         
         results = {}
+        completed = 0
         
-        for i, stock_code in enumerate(stock_codes, 1):
-            print(f"\n[{i}/{len(stock_codes)}] 分析 {stock_code}...")
+        # 使用线程池执行分析
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # 提交所有任务
+            future_to_stock = {
+                executor.submit(self.analyze_stock_comprehensive, stock_code, use_optimized_params): stock_code 
+                for stock_code in stock_codes
+            }
             
-            result = self.analyze_stock_comprehensive(stock_code, use_optimized_params)
-            results[stock_code] = result
-            
-            if 'error' not in result:
-                score = result['overall_score']['total_score']
-                grade = result['overall_score']['grade']
-                action = result['recommendation']['action']
-                print(f"✅ {stock_code}: 评分 {score:.1f}, 等级 {grade}, 建议 {action}")
-            else:
-                print(f"❌ {stock_code}: {result['error']}")
+            # 处理完成的任务
+            for future in as_completed(future_to_stock):
+                stock_code = future_to_stock[future]
+                completed += 1
+                
+                try:
+                    result = future.result()
+                    results[stock_code] = result
+                    
+                    if 'error' not in result:
+                        score = result['overall_score']['total_score']
+                        grade = result['overall_score']['grade']
+                        action = result['recommendation']['action']
+                        print(f"✅ [{completed}/{len(stock_codes)}] {stock_code}: 评分 {score:.1f}, 等级 {grade}, 建议 {action}")
+                    else:
+                        print(f"❌ [{completed}/{len(stock_codes)}] {stock_code}: {result['error']}")
+                        
+                except Exception as e:
+                    print(f"❌ [{completed}/{len(stock_codes)}] {stock_code}: 处理异常 {e}")
+                    results[stock_code] = {'error': f'处理异常: {e}'}
         
         # 生成排名
         valid_results = {k: v for k, v in results.items() if 'error' not in v}

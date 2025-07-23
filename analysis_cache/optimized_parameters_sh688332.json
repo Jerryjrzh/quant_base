@@ -1,6 +1,6 @@
 {
   "stock_code": "sh688332",
-  "optimization_date": "2025-07-22T18:04:05.186293",
+  "optimization_date": "2025-07-23T11:19:17.093956",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -22,7 +22,7 @@
       10,
       20
     ],
-    "max_holding_days": 20,
+    "max_holding_days": 30,
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },

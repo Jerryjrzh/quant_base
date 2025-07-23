@@ -1,0 +1,179 @@
+2025-07-23 17:25:58,297 - __main__ - INFO - 开始执行第一阶段：深度海选与参数优化
+2025-07-23 17:25:58,297 - __main__ - INFO - sz000001 优化完成，得分: 0.849
+2025-07-23 17:25:58,298 - __main__ - INFO - 核心观察池已更新，包含1只股票
+2025-07-23 17:25:58,298 - __main__ - INFO - 第一阶段完成：处理2只股票，筛选出1只高质量股票
+2025-07-23 17:25:58,298 - __main__ - INFO - 开始执行第二阶段：每日验证与信号触发
+2025-07-23 17:25:58,298 - __main__ - INFO - sz000001 触发信号: buy - 置信度: 0.877
+2025-07-23 17:25:58,298 - __main__ - INFO - 每日报告已保存: reports/daily_signals_20250723_172558.json
+2025-07-23 17:25:58,298 - __main__ - INFO - 已记录 1 个信号到历史记录
+2025-07-23 17:25:58,298 - __main__ - INFO - 第二阶段完成：验证1只股票，生成1个信号
+2025-07-23 17:25:58,298 - __main__ - INFO - 开始执行第三阶段：绩效跟踪与反馈
+2025-07-23 17:25:58,298 - __main__ - INFO - 第三阶段完成：更新5条记录，调整2只股票
+2025-07-23 17:27:01,715 - workflow_manager - INFO - 开始执行第二阶段：每日验证与信号触发
+2025-07-23 17:27:01,715 - workflow_manager - INFO - 第二阶段完成：验证1只股票，生成0个信号
+2025-07-23 17:27:48,002 - workflow_manager - INFO - 开始执行第一阶段：深度海选与参数优化
+2025-07-23 17:27:48,003 - workflow_manager - INFO - sz000001 优化完成，得分: 0.667
+2025-07-23 17:27:48,003 - workflow_manager - INFO - 核心观察池已更新，包含1只股票
+2025-07-23 17:27:48,003 - workflow_manager - INFO - 第一阶段完成：处理1只股票，筛选出1只高质量股票
+2025-07-23 17:27:48,003 - workflow_manager - INFO - 开始执行第二阶段：每日验证与信号触发
+2025-07-23 17:27:48,003 - workflow_manager - INFO - 第二阶段完成：验证1只股票，生成0个信号
+2025-07-23 17:27:48,003 - workflow_manager - INFO - 开始执行第三阶段：绩效跟踪与反馈
+2025-07-23 17:27:48,003 - workflow_manager - INFO - 第三阶段完成：更新5条记录，调整2只股票
+2025-07-23 17:30:07,963 - __main__ - INFO - 跳过phase1：未到执行时间
+2025-07-23 17:30:07,963 - __main__ - INFO - 跳过phase2：未到执行时间
+2025-07-23 17:30:07,963 - __main__ - INFO - 跳过phase3：未到执行时间
+2025-07-23 17:33:07,416 - workflow_manager - INFO - 跳过phase1：未到执行时间
+2025-07-23 17:33:07,416 - workflow_manager - INFO - 跳过phase2：未到执行时间
+2025-07-23 17:33:07,416 - workflow_manager - INFO - 跳过phase3：未到执行时间
+2025-07-23 17:33:27,539 - workflow_manager - INFO - 开始执行第一阶段：深度海选与参数优化
+2025-07-23 17:33:27,540 - workflow_manager - INFO - sh000001 优化完成，得分: 0.678
+2025-07-23 17:33:27,540 - workflow_manager - INFO - sz000001 优化完成，得分: 0.753
+2025-07-23 17:33:27,540 - workflow_manager - INFO - 核心观察池已更新，包含2只股票
+2025-07-23 17:33:27,540 - workflow_manager - INFO - 第一阶段完成：处理2只股票，筛选出2只高质量股票
+2025-07-23 17:33:51,222 - workflow_manager - INFO - 开始执行第二阶段：每日验证与信号触发
+2025-07-23 17:33:51,222 - workflow_manager - INFO - 第二阶段完成：验证2只股票，生成0个信号
+2025-07-23 17:34:01,973 - workflow_manager - INFO - 开始执行第三阶段：绩效跟踪与反馈
+2025-07-23 17:34:01,973 - workflow_manager - INFO - 第三阶段完成：更新5条记录，调整2只股票
+2025-07-23 17:34:17,755 - workflow_manager - INFO - 开始执行第一阶段：深度海选与参数优化
+2025-07-23 17:34:17,755 - workflow_manager - INFO - sz000001 优化完成，得分: 0.687
+2025-07-23 17:34:17,755 - workflow_manager - INFO - sh000001 优化完成，得分: 0.864
+2025-07-23 17:34:17,756 - workflow_manager - INFO - 核心观察池已更新，包含2只股票
+2025-07-23 17:34:17,756 - workflow_manager - INFO - 第一阶段完成：处理2只股票，筛选出2只高质量股票
+2025-07-23 17:34:17,756 - workflow_manager - INFO - 开始执行第二阶段：每日验证与信号触发
+2025-07-23 17:34:17,756 - workflow_manager - INFO - sh000001 触发信号: sell - 置信度: 0.826
+2025-07-23 17:34:17,756 - workflow_manager - INFO - sz000001 触发信号: buy - 置信度: 0.705
+2025-07-23 17:34:17,756 - workflow_manager - INFO - 每日报告已保存: reports/daily_signals_20250723_173417.json
+2025-07-23 17:34:17,757 - workflow_manager - INFO - 已记录 2 个信号到历史记录
+2025-07-23 17:34:17,757 - workflow_manager - INFO - 第二阶段完成：验证2只股票，生成2个信号
+2025-07-23 17:34:17,757 - workflow_manager - INFO - 开始执行第三阶段：绩效跟踪与反馈
+2025-07-23 17:34:17,757 - workflow_manager - INFO - 第三阶段完成：更新5条记录，调整2只股票
+2025-07-23 17:37:10,382 - workflow_manager - INFO - 开始执行第一阶段：深度海选与参数优化
+2025-07-23 17:37:10,382 - workflow_manager - INFO - sh000001 优化完成，得分: 0.821
+2025-07-23 17:37:10,382 - workflow_manager - INFO - sz000001 优化完成，得分: 0.819
+2025-07-23 17:37:10,382 - workflow_manager - INFO - 核心观察池已更新，包含2只股票
+2025-07-23 17:37:10,382 - workflow_manager - INFO - 第一阶段完成：处理2只股票，筛选出2只高质量股票
+2025-07-23 17:38:46,872 - workflow_manager - INFO - 开始执行第一阶段：深度海选与参数优化
+2025-07-23 17:38:46,872 - workflow_manager - INFO - sh600519 优化完成，得分: 0.774
+2025-07-23 17:38:46,872 - workflow_manager - INFO - sh601398 优化完成，得分: 0.754
+2025-07-23 17:38:46,872 - workflow_manager - INFO - sh601988 优化完成，得分: 0.840
+2025-07-23 17:38:46,872 - workflow_manager - INFO - sh600276 优化完成，得分: 0.608
+2025-07-23 17:38:46,872 - workflow_manager - INFO - sh600030 优化完成，得分: 0.746
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh600690 优化完成，得分: 0.673
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh600703 优化完成，得分: 0.704
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh600745 优化完成，得分: 0.608
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh600809 优化完成，得分: 0.660
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh600837 优化完成，得分: 0.677
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh600900 优化完成，得分: 0.802
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601088 优化完成，得分: 0.631
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601169 优化完成，得分: 0.721
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601211 优化完成，得分: 0.796
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601229 优化完成，得分: 0.604
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601328 优化完成，得分: 0.715
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601336 优化完成，得分: 0.652
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601390 优化完成，得分: 0.789
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601688 优化完成，得分: 0.850
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601788 优化完成，得分: 0.717
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601857 优化完成，得分: 0.625
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601919 优化完成，得分: 0.891
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601939 优化完成，得分: 0.899
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sh601988 优化完成，得分: 0.899
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sz000001 优化完成，得分: 0.695
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sz000858 优化完成，得分: 0.663
+2025-07-23 17:38:46,873 - workflow_manager - INFO - sz002415 优化完成，得分: 0.767
+2025-07-23 17:38:46,873 - workflow_manager - INFO - 核心观察池已更新，包含27只股票
+2025-07-23 17:38:46,873 - workflow_manager - INFO - 第一阶段完成：处理50只股票，筛选出27只高质量股票
+2025-07-23 17:39:54,407 - workflow_manager - INFO - 开始执行第二阶段：每日验证与信号触发
+2025-07-23 17:39:54,407 - workflow_manager - INFO - sh601988 触发信号: buy - 置信度: 0.759
+2025-07-23 17:39:54,407 - workflow_manager - INFO - 每日报告已保存: reports/daily_signals_20250723_173954.json
+2025-07-23 17:39:54,408 - workflow_manager - INFO - 已记录 1 个信号到历史记录
+2025-07-23 17:39:54,408 - workflow_manager - INFO - 第二阶段完成：验证27只股票，生成1个信号
+2025-07-23 17:57:18,186 - workflow_manager - INFO - 跳过phase1：未到执行时间
+2025-07-23 17:57:18,186 - workflow_manager - INFO - 跳过phase2：未到执行时间
+2025-07-23 17:57:18,186 - workflow_manager - INFO - 跳过phase3：未到执行时间
+2025-07-23 18:38:18,010 - workflow_manager - INFO - 试运行模式启动
+2025-07-23 18:38:18,010 - workflow_manager - INFO - 跳过phase1：未到执行时间
+2025-07-23 18:38:18,010 - workflow_manager - INFO - 跳过phase2：未到执行时间
+2025-07-23 18:38:18,010 - workflow_manager - INFO - 跳过phase3：未到执行时间
+2025-07-23 18:38:37,737 - workflow_manager - INFO - 开始执行第二阶段：每日验证与信号触发
+2025-07-23 18:38:37,739 - workflow_manager - INFO - sz000725 触发信号: sell - 置信度: 0.799
+2025-07-23 18:38:37,739 - workflow_manager - INFO - sh601228 触发信号: buy - 置信度: 0.745
+2025-07-23 18:38:37,739 - workflow_manager - INFO - 每日报告已保存: reports/daily_signals_20250723_183837.json
+2025-07-23 18:38:37,740 - workflow_manager - INFO - 已记录 2 个信号到历史记录
+2025-07-23 18:38:37,740 - workflow_manager - INFO - 第二阶段完成：验证392只股票，生成2个信号
+2025-07-23 18:39:03,206 - workflow_manager - INFO - 开始执行第一阶段：深度海选与参数优化
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh600000 优化完成，得分: 0.700
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh600036 优化完成，得分: 0.657
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601398 优化完成，得分: 0.633
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601988 优化完成，得分: 0.628
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh600276 优化完成，得分: 0.800
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh600030 优化完成，得分: 0.839
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh600585 优化完成，得分: 0.607
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh600703 优化完成，得分: 0.727
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh600745 优化完成，得分: 0.725
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh600837 优化完成，得分: 0.665
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh600893 优化完成，得分: 0.769
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601088 优化完成，得分: 0.718
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601166 优化完成，得分: 0.854
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601169 优化完成，得分: 0.863
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601186 优化完成，得分: 0.660
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601211 优化完成，得分: 0.761
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601229 优化完成，得分: 0.843
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601288 优化完成，得分: 0.683
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601336 优化完成，得分: 0.634
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601601 优化完成，得分: 0.840
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601668 优化完成，得分: 0.768
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601688 优化完成，得分: 0.777
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601857 优化完成，得分: 0.684
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601888 优化完成，得分: 0.858
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601919 优化完成，得分: 0.639
+2025-07-23 18:39:03,206 - workflow_manager - INFO - sh601988 优化完成，得分: 0.700
+2025-07-23 18:39:03,207 - workflow_manager - INFO - sh601998 优化完成，得分: 0.746
+2025-07-23 18:39:03,207 - workflow_manager - INFO - sz000001 优化完成，得分: 0.671
+2025-07-23 18:39:03,207 - workflow_manager - INFO - sz000002 优化完成，得分: 0.644
+2025-07-23 18:39:03,207 - workflow_manager - INFO - 核心观察池已更新，包含29只股票
+2025-07-23 18:39:03,207 - workflow_manager - INFO - 第一阶段完成：处理50只股票，筛选出29只高质量股票
+2025-07-23 18:39:15,861 - workflow_manager - INFO - 开始执行第三阶段：绩效跟踪与反馈
+2025-07-23 18:39:15,861 - workflow_manager - INFO - 第三阶段完成：更新5条记录，调整2只股票
+2025-07-23 18:39:30,646 - workflow_manager - INFO - 开始执行第一阶段：深度海选与参数优化
+2025-07-23 18:39:30,646 - workflow_manager - INFO - sh600000 优化完成，得分: 0.628
+2025-07-23 18:39:30,646 - workflow_manager - INFO - sh600887 优化完成，得分: 0.716
+2025-07-23 18:39:30,646 - workflow_manager - INFO - sh601398 优化完成，得分: 0.755
+2025-07-23 18:39:30,646 - workflow_manager - INFO - sh601857 优化完成，得分: 0.676
+2025-07-23 18:39:30,646 - workflow_manager - INFO - sh601988 优化完成，得分: 0.782
+2025-07-23 18:39:30,646 - workflow_manager - INFO - sh600030 优化完成，得分: 0.682
+2025-07-23 18:39:30,646 - workflow_manager - INFO - sh600585 优化完成，得分: 0.864
+2025-07-23 18:39:30,646 - workflow_manager - INFO - sh600690 优化完成，得分: 0.839
+2025-07-23 18:39:30,646 - workflow_manager - INFO - sh600745 优化完成，得分: 0.686
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh600809 优化完成，得分: 0.837
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh600893 优化完成，得分: 0.868
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh600900 优化完成，得分: 0.641
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601066 优化完成，得分: 0.766
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601088 优化完成，得分: 0.756
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601138 优化完成，得分: 0.627
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601166 优化完成，得分: 0.839
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601169 优化完成，得分: 0.851
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601186 优化完成，得分: 0.847
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601211 优化完成，得分: 0.794
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601229 优化完成，得分: 0.633
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601390 优化完成，得分: 0.637
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601601 优化完成，得分: 0.780
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601628 优化完成，得分: 0.603
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601668 优化完成，得分: 0.643
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601688 优化完成，得分: 0.713
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601766 优化完成，得分: 0.688
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601788 优化完成，得分: 0.833
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601888 优化完成，得分: 0.650
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601899 优化完成，得分: 0.703
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601919 优化完成，得分: 0.654
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601939 优化完成，得分: 0.888
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sh601998 优化完成，得分: 0.834
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sz000001 优化完成，得分: 0.600
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sz000002 优化完成，得分: 0.681
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sz000858 优化完成，得分: 0.796
+2025-07-23 18:39:30,647 - workflow_manager - INFO - sz300059 优化完成，得分: 0.898
+2025-07-23 18:39:30,648 - workflow_manager - INFO - 核心观察池已更新，包含36只股票
+2025-07-23 18:39:30,648 - workflow_manager - INFO - 第一阶段完成：处理50只股票，筛选出36只高质量股票
+2025-07-23 18:39:30,648 - workflow_manager - INFO - 开始执行第二阶段：每日验证与信号触发
+2025-07-23 18:39:30,648 - workflow_manager - INFO - 第二阶段完成：验证36只股票，生成0个信号
+2025-07-23 18:39:30,648 - workflow_manager - INFO - 开始执行第三阶段：绩效跟踪与反馈
+2025-07-23 18:39:30,648 - workflow_manager - INFO - 第三阶段完成：更新5条记录，调整2只股票

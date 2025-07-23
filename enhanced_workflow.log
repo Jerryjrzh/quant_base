@@ -1,0 +1,1057 @@
+2025-07-23 18:48:43,028 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 18:48:43,028 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 18:48:43,028 - stock_pool_manager - ERROR - 获取统计信息失败: '>' not supported between instances of 'NoneType' and 'int'
+2025-07-23 18:49:08,953 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 18:49:08,953 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 18:49:25,864 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 18:49:25,864 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 18:49:25,877 - stock_pool_manager - INFO - 股票 sz300059 已添加到核心观察池
+2025-07-23 18:49:25,883 - stock_pool_manager - INFO - 股票 sh601939 已添加到核心观察池
+2025-07-23 18:49:25,889 - stock_pool_manager - INFO - 股票 sh600893 已添加到核心观察池
+2025-07-23 18:49:25,895 - stock_pool_manager - INFO - 股票 sh600585 已添加到核心观察池
+2025-07-23 18:49:25,901 - stock_pool_manager - INFO - 股票 sh601169 已添加到核心观察池
+2025-07-23 18:49:25,907 - stock_pool_manager - INFO - 股票 sh601186 已添加到核心观察池
+2025-07-23 18:49:25,913 - stock_pool_manager - INFO - 股票 sh600690 已添加到核心观察池
+2025-07-23 18:49:25,919 - stock_pool_manager - INFO - 股票 sh601166 已添加到核心观察池
+2025-07-23 18:49:25,925 - stock_pool_manager - INFO - 股票 sh600809 已添加到核心观察池
+2025-07-23 18:49:25,931 - stock_pool_manager - INFO - 股票 sh601998 已添加到核心观察池
+2025-07-23 18:49:25,937 - stock_pool_manager - INFO - 股票 sh601788 已添加到核心观察池
+2025-07-23 18:49:25,943 - stock_pool_manager - INFO - 股票 sz000858 已添加到核心观察池
+2025-07-23 18:49:25,949 - stock_pool_manager - INFO - 股票 sh601211 已添加到核心观察池
+2025-07-23 18:49:25,955 - stock_pool_manager - INFO - 股票 sh601988 已添加到核心观察池
+2025-07-23 18:49:25,961 - stock_pool_manager - INFO - 股票 sh601601 已添加到核心观察池
+2025-07-23 18:49:25,967 - stock_pool_manager - INFO - 股票 sh601066 已添加到核心观察池
+2025-07-23 18:49:25,973 - stock_pool_manager - INFO - 股票 sh601088 已添加到核心观察池
+2025-07-23 18:49:25,979 - stock_pool_manager - INFO - 股票 sh601398 已添加到核心观察池
+2025-07-23 18:49:25,985 - stock_pool_manager - INFO - 股票 sh600887 已添加到核心观察池
+2025-07-23 18:49:25,991 - stock_pool_manager - INFO - 股票 sh601688 已添加到核心观察池
+2025-07-23 18:49:25,997 - stock_pool_manager - INFO - 股票 sh601899 已添加到核心观察池
+2025-07-23 18:49:26,003 - stock_pool_manager - INFO - 股票 sh601766 已添加到核心观察池
+2025-07-23 18:49:26,009 - stock_pool_manager - INFO - 股票 sh600745 已添加到核心观察池
+2025-07-23 18:49:26,015 - stock_pool_manager - INFO - 股票 sh600030 已添加到核心观察池
+2025-07-23 18:49:26,023 - stock_pool_manager - INFO - 股票 sz000002 已添加到核心观察池
+2025-07-23 18:49:26,029 - stock_pool_manager - INFO - 股票 sh601857 已添加到核心观察池
+2025-07-23 18:49:26,035 - stock_pool_manager - INFO - 股票 sh601919 已添加到核心观察池
+2025-07-23 18:49:26,041 - stock_pool_manager - INFO - 股票 sh601888 已添加到核心观察池
+2025-07-23 18:49:26,047 - stock_pool_manager - INFO - 股票 sh601668 已添加到核心观察池
+2025-07-23 18:49:26,053 - stock_pool_manager - INFO - 股票 sh600900 已添加到核心观察池
+2025-07-23 18:49:26,059 - stock_pool_manager - INFO - 股票 sh601390 已添加到核心观察池
+2025-07-23 18:49:26,065 - stock_pool_manager - INFO - 股票 sh601229 已添加到核心观察池
+2025-07-23 18:49:26,071 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 18:49:26,077 - stock_pool_manager - INFO - 股票 sh601138 已添加到核心观察池
+2025-07-23 18:49:26,083 - stock_pool_manager - INFO - 股票 sh601628 已添加到核心观察池
+2025-07-23 18:49:26,089 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 18:49:26,089 - stock_pool_manager - INFO - 成功导入 36 只股票到观察池
+2025-07-23 18:49:26,095 - stock_pool_manager - INFO - 信号已记录: sz000001 - buy
+2025-07-23 18:49:26,101 - stock_pool_manager - INFO - 信号已记录: sh000001 - sell
+2025-07-23 18:49:26,107 - stock_pool_manager - INFO - 信号已记录: sz000001 - buy
+2025-07-23 18:49:26,113 - stock_pool_manager - INFO - 信号已记录: sh601988 - buy
+2025-07-23 18:49:26,119 - stock_pool_manager - INFO - 信号已记录: sz000725 - sell
+2025-07-23 18:49:26,125 - stock_pool_manager - INFO - 信号已记录: sh601228 - buy
+2025-07-23 18:49:58,088 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 18:49:58,088 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 18:49:58,088 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 18:49:58,102 - stock_pool_manager - INFO - 股票 sh601390 已添加到核心观察池
+2025-07-23 18:49:58,102 - enhanced_workflow_manager - INFO - sh601390 已添加到观察池，得分: 0.685
+2025-07-23 18:49:58,107 - stock_pool_manager - INFO - 股票 sz300059 已添加到核心观察池
+2025-07-23 18:49:58,107 - enhanced_workflow_manager - INFO - sz300059 已添加到观察池，得分: 0.832
+2025-07-23 18:49:58,113 - stock_pool_manager - INFO - 股票 sh601169 已添加到核心观察池
+2025-07-23 18:49:58,113 - enhanced_workflow_manager - INFO - sh601169 已添加到观察池，得分: 0.815
+2025-07-23 18:49:58,119 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 18:49:58,119 - enhanced_workflow_manager - INFO - sz000001 已添加到观察池，得分: 0.776
+2025-07-23 18:49:58,125 - stock_pool_manager - INFO - 股票 sh600887 已添加到核心观察池
+2025-07-23 18:49:58,125 - enhanced_workflow_manager - INFO - sh600887 已添加到观察池，得分: 0.613
+2025-07-23 18:49:58,131 - stock_pool_manager - INFO - 股票 sh601688 已添加到核心观察池
+2025-07-23 18:49:58,131 - enhanced_workflow_manager - INFO - sh601688 已添加到观察池，得分: 0.776
+2025-07-23 18:49:58,137 - stock_pool_manager - INFO - 股票 sh601601 已添加到核心观察池
+2025-07-23 18:49:58,137 - enhanced_workflow_manager - INFO - sh601601 已添加到观察池，得分: 0.868
+2025-07-23 18:49:58,143 - stock_pool_manager - INFO - 股票 sh601138 已添加到核心观察池
+2025-07-23 18:49:58,143 - enhanced_workflow_manager - INFO - sh601138 已添加到观察池，得分: 0.768
+2025-07-23 18:49:58,149 - stock_pool_manager - INFO - 股票 sz300124 已添加到核心观察池
+2025-07-23 18:49:58,149 - enhanced_workflow_manager - INFO - sz300124 已添加到观察池，得分: 0.819
+2025-07-23 18:49:58,155 - stock_pool_manager - INFO - 股票 sh601899 已添加到核心观察池
+2025-07-23 18:49:58,155 - enhanced_workflow_manager - INFO - sh601899 已添加到观察池，得分: 0.655
+2025-07-23 18:49:58,161 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 18:49:58,161 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.765
+2025-07-23 18:49:58,167 - stock_pool_manager - INFO - 股票 sh601211 已添加到核心观察池
+2025-07-23 18:49:58,167 - enhanced_workflow_manager - INFO - sh601211 已添加到观察池，得分: 0.863
+2025-07-23 18:49:58,174 - stock_pool_manager - INFO - 股票 sh600893 已添加到核心观察池
+2025-07-23 18:49:58,174 - enhanced_workflow_manager - INFO - sh600893 已添加到观察池，得分: 0.839
+2025-07-23 18:49:58,179 - stock_pool_manager - INFO - 股票 sh601318 已添加到核心观察池
+2025-07-23 18:49:58,179 - enhanced_workflow_manager - INFO - sh601318 已添加到观察池，得分: 0.691
+2025-07-23 18:49:58,185 - stock_pool_manager - INFO - 股票 sh601857 已添加到核心观察池
+2025-07-23 18:49:58,185 - enhanced_workflow_manager - INFO - sh601857 已添加到观察池，得分: 0.745
+2025-07-23 18:49:58,191 - stock_pool_manager - INFO - 股票 sh600809 已添加到核心观察池
+2025-07-23 18:49:58,191 - enhanced_workflow_manager - INFO - sh600809 已添加到观察池，得分: 0.685
+2025-07-23 18:49:58,197 - stock_pool_manager - INFO - 股票 sh601939 已添加到核心观察池
+2025-07-23 18:49:58,197 - enhanced_workflow_manager - INFO - sh601939 已添加到观察池，得分: 0.792
+2025-07-23 18:49:58,203 - stock_pool_manager - INFO - 股票 sh601166 已添加到核心观察池
+2025-07-23 18:49:58,204 - enhanced_workflow_manager - INFO - sh601166 已添加到观察池，得分: 0.836
+2025-07-23 18:49:58,209 - stock_pool_manager - INFO - 股票 sh601788 已添加到核心观察池
+2025-07-23 18:49:58,209 - enhanced_workflow_manager - INFO - sh601788 已添加到观察池，得分: 0.850
+2025-07-23 18:49:58,215 - stock_pool_manager - INFO - 股票 sh601668 已添加到核心观察池
+2025-07-23 18:49:58,215 - enhanced_workflow_manager - INFO - sh601668 已添加到观察池，得分: 0.808
+2025-07-23 18:49:58,221 - stock_pool_manager - INFO - 股票 sh601229 已添加到核心观察池
+2025-07-23 18:49:58,221 - enhanced_workflow_manager - INFO - sh601229 已添加到观察池，得分: 0.870
+2025-07-23 18:49:58,227 - stock_pool_manager - INFO - 股票 sz000002 已添加到核心观察池
+2025-07-23 18:49:58,227 - enhanced_workflow_manager - INFO - sz000002 已添加到观察池，得分: 0.647
+2025-07-23 18:49:58,233 - stock_pool_manager - INFO - 股票 sh600036 已添加到核心观察池
+2025-07-23 18:49:58,233 - enhanced_workflow_manager - INFO - sh600036 已添加到观察池，得分: 0.896
+2025-07-23 18:49:58,239 - stock_pool_manager - INFO - 股票 sh601998 已添加到核心观察池
+2025-07-23 18:49:58,239 - enhanced_workflow_manager - INFO - sh601998 已添加到观察池，得分: 0.839
+2025-07-23 18:49:58,246 - stock_pool_manager - INFO - 股票 sh600900 已添加到核心观察池
+2025-07-23 18:49:58,246 - enhanced_workflow_manager - INFO - sh600900 已添加到观察池，得分: 0.603
+2025-07-23 18:49:58,251 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 18:49:58,251 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.844
+2025-07-23 18:49:58,257 - stock_pool_manager - INFO - 股票 sh600585 已添加到核心观察池
+2025-07-23 18:49:58,257 - enhanced_workflow_manager - INFO - sh600585 已添加到观察池，得分: 0.701
+2025-07-23 18:49:58,263 - stock_pool_manager - INFO - 股票 sz002415 已添加到核心观察池
+2025-07-23 18:49:58,263 - enhanced_workflow_manager - INFO - sz002415 已添加到观察池，得分: 0.656
+2025-07-23 18:49:58,280 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 18:49:58,280 - enhanced_workflow_manager - INFO - 第一阶段完成：处理28只股票，筛选出28只高质量股票
+2025-07-23 18:50:15,039 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 18:50:15,039 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 18:50:15,039 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 18:50:15,054 - stock_pool_manager - INFO - 信号已记录: sh601788 - buy
+2025-07-23 18:50:15,054 - enhanced_workflow_manager - INFO - sh601788 生成信号: buy - 置信度: 0.768
+2025-07-23 18:50:15,060 - stock_pool_manager - INFO - 信号已记录: sh601998 - buy
+2025-07-23 18:50:15,060 - enhanced_workflow_manager - INFO - sh601998 生成信号: buy - 置信度: 0.885
+2025-07-23 18:50:15,068 - stock_pool_manager - INFO - 信号已记录: sh601169 - sell
+2025-07-23 18:50:15,068 - enhanced_workflow_manager - INFO - sh601169 生成信号: sell - 置信度: 0.757
+2025-07-23 18:50:15,074 - stock_pool_manager - INFO - 信号已记录: sh601857 - sell
+2025-07-23 18:50:15,074 - enhanced_workflow_manager - INFO - sh601857 生成信号: sell - 置信度: 0.912
+2025-07-23 18:50:15,080 - stock_pool_manager - INFO - 信号已记录: sh600745 - buy
+2025-07-23 18:50:15,080 - enhanced_workflow_manager - INFO - sh600745 生成信号: buy - 置信度: 0.799
+2025-07-23 18:50:15,086 - stock_pool_manager - INFO - 信号已记录: sz002415 - sell
+2025-07-23 18:50:15,086 - enhanced_workflow_manager - INFO - sz002415 生成信号: sell - 置信度: 0.913
+2025-07-23 18:50:15,092 - stock_pool_manager - INFO - 信号已记录: sh601888 - sell
+2025-07-23 18:50:15,092 - enhanced_workflow_manager - INFO - sh601888 生成信号: sell - 置信度: 0.900
+2025-07-23 18:50:15,098 - stock_pool_manager - INFO - 信号已记录: sh600887 - buy
+2025-07-23 18:50:15,098 - enhanced_workflow_manager - INFO - sh600887 生成信号: buy - 置信度: 0.764
+2025-07-23 18:50:15,099 - enhanced_workflow_manager - INFO - 增强版报告已保存: reports/enhanced_signals_20250723_185015.json
+2025-07-23 18:50:15,099 - enhanced_workflow_manager - INFO - 第二阶段完成：验证41只股票，生成8个信号
+2025-07-23 18:50:28,303 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 18:50:28,303 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 18:50:28,303 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 18:50:28,310 - stock_pool_manager - INFO - 股票 sh601939 已添加到核心观察池
+2025-07-23 18:50:28,310 - enhanced_workflow_manager - INFO - sh601939 已添加到观察池，得分: 0.706
+2025-07-23 18:50:28,316 - stock_pool_manager - INFO - 股票 sh601628 已添加到核心观察池
+2025-07-23 18:50:28,316 - enhanced_workflow_manager - INFO - sh601628 已添加到观察池，得分: 0.704
+2025-07-23 18:50:28,322 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 18:50:28,322 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.713
+2025-07-23 18:50:28,328 - stock_pool_manager - INFO - 股票 sh601229 已添加到核心观察池
+2025-07-23 18:50:28,328 - enhanced_workflow_manager - INFO - sh601229 已添加到观察池，得分: 0.866
+2025-07-23 18:50:28,334 - stock_pool_manager - INFO - 股票 sh600900 已添加到核心观察池
+2025-07-23 18:50:28,334 - enhanced_workflow_manager - INFO - sh600900 已添加到观察池，得分: 0.643
+2025-07-23 18:50:28,340 - stock_pool_manager - INFO - 股票 sz300059 已添加到核心观察池
+2025-07-23 18:50:28,340 - enhanced_workflow_manager - INFO - sz300059 已添加到观察池，得分: 0.868
+2025-07-23 18:50:28,346 - stock_pool_manager - INFO - 股票 sz300124 已添加到核心观察池
+2025-07-23 18:50:28,346 - enhanced_workflow_manager - INFO - sz300124 已添加到观察池，得分: 0.858
+2025-07-23 18:50:28,352 - stock_pool_manager - INFO - 股票 sh601138 已添加到核心观察池
+2025-07-23 18:50:28,352 - enhanced_workflow_manager - INFO - sh601138 已添加到观察池，得分: 0.729
+2025-07-23 18:50:28,358 - stock_pool_manager - INFO - 股票 sh601919 已添加到核心观察池
+2025-07-23 18:50:28,358 - enhanced_workflow_manager - INFO - sh601919 已添加到观察池，得分: 0.621
+2025-07-23 18:50:28,364 - stock_pool_manager - INFO - 股票 sh601066 已添加到核心观察池
+2025-07-23 18:50:28,364 - enhanced_workflow_manager - INFO - sh601066 已添加到观察池，得分: 0.899
+2025-07-23 18:50:28,370 - stock_pool_manager - INFO - 股票 sh600893 已添加到核心观察池
+2025-07-23 18:50:28,370 - enhanced_workflow_manager - INFO - sh600893 已添加到观察池，得分: 0.826
+2025-07-23 18:50:28,376 - stock_pool_manager - INFO - 股票 sz000002 已添加到核心观察池
+2025-07-23 18:50:28,376 - enhanced_workflow_manager - INFO - sz000002 已添加到观察池，得分: 0.695
+2025-07-23 18:50:28,382 - stock_pool_manager - INFO - 股票 sh601998 已添加到核心观察池
+2025-07-23 18:50:28,382 - enhanced_workflow_manager - INFO - sh601998 已添加到观察池，得分: 0.726
+2025-07-23 18:50:28,388 - stock_pool_manager - INFO - 股票 sh601688 已添加到核心观察池
+2025-07-23 18:50:28,388 - enhanced_workflow_manager - INFO - sh601688 已添加到观察池，得分: 0.706
+2025-07-23 18:50:28,394 - stock_pool_manager - INFO - 股票 sh600809 已添加到核心观察池
+2025-07-23 18:50:28,394 - enhanced_workflow_manager - INFO - sh600809 已添加到观察池，得分: 0.848
+2025-07-23 18:50:28,400 - stock_pool_manager - INFO - 股票 sh601899 已添加到核心观察池
+2025-07-23 18:50:28,400 - enhanced_workflow_manager - INFO - sh601899 已添加到观察池，得分: 0.649
+2025-07-23 18:50:28,406 - stock_pool_manager - INFO - 股票 sz300015 已添加到核心观察池
+2025-07-23 18:50:28,406 - enhanced_workflow_manager - INFO - sz300015 已添加到观察池，得分: 0.747
+2025-07-23 18:50:28,412 - stock_pool_manager - INFO - 股票 sh601390 已添加到核心观察池
+2025-07-23 18:50:28,412 - enhanced_workflow_manager - INFO - sh601390 已添加到观察池，得分: 0.742
+2025-07-23 18:50:28,418 - stock_pool_manager - INFO - 股票 sh601668 已添加到核心观察池
+2025-07-23 18:50:28,418 - enhanced_workflow_manager - INFO - sh601668 已添加到观察池，得分: 0.673
+2025-07-23 18:50:28,424 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 18:50:28,424 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.886
+2025-07-23 18:50:28,430 - stock_pool_manager - INFO - 股票 sh601398 已添加到核心观察池
+2025-07-23 18:50:28,430 - enhanced_workflow_manager - INFO - sh601398 已添加到观察池，得分: 0.669
+2025-07-23 18:50:28,436 - stock_pool_manager - INFO - 股票 sh601169 已添加到核心观察池
+2025-07-23 18:50:28,436 - enhanced_workflow_manager - INFO - sh601169 已添加到观察池，得分: 0.670
+2025-07-23 18:50:28,442 - stock_pool_manager - INFO - 股票 sh601088 已添加到核心观察池
+2025-07-23 18:50:28,442 - enhanced_workflow_manager - INFO - sh601088 已添加到观察池，得分: 0.809
+2025-07-23 18:50:28,448 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 18:50:28,448 - enhanced_workflow_manager - INFO - sz300408 已添加到观察池，得分: 0.882
+2025-07-23 18:50:28,449 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 18:50:28,450 - enhanced_workflow_manager - INFO - 第一阶段完成：处理24只股票，筛选出24只高质量股票
+2025-07-23 18:50:28,450 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 18:50:28,456 - stock_pool_manager - INFO - 信号已记录: sh601066 - sell
+2025-07-23 18:50:28,456 - enhanced_workflow_manager - INFO - sh601066 生成信号: sell - 置信度: 0.872
+2025-07-23 18:50:28,462 - stock_pool_manager - INFO - 信号已记录: sh600000 - sell
+2025-07-23 18:50:28,462 - enhanced_workflow_manager - INFO - sh600000 生成信号: sell - 置信度: 0.933
+2025-07-23 18:50:28,468 - stock_pool_manager - INFO - 信号已记录: sh601211 - sell
+2025-07-23 18:50:28,468 - enhanced_workflow_manager - INFO - sh601211 生成信号: sell - 置信度: 0.830
+2025-07-23 18:50:28,490 - stock_pool_manager - INFO - 信号已记录: sh601788 - buy
+2025-07-23 18:50:28,490 - enhanced_workflow_manager - INFO - sh601788 生成信号: buy - 置信度: 0.860
+2025-07-23 18:50:28,496 - stock_pool_manager - INFO - 信号已记录: sh601088 - sell
+2025-07-23 18:50:28,496 - enhanced_workflow_manager - INFO - sh601088 生成信号: sell - 置信度: 0.833
+2025-07-23 18:50:28,496 - enhanced_workflow_manager - INFO - 增强版报告已保存: reports/enhanced_signals_20250723_185028.json
+2025-07-23 18:50:28,496 - enhanced_workflow_manager - INFO - 第二阶段完成：验证43只股票，生成5个信号
+2025-07-23 18:50:28,496 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 18:50:28,497 - enhanced_workflow_manager - INFO - 第三阶段完成：更新10条记录，调整0只股票
+2025-07-23 18:52:02,964 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 18:52:02,964 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 18:52:02,965 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 18:52:02,970 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 18:52:02,970 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.512
+2025-07-23 18:52:02,976 - stock_pool_manager - INFO - 股票 sh600276 已添加到核心观察池
+2025-07-23 18:52:02,976 - enhanced_workflow_manager - INFO - sh600276 已添加到观察池，得分: 0.746
+2025-07-23 18:52:02,982 - stock_pool_manager - INFO - 股票 sz300124 已添加到核心观察池
+2025-07-23 18:52:02,982 - enhanced_workflow_manager - INFO - sz300124 已添加到观察池，得分: 0.717
+2025-07-23 18:52:02,988 - stock_pool_manager - INFO - 股票 sh600030 已添加到核心观察池
+2025-07-23 18:52:02,988 - enhanced_workflow_manager - INFO - sh600030 已添加到观察池，得分: 0.701
+2025-07-23 18:52:02,994 - stock_pool_manager - INFO - 股票 sh601318 已添加到核心观察池
+2025-07-23 18:52:02,994 - enhanced_workflow_manager - INFO - sh601318 已添加到观察池，得分: 0.786
+2025-07-23 18:52:03,000 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 18:52:03,000 - enhanced_workflow_manager - INFO - sz300408 已添加到观察池，得分: 0.568
+2025-07-23 18:52:03,006 - stock_pool_manager - INFO - 股票 sh600519 已添加到核心观察池
+2025-07-23 18:52:03,006 - enhanced_workflow_manager - INFO - sh600519 已添加到观察池，得分: 0.883
+2025-07-23 18:52:03,012 - stock_pool_manager - INFO - 股票 sz002415 已添加到核心观察池
+2025-07-23 18:52:03,012 - enhanced_workflow_manager - INFO - sz002415 已添加到观察池，得分: 0.769
+2025-07-23 18:52:03,018 - stock_pool_manager - INFO - 股票 sh601988 已添加到核心观察池
+2025-07-23 18:52:03,018 - enhanced_workflow_manager - INFO - sh601988 已添加到观察池，得分: 0.756
+2025-07-23 18:52:03,024 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 18:52:03,024 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.684
+2025-07-23 18:52:03,030 - stock_pool_manager - INFO - 股票 sh601857 已添加到核心观察池
+2025-07-23 18:52:03,030 - enhanced_workflow_manager - INFO - sh601857 已添加到观察池，得分: 0.697
+2025-07-23 18:52:03,032 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 18:52:03,032 - enhanced_workflow_manager - INFO - 第一阶段完成：处理11只股票，筛选出11只高质量股票
+2025-07-23 18:52:03,032 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 18:52:03,032 - enhanced_workflow_manager - INFO - 第二阶段完成：验证11只股票，生成0个信号
+2025-07-23 18:52:03,032 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 18:52:03,033 - enhanced_workflow_manager - INFO - 第三阶段完成：更新10条记录，调整0只股票
+2025-07-23 18:52:03,080 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 18:52:03,086 - stock_pool_manager - INFO - 股票 sz300290 已添加到核心观察池
+2025-07-23 18:52:03,135 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 18:52:03,140 - stock_pool_manager - INFO - 股票 sz300290 已添加到核心观察池
+2025-07-23 18:52:03,146 - stock_pool_manager - INFO - 信号已记录: sz300290 - buy
+2025-07-23 18:52:03,195 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 18:52:03,200 - stock_pool_manager - INFO - 股票 sz300290 已添加到核心观察池
+2025-07-23 18:52:03,206 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 18:52:03,212 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 18:52:03,213 - stock_pool_manager - INFO - 核心观察池已导出到 test_export.json
+2025-07-23 18:52:03,260 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 18:52:03,266 - stock_pool_manager - INFO - 股票 sz300290 已添加到核心观察池
+2025-07-23 18:52:03,272 - stock_pool_manager - INFO - 股票 sz300290 信任度已更新为 0.8
+2025-07-23 18:52:03,321 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 18:52:03,326 - stock_pool_manager - INFO - 股票 sh600519 已添加到核心观察池
+2025-07-23 18:52:03,332 - stock_pool_manager - INFO - 股票 sh601318 已添加到核心观察池
+2025-07-23 18:52:03,338 - stock_pool_manager - INFO - 股票 sz002415 已添加到核心观察池
+2025-07-23 18:52:03,344 - stock_pool_manager - INFO - 股票 sh601988 已添加到核心观察池
+2025-07-23 18:52:03,350 - stock_pool_manager - INFO - 股票 sh600276 已添加到核心观察池
+2025-07-23 18:52:03,356 - stock_pool_manager - INFO - 股票 sz300124 已添加到核心观察池
+2025-07-23 18:52:03,362 - stock_pool_manager - INFO - 股票 sh600030 已添加到核心观察池
+2025-07-23 18:52:03,368 - stock_pool_manager - INFO - 股票 sh601857 已添加到核心观察池
+2025-07-23 18:52:03,374 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 18:52:03,380 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 18:52:03,386 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 18:52:03,386 - stock_pool_manager - INFO - 成功导入 11 只股票到观察池
+2025-07-23 18:52:03,387 - stock_pool_manager - INFO - 核心观察池已导出到 temp_export_test.json
+2025-07-23 19:03:29,991 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:03:29,991 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:03:29,992 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:03:29,992 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:03:29,992 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:03:29,992 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:03:29,992 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:03:29,992 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 19:03:30,007 - stock_pool_manager - INFO - 股票 sz000002 已添加到核心观察池
+2025-07-23 19:03:30,007 - enhanced_workflow_manager - INFO - sz000002 已添加到观察池，得分: 0.727
+2025-07-23 19:03:30,013 - stock_pool_manager - INFO - 股票 sh600036 已添加到核心观察池
+2025-07-23 19:03:30,013 - enhanced_workflow_manager - INFO - sh600036 已添加到观察池，得分: 0.866
+2025-07-23 19:03:30,019 - stock_pool_manager - INFO - 股票 sh600276 已添加到核心观察池
+2025-07-23 19:03:30,019 - enhanced_workflow_manager - INFO - sh600276 已添加到观察池，得分: 0.664
+2025-07-23 19:03:30,025 - stock_pool_manager - INFO - 股票 sh601628 已添加到核心观察池
+2025-07-23 19:03:30,025 - enhanced_workflow_manager - INFO - sh601628 已添加到观察池，得分: 0.698
+2025-07-23 19:03:30,031 - stock_pool_manager - INFO - 股票 sz300498 已添加到核心观察池
+2025-07-23 19:03:30,031 - enhanced_workflow_manager - INFO - sz300498 已添加到观察池，得分: 0.638
+2025-07-23 19:03:30,037 - stock_pool_manager - INFO - 股票 sh600585 已添加到核心观察池
+2025-07-23 19:03:30,037 - enhanced_workflow_manager - INFO - sh600585 已添加到观察池，得分: 0.617
+2025-07-23 19:03:30,043 - stock_pool_manager - INFO - 股票 sh601211 已添加到核心观察池
+2025-07-23 19:03:30,043 - enhanced_workflow_manager - INFO - sh601211 已添加到观察池，得分: 0.886
+2025-07-23 19:03:30,049 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 19:03:30,049 - enhanced_workflow_manager - INFO - sz000001 已添加到观察池，得分: 0.891
+2025-07-23 19:03:30,055 - stock_pool_manager - INFO - 股票 sh601857 已添加到核心观察池
+2025-07-23 19:03:30,055 - enhanced_workflow_manager - INFO - sh601857 已添加到观察池，得分: 0.700
+2025-07-23 19:03:30,061 - stock_pool_manager - INFO - 股票 sh601899 已添加到核心观察池
+2025-07-23 19:03:30,061 - enhanced_workflow_manager - INFO - sh601899 已添加到观察池，得分: 0.628
+2025-07-23 19:03:30,067 - stock_pool_manager - INFO - 股票 sz300059 已添加到核心观察池
+2025-07-23 19:03:30,067 - enhanced_workflow_manager - INFO - sz300059 已添加到观察池，得分: 0.839
+2025-07-23 19:03:30,073 - stock_pool_manager - INFO - 股票 sh601390 已添加到核心观察池
+2025-07-23 19:03:30,073 - enhanced_workflow_manager - INFO - sh601390 已添加到观察池，得分: 0.630
+2025-07-23 19:03:30,079 - stock_pool_manager - INFO - 股票 sh601138 已添加到核心观察池
+2025-07-23 19:03:30,079 - enhanced_workflow_manager - INFO - sh601138 已添加到观察池，得分: 0.601
+2025-07-23 19:03:30,085 - stock_pool_manager - INFO - 股票 sh601088 已添加到核心观察池
+2025-07-23 19:03:30,085 - enhanced_workflow_manager - INFO - sh601088 已添加到观察池，得分: 0.639
+2025-07-23 19:03:30,091 - stock_pool_manager - INFO - 股票 sh601318 已添加到核心观察池
+2025-07-23 19:03:30,091 - enhanced_workflow_manager - INFO - sh601318 已添加到观察池，得分: 0.670
+2025-07-23 19:03:30,097 - stock_pool_manager - INFO - 股票 sh601398 已添加到核心观察池
+2025-07-23 19:03:30,097 - enhanced_workflow_manager - INFO - sh601398 已添加到观察池，得分: 0.693
+2025-07-23 19:03:30,103 - stock_pool_manager - INFO - 股票 sz002415 已添加到核心观察池
+2025-07-23 19:03:30,103 - enhanced_workflow_manager - INFO - sz002415 已添加到观察池，得分: 0.885
+2025-07-23 19:03:30,109 - stock_pool_manager - INFO - 股票 sh601229 已添加到核心观察池
+2025-07-23 19:03:30,109 - enhanced_workflow_manager - INFO - sh601229 已添加到观察池，得分: 0.702
+2025-07-23 19:03:30,115 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 19:03:30,115 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.729
+2025-07-23 19:03:30,121 - stock_pool_manager - INFO - 股票 sh601066 已添加到核心观察池
+2025-07-23 19:03:30,121 - enhanced_workflow_manager - INFO - sh601066 已添加到观察池，得分: 0.662
+2025-07-23 19:03:30,127 - stock_pool_manager - INFO - 股票 sh600519 已添加到核心观察池
+2025-07-23 19:03:30,127 - enhanced_workflow_manager - INFO - sh600519 已添加到观察池，得分: 0.819
+2025-07-23 19:03:30,133 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 19:03:30,133 - enhanced_workflow_manager - INFO - sz300408 已添加到观察池，得分: 0.848
+2025-07-23 19:03:30,135 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 19:03:30,136 - enhanced_workflow_manager - INFO - 第一阶段完成：处理22只股票，筛选出22只高质量股票
+2025-07-23 19:03:30,136 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 19:03:30,136 - daily_signal_scanner - INFO - 开始扫描 2025-07-23 的交易信号
+2025-07-23 19:03:30,136 - daily_signal_scanner - ERROR - 信号扫描失败: 'min_credibility_score'
+2025-07-23 19:03:30,136 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 19:03:30,137 - performance_tracker - ERROR - 批量绩效分析失败: 'tracking_period_days'
+2025-07-23 19:03:30,137 - performance_tracker - ERROR - 批量绩效分析失败: 'tracking_period_days'
+2025-07-23 19:03:30,138 - performance_tracker - INFO - 绩效报告已保存: reports/performance_report_comprehensive_20250723_190330.json
+2025-07-23 19:04:21,726 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:04:21,726 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:04:21,726 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:04:21,726 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:04:21,726 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:04:21,727 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:04:21,727 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:04:21,727 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 19:04:21,733 - stock_pool_manager - INFO - 股票 sh601857 已添加到核心观察池
+2025-07-23 19:04:21,733 - enhanced_workflow_manager - INFO - sh601857 已添加到观察池，得分: 0.730
+2025-07-23 19:04:21,739 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 19:04:21,740 - enhanced_workflow_manager - INFO - sz300408 已添加到观察池，得分: 0.881
+2025-07-23 19:04:21,745 - stock_pool_manager - INFO - 股票 sh601066 已添加到核心观察池
+2025-07-23 19:04:21,746 - enhanced_workflow_manager - INFO - sh601066 已添加到观察池，得分: 0.886
+2025-07-23 19:04:21,751 - stock_pool_manager - INFO - 股票 sh600893 已添加到核心观察池
+2025-07-23 19:04:21,752 - enhanced_workflow_manager - INFO - sh600893 已添加到观察池，得分: 0.742
+2025-07-23 19:04:21,757 - stock_pool_manager - INFO - 股票 sz300015 已添加到核心观察池
+2025-07-23 19:04:21,758 - enhanced_workflow_manager - INFO - sz300015 已添加到观察池，得分: 0.657
+2025-07-23 19:04:21,763 - stock_pool_manager - INFO - 股票 sh601988 已添加到核心观察池
+2025-07-23 19:04:21,763 - enhanced_workflow_manager - INFO - sh601988 已添加到观察池，得分: 0.757
+2025-07-23 19:04:21,769 - stock_pool_manager - INFO - 股票 sh601166 已添加到核心观察池
+2025-07-23 19:04:21,769 - enhanced_workflow_manager - INFO - sh601166 已添加到观察池，得分: 0.898
+2025-07-23 19:04:21,775 - stock_pool_manager - INFO - 股票 sh600036 已添加到核心观察池
+2025-07-23 19:04:21,776 - enhanced_workflow_manager - INFO - sh600036 已添加到观察池，得分: 0.679
+2025-07-23 19:04:21,781 - stock_pool_manager - INFO - 股票 sh600030 已添加到核心观察池
+2025-07-23 19:04:21,781 - enhanced_workflow_manager - INFO - sh600030 已添加到观察池，得分: 0.883
+2025-07-23 19:04:21,787 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 19:04:21,787 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.780
+2025-07-23 19:04:21,793 - stock_pool_manager - INFO - 股票 sz300059 已添加到核心观察池
+2025-07-23 19:04:21,794 - enhanced_workflow_manager - INFO - sz300059 已添加到观察池，得分: 0.638
+2025-07-23 19:04:21,799 - stock_pool_manager - INFO - 股票 sz300124 已添加到核心观察池
+2025-07-23 19:04:21,799 - enhanced_workflow_manager - INFO - sz300124 已添加到观察池，得分: 0.845
+2025-07-23 19:04:21,805 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 19:04:21,806 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.658
+2025-07-23 19:04:21,811 - stock_pool_manager - INFO - 股票 sh600745 已添加到核心观察池
+2025-07-23 19:04:21,812 - enhanced_workflow_manager - INFO - sh600745 已添加到观察池，得分: 0.662
+2025-07-23 19:04:21,817 - stock_pool_manager - INFO - 股票 sh601211 已添加到核心观察池
+2025-07-23 19:04:21,817 - enhanced_workflow_manager - INFO - sh601211 已添加到观察池，得分: 0.850
+2025-07-23 19:04:21,823 - stock_pool_manager - INFO - 股票 sh600809 已添加到核心观察池
+2025-07-23 19:04:21,824 - enhanced_workflow_manager - INFO - sh600809 已添加到观察池，得分: 0.637
+2025-07-23 19:04:21,829 - stock_pool_manager - INFO - 股票 sh601318 已添加到核心观察池
+2025-07-23 19:04:21,830 - enhanced_workflow_manager - INFO - sh601318 已添加到观察池，得分: 0.658
+2025-07-23 19:04:21,835 - stock_pool_manager - INFO - 股票 sh601398 已添加到核心观察池
+2025-07-23 19:04:21,835 - enhanced_workflow_manager - INFO - sh601398 已添加到观察池，得分: 0.614
+2025-07-23 19:04:21,841 - stock_pool_manager - INFO - 股票 sh601186 已添加到核心观察池
+2025-07-23 19:04:21,842 - enhanced_workflow_manager - INFO - sh601186 已添加到观察池，得分: 0.820
+2025-07-23 19:04:21,847 - stock_pool_manager - INFO - 股票 sh601138 已添加到核心观察池
+2025-07-23 19:04:21,848 - enhanced_workflow_manager - INFO - sh601138 已添加到观察池，得分: 0.777
+2025-07-23 19:04:21,850 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 19:04:21,850 - enhanced_workflow_manager - INFO - 第一阶段完成：处理20只股票，筛选出20只高质量股票
+2025-07-23 19:04:21,850 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 19:04:21,850 - daily_signal_scanner - INFO - 开始扫描 2025-07-23 的交易信号
+2025-07-23 19:04:21,851 - daily_signal_scanner - ERROR - 信号扫描失败: 'risk_level_filter'
+2025-07-23 19:04:21,851 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,862 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - ERROR - 确定股票调整方案失败: 'credibility_adjustments'
+2025-07-23 19:04:21,863 - performance_tracker - INFO - 调整报告已保存: reports/pool_adjustment_20250723_190421.json
+2025-07-23 19:04:21,863 - performance_tracker - INFO - 观察池调整完成: 提升0只, 降级0只, 移除0只
+2025-07-23 19:04:21,879 - performance_tracker - INFO - 绩效报告已保存: reports/performance_report_comprehensive_20250723_190421.json
+2025-07-23 19:04:21,879 - enhanced_workflow_manager - INFO - 第三阶段完成：提升0只，降级0只，移除0只股票
+2025-07-23 19:05:44,308 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:05:44,308 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:05:44,309 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:05:44,309 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:05:44,309 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:05:44,309 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:05:44,309 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:05:44,309 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 19:05:44,316 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 19:05:44,316 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.796
+2025-07-23 19:05:44,322 - stock_pool_manager - INFO - 股票 sh600036 已添加到核心观察池
+2025-07-23 19:05:44,322 - enhanced_workflow_manager - INFO - sh600036 已添加到观察池，得分: 0.603
+2025-07-23 19:05:44,328 - stock_pool_manager - INFO - 股票 sh600887 已添加到核心观察池
+2025-07-23 19:05:44,328 - enhanced_workflow_manager - INFO - sh600887 已添加到观察池，得分: 0.648
+2025-07-23 19:05:44,334 - stock_pool_manager - INFO - 股票 sh601169 已添加到核心观察池
+2025-07-23 19:05:44,334 - enhanced_workflow_manager - INFO - sh601169 已添加到观察池，得分: 0.653
+2025-07-23 19:05:44,340 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 19:05:44,340 - enhanced_workflow_manager - INFO - sz000001 已添加到观察池，得分: 0.602
+2025-07-23 19:05:44,346 - stock_pool_manager - INFO - 股票 sh600276 已添加到核心观察池
+2025-07-23 19:05:44,346 - enhanced_workflow_manager - INFO - sh600276 已添加到观察池，得分: 0.731
+2025-07-23 19:05:44,352 - stock_pool_manager - INFO - 股票 sz300015 已添加到核心观察池
+2025-07-23 19:05:44,352 - enhanced_workflow_manager - INFO - sz300015 已添加到观察池，得分: 0.624
+2025-07-23 19:05:44,360 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 19:05:44,360 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.665
+2025-07-23 19:05:44,366 - stock_pool_manager - INFO - 股票 sh601601 已添加到核心观察池
+2025-07-23 19:05:44,366 - enhanced_workflow_manager - INFO - sh601601 已添加到观察池，得分: 0.794
+2025-07-23 19:05:44,372 - stock_pool_manager - INFO - 股票 sh601939 已添加到核心观察池
+2025-07-23 19:05:44,372 - enhanced_workflow_manager - INFO - sh601939 已添加到观察池，得分: 0.720
+2025-07-23 19:05:44,378 - stock_pool_manager - INFO - 股票 sh601919 已添加到核心观察池
+2025-07-23 19:05:44,378 - enhanced_workflow_manager - INFO - sh601919 已添加到观察池，得分: 0.682
+2025-07-23 19:05:44,384 - stock_pool_manager - INFO - 股票 sh601066 已添加到核心观察池
+2025-07-23 19:05:44,384 - enhanced_workflow_manager - INFO - sh601066 已添加到观察池，得分: 0.634
+2025-07-23 19:05:44,390 - stock_pool_manager - INFO - 股票 sh601766 已添加到核心观察池
+2025-07-23 19:05:44,390 - enhanced_workflow_manager - INFO - sh601766 已添加到观察池，得分: 0.699
+2025-07-23 19:05:44,396 - stock_pool_manager - INFO - 股票 sh601668 已添加到核心观察池
+2025-07-23 19:05:44,396 - enhanced_workflow_manager - INFO - sh601668 已添加到观察池，得分: 0.893
+2025-07-23 19:05:44,402 - stock_pool_manager - INFO - 股票 sh600519 已添加到核心观察池
+2025-07-23 19:05:44,402 - enhanced_workflow_manager - INFO - sh600519 已添加到观察池，得分: 0.688
+2025-07-23 19:05:44,408 - stock_pool_manager - INFO - 股票 sh601166 已添加到核心观察池
+2025-07-23 19:05:44,408 - enhanced_workflow_manager - INFO - sh601166 已添加到观察池，得分: 0.766
+2025-07-23 19:05:44,414 - stock_pool_manager - INFO - 股票 sz300498 已添加到核心观察池
+2025-07-23 19:05:44,414 - enhanced_workflow_manager - INFO - sz300498 已添加到观察池，得分: 0.748
+2025-07-23 19:05:44,420 - stock_pool_manager - INFO - 股票 sh601229 已添加到核心观察池
+2025-07-23 19:05:44,420 - enhanced_workflow_manager - INFO - sh601229 已添加到观察池，得分: 0.809
+2025-07-23 19:05:44,426 - stock_pool_manager - INFO - 股票 sh601888 已添加到核心观察池
+2025-07-23 19:05:44,426 - enhanced_workflow_manager - INFO - sh601888 已添加到观察池，得分: 0.849
+2025-07-23 19:05:44,432 - stock_pool_manager - INFO - 股票 sz300124 已添加到核心观察池
+2025-07-23 19:05:44,432 - enhanced_workflow_manager - INFO - sz300124 已添加到观察池，得分: 0.891
+2025-07-23 19:05:44,438 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 19:05:44,438 - enhanced_workflow_manager - INFO - sz300408 已添加到观察池，得分: 0.823
+2025-07-23 19:05:44,444 - stock_pool_manager - INFO - 股票 sh600893 已添加到核心观察池
+2025-07-23 19:05:44,444 - enhanced_workflow_manager - INFO - sh600893 已添加到观察池，得分: 0.832
+2025-07-23 19:05:44,450 - stock_pool_manager - INFO - 股票 sh601186 已添加到核心观察池
+2025-07-23 19:05:44,450 - enhanced_workflow_manager - INFO - sh601186 已添加到观察池，得分: 0.897
+2025-07-23 19:05:44,456 - stock_pool_manager - INFO - 股票 sh601998 已添加到核心观察池
+2025-07-23 19:05:44,456 - enhanced_workflow_manager - INFO - sh601998 已添加到观察池，得分: 0.825
+2025-07-23 19:05:44,458 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 19:05:44,459 - enhanced_workflow_manager - INFO - 第一阶段完成：处理24只股票，筛选出24只高质量股票
+2025-07-23 19:05:44,459 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 19:05:44,459 - daily_signal_scanner - INFO - 开始扫描 2025-07-23 的交易信号
+2025-07-23 19:05:44,459 - daily_signal_scanner - INFO - 过滤后的股票数量: 46
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,460 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,461 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 市场条件检查失败: 'market_hours'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号验证失败: 'price_change_threshold'
+2025-07-23 19:05:44,462 - daily_signal_scanner - ERROR - 信号扫描失败: 'max_signals_per_day'
+2025-07-23 19:05:44,462 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 19:05:44,478 - stock_pool_manager - INFO - 股票 sh601186 信任度已更新为 1.0
+2025-07-23 19:05:44,484 - stock_pool_manager - INFO - 股票 sh601668 信任度已更新为 1.0
+2025-07-23 19:05:44,490 - stock_pool_manager - INFO - 股票 sz300124 信任度已更新为 1.0
+2025-07-23 19:05:44,496 - stock_pool_manager - INFO - 股票 sz002415 信任度已更新为 1.0
+2025-07-23 19:05:44,502 - stock_pool_manager - INFO - 股票 sh600030 信任度已更新为 1.0
+2025-07-23 19:05:44,508 - stock_pool_manager - INFO - 股票 sh601211 信任度已更新为 1.0
+2025-07-23 19:05:44,514 - stock_pool_manager - INFO - 股票 sh601788 信任度已更新为 1.0
+2025-07-23 19:05:44,520 - stock_pool_manager - INFO - 股票 sh601888 信任度已更新为 1.0
+2025-07-23 19:05:44,526 - stock_pool_manager - INFO - 股票 sh600690 信任度已更新为 1.0
+2025-07-23 19:05:44,534 - stock_pool_manager - INFO - 股票 sh600893 信任度已更新为 1.0
+2025-07-23 19:05:44,540 - stock_pool_manager - INFO - 股票 sh601998 信任度已更新为 1.0
+2025-07-23 19:05:44,546 - stock_pool_manager - INFO - 股票 sz300408 信任度已更新为 1.0
+2025-07-23 19:05:44,552 - stock_pool_manager - INFO - 股票 sh601229 信任度已更新为 1.0
+2025-07-23 19:05:44,558 - stock_pool_manager - INFO - 股票 sz000858 信任度已更新为 1.0
+2025-07-23 19:05:44,564 - stock_pool_manager - INFO - 股票 sh600000 信任度已更新为 1.0
+2025-07-23 19:05:44,570 - stock_pool_manager - INFO - 股票 sh601601 信任度已更新为 1.0
+2025-07-23 19:05:44,576 - stock_pool_manager - INFO - 股票 sh601138 信任度已更新为 1.0
+2025-07-23 19:05:44,582 - stock_pool_manager - INFO - 股票 sh601166 信任度已更新为 1.0
+2025-07-23 19:05:44,588 - stock_pool_manager - INFO - 股票 sh601988 信任度已更新为 1.0
+2025-07-23 19:05:44,594 - stock_pool_manager - INFO - 股票 sz300498 信任度已更新为 1.0
+2025-07-23 19:05:44,600 - stock_pool_manager - INFO - 股票 sh600276 信任度已更新为 1.0
+2025-07-23 19:05:44,606 - stock_pool_manager - INFO - 股票 sh601857 信任度已更新为 1.0
+2025-07-23 19:05:44,614 - stock_pool_manager - INFO - 股票 sz000002 信任度已更新为 1.0
+2025-07-23 19:05:44,620 - stock_pool_manager - INFO - 股票 sh601939 信任度已更新为 1.0
+2025-07-23 19:05:44,626 - stock_pool_manager - INFO - 股票 sh601688 信任度已更新为 1.0
+2025-07-23 19:05:44,632 - stock_pool_manager - INFO - 股票 sh601766 信任度已更新为 1.0
+2025-07-23 19:05:44,638 - stock_pool_manager - INFO - 股票 sh601628 信任度已更新为 1.0
+2025-07-23 19:05:44,644 - stock_pool_manager - INFO - 股票 sh600519 信任度已更新为 1.0
+2025-07-23 19:05:44,650 - stock_pool_manager - INFO - 股票 sh601919 信任度已更新为 1.0
+2025-07-23 19:05:44,656 - stock_pool_manager - INFO - 股票 sz300760 信任度已更新为 1.0
+2025-07-23 19:05:44,662 - stock_pool_manager - INFO - 股票 sh600745 信任度已更新为 1.0
+2025-07-23 19:05:44,668 - stock_pool_manager - INFO - 股票 sh601318 信任度已更新为 1.0
+2025-07-23 19:05:44,674 - stock_pool_manager - INFO - 股票 sh601169 信任度已更新为 1.0
+2025-07-23 19:05:44,680 - stock_pool_manager - INFO - 股票 sh600887 信任度已更新为 1.0
+2025-07-23 19:05:44,686 - stock_pool_manager - INFO - 股票 sh600900 信任度已更新为 1.0
+2025-07-23 19:05:44,692 - stock_pool_manager - INFO - 股票 sh601088 信任度已更新为 1.0
+2025-07-23 19:05:44,698 - stock_pool_manager - INFO - 股票 sz300059 信任度已更新为 1.0
+2025-07-23 19:05:44,704 - stock_pool_manager - INFO - 股票 sh600809 信任度已更新为 1.0
+2025-07-23 19:05:44,710 - stock_pool_manager - INFO - 股票 sh601066 信任度已更新为 1.0
+2025-07-23 19:05:44,716 - stock_pool_manager - INFO - 股票 sh601390 信任度已更新为 1.0
+2025-07-23 19:05:44,722 - stock_pool_manager - INFO - 股票 sh601899 信任度已更新为 1.0
+2025-07-23 19:05:44,728 - stock_pool_manager - INFO - 股票 sz300015 信任度已更新为 1.0
+2025-07-23 19:05:44,734 - stock_pool_manager - INFO - 股票 sh600585 信任度已更新为 1.0
+2025-07-23 19:05:44,740 - stock_pool_manager - INFO - 股票 sh601398 信任度已更新为 1.0
+2025-07-23 19:05:44,746 - stock_pool_manager - INFO - 股票 sh600036 信任度已更新为 1.0
+2025-07-23 19:05:44,752 - stock_pool_manager - INFO - 股票 sz000001 信任度已更新为 1.0
+2025-07-23 19:05:44,752 - performance_tracker - INFO - 调整报告已保存: reports/pool_adjustment_20250723_190544.json
+2025-07-23 19:05:44,752 - performance_tracker - INFO - 观察池调整完成: 提升0只, 降级0只, 移除0只
+2025-07-23 19:05:44,764 - performance_tracker - INFO - 绩效报告已保存: reports/performance_report_comprehensive_20250723_190544.json
+2025-07-23 19:05:44,765 - enhanced_workflow_manager - INFO - 第三阶段完成：提升0只，降级0只，移除0只股票
+2025-07-23 19:06:40,096 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:06:40,096 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:06:40,096 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:06:40,096 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:06:40,096 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:06:40,097 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:06:40,097 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:06:40,097 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 19:06:40,103 - stock_pool_manager - INFO - 股票 sh600900 已添加到核心观察池
+2025-07-23 19:06:40,103 - enhanced_workflow_manager - INFO - sh600900 已添加到观察池，得分: 0.666
+2025-07-23 19:06:40,109 - stock_pool_manager - INFO - 股票 sh600887 已添加到核心观察池
+2025-07-23 19:06:40,109 - enhanced_workflow_manager - INFO - sh600887 已添加到观察池，得分: 0.762
+2025-07-23 19:06:40,115 - stock_pool_manager - INFO - 股票 sh601398 已添加到核心观察池
+2025-07-23 19:06:40,115 - enhanced_workflow_manager - INFO - sh601398 已添加到观察池，得分: 0.808
+2025-07-23 19:06:40,121 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 19:06:40,121 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.860
+2025-07-23 19:06:40,127 - stock_pool_manager - INFO - 股票 sh601688 已添加到核心观察池
+2025-07-23 19:06:40,127 - enhanced_workflow_manager - INFO - sh601688 已添加到观察池，得分: 0.784
+2025-07-23 19:06:40,133 - stock_pool_manager - INFO - 股票 sh601138 已添加到核心观察池
+2025-07-23 19:06:40,133 - enhanced_workflow_manager - INFO - sh601138 已添加到观察池，得分: 0.768
+2025-07-23 19:06:40,139 - stock_pool_manager - INFO - 股票 sh600690 已添加到核心观察池
+2025-07-23 19:06:40,139 - enhanced_workflow_manager - INFO - sh600690 已添加到观察池，得分: 0.728
+2025-07-23 19:06:40,145 - stock_pool_manager - INFO - 股票 sh601788 已添加到核心观察池
+2025-07-23 19:06:40,145 - enhanced_workflow_manager - INFO - sh601788 已添加到观察池，得分: 0.707
+2025-07-23 19:06:40,151 - stock_pool_manager - INFO - 股票 sz000858 已添加到核心观察池
+2025-07-23 19:06:40,151 - enhanced_workflow_manager - INFO - sz000858 已添加到观察池，得分: 0.637
+2025-07-23 19:06:40,157 - stock_pool_manager - INFO - 股票 sh601088 已添加到核心观察池
+2025-07-23 19:06:40,157 - enhanced_workflow_manager - INFO - sh601088 已添加到观察池，得分: 0.687
+2025-07-23 19:06:40,163 - stock_pool_manager - INFO - 股票 sh601066 已添加到核心观察池
+2025-07-23 19:06:40,163 - enhanced_workflow_manager - INFO - sh601066 已添加到观察池，得分: 0.750
+2025-07-23 19:06:40,169 - stock_pool_manager - INFO - 股票 sh601899 已添加到核心观察池
+2025-07-23 19:06:40,169 - enhanced_workflow_manager - INFO - sh601899 已添加到观察池，得分: 0.634
+2025-07-23 19:06:40,175 - stock_pool_manager - INFO - 股票 sh600809 已添加到核心观察池
+2025-07-23 19:06:40,175 - enhanced_workflow_manager - INFO - sh600809 已添加到观察池，得分: 0.817
+2025-07-23 19:06:40,181 - stock_pool_manager - INFO - 股票 sh600585 已添加到核心观察池
+2025-07-23 19:06:40,181 - enhanced_workflow_manager - INFO - sh600585 已添加到观察池，得分: 0.829
+2025-07-23 19:06:40,187 - stock_pool_manager - INFO - 股票 sh601998 已添加到核心观察池
+2025-07-23 19:06:40,187 - enhanced_workflow_manager - INFO - sh601998 已添加到观察池，得分: 0.792
+2025-07-23 19:06:40,193 - stock_pool_manager - INFO - 股票 sz300498 已添加到核心观察池
+2025-07-23 19:06:40,193 - enhanced_workflow_manager - INFO - sz300498 已添加到观察池，得分: 0.691
+2025-07-23 19:06:40,199 - stock_pool_manager - INFO - 股票 sh601169 已添加到核心观察池
+2025-07-23 19:06:40,199 - enhanced_workflow_manager - INFO - sh601169 已添加到观察池，得分: 0.820
+2025-07-23 19:06:40,205 - stock_pool_manager - INFO - 股票 sh600030 已添加到核心观察池
+2025-07-23 19:06:40,205 - enhanced_workflow_manager - INFO - sh600030 已添加到观察池，得分: 0.852
+2025-07-23 19:06:40,211 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 19:06:40,211 - enhanced_workflow_manager - INFO - sz300408 已添加到观察池，得分: 0.676
+2025-07-23 19:06:40,217 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 19:06:40,217 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.678
+2025-07-23 19:06:40,223 - stock_pool_manager - INFO - 股票 sh601211 已添加到核心观察池
+2025-07-23 19:06:40,223 - enhanced_workflow_manager - INFO - sh601211 已添加到观察池，得分: 0.789
+2025-07-23 19:06:40,229 - stock_pool_manager - INFO - 股票 sh600893 已添加到核心观察池
+2025-07-23 19:06:40,229 - enhanced_workflow_manager - INFO - sh600893 已添加到观察池，得分: 0.844
+2025-07-23 19:06:40,235 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 19:06:40,235 - enhanced_workflow_manager - INFO - sz000001 已添加到观察池，得分: 0.665
+2025-07-23 19:06:40,241 - stock_pool_manager - INFO - 股票 sh601601 已添加到核心观察池
+2025-07-23 19:06:40,241 - enhanced_workflow_manager - INFO - sh601601 已添加到观察池，得分: 0.686
+2025-07-23 19:06:40,243 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 19:06:40,244 - enhanced_workflow_manager - INFO - 第一阶段完成：处理24只股票，筛选出24只高质量股票
+2025-07-23 19:06:40,244 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 19:06:40,244 - daily_signal_scanner - INFO - 开始扫描 2025-07-23 的交易信号
+2025-07-23 19:06:40,245 - daily_signal_scanner - INFO - 过滤后的股票数量: 46
+2025-07-23 19:06:40,246 - daily_signal_scanner - INFO - 扫描报告已保存: reports/daily_scan_20250723_190640.json
+2025-07-23 19:06:40,246 - daily_signal_scanner - INFO - 信号扫描完成: 发现 0 个信号，记录 0 个
+2025-07-23 19:06:40,246 - enhanced_workflow_manager - INFO - 第二阶段完成：扫描46只股票，生成0个信号
+2025-07-23 19:06:40,246 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 19:06:40,261 - stock_pool_manager - INFO - 股票 sh601186 信任度已更新为 1.0
+2025-07-23 19:06:40,267 - stock_pool_manager - INFO - 股票 sh601668 信任度已更新为 1.0
+2025-07-23 19:06:40,273 - stock_pool_manager - INFO - 股票 sz300124 信任度已更新为 1.0
+2025-07-23 19:06:40,279 - stock_pool_manager - INFO - 股票 sz002415 信任度已更新为 1.0
+2025-07-23 19:06:40,285 - stock_pool_manager - INFO - 股票 sz300760 信任度已更新为 1.0
+2025-07-23 19:06:40,291 - stock_pool_manager - INFO - 股票 sh600030 信任度已更新为 1.0
+2025-07-23 19:06:40,297 - stock_pool_manager - INFO - 股票 sh601888 信任度已更新为 1.0
+2025-07-23 19:06:40,303 - stock_pool_manager - INFO - 股票 sh600893 信任度已更新为 1.0
+2025-07-23 19:06:40,309 - stock_pool_manager - INFO - 股票 sh600585 信任度已更新为 1.0
+2025-07-23 19:06:40,315 - stock_pool_manager - INFO - 股票 sh601169 信任度已更新为 1.0
+2025-07-23 19:06:40,321 - stock_pool_manager - INFO - 股票 sh600809 信任度已更新为 1.0
+2025-07-23 19:06:40,327 - stock_pool_manager - INFO - 股票 sh601229 信任度已更新为 1.0
+2025-07-23 19:06:40,333 - stock_pool_manager - INFO - 股票 sh601398 信任度已更新为 1.0
+2025-07-23 19:06:40,339 - stock_pool_manager - INFO - 股票 sh601998 信任度已更新为 1.0
+2025-07-23 19:06:40,347 - stock_pool_manager - INFO - 股票 sh601211 信任度已更新为 1.0
+2025-07-23 19:06:40,353 - stock_pool_manager - INFO - 股票 sh601688 信任度已更新为 1.0
+2025-07-23 19:06:40,359 - stock_pool_manager - INFO - 股票 sh601138 信任度已更新为 1.0
+2025-07-23 19:06:40,365 - stock_pool_manager - INFO - 股票 sh601166 信任度已更新为 1.0
+2025-07-23 19:06:40,371 - stock_pool_manager - INFO - 股票 sh600887 信任度已更新为 1.0
+2025-07-23 19:06:40,377 - stock_pool_manager - INFO - 股票 sh601988 信任度已更新为 1.0
+2025-07-23 19:06:40,383 - stock_pool_manager - INFO - 股票 sh601066 信任度已更新为 1.0
+2025-07-23 19:06:40,389 - stock_pool_manager - INFO - 股票 sh600276 信任度已更新为 1.0
+2025-07-23 19:06:40,395 - stock_pool_manager - INFO - 股票 sh601857 信任度已更新为 1.0
+2025-07-23 19:06:40,401 - stock_pool_manager - INFO - 股票 sh600690 信任度已更新为 1.0
+2025-07-23 19:06:40,407 - stock_pool_manager - INFO - 股票 sz000002 信任度已更新为 1.0
+2025-07-23 19:06:40,413 - stock_pool_manager - INFO - 股票 sh601939 信任度已更新为 1.0
+2025-07-23 19:06:40,419 - stock_pool_manager - INFO - 股票 sh601788 信任度已更新为 1.0
+2025-07-23 19:06:40,425 - stock_pool_manager - INFO - 股票 sh601766 信任度已更新为 1.0
+2025-07-23 19:06:40,431 - stock_pool_manager - INFO - 股票 sh601628 信任度已更新为 1.0
+2025-07-23 19:06:40,437 - stock_pool_manager - INFO - 股票 sz300498 信任度已更新为 1.0
+2025-07-23 19:06:40,443 - stock_pool_manager - INFO - 股票 sh600519 信任度已更新为 1.0
+2025-07-23 19:06:40,449 - stock_pool_manager - INFO - 股票 sh601088 信任度已更新为 1.0
+2025-07-23 19:06:40,455 - stock_pool_manager - INFO - 股票 sh601601 信任度已更新为 1.0
+2025-07-23 19:06:40,461 - stock_pool_manager - INFO - 股票 sh601919 信任度已更新为 1.0
+2025-07-23 19:06:40,467 - stock_pool_manager - INFO - 股票 sh600000 信任度已更新为 1.0
+2025-07-23 19:06:40,473 - stock_pool_manager - INFO - 股票 sz300408 信任度已更新为 1.0
+2025-07-23 19:06:40,479 - stock_pool_manager - INFO - 股票 sh600900 信任度已更新为 1.0
+2025-07-23 19:06:40,485 - stock_pool_manager - INFO - 股票 sz000001 信任度已更新为 1.0
+2025-07-23 19:06:40,491 - stock_pool_manager - INFO - 股票 sh600745 信任度已更新为 1.0
+2025-07-23 19:06:40,497 - stock_pool_manager - INFO - 股票 sh601318 信任度已更新为 1.0
+2025-07-23 19:06:40,503 - stock_pool_manager - INFO - 股票 sz300059 信任度已更新为 1.0
+2025-07-23 19:06:40,509 - stock_pool_manager - INFO - 股票 sz000858 信任度已更新为 1.0
+2025-07-23 19:06:40,515 - stock_pool_manager - INFO - 股票 sh601899 信任度已更新为 1.0
+2025-07-23 19:06:40,521 - stock_pool_manager - INFO - 股票 sh601390 信任度已更新为 1.0
+2025-07-23 19:06:40,527 - stock_pool_manager - INFO - 股票 sz300015 信任度已更新为 1.0
+2025-07-23 19:06:40,533 - stock_pool_manager - INFO - 股票 sh600036 信任度已更新为 1.0
+2025-07-23 19:06:40,533 - performance_tracker - INFO - 调整报告已保存: reports/pool_adjustment_20250723_190640.json
+2025-07-23 19:06:40,534 - performance_tracker - INFO - 观察池调整完成: 提升0只, 降级0只, 移除0只
+2025-07-23 19:06:40,546 - performance_tracker - INFO - 绩效报告已保存: reports/performance_report_comprehensive_20250723_190640.json
+2025-07-23 19:06:40,546 - enhanced_workflow_manager - INFO - 第三阶段完成：提升0只，降级0只，移除0只股票
+2025-07-23 19:08:42,950 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:08:42,950 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:08:42,950 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:08:42,950 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:08:42,950 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:08:42,950 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:08:42,950 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:08:42,951 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 19:08:42,957 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 19:08:42,958 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.653
+2025-07-23 19:08:42,963 - stock_pool_manager - INFO - 股票 sz300015 已添加到核心观察池
+2025-07-23 19:08:42,963 - enhanced_workflow_manager - INFO - sz300015 已添加到观察池，得分: 0.864
+2025-07-23 19:08:42,969 - stock_pool_manager - INFO - 股票 sh601988 已添加到核心观察池
+2025-07-23 19:08:42,969 - enhanced_workflow_manager - INFO - sh601988 已添加到观察池，得分: 0.786
+2025-07-23 19:08:42,975 - stock_pool_manager - INFO - 股票 sh600036 已添加到核心观察池
+2025-07-23 19:08:42,976 - enhanced_workflow_manager - INFO - sh600036 已添加到观察池，得分: 0.685
+2025-07-23 19:08:42,981 - stock_pool_manager - INFO - 股票 sh600030 已添加到核心观察池
+2025-07-23 19:08:42,981 - enhanced_workflow_manager - INFO - sh600030 已添加到观察池，得分: 0.606
+2025-07-23 19:08:42,987 - stock_pool_manager - INFO - 股票 sz300059 已添加到核心观察池
+2025-07-23 19:08:42,988 - enhanced_workflow_manager - INFO - sz300059 已添加到观察池，得分: 0.649
+2025-07-23 19:08:42,993 - stock_pool_manager - INFO - 股票 sz300498 已添加到核心观察池
+2025-07-23 19:08:42,993 - enhanced_workflow_manager - INFO - sz300498 已添加到观察池，得分: 0.854
+2025-07-23 19:08:42,999 - stock_pool_manager - INFO - 股票 sh600887 已添加到核心观察池
+2025-07-23 19:08:42,999 - enhanced_workflow_manager - INFO - sh600887 已添加到观察池，得分: 0.561
+2025-07-23 19:08:43,005 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 19:08:43,006 - enhanced_workflow_manager - INFO - sz000001 已添加到观察池，得分: 0.600
+2025-07-23 19:08:43,011 - stock_pool_manager - INFO - 股票 sz002415 已添加到核心观察池
+2025-07-23 19:08:43,012 - enhanced_workflow_manager - INFO - sz002415 已添加到观察池，得分: 0.672
+2025-07-23 19:08:43,017 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 19:08:43,018 - enhanced_workflow_manager - INFO - sz300408 已添加到观察池，得分: 0.660
+2025-07-23 19:08:43,023 - stock_pool_manager - INFO - 股票 sh601398 已添加到核心观察池
+2025-07-23 19:08:43,024 - enhanced_workflow_manager - INFO - sh601398 已添加到观察池，得分: 0.807
+2025-07-23 19:08:43,030 - stock_pool_manager - INFO - 股票 sz000002 已添加到核心观察池
+2025-07-23 19:08:43,030 - enhanced_workflow_manager - INFO - sz000002 已添加到观察池，得分: 0.695
+2025-07-23 19:08:43,035 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 19:08:43,035 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.812
+2025-07-23 19:08:43,041 - stock_pool_manager - INFO - 股票 sh601857 已添加到核心观察池
+2025-07-23 19:08:43,042 - enhanced_workflow_manager - INFO - sh601857 已添加到观察池，得分: 0.554
+2025-07-23 19:08:43,047 - stock_pool_manager - INFO - 股票 sh600519 已添加到核心观察池
+2025-07-23 19:08:43,048 - enhanced_workflow_manager - INFO - sh600519 已添加到观察池，得分: 0.560
+2025-07-23 19:08:43,053 - stock_pool_manager - INFO - 股票 sz300124 已添加到核心观察池
+2025-07-23 19:08:43,054 - enhanced_workflow_manager - INFO - sz300124 已添加到观察池，得分: 0.738
+2025-07-23 19:08:43,054 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 19:08:43,055 - enhanced_workflow_manager - INFO - 第一阶段完成：处理17只股票，筛选出17只高质量股票
+2025-07-23 19:08:43,055 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 19:08:43,055 - daily_signal_scanner - INFO - 开始扫描 2025-07-23 的交易信号
+2025-07-23 19:08:43,055 - daily_signal_scanner - INFO - 过滤后的股票数量: 17
+2025-07-23 19:08:43,061 - stock_pool_manager - INFO - 信号已记录: sh600000 - sell
+2025-07-23 19:08:43,067 - stock_pool_manager - INFO - 信号已记录: sh600887 - buy
+2025-07-23 19:08:43,073 - stock_pool_manager - INFO - 信号已记录: sz000002 - buy
+2025-07-23 19:08:43,079 - stock_pool_manager - INFO - 信号已记录: sh600030 - buy
+2025-07-23 19:08:43,085 - stock_pool_manager - INFO - 信号已记录: sh601988 - sell
+2025-07-23 19:08:43,091 - stock_pool_manager - INFO - 信号已记录: sz000001 - buy
+2025-07-23 19:08:43,098 - stock_pool_manager - INFO - 信号已记录: sz300498 - sell
+2025-07-23 19:08:43,103 - stock_pool_manager - INFO - 信号已记录: sz002415 - sell
+2025-07-23 19:08:43,109 - stock_pool_manager - INFO - 信号已记录: sh601857 - buy
+2025-07-23 19:08:43,115 - stock_pool_manager - INFO - 信号已记录: sz300015 - sell
+2025-07-23 19:08:43,121 - stock_pool_manager - INFO - 信号已记录: sz300015 - sell
+2025-07-23 19:08:43,127 - stock_pool_manager - INFO - 信号已记录: sz300124 - buy
+2025-07-23 19:08:43,133 - stock_pool_manager - INFO - 信号已记录: sz300408 - buy
+2025-07-23 19:08:43,139 - stock_pool_manager - INFO - 信号已记录: sh600519 - sell
+2025-07-23 19:08:43,145 - stock_pool_manager - INFO - 信号已记录: sz000002 - buy
+2025-07-23 19:08:43,153 - stock_pool_manager - INFO - 信号已记录: sz000001 - buy
+2025-07-23 19:08:43,154 - daily_signal_scanner - INFO - 扫描报告已保存: reports/daily_scan_20250723_190843.json
+2025-07-23 19:08:43,154 - daily_signal_scanner - INFO - 信号扫描完成: 发现 16 个信号，记录 16 个
+2025-07-23 19:08:43,154 - enhanced_workflow_manager - INFO - 第二阶段完成：扫描17只股票，生成16个信号
+2025-07-23 19:08:43,154 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 19:08:43,163 - stock_pool_manager - INFO - 股票 sz300015 信任度已更新为 1.0
+2025-07-23 19:08:43,169 - stock_pool_manager - INFO - 股票 sz300498 信任度已更新为 1.0
+2025-07-23 19:08:43,175 - stock_pool_manager - INFO - 股票 sh600000 信任度已更新为 1.0
+2025-07-23 19:08:43,181 - stock_pool_manager - INFO - 股票 sh601398 信任度已更新为 1.0
+2025-07-23 19:08:43,187 - stock_pool_manager - INFO - 股票 sh601988 信任度已更新为 1.0
+2025-07-23 19:08:43,193 - stock_pool_manager - INFO - 股票 sz300124 信任度已更新为 1.0
+2025-07-23 19:08:43,199 - stock_pool_manager - INFO - 股票 sz000002 信任度已更新为 1.0
+2025-07-23 19:08:43,205 - stock_pool_manager - INFO - 股票 sh600036 信任度已更新为 1.0
+2025-07-23 19:08:43,211 - stock_pool_manager - INFO - 股票 sz002415 信任度已更新为 1.0
+2025-07-23 19:08:43,217 - stock_pool_manager - INFO - 股票 sz300408 信任度已更新为 1.0
+2025-07-23 19:08:43,223 - stock_pool_manager - INFO - 股票 sz300760 信任度已更新为 1.0
+2025-07-23 19:08:43,229 - stock_pool_manager - INFO - 股票 sz300059 信任度已更新为 1.0
+2025-07-23 19:08:43,235 - stock_pool_manager - INFO - 股票 sh600030 信任度已更新为 1.0
+2025-07-23 19:08:43,241 - stock_pool_manager - INFO - 股票 sz000001 信任度已更新为 1.0
+2025-07-23 19:08:43,247 - stock_pool_manager - INFO - 股票 sh600887 信任度已更新为 1.0
+2025-07-23 19:08:43,253 - stock_pool_manager - INFO - 股票 sh600519 信任度已更新为 1.0
+2025-07-23 19:08:43,259 - stock_pool_manager - INFO - 股票 sh601857 信任度已更新为 1.0
+2025-07-23 19:08:43,260 - performance_tracker - INFO - 调整报告已保存: reports/pool_adjustment_20250723_190843.json
+2025-07-23 19:08:43,260 - performance_tracker - INFO - 观察池调整完成: 提升0只, 降级0只, 移除0只
+2025-07-23 19:08:43,266 - performance_tracker - INFO - 绩效报告已保存: reports/performance_report_comprehensive_20250723_190843.json
+2025-07-23 19:08:43,266 - enhanced_workflow_manager - INFO - 第三阶段完成：提升0只，降级0只，移除0只股票
+2025-07-23 19:08:43,366 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:08:43,366 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:08:43,366 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:08:43,366 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:08:43,367 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:08:43,367 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:08:43,367 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:08:43,367 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 19:08:43,373 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 19:08:43,374 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.729
+2025-07-23 19:08:43,379 - stock_pool_manager - INFO - 股票 sz300015 已添加到核心观察池
+2025-07-23 19:08:43,379 - enhanced_workflow_manager - INFO - sz300015 已添加到观察池，得分: 0.500
+2025-07-23 19:08:43,385 - stock_pool_manager - INFO - 股票 sh600036 已添加到核心观察池
+2025-07-23 19:08:43,385 - enhanced_workflow_manager - INFO - sh600036 已添加到观察池，得分: 0.639
+2025-07-23 19:08:43,391 - stock_pool_manager - INFO - 股票 sz000858 已添加到核心观察池
+2025-07-23 19:08:43,391 - enhanced_workflow_manager - INFO - sz000858 已添加到观察池，得分: 0.693
+2025-07-23 19:08:43,397 - stock_pool_manager - INFO - 股票 sh600030 已添加到核心观察池
+2025-07-23 19:08:43,398 - enhanced_workflow_manager - INFO - sh600030 已添加到观察池，得分: 0.634
+2025-07-23 19:08:43,403 - stock_pool_manager - INFO - 股票 sz300498 已添加到核心观察池
+2025-07-23 19:08:43,403 - enhanced_workflow_manager - INFO - sz300498 已添加到观察池，得分: 0.616
+2025-07-23 19:08:43,409 - stock_pool_manager - INFO - 股票 sh600887 已添加到核心观察池
+2025-07-23 19:08:43,410 - enhanced_workflow_manager - INFO - sh600887 已添加到观察池，得分: 0.812
+2025-07-23 19:08:43,415 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 19:08:43,415 - enhanced_workflow_manager - INFO - sz000001 已添加到观察池，得分: 0.743
+2025-07-23 19:08:43,421 - stock_pool_manager - INFO - 股票 sz002415 已添加到核心观察池
+2025-07-23 19:08:43,421 - enhanced_workflow_manager - INFO - sz002415 已添加到观察池，得分: 0.650
+2025-07-23 19:08:43,427 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 19:08:43,427 - enhanced_workflow_manager - INFO - sz300408 已添加到观察池，得分: 0.579
+2025-07-23 19:08:43,433 - stock_pool_manager - INFO - 股票 sh601398 已添加到核心观察池
+2025-07-23 19:08:43,433 - enhanced_workflow_manager - INFO - sh601398 已添加到观察池，得分: 0.687
+2025-07-23 19:08:43,439 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 19:08:43,440 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.702
+2025-07-23 19:08:43,446 - stock_pool_manager - INFO - 股票 sh600519 已添加到核心观察池
+2025-07-23 19:08:43,446 - enhanced_workflow_manager - INFO - sh600519 已添加到观察池，得分: 0.539
+2025-07-23 19:08:43,451 - stock_pool_manager - INFO - 股票 sh601318 已添加到核心观察池
+2025-07-23 19:08:43,452 - enhanced_workflow_manager - INFO - sh601318 已添加到观察池，得分: 0.577
+2025-07-23 19:08:43,457 - stock_pool_manager - INFO - 股票 sz300124 已添加到核心观察池
+2025-07-23 19:08:43,458 - enhanced_workflow_manager - INFO - sz300124 已添加到观察池，得分: 0.817
+2025-07-23 19:08:43,458 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 19:08:43,459 - enhanced_workflow_manager - INFO - 第一阶段完成：处理15只股票，筛选出15只高质量股票
+2025-07-23 19:08:43,459 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 19:08:43,459 - daily_signal_scanner - INFO - 开始扫描 2025-07-23 的交易信号
+2025-07-23 19:08:43,459 - daily_signal_scanner - INFO - 过滤后的股票数量: 15
+2025-07-23 19:08:43,465 - stock_pool_manager - INFO - 信号已记录: sz300760 - buy
+2025-07-23 19:08:43,471 - stock_pool_manager - INFO - 信号已记录: sh600030 - sell
+2025-07-23 19:08:43,477 - stock_pool_manager - INFO - 信号已记录: sz300760 - buy
+2025-07-23 19:08:43,483 - stock_pool_manager - INFO - 信号已记录: sh600519 - sell
+2025-07-23 19:08:43,489 - stock_pool_manager - INFO - 信号已记录: sz300408 - buy
+2025-07-23 19:08:43,497 - stock_pool_manager - INFO - 信号已记录: sz002415 - sell
+2025-07-23 19:08:43,503 - stock_pool_manager - INFO - 信号已记录: sz000858 - buy
+2025-07-23 19:08:43,509 - stock_pool_manager - INFO - 信号已记录: sz002415 - buy
+2025-07-23 19:08:43,515 - stock_pool_manager - INFO - 信号已记录: sz300498 - sell
+2025-07-23 19:08:43,516 - daily_signal_scanner - INFO - 扫描报告已保存: reports/daily_scan_20250723_190843.json
+2025-07-23 19:08:43,516 - daily_signal_scanner - INFO - 信号扫描完成: 发现 9 个信号，记录 9 个
+2025-07-23 19:08:43,516 - enhanced_workflow_manager - INFO - 第二阶段完成：扫描15只股票，生成9个信号
+2025-07-23 19:08:43,516 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 19:08:43,525 - stock_pool_manager - INFO - 股票 sz300124 信任度已更新为 1.0
+2025-07-23 19:08:43,531 - stock_pool_manager - INFO - 股票 sh600887 信任度已更新为 1.0
+2025-07-23 19:08:43,537 - stock_pool_manager - INFO - 股票 sz000001 信任度已更新为 1.0
+2025-07-23 19:08:43,543 - stock_pool_manager - INFO - 股票 sz300760 信任度已更新为 1.0
+2025-07-23 19:08:43,549 - stock_pool_manager - INFO - 股票 sh600000 信任度已更新为 1.0
+2025-07-23 19:08:43,555 - stock_pool_manager - INFO - 股票 sz000858 信任度已更新为 1.0
+2025-07-23 19:08:43,561 - stock_pool_manager - INFO - 股票 sh601398 信任度已更新为 1.0
+2025-07-23 19:08:43,567 - stock_pool_manager - INFO - 股票 sz002415 信任度已更新为 1.0
+2025-07-23 19:08:43,573 - stock_pool_manager - INFO - 股票 sh600036 信任度已更新为 1.0
+2025-07-23 19:08:43,579 - stock_pool_manager - INFO - 股票 sh600030 信任度已更新为 1.0
+2025-07-23 19:08:43,585 - stock_pool_manager - INFO - 股票 sz300498 信任度已更新为 1.0
+2025-07-23 19:08:43,591 - stock_pool_manager - INFO - 股票 sz300408 信任度已更新为 1.0
+2025-07-23 19:08:43,597 - stock_pool_manager - INFO - 股票 sh601318 信任度已更新为 1.0
+2025-07-23 19:08:43,603 - stock_pool_manager - INFO - 股票 sh600519 信任度已更新为 1.0
+2025-07-23 19:08:43,609 - stock_pool_manager - INFO - 股票 sz300015 信任度已更新为 1.0
+2025-07-23 19:08:43,610 - performance_tracker - INFO - 调整报告已保存: reports/pool_adjustment_20250723_190843.json
+2025-07-23 19:08:43,610 - performance_tracker - INFO - 观察池调整完成: 提升0只, 降级0只, 移除0只
+2025-07-23 19:08:43,616 - performance_tracker - INFO - 绩效报告已保存: reports/performance_report_comprehensive_20250723_190843.json
+2025-07-23 19:08:43,616 - enhanced_workflow_manager - INFO - 第三阶段完成：提升0只，降级0只，移除0只股票
+2025-07-23 19:24:55,445 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:24:55,445 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:24:55,445 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:24:55,445 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:24:55,445 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:24:55,445 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:24:55,445 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:24:55,527 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:24:55,532 - stock_pool_manager - INFO - 股票 sz300290 已添加到核心观察池
+2025-07-23 19:24:55,538 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 19:24:55,544 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 19:24:55,550 - stock_pool_manager - INFO - 信号已记录: sz300290 - buy
+2025-07-23 19:24:55,556 - stock_pool_manager - INFO - 信号已记录: sh600000 - sell
+2025-07-23 19:24:55,882 - report_generator - ERROR - 生成图表失败: 'ReportGenerator' object has no attribute '_create_signal_statistics_chart'
+2025-07-23 19:24:55,882 - report_generator - ERROR - 生成综合报告失败: 'ReportGenerator' object has no attribute '_generate_json_report'
+2025-07-23 19:24:55,999 - report_generator - ERROR - 生成图表失败: 'ReportGenerator' object has no attribute '_create_signal_statistics_chart'
+2025-07-23 19:24:55,999 - report_generator - ERROR - 生成信号报告失败: 'ReportGenerator' object has no attribute '_process_signals_for_report'
+2025-07-23 19:24:55,999 - report_generator - ERROR - 生成绩效仪表板失败: 'ReportGenerator' object has no attribute '_collect_performance_data'
+2025-07-23 19:24:56,283 - report_generator - ERROR - 生成图表失败: 'ReportGenerator' object has no attribute '_create_signal_statistics_chart'
+2025-07-23 19:24:56,369 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:24:56,369 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:24:56,369 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:24:56,369 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:24:56,369 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:24:56,369 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:24:56,369 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:30:17,126 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:30:17,126 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:30:17,126 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:30:17,126 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:30:17,126 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:30:17,127 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:30:17,127 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:30:17,127 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 19:30:17,134 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 19:30:17,134 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.709
+2025-07-23 19:30:17,140 - stock_pool_manager - INFO - 股票 sz300498 已添加到核心观察池
+2025-07-23 19:30:17,140 - enhanced_workflow_manager - INFO - sz300498 已添加到观察池，得分: 0.637
+2025-07-23 19:30:17,146 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 19:30:17,146 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.754
+2025-07-23 19:30:17,152 - stock_pool_manager - INFO - 股票 sz000001 已添加到核心观察池
+2025-07-23 19:30:17,152 - enhanced_workflow_manager - INFO - sz000001 已添加到观察池，得分: 0.543
+2025-07-23 19:30:17,158 - stock_pool_manager - INFO - 股票 sh600036 已添加到核心观察池
+2025-07-23 19:30:17,158 - enhanced_workflow_manager - INFO - sh600036 已添加到观察池，得分: 0.530
+2025-07-23 19:30:17,164 - stock_pool_manager - INFO - 股票 sh601988 已添加到核心观察池
+2025-07-23 19:30:17,164 - enhanced_workflow_manager - INFO - sh601988 已添加到观察池，得分: 0.517
+2025-07-23 19:30:17,170 - stock_pool_manager - INFO - 股票 sz000002 已添加到核心观察池
+2025-07-23 19:30:17,170 - enhanced_workflow_manager - INFO - sz000002 已添加到观察池，得分: 0.874
+2025-07-23 19:30:17,176 - stock_pool_manager - INFO - 股票 sh601398 已添加到核心观察池
+2025-07-23 19:30:17,176 - enhanced_workflow_manager - INFO - sh601398 已添加到观察池，得分: 0.605
+2025-07-23 19:30:17,182 - stock_pool_manager - INFO - 股票 sh600030 已添加到核心观察池
+2025-07-23 19:30:17,182 - enhanced_workflow_manager - INFO - sh600030 已添加到观察池，得分: 0.765
+2025-07-23 19:30:17,188 - stock_pool_manager - INFO - 股票 sz300015 已添加到核心观察池
+2025-07-23 19:30:17,188 - enhanced_workflow_manager - INFO - sz300015 已添加到观察池，得分: 0.787
+2025-07-23 19:30:17,194 - stock_pool_manager - INFO - 股票 sz300059 已添加到核心观察池
+2025-07-23 19:30:17,194 - enhanced_workflow_manager - INFO - sz300059 已添加到观察池，得分: 0.825
+2025-07-23 19:30:17,200 - stock_pool_manager - INFO - 股票 sh601318 已添加到核心观察池
+2025-07-23 19:30:17,200 - enhanced_workflow_manager - INFO - sh601318 已添加到观察池，得分: 0.605
+2025-07-23 19:30:17,206 - stock_pool_manager - INFO - 股票 sz300408 已添加到核心观察池
+2025-07-23 19:30:17,206 - enhanced_workflow_manager - INFO - sz300408 已添加到观察池，得分: 0.726
+2025-07-23 19:30:17,207 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 19:30:17,207 - enhanced_workflow_manager - INFO - 第一阶段完成：处理13只股票，筛选出13只高质量股票
+2025-07-23 19:30:17,207 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 19:30:17,207 - daily_signal_scanner - INFO - 开始扫描 2025-07-23 的交易信号
+2025-07-23 19:30:17,207 - daily_signal_scanner - INFO - 过滤后的股票数量: 13
+2025-07-23 19:30:17,214 - stock_pool_manager - INFO - 信号已记录: sz300760 - buy
+2025-07-23 19:30:17,220 - stock_pool_manager - INFO - 信号已记录: sz300059 - buy
+2025-07-23 19:30:17,226 - stock_pool_manager - INFO - 信号已记录: sz000001 - buy
+2025-07-23 19:30:17,232 - stock_pool_manager - INFO - 信号已记录: sh600036 - buy
+2025-07-23 19:30:17,238 - stock_pool_manager - INFO - 信号已记录: sz000002 - sell
+2025-07-23 19:30:17,244 - stock_pool_manager - INFO - 信号已记录: sz300408 - sell
+2025-07-23 19:30:17,250 - stock_pool_manager - INFO - 信号已记录: sz300015 - sell
+2025-07-23 19:30:17,250 - daily_signal_scanner - INFO - 扫描报告已保存: reports/daily_scan_20250723_193017.json
+2025-07-23 19:30:17,250 - daily_signal_scanner - INFO - 信号扫描完成: 发现 7 个信号，记录 7 个
+2025-07-23 19:30:17,250 - enhanced_workflow_manager - INFO - 第二阶段完成：扫描13只股票，生成7个信号
+2025-07-23 19:30:17,250 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 19:30:17,260 - stock_pool_manager - INFO - 股票 sz000002 信任度已更新为 1.0
+2025-07-23 19:30:17,266 - stock_pool_manager - INFO - 股票 sz300059 信任度已更新为 1.0
+2025-07-23 19:30:17,272 - stock_pool_manager - INFO - 股票 sz300015 信任度已更新为 1.0
+2025-07-23 19:30:17,278 - stock_pool_manager - INFO - 股票 sh600030 信任度已更新为 1.0
+2025-07-23 19:30:17,284 - stock_pool_manager - INFO - 股票 sz300760 信任度已更新为 1.0
+2025-07-23 19:30:17,290 - stock_pool_manager - INFO - 股票 sz300408 信任度已更新为 1.0
+2025-07-23 19:30:17,296 - stock_pool_manager - INFO - 股票 sh600000 信任度已更新为 1.0
+2025-07-23 19:30:17,302 - stock_pool_manager - INFO - 股票 sz300498 信任度已更新为 1.0
+2025-07-23 19:30:17,308 - stock_pool_manager - INFO - 股票 sh601398 信任度已更新为 1.0
+2025-07-23 19:30:17,314 - stock_pool_manager - INFO - 股票 sh601318 信任度已更新为 1.0
+2025-07-23 19:30:17,320 - stock_pool_manager - INFO - 股票 sz000001 信任度已更新为 1.0
+2025-07-23 19:30:17,326 - stock_pool_manager - INFO - 股票 sh600036 信任度已更新为 1.0
+2025-07-23 19:30:17,332 - stock_pool_manager - INFO - 股票 sh601988 信任度已更新为 1.0
+2025-07-23 19:30:17,332 - performance_tracker - INFO - 调整报告已保存: reports/pool_adjustment_20250723_193017.json
+2025-07-23 19:30:17,332 - performance_tracker - INFO - 观察池调整完成: 提升0只, 降级0只, 移除0只
+2025-07-23 19:30:17,338 - performance_tracker - INFO - 绩效报告已保存: reports/performance_report_comprehensive_20250723_193017.json
+2025-07-23 19:30:17,338 - enhanced_workflow_manager - INFO - 第三阶段完成：提升0只，降级0只，移除0只股票
+2025-07-23 19:30:17,434 - enhanced_workflow_manager - INFO - 参数优化器初始化成功
+2025-07-23 19:30:17,434 - enhanced_workflow_manager - INFO - 交易顾问初始化成功
+2025-07-23 19:30:17,435 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:30:17,435 - daily_signal_scanner - INFO - 交易顾问初始化成功
+2025-07-23 19:30:17,435 - enhanced_workflow_manager - INFO - 每日信号扫描器初始化成功
+2025-07-23 19:30:17,435 - stock_pool_manager - INFO - 数据库初始化完成
+2025-07-23 19:30:17,435 - enhanced_workflow_manager - INFO - 绩效跟踪器初始化成功
+2025-07-23 19:30:17,435 - enhanced_workflow_manager - INFO - 开始执行增强版第一阶段：智能深度海选
+2025-07-23 19:30:17,442 - stock_pool_manager - INFO - 股票 sh600000 已添加到核心观察池
+2025-07-23 19:30:17,442 - enhanced_workflow_manager - INFO - sh600000 已添加到观察池，得分: 0.710
+2025-07-23 19:30:17,448 - stock_pool_manager - INFO - 股票 sz300760 已添加到核心观察池
+2025-07-23 19:30:17,448 - enhanced_workflow_manager - INFO - sz300760 已添加到观察池，得分: 0.742
+2025-07-23 19:30:17,454 - stock_pool_manager - INFO - 股票 sz002415 已添加到核心观察池
+2025-07-23 19:30:17,454 - enhanced_workflow_manager - INFO - sz002415 已添加到观察池，得分: 0.616
+2025-07-23 19:30:17,460 - stock_pool_manager - INFO - 股票 sh601988 已添加到核心观察池
+2025-07-23 19:30:17,460 - enhanced_workflow_manager - INFO - sh601988 已添加到观察池，得分: 0.571
+2025-07-23 19:30:17,466 - stock_pool_manager - INFO - 股票 sh600276 已添加到核心观察池
+2025-07-23 19:30:17,466 - enhanced_workflow_manager - INFO - sh600276 已添加到观察池，得分: 0.887
+2025-07-23 19:30:17,472 - stock_pool_manager - INFO - 股票 sh600887 已添加到核心观察池
+2025-07-23 19:30:17,472 - enhanced_workflow_manager - INFO - sh600887 已添加到观察池，得分: 0.544
+2025-07-23 19:30:17,478 - stock_pool_manager - INFO - 股票 sz000002 已添加到核心观察池
+2025-07-23 19:30:17,478 - enhanced_workflow_manager - INFO - sz000002 已添加到观察池，得分: 0.728
+2025-07-23 19:30:17,484 - stock_pool_manager - INFO - 股票 sz000858 已添加到核心观察池
+2025-07-23 19:30:17,484 - enhanced_workflow_manager - INFO - sz000858 已添加到观察池，得分: 0.786
+2025-07-23 19:30:17,490 - stock_pool_manager - INFO - 股票 sh600030 已添加到核心观察池
+2025-07-23 19:30:17,490 - enhanced_workflow_manager - INFO - sh600030 已添加到观察池，得分: 0.668
+2025-07-23 19:30:17,496 - stock_pool_manager - INFO - 股票 sz300015 已添加到核心观察池
+2025-07-23 19:30:17,496 - enhanced_workflow_manager - INFO - sz300015 已添加到观察池，得分: 0.526
+2025-07-23 19:30:17,502 - stock_pool_manager - INFO - 股票 sz300059 已添加到核心观察池
+2025-07-23 19:30:17,502 - enhanced_workflow_manager - INFO - sz300059 已添加到观察池，得分: 0.562
+2025-07-23 19:30:17,508 - stock_pool_manager - INFO - 股票 sh600519 已添加到核心观察池
+2025-07-23 19:30:17,508 - enhanced_workflow_manager - INFO - sh600519 已添加到观察池，得分: 0.743
+2025-07-23 19:30:17,508 - stock_pool_manager - INFO - 核心观察池已导出到 core_stock_pool.json
+2025-07-23 19:30:17,509 - enhanced_workflow_manager - INFO - 第一阶段完成：处理12只股票，筛选出12只高质量股票
+2025-07-23 19:30:17,509 - enhanced_workflow_manager - INFO - 开始执行增强版第二阶段：智能信号生成
+2025-07-23 19:30:17,509 - daily_signal_scanner - INFO - 开始扫描 2025-07-23 的交易信号
+2025-07-23 19:30:17,509 - daily_signal_scanner - INFO - 过滤后的股票数量: 12
+2025-07-23 19:30:17,516 - stock_pool_manager - INFO - 信号已记录: sh600276 - sell
+2025-07-23 19:30:17,522 - stock_pool_manager - INFO - 信号已记录: sz000002 - buy
+2025-07-23 19:30:17,528 - stock_pool_manager - INFO - 信号已记录: sh600887 - sell
+2025-07-23 19:30:17,536 - stock_pool_manager - INFO - 信号已记录: sh600519 - sell
+2025-07-23 19:30:17,542 - stock_pool_manager - INFO - 信号已记录: sh600000 - buy
+2025-07-23 19:30:17,548 - stock_pool_manager - INFO - 信号已记录: sz300059 - sell
+2025-07-23 19:30:17,554 - stock_pool_manager - INFO - 信号已记录: sz300059 - sell
+2025-07-23 19:30:17,560 - stock_pool_manager - INFO - 信号已记录: sh600276 - buy
+2025-07-23 19:30:17,566 - stock_pool_manager - INFO - 信号已记录: sh600000 - buy
+2025-07-23 19:30:17,566 - daily_signal_scanner - INFO - 扫描报告已保存: reports/daily_scan_20250723_193017.json
+2025-07-23 19:30:17,566 - daily_signal_scanner - INFO - 信号扫描完成: 发现 9 个信号，记录 9 个
+2025-07-23 19:30:17,566 - enhanced_workflow_manager - INFO - 第二阶段完成：扫描12只股票，生成9个信号
+2025-07-23 19:30:17,567 - enhanced_workflow_manager - INFO - 开始执行增强版第三阶段：智能绩效跟踪
+2025-07-23 19:30:17,576 - stock_pool_manager - INFO - 股票 sh600276 信任度已更新为 1.0
+2025-07-23 19:30:17,582 - stock_pool_manager - INFO - 股票 sz000858 信任度已更新为 1.0
+2025-07-23 19:30:17,588 - stock_pool_manager - INFO - 股票 sh600519 信任度已更新为 1.0
+2025-07-23 19:30:17,594 - stock_pool_manager - INFO - 股票 sz300760 信任度已更新为 1.0
+2025-07-23 19:30:17,600 - stock_pool_manager - INFO - 股票 sz000002 信任度已更新为 1.0
+2025-07-23 19:30:17,606 - stock_pool_manager - INFO - 股票 sh600000 信任度已更新为 1.0
+2025-07-23 19:30:17,612 - stock_pool_manager - INFO - 股票 sh600030 信任度已更新为 1.0
+2025-07-23 19:30:17,618 - stock_pool_manager - INFO - 股票 sz002415 信任度已更新为 1.0
+2025-07-23 19:30:17,624 - stock_pool_manager - INFO - 股票 sh601988 信任度已更新为 1.0
+2025-07-23 19:30:17,630 - stock_pool_manager - INFO - 股票 sz300059 信任度已更新为 1.0
+2025-07-23 19:30:17,636 - stock_pool_manager - INFO - 股票 sh600887 信任度已更新为 1.0
+2025-07-23 19:30:17,642 - stock_pool_manager - INFO - 股票 sz300015 信任度已更新为 1.0
+2025-07-23 19:30:17,642 - performance_tracker - INFO - 调整报告已保存: reports/pool_adjustment_20250723_193017.json
+2025-07-23 19:30:17,642 - performance_tracker - INFO - 观察池调整完成: 提升0只, 降级0只, 移除0只
+2025-07-23 19:30:17,646 - performance_tracker - INFO - 绩效报告已保存: reports/performance_report_comprehensive_20250723_193017.json
+2025-07-23 19:30:17,646 - enhanced_workflow_manager - INFO - 第三阶段完成：提升0只，降级0只，移除0只股票

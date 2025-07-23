@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T16:38:39.679496",
+  "stock_code": "sh600482",
+  "current_price": 23.43,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 23.66,
+    "target_price_2": 23.71,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009816474605207019,
+    "discount_2": -0.011950490823730309,
+    "stop_loss": {
+      "conservative": 22.73,
+      "moderate": 21.56,
+      "aggressive": 21.56,
+      "technical": 22.65
+    },
+    "take_profit": {
+      "conservative": 25.3,
+      "moderate": 25.77,
+      "aggressive": 28.12
+    }
+  }
+}

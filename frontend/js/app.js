@@ -229,6 +229,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const buyRecCountEl = document.getElementById('buy-rec-count');
     
     // 深度扫描功能
+    const deepScanBtn = document.getElementById('deep-scan-btn');
+    if (deepScanBtn) deepScanBtn.addEventListener('click', triggerDeepScan);
     if (refreshDeepScanBtn) refreshDeepScanBtn.addEventListener('click', loadDeepScanResults);
     
     // 页面加载时检查是否有深度扫描结果
@@ -395,6 +397,51 @@ document.addEventListener('DOMContentLoaded', function () {
             'AVOID': '🔴 回避'
         };
         return actionTexts[action] || action;
+    }
+    
+    function triggerDeepScan() {
+        const strategy = strategySelect.value;
+        
+        if (!strategy) {
+            alert('请先选择一个策略');
+            return;
+        }
+        
+        // 显示加载状态
+        if (deepScanBtn) {
+            deepScanBtn.textContent = '🔄 深度扫描中...';
+            deepScanBtn.disabled = true;
+        }
+        
+        // 触发深度扫描
+        fetch(`/api/run_deep_scan?strategy=${strategy}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(`深度扫描完成！\n分析了 ${data.summary.total_requested} 只股票\n成功分析 ${data.summary.total_analyzed} 只\nA级股票 ${data.summary.a_grade_count} 只\n价格评估 ${data.summary.price_evaluated_count} 只\n买入推荐 ${data.summary.buy_recommendations} 只`);
+                
+                // 重新加载深度扫描结果
+                loadDeepScanResults();
+            } else {
+                alert(`深度扫描失败: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            console.error('Error triggering deep scan:', error);
+            alert(`深度扫描失败: ${error.message}`);
+        })
+        .finally(() => {
+            // 恢复按钮状态
+            if (deepScanBtn) {
+                deepScanBtn.textContent = '🔍 深度扫描';
+                deepScanBtn.disabled = false;
+            }
+        });
     }
     
     function viewStockDetail(stockCode) {

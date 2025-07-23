@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T12:24:49.378114",
+  "stock_code": "sz000669",
+  "current_price": 2.74,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 2.6,
+    "target_price_2": 2.6,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05109489051094895,
+    "discount_2": 0.05109489051094895,
+    "stop_loss": {
+      "conservative": 2.66,
+      "moderate": 2.52,
+      "aggressive": 2.52,
+      "technical": 2.65
+    },
+    "take_profit": {
+      "conservative": 2.96,
+      "moderate": 3.01,
+      "aggressive": 3.29
+    }
+  }
+}

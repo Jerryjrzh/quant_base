@@ -1,8 +1,8 @@
 {
   "stock_code": "sh688275",
-  "optimization_date": "2025-07-22T18:17:49.494586",
+  "optimization_date": "2025-07-23T11:46:14.038918",
   "best_parameters": {
-    "pre_entry_discount": 0.02,
+    "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
     "mid_entry_premium": 0.01,
     "post_entry_discount": 0.05,

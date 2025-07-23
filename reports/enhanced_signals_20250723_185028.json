@@ -1,0 +1,63 @@
+{
+  "report_date": "2025-07-23T18:50:28.496565",
+  "total_signals": 5,
+  "signals": [
+    {
+      "stock_code": "sh601066",
+      "signal_type": "sell",
+      "confidence": 0.8724992960435509,
+      "trigger_price": 41.03620741893096,
+      "target_price": 22.522715152747555,
+      "stop_loss": 35.2026630092117,
+      "signal_date": "2025-07-23T18:50:28.450718",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sh600000",
+      "signal_type": "sell",
+      "confidence": 0.9328075217981391,
+      "trigger_price": 37.135945126040056,
+      "target_price": 54.894016350696816,
+      "stop_loss": 17.4968955533845,
+      "signal_date": "2025-07-23T18:50:28.456515",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sh601211",
+      "signal_type": "sell",
+      "confidence": 0.8297328867391175,
+      "trigger_price": 30.620980223453365,
+      "target_price": 47.83137756000583,
+      "stop_loss": 11.725511217224803,
+      "signal_date": "2025-07-23T18:50:28.462493",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sh601788",
+      "signal_type": "buy",
+      "confidence": 0.8598075753857982,
+      "trigger_price": 22.646440449262407,
+      "target_price": 23.629774119528083,
+      "stop_loss": 23.45433967625598,
+      "signal_date": "2025-07-23T18:50:28.468540",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sh601088",
+      "signal_type": "sell",
+      "confidence": 0.8333033927079261,
+      "trigger_price": 34.65351285025822,
+      "target_price": 42.038391769820336,
+      "stop_loss": 36.26847857747583,
+      "signal_date": "2025-07-23T18:50:28.490732",
+      "status": "pending"
+    }
+  ],
+  "statistics": {
+    "avg_confidence": 0.8656301345349064,
+    "signal_types": {
+      "buy": 1,
+      "sell": 4
+    }
+  }
+}

@@ -26,11 +26,63 @@ def get_daily_data(file_path):
     return pd.DataFrame(data).sort_values('date').reset_index(drop=True)
 
 def get_5min_data(file_path):
-    """从.lc5文件读取5分钟线数据"""
-    print(f"⚠️ 5分钟数据解析功能暂时禁用，因为存在格式解析问题")
-    print(f"文件路径: {file_path}")
-    print(f"建议：当前版本请使用日线数据进行分析")
-    return None
+    """
+    从.lc5文件读取5分钟线数据
+    文件格式说明: 每32字节一条记录
+    - 2字节: 日期 (ushort), (year - 2004) * 2048 + month * 100 + day
+    - 2字节: 时间 (ushort), hour * 60 + minute
+    - 4字节: open (float)
+    - 4字节: high (float)
+    - 4字节: low (float)
+    - 4字节: close (float)
+    - 4字节: volume (float)
+    - 4字节: amount (float)
+    - 4字节: (保留)
+    """
+    data = []
+    record_size = 32
+    # 定义解包格式：2个unsigned short, 6个float
+    unpack_format = '<HHffffff'
+    unpack_size = struct.calcsize(unpack_format)
+
+    with open(file_path, 'rb') as f:
+        while True:
+            chunk = f.read(record_size)
+            if len(chunk) < record_size:
+                break
+            try:
+                packed_date, packed_time, open_p, high_p, low_p, close_p, volume, amount = struct.unpack(unpack_format, chunk[:unpack_size])
+
+                # 解码日期
+                year = packed_date // 2048 + 2004
+                month = (packed_date % 2048) // 100
+                day = packed_date % 100
+
+                # 解码时间
+                hour = packed_time // 60
+                minute = packed_time % 60
+                
+                # 合成datetime对象
+                dt = datetime(year, month, day, hour, minute)
+                
+                if open_p <= 0: continue
+
+                data.append({
+                    'datetime': dt,
+                    'open': open_p,
+                    'high': high_p,
+                    'low': low_p,
+                    'close': close_p,
+                    'volume': volume,
+                    'amount': amount
+                })
+            except (struct.error, ValueError):
+                continue
+    
+    if not data:
+        return None
+        
+    return pd.DataFrame(data).sort_values('datetime').reset_index(drop=True)
 
 def get_multi_timeframe_data(stock_code, base_path=None):
     """获取多周期数据（日线 + 5分钟线）"""

@@ -1,0 +1,58 @@
+[
+  {
+    "stock_code": "sh601788",
+    "action": "buy",
+    "confidence": 0.7683467651816516,
+    "current_price": 38.87458382909909,
+    "timestamp": "2025-07-23T18:50:15.040650"
+  },
+  {
+    "stock_code": "sh601998",
+    "action": "buy",
+    "confidence": 0.8852659487174068,
+    "current_price": 46.92152407216753,
+    "timestamp": "2025-07-23T18:50:15.054921"
+  },
+  {
+    "stock_code": "sh601169",
+    "action": "sell",
+    "confidence": 0.7568592173178155,
+    "current_price": 30.83593884771663,
+    "timestamp": "2025-07-23T18:50:15.060881"
+  },
+  {
+    "stock_code": "sh601857",
+    "action": "sell",
+    "confidence": 0.9123953268641881,
+    "current_price": 10.11651747045844,
+    "timestamp": "2025-07-23T18:50:15.068841"
+  },
+  {
+    "stock_code": "sh600745",
+    "action": "buy",
+    "confidence": 0.7993782525208959,
+    "current_price": 24.61651005984089,
+    "timestamp": "2025-07-23T18:50:15.074836"
+  },
+  {
+    "stock_code": "sz002415",
+    "action": "sell",
+    "confidence": 0.9131480869525962,
+    "current_price": 23.300374430076808,
+    "timestamp": "2025-07-23T18:50:15.080847"
+  },
+  {
+    "stock_code": "sh601888",
+    "action": "sell",
+    "confidence": 0.9004128593934095,
+    "current_price": 19.161797073234716,
+    "timestamp": "2025-07-23T18:50:15.086879"
+  },
+  {
+    "stock_code": "sh600887",
+    "action": "buy",
+    "confidence": 0.7643863224142422,
+    "current_price": 40.606926248563056,
+    "timestamp": "2025-07-23T18:50:15.092810"
+  }
+]

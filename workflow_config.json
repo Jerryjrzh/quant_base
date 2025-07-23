@@ -1,0 +1,56 @@
+{
+  "phase1": {
+    "enabled": true,
+    "frequency_days": 7,
+    "max_stocks": 1000,
+    "min_score_threshold": 0.6,
+    "parallel_workers": 4,
+    "description": "第一阶段：全市场深度海选与参数优化"
+  },
+  "phase2": {
+    "enabled": true,
+    "frequency_days": 1,
+    "core_pool_size": 200,
+    "signal_confidence_threshold": 0.7,
+    "description": "第二阶段：每日快速验证与信号触发"
+  },
+  "phase3": {
+    "enabled": true,
+    "frequency_days": 1,
+    "tracking_days": 30,
+    "performance_threshold": 0.5,
+    "credibility_decay": 0.95,
+    "description": "第三阶段：绩效跟踪与反馈"
+  },
+  "data": {
+    "cache_dir": "analysis_cache",
+    "core_pool_file": "core_stock_pool.json",
+    "performance_log": "performance_tracking.json",
+    "workflow_state": "workflow_state.json",
+    "reports_dir": "reports"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "workflow.log",
+    "max_size_mb": 10,
+    "backup_count": 5
+  },
+  "market": {
+    "trading_hours": {
+      "start": "09:30",
+      "end": "15:00"
+    },
+    "exclude_weekends": true,
+    "exclude_holidays": true
+  },
+  "notifications": {
+    "enabled": false,
+    "email": {
+      "smtp_server": "",
+      "smtp_port": 587,
+      "username": "",
+      "password": "",
+      "recipients": []
+    }
+  }
+}

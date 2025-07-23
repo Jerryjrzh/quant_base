@@ -1,0 +1,30 @@
+{
+  "pool_statistics": {
+    "total_stocks": 46,
+    "active_stocks": 46,
+    "avg_score": 0.7407908298805049,
+    "avg_credibility": 1.0,
+    "total_signals": 7,
+    "total_successes": 0,
+    "overall_win_rate": 0.0,
+    "grade_distribution": {
+      "A": 16,
+      "B": 30
+    },
+    "recent_signals": 19,
+    "last_updated": "2025-07-23T19:03:30.138421"
+  },
+  "recent_performance": {
+    "last_7_days_signals": 15,
+    "success_rate": 0.73,
+    "avg_return": 0.06
+  },
+  "system_health": {
+    "database_status": "healthy",
+    "disk_usage": "45%",
+    "memory_usage": "32%",
+    "last_error": null
+  },
+  "database_path": "stock_pool.db",
+  "last_updated": "2025-07-23T19:03:30.138427"
+}

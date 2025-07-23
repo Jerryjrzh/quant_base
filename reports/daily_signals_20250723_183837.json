@@ -1,0 +1,16 @@
+[
+  {
+    "stock_code": "sz000725",
+    "action": "sell",
+    "confidence": 0.7991789984314982,
+    "current_price": 26.308879331571106,
+    "timestamp": "2025-07-23T18:38:37.739692"
+  },
+  {
+    "stock_code": "sh601228",
+    "action": "buy",
+    "confidence": 0.744855702027711,
+    "current_price": 35.78548882004252,
+    "timestamp": "2025-07-23T18:38:37.739788"
+  }
+]

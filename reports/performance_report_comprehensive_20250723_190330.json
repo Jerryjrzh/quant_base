@@ -1,0 +1,26 @@
+{
+  "report_type": "comprehensive",
+  "report_date": "2025-07-23T19:03:30.137987",
+  "system_overview": {
+    "total_stocks": 46,
+    "active_stocks": 46,
+    "avg_score": 0.7407908298805049,
+    "avg_credibility": 1.0,
+    "total_signals": 7,
+    "total_successes": 0,
+    "overall_win_rate": 0.0,
+    "grade_distribution": {
+      "A": 16,
+      "B": 30
+    },
+    "recent_signals": 19,
+    "last_updated": "2025-07-23T19:03:30.137983"
+  },
+  "performance_analysis": {},
+  "top_performers": [],
+  "risk_analysis": {},
+  "recommendations": [
+    "系统整体胜率偏低，建议全面优化策略参数",
+    "优秀表现股票比例较低，建议加强股票筛选标准"
+  ]
+}

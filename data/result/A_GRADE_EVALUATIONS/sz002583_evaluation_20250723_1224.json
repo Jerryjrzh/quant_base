@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T12:24:11.871618",
+  "stock_code": "sz002583",
+  "current_price": 12.05,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 12.17,
+    "target_price_2": 12.19,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009958506224066325,
+    "discount_2": -0.011618257261410688,
+    "stop_loss": {
+      "conservative": 11.69,
+      "moderate": 11.09,
+      "aggressive": 11.09,
+      "technical": 11.7
+    },
+    "take_profit": {
+      "conservative": 13.01,
+      "moderate": 13.26,
+      "aggressive": 14.46
+    }
+  }
+}

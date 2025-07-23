@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T12:23:31.051887",
+  "stock_code": "sh601677",
+  "current_price": 12.8,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 12.93,
+    "target_price_2": 12.92,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010156249999999922,
+    "discount_2": -0.009374999999999939,
+    "stop_loss": {
+      "conservative": 12.42,
+      "moderate": 11.78,
+      "aggressive": 11.78,
+      "technical": 12.32
+    },
+    "take_profit": {
+      "conservative": 13.82,
+      "moderate": 14.08,
+      "aggressive": 15.36
+    }
+  }
+}

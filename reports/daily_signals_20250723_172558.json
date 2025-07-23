@@ -1,0 +1,9 @@
+[
+  {
+    "stock_code": "sz000001",
+    "action": "buy",
+    "confidence": 0.8771698344720689,
+    "current_price": 43.90665837919295,
+    "timestamp": "2025-07-23T17:25:58.298241"
+  }
+]

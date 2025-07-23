@@ -122,7 +122,7 @@ def trigger_deep_scan_api():
     try:
         data = request.get_json()
         stock_codes = data.get('stock_codes', [])
-        max_workers = data.get('max_workers', 4)
+        max_workers = data.get('max_workers', 32)
         
         if not stock_codes:
             return jsonify({"error": "请提供股票代码列表"}), 400
@@ -180,7 +180,7 @@ def run_deep_scan_from_signals():
         from run_enhanced_screening import deep_scan_stocks
         
         # 执行深度扫描
-        results = deep_scan_stocks(stock_codes, use_optimized_params=True, max_workers=6)
+        results = deep_scan_stocks(stock_codes, use_optimized_params=True, max_workers=32)
         
         # 统计结果
         valid_results = {k: v for k, v in results.items() if 'error' not in v}

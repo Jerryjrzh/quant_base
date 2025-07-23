@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "scan_date": "2025-07-23",
+  "scan_time": "2025-07-23T19:08:42.898524",
+  "statistics": {
+    "total_scanned": 1,
+    "signals_found": 0,
+    "high_confidence_signals": 0,
+    "buy_signals": 0,
+    "sell_signals": 0
+  },
+  "signals": [],
+  "recorded_signals": 0,
+  "market_conditions": {
+    "market_status": "closed",
+    "trading_day": true,
+    "scan_time": "2025-07-23T19:08:42.898586",
+    "market_sentiment": "neutral"
+  }
+}

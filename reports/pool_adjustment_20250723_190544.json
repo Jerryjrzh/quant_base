@@ -1,0 +1,201 @@
+{
+  "success": true,
+  "adjustments": {
+    "promoted": [],
+    "demoted": [],
+    "removed": [],
+    "credibility_updated": [
+      {
+        "stock_code": "sh601186",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601668",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz300124",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz002415",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600030",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601211",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601788",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601888",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600690",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600893",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601998",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz300408",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601229",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz000858",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600000",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601601",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601138",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601166",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601988",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz300498",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600276",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601857",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz000002",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601939",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601688",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601766",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601628",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600519",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601919",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz300760",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600745",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601318",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601169",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600887",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600900",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601088",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz300059",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600809",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601066",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601390",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601899",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz300015",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600585",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh601398",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sh600036",
+        "new_credibility": 1.0
+      },
+      {
+        "stock_code": "sz000001",
+        "new_credibility": 1.0
+      }
+    ]
+  },
+  "summary": {
+    "total_promoted": 0,
+    "total_demoted": 0,
+    "total_removed": 0,
+    "total_credibility_updated": 46
+  },
+  "adjustment_time": "2025-07-23T19:05:44.752267"
+}

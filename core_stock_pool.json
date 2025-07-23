@@ -1,0 +1,182 @@
+[
+  {
+    "stock_code": "sh600276",
+    "score": 0.8873937565778884,
+    "params": {
+      "pre_entry_discount": 0.012920716481057502,
+      "moderate_stop": 0.045101071067037465,
+      "profit_target": 0.09886328052640739
+    },
+    "analysis_date": "2025-07-23T19:30:17.460383",
+    "credibility_score": 1.0,
+    "grade": "A",
+    "win_rate": 0.5207281495848396,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sz000858",
+    "score": 0.7857208493650116,
+    "params": {
+      "pre_entry_discount": 0.02601622925039107,
+      "moderate_stop": 0.05464639835689997,
+      "profit_target": 0.14230824310886137
+    },
+    "analysis_date": "2025-07-23T19:30:17.478350",
+    "credibility_score": 1.0,
+    "grade": "B",
+    "win_rate": 0.6260011089516921,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sh600519",
+    "score": 0.7427841409272242,
+    "params": {
+      "pre_entry_discount": 0.025701470959138294,
+      "moderate_stop": 0.04326743958214819,
+      "profit_target": 0.1096378472672565
+    },
+    "analysis_date": "2025-07-23T19:30:17.502424",
+    "credibility_score": 1.0,
+    "grade": "B",
+    "win_rate": 0.7038286938644449,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sz300760",
+    "score": 0.7424758972184864,
+    "params": {
+      "pre_entry_discount": 0.02654067213727966,
+      "moderate_stop": 0.0336514454400487,
+      "profit_target": 0.11604099593064518
+    },
+    "analysis_date": "2025-07-23T19:30:17.442371",
+    "credibility_score": 1.0,
+    "grade": "B",
+    "win_rate": 0.6158969955177483,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sz000002",
+    "score": 0.7276071447451435,
+    "params": {
+      "pre_entry_discount": 0.010147670858047901,
+      "moderate_stop": 0.06360941093854527,
+      "profit_target": 0.11223564252591908
+    },
+    "analysis_date": "2025-07-23T19:30:17.472292",
+    "credibility_score": 1.0,
+    "grade": "B",
+    "win_rate": 0.7512391116457335,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sh600000",
+    "score": 0.7101921024268232,
+    "params": {
+      "pre_entry_discount": 0.010260708824127393,
+      "moderate_stop": 0.04612948613203285,
+      "profit_target": 0.09642564694323696
+    },
+    "analysis_date": "2025-07-23T19:30:17.435906",
+    "credibility_score": 1.0,
+    "grade": "B",
+    "win_rate": 0.7804818890023129,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sh600030",
+    "score": 0.6678576935272337,
+    "params": {
+      "pre_entry_discount": 0.02480703420491602,
+      "moderate_stop": 0.04391214389673023,
+      "profit_target": 0.10043594097517099
+    },
+    "analysis_date": "2025-07-23T19:30:17.484389",
+    "credibility_score": 1.0,
+    "grade": "B",
+    "win_rate": 0.646937669353457,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sz002415",
+    "score": 0.6155932168444684,
+    "params": {
+      "pre_entry_discount": 0.029816704930345633,
+      "moderate_stop": 0.05601315538433863,
+      "profit_target": 0.10040247502540822
+    },
+    "analysis_date": "2025-07-23T19:30:17.448467",
+    "credibility_score": 1.0,
+    "grade": "B",
+    "win_rate": 0.7341330167404836,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sh601988",
+    "score": 0.570518592787076,
+    "params": {
+      "pre_entry_discount": 0.020628315706610435,
+      "moderate_stop": 0.051910486928628,
+      "profit_target": 0.1162934334355923
+    },
+    "analysis_date": "2025-07-23T19:30:17.454366",
+    "credibility_score": 1.0,
+    "grade": "C",
+    "win_rate": 0.7680257309880284,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sz300059",
+    "score": 0.5619762044694818,
+    "params": {
+      "pre_entry_discount": 0.029945534042867775,
+      "moderate_stop": 0.0552405538141606,
+      "profit_target": 0.13041203502157372
+    },
+    "analysis_date": "2025-07-23T19:30:17.496416",
+    "credibility_score": 1.0,
+    "grade": "C",
+    "win_rate": 0.7544841433992978,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sh600887",
+    "score": 0.5438747160924494,
+    "params": {
+      "pre_entry_discount": 0.02977098485656115,
+      "moderate_stop": 0.06623282988575899,
+      "profit_target": 0.14520489401404107
+    },
+    "analysis_date": "2025-07-23T19:30:17.466387",
+    "credibility_score": 1.0,
+    "grade": "C",
+    "win_rate": 0.666083414888956,
+    "signal_count": 0,
+    "success_count": 0
+  },
+  {
+    "stock_code": "sz300015",
+    "score": 0.5256257979059703,
+    "params": {
+      "pre_entry_discount": 0.02421469090387229,
+      "moderate_stop": 0.06636211082456439,
+      "profit_target": 0.1284154750683953
+    },
+    "analysis_date": "2025-07-23T19:30:17.490283",
+    "credibility_score": 1.0,
+    "grade": "C",
+    "win_rate": 0.7318872464122048,
+    "signal_count": 0,
+    "success_count": 0
+  }
+]

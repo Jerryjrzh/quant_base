@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "adjustments": {
+    "promoted": [],
+    "demoted": [],
+    "removed": [],
+    "credibility_updated": [
+      {
+        "stock_code": "sz300290",
+        "new_credibility": 0.8
+      }
+    ]
+  },
+  "summary": {
+    "total_promoted": 0,
+    "total_demoted": 0,
+    "total_removed": 0,
+    "total_credibility_updated": 1
+  },
+  "adjustment_time": "2025-07-23T19:30:17.712212"
+}

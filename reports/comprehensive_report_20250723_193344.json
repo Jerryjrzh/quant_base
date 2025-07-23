@@ -1,0 +1,148 @@
+{
+  "generation_time": "2025-07-23T19:33:44.022307",
+  "pool_statistics": {
+    "total_stocks": 3,
+    "active_stocks": 3,
+    "avg_score": 0.75,
+    "avg_credibility": 0.7999999999999999,
+    "total_signals": 2,
+    "total_successes": 0,
+    "overall_win_rate": 0.0,
+    "grade_distribution": {
+      "A": 1,
+      "B": 2
+    },
+    "recent_signals": 2,
+    "last_updated": "2025-07-23T19:33:44.021685"
+  },
+  "performance_analysis": {
+    "analysis_results": {
+      "sz000001": {
+        "stock_code": "sz000001",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sz000001",
+          "overall_score": 0.82,
+          "credibility_score": 0.7,
+          "historical_win_rate": null,
+          "historical_avg_return": null,
+          "total_signals": 0,
+          "total_successes": 0,
+          "last_signal_date": null,
+          "recent_signals": 0,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "NEW"
+        },
+        "advanced_metrics": {},
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:33:44.021991"
+      },
+      "sz300290": {
+        "stock_code": "sz300290",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sz300290",
+          "overall_score": 0.75,
+          "credibility_score": 0.8,
+          "historical_win_rate": null,
+          "historical_avg_return": null,
+          "total_signals": 1,
+          "total_successes": 0,
+          "last_signal_date": "2025-07-23T19:33:43.752374",
+          "recent_signals": 1,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "NEW"
+        },
+        "advanced_metrics": {
+          "insufficient_data": true
+        },
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:33:44.022140"
+      },
+      "sh600000": {
+        "stock_code": "sh600000",
+        "analysis_period_days": 30,
+        "basic_performance": {
+          "stock_code": "sh600000",
+          "overall_score": 0.68,
+          "credibility_score": 0.9,
+          "historical_win_rate": null,
+          "historical_avg_return": null,
+          "total_signals": 1,
+          "total_successes": 0,
+          "last_signal_date": "2025-07-23T19:33:43.758369",
+          "recent_signals": 1,
+          "recent_win_rate": 0.0,
+          "recent_avg_return": 0.0,
+          "performance_trend": "NEW"
+        },
+        "advanced_metrics": {
+          "insufficient_data": true
+        },
+        "risk_metrics": {},
+        "performance_grade": {
+          "overall_grade": "insufficient_data",
+          "score": 0
+        },
+        "recommendations": [
+          "胜率偏低，建议重新优化策略参数",
+          "盈亏比偏低，建议优化止盈止损策略",
+          "持仓时间较短，注意交易成本影响"
+        ],
+        "analysis_time": "2025-07-23T19:33:44.022296"
+      }
+    },
+    "summary_statistics": {
+      "total_analyzed": 3,
+      "excellent_performers": 0,
+      "good_performers": 0,
+      "average_performers": 0,
+      "poor_performers": 3,
+      "avg_win_rate": 0,
+      "avg_return": 0,
+      "avg_sharpe_ratio": 0
+    },
+    "analysis_time": "2025-07-23T19:33:44.022299"
+  },
+  "recent_signals": [
+    {
+      "stock_code": "sz300290",
+      "signal_type": "buy",
+      "confidence": 0.85,
+      "trigger_price": 17.5,
+      "signal_date": "2025-07-23T19:33:44.022304"
+    }
+  ],
+  "system_status": {
+    "status": "healthy",
+    "last_update": "2025-07-23T19:33:44.022306",
+    "uptime": "24h",
+    "memory_usage": "45%"
+  },
+  "summary": {
+    "total_stocks": 3,
+    "active_stocks": 3,
+    "avg_score": 0.75,
+    "win_rate": 0.0
+  }
+}

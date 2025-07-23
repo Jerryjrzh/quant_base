@@ -1,0 +1,74 @@
+[
+  {
+    "stock_code": "sz300760",
+    "action": "buy",
+    "confidence": 0.8248455039676033,
+    "current_price": 49.30256937575734,
+    "timestamp": "2025-07-23T19:08:43.459500",
+    "strategy": "macd_zero_axis"
+  },
+  {
+    "stock_code": "sh600030",
+    "action": "sell",
+    "confidence": 0.7999999999999999,
+    "current_price": 35.74158026158312,
+    "timestamp": "2025-07-23T19:08:43.459567",
+    "strategy": "technical_combo"
+  },
+  {
+    "stock_code": "sz300760",
+    "action": "buy",
+    "confidence": 0.7973547424669369,
+    "current_price": 49.30256937575734,
+    "timestamp": "2025-07-23T19:08:43.459504",
+    "strategy": "trading_advisor"
+  },
+  {
+    "stock_code": "sh600519",
+    "action": "sell",
+    "confidence": 0.7837437746621144,
+    "current_price": 32.96975535236962,
+    "timestamp": "2025-07-23T19:08:43.459596",
+    "strategy": "macd_zero_axis"
+  },
+  {
+    "stock_code": "sz300408",
+    "action": "buy",
+    "confidence": 0.7442548646356477,
+    "current_price": 17.671516312618536,
+    "timestamp": "2025-07-23T19:08:43.459583",
+    "strategy": "macd_zero_axis"
+  },
+  {
+    "stock_code": "sz002415",
+    "action": "sell",
+    "confidence": 0.6798239975408928,
+    "current_price": 22.64446626456323,
+    "timestamp": "2025-07-23T19:08:43.459549",
+    "strategy": "macd_zero_axis"
+  },
+  {
+    "stock_code": "sz000858",
+    "action": "buy",
+    "confidence": 0.64,
+    "current_price": 47.78795659242046,
+    "timestamp": "2025-07-23T19:08:43.459531",
+    "strategy": "technical_combo"
+  },
+  {
+    "stock_code": "sz002415",
+    "action": "buy",
+    "confidence": 0.64,
+    "current_price": 22.64446626456323,
+    "timestamp": "2025-07-23T19:08:43.459552",
+    "strategy": "technical_combo"
+  },
+  {
+    "stock_code": "sz300498",
+    "action": "sell",
+    "confidence": 0.6004468088245141,
+    "current_price": 31.27921339132231,
+    "timestamp": "2025-07-23T19:08:43.459575",
+    "strategy": "macd_zero_axis"
+  }
+]

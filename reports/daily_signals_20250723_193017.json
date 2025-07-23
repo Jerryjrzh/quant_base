@@ -1,0 +1,74 @@
+[
+  {
+    "stock_code": "sh600276",
+    "action": "sell",
+    "confidence": 0.9169194395487748,
+    "current_price": 26.5848576148419,
+    "timestamp": "2025-07-23T19:30:17.509617",
+    "strategy": "trading_advisor"
+  },
+  {
+    "stock_code": "sz000002",
+    "action": "buy",
+    "confidence": 0.8026408334999965,
+    "current_price": 45.84430151450657,
+    "timestamp": "2025-07-23T19:30:17.509657",
+    "strategy": "macd_zero_axis"
+  },
+  {
+    "stock_code": "sh600887",
+    "action": "sell",
+    "confidence": 0.7999999999999999,
+    "current_price": 27.328887359741685,
+    "timestamp": "2025-07-23T19:30:17.509709",
+    "strategy": "technical_combo"
+  },
+  {
+    "stock_code": "sh600519",
+    "action": "sell",
+    "confidence": 0.7992975118782705,
+    "current_price": 44.96781746602259,
+    "timestamp": "2025-07-23T19:30:17.509644",
+    "strategy": "macd_zero_axis"
+  },
+  {
+    "stock_code": "sh600000",
+    "action": "buy",
+    "confidence": 0.7482225667443825,
+    "current_price": 42.180045763119026,
+    "timestamp": "2025-07-23T19:30:17.509669",
+    "strategy": "trading_advisor"
+  },
+  {
+    "stock_code": "sz300059",
+    "action": "sell",
+    "confidence": 0.735112531026966,
+    "current_price": 46.793557899982694,
+    "timestamp": "2025-07-23T19:30:17.509693",
+    "strategy": "trading_advisor"
+  },
+  {
+    "stock_code": "sz300059",
+    "action": "sell",
+    "confidence": 0.64,
+    "current_price": 46.793557899982694,
+    "timestamp": "2025-07-23T19:30:17.509697",
+    "strategy": "technical_combo"
+  },
+  {
+    "stock_code": "sh600276",
+    "action": "buy",
+    "confidence": 0.6338199292515589,
+    "current_price": 26.5848576148419,
+    "timestamp": "2025-07-23T19:30:17.509611",
+    "strategy": "macd_zero_axis"
+  },
+  {
+    "stock_code": "sh600000",
+    "action": "buy",
+    "confidence": 0.6267346239020478,
+    "current_price": 42.180045763119026,
+    "timestamp": "2025-07-23T19:30:17.509666",
+    "strategy": "macd_zero_axis"
+  }
+]

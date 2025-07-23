@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交易决策支持系统 - 控制台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .stat-value {
+            font-weight: bold;
+            color: #333;
+        }
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.25rem;
+        }
+        .btn:hover {
+            background: #5a6fd8;
+        }
+        .btn-success { background: #28a745; }
+        .btn-warning { background: #ffc107; color: #333; }
+        .btn-danger { background: #dc3545; }
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .status-healthy { background: #28a745; }
+        .status-warning { background: #ffc107; }
+        .status-error { background: #dc3545; }
+        .actions {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .log-container {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 交易决策支持系统控制台</h1>
+    </div>
+    
+    <div class="container">
+        <div class="dashboard-grid">
+            <div class="card">
+                <h3>📈 系统状态</h3>
+                <div class="stat-row">
+                    <span>系统状态:</span>
+                    <span><span class="status-indicator status-healthy"></span>运行正常</span>
+                </div>
+                <div class="stat-row">
+                    <span>最后更新:</span>
+                    <span class="stat-value" id="last-update">{{ last_update }}</span>
+                </div>
+                <div class="stat-row">
+                    <span>运行时间:</span>
+                    <span class="stat-value">{{ uptime }}</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>🎯 观察池统计</h3>
+                <div class="stat-row">
+                    <span>总股票数:</span>
+                    <span class="stat-value">{{ pool_stats.total_stocks }}</span>
+                </div>
+                <div class="stat-row">
+                    <span>活跃股票:</span>
+                    <span class="stat-value">{{ pool_stats.active_stocks }}</span>
+                </div>
+                <div class="stat-row">
+                    <span>平均评分:</span>
+                    <span class="stat-value">{{ "%.3f"|format(pool_stats.avg_score) }}</span>
+                </div>
+                <div class="stat-row">
+                    <span>整体胜率:</span>
+                    <span class="stat-value">{{ "%.1f%%"|format(pool_stats.overall_win_rate * 100) }}</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>📊 信号统计</h3>
+                <div class="stat-row">
+                    <span>总信号数:</span>
+                    <span class="stat-value">{{ pool_stats.total_signals }}</span>
+                </div>
+                <div class="stat-row">
+                    <span>成功信号:</span>
+                    <span class="stat-value">{{ pool_stats.total_successes }}</span>
+                </div>
+                <div class="stat-row">
+                    <span>最近7天:</span>
+                    <span class="stat-value">{{ pool_stats.recent_signals }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <h3>🎮 系统操作</h3>
+            <a href="/run-workflow" class="btn btn-success">运行完整工作流</a>
+            <a href="/run-phase1" class="btn">运行第一阶段</a>
+            <a href="/run-phase2" class="btn">运行第二阶段</a>
+            <a href="/run-phase3" class="btn">运行第三阶段</a>
+            <a href="/generate-report" class="btn btn-warning">生成报告</a>
+            <a href="/view-logs" class="btn">查看日志</a>
+        </div>
+        
+        <div class="card">
+            <h3>📋 最近活动</h3>
+            <div class="log-container" id="activity-log">
+                <div>{{ current_time }} - 系统启动</div>
+                <div>{{ current_time }} - 数据库连接正常</div>
+                <div>{{ current_time }} - 所有模块加载完成</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 自动刷新数据
+        setInterval(function() {
+            fetch('/api/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('last-update').textContent = data.last_update;
+                    // 更新其他数据...
+                });
+        }, 30000); // 每30秒刷新一次
+    </script>
+</body>
+</html>
+        

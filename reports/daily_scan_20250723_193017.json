@@ -1,0 +1,204 @@
+{
+  "success": true,
+  "scan_date": "2025-07-23",
+  "scan_time": "2025-07-23T19:30:17.566326",
+  "statistics": {
+    "total_scanned": 12,
+    "signals_found": 9,
+    "high_confidence_signals": 9,
+    "buy_signals": 4,
+    "sell_signals": 5
+  },
+  "signals": [
+    {
+      "stock_code": "sh600276",
+      "signal_type": "sell",
+      "strategy": "trading_advisor",
+      "confidence": 0.9169194395487748,
+      "trigger_price": 26.5848576148419,
+      "signal_date": "2025-07-23T19:30:17.509617",
+      "parameters_used": {
+        "pre_entry_discount": 0.012920716481057502,
+        "moderate_stop": 0.045101071067037465,
+        "profit_target": 0.09886328052640739
+      },
+      "stock_name": "",
+      "stock_grade": "A",
+      "credibility_score": 1.0,
+      "risk_level": "LOW",
+      "validation_time": "2025-07-23T19:30:17.509629",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sz000002",
+      "signal_type": "buy",
+      "strategy": "macd_zero_axis",
+      "confidence": 0.8026408334999965,
+      "trigger_price": 45.84430151450657,
+      "signal_date": "2025-07-23T19:30:17.509657",
+      "parameters_used": {
+        "pre_entry_discount": 0.010147670858047901,
+        "moderate_stop": 0.06360941093854527,
+        "profit_target": 0.11223564252591908
+      },
+      "stock_name": "",
+      "stock_grade": "B",
+      "credibility_score": 1.0,
+      "risk_level": "LOW",
+      "validation_time": "2025-07-23T19:30:17.509661",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sh600887",
+      "signal_type": "sell",
+      "strategy": "technical_combo",
+      "confidence": 0.7999999999999999,
+      "trigger_price": 27.328887359741685,
+      "signal_date": "2025-07-23T19:30:17.509709",
+      "parameters_used": {
+        "pre_entry_discount": 0.02977098485656115,
+        "moderate_stop": 0.06623282988575899,
+        "profit_target": 0.14520489401404107
+      },
+      "technical_indicators": {
+        "rsi_signal": -1,
+        "ma_signal": -1,
+        "volume_signal": 0,
+        "signal_strength": -0.6666666666666666
+      },
+      "stock_name": "",
+      "stock_grade": "C",
+      "credibility_score": 1.0,
+      "risk_level": "HIGH",
+      "validation_time": "2025-07-23T19:30:17.509711",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sh600519",
+      "signal_type": "sell",
+      "strategy": "macd_zero_axis",
+      "confidence": 0.7992975118782705,
+      "trigger_price": 44.96781746602259,
+      "signal_date": "2025-07-23T19:30:17.509644",
+      "parameters_used": {
+        "pre_entry_discount": 0.025701470959138294,
+        "moderate_stop": 0.04326743958214819,
+        "profit_target": 0.1096378472672565
+      },
+      "stock_name": "",
+      "stock_grade": "B",
+      "credibility_score": 1.0,
+      "risk_level": "HIGH",
+      "validation_time": "2025-07-23T19:30:17.509647",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sh600000",
+      "signal_type": "buy",
+      "strategy": "trading_advisor",
+      "confidence": 0.7482225667443825,
+      "trigger_price": 42.180045763119026,
+      "signal_date": "2025-07-23T19:30:17.509669",
+      "parameters_used": {
+        "pre_entry_discount": 0.010260708824127393,
+        "moderate_stop": 0.04612948613203285,
+        "profit_target": 0.09642564694323696
+      },
+      "stock_name": "",
+      "stock_grade": "B",
+      "credibility_score": 1.0,
+      "risk_level": "LOW",
+      "validation_time": "2025-07-23T19:30:17.509674",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sz300059",
+      "signal_type": "sell",
+      "strategy": "trading_advisor",
+      "confidence": 0.735112531026966,
+      "trigger_price": 46.793557899982694,
+      "signal_date": "2025-07-23T19:30:17.509693",
+      "parameters_used": {
+        "pre_entry_discount": 0.029945534042867775,
+        "moderate_stop": 0.0552405538141606,
+        "profit_target": 0.13041203502157372
+      },
+      "stock_name": "",
+      "stock_grade": "C",
+      "credibility_score": 1.0,
+      "risk_level": "MEDIUM",
+      "validation_time": "2025-07-23T19:30:17.509700",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sz300059",
+      "signal_type": "sell",
+      "strategy": "technical_combo",
+      "confidence": 0.64,
+      "trigger_price": 46.793557899982694,
+      "signal_date": "2025-07-23T19:30:17.509697",
+      "parameters_used": {
+        "pre_entry_discount": 0.029945534042867775,
+        "moderate_stop": 0.0552405538141606,
+        "profit_target": 0.13041203502157372
+      },
+      "technical_indicators": {
+        "rsi_signal": -1,
+        "ma_signal": -1,
+        "volume_signal": 0,
+        "signal_strength": -0.6666666666666666
+      },
+      "stock_name": "",
+      "stock_grade": "C",
+      "credibility_score": 1.0,
+      "risk_level": "MEDIUM",
+      "validation_time": "2025-07-23T19:30:17.509702",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sh600276",
+      "signal_type": "buy",
+      "strategy": "macd_zero_axis",
+      "confidence": 0.6338199292515589,
+      "trigger_price": 26.5848576148419,
+      "signal_date": "2025-07-23T19:30:17.509611",
+      "parameters_used": {
+        "pre_entry_discount": 0.012920716481057502,
+        "moderate_stop": 0.045101071067037465,
+        "profit_target": 0.09886328052640739
+      },
+      "stock_name": "",
+      "stock_grade": "A",
+      "credibility_score": 1.0,
+      "risk_level": "LOW",
+      "validation_time": "2025-07-23T19:30:17.509625",
+      "status": "pending"
+    },
+    {
+      "stock_code": "sh600000",
+      "signal_type": "buy",
+      "strategy": "macd_zero_axis",
+      "confidence": 0.6267346239020478,
+      "trigger_price": 42.180045763119026,
+      "signal_date": "2025-07-23T19:30:17.509666",
+      "parameters_used": {
+        "pre_entry_discount": 0.010260708824127393,
+        "moderate_stop": 0.04612948613203285,
+        "profit_target": 0.09642564694323696
+      },
+      "stock_name": "",
+      "stock_grade": "B",
+      "credibility_score": 1.0,
+      "risk_level": "LOW",
+      "validation_time": "2025-07-23T19:30:17.509672",
+      "status": "pending"
+    }
+  ],
+  "recorded_signals": 9,
+  "market_conditions": {
+    "market_status": "closed",
+    "trading_day": true,
+    "scan_time": "2025-07-23T19:30:17.566391",
+    "market_sentiment": "neutral"
+  }
+}

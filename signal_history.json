@@ -1,0 +1,62 @@
+[
+  {
+    "stock_code": "sz000001",
+    "action": "buy",
+    "confidence": 0.8771698344720689,
+    "current_price": 43.90665837919295,
+    "timestamp": "2025-07-23T17:25:58.298241",
+    "signal_id": "sz000001_20250723T172558.298241",
+    "recorded_at": "2025-07-23T17:25:58.298446",
+    "status": "active"
+  },
+  {
+    "stock_code": "sh000001",
+    "action": "sell",
+    "confidence": 0.8259182189858207,
+    "current_price": 31.124612499654845,
+    "timestamp": "2025-07-23T17:34:17.756189",
+    "signal_id": "sh000001_20250723T173417.756189",
+    "recorded_at": "2025-07-23T17:34:17.756399",
+    "status": "active"
+  },
+  {
+    "stock_code": "sz000001",
+    "action": "buy",
+    "confidence": 0.7048263898244602,
+    "current_price": 37.66807122243007,
+    "timestamp": "2025-07-23T17:34:17.756230",
+    "signal_id": "sz000001_20250723T173417.756230",
+    "recorded_at": "2025-07-23T17:34:17.756404",
+    "status": "active"
+  },
+  {
+    "stock_code": "sh601988",
+    "action": "buy",
+    "confidence": 0.7589710727785375,
+    "current_price": 20.067603217622846,
+    "timestamp": "2025-07-23T17:39:54.407578",
+    "signal_id": "sh601988_20250723T173954.407578",
+    "recorded_at": "2025-07-23T17:39:54.407842",
+    "status": "active"
+  },
+  {
+    "stock_code": "sz000725",
+    "action": "sell",
+    "confidence": 0.7991789984314982,
+    "current_price": 26.308879331571106,
+    "timestamp": "2025-07-23T18:38:37.739692",
+    "signal_id": "sz000725_20250723T183837.739692",
+    "recorded_at": "2025-07-23T18:38:37.740038",
+    "status": "active"
+  },
+  {
+    "stock_code": "sh601228",
+    "action": "buy",
+    "confidence": 0.744855702027711,
+    "current_price": 35.78548882004252,
+    "timestamp": "2025-07-23T18:38:37.739788",
+    "signal_id": "sh601228_20250723T183837.739788",
+    "recorded_at": "2025-07-23T18:38:37.740043",
+    "status": "active"
+  }
+]

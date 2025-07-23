@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T11:18:09.050804",
+  "stock_code": "sh603132",
+  "current_price": 13.01,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 12.36,
+    "target_price_2": 12.36,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04996156802459649,
+    "discount_2": 0.04996156802459649,
+    "stop_loss": {
+      "conservative": 12.62,
+      "moderate": 11.97,
+      "aggressive": 11.97,
+      "technical": 12.52
+    },
+    "take_profit": {
+      "conservative": 14.05,
+      "moderate": 14.31,
+      "aggressive": 15.61
+    }
+  }
+}

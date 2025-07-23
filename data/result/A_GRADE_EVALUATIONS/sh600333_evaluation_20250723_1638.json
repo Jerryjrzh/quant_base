@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T16:38:25.144113",
+  "stock_code": "sh600333",
+  "current_price": 5.06,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 5.11,
+    "target_price_2": 5.09,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009881422924901326,
+    "discount_2": -0.005928853754940761,
+    "stop_loss": {
+      "conservative": 4.91,
+      "moderate": 4.66,
+      "aggressive": 4.66,
+      "technical": 4.88
+    },
+    "take_profit": {
+      "conservative": 5.46,
+      "moderate": 5.57,
+      "aggressive": 6.07
+    }
+  }
+}

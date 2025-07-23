@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-23T12:22:57.456907",
+  "stock_code": "sh601615",
+  "current_price": 11.49,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 10.92,
+    "target_price_2": 10.92,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04960835509138384,
+    "discount_2": 0.04960835509138384,
+    "stop_loss": {
+      "conservative": 11.15,
+      "moderate": 10.57,
+      "aggressive": 10.57,
+      "technical": 11.08
+    },
+    "take_profit": {
+      "conservative": 12.41,
+      "moderate": 12.64,
+      "aggressive": 13.79
+    }
+  }
+}
