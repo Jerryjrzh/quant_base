@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002247",
-  "optimization_date": "2025-07-23T12:20:24.195579",
+  "optimization_date": "2025-07-24T19:50:31.758821",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4728881023725114,
+  "best_score": 0.47284182054863666,
   "optimization_target": "composite_score"
 }

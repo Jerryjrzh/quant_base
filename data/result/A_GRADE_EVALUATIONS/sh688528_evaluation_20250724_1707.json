@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:07:14.683387",
+  "stock_code": "sh688528",
+  "current_price": 11.22,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 9.54,
+    "target_price_2": 9.29,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.14973262032085574,
+    "discount_2": 0.1720142602495545,
+    "stop_loss": {
+      "conservative": 9.74,
+      "moderate": 9.24,
+      "aggressive": 9.24,
+      "technical": 9.54
+    },
+    "take_profit": {
+      "conservative": 10.84,
+      "moderate": 11.04,
+      "aggressive": 12.05
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600118",
-  "optimization_date": "2025-07-23T12:16:35.113862",
+  "optimization_date": "2025-07-24T18:23:44.635655",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4380631758913539,
+  "best_score": 0.44076460982785104,
   "optimization_target": "composite_score"
 }

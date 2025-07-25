@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002026",
-  "optimization_date": "2025-07-23T12:18:31.696163",
+  "optimization_date": "2025-07-24T19:46:15.696808",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.46928387463551363,
+  "best_score": 0.46935989104052456,
   "optimization_target": "composite_score"
 }

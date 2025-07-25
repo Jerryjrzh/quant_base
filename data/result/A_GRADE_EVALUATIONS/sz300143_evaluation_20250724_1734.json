@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:34:53.022255",
+  "stock_code": "sz300143",
+  "current_price": 10.19,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 9.2,
+    "target_price_2": 8.95,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.09715407262021593,
+    "discount_2": 0.12168792934249267,
+    "stop_loss": {
+      "conservative": 9.39,
+      "moderate": 8.91,
+      "aggressive": 8.91,
+      "technical": 9.12
+    },
+    "take_profit": {
+      "conservative": 10.45,
+      "moderate": 10.65,
+      "aggressive": 11.62
+    }
+  }
+}

@@ -23,7 +23,10 @@ def get_daily_data(file_path):
                 })
             except (struct.error, ValueError): continue
     if not data: return None
-    return pd.DataFrame(data).sort_values('date').reset_index(drop=True)
+    df = pd.DataFrame(data).sort_values('date').reset_index(drop=True)
+    # 设置日期为索引，确保是DatetimeIndex
+    df.set_index('date', inplace=True)
+    return df
 
 def get_5min_data(file_path):
     """
@@ -82,7 +85,10 @@ def get_5min_data(file_path):
     if not data:
         return None
         
-    return pd.DataFrame(data).sort_values('datetime').reset_index(drop=True)
+    df = pd.DataFrame(data).sort_values('datetime').reset_index(drop=True)
+    # 设置datetime为索引，确保是DatetimeIndex
+    df.set_index('datetime', inplace=True)
+    return df
 
 def get_multi_timeframe_data(stock_code, base_path=None):
     """获取多周期数据（日线 + 5分钟线）"""

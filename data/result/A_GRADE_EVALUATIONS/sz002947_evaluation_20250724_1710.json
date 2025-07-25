@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:10:54.119287",
+  "stock_code": "sz002947",
+  "current_price": 34.96,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 36.54,
+    "target_price_2": 36.38,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.04519450800915327,
+    "discount_2": -0.040617848970251766,
+    "stop_loss": {
+      "conservative": 35.09,
+      "moderate": 33.29,
+      "aggressive": 33.29,
+      "technical": 34.37
+    },
+    "take_profit": {
+      "conservative": 39.07,
+      "moderate": 39.8,
+      "aggressive": 43.42
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T19:55:39.632126",
+  "stock_code": "sz002429",
+  "current_price": 4.69,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 4.16,
+    "target_price_2": 4.05,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.11300639658848619,
+    "discount_2": 0.13646055437100224,
+    "stop_loss": {
+      "conservative": 4.25,
+      "moderate": 4.03,
+      "aggressive": 4.03,
+      "technical": 3.41
+    },
+    "take_profit": {
+      "conservative": 4.73,
+      "moderate": 4.82,
+      "aggressive": 5.26
+    }
+  }
+}

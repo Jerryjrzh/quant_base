@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603839",
-  "optimization_date": "2025-07-23T12:16:58.256108",
+  "optimization_date": "2025-07-24T18:24:11.172127",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.44155700565903977,
+  "best_score": 0.4428607743624063,
   "optimization_target": "composite_score"
 }

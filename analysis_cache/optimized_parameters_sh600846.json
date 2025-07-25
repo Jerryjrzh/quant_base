@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600846",
-  "optimization_date": "2025-07-23T11:23:46.328658",
+  "optimization_date": "2025-07-24T18:21:45.206521",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.5053893412496904,
+  "best_score": 0.5060943813163503,
   "optimization_target": "composite_score"
 }

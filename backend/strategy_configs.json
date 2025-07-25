@@ -119,5 +119,42 @@
         },
         "post_cross_days": 3,
         "zero_axis_sensitivity": 0.01
+    },
+    "WEEKLY_GOLDEN_CROSS_MA": {
+        "macd": {
+            "fast_period": 12,
+            "slow_period": 26,
+            "signal_period": 9,
+            "dea_threshold": 0.0,
+            "zero_axis_range": 0.1
+        },
+        "ma": {
+            "periods": [7, 13, 30, 45, 60, 90, 150, 240],
+            "ma13_tolerance": 0.02,
+            "trend_periods": [7, 13, 30, 45],
+            "sell_threshold": 0.95
+        },
+        "volume": {
+            "lookback_days": 20,
+            "volume_ratio_threshold": 0.8,
+            "volume_surge_threshold": 1.2
+        },
+        "weekly": {
+            "post_cross_days": 3,
+            "signal_persistence_days": 5
+        },
+        "filter": {
+            "min_win_rate": 0.5,
+            "min_signals": 2,
+            "min_avg_profit": 0.1,
+            "max_drawdown": -0.12,
+            "max_days_to_peak": 30,
+            "quality_score_threshold": 75
+        },
+        "risk": {
+            "max_position_size": 0.1,
+            "stop_loss_pct": 0.08,
+            "take_profit_pct": 0.2
+        }
     }
 }

@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300332",
-  "optimization_date": "2025-07-23T12:19:33.208726",
+  "optimization_date": "2025-07-24T18:26:13.076075",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.43767525715215516,
+  "best_score": 0.43822830182831396,
   "optimization_target": "composite_score"
 }

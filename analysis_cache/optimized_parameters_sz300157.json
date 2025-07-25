@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300157",
-  "optimization_date": "2025-07-23T12:17:55.811303",
+  "optimization_date": "2025-07-24T18:24:46.763561",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4664106517106651,
+  "best_score": 0.4667771132376225,
   "optimization_target": "composite_score"
 }

@@ -1,6 +1,6 @@
 {
   "stock_code": "sh601166",
-  "optimization_date": "2025-07-23T11:33:38.305667",
+  "optimization_date": "2025-07-24T19:42:06.598605",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4855164774219768,
+  "best_score": 0.4822772981543669,
   "optimization_target": "composite_score"
 }

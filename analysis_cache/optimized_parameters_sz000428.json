@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000428",
-  "optimization_date": "2025-07-23T12:20:48.999264",
+  "optimization_date": "2025-07-24T18:27:05.504142",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.5109620611335046,
+  "best_score": 0.5109821456739992,
   "optimization_target": "composite_score"
 }

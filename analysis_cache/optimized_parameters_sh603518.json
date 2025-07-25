@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603518",
-  "optimization_date": "2025-07-23T11:27:01.636986",
+  "optimization_date": "2025-07-24T18:21:38.545909",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4217447959275073,
+  "best_score": 0.42281767177016527,
   "optimization_target": "composite_score"
 }

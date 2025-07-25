@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300381",
-  "optimization_date": "2025-07-23T12:20:20.395983",
+  "optimization_date": "2025-07-24T19:50:35.722206",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.44405542684808713,
+  "best_score": 0.4444381875500178,
   "optimization_target": "composite_score"
 }

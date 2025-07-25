@@ -1,6 +1,6 @@
 {
   "stock_code": "sh688733",
-  "optimization_date": "2025-07-23T12:00:52.087928",
+  "optimization_date": "2025-07-24T18:22:39.935122",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.33886241920344284,
+  "best_score": 0.34224865018433875,
   "optimization_target": "composite_score"
 }

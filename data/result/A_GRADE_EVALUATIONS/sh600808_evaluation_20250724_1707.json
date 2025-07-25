@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:07:46.247992",
+  "stock_code": "sh600808",
+  "current_price": 3.45,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 3.48,
+    "target_price_2": 3.47,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.008695652173912986,
+    "discount_2": -0.005797101449275368,
+    "stop_loss": {
+      "conservative": 3.35,
+      "moderate": 3.17,
+      "aggressive": 3.17,
+      "technical": 3.02
+    },
+    "take_profit": {
+      "conservative": 3.73,
+      "moderate": 3.8,
+      "aggressive": 4.14
+    }
+  }
+}

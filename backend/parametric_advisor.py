@@ -105,8 +105,9 @@ class ParametricTradingAdvisor:
         """基于参数计算价格水平"""
         try:
             # 使用参数化的回看期
-            lookback_days = min(self.parameters.support_lookback, signal_idx)
-            recent_data = df.iloc[max(0, signal_idx - lookback_days):signal_idx + 1]
+            signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+            lookback_days = min(self.parameters.support_lookback, signal_pos)
+            recent_data = df.iloc[max(0, signal_pos - lookback_days):signal_pos + 1]
             
             current_price = df.iloc[signal_idx]['close']
             

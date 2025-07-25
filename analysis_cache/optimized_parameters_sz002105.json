@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002105",
-  "optimization_date": "2025-07-23T12:22:44.439488",
+  "optimization_date": "2025-07-24T19:55:21.109164",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.46949864568001276,
+  "best_score": 0.47052986311098904,
   "optimization_target": "composite_score"
 }

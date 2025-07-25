@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603595",
-  "optimization_date": "2025-07-23T11:40:56.696652",
+  "optimization_date": "2025-07-24T18:21:36.920407",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4092546577705981,
+  "best_score": 0.4007272672423845,
   "optimization_target": "composite_score"
 }

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-25T18:52:18.372477",
+  "stock_code": "sz002533",
+  "current_price": 10.17,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 9.4,
+    "target_price_2": 9.15,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.07571288102261549,
+    "discount_2": 0.10029498525073742,
+    "stop_loss": {
+      "conservative": 9.59,
+      "moderate": 9.1,
+      "aggressive": 9.1,
+      "technical": 4.91
+    },
+    "take_profit": {
+      "conservative": 10.68,
+      "moderate": 10.88,
+      "aggressive": 11.87
+    }
+  }
+}

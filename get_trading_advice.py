@@ -31,7 +31,7 @@ def get_stock_advice(stock_code, signal_state=None, entry_price=None):
         if df is None or len(df) < 50:
             return f"❌ 股票数据不足: {stock_code}"
         
-        df.set_index('date', inplace=True)
+        # 数据加载器已经设置了date为索引，无需再次设置
         
         # 计算技术指标
         macd_values = indicators.calculate_macd(df)

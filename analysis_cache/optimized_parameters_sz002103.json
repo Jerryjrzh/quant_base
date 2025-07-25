@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002103",
-  "optimization_date": "2025-07-23T12:21:49.792351",
+  "optimization_date": "2025-07-24T18:27:51.248283",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.45191608124503574,
+  "best_score": 0.45110581096125274,
   "optimization_target": "composite_score"
 }

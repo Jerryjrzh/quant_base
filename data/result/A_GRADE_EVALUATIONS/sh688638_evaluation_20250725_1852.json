@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-25T18:52:18.348198",
+  "stock_code": "sh688638",
+  "current_price": 38.71,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 33.65,
+    "target_price_2": 34.61,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": 0.13071557737018863,
+    "discount_2": 0.10591578403513308,
+    "stop_loss": {
+      "conservative": 32.32,
+      "moderate": 30.65,
+      "aggressive": 30.65,
+      "technical": 31.65
+    },
+    "take_profit": {
+      "conservative": 35.99,
+      "moderate": 39.98,
+      "aggressive": 39.98
+    }
+  }
+}

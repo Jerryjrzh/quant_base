@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603995",
-  "optimization_date": "2025-07-23T12:04:42.940781",
+  "optimization_date": "2025-07-24T18:22:51.765230",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.45619341300170774,
+  "best_score": 0.45625353893856113,
   "optimization_target": "composite_score"
 }

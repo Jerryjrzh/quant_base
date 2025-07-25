@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600780",
-  "optimization_date": "2025-07-23T09:07:02.858630",
+  "optimization_date": "2025-07-24T19:35:00.346924",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.48902107398607014,
+  "best_score": 0.48902263703087673,
   "optimization_target": "composite_score"
 }

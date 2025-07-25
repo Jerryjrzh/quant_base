@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000055",
-  "optimization_date": "2025-07-23T12:18:26.853155",
+  "optimization_date": "2025-07-24T19:46:11.855710",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4697404942803136,
+  "best_score": 0.4697601683319473,
   "optimization_target": "composite_score"
 }

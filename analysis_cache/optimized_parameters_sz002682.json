@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002682",
-  "optimization_date": "2025-07-23T12:22:33.197433",
+  "optimization_date": "2025-07-24T18:28:22.138007",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.49740914041500717,
+  "best_score": 0.4974582006309716,
   "optimization_target": "composite_score"
 }

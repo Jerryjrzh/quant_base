@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603828",
-  "optimization_date": "2025-07-23T16:37:41.050074",
+  "optimization_date": "2025-07-24T18:23:41.936496",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4934107282074853,
+  "best_score": 0.4934785068479616,
   "optimization_target": "composite_score"
 }

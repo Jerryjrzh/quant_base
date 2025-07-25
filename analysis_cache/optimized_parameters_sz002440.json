@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002440",
-  "optimization_date": "2025-07-23T12:19:19.612592",
+  "optimization_date": "2025-07-24T19:48:39.648004",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.47037607657002856,
+  "best_score": 0.4700391346573727,
   "optimization_target": "composite_score"
 }

@@ -1,0 +1,52 @@
+[
+  {
+    "evaluation_time": "2025-07-25T18:52:18.422595",
+    "stock_code": "sz002148",
+    "current_price": 7.19,
+    "grade": "A",
+    "evaluation_details": {
+      "entry_strategy": "参数化分批建仓",
+      "target_price_1": 6.83,
+      "target_price_2": 6.83,
+      "position_allocation": "首次30%，回调后加仓20%",
+      "discount_1": 0.05006954102920727,
+      "discount_2": 0.05006954102920727,
+      "stop_loss": {
+        "conservative": 6.97,
+        "moderate": 6.61,
+        "aggressive": 6.61,
+        "technical": 5.06
+      },
+      "take_profit": {
+        "conservative": 7.77,
+        "moderate": 7.91,
+        "aggressive": 8.63
+      }
+    }
+  },
+  {
+    "evaluation_time": "2025-07-25T18:52:18.423295",
+    "stock_code": "sz002542",
+    "current_price": 4.51,
+    "grade": "A",
+    "evaluation_details": {
+      "entry_strategy": "参数化回调买入",
+      "target_price_1": 4.38,
+      "target_price_2": 4.26,
+      "position_allocation": "等待5%回调后建仓",
+      "discount_1": 0.02882483370288246,
+      "discount_2": 0.05543237250554324,
+      "stop_loss": {
+        "conservative": 4.47,
+        "moderate": 4.24,
+        "aggressive": 4.24,
+        "technical": 3.67
+      },
+      "take_profit": {
+        "conservative": 4.98,
+        "moderate": 5.07,
+        "aggressive": 5.53
+      }
+    }
+  }
+]

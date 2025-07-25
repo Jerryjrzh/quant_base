@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002231",
-  "optimization_date": "2025-07-23T12:19:44.954801",
+  "optimization_date": "2025-07-24T18:26:13.692847",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.39348889796814995,
+  "best_score": 0.39346638932342354,
   "optimization_target": "composite_score"
 }

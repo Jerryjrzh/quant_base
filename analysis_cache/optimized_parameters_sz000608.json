@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000608",
-  "optimization_date": "2025-07-23T12:19:25.668750",
+  "optimization_date": "2025-07-24T18:26:10.492022",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.44930392834677263,
+  "best_score": 0.4446040167944035,
   "optimization_target": "composite_score"
 }

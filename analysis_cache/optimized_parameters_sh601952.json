@@ -1,6 +1,6 @@
 {
   "stock_code": "sh601952",
-  "optimization_date": "2025-07-23T11:51:17.097301",
+  "optimization_date": "2025-07-24T18:22:24.249392",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4619236175324312,
+  "best_score": 0.46278454637277877,
   "optimization_target": "composite_score"
 }

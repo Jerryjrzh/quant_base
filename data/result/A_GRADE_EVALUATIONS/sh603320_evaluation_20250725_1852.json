@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-25T18:52:18.378109",
+  "stock_code": "sh603320",
+  "current_price": 18.84,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 17.9,
+    "target_price_2": 17.9,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.049893842887473526,
+    "discount_2": 0.049893842887473526,
+    "stop_loss": {
+      "conservative": 18.27,
+      "moderate": 17.33,
+      "aggressive": 17.33,
+      "technical": 16.55
+    },
+    "take_profit": {
+      "conservative": 20.35,
+      "moderate": 20.72,
+      "aggressive": 22.61
+    }
+  }
+}

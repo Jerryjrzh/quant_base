@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T16:59:10.106025",
+  "stock_code": "sz300244",
+  "current_price": 16.05,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 14.23,
+    "target_price_2": 13.86,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.11339563862928351,
+    "discount_2": 0.1364485981308412,
+    "stop_loss": {
+      "conservative": 14.53,
+      "moderate": 13.78,
+      "aggressive": 13.78,
+      "technical": 14.23
+    },
+    "take_profit": {
+      "conservative": 16.18,
+      "moderate": 16.48,
+      "aggressive": 17.98
+    }
+  }
+}

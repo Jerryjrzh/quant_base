@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T18:28:30.907241",
+  "stock_code": "sz000558",
+  "current_price": 4.88,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 4.93,
+    "target_price_2": 4.9,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010245901639344227,
+    "discount_2": -0.0040983606557378,
+    "stop_loss": {
+      "conservative": 4.73,
+      "moderate": 4.49,
+      "aggressive": 4.49,
+      "technical": 3.22
+    },
+    "take_profit": {
+      "conservative": 5.27,
+      "moderate": 5.37,
+      "aggressive": 5.86
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002219",
-  "optimization_date": "2025-07-23T12:18:18.487266",
+  "optimization_date": "2025-07-24T19:45:53.058487",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.435334854104853,
+  "best_score": 0.43687571117213414,
   "optimization_target": "composite_score"
 }

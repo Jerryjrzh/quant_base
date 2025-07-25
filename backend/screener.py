@@ -1,6 +1,7 @@
 import os
 import glob
 import json
+import pandas as pd
 from multiprocessing import Pool, cpu_count
 from datetime import datetime
 import logging
@@ -13,9 +14,10 @@ from win_rate_filter import WinRateFilter, AdvancedTripleCrossFilter
 # --- 配置 ---
 BASE_PATH = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
 MARKETS = ['sh', 'sz', 'bj']
-STRATEGY_TO_RUN = 'MACD_ZERO_AXIS' 
+#STRATEGY_TO_RUN = 'MACD_ZERO_AXIS' 
 #STRATEGY_TO_RUN = 'TRIPLE_CROSS' 
 #STRATEGY_TO_RUN = 'PRE_CROSS'
+STRATEGY_TO_RUN = 'WEEKLY_GOLDEN_CROSS_MA'
 # --- 路径定义 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_PATH = os.path.abspath(os.path.join(backend_dir, '..', 'data', 'result'))
@@ -150,6 +152,127 @@ def check_macd_zero_axis_pre_filter(df, signal_idx, signal_state, lookback_days=
         print(f"MACD零轴预筛选过滤器检查失败: {e}")
         return False, ""
 
+def check_weekly_golden_cross_ma_filter(df, signal_idx, signal_state, stock_code):
+    """
+    周线金叉+日线MA策略的过滤器
+    
+    Args:
+        df: 股票数据DataFrame
+        signal_idx: 信号出现的索引
+        signal_state: 信号状态 ('BUY', 'HOLD', 'SELL')
+        stock_code: 股票代码
+    
+    Returns:
+        tuple: (是否应该排除, 排除原因)
+    """
+    try:
+        # 只对BUY信号进行严格过滤
+        if signal_state != 'BUY':
+            return False, ""
+        
+        # 1. 检查数据长度是否足够
+        if len(df) < 240:  # 需要足够的数据计算MA240
+            return True, "数据长度不足，无法计算长期MA"
+        
+        # 2. 检查价格是否过度上涨（防止追高）
+        current_price = df.iloc[signal_idx]['close']
+        ma13 = df['close'].rolling(window=13).mean().iloc[signal_idx]
+        
+        if pd.isna(ma13):
+            return True, "MA13计算失败"
+        
+        # 价格距离MA13超过5%则排除
+        price_distance = (current_price - ma13) / ma13
+        if price_distance > 0.05:
+            return True, f"价格距离MA13过远({price_distance:.1%})，排除追高风险"
+        
+        # 3. 检查成交量是否异常
+        if 'volume' in df.columns:
+            current_volume = df.iloc[signal_idx]['volume']
+            avg_volume = df['volume'].rolling(window=20).mean().iloc[signal_idx]
+            
+            if not pd.isna(avg_volume) and avg_volume > 0:
+                volume_ratio = current_volume / avg_volume
+                # 成交量过度放大（超过5倍）可能是异常
+                if volume_ratio > 5.0:
+                    return True, f"成交量异常放大({volume_ratio:.1f}倍)，可能存在风险"
+        
+        # 4. 检查短期涨幅（5日内涨幅超过15%排除）
+        if signal_idx >= 5:
+            price_5_days_ago = df.iloc[signal_idx - 5]['close']
+            short_term_gain = (current_price - price_5_days_ago) / price_5_days_ago
+            if short_term_gain > 0.15:
+                return True, f"短期涨幅过大({short_term_gain:.1%})，排除追高风险"
+        
+        return False, ""
+        
+    except Exception as e:
+        logger.error(f"周线金叉+日线MA过滤器检查失败 {stock_code}: {e}")
+        return True, f"过滤器执行失败: {e}"
+
+def analyze_ma_trend(df):
+    """
+    分析MA趋势强度和相关指标
+    
+    Args:
+        df: 股票数据DataFrame
+    
+    Returns:
+        dict: 包含趋势分析结果的字典
+    """
+    try:
+        # 计算各种MA
+        ma_periods = [7, 13, 30, 45]
+        mas = {}
+        for period in ma_periods:
+            mas[f'ma_{period}'] = df['close'].rolling(window=period).mean()
+        
+        current_price = df['close'].iloc[-1]
+        ma13_current = mas['ma_13'].iloc[-1]
+        
+        # 1. 计算趋势强度（MA排列程度）
+        trend_strength = 0
+        if not pd.isna(ma13_current):
+            # 检查MA排列：7>13>30>45
+            if (mas['ma_7'].iloc[-1] > mas['ma_13'].iloc[-1] and
+                mas['ma_13'].iloc[-1] > mas['ma_30'].iloc[-1] and
+                mas['ma_30'].iloc[-1] > mas['ma_45'].iloc[-1]):
+                trend_strength = 1.0
+            elif (mas['ma_7'].iloc[-1] > mas['ma_13'].iloc[-1] and
+                  mas['ma_13'].iloc[-1] > mas['ma_30'].iloc[-1]):
+                trend_strength = 0.7
+            elif mas['ma_7'].iloc[-1] > mas['ma_13'].iloc[-1]:
+                trend_strength = 0.4
+            else:
+                trend_strength = 0.0
+        
+        # 2. 计算价格距离MA13的百分比
+        ma13_distance = 0
+        if not pd.isna(ma13_current) and ma13_current > 0:
+            ma13_distance = (current_price - ma13_current) / ma13_current
+        
+        # 3. 计算成交量放大比例
+        volume_surge_ratio = 1.0
+        if 'volume' in df.columns and len(df) >= 20:
+            current_volume = df['volume'].iloc[-1]
+            avg_volume = df['volume'].rolling(window=20).mean().iloc[-1]
+            if not pd.isna(avg_volume) and avg_volume > 0:
+                volume_surge_ratio = current_volume / avg_volume
+        
+        return {
+            'trend_strength': trend_strength,
+            'ma13_distance': ma13_distance,
+            'volume_surge_ratio': volume_surge_ratio
+        }
+        
+    except Exception as e:
+        logger.error(f"MA趋势分析失败: {e}")
+        return {
+            'trend_strength': 0,
+            'ma13_distance': 0,
+            'volume_surge_ratio': 1.0
+        }
+
 def check_triple_cross_enhanced_filter(df, signal_idx, stock_code):
     """
     TRIPLE_CROSS策略的增强过滤器：结合胜率筛选和交叉阶段分析
@@ -222,7 +345,7 @@ def worker(args):
 
         # 预计算常用数据
         current_timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        latest_date = df['date'].iloc[-1].strftime('%Y-%m-%d')
+        latest_date = df.index[-1].strftime('%Y-%m-%d')
         
         result_base = {
             'stock_code': stock_code_full,
@@ -238,6 +361,8 @@ def worker(args):
             return _process_triple_cross_strategy(df, result_base, stock_code_full)
         elif STRATEGY_TO_RUN == 'MACD_ZERO_AXIS':
             return _process_macd_zero_axis_strategy(df, result_base, stock_code_full)
+        elif STRATEGY_TO_RUN == 'WEEKLY_GOLDEN_CROSS_MA':
+            return _process_weekly_golden_cross_ma_strategy(df, result_base, stock_code_full)
         
         return None
         
@@ -305,6 +430,39 @@ def _process_macd_zero_axis_strategy(df, result_base, stock_code_full):
     except Exception as e:
         return None
 
+def _process_weekly_golden_cross_ma_strategy(df, result_base, stock_code_full):
+    """处理WEEKLY_GOLDEN_CROSS_MA策略"""
+    try:
+        signal_series = strategies.apply_weekly_golden_cross_ma_strategy(df)
+        signal_state = signal_series.iloc[-1]
+        
+        if signal_state in ['BUY', 'HOLD', 'SELL']:
+            # 周线金叉+日线MA策略的过滤检查
+            should_exclude, exclude_reason = check_weekly_golden_cross_ma_filter(df, len(df) - 1, signal_state, stock_code_full)
+            
+            if should_exclude:
+                logger.info(f"{stock_code_full} 被过滤: {exclude_reason}")
+                return None
+            
+            backtest_stats = calculate_backtest_stats_fast(df, signal_series)
+            
+            # 计算额外的MA相关指标
+            ma_analysis = analyze_ma_trend(df)
+            
+            result_base.update({
+                'signal_state': signal_state,
+                'filter_status': 'passed',
+                'ma_trend_strength': ma_analysis.get('trend_strength', 0),
+                'ma13_distance': ma_analysis.get('ma13_distance', 0),
+                'volume_surge_ratio': ma_analysis.get('volume_surge_ratio', 1.0),
+                **backtest_stats
+            })
+            return result_base
+        return None
+    except Exception as e:
+        logger.error(f"处理周线金叉+日线MA策略失败 {stock_code_full}: {e}")
+        return None
+
 def calculate_backtest_stats_fast(df, signal_series):
     """快速计算回测统计信息 - 优化版本"""
     try:
@@ -353,8 +511,14 @@ def generate_summary_report(passed_stocks):
             'scan_summary': {
                 'total_signals': 0,
                 'scan_timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                'strategy': STRATEGY_TO_RUN
-            }
+                'strategy': STRATEGY_TO_RUN,
+                'total_historical_signals': 0,
+                'avg_win_rate': '0.0%',
+                'avg_profit_rate': '0.0%',
+                'avg_days_to_peak': '0.0 天'
+            },
+            'signal_breakdown': {},
+            'top_performers': []
         }
     
     # 计算整体统计
@@ -420,7 +584,7 @@ def generate_summary_report(passed_stocks):
             [s for s in passed_stocks if s.get('total_signals', 0) > 0],
             key=lambda x: float(x.get('avg_max_profit', '0%').replace('%', '')),
             reverse=True
-        )[:10]  # 前10名表现最好的
+        )[:10] if passed_stocks else []  # 前10名表现最好的
     }
     
     return summary
@@ -536,7 +700,7 @@ def main():
         f.write(f"处理文件数: {summary_report['scan_summary']['files_processed']}\n")
         f.write(f"处理耗时: {summary_report['scan_summary']['processing_time']}\n")
         f.write(f"发现信号数: {summary_report['scan_summary']['total_signals']}\n")
-        f.write(f"历史信号总数: {summary_report['scan_summary']['total_historical_signals']}\n")
+        f.write(f"历史信号总数: {summary_report['scan_summary'].get('total_historical_signals', 0)}\n")
         f.write(f"平均胜率: {summary_report['scan_summary']['avg_win_rate']}\n")
         f.write(f"平均收益率: {summary_report['scan_summary']['avg_profit_rate']}\n")
         f.write(f"平均达峰天数: {summary_report['scan_summary']['avg_days_to_peak']}\n\n")

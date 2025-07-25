@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002470",
-  "optimization_date": "2025-07-23T12:22:21.848503",
+  "optimization_date": "2025-07-24T19:54:59.056297",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.44934053389717493,
+  "best_score": 0.4493669386498192,
   "optimization_target": "composite_score"
 }

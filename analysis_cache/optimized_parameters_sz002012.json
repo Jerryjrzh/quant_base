@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002012",
-  "optimization_date": "2025-07-23T12:19:06.944834",
+  "optimization_date": "2025-07-24T18:25:55.021607",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4583512197830043,
+  "best_score": 0.4553064135179964,
   "optimization_target": "composite_score"
 }

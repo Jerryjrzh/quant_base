@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T16:56:32.660003",
+  "stock_code": "sh600180",
+  "current_price": 4.72,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 4.22,
+    "target_price_2": 4.11,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.10593220338983052,
+    "discount_2": 0.1292372881355931,
+    "stop_loss": {
+      "conservative": 4.31,
+      "moderate": 4.08,
+      "aggressive": 4.08,
+      "technical": 4.22
+    },
+    "take_profit": {
+      "conservative": 4.8,
+      "moderate": 4.88,
+      "aggressive": 5.33
+    }
+  }
+}

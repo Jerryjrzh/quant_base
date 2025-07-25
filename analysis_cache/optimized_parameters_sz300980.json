@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300980",
-  "optimization_date": "2025-07-23T12:19:42.464026",
+  "optimization_date": "2025-07-24T19:48:53.241129",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.418619500426763,
+  "best_score": 0.4201735358105325,
   "optimization_target": "composite_score"
 }

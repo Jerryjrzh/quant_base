@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002331",
-  "optimization_date": "2025-07-23T12:18:07.104145",
+  "optimization_date": "2025-07-24T19:45:44.197487",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4617126601784708,
+  "best_score": 0.46167146987346064,
   "optimization_target": "composite_score"
 }

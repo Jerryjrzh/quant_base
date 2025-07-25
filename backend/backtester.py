@@ -25,15 +25,18 @@ def check_macd_zero_axis_filter(df, signal_idx, signal_state, lookback_days=5):
         if signal_state not in ['PRE', 'MID', 'POST']:
             return False, ""
         
-        # 获取信号前5天的数据
-        start_idx = max(0, signal_idx - lookback_days)
-        end_idx = signal_idx
+        # 转换为位置索引进行计算
+        signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
         
-        if start_idx >= end_idx:
+        # 获取信号前5天的数据
+        start_pos = max(0, signal_pos - lookback_days)
+        end_pos = signal_pos
+        
+        if start_pos >= end_pos:
             return False, ""
         
         # 计算5日内的最大涨幅
-        lookback_data = df.iloc[start_idx:end_idx + 1]
+        lookback_data = df.iloc[start_pos:end_pos + 1]
         if len(lookback_data) < 2:
             return False, ""
         
@@ -77,15 +80,20 @@ def get_optimal_entry_price(df, signal_idx, signal_state, lookback_days=5, looka
         
         if signal_state == 'PRE':
             # PRE状态：预期即将突破，在信号后1-3天内寻找低点买入
-            start_idx = signal_idx + 1
-            end_idx = min(signal_idx + 1 + lookahead_days, len(df))
-            window_data = df.iloc[start_idx:end_idx]
+            signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+            start_pos = signal_pos + 1
+            end_pos = min(signal_pos + 1 + lookahead_days, len(df))
+            window_data = df.iloc[start_pos:end_pos]
             
             if not window_data.empty:
                 # 寻找最低价对应的日期
                 min_idx = window_data['low'].idxmin()
                 entry_price = df.loc[min_idx, 'low']
-                return entry_price, min_idx, f"PRE状态-信号后{min_idx - signal_idx}天低点买入", False
+                # 计算天数差异（使用位置索引）
+                signal_pos = df.index.get_loc(signal_idx)
+                min_pos = df.index.get_loc(min_idx)
+                days_diff = min_pos - signal_pos
+                return entry_price, min_idx, f"PRE状态-信号后{days_diff}天低点买入", False
             else:
                 # 如果没有未来数据，使用信号当天收盘价
                 return df.loc[signal_idx, 'close'], signal_idx, "PRE状态-信号当天收盘价", False
@@ -98,15 +106,20 @@ def get_optimal_entry_price(df, signal_idx, signal_state, lookback_days=5, looka
         elif signal_state == 'POST':
             # POST状态：已经突破，可能需要回调买入
             # 先检查信号前几天是否有更好的买点
-            start_idx = max(0, signal_idx - lookback_days)
-            end_idx = signal_idx + 1
-            window_data = df.iloc[start_idx:end_idx]
+            signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+            start_pos = max(0, signal_pos - lookback_days)
+            end_pos = signal_pos + 1
+            window_data = df.iloc[start_pos:end_pos]
             
             if not window_data.empty:
                 # 寻找回调低点
                 min_idx = window_data['low'].idxmin()
                 entry_price = df.loc[min_idx, 'low']
-                return entry_price, min_idx, f"POST状态-信号前{signal_idx - min_idx}天回调低点买入", False
+                # 计算天数差异（使用位置索引）
+                signal_pos = df.index.get_loc(signal_idx)
+                min_pos = df.index.get_loc(min_idx)
+                days_diff = signal_pos - min_pos
+                return entry_price, min_idx, f"POST状态-信号前{days_diff}天回调低点买入", False
             else:
                 return df.loc[signal_idx, 'close'], signal_idx, "POST状态-信号当天收盘价", False
                 
@@ -169,18 +182,21 @@ def group_signals_by_cycle(df, signal_series):
 def check_trend_confirmation(df, entry_idx, confirmation_days=5):
     """检查入场后的趋势确认"""
     try:
-        # 获取入场后的确认期数据
-        confirm_start = entry_idx + 1
-        confirm_end = min(confirm_start + confirmation_days, len(df))
+        # 转换为位置索引进行计算
+        entry_pos = df.index.get_loc(entry_idx) if entry_idx in df.index else 0
         
-        if confirm_start >= len(df):
+        # 获取入场后的确认期数据
+        confirm_start_pos = entry_pos + 1
+        confirm_end_pos = min(confirm_start_pos + confirmation_days, len(df))
+        
+        if confirm_start_pos >= len(df):
             return False, "无后续数据"
         
-        confirm_data = df.iloc[confirm_start:confirm_end]
+        confirm_data = df.iloc[confirm_start_pos:confirm_end_pos]
         if confirm_data.empty:
             return False, "确认期数据不足"
         
-        entry_price = df.iloc[entry_idx]['close']
+        entry_price = df.iloc[entry_pos]['close']
         
         # 计算确认期内的价格趋势
         price_changes = []
@@ -210,14 +226,18 @@ def find_cycle_bottom_and_top(df, cycle_info):
     try:
         start_idx = cycle_info['start_idx']
         
+        # 转换为位置索引进行计算
+        start_pos = df.index.get_loc(start_idx) if start_idx in df.index else 0
+        
         # 确定周期结束点：如果有POST，用POST+5天；否则用开始点+15天
         if cycle_info['post_idx'] is not None:
-            cycle_end = min(cycle_info['post_idx'] + 5, len(df) - 1)
+            post_pos = df.index.get_loc(cycle_info['post_idx']) if cycle_info['post_idx'] in df.index else start_pos
+            cycle_end_pos = min(post_pos + 5, len(df) - 1)
         else:
-            cycle_end = min(start_idx + 15, len(df) - 1)
+            cycle_end_pos = min(start_pos + 15, len(df) - 1)
         
         # 获取周期内的数据
-        cycle_data = df.iloc[start_idx:cycle_end + 1]
+        cycle_data = df.iloc[start_pos:cycle_end_pos + 1]
         
         if cycle_data.empty:
             return None, None, None, None
@@ -227,10 +247,11 @@ def find_cycle_bottom_and_top(df, cycle_info):
         bottom_price = df.loc[bottom_idx, 'low']
         
         # 从底部开始向后找最高点（顶部）
-        top_search_start = max(bottom_idx, start_idx)
-        top_search_end = min(top_search_start + MAX_LOOKAHEAD_DAYS, len(df) - 1)
+        bottom_pos = df.index.get_loc(bottom_idx)
+        top_search_start_pos = max(bottom_pos, start_pos)
+        top_search_end_pos = min(top_search_start_pos + MAX_LOOKAHEAD_DAYS, len(df) - 1)
         
-        top_data = df.iloc[top_search_start:top_search_end + 1]
+        top_data = df.iloc[top_search_start_pos:top_search_end_pos + 1]
         if top_data.empty:
             return bottom_idx, bottom_price, None, None
         
@@ -261,6 +282,13 @@ def run_backtest(df, signal_series):
     
     for signal_idx, signal_state, cycle_info in cycle_signals:
         try:
+            # 转换timestamp为位置索引以避免pandas版本兼容问题
+            if signal_idx in df.index:
+                signal_pos = df.index.get_loc(signal_idx)
+            else:
+                print(f"Signal index {signal_idx} not found in dataframe")
+                continue
+                
             # 根据信号状态获取最佳入场价格
             entry_result = get_optimal_entry_price(df, signal_idx, signal_state)
             entry_price, actual_entry_idx, entry_strategy, is_filtered = entry_result
@@ -289,29 +317,57 @@ def run_backtest(df, signal_series):
             else:
                 actual_max_pnl = 0
             
-            # 计算最大回撤（从入场价到周期内最低价）
-            cycle_data = df.iloc[actual_entry_idx:top_idx + 1] if top_idx > actual_entry_idx else df.iloc[actual_entry_idx:actual_entry_idx + 1]
+            # 计算最大回撤（从入场价到周期内最低价） - 使用位置索引
+            try:
+                entry_pos = df.index.get_loc(actual_entry_idx) if actual_entry_idx in df.index else 0
+                top_pos = df.index.get_loc(top_idx) if top_idx in df.index else entry_pos
+                if top_pos > entry_pos:
+                    cycle_data = df.iloc[entry_pos:top_pos + 1]
+                else:
+                    cycle_data = df.iloc[entry_pos:entry_pos + 1]
+            except:
+                cycle_data = df.iloc[entry_pos:entry_pos + 1] if 'entry_pos' in locals() else pd.DataFrame()
             if not cycle_data.empty:
                 trough_price = cycle_data['low'].min()
                 max_drawdown = (trough_price - entry_price) / entry_price
             else:
                 max_drawdown = 0
             
-            # 计算时间指标
-            days_to_peak = top_idx - actual_entry_idx if top_idx > actual_entry_idx else 0
+            # 计算时间指标 - 使用位置索引避免Timestamp算术运算
+            if top_idx is not None and actual_entry_idx is not None:
+                try:
+                    top_pos = df.index.get_loc(top_idx) if top_idx in df.index else 0
+                    entry_pos = df.index.get_loc(actual_entry_idx) if actual_entry_idx in df.index else 0
+                    days_to_peak = top_pos - entry_pos if top_pos > entry_pos else 0
+                except:
+                    days_to_peak = 0
+            else:
+                days_to_peak = 0
             
             # 成功判定：考虑趋势确认和收益目标
             is_success = trend_confirmed and actual_max_pnl >= PROFIT_TARGET_FOR_SUCCESS
             
+            # 安全转换Timestamp索引为位置索引
+            try:
+                signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+                entry_pos = df.index.get_loc(actual_entry_idx) if actual_entry_idx in df.index else 0
+                bottom_pos = df.index.get_loc(bottom_idx) if bottom_idx in df.index else 0
+                top_pos = df.index.get_loc(top_idx) if top_idx is not None and top_idx in df.index else None
+            except:
+                signal_pos = 0
+                entry_pos = 0
+                bottom_pos = 0
+                top_pos = None
+            
             trade_info = {
-                "signal_idx": int(signal_idx),
+                "signal_idx": signal_pos,
                 "signal_state": signal_state,
-                "entry_idx": int(actual_entry_idx),
+                "entry_idx": entry_pos,
                 "entry_price": float(entry_price),
                 "entry_strategy": entry_strategy,
-                "bottom_idx": int(bottom_idx),
+                "bottom_idx": bottom_pos,
                 "bottom_price": float(bottom_price),
-                "top_idx": int(top_idx) if top_idx is not None else None,
+                "top_idx": top_pos,
                 "top_price": float(top_price) if top_price is not None else None,
                 "cycle_max_pnl": float(cycle_max_pnl),
                 "actual_max_pnl": float(actual_max_pnl),
@@ -324,7 +380,7 @@ def run_backtest(df, signal_series):
             }
             
             trades.append(trade_info)
-            valid_entry_indices.append(int(signal_idx))
+            valid_entry_indices.append(signal_pos)  # 使用已转换的位置索引
             
         except Exception as e:
             print(f"Error processing cycle signal at index {signal_idx}: {e}")

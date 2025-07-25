@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002843",
-  "optimization_date": "2025-07-23T12:19:33.124117",
+  "optimization_date": "2025-07-24T19:48:56.294952",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4828138877442253,
+  "best_score": 0.48105978424749046,
   "optimization_target": "composite_score"
 }

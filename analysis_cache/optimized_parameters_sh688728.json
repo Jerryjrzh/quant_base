@@ -1,6 +1,6 @@
 {
   "stock_code": "sh688728",
-  "optimization_date": "2025-07-23T16:37:28.179392",
+  "optimization_date": "2025-07-24T18:22:19.481914",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.3554052689962782,
+  "best_score": 0.35549709266341983,
   "optimization_target": "composite_score"
 }

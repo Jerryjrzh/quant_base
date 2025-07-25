@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T18:17:37.285443",
+  "stock_code": "sz002275",
+  "current_price": 15.02,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 13.97,
+    "target_price_2": 13.61,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.06990679094540606,
+    "discount_2": 0.09387483355525966,
+    "stop_loss": {
+      "conservative": 14.27,
+      "moderate": 13.53,
+      "aggressive": 13.53,
+      "technical": 12.85
+    },
+    "take_profit": {
+      "conservative": 15.89,
+      "moderate": 16.18,
+      "aggressive": 17.65
+    }
+  }
+}

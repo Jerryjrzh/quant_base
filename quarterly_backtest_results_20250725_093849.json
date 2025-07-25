@@ -1,0 +1,477 @@
+{
+  "summary": {
+    "total_quarters": 5,
+    "best_overall_strategy": "WEEKLY_GOLDEN_CROSS_MA",
+    "avg_quarterly_return": 0.03923370605402683,
+    "avg_win_rate": 0.2,
+    "total_trades": 6
+  },
+  "strategy_performance": {
+    "WEEKLY_GOLDEN_CROSS_MA": {
+      "quarters_used": 5,
+      "total_return": 0.18907249600479523,
+      "total_trades": 6,
+      "total_wins": 3.0,
+      "avg_win_rate": 0.5,
+      "quarters": [
+        {
+          "quarter": "2024Q3",
+          "return": 0.0,
+          "win_rate": 0.0,
+          "trades": 0
+        },
+        {
+          "quarter": "2024Q4",
+          "return": 0.0,
+          "win_rate": 0.0,
+          "trades": 0
+        },
+        {
+          "quarter": "2025Q1",
+          "return": 0.19597142120311706,
+          "win_rate": 1.0,
+          "trades": 3
+        },
+        {
+          "quarter": "2025Q2",
+          "return": -0.007096034265338919,
+          "win_rate": 0.0,
+          "trades": 2
+        },
+        {
+          "quarter": "2025Q3",
+          "return": 0.00019710906701707608,
+          "win_rate": 0.0,
+          "trades": 1
+        }
+      ],
+      "avg_return": 0.03781449920095904
+    },
+    "TRIPLE_CROSS": {
+      "quarters_used": 5,
+      "total_return": 0.0,
+      "total_trades": 0,
+      "total_wins": 0.0,
+      "avg_win_rate": 0,
+      "quarters": [
+        {
+          "quarter": "2024Q3",
+          "return": 0.0,
+          "win_rate": 0.0,
+          "trades": 0
+        },
+        {
+          "quarter": "2024Q4",
+          "return": 0.0,
+          "win_rate": 0.0,
+          "trades": 0
+        },
+        {
+          "quarter": "2025Q1",
+          "return": 0.0,
+          "win_rate": 0.0,
+          "trades": 0
+        },
+        {
+          "quarter": "2025Q2",
+          "return": 0.0,
+          "win_rate": 0.0,
+          "trades": 0
+        },
+        {
+          "quarter": "2025Q3",
+          "return": 0.0,
+          "win_rate": 0.0,
+          "trades": 0
+        }
+      ],
+      "avg_return": 0.0
+    }
+  },
+  "quarterly_analysis": [
+    {
+      "quarter": "2024Q3",
+      "pool_size": 0,
+      "best_strategy": "WEEKLY_GOLDEN_CROSS_MA",
+      "best_return": 0.0,
+      "win_rate": 0,
+      "total_trades": 0
+    },
+    {
+      "quarter": "2024Q4",
+      "pool_size": 9,
+      "best_strategy": "WEEKLY_GOLDEN_CROSS_MA",
+      "best_return": 0.0,
+      "win_rate": 0,
+      "total_trades": 0
+    },
+    {
+      "quarter": "2025Q1",
+      "pool_size": 2,
+      "best_strategy": "WEEKLY_GOLDEN_CROSS_MA",
+      "best_return": 0.19597142120311706,
+      "win_rate": 1.0,
+      "total_trades": 3
+    },
+    {
+      "quarter": "2025Q2",
+      "pool_size": 4,
+      "best_strategy": "TRIPLE_CROSS",
+      "best_return": 0.0,
+      "win_rate": 0.0,
+      "total_trades": 2
+    },
+    {
+      "quarter": "2025Q3",
+      "pool_size": 20,
+      "best_strategy": "WEEKLY_GOLDEN_CROSS_MA",
+      "best_return": 0.00019710906701707608,
+      "win_rate": 0.0,
+      "total_trades": 1
+    }
+  ],
+  "optimization_suggestions": [
+    {
+      "type": "strategy_selection",
+      "suggestion": "不同季度最佳策略不同，建议使用自适应策略选择，整体最佳策略为 WEEKLY_GOLDEN_CROSS_MA",
+      "priority": "high"
+    },
+    {
+      "type": "win_rate",
+      "suggestion": "平均胜率 20.0% 偏低，建议优化入场时机或止损策略",
+      "priority": "high"
+    }
+  ],
+  "detailed_results": [
+    {
+      "quarter": "2024Q3",
+      "start_date": "2024-07-01",
+      "end_date": "2024-09-30",
+      "pool_size": 0,
+      "pool_stocks": [],
+      "pool_selection_success_rate": 0.0,
+      "strategy_results": {
+        "WEEKLY_GOLDEN_CROSS_MA": {
+          "strategy_name": "WEEKLY_GOLDEN_CROSS_MA",
+          "total_trades": 0,
+          "successful_stocks": 0,
+          "win_rate": 0.0,
+          "avg_return": 0.0,
+          "avg_max_return": 0.0,
+          "avg_max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": []
+        },
+        "TRIPLE_CROSS": {
+          "strategy_name": "TRIPLE_CROSS",
+          "total_trades": 0,
+          "successful_stocks": 0,
+          "win_rate": 0.0,
+          "avg_return": 0.0,
+          "avg_max_return": 0.0,
+          "avg_max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": []
+        }
+      },
+      "best_strategy": "WEEKLY_GOLDEN_CROSS_MA",
+      "best_strategy_return": 0.0,
+      "quarter_benchmark_return": 0.0,
+      "total_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_return": 0,
+      "max_drawdown": 0,
+      "sharpe_ratio": 0
+    },
+    {
+      "quarter": "2024Q4",
+      "start_date": "2024-10-01",
+      "end_date": "2024-12-31",
+      "pool_size": 9,
+      "pool_stocks": [
+        "sh518850",
+        "sh501225",
+        "sh600015",
+        "sh510170",
+        "sh601101",
+        "sh600995",
+        "sh600707",
+        "sh601919",
+        "sh516220"
+      ],
+      "pool_selection_success_rate": 0.45,
+      "strategy_results": {
+        "WEEKLY_GOLDEN_CROSS_MA": {
+          "strategy_name": "WEEKLY_GOLDEN_CROSS_MA",
+          "total_trades": 0,
+          "successful_stocks": 0,
+          "win_rate": 0.0,
+          "avg_return": 0.0,
+          "avg_max_return": 0.0,
+          "avg_max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": []
+        },
+        "TRIPLE_CROSS": {
+          "strategy_name": "TRIPLE_CROSS",
+          "total_trades": 0,
+          "successful_stocks": 0,
+          "win_rate": 0.0,
+          "avg_return": 0.0,
+          "avg_max_return": 0.0,
+          "avg_max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": []
+        }
+      },
+      "best_strategy": "WEEKLY_GOLDEN_CROSS_MA",
+      "best_strategy_return": 0.0,
+      "quarter_benchmark_return": 0.0,
+      "total_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_return": 0,
+      "max_drawdown": 0,
+      "sharpe_ratio": 0
+    },
+    {
+      "quarter": "2025Q1",
+      "start_date": "2025-01-01",
+      "end_date": "2025-03-31",
+      "pool_size": 2,
+      "pool_stocks": [
+        "sh518850",
+        "sh600323"
+      ],
+      "pool_selection_success_rate": 0.1,
+      "strategy_results": {
+        "WEEKLY_GOLDEN_CROSS_MA": {
+          "strategy_name": "WEEKLY_GOLDEN_CROSS_MA",
+          "total_trades": 3,
+          "successful_stocks": 1,
+          "win_rate": 1.0,
+          "avg_return": 0.13064761413541137,
+          "avg_max_return": 0.13064761413541137,
+          "avg_max_drawdown": -0.0008010253123998575,
+          "total_return": 0.19597142120311706,
+          "trades": [
+            {
+              "symbol": "sh518850",
+              "signal_date": "2025-01-22 00:00:00",
+              "signal_state": "BUY",
+              "entry_date": "2025-01-22 00:00:00",
+              "entry_price": 62.08,
+              "entry_strategy": "传统方法-信号当天收盘价",
+              "hold_days": 42,
+              "max_return": 0.13385953608247436,
+              "min_return": 0.0,
+              "final_return": 0.13385953608247436,
+              "success": "True"
+            },
+            {
+              "symbol": "sh518850",
+              "signal_date": "2025-01-24 00:00:00",
+              "signal_state": "BUY",
+              "entry_date": "2025-01-24 00:00:00",
+              "entry_price": 62.42,
+              "entry_strategy": "传统方法-信号当天收盘价",
+              "hold_days": 40,
+              "max_return": 0.12768343479653965,
+              "min_return": -0.0024030759371995725,
+              "final_return": 0.12768343479653965,
+              "success": "True"
+            },
+            {
+              "symbol": "sh518850",
+              "signal_date": "2025-01-27 00:00:00",
+              "signal_state": "BUY",
+              "entry_date": "2025-01-27 00:00:00",
+              "entry_price": 62.27,
+              "entry_strategy": "传统方法-信号当天收盘价",
+              "hold_days": 39,
+              "max_return": 0.1303998715272201,
+              "min_return": 0.0,
+              "final_return": 0.1303998715272201,
+              "success": "True"
+            }
+          ]
+        },
+        "TRIPLE_CROSS": {
+          "strategy_name": "TRIPLE_CROSS",
+          "total_trades": 0,
+          "successful_stocks": 0,
+          "win_rate": 0.0,
+          "avg_return": 0.0,
+          "avg_max_return": 0.0,
+          "avg_max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": []
+        }
+      },
+      "best_strategy": "WEEKLY_GOLDEN_CROSS_MA",
+      "best_strategy_return": 0.19597142120311706,
+      "quarter_benchmark_return": 0.0,
+      "total_trades": 3,
+      "winning_trades": 3,
+      "losing_trades": 0,
+      "win_rate": 1.0,
+      "avg_return": 0.13064761413541137,
+      "max_drawdown": -0.0024030759371995725,
+      "sharpe_ratio": 51.69124719044378
+    },
+    {
+      "quarter": "2025Q2",
+      "start_date": "2025-04-01",
+      "end_date": "2025-06-30",
+      "pool_size": 4,
+      "pool_stocks": [
+        "sh600305",
+        "sh600015",
+        "sh600098",
+        "sh603098"
+      ],
+      "pool_selection_success_rate": 0.2,
+      "strategy_results": {
+        "WEEKLY_GOLDEN_CROSS_MA": {
+          "strategy_name": "WEEKLY_GOLDEN_CROSS_MA",
+          "total_trades": 2,
+          "successful_stocks": 1,
+          "win_rate": 0.0,
+          "avg_return": -0.014192068530677837,
+          "avg_max_return": 0.0,
+          "avg_max_drawdown": -0.014192068530677837,
+          "total_return": -0.007096034265338919,
+          "trades": [
+            {
+              "symbol": "sh600015",
+              "signal_date": "2025-06-26 00:00:00",
+              "signal_state": "BUY",
+              "entry_date": "2025-06-26 00:00:00",
+              "entry_price": 8.12,
+              "entry_strategy": "传统方法-信号当天收盘价",
+              "hold_days": 2,
+              "max_return": 0.0,
+              "min_return": -0.025862068965517127,
+              "final_return": -0.025862068965517127,
+              "success": "False"
+            },
+            {
+              "symbol": "sh600015",
+              "signal_date": "2025-06-27 00:00:00",
+              "signal_state": "BUY",
+              "entry_date": "2025-06-27 00:00:00",
+              "entry_price": 7.93,
+              "entry_strategy": "传统方法-信号当天收盘价",
+              "hold_days": 1,
+              "max_return": 0.0,
+              "min_return": -0.0025220680958385477,
+              "final_return": -0.0025220680958385477,
+              "success": "False"
+            }
+          ]
+        },
+        "TRIPLE_CROSS": {
+          "strategy_name": "TRIPLE_CROSS",
+          "total_trades": 0,
+          "successful_stocks": 0,
+          "win_rate": 0.0,
+          "avg_return": 0.0,
+          "avg_max_return": 0.0,
+          "avg_max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": []
+        }
+      },
+      "best_strategy": "TRIPLE_CROSS",
+      "best_strategy_return": 0.0,
+      "quarter_benchmark_return": 0.0,
+      "total_trades": 2,
+      "winning_trades": 0,
+      "losing_trades": 2,
+      "win_rate": 0.0,
+      "avg_return": -0.014192068530677837,
+      "max_drawdown": -0.025862068965517127,
+      "sharpe_ratio": -1.2161155100139702
+    },
+    {
+      "quarter": "2025Q3",
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-25",
+      "pool_size": 20,
+      "pool_stocks": [
+        "sh516150",
+        "sh603628",
+        "sh601969",
+        "sh688334",
+        "sh516950",
+        "sh515790",
+        "sh688247",
+        "sh516180",
+        "sh515070",
+        "sh516220",
+        "sh603098",
+        "sh515600",
+        "sh600278",
+        "sh560990",
+        "sh688323",
+        "sh562660",
+        "sh601611",
+        "sh603018",
+        "sh513380",
+        "sh600098"
+      ],
+      "pool_selection_success_rate": 1.0,
+      "strategy_results": {
+        "WEEKLY_GOLDEN_CROSS_MA": {
+          "strategy_name": "WEEKLY_GOLDEN_CROSS_MA",
+          "total_trades": 1,
+          "successful_stocks": 1,
+          "win_rate": 0.0,
+          "avg_return": 0.003942181340341522,
+          "avg_max_return": 0.006570302233902758,
+          "avg_max_drawdown": -0.0026281208935611255,
+          "total_return": 0.00019710906701707608,
+          "trades": [
+            {
+              "symbol": "sh600278",
+              "signal_date": "2025-07-21 00:00:00",
+              "signal_state": "BUY",
+              "entry_date": "2025-07-21 00:00:00",
+              "entry_price": 7.61,
+              "entry_strategy": "传统方法-信号当天收盘价",
+              "hold_days": 3,
+              "max_return": 0.006570302233902758,
+              "min_return": -0.0026281208935611255,
+              "final_return": 0.003942181340341522,
+              "success": "False"
+            }
+          ]
+        },
+        "TRIPLE_CROSS": {
+          "strategy_name": "TRIPLE_CROSS",
+          "total_trades": 0,
+          "successful_stocks": 0,
+          "win_rate": 0.0,
+          "avg_return": 0.0,
+          "avg_max_return": 0.0,
+          "avg_max_drawdown": 0.0,
+          "total_return": 0.0,
+          "trades": []
+        }
+      },
+      "best_strategy": "WEEKLY_GOLDEN_CROSS_MA",
+      "best_strategy_return": 0.00019710906701707608,
+      "quarter_benchmark_return": 0.0,
+      "total_trades": 1,
+      "winning_trades": 0,
+      "losing_trades": 1,
+      "win_rate": 0.0,
+      "avg_return": 0.003942181340341522,
+      "max_drawdown": -0.0026281208935611255,
+      "sharpe_ratio": 0
+    }
+  ]
+}

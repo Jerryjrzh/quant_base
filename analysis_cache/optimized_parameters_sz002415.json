@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002415",
-  "optimization_date": "2025-07-23T11:14:59.230351",
+  "optimization_date": "2025-07-24T19:46:27.236938",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4601473026585699,
+  "best_score": 0.4603072981800073,
   "optimization_target": "composite_score"
 }

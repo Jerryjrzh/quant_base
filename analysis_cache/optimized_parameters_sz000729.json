@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000729",
-  "optimization_date": "2025-07-23T12:21:49.154536",
+  "optimization_date": "2025-07-24T19:54:06.612847",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.47499062826992766,
+  "best_score": 0.47445828281195235,
   "optimization_target": "composite_score"
 }

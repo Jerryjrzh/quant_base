@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002789",
-  "optimization_date": "2025-07-23T12:22:30.904354",
+  "optimization_date": "2025-07-24T19:55:12.120382",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.45888837487984213,
+  "best_score": 0.4602621957020736,
   "optimization_target": "composite_score"
 }

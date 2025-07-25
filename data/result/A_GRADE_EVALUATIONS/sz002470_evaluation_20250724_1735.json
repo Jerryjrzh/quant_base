@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:35:39.599257",
+  "stock_code": "sz002470",
+  "current_price": 1.81,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 1.72,
+    "target_price_2": 1.72,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04972375690607739,
+    "discount_2": 0.04972375690607739,
+    "stop_loss": {
+      "conservative": 1.76,
+      "moderate": 1.67,
+      "aggressive": 1.67,
+      "technical": 1.72
+    },
+    "take_profit": {
+      "conservative": 1.95,
+      "moderate": 1.99,
+      "aggressive": 2.17
+    }
+  }
+}

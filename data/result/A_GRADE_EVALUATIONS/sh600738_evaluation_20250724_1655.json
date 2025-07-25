@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T16:55:24.293150",
+  "stock_code": "sh600738",
+  "current_price": 5.88,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 5.59,
+    "target_price_2": 5.44,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.04931972789115647,
+    "discount_2": 0.07482993197278903,
+    "stop_loss": {
+      "conservative": 5.7,
+      "moderate": 5.41,
+      "aggressive": 5.41,
+      "technical": 4.84
+    },
+    "take_profit": {
+      "conservative": 6.35,
+      "moderate": 6.47,
+      "aggressive": 7.06
+    }
+  }
+}

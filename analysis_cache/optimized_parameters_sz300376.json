@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300376",
-  "optimization_date": "2025-07-23T16:37:54.787275",
+  "optimization_date": "2025-07-25T18:52:11.828692",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4154828573177853,
+  "best_score": 0.415459052569095,
   "optimization_target": "composite_score"
 }

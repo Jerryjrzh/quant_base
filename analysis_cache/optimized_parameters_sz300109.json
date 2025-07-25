@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300109",
-  "optimization_date": "2025-07-23T12:19:45.781715",
+  "optimization_date": "2025-07-24T19:48:56.109578",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.39732972499348473,
+  "best_score": 0.40087656347566014,
   "optimization_target": "composite_score"
 }

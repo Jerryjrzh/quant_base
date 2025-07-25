@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T18:17:37.040065",
+  "stock_code": "sh601949",
+  "current_price": 6.87,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 6.94,
+    "target_price_2": 6.9,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010189228529839925,
+    "discount_2": -0.004366812227074272,
+    "stop_loss": {
+      "conservative": 6.66,
+      "moderate": 6.32,
+      "aggressive": 6.32,
+      "technical": 6.23
+    },
+    "take_profit": {
+      "conservative": 7.42,
+      "moderate": 7.56,
+      "aggressive": 8.24
+    }
+  }
+}

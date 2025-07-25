@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603626",
-  "optimization_date": "2025-07-23T12:16:25.116375",
+  "optimization_date": "2025-07-24T18:23:36.364040",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.48126310487515467,
+  "best_score": 0.4813426207085206,
   "optimization_target": "composite_score"
 }

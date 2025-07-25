@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T18:28:30.907168",
+  "stock_code": "sz300775",
+  "current_price": 27.11,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 25.75,
+    "target_price_2": 25.75,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05016599040944299,
+    "discount_2": 0.05016599040944299,
+    "stop_loss": {
+      "conservative": 26.3,
+      "moderate": 24.94,
+      "aggressive": 24.94,
+      "technical": 25.75
+    },
+    "take_profit": {
+      "conservative": 29.28,
+      "moderate": 29.82,
+      "aggressive": 32.53
+    }
+  }
+}

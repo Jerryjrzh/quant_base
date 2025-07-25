@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T18:20:01.426769",
+  "stock_code": "sz000421",
+  "current_price": 6.92,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 6.99,
+    "target_price_2": 7.05,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010115606936416227,
+    "discount_2": -0.01878612716763004,
+    "stop_loss": {
+      "conservative": 6.71,
+      "moderate": 6.37,
+      "aggressive": 6.37,
+      "technical": 4.45
+    },
+    "take_profit": {
+      "conservative": 7.47,
+      "moderate": 7.61,
+      "aggressive": 8.3
+    }
+  }
+}

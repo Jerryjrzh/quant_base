@@ -134,8 +134,9 @@ class TradingAdvisor:
         """计算关键价格水平"""
         try:
             # 获取最近20天的数据用于计算支撑阻力
-            lookback_days = min(20, signal_idx)
-            recent_data = df.iloc[max(0, signal_idx - lookback_days):signal_idx + 1]
+            signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+            lookback_days = min(20, signal_pos)
+            recent_data = df.iloc[max(0, signal_pos - lookback_days):signal_pos + 1]
             
             current_price = df.iloc[signal_idx]['close']
             
@@ -422,8 +423,9 @@ class TradingAdvisor:
         """获取市场环境分析"""
         try:
             # 计算最近的市场趋势
-            lookback = min(20, signal_idx)
-            recent_data = df.iloc[max(0, signal_idx - lookback):signal_idx + 1]
+            signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+            lookback = min(20, signal_pos)
+            recent_data = df.iloc[max(0, signal_pos - lookback):signal_pos + 1]
             
             # 价格趋势
             price_trend = (recent_data['close'].iloc[-1] - recent_data['close'].iloc[0]) / recent_data['close'].iloc[0]

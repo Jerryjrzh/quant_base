@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T19:55:39.600412",
+  "stock_code": "sz000650",
+  "current_price": 5.9,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 5.22,
+    "target_price_2": 5.09,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.11525423728813569,
+    "discount_2": 0.13728813559322042,
+    "stop_loss": {
+      "conservative": 5.34,
+      "moderate": 5.06,
+      "aggressive": 5.06,
+      "technical": 5.22
+    },
+    "take_profit": {
+      "conservative": 5.94,
+      "moderate": 6.05,
+      "aggressive": 6.6
+    }
+  }
+}

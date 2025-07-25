@@ -1,0 +1,815 @@
+{
+  "config": {
+    "current_quarter": "2025Q2",
+    "quarter_start": "2025-06-17",
+    "selection_end": "2025-07-18",
+    "backtest_start": "2025-07-21",
+    "backtest_end": "2025-07-25",
+    "min_daily_gain": 0.07,
+    "require_weekly_golden_cross": true,
+    "initial_capital": 100000.0,
+    "max_position_size": 0.2,
+    "commission_rate": 0.001,
+    "min_price": 5.0,
+    "max_price": 200.0,
+    "min_volume": 1000000
+  },
+  "strategy": {
+    "quarter": "2025Q2",
+    "core_pool": [
+      {
+        "symbol": "sh603255",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-18",
+        "max_gain": 0.09984639016897079,
+        "weekly_cross_confirmed": true,
+        "selection_price": 30.08
+      },
+      {
+        "symbol": "sh600212",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-24",
+        "max_gain": 0.10000000000000009,
+        "weekly_cross_confirmed": true,
+        "selection_price": 9.3
+      },
+      {
+        "symbol": "sh600267",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-04",
+        "max_gain": 0.10020661157024802,
+        "weekly_cross_confirmed": true,
+        "selection_price": 12.49
+      },
+      {
+        "symbol": "sh603767",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-14",
+        "max_gain": 0.09976662777129519,
+        "weekly_cross_confirmed": true,
+        "selection_price": 18.59
+      },
+      {
+        "symbol": "sh688505",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-17",
+        "max_gain": 0.11951754385964941,
+        "weekly_cross_confirmed": true,
+        "selection_price": 9.83
+      },
+      {
+        "symbol": "sh600105",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-01",
+        "max_gain": 0.07045735475896175,
+        "weekly_cross_confirmed": true,
+        "selection_price": 8.95
+      },
+      {
+        "symbol": "sh600326",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-17",
+        "max_gain": 0.07461024498886415,
+        "weekly_cross_confirmed": true,
+        "selection_price": 9.58
+      },
+      {
+        "symbol": "sh603321",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-16",
+        "max_gain": 0.09962640099626419,
+        "weekly_cross_confirmed": true,
+        "selection_price": 8.39
+      },
+      {
+        "symbol": "sh688707",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-24",
+        "max_gain": 0.1581920903954801,
+        "weekly_cross_confirmed": true,
+        "selection_price": 13.48
+      },
+      {
+        "symbol": "sh601609",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-14",
+        "max_gain": 0.09959072305593453,
+        "weekly_cross_confirmed": true,
+        "selection_price": 8.34
+      },
+      {
+        "symbol": "sh688176",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-14",
+        "max_gain": 0.17321248741188322,
+        "weekly_cross_confirmed": true,
+        "selection_price": 11.65
+      },
+      {
+        "symbol": "sh600319",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-02",
+        "max_gain": 0.10027855153203347,
+        "weekly_cross_confirmed": true,
+        "selection_price": 6.68
+      },
+      {
+        "symbol": "sh605018",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-09",
+        "max_gain": 0.0997547015535567,
+        "weekly_cross_confirmed": true,
+        "selection_price": 13.15
+      },
+      {
+        "symbol": "sh600268",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-14",
+        "max_gain": 0.10062111801242213,
+        "weekly_cross_confirmed": true,
+        "selection_price": 8.97
+      },
+      {
+        "symbol": "sh601606",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-23",
+        "max_gain": 0.10021786492374729,
+        "weekly_cross_confirmed": true,
+        "selection_price": 29.22
+      },
+      {
+        "symbol": "sh600435",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-30",
+        "max_gain": 0.10021171489061387,
+        "weekly_cross_confirmed": true,
+        "selection_price": 15.18
+      },
+      {
+        "symbol": "sh603308",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-17",
+        "max_gain": 0.1000797448165871,
+        "weekly_cross_confirmed": true,
+        "selection_price": 28.54
+      },
+      {
+        "symbol": "sh688319",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-18",
+        "max_gain": 0.1893230599889928,
+        "weekly_cross_confirmed": true,
+        "selection_price": 21.61
+      },
+      {
+        "symbol": "sh600589",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-16",
+        "max_gain": 0.0716803760282021,
+        "weekly_cross_confirmed": true,
+        "selection_price": 8.99
+      },
+      {
+        "symbol": "sh603115",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-16",
+        "max_gain": 0.10033898305084743,
+        "weekly_cross_confirmed": true,
+        "selection_price": 19.64
+      },
+      {
+        "symbol": "sh603280",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-02",
+        "max_gain": 0.09984152139461178,
+        "weekly_cross_confirmed": true,
+        "selection_price": 26.11
+      },
+      {
+        "symbol": "sh600111",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-10",
+        "max_gain": 0.10020366598778008,
+        "weekly_cross_confirmed": true,
+        "selection_price": 32.96
+      },
+      {
+        "symbol": "sh600562",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-30",
+        "max_gain": 0.09989521480964014,
+        "weekly_cross_confirmed": true,
+        "selection_price": 31.35
+      },
+      {
+        "symbol": "sh600097",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-02",
+        "max_gain": 0.1000962463907602,
+        "weekly_cross_confirmed": true,
+        "selection_price": 11.01
+      },
+      {
+        "symbol": "sh688718",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-18",
+        "max_gain": 0.09945609945609957,
+        "weekly_cross_confirmed": true,
+        "selection_price": 14.15
+      },
+      {
+        "symbol": "sh603048",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-17",
+        "max_gain": 0.09999999999999987,
+        "weekly_cross_confirmed": true,
+        "selection_price": 20.08
+      },
+      {
+        "symbol": "sh600879",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-30",
+        "max_gain": 0.07164790174002067,
+        "weekly_cross_confirmed": true,
+        "selection_price": 10.17
+      },
+      {
+        "symbol": "sh600710",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-24",
+        "max_gain": 0.07158119658119655,
+        "weekly_cross_confirmed": true,
+        "selection_price": 10.5
+      },
+      {
+        "symbol": "sh600645",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-04",
+        "max_gain": 0.09991496598639471,
+        "weekly_cross_confirmed": true,
+        "selection_price": 26.71
+      },
+      {
+        "symbol": "sh603203",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-01",
+        "max_gain": 0.10012062726176119,
+        "weekly_cross_confirmed": true,
+        "selection_price": 25.3
+      },
+      {
+        "symbol": "sh600302",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-18",
+        "max_gain": 0.09932659932659926,
+        "weekly_cross_confirmed": true,
+        "selection_price": 6.53
+      },
+      {
+        "symbol": "sh688156",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-14",
+        "max_gain": 0.09630526953361596,
+        "weekly_cross_confirmed": true,
+        "selection_price": 19.6
+      },
+      {
+        "symbol": "sh688237",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-23",
+        "max_gain": 0.08783521181500187,
+        "weekly_cross_confirmed": true,
+        "selection_price": 30.46
+      },
+      {
+        "symbol": "sh600841",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-16",
+        "max_gain": 0.10015898251192357,
+        "weekly_cross_confirmed": true,
+        "selection_price": 6.6
+      },
+      {
+        "symbol": "sh600857",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-20",
+        "max_gain": 0.07296137339055786,
+        "weekly_cross_confirmed": true,
+        "selection_price": 11.39
+      },
+      {
+        "symbol": "sh603176",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-15",
+        "max_gain": 0.1008130081300811,
+        "weekly_cross_confirmed": true,
+        "selection_price": 6.3
+      },
+      {
+        "symbol": "sh605298",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-19",
+        "max_gain": 0.10031104199066876,
+        "weekly_cross_confirmed": true,
+        "selection_price": 15.15
+      },
+      {
+        "symbol": "sh688585",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-09",
+        "max_gain": 0.2005141388174807,
+        "weekly_cross_confirmed": true,
+        "selection_price": 33.47
+      },
+      {
+        "symbol": "sz300066",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-11",
+        "max_gain": 0.20087336244541487,
+        "weekly_cross_confirmed": true,
+        "selection_price": 6.51
+      },
+      {
+        "symbol": "sz300631",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-11",
+        "max_gain": 0.20016576875259018,
+        "weekly_cross_confirmed": true,
+        "selection_price": 33.65
+      },
+      {
+        "symbol": "sz002206",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-02",
+        "max_gain": 0.0994263862332696,
+        "weekly_cross_confirmed": true,
+        "selection_price": 5.6
+      },
+      {
+        "symbol": "sz002056",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-15",
+        "max_gain": 0.07687120701281192,
+        "weekly_cross_confirmed": true,
+        "selection_price": 15.74
+      },
+      {
+        "symbol": "sz301279",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-16",
+        "max_gain": 0.11700680272108843,
+        "weekly_cross_confirmed": true,
+        "selection_price": 25.37
+      },
+      {
+        "symbol": "sz002468",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-10",
+        "max_gain": 0.09999999999999987,
+        "weekly_cross_confirmed": true,
+        "selection_price": 13.15
+      },
+      {
+        "symbol": "sz002020",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-04",
+        "max_gain": 0.10022107590272666,
+        "weekly_cross_confirmed": true,
+        "selection_price": 16.1
+      },
+      {
+        "symbol": "sz300644",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-17",
+        "max_gain": 0.2000714540907469,
+        "weekly_cross_confirmed": true,
+        "selection_price": 33.6
+      },
+      {
+        "symbol": "sz301045",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-18",
+        "max_gain": 0.08752735229759301,
+        "weekly_cross_confirmed": true,
+        "selection_price": 24.85
+      },
+      {
+        "symbol": "sz301217",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-09",
+        "max_gain": 0.20023696682464465,
+        "weekly_cross_confirmed": true,
+        "selection_price": 21.52
+      },
+      {
+        "symbol": "sz300213",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-23",
+        "max_gain": 0.07731305449936632,
+        "weekly_cross_confirmed": true,
+        "selection_price": 8.75
+      },
+      {
+        "symbol": "sz000997",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-25",
+        "max_gain": 0.07330703484549628,
+        "weekly_cross_confirmed": true,
+        "selection_price": 32.28
+      },
+      {
+        "symbol": "sz002725",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-15",
+        "max_gain": 0.1003062787136293,
+        "weekly_cross_confirmed": true,
+        "selection_price": 13.86
+      },
+      {
+        "symbol": "sz300665",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-01",
+        "max_gain": 0.19976076555023914,
+        "weekly_cross_confirmed": true,
+        "selection_price": 9.16
+      },
+      {
+        "symbol": "sz000989",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-03",
+        "max_gain": 0.10055248618784529,
+        "weekly_cross_confirmed": true,
+        "selection_price": 12.09
+      },
+      {
+        "symbol": "sz300271",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-18",
+        "max_gain": 0.07457212713936423,
+        "weekly_cross_confirmed": true,
+        "selection_price": 8.79
+      },
+      {
+        "symbol": "sz300195",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-14",
+        "max_gain": 0.20026525198938994,
+        "weekly_cross_confirmed": true,
+        "selection_price": 8.16
+      },
+      {
+        "symbol": "sz002074",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-24",
+        "max_gain": 0.10018018018018027,
+        "weekly_cross_confirmed": true,
+        "selection_price": 31.22
+      },
+      {
+        "symbol": "sz300254",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-10",
+        "max_gain": 0.13060428849902528,
+        "weekly_cross_confirmed": true,
+        "selection_price": 11.35
+      },
+      {
+        "symbol": "sz002394",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-17",
+        "max_gain": 0.10028116213683225,
+        "weekly_cross_confirmed": true,
+        "selection_price": 11.03
+      },
+      {
+        "symbol": "sz300916",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-17",
+        "max_gain": 0.07883817427385886,
+        "weekly_cross_confirmed": true,
+        "selection_price": 31.46
+      },
+      {
+        "symbol": "sz002774",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-16",
+        "max_gain": 0.09978540772532196,
+        "weekly_cross_confirmed": true,
+        "selection_price": 9.55
+      },
+      {
+        "symbol": "sz300942",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-14",
+        "max_gain": 0.12149532710280364,
+        "weekly_cross_confirmed": true,
+        "selection_price": 10.88
+      },
+      {
+        "symbol": "sz002153",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-14",
+        "max_gain": 0.10042283298097243,
+        "weekly_cross_confirmed": true,
+        "selection_price": 10.28
+      },
+      {
+        "symbol": "sz002272",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-20",
+        "max_gain": 0.09960159362549792,
+        "weekly_cross_confirmed": true,
+        "selection_price": 11.0
+      },
+      {
+        "symbol": "sz300940",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-18",
+        "max_gain": 0.1433707865168541,
+        "weekly_cross_confirmed": true,
+        "selection_price": 27.03
+      },
+      {
+        "symbol": "sz002951",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-15",
+        "max_gain": 0.10018785222291804,
+        "weekly_cross_confirmed": true,
+        "selection_price": 17.52
+      },
+      {
+        "symbol": "sz300600",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-25",
+        "max_gain": 0.2002129925452607,
+        "weekly_cross_confirmed": true,
+        "selection_price": 15.89
+      },
+      {
+        "symbol": "sz002927",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-07-14",
+        "max_gain": 0.07519788918205816,
+        "weekly_cross_confirmed": true,
+        "selection_price": 15.34
+      },
+      {
+        "symbol": "sz002104",
+        "selection_date": "2025-07-18",
+        "max_gain_date": "2025-06-23",
+        "max_gain": 0.10000000000000009,
+        "weekly_cross_confirmed": true,
+        "selection_price": 21.97
+      }
+    ],
+    "recommended_trades": [
+      {
+        "symbol": "sh600857",
+        "entry_date": "2025-07-23",
+        "entry_price": 11.36,
+        "exit_date": "2025-07-25",
+        "exit_price": 12.69,
+        "return_rate": 0.1170774647887324,
+        "hold_days": 2,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sz002272",
+        "entry_date": "2025-07-21",
+        "entry_price": 11.2,
+        "exit_date": "2025-07-25",
+        "exit_price": 11.75,
+        "return_rate": 0.049107142857142926,
+        "hold_days": 4,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "强势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh600105",
+        "entry_date": "2025-07-24",
+        "entry_price": 9.17,
+        "exit_date": "2025-07-25",
+        "exit_price": 9.58,
+        "return_rate": 0.044711014176663046,
+        "hold_days": 1,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh600319",
+        "entry_date": "2025-07-21",
+        "entry_price": 6.73,
+        "exit_date": "2025-07-25",
+        "exit_price": 6.99,
+        "return_rate": 0.03863298662704306,
+        "hold_days": 4,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh688237",
+        "entry_date": "2025-07-22",
+        "entry_price": 31.32,
+        "exit_date": "2025-07-25",
+        "exit_price": 32.48,
+        "return_rate": 0.03703703703703693,
+        "hold_days": 3,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "强势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh600435",
+        "entry_date": "2025-07-21",
+        "entry_price": 15.3,
+        "exit_date": "2025-07-25",
+        "exit_price": 15.58,
+        "return_rate": 0.018300653594771198,
+        "hold_days": 4,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "强势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sz300271",
+        "entry_date": "2025-07-21",
+        "entry_price": 8.83,
+        "exit_date": "2025-07-25",
+        "exit_price": 8.96,
+        "return_rate": 0.014722536806342104,
+        "hold_days": 4,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "强势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh600710",
+        "entry_date": "2025-07-21",
+        "entry_price": 10.57,
+        "exit_date": "2025-07-25",
+        "exit_price": 10.72,
+        "return_rate": 0.014191106906338728,
+        "hold_days": 4,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "强势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh600645",
+        "entry_date": "2025-07-22",
+        "entry_price": 26.63,
+        "exit_date": "2025-07-25",
+        "exit_price": 26.81,
+        "return_rate": 0.006759294029290264,
+        "hold_days": 3,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh605298",
+        "entry_date": "2025-07-25",
+        "entry_price": 15.58,
+        "exit_date": "2025-07-25",
+        "exit_price": 15.58,
+        "return_rate": 0.0,
+        "hold_days": 0,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sz300213",
+        "entry_date": "2025-07-25",
+        "entry_price": 9.29,
+        "exit_date": "2025-07-25",
+        "exit_price": 9.29,
+        "return_rate": 0.0,
+        "hold_days": 0,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "强势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sz002056",
+        "entry_date": "2025-07-24",
+        "entry_price": 16.35,
+        "exit_date": "2025-07-25",
+        "exit_price": 16.26,
+        "return_rate": -0.0055045871559632935,
+        "hold_days": 1,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh688707",
+        "entry_date": "2025-07-24",
+        "entry_price": 14.06,
+        "exit_date": "2025-07-25",
+        "exit_price": 13.96,
+        "return_rate": -0.007112375533428139,
+        "hold_days": 1,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh600879",
+        "entry_date": "2025-07-22",
+        "entry_price": 10.12,
+        "exit_date": "2025-07-25",
+        "exit_price": 9.97,
+        "return_rate": -0.01482213438735164,
+        "hold_days": 3,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sz002206",
+        "entry_date": "2025-07-22",
+        "entry_price": 5.75,
+        "exit_date": "2025-07-25",
+        "exit_price": 5.66,
+        "return_rate": -0.015652173913043455,
+        "hold_days": 3,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      },
+      {
+        "symbol": "sh600302",
+        "entry_date": "2025-07-22",
+        "entry_price": 6.46,
+        "exit_date": "2025-07-25",
+        "exit_price": 6.33,
+        "return_rate": -0.020123839009287908,
+        "hold_days": 3,
+        "strategy": "T+1智能交易(持有至期末)",
+        "trading_action": "买入→持有",
+        "trend_expectation": "弱势上涨",
+        "confidence": 0.8,
+        "t1_compliant": true
+      }
+    ],
+    "strategy_summary": {
+      "total_stocks": 68,
+      "traded_stocks": 16,
+      "avg_return": 0.01733275792651789,
+      "win_rate": 0.5625,
+      "total_return": 0.004078295982710091,
+      "best_trade": {
+        "symbol": "sh600857",
+        "return": 0.1170774647887324,
+        "entry_date": "2025-07-23"
+      },
+      "worst_trade": {
+        "symbol": "sh600302",
+        "return": -0.020123839009287908,
+        "entry_date": "2025-07-22"
+      }
+    },
+    "performance_metrics": {
+      "sharpe_ratio": 0.5178507524326333,
+      "max_drawdown": -0.06170952811031314,
+      "volatility": 0.03347056626855571,
+      "avg_hold_days": 2.5
+    }
+  }
+}

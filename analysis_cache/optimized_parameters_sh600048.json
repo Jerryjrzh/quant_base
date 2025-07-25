@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600048",
-  "optimization_date": "2025-07-23T11:47:02.963027",
+  "optimization_date": "2025-07-24T18:22:08.741523",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.41379580211634276,
+  "best_score": 0.415323374287307,
   "optimization_target": "composite_score"
 }

@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002948",
-  "optimization_date": "2025-07-23T12:21:15.830543",
+  "optimization_date": "2025-07-24T19:52:50.986765",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.5184697188933345,
+  "best_score": 0.5149361428732404,
   "optimization_target": "composite_score"
 }

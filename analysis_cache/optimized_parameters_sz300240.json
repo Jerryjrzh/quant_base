@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300240",
-  "optimization_date": "2025-07-23T12:18:59.207961",
+  "optimization_date": "2025-07-24T18:25:45.177589",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.44701848079581114,
+  "best_score": 0.44699718352593243,
   "optimization_target": "composite_score"
 }

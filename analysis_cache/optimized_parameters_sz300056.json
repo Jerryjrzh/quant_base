@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300056",
-  "optimization_date": "2025-07-23T12:19:09.576932",
+  "optimization_date": "2025-07-24T19:48:19.088933",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4549743537557331,
+  "best_score": 0.4554901110003443,
   "optimization_target": "composite_score"
 }

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T16:59:44.650374",
+  "stock_code": "sz300509",
+  "current_price": 8.97,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 8.03,
+    "target_price_2": 7.82,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.10479375696767014,
+    "discount_2": 0.12820512820512825,
+    "stop_loss": {
+      "conservative": 8.2,
+      "moderate": 7.77,
+      "aggressive": 7.77,
+      "technical": 8.03
+    },
+    "take_profit": {
+      "conservative": 9.13,
+      "moderate": 9.3,
+      "aggressive": 10.14
+    }
+  }
+}

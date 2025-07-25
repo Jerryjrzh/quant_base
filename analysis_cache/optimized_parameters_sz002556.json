@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002556",
-  "optimization_date": "2025-07-23T12:18:19.275132",
+  "optimization_date": "2025-07-24T19:46:17.038647",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4737917137919099,
+  "best_score": 0.474973336094357,
   "optimization_target": "composite_score"
 }

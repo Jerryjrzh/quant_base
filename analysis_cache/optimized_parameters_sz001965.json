@@ -1,6 +1,6 @@
 {
   "stock_code": "sz001965",
-  "optimization_date": "2025-07-23T16:37:55.760367",
+  "optimization_date": "2025-07-24T19:47:39.031252",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.5137372941986639,
+  "best_score": 0.5136341582090211,
   "optimization_target": "composite_score"
 }

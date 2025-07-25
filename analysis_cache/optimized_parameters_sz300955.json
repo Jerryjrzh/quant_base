@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300955",
-  "optimization_date": "2025-07-23T12:17:29.393728",
+  "optimization_date": "2025-07-24T19:44:18.193970",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.43964305951785027,
+  "best_score": 0.4451135284805068,
   "optimization_target": "composite_score"
 }

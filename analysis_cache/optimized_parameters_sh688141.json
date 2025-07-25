@@ -1,6 +1,6 @@
 {
   "stock_code": "sh688141",
-  "optimization_date": "2025-07-23T11:59:56.894612",
+  "optimization_date": "2025-07-24T18:22:35.950766",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -22,7 +22,7 @@
       10,
       20
     ],
-    "max_holding_days": 20,
+    "max_holding_days": 30,
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },

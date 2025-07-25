@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603023",
-  "optimization_date": "2025-07-23T11:42:55.491781",
+  "optimization_date": "2025-07-24T18:22:01.694149",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4695798371536004,
+  "best_score": 0.46990435723811835,
   "optimization_target": "composite_score"
 }

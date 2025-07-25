@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000980",
-  "optimization_date": "2025-07-23T12:21:39.739323",
+  "optimization_date": "2025-07-24T18:27:41.068180",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.3904451591461053,
+  "best_score": 0.39111827086318957,
   "optimization_target": "composite_score"
 }

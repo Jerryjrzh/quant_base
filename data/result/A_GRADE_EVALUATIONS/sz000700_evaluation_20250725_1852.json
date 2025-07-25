@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-25T18:52:18.400261",
+  "stock_code": "sz000700",
+  "current_price": 7.58,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 7.24,
+    "target_price_2": 7.05,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.044854881266490745,
+    "discount_2": 0.06992084432717681,
+    "stop_loss": {
+      "conservative": 7.39,
+      "moderate": 7.01,
+      "aggressive": 7.01,
+      "technical": 3.88
+    },
+    "take_profit": {
+      "conservative": 8.23,
+      "moderate": 8.38,
+      "aggressive": 9.14
+    }
+  }
+}

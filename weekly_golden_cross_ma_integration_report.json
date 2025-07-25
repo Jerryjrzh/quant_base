@@ -1,0 +1,39 @@
+{
+  "策略集成状态": "完成",
+  "策略名称": "WEEKLY_GOLDEN_CROSS_MA",
+  "策略描述": "周线金叉+日线MA策略：周线POST状态+日线MA13底部确认",
+  "可用策略列表": [
+    "TRIPLE_CROSS",
+    "PRE_CROSS",
+    "MACD_ZERO_AXIS",
+    "WEEKLY_GOLDEN_CROSS_MA"
+  ],
+  "集成组件": {
+    "策略函数": "apply_weekly_golden_cross_ma_strategy",
+    "配置支持": "strategy_configs.json",
+    "筛选器集成": "_process_weekly_golden_cross_ma_strategy",
+    "过滤器": "check_weekly_golden_cross_ma_filter",
+    "辅助函数": [
+      "convert_daily_to_weekly",
+      "map_weekly_to_daily_signals"
+    ]
+  },
+  "功能特性": {
+    "周线金叉判断": "基于MACD零轴策略的POST状态",
+    "日线MA指标": "7, 13, 30, 45, 60, 90, 150, 240周期",
+    "信号类型": [
+      "BUY",
+      "HOLD",
+      "SELL"
+    ],
+    "风险控制": "价格距离、成交量、涨幅过滤",
+    "趋势分析": "多重MA排列确认"
+  },
+  "配置参数": {
+    "MA13容忍度": "2%",
+    "成交量阈值": "1.2倍",
+    "卖出阈值": "95%",
+    "止损比例": "8%",
+    "止盈比例": "20%"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002584",
-  "optimization_date": "2025-07-23T12:17:39.871975",
+  "optimization_date": "2025-07-24T18:24:40.627672",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.46951137004925025,
+  "best_score": 0.4681639641541469,
   "optimization_target": "composite_score"
 }

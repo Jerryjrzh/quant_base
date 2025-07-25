@@ -282,7 +282,8 @@ class AdvancedTripleCrossFilter:
             if crosses_count == 3:
                 # 检查是否刚刚发生交叉
                 recent_cross = False
-                for i in range(max(0, signal_idx - 3), signal_idx):
+                signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+                for i in range(max(0, signal_pos - 3), signal_pos):
                     prev_macd = dif.iloc[i] <= dea.iloc[i]
                     prev_kdj = k.iloc[i] <= d.iloc[i]
                     prev_rsi = rsi6.iloc[i] <= rsi12.iloc[i]
@@ -316,9 +317,10 @@ class AdvancedTripleCrossFilter:
                 return True  # 没有成交量数据时不作为过滤条件
             
             # 计算最近5天平均成交量
-            start_idx = max(0, signal_idx - 5)
-            recent_avg_volume = df['volume'].iloc[start_idx:signal_idx].mean()
-            signal_volume = df['volume'].iloc[signal_idx]
+            signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+            start_idx = max(0, signal_pos - 5)
+            recent_avg_volume = df['volume'].iloc[start_idx:signal_pos].mean()
+            signal_volume = df['volume'].iloc[signal_pos]
             
             # 信号当天成交量应该至少是平均水平的80%
             return signal_volume >= recent_avg_volume * 0.8
@@ -329,9 +331,10 @@ class AdvancedTripleCrossFilter:
     def _days_since_last_cross(self, df, signal_idx, dif, dea):
         """计算距离上次MACD金叉的天数"""
         try:
-            for i in range(signal_idx - 1, max(0, signal_idx - 10), -1):
+            signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+            for i in range(signal_pos - 1, max(0, signal_pos - 10), -1):
                 if dif.iloc[i-1] <= dea.iloc[i-1] and dif.iloc[i] > dea.iloc[i]:
-                    return signal_idx - i
+                    return signal_pos - i
             return 10  # 如果10天内没找到，返回10
         except:
             return 5
@@ -340,9 +343,10 @@ class AdvancedTripleCrossFilter:
         """分析价格在历史区间中的位置"""
         try:
             # 取最近60天的价格数据
-            lookback_days = min(60, signal_idx + 1)
-            start_idx = signal_idx - lookback_days + 1
-            recent_data = df.iloc[start_idx:signal_idx + 1]
+            signal_pos = df.index.get_loc(signal_idx) if signal_idx in df.index else 0
+            lookback_days = min(60, signal_pos + 1)
+            start_idx = signal_pos - lookback_days + 1
+            recent_data = df.iloc[start_idx:signal_pos + 1]
             
             current_price = df.iloc[signal_idx]['close']
             price_min = recent_data['low'].min()

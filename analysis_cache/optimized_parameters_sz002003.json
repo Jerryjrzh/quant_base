@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002003",
-  "optimization_date": "2025-07-23T12:18:42.857863",
+  "optimization_date": "2025-07-24T19:47:26.867165",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4878268898848058,
+  "best_score": 0.4879625301806245,
   "optimization_target": "composite_score"
 }

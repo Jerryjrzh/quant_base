@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603042",
-  "optimization_date": "2025-07-23T11:44:52.458259",
+  "optimization_date": "2025-07-24T19:37:33.304476",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.43747920942878915,
+  "best_score": 0.4374582425196119,
   "optimization_target": "composite_score"
 }

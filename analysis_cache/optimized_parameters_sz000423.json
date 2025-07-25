@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000423",
-  "optimization_date": "2025-07-23T12:21:42.713612",
+  "optimization_date": "2025-07-24T19:53:24.587106",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.38676886568349966,
+  "best_score": 0.40540136805401544,
   "optimization_target": "composite_score"
 }

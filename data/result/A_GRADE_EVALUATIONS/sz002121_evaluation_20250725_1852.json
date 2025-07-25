@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-25T18:52:18.422701",
+  "stock_code": "sz002121",
+  "current_price": 5.99,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 4.75,
+    "target_price_2": 4.62,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.20701168614357265,
+    "discount_2": 0.2287145242070117,
+    "stop_loss": {
+      "conservative": 4.85,
+      "moderate": 4.6,
+      "aggressive": 4.6,
+      "technical": 4.22
+    },
+    "take_profit": {
+      "conservative": 5.4,
+      "moderate": 5.5,
+      "aggressive": 6.0
+    }
+  }
+}

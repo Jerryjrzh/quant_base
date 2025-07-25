@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:09:42.301665",
+  "stock_code": "sz000690",
+  "current_price": 4.84,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 5.03,
+    "target_price_2": 5.06,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.03925619834710752,
+    "discount_2": -0.04545454545454541,
+    "stop_loss": {
+      "conservative": 4.83,
+      "moderate": 4.58,
+      "aggressive": 4.58,
+      "technical": 4.73
+    },
+    "take_profit": {
+      "conservative": 5.38,
+      "moderate": 5.48,
+      "aggressive": 5.98
+    }
+  }
+}

@@ -77,7 +77,7 @@ class EnhancedTradingAnalyzer:
             if df is None or len(df) < 100:
                 return None
             
-            df.set_index('date', inplace=True)
+            # 注意：data_loader.get_daily_data 已经将 date 设置为索引
             
             # 计算技术指标
             macd_values = indicators.calculate_macd(df)

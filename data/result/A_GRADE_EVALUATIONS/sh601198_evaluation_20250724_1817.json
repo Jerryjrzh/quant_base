@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T18:17:37.089524",
+  "stock_code": "sh601198",
+  "current_price": 11.62,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 11.74,
+    "target_price_2": 11.7,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010327022375215232,
+    "discount_2": -0.0068846815834767705,
+    "stop_loss": {
+      "conservative": 11.27,
+      "moderate": 10.69,
+      "aggressive": 10.69,
+      "technical": 11.04
+    },
+    "take_profit": {
+      "conservative": 12.55,
+      "moderate": 12.78,
+      "aggressive": 13.94
+    }
+  }
+}

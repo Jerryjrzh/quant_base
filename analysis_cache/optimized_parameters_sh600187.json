@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600187",
-  "optimization_date": "2025-07-23T12:16:42.466754",
+  "optimization_date": "2025-07-24T18:23:59.599035",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.46708635463033116,
+  "best_score": 0.46707112793554456,
   "optimization_target": "composite_score"
 }

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T18:17:37.215420",
+  "stock_code": "sh600072",
+  "current_price": 12.94,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 12.29,
+    "target_price_2": 12.29,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.050231839258114405,
+    "discount_2": 0.050231839258114405,
+    "stop_loss": {
+      "conservative": 12.55,
+      "moderate": 11.9,
+      "aggressive": 11.9,
+      "technical": 12.29
+    },
+    "take_profit": {
+      "conservative": 13.98,
+      "moderate": 14.23,
+      "aggressive": 15.53
+    }
+  }
+}

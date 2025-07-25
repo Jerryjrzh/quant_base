@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000967",
-  "optimization_date": "2025-07-23T12:17:20.233496",
+  "optimization_date": "2025-07-24T19:44:14.710362",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.41745984879812076,
+  "best_score": 0.4176551358433384,
   "optimization_target": "composite_score"
 }

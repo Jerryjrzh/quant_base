@@ -1,6 +1,6 @@
 {
   "stock_code": "sh601198",
-  "optimization_date": "2025-07-23T11:21:55.794319",
+  "optimization_date": "2025-07-24T18:21:40.931454",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.45880128583048985,
+  "best_score": 0.45920239972825433,
   "optimization_target": "composite_score"
 }

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T18:28:30.880180",
+  "stock_code": "sh600816",
+  "current_price": 3.07,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 2.92,
+    "target_price_2": 2.92,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04885993485342017,
+    "discount_2": 0.04885993485342017,
+    "stop_loss": {
+      "conservative": 2.98,
+      "moderate": 2.82,
+      "aggressive": 2.82,
+      "technical": 2.92
+    },
+    "take_profit": {
+      "conservative": 3.32,
+      "moderate": 3.38,
+      "aggressive": 3.68
+    }
+  }
+}

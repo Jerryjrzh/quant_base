@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000417",
-  "optimization_date": "2025-07-23T12:18:13.419546",
+  "optimization_date": "2025-07-24T19:46:03.696155",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.45361931349337997,
+  "best_score": 0.45365545251788875,
   "optimization_target": "composite_score"
 }

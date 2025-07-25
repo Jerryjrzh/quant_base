@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-25T18:52:18.384816",
+  "stock_code": "sz300407",
+  "current_price": 10.94,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 11.05,
+    "target_price_2": 11.07,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010054844606947094,
+    "discount_2": -0.011882998171846506,
+    "stop_loss": {
+      "conservative": 10.61,
+      "moderate": 10.06,
+      "aggressive": 10.06,
+      "technical": 7.74
+    },
+    "take_profit": {
+      "conservative": 11.82,
+      "moderate": 12.03,
+      "aggressive": 13.13
+    }
+  }
+}

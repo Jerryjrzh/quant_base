@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000990",
-  "optimization_date": "2025-07-23T12:18:55.398385",
+  "optimization_date": "2025-07-24T19:47:56.108338",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.44117922672016774,
+  "best_score": 0.4412931258859093,
   "optimization_target": "composite_score"
 }

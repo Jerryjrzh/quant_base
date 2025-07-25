@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002258",
-  "optimization_date": "2025-07-23T12:22:10.413973",
+  "optimization_date": "2025-07-24T19:54:34.906698",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.39368241896793865,
+  "best_score": 0.39382642829839554,
   "optimization_target": "composite_score"
 }

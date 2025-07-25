@@ -116,13 +116,13 @@ class ProgressTracker:
 class BatchProcessor:
     """批量处理器 - 高性能处理大量任务"""
     
-    def __init__(self, max_workers: Optional[int] = None, use_process_pool: bool = False):
+    def __init__(self, max_workers: Optional[int] = None, use_process_pool: bool = True): # 修改点：将默认值改为True
         """
         初始化批量处理器
         
         Args:
             max_workers: 最大工作线程/进程数，默认自动根据系统资源确定
-            use_process_pool: 是否使用进程池而非线程池（适用于CPU密集型任务）
+            use_process_pool: 是否使用进程池而非线程池（适用于CPU密集型任务）。默认为True。
         """
         # 自动确定最佳线程数
         if max_workers is None:
@@ -282,9 +282,9 @@ class SmartCache:
             all_files.sort(key=lambda x: x[1], reverse=True)  # 按修改时间降序排序
             
             # 预加载最近的100个文件
-            preload_count = min(100, len(all_files))
+            preload_count = min(50, len(all_files))
             if preload_count > 0:
-                print(f"🔄 预加载 {preload_count} 个常用缓存项...")
+              # print(f"🔄 预加载 {preload_count} 个常用缓存项...")
                 
                 for i, (file_path, _) in enumerate(all_files[:preload_count]):
                     try:
@@ -304,7 +304,7 @@ class SmartCache:
                     except:
                         pass
                 
-                print(f"✅ 缓存预加载完成，已加载 {len(self.memory_cache)} 项")
+               # print(f"✅ 缓存预加载完成，已加载 {len(self.memory_cache)} 项")
         except Exception as e:
             print(f"⚠️ 缓存预加载失败: {e}")
     
@@ -661,6 +661,9 @@ def optimize_system_for_performance():
     return True
 
 if __name__ == "__main__":
+    # 修改点：添加多进程支持所必需的 'freeze_support'，确保跨平台兼容性
+    multiprocessing.freeze_support()
+
     # 测试性能优化模块
     optimize_system_for_performance()
     

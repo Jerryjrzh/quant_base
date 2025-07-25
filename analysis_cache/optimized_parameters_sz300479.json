@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300479",
-  "optimization_date": "2025-07-23T12:21:45.276738",
+  "optimization_date": "2025-07-24T19:53:34.342403",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.38531688207734743,
+  "best_score": 0.3870689105289006,
   "optimization_target": "composite_score"
 }

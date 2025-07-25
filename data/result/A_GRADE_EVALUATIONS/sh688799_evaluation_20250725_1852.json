@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-25T18:52:18.308789",
+  "stock_code": "sh688799",
+  "current_price": 53.8,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 45.24,
+    "target_price_2": 45.24,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.15910780669144972,
+    "discount_2": 0.15910780669144972,
+    "stop_loss": {
+      "conservative": 46.19,
+      "moderate": 43.81,
+      "aggressive": 43.81,
+      "technical": 45.24
+    },
+    "take_profit": {
+      "conservative": 51.43,
+      "moderate": 52.38,
+      "aggressive": 57.14
+    }
+  }
+}

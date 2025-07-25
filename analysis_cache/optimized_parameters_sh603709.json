@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603709",
-  "optimization_date": "2025-07-23T11:58:42.841269",
+  "optimization_date": "2025-07-24T18:22:42.292838",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4685696691174501,
+  "best_score": 0.4685720038160097,
   "optimization_target": "composite_score"
 }

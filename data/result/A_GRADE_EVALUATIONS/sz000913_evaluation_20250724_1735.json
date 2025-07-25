@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:35:02.195572",
+  "stock_code": "sz000913",
+  "current_price": 16.26,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 14.4,
+    "target_price_2": 14.02,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.11439114391143917,
+    "discount_2": 0.13776137761377624,
+    "stop_loss": {
+      "conservative": 14.71,
+      "moderate": 13.95,
+      "aggressive": 13.95,
+      "technical": 10.81
+    },
+    "take_profit": {
+      "conservative": 16.37,
+      "moderate": 16.68,
+      "aggressive": 18.19
+    }
+  }
+}

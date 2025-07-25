@@ -1,6 +1,6 @@
 {
   "stock_code": "sz003038",
-  "optimization_date": "2025-07-23T12:19:05.373330",
+  "optimization_date": "2025-07-24T19:47:55.641263",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.32930229557923957,
+  "best_score": 0.3291813412686463,
   "optimization_target": "composite_score"
 }

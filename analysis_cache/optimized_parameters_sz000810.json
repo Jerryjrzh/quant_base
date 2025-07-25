@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000810",
-  "optimization_date": "2025-07-23T12:22:09.869649",
+  "optimization_date": "2025-07-24T19:54:24.341092",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.42106507264331067,
+  "best_score": 0.4210502680944581,
   "optimization_target": "composite_score"
 }

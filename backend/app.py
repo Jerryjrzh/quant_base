@@ -607,7 +607,7 @@ def get_stock_analysis(stock_code):
                             final_state = original_state
                             
                         signal_points.append({
-                            'date': row['date'].strftime('%Y-%m-%d'), 
+                            'date': idx.strftime('%Y-%m-%d'),  # idx是日期索引
                             'price': float(row['low']), 
                             'state': final_state,
                             'original_state': original_state
@@ -623,9 +623,19 @@ def get_stock_analysis(stock_code):
 
         # 准备返回数据
         df.replace({np.nan: None}, inplace=True)
-        df['date'] = df['date'].dt.strftime('%Y-%m-%d')
-        kline_data = df[['date', 'open', 'close', 'low', 'high', 'volume']].to_dict('records')
-        indicator_data = df[['date', 'ma13', 'ma45', 'dif', 'dea', 'k', 'd', 'j', 'rsi6', 'rsi12', 'rsi24']].to_dict('records')
+        # 重置索引，将日期索引转换为列
+        df_reset = df.reset_index()
+        # 确保日期列存在并格式化
+        if 'date' in df_reset.columns:
+            df_reset['date'] = df_reset['date'].dt.strftime('%Y-%m-%d')
+        else:
+            # 如果索引没有名称，第一列就是日期
+            date_col = df_reset.columns[0]
+            df_reset = df_reset.rename(columns={date_col: 'date'})
+            df_reset['date'] = df_reset['date'].dt.strftime('%Y-%m-%d')
+        
+        kline_data = df_reset[['date', 'open', 'close', 'low', 'high', 'volume']].to_dict('records')
+        indicator_data = df_reset[['date', 'ma13', 'ma45', 'dif', 'dea', 'k', 'd', 'j', 'rsi6', 'rsi12', 'rsi24']].to_dict('records')
 
         # 确保回测结果可以被JSON序列化
         if isinstance(backtest_results, dict):

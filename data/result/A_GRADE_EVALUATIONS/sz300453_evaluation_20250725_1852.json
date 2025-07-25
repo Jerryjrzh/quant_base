@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-25T18:52:18.356543",
+  "stock_code": "sz300453",
+  "current_price": 8.68,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 7.78,
+    "target_price_2": 7.58,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.1036866359447004,
+    "discount_2": 0.1267281105990783,
+    "stop_loss": {
+      "conservative": 7.94,
+      "moderate": 7.53,
+      "aggressive": 7.53,
+      "technical": 7.4
+    },
+    "take_profit": {
+      "conservative": 8.85,
+      "moderate": 9.01,
+      "aggressive": 9.83
+    }
+  }
+}

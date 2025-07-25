@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:30:49.639870",
+  "stock_code": "sh600684",
+  "current_price": 4.37,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 4.15,
+    "target_price_2": 4.15,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05034324942791756,
+    "discount_2": 0.05034324942791756,
+    "stop_loss": {
+      "conservative": 4.24,
+      "moderate": 4.02,
+      "aggressive": 4.02,
+      "technical": 3.74
+    },
+    "take_profit": {
+      "conservative": 4.72,
+      "moderate": 4.81,
+      "aggressive": 5.24
+    }
+  }
+}

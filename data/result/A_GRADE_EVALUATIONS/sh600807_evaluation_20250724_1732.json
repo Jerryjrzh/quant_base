@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:32:16.162498",
+  "stock_code": "sh600807",
+  "current_price": 3.21,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 3.05,
+    "target_price_2": 3.05,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04984423676012466,
+    "discount_2": 0.04984423676012466,
+    "stop_loss": {
+      "conservative": 3.11,
+      "moderate": 2.95,
+      "aggressive": 2.95,
+      "technical": 3.05
+    },
+    "take_profit": {
+      "conservative": 3.47,
+      "moderate": 3.53,
+      "aggressive": 3.85
+    }
+  }
+}

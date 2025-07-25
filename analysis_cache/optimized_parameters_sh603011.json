@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603011",
-  "optimization_date": "2025-07-23T11:59:39.954585",
+  "optimization_date": "2025-07-24T19:39:07.207799",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4638339500366338,
+  "best_score": 0.4642844491566679,
   "optimization_target": "composite_score"
 }

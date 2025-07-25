@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603393",
-  "optimization_date": "2025-07-23T12:16:23.834077",
+  "optimization_date": "2025-07-24T19:41:48.151888",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.45068477919074157,
+  "best_score": 0.45347054208712434,
   "optimization_target": "composite_score"
 }

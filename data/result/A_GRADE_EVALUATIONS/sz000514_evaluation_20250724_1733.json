@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-24T17:33:53.603259",
+  "stock_code": "sz000514",
+  "current_price": 5.98,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 4.42,
+    "target_price_2": 4.3,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.26086956521739135,
+    "discount_2": 0.2809364548494984,
+    "stop_loss": {
+      "conservative": 4.51,
+      "moderate": 4.28,
+      "aggressive": 4.28,
+      "technical": 4.49
+    },
+    "take_profit": {
+      "conservative": 5.02,
+      "moderate": 5.12,
+      "aggressive": 5.58
+    }
+  }
+}

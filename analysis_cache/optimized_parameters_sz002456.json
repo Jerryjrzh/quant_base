@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002456",
-  "optimization_date": "2025-07-23T12:19:51.468169",
+  "optimization_date": "2025-07-24T19:49:37.700379",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4091970581677816,
+  "best_score": 0.4105420037883645,
   "optimization_target": "composite_score"
 }

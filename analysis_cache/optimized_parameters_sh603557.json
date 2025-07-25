@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603557",
-  "optimization_date": "2025-07-23T11:42:33.211796",
+  "optimization_date": "2025-07-24T18:21:55.217684",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.44856112963396916,
+  "best_score": 0.44612173303684244,
   "optimization_target": "composite_score"
 }
