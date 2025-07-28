@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603079",
-  "optimization_date": "2025-07-23T12:16:31.579674",
+  "optimization_date": "2025-07-28T17:44:05.012288",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.47333288419703834,
+  "best_score": 0.4739210303776186,
   "optimization_target": "composite_score"
 }

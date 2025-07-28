@@ -360,3 +360,25 @@ def apply_pre_cross_legacy(df):
 def apply_macd_zero_axis_strategy_legacy(df, post_cross_days=3):
     """向后兼容的MACD零轴启动策略"""
     return apply_macd_zero_axis_strategy(df, post_cross_days=post_cross_days)
+
+def apply_strategy(strategy_name: str, df, config=None):
+    """
+    统一的策略应用接口
+    
+    Args:
+        strategy_name: 策略名称
+        df: 股票数据DataFrame
+        config: 策略配置（可选）
+    
+    Returns:
+        策略信号Series
+    """
+    strategy_function = get_strategy_function(strategy_name)
+    if strategy_function is None:
+        raise ValueError(f"Unknown strategy: {strategy_name}")
+    
+    # 根据策略函数的参数调用相应的函数
+    if strategy_name == 'WEEKLY_GOLDEN_CROSS_MA':
+        return strategy_function(df, config=config)
+    else:
+        return strategy_function(df, config=config)

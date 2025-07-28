@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300550",
-  "optimization_date": "2025-07-23T12:22:35.834710",
+  "optimization_date": "2025-07-28T17:44:31.076365",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.3670320849332987,
+  "best_score": 0.369897133743521,
   "optimization_target": "composite_score"
 }

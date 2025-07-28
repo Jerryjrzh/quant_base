@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>完整MACD显示测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        #chart-container { 
+            width: 100%; 
+            height: 700px; 
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+        .feature-list {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .feature-list h4 {
+            margin-top: 0;
+            color: #495057;
+        }
+        .feature-list ul {
+            margin-bottom: 0;
+        }
+        .feature-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>完整MACD显示修复测试</h1>
+        
+        <div class="info">
+            <h3>修复说明</h3>
+            <p>此页面用于测试完整的MACD指标显示效果。修复后的MACD指标包含三个组件：</p>
+            <ul>
+                <li><strong>DIF线（绿色）</strong>：快速移动平均线，反映短期趋势</li>
+                <li><strong>DEA线（橙色）</strong>：慢速移动平均线，反映长期趋势</li>
+                <li><strong>MACD柱状图</strong>：DIF-DEA的差值，红柱表示正值，青柱表示负值</li>
+            </ul>
+        </div>
+        
+        <div class="feature-list">
+            <h4>🎯 修复内容</h4>
+            <ul>
+                <li>✅ 后端计算完整MACD数据（DIF、DEA、MACD柱状图）</li>
+                <li>✅ API响应包含所有MACD组件</li>
+                <li>✅ 前端图表显示MACD柱状图</li>
+                <li>✅ 柱状图颜色区分（正值红色，负值青色）</li>
+                <li>✅ 图表布局优化，确保MACD有足够显示空间</li>
+            </ul>
+        </div>
+        
+        <div id="status" class="status">正在加载数据...</div>
+        
+        <div id="chart-container"></div>
+    </div>
+
+    <script>
+        const myChart = echarts.init(document.getElementById('chart-container'));
+        const statusDiv = document.getElementById('status');
+        
+        function updateStatus(message, type = 'info') {
+            statusDiv.className = `status ${type}`;
+            statusDiv.textContent = message;
+        }
+        
+        function loadTestData() {
+            updateStatus('正在从后端加载数据...', 'warning');
+            
+            // 首先尝试从后端API加载数据
+            fetch('http://localhost:5000/api/analysis/sz000001?strategy=MACD_ZERO_AXIS')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(chartData => {
+                    if (chartData.error) {
+                        throw new Error(chartData.error);
+                    }
+                    
+                    updateStatus('后端数据加载成功，正在渲染图表...', 'success');
+                    renderChart(chartData);
+                })
+                .catch(error => {
+                    console.error('Backend API Error:', error);
+                    updateStatus(`后端API加载失败: ${error.message}，尝试使用测试数据...`, 'warning');
+                    
+                    // 如果后端API失败，尝试加载测试数据
+                    loadLocalTestData();
+                });
+        }
+        
+        function loadLocalTestData() {
+            fetch('./test_complete_macd_api_response.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('测试数据文件不存在');
+                    }
+                    return response.json();
+                })
+                .then(chartData => {
+                    updateStatus('测试数据加载成功，正在渲染图表...', 'success');
+                    renderChart(chartData);
+                })
+                .catch(error => {
+                    updateStatus('无法加载任何数据，请检查后端服务或测试数据文件', 'error');
+                    console.error('Local data error:', error);
+                });
+        }
+        
+        function renderChart(chartData) {
+            const dates = chartData.kline_data.map(item => item.date);
+            const klineData = chartData.kline_data.map(item => [item.open, item.close, item.low, item.high]);
+            
+            // 技术指标数据
+            const ma13Data = chartData.indicator_data.map(item => item.ma13);
+            const ma45Data = chartData.indicator_data.map(item => item.ma45);
+            const difData = chartData.indicator_data.map(item => item.dif);
+            const deaData = chartData.indicator_data.map(item => item.dea);
+            const macdData = chartData.indicator_data.map(item => item.macd);  // 新增的MACD柱状图数据
+            const kData = chartData.indicator_data.map(item => item.k);
+            const dData = chartData.indicator_data.map(item => item.d);
+            const jData = chartData.indicator_data.map(item => item.j);
+            const rsi6Data = chartData.indicator_data.map(item => item.rsi6);
+            const rsi12Data = chartData.indicator_data.map(item => item.rsi12);
+            const rsi24Data = chartData.indicator_data.map(item => item.rsi24);
+            
+            // 计算MACD指标的合理范围
+            const allMacdValues = [...difData, ...deaData, ...macdData].filter(val => val !== null && val !== undefined);
+            const macdMin = allMacdValues.length > 0 ? Math.min(...allMacdValues) * 1.2 : -1;
+            const macdMax = allMacdValues.length > 0 ? Math.max(...allMacdValues) * 1.2 : 1;
+            
+            console.log('MACD数据统计:');
+            console.log('- DIF数据样本:', difData.slice(-5));
+            console.log('- DEA数据样本:', deaData.slice(-5));
+            console.log('- MACD数据样本:', macdData.slice(-5));
+            console.log('- Y轴范围:', macdMin, 'to', macdMax);
+            
+            const option = {
+                title: {
+                    text: '完整MACD显示测试 - SZ000001',
+                    left: 'center',
+                    textStyle: { fontSize: 16 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'cross' },
+                    backgroundColor: 'rgba(50, 50, 50, 0.9)',
+                    textStyle: { color: '#fff' },
+                    formatter: function(params) {
+                        let result = params[0].axisValue + '<br/>';
+                        params.forEach(param => {
+                            if (param.seriesName === 'MACD') {
+                                const color = param.value >= 0 ? '#ff6b6b' : '#4ecdc4';
+                                result += `<span style="color:${color}">● ${param.seriesName}: ${param.value?.toFixed(4) || 'N/A'}</span><br/>`;
+                            } else {
+                                result += `<span style="color:${param.color}">● ${param.seriesName}: ${param.value?.toFixed(4) || 'N/A'}</span><br/>`;
+                            }
+                        });
+                        return result;
+                    }
+                },
+                legend: {
+                    data: ['K线', 'MA13', 'MA45', 'DIF', 'DEA', 'MACD', 'K', 'D', 'J', 'RSI6', 'RSI12', 'RSI24'],
+                    top: 30,
+                    textStyle: { fontSize: 12 }
+                },
+                grid: [
+                    { left: '8%', right: '5%', top: '8%', height: '35%' },      // K线和MA
+                    { left: '8%', right: '5%', top: '46%', height: '15%' },     // RSI指标
+                    { left: '8%', right: '5%', top: '64%', height: '15%' },     // KDJ指标
+                    { left: '8%', right: '5%', top: '82%', height: '15%' }      // MACD指标
+                ],
+                xAxis: [
+                    { 
+                        type: 'category', 
+                        data: dates, 
+                        gridIndex: 0,
+                        axisLabel: { show: false }
+                    },
+                    { 
+                        type: 'category', 
+                        data: dates, 
+                        gridIndex: 1,
+                        axisLabel: { show: false }
+                    },
+                    { 
+                        type: 'category', 
+                        data: dates, 
+                        gridIndex: 2,
+                        axisLabel: { show: false }
+                    },
+                    { 
+                        type: 'category', 
+                        data: dates, 
+                        gridIndex: 3,
+                        axisLabel: { fontSize: 10 }
+                    }
+                ],
+                yAxis: [
+                    { 
+                        gridIndex: 0,
+                        scale: true,
+                        axisLabel: { fontSize: 10 }
+                    },
+                    { 
+                        gridIndex: 1, 
+                        max: 100, 
+                        min: 0,
+                        axisLabel: { fontSize: 10 },
+                        splitLine: { show: true, lineStyle: { color: '#f0f0f0' } }
+                    },
+                    { 
+                        gridIndex: 2, 
+                        max: 100, 
+                        min: 0,
+                        axisLabel: { fontSize: 10 },
+                        splitLine: { show: true, lineStyle: { color: '#f0f0f0' } }
+                    },
+                    { 
+                        gridIndex: 3,
+                        scale: true,
+                        min: macdMin,
+                        max: macdMax,
+                        axisLabel: { fontSize: 10 },
+                        splitLine: { show: true, lineStyle: { color: '#f0f0f0' } }
+                    }
+                ],
+                dataZoom: [
+                    { 
+                        type: 'inside', 
+                        xAxisIndex: [0, 1, 2, 3],
+                        start: 70,
+                        end: 100
+                    },
+                    { 
+                        show: true, 
+                        xAxisIndex: [0, 1, 2, 3], 
+                        type: 'slider', 
+                        bottom: '0%',
+                        height: 20,
+                        start: 70,
+                        end: 100,
+                        handleStyle: { color: '#007bff' },
+                        textStyle: { fontSize: 10 }
+                    }
+                ],
+                series: [
+                    {
+                        name: 'K线',
+                        type: 'candlestick',
+                        data: klineData,
+                        xAxisIndex: 0,
+                        yAxisIndex: 0
+                    },
+                    {
+                        name: 'MA13',
+                        type: 'line',
+                        data: ma13Data,
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: { width: 1, color: '#ff6b6b' },
+                        xAxisIndex: 0,
+                        yAxisIndex: 0
+                    },
+                    {
+                        name: 'MA45',
+                        type: 'line',
+                        data: ma45Data,
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: { width: 1, color: '#4ecdc4' },
+                        xAxisIndex: 0,
+                        yAxisIndex: 0
+                    },
+                    {
+                        name: 'RSI6',
+                        type: 'line',
+                        data: rsi6Data,
+                        smooth: true,
+                        symbol: 'none',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        lineStyle: { color: '#ff6b6b' }
+                    },
+                    {
+                        name: 'RSI12',
+                        type: 'line',
+                        data: rsi12Data,
+                        smooth: true,
+                        symbol: 'none',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        lineStyle: { color: '#4ecdc4' }
+                    },
+                    {
+                        name: 'RSI24',
+                        type: 'line',
+                        data: rsi24Data,
+                        smooth: true,
+                        symbol: 'none',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        lineStyle: { color: '#45b7d1' }
+                    },
+                    {
+                        name: 'K',
+                        type: 'line',
+                        data: kData,
+                        smooth: true,
+                        symbol: 'none',
+                        xAxisIndex: 2,
+                        yAxisIndex: 2,
+                        lineStyle: { color: '#f39c12' }
+                    },
+                    {
+                        name: 'D',
+                        type: 'line',
+                        data: dData,
+                        smooth: true,
+                        symbol: 'none',
+                        xAxisIndex: 2,
+                        yAxisIndex: 2,
+                        lineStyle: { color: '#e74c3c' }
+                    },
+                    {
+                        name: 'J',
+                        type: 'line',
+                        data: jData,
+                        smooth: true,
+                        symbol: 'none',
+                        xAxisIndex: 2,
+                        yAxisIndex: 2,
+                        lineStyle: { color: '#9b59b6' }
+                    },
+                    {
+                        name: 'DIF',
+                        type: 'line',
+                        data: difData,
+                        smooth: true,
+                        symbol: 'none',
+                        xAxisIndex: 3,
+                        yAxisIndex: 3,
+                        lineStyle: { color: '#2ecc71', width: 2 }
+                    },
+                    {
+                        name: 'DEA',
+                        type: 'line',
+                        data: deaData,
+                        smooth: true,
+                        symbol: 'none',
+                        xAxisIndex: 3,
+                        yAxisIndex: 3,
+                        lineStyle: { color: '#e67e22', width: 2 }
+                    },
+                    {
+                        name: 'MACD',
+                        type: 'bar',
+                        data: macdData,
+                        xAxisIndex: 3,
+                        yAxisIndex: 3,
+                        itemStyle: {
+                            color: function(params) {
+                                return params.value >= 0 ? '#ff6b6b' : '#4ecdc4';
+                            }
+                        },
+                        barWidth: '60%'
+                    }
+                ]
+            };
+            
+            myChart.setOption(option, true);
+            
+            // 统计MACD柱状图数据
+            const validMacdData = macdData.filter(val => val !== null && val !== undefined);
+            const positiveBars = validMacdData.filter(val => val > 0).length;
+            const negativeBars = validMacdData.filter(val => val < 0).length;
+            const zeroBars = validMacdData.filter(val => val === 0).length;
+            
+            updateStatus(
+                `图表渲染完成！MACD柱状图显示在底部区域。` +
+                `数据统计: ${positiveBars}个红柱(正值), ${negativeBars}个青柱(负值), ${zeroBars}个零值`, 
+                'success'
+            );
+        }
+        
+        // 页面加载完成后开始测试
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTestData();
+        });
+    </script>
+</body>
+</html>

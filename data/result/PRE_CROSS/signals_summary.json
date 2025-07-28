@@ -1,2486 +1,673 @@
 [
     {
-        "stock_code": "sh603365",
+        "stock_code": "sh688501",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 72,
-        "win_rate": "44.4%",
-        "avg_max_profit": "12.0%",
-        "avg_max_drawdown": "-3.5%",
-        "avg_days_to_peak": "20.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 72,
-                "win_rate": "44.4%",
-                "avg_max_profit": "12.0%",
-                "avg_max_drawdown": "-3.5%",
-                "avg_days_to_peak": "20.4 天"
-            }
-        },
-        "best_trade_profit": "45.2%",
-        "worst_trade_profit": "-13.3%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 52,
+        "win_rate": "32.7%",
+        "avg_max_profit": "17.3%",
+        "avg_max_drawdown": "-7.7%",
+        "avg_days_to_peak": "22.6 天"
     },
     {
-        "stock_code": "sh688789",
+        "stock_code": "sh688531",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 40,
-        "win_rate": "32.5%",
-        "avg_max_profit": "17.3%",
-        "avg_max_drawdown": "-10.1%",
-        "avg_days_to_peak": "24.8 天",
-        "state_statistics": {
-            "MID": {
-                "count": 40,
-                "win_rate": "32.5%",
-                "avg_max_profit": "17.3%",
-                "avg_max_drawdown": "-10.1%",
-                "avg_days_to_peak": "24.8 天"
-            }
-        },
-        "best_trade_profit": "58.8%",
-        "worst_trade_profit": "-33.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 26,
+        "win_rate": "34.6%",
+        "avg_max_profit": "14.7%",
+        "avg_max_drawdown": "-6.0%",
+        "avg_days_to_peak": "13.7 天"
     },
     {
         "stock_code": "sh603332",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 70,
-        "win_rate": "50.0%",
-        "avg_max_profit": "23.9%",
-        "avg_max_drawdown": "-4.6%",
-        "avg_days_to_peak": "21.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 70,
-                "win_rate": "50.0%",
-                "avg_max_profit": "23.9%",
-                "avg_max_drawdown": "-4.6%",
-                "avg_days_to_peak": "21.2 天"
-            }
-        },
-        "best_trade_profit": "154.4%",
-        "worst_trade_profit": "-12.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600039",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 46,
-        "win_rate": "43.5%",
-        "avg_max_profit": "16.3%",
-        "avg_max_drawdown": "-4.6%",
-        "avg_days_to_peak": "25.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 46,
-                "win_rate": "43.5%",
-                "avg_max_profit": "16.3%",
-                "avg_max_drawdown": "-4.6%",
-                "avg_days_to_peak": "25.4 天"
-            }
-        },
-        "best_trade_profit": "48.4%",
-        "worst_trade_profit": "-27.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh688052",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 42,
-        "win_rate": "54.8%",
-        "avg_max_profit": "25.9%",
-        "avg_max_drawdown": "-10.2%",
-        "avg_days_to_peak": "17.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 42,
-                "win_rate": "54.8%",
-                "avg_max_profit": "25.9%",
-                "avg_max_drawdown": "-10.2%",
-                "avg_days_to_peak": "17.3 天"
-            }
-        },
-        "best_trade_profit": "88.2%",
-        "worst_trade_profit": "-27.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh688592",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 26,
-        "win_rate": "46.2%",
-        "avg_max_profit": "23.1%",
-        "avg_max_drawdown": "-7.9%",
-        "avg_days_to_peak": "21.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 26,
-                "win_rate": "46.2%",
-                "avg_max_profit": "23.1%",
-                "avg_max_drawdown": "-7.9%",
-                "avg_days_to_peak": "21.4 天"
-            }
-        },
-        "best_trade_profit": "82.8%",
-        "worst_trade_profit": "-11.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603033",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 75,
-        "win_rate": "21.3%",
-        "avg_max_profit": "20.0%",
-        "avg_max_drawdown": "-10.4%",
-        "avg_days_to_peak": "23.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 75,
-                "win_rate": "21.3%",
-                "avg_max_profit": "20.0%",
-                "avg_max_drawdown": "-10.4%",
-                "avg_days_to_peak": "23.2 天"
-            }
-        },
-        "best_trade_profit": "158.9%",
-        "worst_trade_profit": "-7.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603319",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 62,
-        "win_rate": "35.5%",
-        "avg_max_profit": "15.8%",
-        "avg_max_drawdown": "-8.9%",
-        "avg_days_to_peak": "23.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 62,
-                "win_rate": "35.5%",
-                "avg_max_profit": "15.8%",
-                "avg_max_drawdown": "-8.9%",
-                "avg_days_to_peak": "23.3 天"
-            }
-        },
-        "best_trade_profit": "89.6%",
-        "worst_trade_profit": "-19.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603578",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 61,
-        "win_rate": "27.9%",
-        "avg_max_profit": "12.4%",
-        "avg_max_drawdown": "-4.6%",
-        "avg_days_to_peak": "23.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 61,
-                "win_rate": "27.9%",
-                "avg_max_profit": "12.4%",
-                "avg_max_drawdown": "-4.6%",
-                "avg_days_to_peak": "23.9 天"
-            }
-        },
-        "best_trade_profit": "47.0%",
-        "worst_trade_profit": "-5.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603518",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 73,
-        "win_rate": "34.2%",
-        "avg_max_profit": "12.7%",
-        "avg_max_drawdown": "-6.4%",
-        "avg_days_to_peak": "23.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 73,
-                "win_rate": "34.2%",
-                "avg_max_profit": "12.7%",
-                "avg_max_drawdown": "-6.4%",
-                "avg_days_to_peak": "23.0 天"
-            }
-        },
-        "best_trade_profit": "63.2%",
-        "worst_trade_profit": "-16.3%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603790",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
         "total_signals": 71,
-        "win_rate": "53.5%",
-        "avg_max_profit": "16.2%",
+        "win_rate": "49.3%",
+        "avg_max_profit": "23.6%",
+        "avg_max_drawdown": "-4.7%",
+        "avg_days_to_peak": "21.2 天"
+    },
+    {
+        "stock_code": "sh688419",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 36,
+        "win_rate": "30.6%",
+        "avg_max_profit": "21.7%",
+        "avg_max_drawdown": "-12.6%",
+        "avg_days_to_peak": "19.7 天"
+    },
+    {
+        "stock_code": "sh601665",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 54,
+        "win_rate": "35.2%",
+        "avg_max_profit": "11.1%",
+        "avg_max_drawdown": "-3.8%",
+        "avg_days_to_peak": "21.6 天"
+    },
+    {
+        "stock_code": "sh688582",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 19,
+        "win_rate": "42.1%",
+        "avg_max_profit": "21.0%",
+        "avg_max_drawdown": "-5.8%",
+        "avg_days_to_peak": "19.6 天"
+    },
+    {
+        "stock_code": "sh600668",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 89,
+        "win_rate": "33.7%",
+        "avg_max_profit": "10.1%",
+        "avg_max_drawdown": "-3.9%",
+        "avg_days_to_peak": "20.9 天"
+    },
+    {
+        "stock_code": "sh688550",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 56,
+        "win_rate": "41.1%",
+        "avg_max_profit": "14.1%",
         "avg_max_drawdown": "-6.5%",
-        "avg_days_to_peak": "26.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 71,
-                "win_rate": "53.5%",
-                "avg_max_profit": "16.2%",
-                "avg_max_drawdown": "-6.5%",
-                "avg_days_to_peak": "26.7 天"
-            }
-        },
-        "best_trade_profit": "54.5%",
-        "worst_trade_profit": "-10.3%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603169",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 76,
-        "win_rate": "46.1%",
-        "avg_max_profit": "17.9%",
-        "avg_max_drawdown": "-4.8%",
-        "avg_days_to_peak": "20.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 76,
-                "win_rate": "46.1%",
-                "avg_max_profit": "17.9%",
-                "avg_max_drawdown": "-4.8%",
-                "avg_days_to_peak": "20.1 天"
-            }
-        },
-        "best_trade_profit": "60.7%",
-        "worst_trade_profit": "-9.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603117",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 67,
-        "win_rate": "43.3%",
-        "avg_max_profit": "20.7%",
-        "avg_max_drawdown": "-5.4%",
-        "avg_days_to_peak": "21.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 67,
-                "win_rate": "43.3%",
-                "avg_max_profit": "20.7%",
-                "avg_max_drawdown": "-5.4%",
-                "avg_days_to_peak": "21.9 天"
-            }
-        },
-        "best_trade_profit": "138.8%",
-        "worst_trade_profit": "-4.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh688709",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 24,
-        "win_rate": "50.0%",
-        "avg_max_profit": "25.6%",
-        "avg_max_drawdown": "-3.8%",
-        "avg_days_to_peak": "12.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 24,
-                "win_rate": "50.0%",
-                "avg_max_profit": "25.6%",
-                "avg_max_drawdown": "-3.8%",
-                "avg_days_to_peak": "12.7 天"
-            }
-        },
-        "best_trade_profit": "83.1%",
-        "worst_trade_profit": "-4.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603557",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 58,
-        "win_rate": "44.8%",
-        "avg_max_profit": "15.0%",
-        "avg_max_drawdown": "-5.5%",
-        "avg_days_to_peak": "19.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 58,
-                "win_rate": "44.8%",
-                "avg_max_profit": "15.0%",
-                "avg_max_drawdown": "-5.5%",
-                "avg_days_to_peak": "19.7 天"
-            }
-        },
-        "best_trade_profit": "58.3%",
-        "worst_trade_profit": "-12.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600448",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 72,
-        "win_rate": "47.2%",
-        "avg_max_profit": "14.0%",
-        "avg_max_drawdown": "-3.8%",
-        "avg_days_to_peak": "22.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 72,
-                "win_rate": "47.2%",
-                "avg_max_profit": "14.0%",
-                "avg_max_drawdown": "-3.8%",
-                "avg_days_to_peak": "22.1 天"
-            }
-        },
-        "best_trade_profit": "127.1%",
-        "worst_trade_profit": "-5.7%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh688416",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 38,
-        "win_rate": "28.9%",
-        "avg_max_profit": "22.8%",
-        "avg_max_drawdown": "-8.5%",
-        "avg_days_to_peak": "20.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 38,
-                "win_rate": "28.9%",
-                "avg_max_profit": "22.8%",
-                "avg_max_drawdown": "-8.5%",
-                "avg_days_to_peak": "20.3 天"
-            }
-        },
-        "best_trade_profit": "105.1%",
-        "worst_trade_profit": "-15.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600988",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 68,
-        "win_rate": "35.3%",
-        "avg_max_profit": "15.1%",
-        "avg_max_drawdown": "-4.4%",
-        "avg_days_to_peak": "24.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 68,
-                "win_rate": "35.3%",
-                "avg_max_profit": "15.1%",
-                "avg_max_drawdown": "-4.4%",
-                "avg_days_to_peak": "24.2 天"
-            }
-        },
-        "best_trade_profit": "46.8%",
-        "worst_trade_profit": "-6.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_days_to_peak": "17.3 天"
     },
     {
         "stock_code": "sh603021",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 67,
-        "win_rate": "44.8%",
-        "avg_max_profit": "15.8%",
-        "avg_max_drawdown": "-7.2%",
-        "avg_days_to_peak": "22.6 天",
-        "state_statistics": {
-            "MID": {
-                "count": 67,
-                "win_rate": "44.8%",
-                "avg_max_profit": "15.8%",
-                "avg_max_drawdown": "-7.2%",
-                "avg_days_to_peak": "22.6 天"
-            }
-        },
-        "best_trade_profit": "72.5%",
-        "worst_trade_profit": "-10.7%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603322",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 70,
-        "win_rate": "42.9%",
-        "avg_max_profit": "24.6%",
-        "avg_max_drawdown": "-4.5%",
-        "avg_days_to_peak": "21.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 70,
-                "win_rate": "42.9%",
-                "avg_max_profit": "24.6%",
-                "avg_max_drawdown": "-4.5%",
-                "avg_days_to_peak": "21.5 天"
-            }
-        },
-        "best_trade_profit": "125.5%",
-        "worst_trade_profit": "0.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603711",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 70,
-        "win_rate": "35.7%",
-        "avg_max_profit": "12.2%",
-        "avg_max_drawdown": "-5.3%",
-        "avg_days_to_peak": "19.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 70,
-                "win_rate": "35.7%",
-                "avg_max_profit": "12.2%",
-                "avg_max_drawdown": "-5.3%",
-                "avg_days_to_peak": "19.3 天"
-            }
-        },
-        "best_trade_profit": "46.4%",
-        "worst_trade_profit": "-14.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh688772",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 47,
-        "win_rate": "48.9%",
-        "avg_max_profit": "22.6%",
-        "avg_max_drawdown": "-5.3%",
-        "avg_days_to_peak": "22.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 47,
-                "win_rate": "48.9%",
-                "avg_max_profit": "22.6%",
-                "avg_max_drawdown": "-5.3%",
-                "avg_days_to_peak": "22.9 天"
-            }
-        },
-        "best_trade_profit": "72.3%",
-        "worst_trade_profit": "-9.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603843",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 79,
-        "win_rate": "39.2%",
-        "avg_max_profit": "20.6%",
-        "avg_max_drawdown": "-5.1%",
-        "avg_days_to_peak": "17.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 79,
-                "win_rate": "39.2%",
-                "avg_max_profit": "20.6%",
-                "avg_max_drawdown": "-5.1%",
-                "avg_days_to_peak": "17.9 天"
-            }
-        },
-        "best_trade_profit": "92.9%",
-        "worst_trade_profit": "-4.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh601952",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 78,
-        "win_rate": "38.5%",
-        "avg_max_profit": "15.1%",
-        "avg_max_drawdown": "-3.8%",
-        "avg_days_to_peak": "25.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 78,
-                "win_rate": "38.5%",
-                "avg_max_profit": "15.1%",
-                "avg_max_drawdown": "-3.8%",
-                "avg_days_to_peak": "25.1 天"
-            }
-        },
-        "best_trade_profit": "67.4%",
-        "worst_trade_profit": "-9.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600026",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 78,
-        "win_rate": "41.0%",
-        "avg_max_profit": "17.5%",
-        "avg_max_drawdown": "-3.0%",
-        "avg_days_to_peak": "19.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 78,
-                "win_rate": "41.0%",
-                "avg_max_profit": "17.5%",
-                "avg_max_drawdown": "-3.0%",
-                "avg_days_to_peak": "19.5 天"
-            }
-        },
-        "best_trade_profit": "58.9%",
-        "worst_trade_profit": "-1.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603958",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 60,
-        "win_rate": "43.3%",
-        "avg_max_profit": "23.8%",
-        "avg_max_drawdown": "-6.3%",
-        "avg_days_to_peak": "25.6 天",
-        "state_statistics": {
-            "MID": {
-                "count": 60,
-                "win_rate": "43.3%",
-                "avg_max_profit": "23.8%",
-                "avg_max_drawdown": "-6.3%",
-                "avg_days_to_peak": "25.6 天"
-            }
-        },
-        "best_trade_profit": "114.8%",
-        "worst_trade_profit": "-8.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603381",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 16,
-        "win_rate": "31.2%",
-        "avg_max_profit": "9.7%",
-        "avg_max_drawdown": "-3.3%",
-        "avg_days_to_peak": "19.8 天",
-        "state_statistics": {
-            "MID": {
-                "count": 16,
-                "win_rate": "31.2%",
-                "avg_max_profit": "9.7%",
-                "avg_max_drawdown": "-3.3%",
-                "avg_days_to_peak": "19.8 天"
-            }
-        },
-        "best_trade_profit": "28.3%",
-        "worst_trade_profit": "0.7%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600018",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
         "total_signals": 68,
         "win_rate": "44.1%",
-        "avg_max_profit": "9.2%",
-        "avg_max_drawdown": "-1.9%",
-        "avg_days_to_peak": "19.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 68,
-                "win_rate": "44.1%",
-                "avg_max_profit": "9.2%",
-                "avg_max_drawdown": "-1.9%",
-                "avg_days_to_peak": "19.2 天"
-            }
-        },
-        "best_trade_profit": "29.8%",
-        "worst_trade_profit": "-2.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_max_profit": "15.6%",
+        "avg_max_drawdown": "-7.2%",
+        "avg_days_to_peak": "22.6 天"
     },
     {
-        "stock_code": "sh603353",
+        "stock_code": "sh603825",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 64,
-        "win_rate": "35.9%",
-        "avg_max_profit": "21.8%",
-        "avg_max_drawdown": "-6.3%",
-        "avg_days_to_peak": "20.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 64,
-                "win_rate": "35.9%",
-                "avg_max_profit": "21.8%",
-                "avg_max_drawdown": "-6.3%",
-                "avg_days_to_peak": "20.0 天"
-            }
-        },
-        "best_trade_profit": "85.6%",
-        "worst_trade_profit": "-14.7%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603630",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 78,
-        "win_rate": "35.9%",
-        "avg_max_profit": "13.0%",
-        "avg_max_drawdown": "-6.8%",
-        "avg_days_to_peak": "21.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 78,
-                "win_rate": "35.9%",
-                "avg_max_profit": "13.0%",
-                "avg_max_drawdown": "-6.8%",
-                "avg_days_to_peak": "21.9 天"
-            }
-        },
-        "best_trade_profit": "47.5%",
-        "worst_trade_profit": "-8.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600227",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 80,
-        "win_rate": "53.8%",
-        "avg_max_profit": "18.1%",
-        "avg_max_drawdown": "-5.6%",
-        "avg_days_to_peak": "23.8 天",
-        "state_statistics": {
-            "MID": {
-                "count": 80,
-                "win_rate": "53.8%",
-                "avg_max_profit": "18.1%",
-                "avg_max_drawdown": "-5.6%",
-                "avg_days_to_peak": "23.8 天"
-            }
-        },
-        "best_trade_profit": "58.1%",
-        "worst_trade_profit": "-6.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh688141",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 37,
-        "win_rate": "40.5%",
-        "avg_max_profit": "24.1%",
-        "avg_max_drawdown": "-8.7%",
-        "avg_days_to_peak": "16.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 37,
-                "win_rate": "40.5%",
-                "avg_max_profit": "24.1%",
-                "avg_max_drawdown": "-8.7%",
-                "avg_days_to_peak": "16.5 天"
-            }
-        },
-        "best_trade_profit": "103.1%",
-        "worst_trade_profit": "-14.3%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600025",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 57,
-        "win_rate": "36.8%",
-        "avg_max_profit": "10.6%",
-        "avg_max_drawdown": "-2.3%",
-        "avg_days_to_peak": "23.6 天",
-        "state_statistics": {
-            "MID": {
-                "count": 57,
-                "win_rate": "36.8%",
-                "avg_max_profit": "10.6%",
-                "avg_max_drawdown": "-2.3%",
-                "avg_days_to_peak": "23.6 天"
-            }
-        },
-        "best_trade_profit": "40.2%",
-        "worst_trade_profit": "-2.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh688793",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 51,
-        "win_rate": "43.1%",
-        "avg_max_profit": "21.0%",
-        "avg_max_drawdown": "-6.0%",
-        "avg_days_to_peak": "22.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 51,
-                "win_rate": "43.1%",
-                "avg_max_profit": "21.0%",
-                "avg_max_drawdown": "-6.0%",
-                "avg_days_to_peak": "22.4 天"
-            }
-        },
-        "best_trade_profit": "64.8%",
-        "worst_trade_profit": "-15.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603388",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 63,
-        "win_rate": "41.3%",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 74,
+        "win_rate": "47.3%",
         "avg_max_profit": "25.4%",
-        "avg_max_drawdown": "-5.7%",
-        "avg_days_to_peak": "21.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 63,
-                "win_rate": "41.3%",
-                "avg_max_profit": "25.4%",
-                "avg_max_drawdown": "-5.7%",
-                "avg_days_to_peak": "21.3 天"
-            }
-        },
-        "best_trade_profit": "96.1%",
-        "worst_trade_profit": "-42.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_max_drawdown": "-7.8%",
+        "avg_days_to_peak": "19.5 天"
     },
     {
-        "stock_code": "sh601088",
+        "stock_code": "sh603982",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 58,
-        "win_rate": "58.6%",
-        "avg_max_profit": "13.0%",
-        "avg_max_drawdown": "-2.3%",
-        "avg_days_to_peak": "19.8 天",
-        "state_statistics": {
-            "MID": {
-                "count": 58,
-                "win_rate": "58.6%",
-                "avg_max_profit": "13.0%",
-                "avg_max_drawdown": "-2.3%",
-                "avg_days_to_peak": "19.8 天"
-            }
-        },
-        "best_trade_profit": "44.8%",
-        "worst_trade_profit": "-5.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 63,
+        "win_rate": "52.4%",
+        "avg_max_profit": "21.0%",
+        "avg_max_drawdown": "-5.8%",
+        "avg_days_to_peak": "19.9 天"
     },
     {
-        "stock_code": "sh603699",
+        "stock_code": "sh600345",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 51,
-        "win_rate": "54.9%",
-        "avg_max_profit": "17.1%",
-        "avg_max_drawdown": "-2.7%",
-        "avg_days_to_peak": "20.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 51,
-                "win_rate": "54.9%",
-                "avg_max_profit": "17.1%",
-                "avg_max_drawdown": "-2.7%",
-                "avg_days_to_peak": "20.1 天"
-            }
-        },
-        "best_trade_profit": "53.9%",
-        "worst_trade_profit": "-5.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603310",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 16,
-        "win_rate": "37.5%",
-        "avg_max_profit": "18.6%",
-        "avg_max_drawdown": "-6.0%",
-        "avg_days_to_peak": "19.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 16,
-                "win_rate": "37.5%",
-                "avg_max_profit": "18.6%",
-                "avg_max_drawdown": "-6.0%",
-                "avg_days_to_peak": "19.3 天"
-            }
-        },
-        "best_trade_profit": "27.2%",
-        "worst_trade_profit": "1.7%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603205",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 10,
-        "win_rate": "20.0%",
-        "avg_max_profit": "0.7%",
-        "avg_max_drawdown": "-11.4%",
-        "avg_days_to_peak": "19.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 10,
-                "win_rate": "20.0%",
-                "avg_max_profit": "0.7%",
-                "avg_max_drawdown": "-11.4%",
-                "avg_days_to_peak": "19.5 天"
-            }
-        },
-        "best_trade_profit": "36.8%",
-        "worst_trade_profit": "-21.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600738",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 79,
-        "win_rate": "46.8%",
-        "avg_max_profit": "21.2%",
-        "avg_max_drawdown": "-5.1%",
-        "avg_days_to_peak": "22.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 79,
-                "win_rate": "46.8%",
-                "avg_max_profit": "21.2%",
-                "avg_max_drawdown": "-5.1%",
-                "avg_days_to_peak": "22.2 天"
-            }
-        },
-        "best_trade_profit": "68.3%",
-        "worst_trade_profit": "-10.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603789",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 79,
-        "win_rate": "43.0%",
-        "avg_max_profit": "19.9%",
-        "avg_max_drawdown": "-5.4%",
-        "avg_days_to_peak": "22.8 天",
-        "state_statistics": {
-            "MID": {
-                "count": 79,
-                "win_rate": "43.0%",
-                "avg_max_profit": "19.9%",
-                "avg_max_drawdown": "-5.4%",
-                "avg_days_to_peak": "22.8 天"
-            }
-        },
-        "best_trade_profit": "115.3%",
-        "worst_trade_profit": "-3.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600029",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 79,
-        "win_rate": "41.8%",
-        "avg_max_profit": "12.6%",
-        "avg_max_drawdown": "-3.6%",
-        "avg_days_to_peak": "22.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 79,
-                "win_rate": "41.8%",
-                "avg_max_profit": "12.6%",
-                "avg_max_drawdown": "-3.6%",
-                "avg_days_to_peak": "22.3 天"
-            }
-        },
-        "best_trade_profit": "38.6%",
-        "worst_trade_profit": "-11.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600682",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 89,
-        "win_rate": "30.3%",
-        "avg_max_profit": "12.6%",
-        "avg_max_drawdown": "-4.9%",
-        "avg_days_to_peak": "22.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 89,
-                "win_rate": "30.3%",
-                "avg_max_profit": "12.6%",
-                "avg_max_drawdown": "-4.9%",
-                "avg_days_to_peak": "22.2 天"
-            }
-        },
-        "best_trade_profit": "54.3%",
-        "worst_trade_profit": "-11.8%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600568",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 68,
-        "win_rate": "35.3%",
-        "avg_max_profit": "14.9%",
-        "avg_max_drawdown": "-4.5%",
-        "avg_days_to_peak": "20.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 68,
-                "win_rate": "35.3%",
-                "avg_max_profit": "14.9%",
-                "avg_max_drawdown": "-4.5%",
-                "avg_days_to_peak": "20.0 天"
-            }
-        },
-        "best_trade_profit": "54.7%",
-        "worst_trade_profit": "-3.8%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600115",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 65,
-        "win_rate": "56.9%",
-        "avg_max_profit": "10.2%",
-        "avg_max_drawdown": "-3.3%",
-        "avg_days_to_peak": "21.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 65,
-                "win_rate": "56.9%",
-                "avg_max_profit": "10.2%",
-                "avg_max_drawdown": "-3.3%",
-                "avg_days_to_peak": "21.2 天"
-            }
-        },
-        "best_trade_profit": "28.7%",
-        "worst_trade_profit": "-2.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh688311",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 52,
-        "win_rate": "38.5%",
-        "avg_max_profit": "20.6%",
-        "avg_max_drawdown": "-7.9%",
-        "avg_days_to_peak": "18.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 52,
-                "win_rate": "38.5%",
-                "avg_max_profit": "20.6%",
-                "avg_max_drawdown": "-7.9%",
-                "avg_days_to_peak": "18.2 天"
-            }
-        },
-        "best_trade_profit": "117.5%",
-        "worst_trade_profit": "-19.7%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh600232",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 68,
-        "win_rate": "48.5%",
-        "avg_max_profit": "12.9%",
-        "avg_max_drawdown": "-4.4%",
-        "avg_days_to_peak": "24.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 68,
-                "win_rate": "48.5%",
-                "avg_max_profit": "12.9%",
-                "avg_max_drawdown": "-4.4%",
-                "avg_days_to_peak": "24.3 天"
-            }
-        },
-        "best_trade_profit": "47.9%",
-        "worst_trade_profit": "-7.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603885",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 59,
-        "win_rate": "55.9%",
-        "avg_max_profit": "18.7%",
-        "avg_max_drawdown": "-4.3%",
-        "avg_days_to_peak": "23.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 59,
-                "win_rate": "55.9%",
-                "avg_max_profit": "18.7%",
-                "avg_max_drawdown": "-4.3%",
-                "avg_days_to_peak": "23.4 天"
-            }
-        },
-        "best_trade_profit": "56.1%",
-        "worst_trade_profit": "-3.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh601579",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 76,
-        "win_rate": "44.7%",
-        "avg_max_profit": "15.7%",
-        "avg_max_drawdown": "-4.0%",
-        "avg_days_to_peak": "20.6 天",
-        "state_statistics": {
-            "MID": {
-                "count": 76,
-                "win_rate": "44.7%",
-                "avg_max_profit": "15.7%",
-                "avg_max_drawdown": "-4.0%",
-                "avg_days_to_peak": "20.6 天"
-            }
-        },
-        "best_trade_profit": "116.1%",
-        "worst_trade_profit": "-3.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603681",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 59,
-        "win_rate": "54.2%",
-        "avg_max_profit": "16.8%",
-        "avg_max_drawdown": "-4.5%",
-        "avg_days_to_peak": "20.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 59,
-                "win_rate": "54.2%",
-                "avg_max_profit": "16.8%",
-                "avg_max_drawdown": "-4.5%",
-                "avg_days_to_peak": "20.5 天"
-            }
-        },
-        "best_trade_profit": "64.7%",
-        "worst_trade_profit": "-14.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh601111",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 81,
-        "win_rate": "50.6%",
-        "avg_max_profit": "12.9%",
-        "avg_max_drawdown": "-3.7%",
-        "avg_days_to_peak": "20.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 81,
-                "win_rate": "50.6%",
-                "avg_max_profit": "12.9%",
-                "avg_max_drawdown": "-3.7%",
-                "avg_days_to_peak": "20.3 天"
-            }
-        },
-        "best_trade_profit": "41.1%",
-        "worst_trade_profit": "-11.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603803",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 68,
-        "win_rate": "48.5%",
-        "avg_max_profit": "19.5%",
-        "avg_max_drawdown": "-10.4%",
-        "avg_days_to_peak": "22.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 68,
-                "win_rate": "48.5%",
-                "avg_max_profit": "19.5%",
-                "avg_max_drawdown": "-10.4%",
-                "avg_days_to_peak": "22.5 天"
-            }
-        },
-        "best_trade_profit": "69.2%",
-        "worst_trade_profit": "-8.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sh603855",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 76,
-        "win_rate": "40.8%",
-        "avg_max_profit": "16.8%",
-        "avg_max_drawdown": "-5.5%",
-        "avg_days_to_peak": "23.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 76,
-                "win_rate": "40.8%",
-                "avg_max_profit": "16.8%",
-                "avg_max_drawdown": "-5.5%",
-                "avg_days_to_peak": "23.7 天"
-            }
-        },
-        "best_trade_profit": "53.2%",
-        "worst_trade_profit": "-10.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002906",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 52,
-        "win_rate": "50.0%",
-        "avg_max_profit": "25.9%",
-        "avg_max_drawdown": "-6.1%",
-        "avg_days_to_peak": "23.6 天",
-        "state_statistics": {
-            "MID": {
-                "count": 52,
-                "win_rate": "50.0%",
-                "avg_max_profit": "25.9%",
-                "avg_max_drawdown": "-6.1%",
-                "avg_days_to_peak": "23.6 天"
-            }
-        },
-        "best_trade_profit": "76.2%",
-        "worst_trade_profit": "-3.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002471",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 65,
-        "win_rate": "43.1%",
-        "avg_max_profit": "18.7%",
-        "avg_max_drawdown": "-4.2%",
-        "avg_days_to_peak": "21.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 65,
-                "win_rate": "43.1%",
-                "avg_max_profit": "18.7%",
-                "avg_max_drawdown": "-4.2%",
-                "avg_days_to_peak": "21.1 天"
-            }
-        },
-        "best_trade_profit": "64.3%",
-        "worst_trade_profit": "-8.7%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz000510",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
         "total_signals": 71,
-        "win_rate": "36.6%",
-        "avg_max_profit": "16.7%",
+        "win_rate": "42.3%",
+        "avg_max_profit": "19.4%",
+        "avg_max_drawdown": "-4.7%",
+        "avg_days_to_peak": "23.0 天"
+    },
+    {
+        "stock_code": "sh603900",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 66,
+        "win_rate": "62.1%",
+        "avg_max_profit": "20.1%",
+        "avg_max_drawdown": "-4.9%",
+        "avg_days_to_peak": "24.2 天"
+    },
+    {
+        "stock_code": "sh603607",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 84,
+        "win_rate": "51.2%",
+        "avg_max_profit": "18.5%",
+        "avg_max_drawdown": "-3.6%",
+        "avg_days_to_peak": "21.8 天"
+    },
+    {
+        "stock_code": "sh601127",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 54,
+        "win_rate": "50.0%",
+        "avg_max_profit": "36.3%",
         "avg_max_drawdown": "-4.8%",
-        "avg_days_to_peak": "19.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 71,
-                "win_rate": "36.6%",
-                "avg_max_profit": "16.7%",
-                "avg_max_drawdown": "-4.8%",
-                "avg_days_to_peak": "19.1 天"
-            }
-        },
-        "best_trade_profit": "62.5%",
-        "worst_trade_profit": "-8.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_days_to_peak": "24.2 天"
     },
     {
-        "stock_code": "sz002431",
+        "stock_code": "sh600381",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 91,
-        "win_rate": "29.7%",
-        "avg_max_profit": "15.1%",
-        "avg_max_drawdown": "-5.6%",
-        "avg_days_to_peak": "20.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 91,
-                "win_rate": "29.7%",
-                "avg_max_profit": "15.1%",
-                "avg_max_drawdown": "-5.6%",
-                "avg_days_to_peak": "20.0 天"
-            }
-        },
-        "best_trade_profit": "119.1%",
-        "worst_trade_profit": "-6.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
+        "total_signals": 64,
+        "win_rate": "45.3%",
+        "avg_max_profit": "18.1%",
+        "avg_max_drawdown": "-7.6%",
+        "avg_days_to_peak": "18.3 天"
     },
     {
-        "stock_code": "sz001358",
+        "stock_code": "sh688458",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
         "total_signals": 19,
         "win_rate": "36.8%",
-        "avg_max_profit": "18.2%",
-        "avg_max_drawdown": "-8.7%",
-        "avg_days_to_peak": "21.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 19,
-                "win_rate": "36.8%",
-                "avg_max_profit": "18.2%",
-                "avg_max_drawdown": "-8.7%",
-                "avg_days_to_peak": "21.7 天"
-            }
-        },
-        "best_trade_profit": "67.1%",
-        "worst_trade_profit": "-16.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_max_profit": "22.0%",
+        "avg_max_drawdown": "-9.8%",
+        "avg_days_to_peak": "24.1 天"
     },
     {
-        "stock_code": "sz300256",
+        "stock_code": "sz300867",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 77,
+        "win_rate": "37.7%",
+        "avg_max_profit": "7.4%",
+        "avg_max_drawdown": "-5.1%",
+        "avg_days_to_peak": "19.9 天"
+    },
+    {
+        "stock_code": "sz002519",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 90,
+        "win_rate": "37.8%",
+        "avg_max_profit": "17.9%",
+        "avg_max_drawdown": "-4.9%",
+        "avg_days_to_peak": "20.7 天"
+    },
+    {
+        "stock_code": "sz000595",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 68,
+        "win_rate": "45.6%",
+        "avg_max_profit": "27.8%",
+        "avg_max_drawdown": "-5.9%",
+        "avg_days_to_peak": "21.1 天"
+    },
+    {
+        "stock_code": "sz002727",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
         "total_signals": 63,
-        "win_rate": "34.9%",
-        "avg_max_profit": "19.9%",
-        "avg_max_drawdown": "-5.0%",
-        "avg_days_to_peak": "17.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 63,
-                "win_rate": "34.9%",
-                "avg_max_profit": "19.9%",
-                "avg_max_drawdown": "-5.0%",
-                "avg_days_to_peak": "17.0 天"
-            }
-        },
-        "best_trade_profit": "151.9%",
-        "worst_trade_profit": "-11.3%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "win_rate": "41.3%",
+        "avg_max_profit": "19.0%",
+        "avg_max_drawdown": "-6.1%",
+        "avg_days_to_peak": "23.0 天"
     },
     {
-        "stock_code": "sz000551",
+        "stock_code": "sz300191",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 75,
+        "win_rate": "36.0%",
+        "avg_max_profit": "20.1%",
+        "avg_max_drawdown": "-6.1%",
+        "avg_days_to_peak": "23.9 天"
+    },
+    {
+        "stock_code": "sz300650",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 56,
+        "win_rate": "51.8%",
+        "avg_max_profit": "23.3%",
+        "avg_max_drawdown": "-4.8%",
+        "avg_days_to_peak": "24.6 天"
+    },
+    {
+        "stock_code": "sz300584",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 85,
+        "win_rate": "36.5%",
+        "avg_max_profit": "17.1%",
+        "avg_max_drawdown": "-7.1%",
+        "avg_days_to_peak": "20.1 天"
+    },
+    {
+        "stock_code": "sz300220",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 54,
+        "win_rate": "46.3%",
+        "avg_max_profit": "32.1%",
+        "avg_max_drawdown": "-6.1%",
+        "avg_days_to_peak": "18.5 天"
+    },
+    {
+        "stock_code": "sz002828",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 77,
+        "win_rate": "40.3%",
+        "avg_max_profit": "16.4%",
+        "avg_max_drawdown": "-5.7%",
+        "avg_days_to_peak": "22.8 天"
+    },
+    {
+        "stock_code": "sz002194",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:31",
         "total_signals": 76,
         "win_rate": "48.7%",
-        "avg_max_profit": "20.8%",
-        "avg_max_drawdown": "-3.9%",
-        "avg_days_to_peak": "26.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 76,
-                "win_rate": "48.7%",
-                "avg_max_profit": "20.8%",
-                "avg_max_drawdown": "-3.9%",
-                "avg_days_to_peak": "26.2 天"
-            }
-        },
-        "best_trade_profit": "95.6%",
-        "worst_trade_profit": "0.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_max_profit": "24.3%",
+        "avg_max_drawdown": "-6.8%",
+        "avg_days_to_peak": "21.7 天"
     },
     {
-        "stock_code": "sz002891",
+        "stock_code": "sz300546",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 43,
-        "win_rate": "44.2%",
-        "avg_max_profit": "14.3%",
-        "avg_max_drawdown": "-3.8%",
-        "avg_days_to_peak": "19.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 43,
-                "win_rate": "44.2%",
-                "avg_max_profit": "14.3%",
-                "avg_max_drawdown": "-3.8%",
-                "avg_days_to_peak": "19.9 天"
-            }
-        },
-        "best_trade_profit": "54.1%",
-        "worst_trade_profit": "-4.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 86,
+        "win_rate": "31.4%",
+        "avg_max_profit": "22.7%",
+        "avg_max_drawdown": "-9.9%",
+        "avg_days_to_peak": "27.7 天"
     },
     {
-        "stock_code": "sz000610",
+        "stock_code": "sz300295",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 73,
+        "win_rate": "39.7%",
+        "avg_max_profit": "23.3%",
+        "avg_max_drawdown": "-6.2%",
+        "avg_days_to_peak": "20.7 天"
+    },
+    {
+        "stock_code": "sz300651",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 63,
+        "win_rate": "49.2%",
+        "avg_max_profit": "22.1%",
+        "avg_max_drawdown": "-4.4%",
+        "avg_days_to_peak": "20.2 天"
+    },
+    {
+        "stock_code": "sz002970",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 70,
+        "win_rate": "34.3%",
+        "avg_max_profit": "20.6%",
+        "avg_max_drawdown": "-8.2%",
+        "avg_days_to_peak": "24.0 天"
+    },
+    {
+        "stock_code": "sz002878",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
         "total_signals": 64,
-        "win_rate": "54.7%",
-        "avg_max_profit": "22.5%",
-        "avg_max_drawdown": "-2.8%",
-        "avg_days_to_peak": "26.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 64,
-                "win_rate": "54.7%",
-                "avg_max_profit": "22.5%",
-                "avg_max_drawdown": "-2.8%",
-                "avg_days_to_peak": "26.4 天"
-            }
-        },
-        "best_trade_profit": "75.5%",
-        "worst_trade_profit": "1.3%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300815",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 77,
-        "win_rate": "48.1%",
-        "avg_max_profit": "19.2%",
-        "avg_max_drawdown": "-4.7%",
-        "avg_days_to_peak": "20.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 77,
-                "win_rate": "48.1%",
-                "avg_max_profit": "19.2%",
-                "avg_max_drawdown": "-4.7%",
-                "avg_days_to_peak": "20.0 天"
-            }
-        },
-        "best_trade_profit": "100.3%",
-        "worst_trade_profit": "-6.7%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002068",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 60,
-        "win_rate": "46.7%",
-        "avg_max_profit": "33.3%",
-        "avg_max_drawdown": "-7.9%",
-        "avg_days_to_peak": "24.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 60,
-                "win_rate": "46.7%",
-                "avg_max_profit": "33.3%",
-                "avg_max_drawdown": "-7.9%",
-                "avg_days_to_peak": "24.9 天"
-            }
-        },
-        "best_trade_profit": "99.1%",
-        "worst_trade_profit": "-15.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300673",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:16",
-        "total_signals": 66,
         "win_rate": "50.0%",
         "avg_max_profit": "18.8%",
-        "avg_max_drawdown": "-3.8%",
-        "avg_days_to_peak": "23.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 66,
-                "win_rate": "50.0%",
-                "avg_max_profit": "18.8%",
-                "avg_max_drawdown": "-3.8%",
-                "avg_days_to_peak": "23.7 天"
-            }
-        },
-        "best_trade_profit": "58.1%",
-        "worst_trade_profit": "-3.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_max_drawdown": "-7.3%",
+        "avg_days_to_peak": "23.2 天"
     },
     {
-        "stock_code": "sz001337",
+        "stock_code": "sz002134",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 43,
-        "win_rate": "32.6%",
-        "avg_max_profit": "18.0%",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 62,
+        "win_rate": "48.4%",
+        "avg_max_profit": "26.3%",
+        "avg_max_drawdown": "-5.2%",
+        "avg_days_to_peak": "26.8 天"
+    },
+    {
+        "stock_code": "sz002250",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 73,
+        "win_rate": "35.6%",
+        "avg_max_profit": "15.8%",
         "avg_max_drawdown": "-5.8%",
-        "avg_days_to_peak": "17.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 43,
-                "win_rate": "32.6%",
-                "avg_max_profit": "18.0%",
-                "avg_max_drawdown": "-5.8%",
-                "avg_days_to_peak": "17.5 天"
-            }
-        },
-        "best_trade_profit": "53.1%",
-        "worst_trade_profit": "-3.8%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_days_to_peak": "20.0 天"
     },
     {
-        "stock_code": "sz300908",
+        "stock_code": "sz002871",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 66,
-        "win_rate": "43.9%",
-        "avg_max_profit": "18.2%",
-        "avg_max_drawdown": "-6.0%",
-        "avg_days_to_peak": "19.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 66,
-                "win_rate": "43.9%",
-                "avg_max_profit": "18.2%",
-                "avg_max_drawdown": "-6.0%",
-                "avg_days_to_peak": "19.4 天"
-            }
-        },
-        "best_trade_profit": "81.0%",
-        "worst_trade_profit": "-6.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 61,
+        "win_rate": "55.7%",
+        "avg_max_profit": "18.7%",
+        "avg_max_drawdown": "-5.0%",
+        "avg_days_to_peak": "22.6 天"
+    },
+    {
+        "stock_code": "sz300266",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 76,
+        "win_rate": "30.3%",
+        "avg_max_profit": "17.3%",
+        "avg_max_drawdown": "-6.9%",
+        "avg_days_to_peak": "23.0 天"
     },
     {
         "stock_code": "sz002861",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 61,
-        "win_rate": "57.4%",
-        "avg_max_profit": "23.2%",
-        "avg_max_drawdown": "-4.8%",
-        "avg_days_to_peak": "20.6 天",
-        "state_statistics": {
-            "MID": {
-                "count": 61,
-                "win_rate": "57.4%",
-                "avg_max_profit": "23.2%",
-                "avg_max_drawdown": "-4.8%",
-                "avg_days_to_peak": "20.6 天"
-            }
-        },
-        "best_trade_profit": "93.5%",
-        "worst_trade_profit": "-4.6%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 65,
+        "win_rate": "53.8%",
+        "avg_max_profit": "22.0%",
+        "avg_max_drawdown": "-4.5%",
+        "avg_days_to_peak": "20.6 天"
     },
     {
-        "stock_code": "sz002211",
+        "stock_code": "sz300147",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 82,
-        "win_rate": "43.9%",
-        "avg_max_profit": "23.2%",
-        "avg_max_drawdown": "-5.9%",
-        "avg_days_to_peak": "20.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 82,
-                "win_rate": "43.9%",
-                "avg_max_profit": "23.2%",
-                "avg_max_drawdown": "-5.9%",
-                "avg_days_to_peak": "20.1 天"
-            }
-        },
-        "best_trade_profit": "179.5%",
-        "worst_trade_profit": "-10.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300886",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 56,
-        "win_rate": "48.2%",
-        "avg_max_profit": "16.8%",
-        "avg_max_drawdown": "-6.0%",
-        "avg_days_to_peak": "21.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 56,
-                "win_rate": "48.2%",
-                "avg_max_profit": "16.8%",
-                "avg_max_drawdown": "-6.0%",
-                "avg_days_to_peak": "21.9 天"
-            }
-        },
-        "best_trade_profit": "85.0%",
-        "worst_trade_profit": "-13.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz001328",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 25,
-        "win_rate": "56.0%",
-        "avg_max_profit": "23.3%",
-        "avg_max_drawdown": "-2.1%",
-        "avg_days_to_peak": "23.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 25,
-                "win_rate": "56.0%",
-                "avg_max_profit": "23.3%",
-                "avg_max_drawdown": "-2.1%",
-                "avg_days_to_peak": "23.4 天"
-            }
-        },
-        "best_trade_profit": "49.1%",
-        "worst_trade_profit": "-4.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz003006",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 53,
-        "win_rate": "20.8%",
-        "avg_max_profit": "15.5%",
-        "avg_max_drawdown": "-5.8%",
-        "avg_days_to_peak": "22.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 53,
-                "win_rate": "20.8%",
-                "avg_max_profit": "15.5%",
-                "avg_max_drawdown": "-5.8%",
-                "avg_days_to_peak": "22.7 天"
-            }
-        },
-        "best_trade_profit": "76.7%",
-        "worst_trade_profit": "-6.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300859",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 50,
-        "win_rate": "60.0%",
-        "avg_max_profit": "25.2%",
-        "avg_max_drawdown": "-3.6%",
-        "avg_days_to_peak": "24.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 50,
-                "win_rate": "60.0%",
-                "avg_max_profit": "25.2%",
-                "avg_max_drawdown": "-3.6%",
-                "avg_days_to_peak": "24.7 天"
-            }
-        },
-        "best_trade_profit": "140.1%",
-        "worst_trade_profit": "-5.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002461",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 68,
-        "win_rate": "30.9%",
-        "avg_max_profit": "11.8%",
-        "avg_max_drawdown": "-4.1%",
-        "avg_days_to_peak": "22.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 68,
-                "win_rate": "30.9%",
-                "avg_max_profit": "11.8%",
-                "avg_max_drawdown": "-4.1%",
-                "avg_days_to_peak": "22.9 天"
-            }
-        },
-        "best_trade_profit": "62.8%",
-        "worst_trade_profit": "-4.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002274",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 72,
-        "win_rate": "54.2%",
-        "avg_max_profit": "16.3%",
-        "avg_max_drawdown": "-3.6%",
-        "avg_days_to_peak": "19.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 72,
-                "win_rate": "54.2%",
-                "avg_max_profit": "16.3%",
-                "avg_max_drawdown": "-3.6%",
-                "avg_days_to_peak": "19.4 天"
-            }
-        },
-        "best_trade_profit": "75.1%",
-        "worst_trade_profit": "-4.3%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300861",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
         "total_signals": 78,
-        "win_rate": "39.7%",
+        "win_rate": "38.5%",
+        "avg_max_profit": "27.5%",
+        "avg_max_drawdown": "-7.4%",
+        "avg_days_to_peak": "21.0 天"
+    },
+    {
+        "stock_code": "sz002491",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 67,
+        "win_rate": "37.3%",
+        "avg_max_profit": "13.9%",
+        "avg_max_drawdown": "-5.5%",
+        "avg_days_to_peak": "22.3 天"
+    },
+    {
+        "stock_code": "sz002427",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 60,
+        "win_rate": "43.3%",
+        "avg_max_profit": "17.2%",
+        "avg_max_drawdown": "-7.5%",
+        "avg_days_to_peak": "17.9 天"
+    },
+    {
+        "stock_code": "sz002141",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 66,
+        "win_rate": "33.3%",
         "avg_max_profit": "16.8%",
-        "avg_max_drawdown": "-6.3%",
-        "avg_days_to_peak": "21.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 78,
-                "win_rate": "39.7%",
-                "avg_max_profit": "16.8%",
-                "avg_max_drawdown": "-6.3%",
-                "avg_days_to_peak": "21.1 天"
-            }
-        },
-        "best_trade_profit": "81.1%",
-        "worst_trade_profit": "-9.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_max_drawdown": "-9.2%",
+        "avg_days_to_peak": "17.6 天"
+    },
+    {
+        "stock_code": "sz002207",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 77,
+        "win_rate": "49.4%",
+        "avg_max_profit": "21.1%",
+        "avg_max_drawdown": "-4.0%",
+        "avg_days_to_peak": "22.2 天"
     },
     {
         "stock_code": "sz002977",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 78,
-        "win_rate": "43.6%",
-        "avg_max_profit": "21.8%",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 80,
+        "win_rate": "42.5%",
+        "avg_max_profit": "21.3%",
         "avg_max_drawdown": "-4.9%",
-        "avg_days_to_peak": "20.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 78,
-                "win_rate": "43.6%",
-                "avg_max_profit": "21.8%",
-                "avg_max_drawdown": "-4.9%",
-                "avg_days_to_peak": "20.2 天"
-            }
-        },
-        "best_trade_profit": "116.7%",
-        "worst_trade_profit": "-7.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_days_to_peak": "20.2 天"
     },
     {
         "stock_code": "sz002343",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 71,
-        "win_rate": "56.3%",
-        "avg_max_profit": "24.7%",
-        "avg_max_drawdown": "-5.8%",
-        "avg_days_to_peak": "24.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 71,
-                "win_rate": "56.3%",
-                "avg_max_profit": "24.7%",
-                "avg_max_drawdown": "-5.8%",
-                "avg_days_to_peak": "24.1 天"
-            }
-        },
-        "best_trade_profit": "128.9%",
-        "worst_trade_profit": "-12.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 74,
+        "win_rate": "54.1%",
+        "avg_max_profit": "23.9%",
+        "avg_max_drawdown": "-5.6%",
+        "avg_days_to_peak": "24.1 天"
     },
     {
         "stock_code": "sz300863",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 57,
-        "win_rate": "52.6%",
-        "avg_max_profit": "27.3%",
-        "avg_max_drawdown": "-5.8%",
-        "avg_days_to_peak": "21.4 天",
-        "state_statistics": {
-            "MID": {
-                "count": 57,
-                "win_rate": "52.6%",
-                "avg_max_profit": "27.3%",
-                "avg_max_drawdown": "-5.8%",
-                "avg_days_to_peak": "21.4 天"
-            }
-        },
-        "best_trade_profit": "200.8%",
-        "worst_trade_profit": "-6.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 60,
+        "win_rate": "50.0%",
+        "avg_max_profit": "26.0%",
+        "avg_max_drawdown": "-5.5%",
+        "avg_days_to_peak": "21.4 天"
     },
     {
-        "stock_code": "sz000848",
+        "stock_code": "sz001300",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 68,
-        "win_rate": "45.6%",
-        "avg_max_profit": "10.5%",
-        "avg_max_drawdown": "-2.9%",
-        "avg_days_to_peak": "19.6 天",
-        "state_statistics": {
-            "MID": {
-                "count": 68,
-                "win_rate": "45.6%",
-                "avg_max_profit": "10.5%",
-                "avg_max_drawdown": "-2.9%",
-                "avg_days_to_peak": "19.6 天"
-            }
-        },
-        "best_trade_profit": "56.3%",
-        "worst_trade_profit": "-3.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 44,
+        "win_rate": "40.9%",
+        "avg_max_profit": "35.8%",
+        "avg_max_drawdown": "-6.0%",
+        "avg_days_to_peak": "20.2 天"
     },
     {
-        "stock_code": "sz002397",
+        "stock_code": "sz002650",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 69,
-        "win_rate": "36.2%",
-        "avg_max_profit": "20.9%",
-        "avg_max_drawdown": "-4.5%",
-        "avg_days_to_peak": "15.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 69,
-                "win_rate": "36.2%",
-                "avg_max_profit": "20.9%",
-                "avg_max_drawdown": "-4.5%",
-                "avg_days_to_peak": "15.5 天"
-            }
-        },
-        "best_trade_profit": "139.8%",
-        "worst_trade_profit": "-8.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300198",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 81,
-        "win_rate": "37.0%",
-        "avg_max_profit": "19.0%",
-        "avg_max_drawdown": "-6.1%",
-        "avg_days_to_peak": "16.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 81,
-                "win_rate": "37.0%",
-                "avg_max_profit": "19.0%",
-                "avg_max_drawdown": "-6.1%",
-                "avg_days_to_peak": "16.1 天"
-            }
-        },
-        "best_trade_profit": "70.0%",
-        "worst_trade_profit": "-14.8%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002654",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 69,
-        "win_rate": "42.0%",
-        "avg_max_profit": "26.1%",
-        "avg_max_drawdown": "-7.9%",
-        "avg_days_to_peak": "25.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 69,
-                "win_rate": "42.0%",
-                "avg_max_profit": "26.1%",
-                "avg_max_drawdown": "-7.9%",
-                "avg_days_to_peak": "25.7 天"
-            }
-        },
-        "best_trade_profit": "108.4%",
-        "worst_trade_profit": "-10.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002369",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 67,
-        "win_rate": "44.8%",
-        "avg_max_profit": "28.8%",
-        "avg_max_drawdown": "-6.2%",
-        "avg_days_to_peak": "22.8 天",
-        "state_statistics": {
-            "MID": {
-                "count": 67,
-                "win_rate": "44.8%",
-                "avg_max_profit": "28.8%",
-                "avg_max_drawdown": "-6.2%",
-                "avg_days_to_peak": "22.8 天"
-            }
-        },
-        "best_trade_profit": "148.0%",
-        "worst_trade_profit": "-19.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 65,
+        "win_rate": "44.6%",
+        "avg_max_profit": "12.3%",
+        "avg_max_drawdown": "-8.1%",
+        "avg_days_to_peak": "22.8 天"
     },
     {
         "stock_code": "sz300123",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 76,
+        "win_rate": "39.5%",
+        "avg_max_profit": "16.6%",
+        "avg_max_drawdown": "-6.6%",
+        "avg_days_to_peak": "22.2 天"
+    },
+    {
+        "stock_code": "sz000045",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 70,
+        "win_rate": "45.7%",
+        "avg_max_profit": "14.2%",
+        "avg_max_drawdown": "-4.4%",
+        "avg_days_to_peak": "19.5 天"
+    },
+    {
+        "stock_code": "sz002853",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
         "total_signals": 73,
-        "win_rate": "41.1%",
-        "avg_max_profit": "17.1%",
-        "avg_max_drawdown": "-6.8%",
-        "avg_days_to_peak": "22.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 73,
-                "win_rate": "41.1%",
-                "avg_max_profit": "17.1%",
-                "avg_max_drawdown": "-6.8%",
-                "avg_days_to_peak": "22.2 天"
-            }
-        },
-        "best_trade_profit": "102.8%",
-        "worst_trade_profit": "-11.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "win_rate": "45.2%",
+        "avg_max_profit": "16.5%",
+        "avg_max_drawdown": "-6.0%",
+        "avg_days_to_peak": "21.6 天"
     },
     {
-        "stock_code": "sz002215",
+        "stock_code": "sz002948",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 87,
-        "win_rate": "32.2%",
-        "avg_max_profit": "15.3%",
-        "avg_max_drawdown": "-4.9%",
-        "avg_days_to_peak": "22.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 87,
-                "win_rate": "32.2%",
-                "avg_max_profit": "15.3%",
-                "avg_max_drawdown": "-4.9%",
-                "avg_days_to_peak": "22.3 天"
-            }
-        },
-        "best_trade_profit": "58.1%",
-        "worst_trade_profit": "-4.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz000007",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 52,
-        "win_rate": "46.2%",
-        "avg_max_profit": "19.6%",
-        "avg_max_drawdown": "-12.0%",
-        "avg_days_to_peak": "23.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 52,
-                "win_rate": "46.2%",
-                "avg_max_profit": "19.6%",
-                "avg_max_drawdown": "-12.0%",
-                "avg_days_to_peak": "23.9 天"
-            }
-        },
-        "best_trade_profit": "84.7%",
-        "worst_trade_profit": "-44.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz000972",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 77,
-        "win_rate": "37.7%",
-        "avg_max_profit": "18.3%",
-        "avg_max_drawdown": "-5.6%",
-        "avg_days_to_peak": "18.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 77,
-                "win_rate": "37.7%",
-                "avg_max_profit": "18.3%",
-                "avg_max_drawdown": "-5.6%",
-                "avg_days_to_peak": "18.0 天"
-            }
-        },
-        "best_trade_profit": "77.2%",
-        "worst_trade_profit": "-11.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz001222",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 33,
-        "win_rate": "48.5%",
-        "avg_max_profit": "16.9%",
-        "avg_max_drawdown": "-2.4%",
-        "avg_days_to_peak": "23.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 33,
-                "win_rate": "48.5%",
-                "avg_max_profit": "16.9%",
-                "avg_max_drawdown": "-2.4%",
-                "avg_days_to_peak": "23.0 天"
-            }
-        },
-        "best_trade_profit": "75.8%",
-        "worst_trade_profit": "-8.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300321",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 53,
-        "win_rate": "47.2%",
-        "avg_max_profit": "20.0%",
-        "avg_max_drawdown": "-4.9%",
-        "avg_days_to_peak": "22.8 天",
-        "state_statistics": {
-            "MID": {
-                "count": 53,
-                "win_rate": "47.2%",
-                "avg_max_profit": "20.0%",
-                "avg_max_drawdown": "-4.9%",
-                "avg_days_to_peak": "22.8 天"
-            }
-        },
-        "best_trade_profit": "129.5%",
-        "worst_trade_profit": "-4.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002597",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 67,
-        "win_rate": "38.8%",
-        "avg_max_profit": "11.9%",
-        "avg_max_drawdown": "-4.4%",
-        "avg_days_to_peak": "23.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 67,
-                "win_rate": "38.8%",
-                "avg_max_profit": "11.9%",
-                "avg_max_drawdown": "-4.4%",
-                "avg_days_to_peak": "23.9 天"
-            }
-        },
-        "best_trade_profit": "70.0%",
-        "worst_trade_profit": "-6.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002501",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 77,
-        "win_rate": "28.6%",
-        "avg_max_profit": "16.4%",
-        "avg_max_drawdown": "-6.9%",
-        "avg_days_to_peak": "17.6 天",
-        "state_statistics": {
-            "MID": {
-                "count": 77,
-                "win_rate": "28.6%",
-                "avg_max_profit": "16.4%",
-                "avg_max_drawdown": "-6.9%",
-                "avg_days_to_peak": "17.6 天"
-            }
-        },
-        "best_trade_profit": "92.0%",
-        "worst_trade_profit": "-4.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300849",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 68,
-        "win_rate": "50.0%",
-        "avg_max_profit": "14.4%",
-        "avg_max_drawdown": "-4.4%",
-        "avg_days_to_peak": "22.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 68,
-                "win_rate": "50.0%",
-                "avg_max_profit": "14.4%",
-                "avg_max_drawdown": "-4.4%",
-                "avg_days_to_peak": "22.2 天"
-            }
-        },
-        "best_trade_profit": "59.1%",
-        "worst_trade_profit": "-8.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz000980",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 61,
-        "win_rate": "39.3%",
-        "avg_max_profit": "33.7%",
-        "avg_max_drawdown": "-7.2%",
-        "avg_days_to_peak": "18.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 61,
-                "win_rate": "39.3%",
-                "avg_max_profit": "33.7%",
-                "avg_max_drawdown": "-7.2%",
-                "avg_days_to_peak": "18.5 天"
-            }
-        },
-        "best_trade_profit": "149.2%",
-        "worst_trade_profit": "-8.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002311",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 67,
-        "win_rate": "35.8%",
-        "avg_max_profit": "10.7%",
-        "avg_max_drawdown": "-5.7%",
-        "avg_days_to_peak": "19.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 67,
-                "win_rate": "35.8%",
-                "avg_max_profit": "10.7%",
-                "avg_max_drawdown": "-5.7%",
-                "avg_days_to_peak": "19.0 天"
-            }
-        },
-        "best_trade_profit": "44.9%",
-        "worst_trade_profit": "-6.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002109",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 72,
-        "win_rate": "31.9%",
-        "avg_max_profit": "17.2%",
-        "avg_max_drawdown": "-4.9%",
-        "avg_days_to_peak": "28.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 72,
-                "win_rate": "31.9%",
-                "avg_max_profit": "17.2%",
-                "avg_max_drawdown": "-4.9%",
-                "avg_days_to_peak": "28.0 天"
-            }
-        },
-        "best_trade_profit": "143.6%",
-        "worst_trade_profit": "-9.3%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300905",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 63,
-        "win_rate": "34.9%",
-        "avg_max_profit": "11.9%",
-        "avg_max_drawdown": "-7.9%",
-        "avg_days_to_peak": "20.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 63,
-                "win_rate": "34.9%",
-                "avg_max_profit": "11.9%",
-                "avg_max_drawdown": "-7.9%",
-                "avg_days_to_peak": "20.5 天"
-            }
-        },
-        "best_trade_profit": "66.9%",
-        "worst_trade_profit": "-11.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002574",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 71,
-        "win_rate": "50.7%",
-        "avg_max_profit": "15.1%",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 90,
+        "win_rate": "34.4%",
+        "avg_max_profit": "11.0%",
         "avg_max_drawdown": "-3.3%",
-        "avg_days_to_peak": "16.7 天",
-        "state_statistics": {
-            "MID": {
-                "count": 71,
-                "win_rate": "50.7%",
-                "avg_max_profit": "15.1%",
-                "avg_max_drawdown": "-3.3%",
-                "avg_days_to_peak": "16.7 天"
-            }
-        },
-        "best_trade_profit": "77.5%",
-        "worst_trade_profit": "-5.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "avg_days_to_peak": "20.5 天"
     },
     {
-        "stock_code": "sz002946",
+        "stock_code": "sz300694",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 66,
-        "win_rate": "27.3%",
-        "avg_max_profit": "11.5%",
-        "avg_max_drawdown": "-5.2%",
-        "avg_days_to_peak": "19.3 天",
-        "state_statistics": {
-            "MID": {
-                "count": 66,
-                "win_rate": "27.3%",
-                "avg_max_profit": "11.5%",
-                "avg_max_drawdown": "-5.2%",
-                "avg_days_to_peak": "19.3 天"
-            }
-        },
-        "best_trade_profit": "70.7%",
-        "worst_trade_profit": "-11.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 79,
+        "win_rate": "41.8%",
+        "avg_max_profit": "17.3%",
+        "avg_max_drawdown": "-6.2%",
+        "avg_days_to_peak": "25.2 天"
+    },
+    {
+        "stock_code": "sz002177",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 64,
+        "win_rate": "45.3%",
+        "avg_max_profit": "24.9%",
+        "avg_max_drawdown": "-4.3%",
+        "avg_days_to_peak": "19.3 天"
+    },
+    {
+        "stock_code": "sz000430",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 56,
+        "win_rate": "60.7%",
+        "avg_max_profit": "20.3%",
+        "avg_max_drawdown": "-2.1%",
+        "avg_days_to_peak": "21.1 天"
+    },
+    {
+        "stock_code": "sz002103",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 57,
+        "win_rate": "40.4%",
+        "avg_max_profit": "22.0%",
+        "avg_max_drawdown": "-5.9%",
+        "avg_days_to_peak": "19.3 天"
+    },
+    {
+        "stock_code": "sz000004",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 82,
+        "win_rate": "43.9%",
+        "avg_max_profit": "18.8%",
+        "avg_max_drawdown": "-7.8%",
+        "avg_days_to_peak": "20.9 天"
+    },
+    {
+        "stock_code": "sz002355",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 74,
+        "win_rate": "41.9%",
+        "avg_max_profit": "23.0%",
+        "avg_max_drawdown": "-6.6%",
+        "avg_days_to_peak": "24.9 天"
+    },
+    {
+        "stock_code": "sz002076",
+        "strategy": "PRE_CROSS",
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 72,
+        "win_rate": "33.3%",
+        "avg_max_profit": "25.1%",
+        "avg_max_drawdown": "-10.4%",
+        "avg_days_to_peak": "24.1 天"
     },
     {
         "stock_code": "sz002514",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 73,
-        "win_rate": "43.8%",
-        "avg_max_profit": "22.9%",
-        "avg_max_drawdown": "-7.5%",
-        "avg_days_to_peak": "19.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 73,
-                "win_rate": "43.8%",
-                "avg_max_profit": "22.9%",
-                "avg_max_drawdown": "-7.5%",
-                "avg_days_to_peak": "19.1 天"
-            }
-        },
-        "best_trade_profit": "99.4%",
-        "worst_trade_profit": "-16.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 75,
+        "win_rate": "42.7%",
+        "avg_max_profit": "22.3%",
+        "avg_max_drawdown": "-7.3%",
+        "avg_days_to_peak": "19.1 天"
     },
     {
-        "stock_code": "sz000659",
+        "stock_code": "sz000695",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 76,
-        "win_rate": "30.3%",
-        "avg_max_profit": "15.5%",
-        "avg_max_drawdown": "-7.7%",
-        "avg_days_to_peak": "14.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 76,
-                "win_rate": "30.3%",
-                "avg_max_profit": "15.5%",
-                "avg_max_drawdown": "-7.7%",
-                "avg_days_to_peak": "14.1 天"
-            }
-        },
-        "best_trade_profit": "54.7%",
-        "worst_trade_profit": "-6.8%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002171",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 66,
-        "win_rate": "40.9%",
-        "avg_max_profit": "14.7%",
-        "avg_max_drawdown": "-5.0%",
-        "avg_days_to_peak": "18.5 天",
-        "state_statistics": {
-            "MID": {
-                "count": 66,
-                "win_rate": "40.9%",
-                "avg_max_profit": "14.7%",
-                "avg_max_drawdown": "-5.0%",
-                "avg_days_to_peak": "18.5 天"
-            }
-        },
-        "best_trade_profit": "57.4%",
-        "worst_trade_profit": "-6.9%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300511",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 59,
-        "win_rate": "33.9%",
-        "avg_max_profit": "14.3%",
-        "avg_max_drawdown": "-7.6%",
-        "avg_days_to_peak": "25.0 天",
-        "state_statistics": {
-            "MID": {
-                "count": 59,
-                "win_rate": "33.9%",
-                "avg_max_profit": "14.3%",
-                "avg_max_drawdown": "-7.6%",
-                "avg_days_to_peak": "25.0 天"
-            }
-        },
-        "best_trade_profit": "92.1%",
-        "worst_trade_profit": "-8.1%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz003000",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 51,
-        "win_rate": "27.5%",
-        "avg_max_profit": "11.7%",
-        "avg_max_drawdown": "-6.9%",
-        "avg_days_to_peak": "22.6 天",
-        "state_statistics": {
-            "MID": {
-                "count": 51,
-                "win_rate": "27.5%",
-                "avg_max_profit": "11.7%",
-                "avg_max_drawdown": "-6.9%",
-                "avg_days_to_peak": "22.6 天"
-            }
-        },
-        "best_trade_profit": "48.6%",
-        "worst_trade_profit": "-2.2%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz300720",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 48,
-        "win_rate": "47.9%",
-        "avg_max_profit": "24.3%",
-        "avg_max_drawdown": "-4.8%",
-        "avg_days_to_peak": "23.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 48,
-                "win_rate": "47.9%",
-                "avg_max_profit": "24.3%",
-                "avg_max_drawdown": "-4.8%",
-                "avg_days_to_peak": "23.9 天"
-            }
-        },
-        "best_trade_profit": "115.6%",
-        "worst_trade_profit": "-1.3%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 57,
+        "win_rate": "42.1%",
+        "avg_max_profit": "25.7%",
+        "avg_max_drawdown": "-5.9%",
+        "avg_days_to_peak": "17.2 天"
     },
     {
         "stock_code": "sz002952",
         "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 76,
-        "win_rate": "43.4%",
-        "avg_max_profit": "17.8%",
-        "avg_max_drawdown": "-6.2%",
-        "avg_days_to_peak": "19.1 天",
-        "state_statistics": {
-            "MID": {
-                "count": 76,
-                "win_rate": "43.4%",
-                "avg_max_profit": "17.8%",
-                "avg_max_drawdown": "-6.2%",
-                "avg_days_to_peak": "19.1 天"
-            }
-        },
-        "best_trade_profit": "75.1%",
-        "worst_trade_profit": "-2.0%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002122",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 58,
-        "win_rate": "41.4%",
-        "avg_max_profit": "17.8%",
-        "avg_max_drawdown": "-5.7%",
-        "avg_days_to_peak": "24.9 天",
-        "state_statistics": {
-            "MID": {
-                "count": 58,
-                "win_rate": "41.4%",
-                "avg_max_profit": "17.8%",
-                "avg_max_drawdown": "-5.7%",
-                "avg_days_to_peak": "24.9 天"
-            }
-        },
-        "best_trade_profit": "78.1%",
-        "worst_trade_profit": "-9.5%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
-    },
-    {
-        "stock_code": "sz002726",
-        "strategy": "PRE_CROSS",
-        "date": "2025-07-21",
-        "scan_timestamp": "2025-07-22 17:41:17",
-        "total_signals": 75,
-        "win_rate": "34.7%",
-        "avg_max_profit": "13.4%",
-        "avg_max_drawdown": "-3.9%",
-        "avg_days_to_peak": "22.2 天",
-        "state_statistics": {
-            "MID": {
-                "count": 75,
-                "win_rate": "34.7%",
-                "avg_max_profit": "13.4%",
-                "avg_max_drawdown": "-3.9%",
-                "avg_days_to_peak": "22.2 天"
-            }
-        },
-        "best_trade_profit": "43.9%",
-        "worst_trade_profit": "-5.4%",
-        "avg_entry_strategy": "MID状态-当天低点买入"
+        "date": "2025-07-28",
+        "scan_timestamp": "2025-07-28 17:42:32",
+        "total_signals": 79,
+        "win_rate": "41.8%",
+        "avg_max_profit": "17.2%",
+        "avg_max_drawdown": "-6.0%",
+        "avg_days_to_peak": "19.1 天"
     }
 ]

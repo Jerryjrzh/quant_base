@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-28T17:44:37.372637",
+  "stock_code": "sz002631",
+  "current_price": 4.94,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 4.69,
+    "target_price_2": 4.57,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.05060728744939271,
+    "discount_2": 0.07489878542510123,
+    "stop_loss": {
+      "conservative": 4.79,
+      "moderate": 4.54,
+      "aggressive": 4.54,
+      "technical": 4.69
+    },
+    "take_profit": {
+      "conservative": 5.34,
+      "moderate": 5.43,
+      "aggressive": 5.93
+    }
+  }
+}

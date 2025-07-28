@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-28T17:40:57.657824",
+  "stock_code": "sz002012",
+  "current_price": 5.83,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 5.89,
+    "target_price_2": 5.86,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010291595197255508,
+    "discount_2": -0.00514579759862783,
+    "stop_loss": {
+      "conservative": 5.66,
+      "moderate": 5.36,
+      "aggressive": 5.36,
+      "technical": 5.53
+    },
+    "take_profit": {
+      "conservative": 6.3,
+      "moderate": 6.41,
+      "aggressive": 7.0
+    }
+  }
+}

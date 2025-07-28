@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-28T17:44:37.358717",
+  "stock_code": "sh600764",
+  "current_price": 35.63,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 33.85,
+    "target_price_2": 33.85,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04995790064552346,
+    "discount_2": 0.04995790064552346,
+    "stop_loss": {
+      "conservative": 34.56,
+      "moderate": 32.78,
+      "aggressive": 32.78,
+      "technical": 27.73
+    },
+    "take_profit": {
+      "conservative": 38.48,
+      "moderate": 39.19,
+      "aggressive": 42.76
+    }
+  }
+}

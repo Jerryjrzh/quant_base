@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603686",
-  "optimization_date": "2025-07-23T11:56:27.894789",
+  "optimization_date": "2025-07-28T17:44:05.928616",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4532221333814535,
+  "best_score": 0.4537096886305083,
   "optimization_target": "composite_score"
 }

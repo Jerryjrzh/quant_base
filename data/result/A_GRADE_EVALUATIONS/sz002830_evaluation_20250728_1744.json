@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-28T17:44:37.372798",
+  "stock_code": "sz002830",
+  "current_price": 15.85,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 15.06,
+    "target_price_2": 15.06,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04984227129337534,
+    "discount_2": 0.04984227129337534,
+    "stop_loss": {
+      "conservative": 15.37,
+      "moderate": 14.58,
+      "aggressive": 14.58,
+      "technical": 13.87
+    },
+    "take_profit": {
+      "conservative": 17.12,
+      "moderate": 17.44,
+      "aggressive": 19.02
+    }
+  }
+}

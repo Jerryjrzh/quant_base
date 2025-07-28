@@ -1,0 +1,31 @@
+{
+  "global_settings": {
+    "default_adjustment_type": "forward",
+    "cache_enabled": true,
+    "include_dividends": true,
+    "include_splits": true
+  },
+  "indicator_settings": {
+    "kdj": {
+      "adjustment_type": "forward",
+      "n_period": 27,
+      "k_period": 3,
+      "d_period": 3,
+      "smoothing_method": "ema"
+    },
+    "macd": {
+      "adjustment_type": "forward",
+      "fast_period": 12,
+      "slow_period": 26,
+      "signal_period": 9,
+      "price_type": "close"
+    },
+    "rsi": {
+      "adjustment_type": "forward",
+      "period": 14,
+      "price_type": "close",
+      "smoothing_method": "wilder"
+    }
+  },
+  "stock_specific": {}
+}

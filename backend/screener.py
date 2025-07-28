@@ -14,10 +14,10 @@ from win_rate_filter import WinRateFilter, AdvancedTripleCrossFilter
 # --- 配置 ---
 BASE_PATH = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
 MARKETS = ['sh', 'sz', 'bj']
-#STRATEGY_TO_RUN = 'MACD_ZERO_AXIS' 
+STRATEGY_TO_RUN = 'MACD_ZERO_AXIS' 
 #STRATEGY_TO_RUN = 'TRIPLE_CROSS' 
 #STRATEGY_TO_RUN = 'PRE_CROSS'
-STRATEGY_TO_RUN = 'WEEKLY_GOLDEN_CROSS_MA'
+#STRATEGY_TO_RUN = 'WEEKLY_GOLDEN_CROSS_MA'
 # --- 路径定义 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_PATH = os.path.abspath(os.path.join(backend_dir, '..', 'data', 'result'))

@@ -1,6 +1,6 @@
 {
   "stock_code": "sz001229",
-  "optimization_date": "2025-07-23T12:18:50.842259",
+  "optimization_date": "2025-07-28T17:44:04.419730",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.40801886385900915,
+  "best_score": 0.40799313387406577,
   "optimization_target": "composite_score"
 }

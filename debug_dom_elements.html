@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM元素调试</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .debug-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .element-check {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .found { background: #d4edda; color: #155724; }
+        .missing { background: #f8d7da; color: #721c24; }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-container">
+        <h1>DOM元素调试工具</h1>
+        <p>此页面用于检查前端页面中是否存在所有必需的DOM元素。</p>
+        
+        <button class="test-button" onclick="checkAllElements()">检查所有元素</button>
+        <button class="test-button" onclick="simulateError()">模拟错误</button>
+        
+        <div id="results"></div>
+        
+        <!-- 模拟一些必需的元素 -->
+        <div style="display: none;">
+            <div id="total-signals">--</div>
+            <div id="win-rate">--</div>
+            <div id="avg-max-profit">--</div>
+            <div id="avg-max-drawdown">--</div>
+            <div id="avg-days-to-peak">--</div>
+            <div id="state-stats-content"></div>
+            <div id="action-recommendation"></div>
+            <div id="analysis-logic"></div>
+            <div id="current-price">--</div>
+            <div id="entry-price">--</div>
+            <div id="target-price">--</div>
+            <div id="stop-price">--</div>
+            <div id="resistance-level">--</div>
+            <div id="support-level">--</div>
+        </div>
+    </div>
+
+    <script>
+        // 需要检查的所有元素ID
+        const requiredElements = [
+            'stock-select',
+            'strategy-select', 
+            'chart-container',
+            'refresh-btn',
+            'multi-timeframe-btn',
+            'deep-scan-btn',
+            'history-btn',
+            'backtest-results',
+            'trading-advice-panel',
+            'advice-refresh',
+            'deep-scan-section',
+            'core-pool-btn',
+            'core-pool-modal',
+            'core-pool-close',
+            'history-modal',
+            'history-close',
+            'multi-timeframe-modal',
+            'multi-timeframe-close',
+            'total-signals',
+            'win-rate',
+            'avg-max-profit',
+            'avg-max-drawdown',
+            'avg-days-to-peak',
+            'state-stats-content',
+            'action-recommendation',
+            'analysis-logic',
+            'current-price',
+            'entry-price',
+            'target-price',
+            'stop-price',
+            'resistance-level',
+            'support-level',
+            'core-pool-list',
+            'history-content',
+            'new-stock-code',
+            'new-stock-note',
+            'multi-timeframe-content'
+        ];
+
+        function checkAllElements() {
+            const results = document.getElementById('results');
+            let html = '<h3>元素检查结果:</h3>';
+            
+            let foundCount = 0;
+            let missingCount = 0;
+            
+            requiredElements.forEach(elementId => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    html += `<div class="element-check found">✅ ${elementId} - 找到</div>`;
+                    foundCount++;
+                } else {
+                    html += `<div class="element-check missing">❌ ${elementId} - 缺失</div>`;
+                    missingCount++;
+                }
+            });
+            
+            html += `<div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 4px;">`;
+            html += `<strong>统计结果:</strong><br>`;
+            html += `找到: ${foundCount} 个<br>`;
+            html += `缺失: ${missingCount} 个<br>`;
+            html += `总计: ${requiredElements.length} 个`;
+            html += `</div>`;
+            
+            results.innerHTML = html;
+        }
+        
+        function simulateError() {
+            // 模拟JavaScript错误
+            try {
+                // 尝试访问不存在的元素
+                const nonExistentElement = document.getElementById('non-existent-element');
+                nonExistentElement.textContent = 'This will cause an error';
+            } catch (error) {
+                console.error('模拟错误:', error);
+                alert(`捕获到错误: ${error.message}`);
+            }
+        }
+        
+        // 页面加载时自动检查
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM元素调试页面加载完成');
+            checkAllElements();
+        });
+        
+        // 模拟app.js中可能出现的错误
+        function simulateAppJsError() {
+            console.log('模拟app.js中的错误...');
+            
+            // 模拟updateBacktestResults函数
+            const backtest = {
+                total_signals: 45,
+                win_rate: '68.9%',
+                avg_max_profit: '5.2%',
+                avg_max_drawdown: '-2.1%',
+                avg_days_to_peak: '3.5天'
+            };
+            
+            try {
+                document.getElementById('total-signals').textContent = backtest.total_signals || 0;
+                document.getElementById('win-rate').textContent = backtest.win_rate || '0%';
+                document.getElementById('avg-max-profit').textContent = backtest.avg_max_profit || '0%';
+                document.getElementById('avg-max-drawdown').textContent = backtest.avg_max_drawdown || '0%';
+                document.getElementById('avg-days-to-peak').textContent = backtest.avg_days_to_peak || '0天';
+                
+                console.log('✅ 模拟更新回测结果成功');
+            } catch (error) {
+                console.error('❌ 模拟更新回测结果失败:', error);
+            }
+        }
+        
+        // 添加测试按钮
+        setTimeout(() => {
+            const button = document.createElement('button');
+            button.className = 'test-button';
+            button.textContent = '模拟app.js错误';
+            button.onclick = simulateAppJsError;
+            document.querySelector('.debug-container').appendChild(button);
+        }, 1000);
+    </script>
+</body>
+</html>

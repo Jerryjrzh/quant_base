@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002535",
-  "optimization_date": "2025-07-23T12:19:58.578321",
+  "optimization_date": "2025-07-28T17:40:42.189570",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.49908876519269957,
+  "best_score": 0.4991165010008066,
   "optimization_target": "composite_score"
 }

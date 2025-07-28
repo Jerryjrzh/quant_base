@@ -1,36 +1,95 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // --- 获取所有需要的DOM元素 ---
+    // --- DOM元素获取 ---
     const stockSelect = document.getElementById('stock-select');
     const strategySelect = document.getElementById('strategy-select');
+    const adjustmentSelect = document.getElementById('adjustment-select');
     const chartContainer = document.getElementById('chart-container');
     const myChart = echarts.init(chartContainer);
-
-    // 回测结果元素
-    const backtestContainer = document.getElementById('backtest-results');
-    const totalSignalsEl = document.getElementById('total-signals');
-    const winRateEl = document.getElementById('win-rate');
-    const avgMaxProfitEl = document.getElementById('avg-max-profit');
-    const avgMaxDrawdownEl = document.getElementById('avg-max-drawdown');
-    const avgDaysToPeakEl = document.getElementById('avg-days-to-peak');
-    const stateStatsContent = document.getElementById('state-stats-content');
-    
-    // 多周期分析相关元素
+    const refreshBtn = document.getElementById('refresh-btn');
     const multiTimeframeBtn = document.getElementById('multi-timeframe-btn');
+    const deepScanBtn = document.getElementById('deep-scan-btn');
+    const historyBtn = document.getElementById('history-btn');
+    const backtestContainer = document.getElementById('backtest-results');
+    
+    // 交易建议面板
+    const advicePanel = document.getElementById('trading-advice-panel');
+    const adviceRefreshBtn = document.getElementById('advice-refresh');
+    
+    // 深度扫描
+    const deepScanSection = document.getElementById('deep-scan-section');
+    
+    // 模态框
+    const corePoolBtn = document.getElementById('core-pool-btn');
+    const corePoolModal = document.getElementById('core-pool-modal');
+    const corePoolClose = document.getElementById('core-pool-close');
+    const historyModal = document.getElementById('history-modal');
+    const historyClose = document.getElementById('history-close');
     const multiTimeframeModal = document.getElementById('multi-timeframe-modal');
-    const multiCloseModal = document.getElementById('multi-close');
-    const timeframeSelect = document.getElementById('timeframe-select');
+    const multiTimeframeClose = document.getElementById('multi-timeframe-close');
+
+
+    // --- 事件监听 ---
+    strategySelect.addEventListener('change', () => {
+        populateStockList();
+        myChart.clear();
+        if (advicePanel) advicePanel.style.display = 'none';
+        if (backtestContainer) backtestContainer.style.display = 'none';
+    });
+    
+    stockSelect.addEventListener('change', loadChart);
+    
+    // 复权设置变化时重新加载图表
+    if (adjustmentSelect) adjustmentSelect.addEventListener('change', () => {
+        if (stockSelect.value) loadChart();
+    });
+    
+    if (refreshBtn) refreshBtn.addEventListener('click', () => {
+        populateStockList();
+        if (stockSelect.value) loadChart();
+    });
+    
+    if (adviceRefreshBtn) {
+        adviceRefreshBtn.addEventListener('click', () => {
+            const stockCode = stockSelect.value;
+            const strategy = strategySelect.value;
+            if (stockCode) {
+                loadTradingAdvice(stockCode, strategy);
+            }
+        });
+    }
+    
+    if (deepScanBtn) deepScanBtn.addEventListener('click', runDeepScan);
+    if (historyBtn) historyBtn.addEventListener('click', showHistoryModal);
+    if (multiTimeframeBtn) multiTimeframeBtn.addEventListener('click', showMultiTimeframeModal);
+    
+    // 模态框事件
+    if (corePoolBtn) corePoolBtn.addEventListener('click', showCorePoolModal);
+    if (corePoolClose) corePoolClose.addEventListener('click', hideCorePoolModal);
+    if (historyClose) historyClose.addEventListener('click', hideHistoryModal);
+    if (multiTimeframeClose) multiTimeframeClose.addEventListener('click', hideMultiTimeframeModal);
+    
+    // 点击模态框外部关闭
+    window.addEventListener('click', (event) => {
+        if (event.target === corePoolModal) hideCorePoolModal();
+        if (event.target === historyModal) hideHistoryModal();
+        if (event.target === multiTimeframeModal) hideMultiTimeframeModal();
+    });
+
+
+    // --- 主要功能函数 ---
 
     function populateStockList() {
         const strategy = strategySelect.value;
         fetch(`/api/signals_summary?strategy=${strategy}`)
             .then(response => {
-                if (!response.ok) throw new Error(`无法加载信号文件，请先运行 screener.py (策略: ${strategy})`);
+                if (!response.ok) throw new Error(`无法加载信号文件 (策略: ${strategy})`);
                 return response.json();
             })
             .then(data => {
                 stockSelect.innerHTML = '<option value="">请选择股票</option>';
-                if (data.length === 0) {
-                    stockSelect.innerHTML = `<option value="">策略 ${strategy} 今日无信号</option>`;
+                if (!data || data.length === 0) {
+                    stockSelect.innerHTML += `<option disabled>策略 ${strategy} 今日无信号</option>`;
+                    return;
                 }
                 data.forEach(signal => {
                     const option = document.createElement('option');
@@ -45,728 +104,565 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    stockSelect.addEventListener('change', loadChart);
-    strategySelect.addEventListener('change', () => {
-        populateStockList();
-        myChart.clear();
-        backtestContainer.style.display = 'none';
-    });
-
     function loadChart() {
         const stockCode = stockSelect.value;
         const strategy = strategySelect.value;
         if (!stockCode) return;
 
         myChart.showLoading();
-        backtestContainer.style.display = 'none';
+        
+        // **修复点**: 确保交易建议面板显示并加载数据
+        if (advicePanel) {
+            advicePanel.style.display = 'block';
+            loadTradingAdvice(stockCode, strategy);
+        }
 
-        fetch(`http://127.0.0.1:5000/api/analysis/${stockCode}?strategy=${strategy}`)
+        // 获取复权设置
+        const adjustmentType = adjustmentSelect ? adjustmentSelect.value : 'forward';
+        
+        fetch(`/api/analysis/${stockCode}?strategy=${strategy}&adjustment=${adjustmentType}`)
             .then(response => response.json())
             .then(chartData => {
                 myChart.hideLoading();
-
-                // 检查是否返回了错误信息
-                if (chartData.error) {
-                    throw new Error(chartData.error);
-                }
-
-                // 检查必要的数据是否存在
+                if (chartData.error) throw new Error(chartData.error);
                 if (!chartData.kline_data || !chartData.indicator_data) {
-                    throw new Error('数据格式不正确：缺少K线或指标数据');
+                    throw new Error('返回的数据格式不正确');
                 }
-
-                const backtest = chartData.backtest_results;
-                if (backtest && backtest.total_signals > 0) {
-                    // 更新基本统计信息
-                    totalSignalsEl.textContent = backtest.total_signals;
-                    winRateEl.textContent = backtest.win_rate;
-                    avgMaxProfitEl.textContent = backtest.avg_max_profit;
-                    avgMaxDrawdownEl.textContent = backtest.avg_max_drawdown || 'N/A';
-                    avgDaysToPeakEl.textContent = backtest.avg_days_to_peak;
-
-                    // 更新各状态统计信息
-                    if (backtest.state_statistics && stateStatsContent) {
-                        let stateStatsHtml = '<div class="state-stats-grid">';
-
-                        for (const [state, stats] of Object.entries(backtest.state_statistics)) {
-                            const stateColor = getStateColor(state);
-                            stateStatsHtml += `
-                                <div class="state-stat-item" style="border-left: 4px solid ${stateColor};">
-                                    <div class="state-name">${state} 状态</div>
-                                    <div class="state-details">
-                                        <span>数量: ${stats.count}</span>
-                                        <span>胜率: ${stats.win_rate}</span>
-                                        <span>收益: ${stats.avg_max_profit}</span>
-                                        <span>回撤: ${stats.avg_max_drawdown}</span>
-                                        <span>天数: ${stats.avg_days_to_peak}</span>
-                                    </div>
-                                </div>
-                            `;
-                        }
-
-                        stateStatsHtml += '</div>';
-                        stateStatsContent.innerHTML = stateStatsHtml;
-                    }
-
-                    backtestContainer.style.display = 'block';
-                }
-
-                // 辅助函数：获取状态对应的颜色
-                function getStateColor(state) {
-                    switch (state) {
-                        case 'PRE': return '#f5b041';
-                        case 'MID': return '#e74c3c';
-                        case 'POST': return '#3498db';
-                        default: return '#95a5a6';
-                    }
-                }
-
-                // --- ECharts 渲染逻辑 ---
-                const dates = chartData.kline_data.map(item => item.date);
-                const kline = chartData.kline_data.map(item => [item.open, item.close, item.low, item.high]);
-                const volumes = chartData.kline_data.map((item, idx) => [idx, item.volume, item.open > item.close ? -1 : 1]);
-                const macdBar = chartData.indicator_data.map(item => (item.dif && item.dea) ? item.dif - item.dea : null);
-
-                const markPoints = (chartData.signal_points || []).map(p => {
-                    let symbol, color, symbolSize = 12;
-
-                    // 安全检查 state 属性
-                    const state = p.state || '';
-                    const originalState = p.original_state || p.state || '';
-
-                    // 检查是否有成功/失败状态
-                    if (state.includes('_SUCCESS')) {
-                        symbol = 'circle';
-                        color = '#27ae60'; // 绿色表示成功
-                        symbolSize = 10;
-                    } else if (state.includes('_FAIL')) {
-                        // 使用简单的X符号代替复杂的SVG路径
-                        symbol = 'path://M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z';
-                        color = '#2c3e50'; // 黑色表示失败
-                        symbolSize = 14;
-                    } else {
-                        // 原有的状态逻辑
-                        switch (originalState) {
-                            case 'PRE':
-                                symbol = 'circle'; color = '#f5b041'; symbolSize = 8; break;
-                            case 'POST':
-                                symbol = 'circle'; color = '#3498db'; symbolSize = 8; break;
-                            case 'MID':
-                            default:
-                                symbol = 'arrow'; color = '#e74c3c'; symbolSize = 15; break;
-                        }
-                    }
-
-                    return {
-                        coord: [p.date, p.price * 0.98],
-                        symbol: symbol,
-                        symbolSize: symbolSize,
-                        itemStyle: { color: color }
-                    };
-                });
-
-                const option = {
-                    animation: false,
-                    title: { text: `${stockCode} - ${strategy} 策略复盘`, left: 'center' },
-                    axisPointer: { link: { xAxisIndex: 'all' }, label: { backgroundColor: '#777' } },
-                    tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
-                    grid: [
-                        { left: '10%', right: '8%', height: '50%' }, { left: '10%', right: '8%', top: '63%', height: '10%' },
-                        { left: '10%', right: '8%', top: '76%', height: '10%' }, { left: '10%', right: '8%', top: '89%', height: '10%' }
-                    ],
-                    xAxis: [
-                        { type: 'category', data: dates, scale: true, boundaryGap: false, axisLine: { onZero: false }, splitLine: { show: false }, axisLabel: { show: false } },
-                        { type: 'category', data: dates, scale: true, gridIndex: 1, boundaryGap: false, axisLine: { onZero: false }, axisTick: { show: false }, splitLine: { show: false }, axisLabel: { show: false } },
-                        { type: 'category', data: dates, scale: true, gridIndex: 2, boundaryGap: false, axisLine: { onZero: false }, axisTick: { show: false }, splitLine: { show: false }, axisLabel: { show: false } },
-                        { type: 'category', data: dates, scale: true, gridIndex: 3, boundaryGap: false, axisLine: { onZero: false }, axisTick: { show: false }, splitLine: { show: false }, axisLabel: { show: false } }
-                    ],
-                    yAxis: [
-                        { scale: true, splitArea: { show: true } }, { scale: true, gridIndex: 1, axisLabel: { show: false }, axisLine: { show: false }, axisTick: { show: false }, splitLine: { show: false } },
-                        { scale: true, gridIndex: 2, axisLabel: { show: false }, axisLine: { show: false }, axisTick: { show: false }, splitLine: { show: false } },
-                        { scale: true, gridIndex: 3, axisLabel: { show: false }, axisLine: { show: false }, axisTick: { show: false }, splitLine: { show: false } }
-                    ],
-                    dataZoom: [
-                        { type: 'inside', xAxisIndex: [0, 1, 2, 3], start: 80, end: 100 },
-                        { show: true, type: 'slider', xAxisIndex: [0, 1, 2, 3], top: '97%', start: 80, end: 100 }
-                    ],
-                    series: [
-                        { name: 'K线', type: 'candlestick', data: kline, itemStyle: { color: '#ec0000', color0: '#00da3c', borderColor: '#8A0000', borderColor0: '#008F28' }, markPoint: { data: markPoints } },
-                        { name: 'MA13', type: 'line', data: chartData.indicator_data.map(i => i.ma13), smooth: true, showSymbol: false, lineStyle: { opacity: 0.8, width: 1 } },
-                        { name: 'MA45', type: 'line', data: chartData.indicator_data.map(i => i.ma45), smooth: true, showSymbol: false, lineStyle: { opacity: 0.8, width: 1 } },
-                        { name: '成交量', type: 'bar', xAxisIndex: 1, yAxisIndex: 1, data: volumes, itemStyle: { color: ({ data }) => (data[2] === 1 ? '#ef232a' : '#14b143') } },
-                        { name: 'DIF', type: 'line', xAxisIndex: 2, yAxisIndex: 2, data: chartData.indicator_data.map(i => i.dif), smooth: true, showSymbol: false, lineStyle: { width: 1 } },
-                        { name: 'DEA', type: 'line', xAxisIndex: 2, yAxisIndex: 2, data: chartData.indicator_data.map(i => i.dea), smooth: true, showSymbol: false, lineStyle: { width: 1 } },
-                        { name: 'MACD', type: 'bar', xAxisIndex: 2, yAxisIndex: 2, data: macdBar, itemStyle: { color: ({ data }) => (data >= 0 ? 'red' : 'green') } },
-                        { name: 'K', type: 'line', xAxisIndex: 3, yAxisIndex: 3, data: chartData.indicator_data.map(i => i.k), smooth: true, showSymbol: false, lineStyle: { width: 1 } },
-                        { name: 'D', type: 'line', xAxisIndex: 3, yAxisIndex: 3, data: chartData.indicator_data.map(i => i.d), smooth: true, showSymbol: false, lineStyle: { width: 1 } },
-                        { name: 'J', type: 'line', xAxisIndex: 3, yAxisIndex: 3, data: chartData.indicator_data.map(i => i.j), smooth: true, showSymbol: false, lineStyle: { width: 1 } },
-                    ]
-                };
-                myChart.setOption(option, true);
+                
+                // 渲染回测和图表
+                renderBacktestResults(chartData.backtest_results);
+                renderEchart(chartData, stockCode, strategy);
             })
             .catch(error => {
                 myChart.hideLoading();
                 console.error('Error fetching chart data:', error);
-                chartContainer.innerHTML = '加载图表数据失败，请检查后端服务是否正常运行。';
+                myChart.clear();
+                // 在图表容器内显示错误，而不是替换它
+                myChart.setOption({
+                    title: {
+                        text: '加载图表数据失败',
+                        subtext: error.message,
+                        left: 'center',
+                        top: 'center'
+                    }
+                });
             });
     }
 
-    // 获取历史报告相关元素
-    const historyBtn = document.getElementById('history-btn');
-    const refreshBtn = document.getElementById('refresh-btn');
-    const historyModal = document.getElementById('history-modal');
-    const closeModal = document.querySelector('.close');
-    const historyTabs = document.querySelectorAll('.history-tab');
-    const historyContents = document.querySelectorAll('.history-content');
-    
-    // 深度扫描相关元素
-    const deepScanSection = document.getElementById('deep-scan-section');
-    const refreshDeepScanBtn = document.getElementById('refresh-deep-scan');
-    const stockGrid = document.getElementById('stock-grid');
-    const totalAnalyzedEl = document.getElementById('total-analyzed');
-    const aGradeCountEl = document.getElementById('a-grade-count');
-    const priceEvalCountEl = document.getElementById('price-eval-count');
-    const buyRecCountEl = document.getElementById('buy-rec-count');
-    
-    // 深度扫描功能
-    const deepScanBtn = document.getElementById('deep-scan-btn');
-    if (deepScanBtn) deepScanBtn.addEventListener('click', triggerDeepScan);
-    if (refreshDeepScanBtn) refreshDeepScanBtn.addEventListener('click', loadDeepScanResults);
-    
-    // 页面加载时检查是否有深度扫描结果
-    loadDeepScanResults();
-    
-    function loadDeepScanResults() {
-        fetch('/api/deep_scan_results')
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    console.log('深度扫描结果未找到:', data.error);
-                    deepScanSection.style.display = 'none';
-                    return;
-                }
-                
-                displayDeepScanResults(data);
-                deepScanSection.style.display = 'block';
-            })
-            .catch(error => {
-                console.error('Error loading deep scan results:', error);
-                deepScanSection.style.display = 'none';
-            });
-    }
-    
-    function displayDeepScanResults(data) {
-        // 更新统计数据
-        if (totalAnalyzedEl) totalAnalyzedEl.textContent = data.summary.total_analyzed;
-        if (aGradeCountEl) aGradeCountEl.textContent = data.summary.a_grade_count;
-        if (priceEvalCountEl) priceEvalCountEl.textContent = data.summary.price_evaluated_count;
-        if (buyRecCountEl) buyRecCountEl.textContent = data.summary.buy_recommendations;
+    function renderEchart(chartData, stockCode, strategy) {
+        const dates = chartData.kline_data.map(item => item.date);
+        const klineData = chartData.kline_data.map(item => [item.open, item.close, item.low, item.high]);
+        const volumeData = chartData.kline_data.map(item => item.volume);
         
-        // 显示股票卡片
-        displayStockCards(data.results);
-    }
-    
-    function displayStockCards(stocks) {
-        if (!stockGrid) return;
+        // 技术指标数据
+        const ma13Data = chartData.indicator_data.map(item => item.ma13);
+        const ma45Data = chartData.indicator_data.map(item => item.ma45);
+        const difData = chartData.indicator_data.map(item => item.dif);
+        const deaData = chartData.indicator_data.map(item => item.dea);
+        const macdData = chartData.indicator_data.map(item => item.macd);
+        const kData = chartData.indicator_data.map(item => item.k);
+        const dData = chartData.indicator_data.map(item => item.d);
+        const jData = chartData.indicator_data.map(item => item.j);
+        const rsi6Data = chartData.indicator_data.map(item => item.rsi6);
+        const rsi12Data = chartData.indicator_data.map(item => item.rsi12);
+        const rsi24Data = chartData.indicator_data.map(item => item.rsi24);
         
-        if (!stocks || stocks.length === 0) {
-            stockGrid.innerHTML = '<p>暂无深度扫描结果</p>';
-            return;
-        }
+        // 信号点数据
+        const signalData = chartData.signal_points || [];
         
-        let html = '';
+        // 计算合理的数据显示范围
+        const totalDataPoints = dates.length;
+        const defaultShowCount = Math.min(60, totalDataPoints); // 默认显示最近60个交易日
+        const startPercent = Math.max(0, ((totalDataPoints - defaultShowCount) / totalDataPoints) * 100);
         
-        stocks.forEach(stock => {
-            const gradeClass = `grade-${stock.grade.toLowerCase()}`;
-            const cardClass = `stock-card ${gradeClass}`;
-            
-            // 价格变化颜色
-            const priceChangeColor = stock.price_change_30d >= 0 ? '#28a745' : '#dc3545';
-            const priceChangeSign = stock.price_change_30d >= 0 ? '+' : '';
-            
-            // 操作按钮样式
-            const actionClass = stock.action.toLowerCase();
-            
-            html += `
-                <div class="${cardClass}">
-                    <div class="stock-header">
-                        <span class="stock-code">${stock.stock_code}</span>
-                        <span class="stock-grade ${gradeClass}">${stock.grade}级</span>
-                    </div>
-                    
-                    <div class="stock-info">
-                        <div class="info-item">
-                            <span class="info-label">评分:</span>
-                            <span class="info-value">${stock.score.toFixed(1)}</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">当前价格:</span>
-                            <span class="info-value">¥${stock.current_price.toFixed(2)}</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">30天涨跌:</span>
-                            <span class="info-value" style="color: ${priceChangeColor};">
-                                ${priceChangeSign}${(stock.price_change_30d * 100).toFixed(1)}%
-                            </span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">波动率:</span>
-                            <span class="info-value">${(stock.volatility * 100).toFixed(1)}%</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">信号数:</span>
-                            <span class="info-value">${stock.signal_count}</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">信心度:</span>
-                            <span class="info-value">${(stock.confidence * 100).toFixed(0)}%</span>
-                        </div>
-                    </div>
-                    
-                    ${stock.has_price_evaluation ? generatePriceEvaluationHtml(stock.price_evaluation) : ''}
-                    
-                    <button class="action-button ${actionClass}" onclick="viewStockDetail('${stock.stock_code}')">
-                        ${getActionText(stock.action)}
-                    </button>
-                </div>
-            `;
-        });
+        // 计算各指标的动态范围
+        // RSI指标范围计算
+        const allRsiValues = [...rsi6Data, ...rsi12Data, ...rsi24Data].filter(val => val !== null && val !== undefined);
+        const rsiMin = allRsiValues.length > 0 ? Math.max(0, Math.min(...allRsiValues) - 5) : 0;
+        const rsiMax = allRsiValues.length > 0 ? Math.min(100, Math.max(...allRsiValues) + 5) : 100;
         
-        stockGrid.innerHTML = html;
-    }
-    
-    function generatePriceEvaluationHtml(priceEval) {
-        if (!priceEval || priceEval.error) {
-            return '';
-        }
+        // KDJ指标范围计算
+        const allKdjValues = [...kData, ...dData, ...jData].filter(val => val !== null && val !== undefined);
+        const kdjMin = allKdjValues.length > 0 ? Math.max(0, Math.min(...allKdjValues) - 5) : 0;
+        const kdjMax = allKdjValues.length > 0 ? Math.min(100, Math.max(...allKdjValues) + 5) : 100;
         
-        const details = priceEval.evaluation_details || {};
-        
-        let html = `
-            <div class="price-evaluation">
-                <div class="price-evaluation-header">
-                    💰 价格评估
-                </div>
-        `;
-        
-        if (details.entry_strategy) {
-            html += `
-                <div class="info-item">
-                    <span class="info-label">入场策略:</span>
-                    <span class="info-value">${details.entry_strategy}</span>
-                </div>
-            `;
-        }
-        
-        if (details.target_price_1) {
-            html += `
-                <div class="info-item">
-                    <span class="info-label">目标价1:</span>
-                    <span class="info-value">¥${details.target_price_1.toFixed(2)}</span>
-                </div>
-            `;
-        }
-        
-        if (details.target_price_2) {
-            html += `
-                <div class="info-item">
-                    <span class="info-label">目标价2:</span>
-                    <span class="info-value">¥${details.target_price_2.toFixed(2)}</span>
-                </div>
-            `;
-        }
-        
-        if (details.stop_loss && details.stop_loss.moderate) {
-            html += `
-                <div class="info-item">
-                    <span class="info-label">建议止损:</span>
-                    <span class="info-value">¥${details.stop_loss.moderate.toFixed(2)}</span>
-                </div>
-            `;
-        }
-        
-        html += '</div>';
-        return html;
-    }
-    
-    function getActionText(action) {
-        const actionTexts = {
-            'BUY': '🟢 买入',
-            'HOLD': '🟡 持有',
-            'WATCH': '🟠 观察',
-            'AVOID': '🔴 回避'
-        };
-        return actionTexts[action] || action;
-    }
-    
-    function triggerDeepScan() {
-        const strategy = strategySelect.value;
-        
-        if (!strategy) {
-            alert('请先选择一个策略');
-            return;
-        }
-        
-        // 显示加载状态
-        if (deepScanBtn) {
-            deepScanBtn.textContent = '🔄 深度扫描中...';
-            deepScanBtn.disabled = true;
-        }
-        
-        // 触发深度扫描
-        fetch(`/api/run_deep_scan?strategy=${strategy}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert(`深度扫描完成！\n分析了 ${data.summary.total_requested} 只股票\n成功分析 ${data.summary.total_analyzed} 只\nA级股票 ${data.summary.a_grade_count} 只\n价格评估 ${data.summary.price_evaluated_count} 只\n买入推荐 ${data.summary.buy_recommendations} 只`);
-                
-                // 重新加载深度扫描结果
-                loadDeepScanResults();
-            } else {
-                alert(`深度扫描失败: ${data.error}`);
-            }
-        })
-        .catch(error => {
-            console.error('Error triggering deep scan:', error);
-            alert(`深度扫描失败: ${error.message}`);
-        })
-        .finally(() => {
-            // 恢复按钮状态
-            if (deepScanBtn) {
-                deepScanBtn.textContent = '🔍 深度扫描';
-                deepScanBtn.disabled = false;
-            }
-        });
-    }
-    
-    function viewStockDetail(stockCode) {
-        // 切换到该股票的详细分析
-        if (stockSelect) {
-            // 检查股票是否在选择列表中
-            const options = stockSelect.querySelectorAll('option');
-            let found = false;
-            
-            for (let option of options) {
-                if (option.value === stockCode) {
-                    stockSelect.value = stockCode;
-                    found = true;
-                    break;
-                }
-            }
-            
-            if (found) {
-                loadChart();
-                // 滚动到图表区域
-                chartContainer.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                alert(`股票 ${stockCode} 不在当前策略的信号列表中，无法查看详细图表`);
-            }
-        }
-    }
-    
-    // 历史报告功能
-    if (historyBtn) historyBtn.addEventListener('click', showHistoryModal);
-    if (refreshBtn) refreshBtn.addEventListener('click', refreshData);
-    if (closeModal) closeModal.addEventListener('click', hideHistoryModal);
-    
-    // 多周期分析功能
-    if (multiTimeframeBtn) multiTimeframeBtn.addEventListener('click', showMultiTimeframeModal);
-    if (multiCloseModal) multiCloseModal.addEventListener('click', hideMultiTimeframeModal);
-    if (timeframeSelect) timeframeSelect.addEventListener('change', loadTimeframeChart);
-    
-    // 多周期分析相关函数
-    function showMultiTimeframeModal() {
-        if (multiTimeframeModal) {
-            multiTimeframeModal.style.display = 'block';
-            loadMultiTimeframeAnalysis();
-        }
-    }
-    
-    function hideMultiTimeframeModal() {
-        if (multiTimeframeModal) {
-            multiTimeframeModal.style.display = 'none';
-        }
-    }
-    
-    function loadMultiTimeframeAnalysis() {
-        const stockCode = stockSelect.value;
-        const strategy = strategySelect.value;
-        
-        if (!stockCode) {
-            alert('请先选择一个股票');
-            return;
-        }
-        
-        // 加载多周期共振分析
-        fetch(`/api/multi_timeframe/${stockCode}?strategy=${strategy}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    displayConsensusAnalysis(data.consensus_analysis);
-                    displayTimeframeSummary(data.timeframe_summary);
-                } else {
-                    console.error('Multi-timeframe analysis failed:', data.error);
-                    document.getElementById('consensus-summary').innerHTML = 
-                        `<p>多周期分析失败: ${data.error}</p>`;
-                }
-            })
-            .catch(error => {
-                console.error('Error loading multi-timeframe analysis:', error);
-                document.getElementById('consensus-summary').innerHTML = 
-                    '<p>加载多周期分析失败，请检查后端服务。</p>';
-            });
-    }
-    
-    function displayConsensusAnalysis(consensus) {
-        const consensusContainer = document.getElementById('consensus-summary');
-        
-        if (!consensus) {
-            consensusContainer.innerHTML = '<p>暂无共振分析数据</p>';
-            return;
-        }
-        
-        const levelColors = {
-            'STRONG': '#27ae60',
-            'MODERATE': '#f39c12', 
-            'WEAK': '#e67e22',
-            'NONE': '#95a5a6'
-        };
-        
-        const levelColor = levelColors[consensus.consensus_level] || '#95a5a6';
-        
-        let html = `
-            <div class="consensus-overview">
-                <div class="consensus-score">
-                    <h5>共振得分</h5>
-                    <div class="score-circle" style="border-color: ${levelColor};">
-                        <span class="score-value">${(consensus.consensus_score * 100).toFixed(0)}%</span>
-                    </div>
-                </div>
-                <div class="consensus-details">
-                    <div class="consensus-item">
-                        <span class="label">共振级别:</span>
-                        <span class="value" style="color: ${levelColor};">${consensus.consensus_level}</span>
-                    </div>
-                    <div class="consensus-item">
-                        <span class="label">操作建议:</span>
-                        <span class="value recommendation-${consensus.recommendation.toLowerCase()}">${consensus.recommendation}</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeframe-signals">
-                <h5>各周期信号状态</h5>
-                <div class="signals-grid">
-        `;
-        
-        for (const [timeframe, signal] of Object.entries(consensus.timeframe_signals)) {
-            const strengthPercent = (signal.signal_strength * 100).toFixed(0);
-            const weightPercent = (signal.weight * 100).toFixed(0);
-            
-            html += `
-                <div class="signal-item">
-                    <div class="timeframe-name">${getTimeframeName(timeframe)}</div>
-                    <div class="signal-state">${signal.signal_state}</div>
-                    <div class="signal-strength">
-                        <div class="strength-bar">
-                            <div class="strength-fill" style="width: ${strengthPercent}%; background-color: ${levelColor};"></div>
-                        </div>
-                        <span class="strength-text">${strengthPercent}% (权重: ${weightPercent}%)</span>
-                    </div>
-                </div>
-            `;
-        }
-        
-        html += '</div></div>';
-        consensusContainer.innerHTML = html;
-    }
-    
-    function displayTimeframeSummary(summary) {
-        const detailsContainer = document.getElementById('details-table');
-        
-        if (!summary || !summary.timeframe_details) {
-            detailsContainer.innerHTML = '<p>暂无周期详情数据</p>';
-            return;
-        }
-        
-        let html = '<table class="history-table">';
-        html += '<thead><tr><th>周期</th><th>最新价格</th><th>MA趋势</th><th>MACD趋势</th><th>RSI值</th><th>RSI状态</th><th>成交量比</th></tr></thead>';
-        html += '<tbody>';
-        
-        for (const [timeframe, details] of Object.entries(summary.timeframe_details)) {
-            const trendColor = details.ma_trend === 'UP' ? '#27ae60' : '#e74c3c';
-            const macdColor = details.macd_trend === 'UP' ? '#27ae60' : '#e74c3c';
-            const rsiColor = details.rsi_status === 'OVERBOUGHT' ? '#e74c3c' : 
-                             details.rsi_status === 'OVERSOLD' ? '#27ae60' : '#95a5a6';
-            
-            html += `
-                <tr>
-                    <td><strong>${getTimeframeName(timeframe)}</strong></td>
-                    <td>${details.latest_price.toFixed(2)}</td>
-                    <td><span style="color: ${trendColor};">${details.ma_trend}</span></td>
-                    <td><span style="color: ${macdColor};">${details.macd_trend}</span></td>
-                    <td>${details.rsi_value.toFixed(1)}</td>
-                    <td><span style="color: ${rsiColor};">${details.rsi_status}</span></td>
-                    <td>${details.volume_ratio.toFixed(2)}x</td>
-                </tr>
-            `;
-        }
-        
-        html += '</tbody></table>';
-        detailsContainer.innerHTML = html;
-    }
-    
-    function loadTimeframeChart() {
-        const stockCode = stockSelect.value;
-        const timeframe = timeframeSelect.value;
-        
-        if (!stockCode || !timeframe) return;
-        
-        fetch(`/api/timeframe_data/${stockCode}?timeframe=${timeframe}&limit=200`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-                displayTimeframeChart(data, timeframe);
-            })
-            .catch(error => {
-                console.error('Error loading timeframe chart:', error);
-                document.getElementById('timeframe-chart').innerHTML = 
-                    `<p>加载${timeframe}周期图表失败: ${error.message}</p>`;
-            });
-    }
-    
-    function displayTimeframeChart(data, timeframe) {
-        const chartContainer = document.getElementById('timeframe-chart');
-        chartContainer.innerHTML = '<div id="timeframe-echarts" style="width: 100%; height: 400px;"></div>';
-        
-        const timeframeChart = echarts.init(document.getElementById('timeframe-echarts'));
-        
-        const dates = data.data.map(item => {
-            return item.datetime || item.date;
-        });
-        const kline = data.data.map(item => [item.open, item.close, item.low, item.high]);
-        const volumes = data.data.map((item, idx) => [idx, item.volume, item.open > item.close ? -1 : 1]);
-        
+        // MACD指标范围计算
+        const allMacdValues = [...difData, ...deaData, ...macdData].filter(val => val !== null && val !== undefined);
+        const macdMin = allMacdValues.length > 0 ? Math.min(...allMacdValues) * 1.2 : -1;
+        const macdMax = allMacdValues.length > 0 ? Math.max(...allMacdValues) * 1.2 : 1;
+
         const option = {
-            title: { text: `${data.stock_code} - ${getTimeframeName(timeframe)}周期`, left: 'center' },
-            tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
+            title: {
+                text: `${stockCode} - ${strategy}策略分析`,
+                left: 'center',
+                textStyle: { fontSize: 16 }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { type: 'cross' },
+                backgroundColor: 'rgba(50, 50, 50, 0.9)',
+                textStyle: { color: '#fff' }
+            },
+            legend: {
+                data: ['K线', 'MA13', 'MA45', 'DIF', 'DEA', 'MACD', 'K', 'D', 'J', 'RSI6', 'RSI12', 'RSI24'],
+                top: 30,
+                textStyle: { fontSize: 12 }
+            },
             grid: [
-                { left: '10%', right: '8%', height: '60%' },
-                { left: '10%', right: '8%', top: '75%', height: '15%' }
+                { left: '8%', right: '5%', top: '8%', height: '35%' },      // K线和MA
+                { left: '8%', right: '5%', top: '46%', height: '15%' },     // RSI指标
+                { left: '8%', right: '5%', top: '64%', height: '15%' },     // KDJ指标
+                { left: '8%', right: '5%', top: '82%', height: '15%' }      // MACD指标
             ],
             xAxis: [
-                { type: 'category', data: dates, scale: true, boundaryGap: false },
-                { type: 'category', data: dates, scale: true, gridIndex: 1, boundaryGap: false }
+                { 
+                    type: 'category', 
+                    data: dates, 
+                    gridIndex: 0,
+                    axisLabel: { show: false }
+                },
+                { 
+                    type: 'category', 
+                    data: dates, 
+                    gridIndex: 1,
+                    axisLabel: { show: false }
+                },
+                { 
+                    type: 'category', 
+                    data: dates, 
+                    gridIndex: 2,
+                    axisLabel: { show: false }
+                },
+                { 
+                    type: 'category', 
+                    data: dates, 
+                    gridIndex: 3,
+                    axisLabel: { fontSize: 10 }
+                }
             ],
             yAxis: [
-                { scale: true },
-                { scale: true, gridIndex: 1 }
+                { 
+                    gridIndex: 0,
+                    scale: true,
+                    axisLabel: { fontSize: 10 }
+                },
+                { 
+                    gridIndex: 1, 
+                    max: rsiMax, 
+                    min: rsiMin,
+                    axisLabel: { fontSize: 10 },
+                    splitLine: { show: true, lineStyle: { color: '#f0f0f0' } }
+                },
+                { 
+                    gridIndex: 2, 
+                    max: kdjMax, 
+                    min: kdjMin,
+                    axisLabel: { fontSize: 10 },
+                    splitLine: { show: true, lineStyle: { color: '#f0f0f0' } }
+                },
+                { 
+                    gridIndex: 3,
+                    scale: true,
+                    min: macdMin,
+                    max: macdMax,
+                    axisLabel: { fontSize: 10 },
+                    splitLine: { show: true, lineStyle: { color: '#f0f0f0' } }
+                }
             ],
             dataZoom: [
-                { type: 'inside', xAxisIndex: [0, 1], start: 70, end: 100 },
-                { show: true, type: 'slider', xAxisIndex: [0, 1], top: '92%', start: 70, end: 100 }
+                { 
+                    type: 'inside', 
+                    xAxisIndex: [0, 1, 2, 3],
+                    start: startPercent,
+                    end: 100
+                },
+                { 
+                    show: true, 
+                    xAxisIndex: [0, 1, 2, 3], 
+                    type: 'slider', 
+                    bottom: '0%',
+                    height: 20,
+                    start: startPercent,
+                    end: 100,
+                    handleStyle: { color: '#007bff' },
+                    textStyle: { fontSize: 10 }
+                }
             ],
             series: [
                 {
                     name: 'K线',
                     type: 'candlestick',
-                    data: kline,
-                    itemStyle: {
-                        color: '#ec0000',
-                        color0: '#00da3c',
-                        borderColor: '#8A0000',
-                        borderColor0: '#008F28'
-                    }
+                    data: klineData,
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
                 },
                 {
-                    name: '成交量',
-                    type: 'bar',
+                    name: 'MA13',
+                    type: 'line',
+                    data: ma13Data,
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 1 },
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
+                },
+                {
+                    name: 'MA45',
+                    type: 'line',
+                    data: ma45Data,
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 1 },
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
+                },
+                {
+                    name: 'RSI6',
+                    type: 'line',
+                    data: rsi6Data,
+                    smooth: true,
+                    symbol: 'none',
                     xAxisIndex: 1,
                     yAxisIndex: 1,
-                    data: volumes,
+                    lineStyle: { color: '#ff6b6b' }
+                },
+                {
+                    name: 'RSI12',
+                    type: 'line',
+                    data: rsi12Data,
+                    smooth: true,
+                    symbol: 'none',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    lineStyle: { color: '#4ecdc4' }
+                },
+                {
+                    name: 'RSI24',
+                    type: 'line',
+                    data: rsi24Data,
+                    smooth: true,
+                    symbol: 'none',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    lineStyle: { color: '#45b7d1' }
+                },
+                {
+                    name: 'K',
+                    type: 'line',
+                    data: kData,
+                    smooth: true,
+                    symbol: 'none',
+                    xAxisIndex: 2,
+                    yAxisIndex: 2,
+                    lineStyle: { color: '#f39c12' }
+                },
+                {
+                    name: 'D',
+                    type: 'line',
+                    data: dData,
+                    smooth: true,
+                    symbol: 'none',
+                    xAxisIndex: 2,
+                    yAxisIndex: 2,
+                    lineStyle: { color: '#e74c3c' }
+                },
+                {
+                    name: 'J',
+                    type: 'line',
+                    data: jData,
+                    smooth: true,
+                    symbol: 'none',
+                    xAxisIndex: 2,
+                    yAxisIndex: 2,
+                    lineStyle: { color: '#9b59b6' }
+                },
+                {
+                    name: 'DIF',
+                    type: 'line',
+                    data: difData,
+                    smooth: true,
+                    symbol: 'none',
+                    xAxisIndex: 3,
+                    yAxisIndex: 3,
+                    lineStyle: { color: '#2ecc71' }
+                },
+                {
+                    name: 'DEA',
+                    type: 'line',
+                    data: deaData,
+                    smooth: true,
+                    symbol: 'none',
+                    xAxisIndex: 3,
+                    yAxisIndex: 3,
+                    lineStyle: { color: '#e67e22' }
+                },
+                {
+                    name: 'MACD',
+                    type: 'bar',
+                    data: macdData,
+                    xAxisIndex: 3,
+                    yAxisIndex: 3,
                     itemStyle: {
-                        color: ({ data }) => (data[2] === 1 ? '#ef232a' : '#14b143')
-                    }
+                        color: function(params) {
+                            return params.value >= 0 ? '#ff6b6b' : '#4ecdc4';
+                        }
+                    },
+                    barWidth: '60%'
                 }
             ]
         };
         
-        timeframeChart.setOption(option);
+        // 添加信号点
+        if (signalData.length > 0) {
+            const signalSeries = {
+                name: '交易信号',
+                type: 'scatter',
+                data: signalData.map(signal => {
+                    const dateIndex = dates.indexOf(signal.date);
+                    return [dateIndex, signal.price];
+                }),
+                symbol: 'triangle',
+                symbolSize: 10,
+                itemStyle: {
+                    color: function(params) {
+                        const signal = signalData[params.dataIndex];
+                        if (signal.state.includes('SUCCESS')) return '#00ff00';
+                        if (signal.state.includes('FAIL')) return '#ff0000';
+                        return '#ffff00';
+                    }
+                },
+                xAxisIndex: 0,
+                yAxisIndex: 0
+            };
+            option.series.push(signalSeries);
+        }
+        
+        myChart.setOption(option, true);
     }
     
-    function getTimeframeName(timeframe) {
-        const names = {
-            'daily': '日线',
-            '60min': '60分钟',
-            '30min': '30分钟', 
-            '15min': '15分钟',
-            '5min': '5分钟'
-        };
-        return names[timeframe] || timeframe;
+    function renderBacktestResults(backtest) {
+        if (!backtest || !backtestContainer) return;
+        
+        backtestContainer.style.display = 'block';
+        
+        // 更新基本统计 - 后端已返回格式化字符串，直接使用
+        const totalSignalsEl = document.getElementById('total-signals');
+        const winRateEl = document.getElementById('win-rate');
+        const avgMaxProfitEl = document.getElementById('avg-max-profit');
+        const avgMaxDrawdownEl = document.getElementById('avg-max-drawdown');
+        const avgDaysToPeakEl = document.getElementById('avg-days-to-peak');
+        
+        if (totalSignalsEl) totalSignalsEl.textContent = backtest.total_signals || 0;
+        if (winRateEl) winRateEl.textContent = backtest.win_rate || '0%';
+        if (avgMaxProfitEl) avgMaxProfitEl.textContent = backtest.avg_max_profit || '0%';
+        if (avgMaxDrawdownEl) avgMaxDrawdownEl.textContent = backtest.avg_max_drawdown || '0%';
+        if (avgDaysToPeakEl) avgDaysToPeakEl.textContent = backtest.avg_days_to_peak || '0天';
+        
+        // 更新状态统计 - 后端已返回格式化字符串，直接使用
+        if (backtest.state_statistics) {
+            const statsContent = document.getElementById('state-stats-content');
+            if (statsContent) {
+                let html = '<div class="stats-grid">';
+                for (const [state, stats] of Object.entries(backtest.state_statistics)) {
+                    html += `
+                        <div class="stat-item">
+                            <h5>${state}</h5>
+                            <p>数量: ${stats.count}</p>
+                            <p>胜率: ${stats.win_rate}</p>
+                            <p>平均收益: ${stats.avg_max_profit}</p>
+                            <p>平均回撤: ${stats.avg_max_drawdown}</p>
+                            <p>平均天数: ${stats.avg_days_to_peak}</p>
+                        </div>
+                    `;
+                }
+                html += '</div>';
+                statsContent.innerHTML = html;
+            }
+        }
     }
 
-    // 模态窗口外部点击关闭
-    window.addEventListener('click', (event) => {
-        if (event.target === historyModal) {
-            hideHistoryModal();
+
+    // --- 交易建议功能 (统一版本) ---
+    function loadTradingAdvice(stockCode, strategy) {
+        // **修复点**: 这是数据加载的核心逻辑
+        updateAdvicePanel({ action: 'LOADING' }); // 进入加载状态
+        
+        // 获取复权设置
+        const adjustmentType = adjustmentSelect ? adjustmentSelect.value : 'forward';
+        
+        fetch(`/api/trading_advice/${stockCode}?strategy=${strategy}&adjustment=${adjustmentType}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) throw new Error(data.error);
+                updateAdvicePanel(data);
+            })
+            .catch(error => {
+                console.error('Error loading trading advice:', error);
+                updateAdvicePanel({ action: 'ERROR', logic: [error.message] });
+            });
+    }
+
+    function updateAdvicePanel(advice) {
+        // **修复点**: 这是统一的UI更新函数
+        const actionEl = document.getElementById('action-recommendation');
+        const logicEl = document.getElementById('analysis-logic');
+
+        // 更新操作建议
+        if (actionEl) {
+            const actionClass = (advice.action || 'loading').toLowerCase();
+            actionEl.className = `action-recommendation ${actionClass}`;
+            let actionText = '...';
+            let confidenceText = '';
+
+            switch (advice.action) {
+                case 'BUY': actionText = '🟢 建议买入'; break;
+                case 'HOLD': actionText = '🟡 建议持有'; break;
+                case 'WATCH': actionText = '🟠 继续观察'; break;
+                case 'AVOID': actionText = '🔴 建议回避'; break;
+                case 'LOADING': actionText = '🔄 分析中...'; break;
+                case 'ERROR': actionText = '❌ 分析失败'; break;
+                default: actionText = '❓ 未知状态';
+            }
+            if (advice.confidence) {
+                confidenceText = `置信度: ${(advice.confidence * 100).toFixed(0)}%`;
+            }
+            actionEl.innerHTML = `<div class="action-text">${actionText}</div><div class="confidence-text">${confidenceText}</div>`;
         }
-    });
+        
+        // 更新价格信息
+        const prices = {
+            'entry-price': advice.entry_price, 'target-price': advice.target_price,
+            'stop-price': advice.stop_price, 'current-price': advice.current_price,
+            'resistance-level': advice.resistance_level, 'support-level': advice.support_level
+        };
+        for (const [id, value] of Object.entries(prices)) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.textContent = typeof value === 'number' ? `¥${value.toFixed(2)}` : '--';
+            } else {
+                console.warn(`Element with id '${id}' not found`);
+            }
+        }
 
-    // 标签页切换
-    historyTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const targetTab = tab.dataset.tab;
-            switchHistoryTab(targetTab);
+        // 更新分析逻辑
+        if (logicEl && advice.analysis_logic) {
+            logicEl.innerHTML = advice.analysis_logic.map(logic => `
+                <div class="logic-item">
+                    <span class="logic-icon">•</span>
+                    <span>${logic}</span>
+                </div>
+            `).join('');
+        }
+    }
+
+
+    // --- 核心池管理功能 (统一版本) ---
+    function showCorePoolModal() {
+        if (corePoolModal) {
+            corePoolModal.style.display = 'block';
+            loadCorePoolData();
+        }
+    }
+
+    function hideCorePoolModal() {
+        if (corePoolModal) {
+            corePoolModal.style.display = 'none';
+        }
+    }
+
+    function loadCorePoolData() {
+        fetch('/api/core_pool')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    displayCorePoolData(data.core_pool);
+                } else {
+                    throw new Error(data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading core pool:', error);
+                document.getElementById('core-pool-list').innerHTML = `<p>加载核心池失败: ${error.message}</p>`;
+            });
+    }
+
+    function displayCorePoolData(pool) {
+        const listContainer = document.getElementById('core-pool-list');
+        if (!pool || pool.length === 0) {
+            listContainer.innerHTML = '<p>核心池为空。</p>';
+            return;
+        }
+        
+        let html = '<table class="scan-results-table"><thead><tr><th>股票代码</th><th>添加时间</th><th>备注</th><th>操作</th></tr></thead><tbody>';
+        pool.forEach(stock => {
+            html += `
+                <tr>
+                    <td>${stock.stock_code}</td>
+                    <td>${stock.added_time}</td>
+                    <td>${stock.note || '-'}</td>
+                    <td><button onclick="removeFromCorePool('${stock.stock_code}')" style="background: #dc3545; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 4px; cursor: pointer;">删除</button></td>
+                </tr>
+            `;
         });
-    });
+        html += '</tbody></table>';
+        listContainer.innerHTML = html;
+    }
 
+    // 全局函数，供HTML调用
+    window.removeFromCorePool = function(stockCode) {
+        if (!confirm(`确定要从核心池删除 ${stockCode} 吗？`)) return;
+        fetch(`/api/core_pool?stock_code=${stockCode}`, { method: 'DELETE' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    loadCorePoolData();
+                } else {
+                    alert(`删除失败: ${data.error}`);
+                }
+            })
+            .catch(error => alert(`删除出错: ${error.message}`));
+    };
+    
+    window.addToCorePool = function() {
+        const stockCode = document.getElementById('new-stock-code').value.trim().toUpperCase();
+        const note = document.getElementById('new-stock-note').value.trim();
+        
+        if (!stockCode) {
+            alert('请输入股票代码');
+            return;
+        }
+        
+        fetch('/api/core_pool', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ stock_code: stockCode, note: note })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                document.getElementById('new-stock-code').value = '';
+                document.getElementById('new-stock-note').value = '';
+                loadCorePoolData();
+            } else {
+                alert(`添加失败: ${data.error}`);
+            }
+        })
+        .catch(error => alert(`添加出错: ${error.message}`));
+    };
+
+    // --- 其他模态框功能 ---
     function showHistoryModal() {
-        historyModal.style.display = 'block';
-        loadHistoryReports();
+        if (historyModal) {
+            historyModal.style.display = 'block';
+            loadHistoryReports();
+        }
     }
 
     function hideHistoryModal() {
-        historyModal.style.display = 'none';
-    }
-
-    function switchHistoryTab(targetTab) {
-        // 更新标签页状态
-        historyTabs.forEach(tab => {
-            tab.classList.remove('active');
-            if (tab.dataset.tab === targetTab) {
-                tab.classList.add('active');
-            }
-        });
-
-        // 更新内容显示
-        historyContents.forEach(content => {
-            content.classList.remove('active');
-            if (content.id === `${targetTab}-content`) {
-                content.classList.add('active');
-            }
-        });
-
-        // 加载对应内容
-        switch (targetTab) {
-            case 'overview':
-                loadOverviewData();
-                break;
-            case 'reports':
-                loadHistoryReports();
-                break;
-            case 'reliability':
-                loadReliabilityAnalysis();
-                break;
-            case 'performance':
-                loadPerformanceTracking();
-                break;
+        if (historyModal) {
+            historyModal.style.display = 'none';
         }
     }
 
@@ -775,234 +671,204 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(`/api/history_reports?strategy=${strategy}`)
             .then(response => response.json())
             .then(data => {
-                displayHistoryReports(data);
+                const content = document.getElementById('history-content');
+                if (!data || data.length === 0) {
+                    content.innerHTML = '<p>暂无历史报告</p>';
+                    return;
+                }
+                
+                let html = '<div class="history-reports">';
+                data.forEach(report => {
+                    const summary = report.scan_summary || {};
+                    html += `
+                        <div class="report-item" style="border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;">
+                            <h4>扫描时间: ${summary.scan_timestamp || '未知'}</h4>
+                            <p>扫描股票数: ${summary.total_scanned || 0}</p>
+                            <p>信号数量: ${summary.total_signals || 0}</p>
+                            <p>策略: ${summary.strategy || strategy}</p>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                content.innerHTML = html;
             })
             .catch(error => {
                 console.error('Error loading history reports:', error);
-                document.getElementById('reports-list').innerHTML =
-                    '<p>加载历史报告失败，请检查后端服务。</p>';
+                document.getElementById('history-content').innerHTML = `<p>加载失败: ${error.message}</p>`;
             });
     }
 
-    function displayHistoryReports(reports) {
-        const reportsContainer = document.getElementById('reports-list');
-
-        if (!reports || reports.length === 0) {
-            reportsContainer.innerHTML = '<p>暂无历史报告数据</p>';
-            return;
+    function showMultiTimeframeModal() {
+        if (multiTimeframeModal) {
+            multiTimeframeModal.style.display = 'block';
+            loadMultiTimeframeAnalysis();
         }
-
-        let html = '<table class="history-table">';
-        html += '<thead><tr><th>扫描时间</th><th>信号数量</th><th>平均胜率</th><th>平均收益</th><th>处理时间</th><th>操作</th></tr></thead>';
-        html += '<tbody>';
-
-        reports.forEach(report => {
-            const summary = report.scan_summary || {};
-            html += `
-                <tr>
-                    <td>${summary.scan_timestamp || 'N/A'}</td>
-                    <td>${summary.total_signals || 0}</td>
-                    <td>${summary.avg_win_rate || 'N/A'}</td>
-                    <td>${summary.avg_profit_rate || 'N/A'}</td>
-                    <td>${summary.processing_time || 'N/A'}</td>
-                    <td><button onclick="viewReportDetails('${report.id}')">查看详情</button></td>
-                </tr>
-            `;
-        });
-
-        html += '</tbody></table>';
-        reportsContainer.innerHTML = html;
     }
 
-    function loadOverviewData() {
+    function hideMultiTimeframeModal() {
+        if (multiTimeframeModal) {
+            multiTimeframeModal.style.display = 'none';
+        }
+    }
+
+    function loadMultiTimeframeAnalysis() {
+        const stockCode = stockSelect.value;
         const strategy = strategySelect.value;
-        fetch(`/api/strategy_overview?strategy=${strategy}`)
-            .then(response => response.json())
-            .then(data => {
-                displayOverviewStats(data);
-            })
-            .catch(error => {
-                console.error('Error loading overview data:', error);
-                document.getElementById('overview-stats').innerHTML =
-                    '<p>加载概览数据失败</p>';
-            });
-    }
-
-    function displayOverviewStats(data) {
-        const overviewContainer = document.getElementById('overview-stats');
-
-        if (!data) {
-            overviewContainer.innerHTML = '<p>暂无概览数据</p>';
-            return;
-        }
-
-        let html = `
-            <div class="overview-grid">
-                <div class="overview-card">
-                    <h5>总扫描次数</h5>
-                    <p class="overview-number">${data.total_scans || 0}</p>
-                </div>
-                <div class="overview-card">
-                    <h5>累计发现信号</h5>
-                    <p class="overview-number">${data.total_signals || 0}</p>
-                </div>
-                <div class="overview-card">
-                    <h5>平均胜率</h5>
-                    <p class="overview-number">${data.avg_win_rate || 'N/A'}</p>
-                </div>
-                <div class="overview-card">
-                    <h5>平均收益率</h5>
-                    <p class="overview-number">${data.avg_profit_rate || 'N/A'}</p>
-                </div>
-            </div>
-        `;
-
-        overviewContainer.innerHTML = html;
-    }
-
-    function loadReliabilityAnalysis() {
-        const strategy = strategySelect.value;
-        fetch(`/api/reliability_analysis?strategy=${strategy}`)
-            .then(response => response.json())
-            .then(data => {
-                displayReliabilityAnalysis(data);
-            })
-            .catch(error => {
-                console.error('Error loading reliability analysis:', error);
-                document.getElementById('reliability-analysis').innerHTML =
-                    '<p>加载可靠性分析失败</p>';
-            });
-    }
-
-    function displayReliabilityAnalysis(data) {
-        const reliabilityContainer = document.getElementById('reliability-analysis');
-
-        if (!data || !data.stocks) {
-            reliabilityContainer.innerHTML = '<p>暂无可靠性分析数据</p>';
-            return;
-        }
-
-        let html = '<table class="history-table">';
-        html += '<thead><tr><th>股票代码</th><th>历史出现次数</th><th>胜率</th><th>平均收益</th><th>可靠性评级</th><th>最近表现</th></tr></thead>';
-        html += '<tbody>';
-
-        data.stocks.forEach(stock => {
-            const reliability = getReliabilityLevel(stock.win_rate, stock.appearance_count);
-            html += `
-                <tr>
-                    <td>${stock.stock_code}</td>
-                    <td>${stock.appearance_count}</td>
-                    <td>${stock.win_rate}</td>
-                    <td>${stock.avg_profit}</td>
-                    <td><span class="reliability-indicator ${reliability.class}">${reliability.text}</span></td>
-                    <td>${stock.recent_performance || 'N/A'}</td>
-                </tr>
-            `;
-        });
-
-        html += '</tbody></table>';
-        reliabilityContainer.innerHTML = html;
-    }
-
-    function getReliabilityLevel(winRate, appearanceCount) {
-        const rate = parseFloat(winRate.replace('%', ''));
-
-        if (rate >= 70 && appearanceCount >= 5) {
-            return { class: 'reliability-high', text: '高可靠' };
-        } else if (rate >= 50 && appearanceCount >= 3) {
-            return { class: 'reliability-medium', text: '中等' };
-        } else {
-            return { class: 'reliability-low', text: '低可靠' };
-        }
-    }
-
-    function loadPerformanceTracking() {
-        const strategy = strategySelect.value;
-        fetch(`/api/performance_tracking?strategy=${strategy}`)
-            .then(response => response.json())
-            .then(data => {
-                displayPerformanceTracking(data);
-            })
-            .catch(error => {
-                console.error('Error loading performance tracking:', error);
-                document.getElementById('performance-tracking').innerHTML =
-                    '<p>加载表现追踪失败</p>';
-            });
-    }
-
-    function displayPerformanceTracking(data) {
-        const trackingContainer = document.getElementById('performance-tracking');
-
-        if (!data || !data.tracking_results) {
-            trackingContainer.innerHTML = '<p>暂无表现追踪数据</p>';
-            return;
-        }
-
-        let html = '<table class="history-table">';
-        html += '<thead><tr><th>筛选日期</th><th>股票代码</th><th>信号状态</th><th>预期收益</th><th>实际收益</th><th>达峰天数</th><th>表现评价</th></tr></thead>';
-        html += '<tbody>';
-
-        data.tracking_results.forEach(result => {
-            const performance = result.actual_profit >= result.expected_profit ? '超预期' : '低于预期';
-            const performanceClass = result.actual_profit >= result.expected_profit ? 'text-success' : 'text-warning';
-
-            html += `
-                <tr>
-                    <td>${result.scan_date}</td>
-                    <td>${result.stock_code}</td>
-                    <td>${result.signal_state}</td>
-                    <td>${result.expected_profit}</td>
-                    <td>${result.actual_profit}</td>
-                    <td>${result.days_to_peak}</td>
-                    <td><span class="${performanceClass}">${performance}</span></td>
-                </tr>
-            `;
-        });
-
-        html += '</tbody></table>';
-        trackingContainer.innerHTML = html;
-    }
-
-    function refreshData() {
-        // 刷新当前页面数据
-        populateStockList();
-
-        // 如果模态窗口打开，也刷新历史数据
-        if (historyModal.style.display === 'block') {
-            const activeTab = document.querySelector('.history-tab.active');
-            if (activeTab) {
-                switchHistoryTab(activeTab.dataset.tab);
-            }
-        }
-
-        // 显示刷新成功提示
-        const refreshBtn = document.getElementById('refresh-btn');
-        const originalText = refreshBtn.textContent;
-        refreshBtn.textContent = '✅ 已刷新';
-        refreshBtn.disabled = true;
-
-        setTimeout(() => {
-            refreshBtn.textContent = originalText;
-            refreshBtn.disabled = false;
-        }, 2000);
-    }
-
-    // 悬浮图例交互功能
-    const legendToggle = document.getElementById('legend-toggle');
-    const legendContent = document.getElementById('legend-content');
-    
-    if (legendToggle && legendContent) {
-        legendToggle.addEventListener('click', function() {
-            legendContent.classList.toggle('show');
-        });
         
-        // 点击其他地方关闭图例
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('#legend')) {
-                legendContent.classList.remove('show');
-            }
-        });
+        if (!stockCode) {
+            document.getElementById('multi-timeframe-content').innerHTML = '<p>请先选择股票</p>';
+            return;
+        }
+        
+        document.getElementById('multi-timeframe-content').innerHTML = '<p>加载中...</p>';
+        
+        fetch(`/api/multi_timeframe/${stockCode}?strategy=${strategy}`)
+            .then(response => response.json())
+            .then(data => {
+                const content = document.getElementById('multi-timeframe-content');
+                if (data.error) {
+                    content.innerHTML = `<p>分析失败: ${data.error}</p>`;
+                    return;
+                }
+                
+                let html = '<div class="multi-timeframe-results">';
+                if (data.analysis) {
+                    for (const [timeframe, analysis] of Object.entries(data.analysis)) {
+                        html += `
+                            <div class="timeframe-item" style="border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;">
+                                <h4>${timeframe} 周期分析</h4>
+                                <p>趋势: ${analysis.trend || '未知'}</p>
+                                <p>强度: ${analysis.strength || '未知'}</p>
+                                <p>建议: ${analysis.recommendation || '未知'}</p>
+                            </div>
+                        `;
+                    }
+                }
+                html += '</div>';
+                content.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error loading multi-timeframe analysis:', error);
+                document.getElementById('multi-timeframe-content').innerHTML = `<p>加载失败: ${error.message}</p>`;
+            });
+    }
+
+    // --- 深度扫描功能 ---
+    function runDeepScan() {
+        if (!confirm('深度扫描需要较长时间，确定要开始吗？')) return;
+        
+        fetch('/api/run_deep_scan', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('深度扫描已启动，请稍后查看结果');
+                    setTimeout(loadDeepScanResults, 5000); // 5秒后刷新结果
+                } else {
+                    alert(`启动失败: ${data.error || '未知错误'}`);
+                }
+            })
+            .catch(error => {
+                console.error('Error running deep scan:', error);
+                alert(`启动出错: ${error.message}`);
+            });
+    }
+
+    function loadDeepScanResults() {
+        if (!deepScanSection) return;
+        
+        fetch('/api/deep_scan_results')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    deepScanSection.innerHTML = `<p>暂无深度扫描结果: ${data.error}</p>`;
+                    deepScanSection.style.display = 'block';
+                    return;
+                }
+                
+                const results = data.results || [];
+                const summary = data.summary || {};
+                
+                let html = `
+                    <h3>深度扫描结果</h3>
+                    <div class="scan-summary" style="margin-bottom: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                        <p>总分析数: ${summary.total_analyzed || 0} | A级股票: ${summary.a_grade_count || 0} | 买入推荐: ${summary.buy_recommendations || 0}</p>
+                    </div>
+                `;
+                
+                if (results.length > 0) {
+                    html += '<table class="scan-results-table"><thead><tr><th>股票代码</th><th>评分</th><th>等级</th><th>建议</th><th>置信度</th><th>当前价格</th></tr></thead><tbody>';
+                    results.slice(0, 20).forEach(result => { // 只显示前20个结果
+                        html += `
+                            <tr>
+                                <td><a href="#" class="stock-code-link" data-stock-code="${result.stock_code}" style="color: #007bff; text-decoration: none; cursor: pointer;">${result.stock_code}</a></td>
+                                <td>${result.score.toFixed(2)}</td>
+                                <td><span class="grade-${result.grade.toLowerCase()}">${result.grade}</span></td>
+                                <td>${result.action}</td>
+                                <td>${(result.confidence * 100).toFixed(0)}%</td>
+                                <td>¥${result.current_price.toFixed(2)}</td>
+                            </tr>
+                        `;
+                    });
+                    html += '</tbody></table>';
+                    
+                    // 添加点击事件监听器
+                    setTimeout(() => {
+                        document.querySelectorAll('.stock-code-link').forEach(link => {
+                            link.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const stockCode = this.getAttribute('data-stock-code');
+                                selectStockAndShowChart(stockCode);
+                            });
+                        });
+                    }, 100);
+                } else {
+                    html += '<p>暂无扫描结果</p>';
+                }
+                
+                deepScanSection.innerHTML = html;
+                deepScanSection.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error loading deep scan results:', error);
+                deepScanSection.innerHTML = `<p>加载深度扫描结果失败: ${error.message}</p>`;
+                deepScanSection.style.display = 'block';
+            });
     }
     
+    // --- 股票选择和图表显示功能 ---
+    function selectStockAndShowChart(stockCode) {
+        // 首先检查股票是否在当前策略的信号列表中
+        const currentOptions = Array.from(stockSelect.options);
+        const matchingOption = currentOptions.find(option => option.value === stockCode);
+        
+        if (matchingOption) {
+            // 如果在当前策略中找到，直接选择
+            stockSelect.value = stockCode;
+            loadChart();
+            
+            // 滚动到图表区域
+            chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            // 如果不在当前策略中，尝试添加到选择列表并选择
+            const option = document.createElement('option');
+            option.value = stockCode;
+            option.textContent = `${stockCode} (深度扫描)`;
+            stockSelect.appendChild(option);
+            
+            stockSelect.value = stockCode;
+            loadChart();
+            
+            // 滚动到图表区域
+            chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // 显示提示信息
+            setTimeout(() => {
+                alert(`已加载 ${stockCode} 的图表分析`);
+            }, 500);
+        }
+    }
+
+    // --- 初始化 ---
     populateStockList();
+    loadDeepScanResults(); // 加载深度扫描结果
 });

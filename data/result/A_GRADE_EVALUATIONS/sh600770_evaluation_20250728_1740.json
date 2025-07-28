@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-28T17:40:57.517049",
+  "stock_code": "sh600770",
+  "current_price": 5.51,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 5.12,
+    "target_price_2": 4.99,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.07078039927404713,
+    "discount_2": 0.0943738656987295,
+    "stop_loss": {
+      "conservative": 5.23,
+      "moderate": 4.96,
+      "aggressive": 4.96,
+      "technical": 5.12
+    },
+    "take_profit": {
+      "conservative": 5.82,
+      "moderate": 5.93,
+      "aggressive": 6.47
+    }
+  }
+}

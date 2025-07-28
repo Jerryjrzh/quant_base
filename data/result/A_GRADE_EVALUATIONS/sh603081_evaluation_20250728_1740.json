@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-28T17:40:57.512478",
+  "stock_code": "sh603081",
+  "current_price": 12.47,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 10.31,
+    "target_price_2": 10.04,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.17321571772253408,
+    "discount_2": 0.19486768243785096,
+    "stop_loss": {
+      "conservative": 10.52,
+      "moderate": 9.98,
+      "aggressive": 9.98,
+      "technical": 10.31
+    },
+    "take_profit": {
+      "conservative": 11.72,
+      "moderate": 11.94,
+      "aggressive": 13.02
+    }
+  }
+}

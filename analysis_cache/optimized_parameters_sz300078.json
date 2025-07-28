@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300078",
-  "optimization_date": "2025-07-23T12:22:37.561144",
+  "optimization_date": "2025-07-28T17:44:34.277712",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4322705630073711,
+  "best_score": 0.4316559920571821,
   "optimization_target": "composite_score"
 }

@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300389",
-  "optimization_date": "2025-07-23T12:19:18.390621",
+  "optimization_date": "2025-07-28T17:44:19.306279",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4477916396242096,
+  "best_score": 0.4500849403077175,
   "optimization_target": "composite_score"
 }

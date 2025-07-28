@@ -1,0 +1,970 @@
+================================================================================
+RSI底部扫描报告
+================================================================================
+扫描时间: 2025-07-28 12:06:47
+发现信号: 95个
+
+置信度分布:
+  高置信度 (≥70%): 25个
+  中置信度 (50-70%): 62个
+  低置信度 (<50%): 8个
+
+风险等级分布:
+  低风险: 3个
+  中风险: 23个
+  高风险: 69个
+
+================================================================================
+详细信号列表 (按置信度排序)
+================================================================================
+
+ 1. sh603888
+    当前价格: ¥19.25
+    RSI指标: RSI6=8.9, RSI12=17.1, RSI24=27.7
+    底部预测: 0天后到达¥19.25 (RSI6=8.9)
+    置信度: 92.0% (低风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益12.5%
+    建议止损: ¥17.15
+    置信度因子: rsi_position=0.30 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+ 2. sh600900
+    当前价格: ¥28.75
+    RSI指标: RSI6=13.7, RSI12=26.5, RSI24=37.7
+    底部预测: 1天后到达¥26.36 (RSI6=12.5)
+    置信度: 87.0% (中风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益5.8%
+    建议止损: ¥28.02
+    置信度因子: rsi_position=0.25 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+ 3. sh603429
+    当前价格: ¥8.88
+    RSI指标: RSI6=12.4, RSI12=31.4, RSI24=44.6
+    底部预测: 0天后到达¥8.88 (RSI6=12.4)
+    置信度: 87.0% (中风险)
+    技术面: 横盘趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益11.8%
+    建议止损: ¥8.12
+    置信度因子: rsi_position=0.25 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+ 4. sz000851
+    当前价格: ¥2.37
+    RSI指标: RSI6=17.3, RSI12=32.5, RSI24=42.3
+    底部预测: 3天后到达¥1.90 (RSI6=13.1)
+    置信度: 87.0% (中风险)
+    技术面: 横盘趋势, 成交量确认
+    历史表现: 准确率100.0%, 平均收益9.8%
+    建议止损: ¥2.09
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.20 multi_rsi_consistency=0.15 
+
+ 5. sh600200
+    当前价格: ¥1.46
+    RSI指标: RSI6=2.3, RSI12=10.9, RSI24=21.4
+    底部预测: 0天后到达¥1.46 (RSI6=2.3)
+    置信度: 86.6% (低风险)
+    技术面: 下降趋势
+    历史表现: 准确率85.7%, 平均收益6.0%
+    建议止损: ¥1.28
+    置信度因子: rsi_position=0.30 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.17 multi_rsi_consistency=0.15 
+
+ 6. sh601963
+    当前价格: ¥10.29
+    RSI指标: RSI6=9.7, RSI12=24.7, RSI24=38.7
+    底部预测: 0天后到达¥10.29 (RSI6=9.7)
+    置信度: 86.0% (低风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益3.3%
+    建议止损: ¥9.84
+    置信度因子: rsi_position=0.30 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+ 7. sh688776
+    当前价格: ¥89.83
+    RSI指标: RSI6=15.8, RSI12=31.8, RSI24=42.9
+    底部预测: 2天后到达¥74.81 (RSI6=12.9)
+    置信度: 82.0% (中风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益9.1%
+    建议止损: ¥79.29
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+ 8. sh600421
+    当前价格: ¥6.27
+    RSI指标: RSI6=17.8, RSI12=33.2, RSI24=43.4
+    底部预测: 2天后到达¥5.00 (RSI6=13.6)
+    置信度: 82.0% (中风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率75.0%, 平均收益31.5%
+    建议止损: ¥5.77
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.15 multi_rsi_consistency=0.15 
+
+ 9. sh601728
+    当前价格: ¥7.38
+    RSI指标: RSI6=16.9, RSI12=27.8, RSI24=37.4
+    底部预测: 4天后到达¥5.99 (RSI6=13.2)
+    置信度: 82.0% (中风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益10.2%
+    建议止损: ¥7.17
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+10. sh601825
+    当前价格: ¥9.38
+    RSI指标: RSI6=10.8, RSI12=28.9, RSI24=44.5
+    底部预测: 0天后到达¥9.38 (RSI6=10.8)
+    置信度: 81.0% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益14.0%
+    建议止损: ¥9.01
+    置信度因子: rsi_position=0.25 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+11. sh603325
+    当前价格: ¥84.85
+    RSI指标: RSI6=20.9, RSI12=32.8, RSI24=40.7
+    底部预测: 5天后到达¥63.28 (RSI6=13.5)
+    置信度: 80.0% (高风险)
+    技术面: 上升趋势, 成交量确认
+    历史表现: 准确率100.0%, 平均收益11.3%
+    建议止损: ¥75.60
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.20 multi_rsi_consistency=0.15 
+
+12. sz300280
+    当前价格: ¥2.74
+    RSI指标: RSI6=10.2, RSI12=14.2, RSI24=23.7
+    底部预测: 0天后到达¥2.74 (RSI6=10.2)
+    置信度: 76.4% (中风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率57.1%, 平均收益16.7%
+    建议止损: ¥1.12
+    置信度因子: rsi_position=0.25 trend_consistency=0.10 volume_confirmation=0.15 historical_accuracy=0.11 multi_rsi_consistency=0.15 
+
+13. sh601169
+    当前价格: ¥6.56
+    RSI指标: RSI6=16.7, RSI12=32.9, RSI24=45.2
+    底部预测: 1天后到达¥5.70 (RSI6=14.4)
+    置信度: 74.0% (中风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益13.4%
+    建议止损: ¥6.30
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+14. sh601166
+    当前价格: ¥23.17
+    RSI指标: RSI6=16.9, RSI12=33.9, RSI24=45.8
+    底部预测: 3天后到达¥18.19 (RSI6=12.9)
+    置信度: 74.0% (中风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益6.3%
+    建议止损: ¥22.27
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+15. sh688522
+    当前价格: ¥45.77
+    RSI指标: RSI6=20.5, RSI12=30.9, RSI24=35.7
+    底部预测: 7天后到达¥33.22 (RSI6=12.9)
+    置信度: 72.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益3.2%
+    建议止损: ¥42.94
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+16. sz300163
+    当前价格: ¥3.33
+    RSI指标: RSI6=17.8, RSI12=29.1, RSI24=40.9
+    底部预测: 2天后到达¥2.65 (RSI6=13.3)
+    置信度: 72.0% (中风险)
+    技术面: 横盘趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益19.8%
+    建议止损: ¥3.00
+    置信度因子: rsi_position=0.20 trend_consistency=0.10 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+17. sz002461
+    当前价格: ¥10.71
+    RSI指标: RSI6=22.2, RSI12=33.7, RSI24=43.4
+    底部预测: 7天后到达¥7.19 (RSI6=13.7)
+    置信度: 72.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益5.5%
+    建议止损: ¥10.28
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+18. sz002427
+    当前价格: ¥7.68
+    RSI指标: RSI6=14.8, RSI12=33.1, RSI24=45.2
+    底部预测: 1天后到达¥6.98 (RSI6=13.1)
+    置信度: 71.5% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益9.9%
+    建议止损: ¥7.21
+    置信度因子: rsi_position=0.25 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+19. sz002948
+    当前价格: ¥4.86
+    RSI指标: RSI6=18.7, RSI12=33.1, RSI24=44.8
+    底部预测: 8天后到达¥3.55 (RSI6=12.8)
+    置信度: 71.5% (中风险)
+    技术面: 横盘趋势
+    历史表现: 准确率60.0%, 平均收益21.9%
+    建议止损: ¥4.66
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+20. sz002956
+    当前价格: ¥20.45
+    RSI指标: RSI6=19.5, RSI12=31.9, RSI24=43.5
+    底部预测: 3天后到达¥14.85 (RSI6=13.4)
+    置信度: 71.5% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益12.6%
+    建议止损: ¥19.12
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+21. sh601818
+    当前价格: ¥4.08
+    RSI指标: RSI6=16.8, RSI12=33.7, RSI24=45.5
+    底部预测: 2天后到达¥3.38 (RSI6=13.8)
+    置信度: 71.0% (中风险)
+    技术面: 横盘趋势
+    历史表现: 准确率60.0%, 平均收益14.5%
+    建议止损: ¥3.90
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+22. sh601998
+    当前价格: ¥8.14
+    RSI指标: RSI6=19.9, RSI12=34.1, RSI24=45.9
+    底部预测: 7天后到达¥5.37 (RSI6=12.6)
+    置信度: 71.0% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益22.3%
+    建议止损: ¥7.77
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+23. sz002365
+    当前价格: ¥20.42
+    RSI指标: RSI6=19.3, RSI12=33.6, RSI24=45.2
+    底部预测: 4天后到达¥14.65 (RSI6=13.1)
+    置信度: 71.0% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益7.9%
+    建议止损: ¥17.64
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+24. sz300555
+    当前价格: ¥9.66
+    RSI指标: RSI6=20.4, RSI12=31.0, RSI24=39.9
+    底部预测: 4天后到达¥7.04 (RSI6=13.1)
+    置信度: 70.3% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率66.7%, 平均收益13.1%
+    建议止损: ¥9.01
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.13 multi_rsi_consistency=0.15 
+
+25. sz002700
+    当前价格: ¥7.78
+    RSI指标: RSI6=22.8, RSI12=25.3, RSI24=33.4
+    底部预测: 10天后到达¥6.42 (RSI6=17.6)
+    置信度: 70.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率100.0%, 平均收益18.6%
+    建议止损: ¥7.40
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.15 historical_accuracy=0.20 multi_rsi_consistency=0.15 
+
+26. sh601107
+    当前价格: ¥5.70
+    RSI指标: RSI6=16.8, RSI12=27.2, RSI24=39.0
+    底部预测: 0天后到达¥5.70 (RSI6=16.8)
+    置信度: 69.5% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率50.0%, 平均收益12.8%
+    建议止损: ¥5.40
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.10 multi_rsi_consistency=0.15 
+
+27. sz002822
+    当前价格: ¥3.37
+    RSI指标: RSI6=19.9, RSI12=38.1, RSI24=46.0
+    底部预测: 3天后到达¥2.54 (RSI6=13.3)
+    置信度: 69.5% (中风险)
+    技术面: 横盘趋势
+    历史表现: 准确率100.0%, 平均收益30.7%
+    建议止损: ¥3.18
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.20 multi_rsi_consistency=0.05 
+
+28. sz300879
+    当前价格: ¥33.26
+    RSI指标: RSI6=23.8, RSI12=32.0, RSI24=42.1
+    底部预测: 10天后到达¥31.56 (RSI6=20.4)
+    置信度: 69.5% (高风险)
+    技术面: 下降趋势, RSI背离
+    历史表现: 准确率100.0%, 平均收益67.9%
+    建议止损: ¥30.40
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.20 multi_rsi_consistency=0.15 
+
+29. sz002306
+    当前价格: ¥1.81
+    RSI指标: RSI6=20.7, RSI12=34.1, RSI24=41.7
+    底部预测: 8天后到达¥1.25 (RSI6=13.1)
+    置信度: 69.0% (高风险)
+    技术面: 横盘趋势
+    历史表现: 准确率75.0%, 平均收益15.1%
+    建议止损: ¥1.71
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.15 multi_rsi_consistency=0.15 
+
+30. sh601077
+    当前价格: ¥6.83
+    RSI指标: RSI6=24.1, RSI12=33.8, RSI24=42.8
+    底部预测: 10天后到达¥5.12 (RSI6=17.5)
+    置信度: 69.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益15.0%
+    建议止损: ¥6.46
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+31. sh601328
+    当前价格: ¥7.74
+    RSI指标: RSI6=21.9, RSI12=34.7, RSI24=44.8
+    底部预测: 6天后到达¥4.86 (RSI6=12.7)
+    置信度: 69.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益11.6%
+    建议止损: ¥7.47
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+32. sz000903
+    当前价格: ¥3.14
+    RSI指标: RSI6=22.7, RSI12=28.0, RSI24=37.8
+    底部预测: 6天后到达¥2.28 (RSI6=13.0)
+    置信度: 67.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率100.0%, 平均收益23.8%
+    建议止损: ¥2.83
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.12 historical_accuracy=0.20 multi_rsi_consistency=0.15 
+
+33. sh600578
+    当前价格: ¥4.33
+    RSI指标: RSI6=18.6, RSI12=34.2, RSI24=45.4
+    底部预测: 6天后到达¥3.16 (RSI6=13.0)
+    置信度: 66.5% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益20.2%
+    建议止损: ¥4.12
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+34. sh600287
+    当前价格: ¥5.64
+    RSI指标: RSI6=17.4, RSI12=34.4, RSI24=47.3
+    底部预测: 1天后到达¥4.82 (RSI6=14.5)
+    置信度: 66.5% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益16.5%
+    建议止损: ¥5.29
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+35. sh603959
+    当前价格: ¥5.21
+    RSI指标: RSI6=19.6, RSI12=36.7, RSI24=49.1
+    底部预测: 2天后到达¥4.19 (RSI6=14.7)
+    置信度: 66.0% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益12.1%
+    建议止损: ¥4.72
+    置信度因子: rsi_position=0.20 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+36. sh601229
+    当前价格: ¥10.40
+    RSI指标: RSI6=20.4, RSI12=33.7, RSI24=43.4
+    底部预测: 8天后到达¥7.05 (RSI6=13.1)
+    置信度: 66.0% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益11.4%
+    建议止损: ¥9.99
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+37. sh688696
+    当前价格: ¥105.05
+    RSI指标: RSI6=27.0, RSI12=34.3, RSI24=38.5
+    底部预测: 10天后到达¥82.42 (RSI6=20.1)
+    置信度: 65.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率50.0%, 平均收益7.1%
+    建议止损: ¥98.81
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.10 multi_rsi_consistency=0.10 
+
+38. sh600610
+    当前价格: ¥13.16
+    RSI指标: RSI6=21.6, RSI12=34.3, RSI24=45.2
+    底部预测: 4天后到达¥9.28 (RSI6=14.3)
+    置信度: 64.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率100.0%, 平均收益10.6%
+    建议止损: ¥12.00
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.20 multi_rsi_consistency=0.10 
+
+39. sz000627
+    当前价格: ¥1.66
+    RSI指标: RSI6=12.0, RSI12=11.3, RSI24=19.3
+    底部预测: 0天后到达¥1.66 (RSI6=12.0)
+    置信度: 64.5% (中风险)
+    技术面: 下降趋势
+    历史表现: 准确率50.0%, 平均收益8.0%
+    建议止损: ¥1.43
+    置信度因子: rsi_position=0.25 trend_consistency=0.10 volume_confirmation=0.04 historical_accuracy=0.10 multi_rsi_consistency=0.15 
+
+40. sh600360
+    当前价格: ¥7.49
+    RSI指标: RSI6=22.9, RSI12=37.3, RSI24=46.9
+    底部预测: 5天后到达¥4.99 (RSI6=14.2)
+    置信度: 64.0% (高风险)
+    技术面: 横盘趋势
+    历史表现: 准确率100.0%, 平均收益28.6%
+    建议止损: ¥6.77
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.20 multi_rsi_consistency=0.05 
+
+41. sz002582
+    当前价格: ¥9.61
+    RSI指标: RSI6=28.1, RSI12=36.1, RSI24=42.4
+    底部预测: 10天后到达¥7.45 (RSI6=20.7)
+    置信度: 64.0% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率100.0%, 平均收益16.3%
+    建议止损: ¥9.30
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.20 multi_rsi_consistency=0.05 
+
+42. sz002491
+    当前价格: ¥4.93
+    RSI指标: RSI6=27.3, RSI12=32.9, RSI24=42.0
+    底部预测: 7天后到达¥2.96 (RSI6=13.8)
+    置信度: 64.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益11.3%
+    建议止损: ¥4.64
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+43. sz300208
+    当前价格: ¥0.28
+    RSI指标: RSI6=22.1, RSI12=19.8, RSI24=25.4
+    底部预测: 8天后到达¥0.21 (RSI6=13.1)
+    置信度: 63.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率80.0%, 平均收益13.7%
+    建议止损: ¥0.16
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.12 historical_accuracy=0.16 multi_rsi_consistency=0.15 
+
+44. sh603179
+    当前价格: ¥43.18
+    RSI指标: RSI6=23.3, RSI12=34.4, RSI24=43.1
+    底部预测: 6天后到达¥25.95 (RSI6=12.9)
+    置信度: 62.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益11.9%
+    建议止损: ¥40.90
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+45. sh600941
+    当前价格: ¥110.28
+    RSI指标: RSI6=25.4, RSI12=35.8, RSI24=42.8
+    底部预测: 10天后到达¥86.03 (RSI6=19.3)
+    置信度: 62.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益9.0%
+    建议止损: ¥108.17
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+46. sz300096
+    当前价格: ¥4.03
+    RSI指标: RSI6=27.7, RSI12=37.3, RSI24=44.8
+    底部预测: 10天后到达¥2.86 (RSI6=17.7)
+    置信度: 62.0% (高风险)
+    技术面: 横盘趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益12.4%
+    建议止损: ¥3.86
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+47. sz300900
+    当前价格: ¥21.01
+    RSI指标: RSI6=29.5, RSI12=36.3, RSI24=43.4
+    底部预测: 9天后到达¥10.37 (RSI6=12.5)
+    置信度: 62.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益19.4%
+    建议止损: ¥18.96
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+48. sh600027
+    当前价格: ¥5.32
+    RSI指标: RSI6=27.4, RSI12=33.3, RSI24=39.2
+    底部预测: 0天后到达¥5.32 (RSI6=27.4)
+    置信度: 61.7% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率83.3%, 平均收益7.6%
+    建议止损: ¥5.14
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.15 historical_accuracy=0.17 multi_rsi_consistency=0.10 
+
+49. sz300963
+    当前价格: ¥20.22
+    RSI指标: RSI6=20.5, RSI12=33.5, RSI24=43.5
+    底部预测: 10天后到达¥15.53 (RSI6=14.5)
+    置信度: 61.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益8.0%
+    建议止损: ¥17.90
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+50. sh603031
+    当前价格: ¥27.83
+    RSI指标: RSI6=23.5, RSI12=36.0, RSI24=46.0
+    底部预测: 4天后到达¥17.84 (RSI6=13.4)
+    置信度: 60.3% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率66.7%, 平均收益4.1%
+    建议止损: ¥26.74
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.13 multi_rsi_consistency=0.05 
+
+51. sh603323
+    当前价格: ¥5.49
+    RSI指标: RSI6=29.9, RSI12=37.3, RSI24=44.4
+    底部预测: 10天后到达¥4.91 (RSI6=26.3)
+    置信度: 59.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率100.0%, 平均收益21.9%
+    建议止损: ¥5.26
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.20 multi_rsi_consistency=0.05 
+
+52. sz002966
+    当前价格: ¥8.69
+    RSI指标: RSI6=21.1, RSI12=37.5, RSI24=47.5
+    底部预测: 4天后到达¥5.76 (RSI6=13.4)
+    置信度: 59.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率100.0%, 平均收益7.8%
+    建议止损: ¥8.38
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.20 multi_rsi_consistency=0.05 
+
+53. sz002569
+    当前价格: ¥9.10
+    RSI指标: RSI6=22.2, RSI12=36.5, RSI24=47.2
+    底部预测: 5天后到达¥6.28 (RSI6=14.1)
+    置信度: 59.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率100.0%, 平均收益8.8%
+    建议止损: ¥8.53
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.20 multi_rsi_consistency=0.05 
+
+54. sz002529
+    当前价格: ¥6.33
+    RSI指标: RSI6=28.5, RSI12=38.8, RSI24=45.3
+    底部预测: 10天后到达¥5.33 (RSI6=22.7)
+    置信度: 59.0% (高风险)
+    技术面: 横盘趋势
+    历史表现: 准确率100.0%, 平均收益23.8%
+    建议止损: ¥6.06
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.20 multi_rsi_consistency=0.00 
+
+55. sh600696
+    当前价格: ¥5.81
+    RSI指标: RSI6=29.1, RSI12=32.4, RSI24=37.4
+    底部预测: 10天后到达¥4.94 (RSI6=22.8)
+    置信度: 59.0% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率100.0%, 平均收益31.7%
+    建议止损: ¥5.42
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.09 historical_accuracy=0.20 multi_rsi_consistency=0.10 
+
+56. sh603766
+    当前价格: ¥12.37
+    RSI指标: RSI6=24.6, RSI12=37.0, RSI24=45.1
+    底部预测: 10天后到达¥8.39 (RSI6=14.2)
+    置信度: 59.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益13.7%
+    建议止损: ¥11.72
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+57. sh600919
+    当前价格: ¥11.37
+    RSI指标: RSI6=24.9, RSI12=35.4, RSI24=47.3
+    底部预测: 8天后到达¥6.83 (RSI6=12.8)
+    置信度: 59.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益5.5%
+    建议止损: ¥10.88
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+58. sz000782
+    当前价格: ¥4.86
+    RSI指标: RSI6=29.9, RSI12=38.1, RSI24=44.5
+    底部预测: 10天后到达¥2.74 (RSI6=15.4)
+    置信度: 59.0% (高风险)
+    技术面: 横盘趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益1.7%
+    建议止损: ¥4.69
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+59. sz300779
+    当前价格: ¥181.03
+    RSI指标: RSI6=24.3, RSI12=39.6, RSI24=48.9
+    底部预测: 5天后到达¥121.22 (RSI6=13.9)
+    置信度: 59.0% (高风险)
+    技术面: 上升趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益19.3%
+    建议止损: ¥156.53
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+60. sz300022
+    当前价格: ¥8.53
+    RSI指标: RSI6=24.6, RSI12=38.7, RSI24=48.1
+    底部预测: 5天后到达¥5.32 (RSI6=14.4)
+    置信度: 59.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益8.0%
+    建议止损: ¥7.76
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+61. sz300198
+    当前价格: ¥2.35
+    RSI指标: RSI6=28.3, RSI12=36.9, RSI24=44.2
+    底部预测: 10天后到达¥1.59 (RSI6=17.9)
+    置信度: 57.3% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率66.7%, 平均收益6.5%
+    建议止损: ¥2.24
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.13 multi_rsi_consistency=0.05 
+
+62. sh601838
+    当前价格: ¥19.48
+    RSI指标: RSI6=29.7, RSI12=38.3, RSI24=48.2
+    底部预测: 10天后到达¥13.39 (RSI6=19.0)
+    置信度: 57.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益19.1%
+    建议止损: ¥18.62
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.00 
+
+63. sh688096
+    当前价格: ¥10.93
+    RSI指标: RSI6=28.0, RSI12=28.1, RSI24=34.3
+    底部预测: 10天后到达¥10.12 (RSI6=25.0)
+    置信度: 57.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益8.0%
+    建议止损: ¥9.25
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.15 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+64. sz300972
+    当前价格: ¥150.76
+    RSI指标: RSI6=25.2, RSI12=33.9, RSI24=44.5
+    底部预测: 10天后到达¥128.20 (RSI6=20.3)
+    置信度: 56.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益29.0%
+    建议止损: ¥138.88
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+65. sz002581
+    当前价格: ¥7.44
+    RSI指标: RSI6=28.7, RSI12=33.8, RSI24=40.4
+    底部预测: 10天后到达¥6.64 (RSI6=23.0)
+    置信度: 56.1% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率85.7%, 平均收益11.1%
+    建议止损: ¥6.61
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.09 historical_accuracy=0.17 multi_rsi_consistency=0.10 
+
+66. sh603557
+    当前价格: ¥2.81
+    RSI指标: RSI6=24.6, RSI12=31.4, RSI24=41.5
+    底部预测: 5天后到达¥1.85 (RSI6=13.5)
+    置信度: 56.0% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益22.4%
+    建议止损: ¥2.60
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.15 
+
+67. sh600803
+    当前价格: ¥18.50
+    RSI指标: RSI6=26.3, RSI12=36.0, RSI24=41.9
+    底部预测: 10天后到达¥15.09 (RSI6=19.9)
+    置信度: 56.0% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益3.3%
+    建议止损: ¥17.73
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+68. sh601939
+    当前价格: ¥9.35
+    RSI指标: RSI6=24.1, RSI12=38.3, RSI24=48.2
+    底部预测: 7天后到达¥7.01 (RSI6=13.2)
+    置信度: 56.0% (高风险)
+    技术面: 横盘趋势
+    历史表现: 准确率60.0%, 平均收益13.5%
+    建议止损: ¥9.06
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+69. sh600926
+    当前价格: ¥16.37
+    RSI指标: RSI6=27.2, RSI12=38.1, RSI24=47.4
+    底部预测: 10天后到达¥10.98 (RSI6=17.1)
+    置信度: 55.3% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率66.7%, 平均收益17.4%
+    建议止损: ¥15.66
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.13 multi_rsi_consistency=0.00 
+
+70. sh600908
+    当前价格: ¥6.16
+    RSI指标: RSI6=25.9, RSI12=38.4, RSI24=47.8
+    底部预测: 9天后到达¥3.33 (RSI6=13.4)
+    置信度: 54.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率100.0%, 平均收益17.4%
+    建议止损: ¥5.94
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.20 multi_rsi_consistency=0.00 
+
+71. sh603982
+    当前价格: ¥9.21
+    RSI指标: RSI6=27.3, RSI12=38.9, RSI24=46.7
+    底部预测: 10天后到达¥6.66 (RSI6=18.1)
+    置信度: 54.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率100.0%, 平均收益9.0%
+    建议止损: ¥8.65
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.20 multi_rsi_consistency=0.00 
+
+72. sh600355
+    当前价格: ¥2.72
+    RSI指标: RSI6=28.6, RSI12=36.5, RSI24=42.6
+    底部预测: 10天后到达¥2.04 (RSI6=19.2)
+    置信度: 54.0% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率100.0%, 平均收益16.7%
+    建议止损: ¥2.57
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.09 historical_accuracy=0.20 multi_rsi_consistency=0.05 
+
+73. sh600020
+    当前价格: ¥4.74
+    RSI指标: RSI6=29.2, RSI12=38.2, RSI24=46.1
+    底部预测: 0天后到达¥4.74 (RSI6=29.2)
+    置信度: 54.0% (高风险)
+    技术面: 横盘趋势, RSI背离, 成交量确认
+    历史表现: 准确率60.0%, 平均收益12.7%
+    建议止损: ¥4.56
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.00 
+
+74. sh603063
+    当前价格: ¥29.73
+    RSI指标: RSI6=27.1, RSI12=37.4, RSI24=45.1
+    底部预测: 6天后到达¥16.57 (RSI6=14.2)
+    置信度: 54.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益13.5%
+    建议止损: ¥27.59
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.00 
+
+75. sh601988
+    当前价格: ¥5.53
+    RSI指标: RSI6=29.5, RSI12=39.7, RSI24=46.1
+    底部预测: 10天后到达¥4.26 (RSI6=20.2)
+    置信度: 54.0% (高风险)
+    技术面: 横盘趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益7.9%
+    建议止损: ¥5.34
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.00 
+
+76. sz300862
+    当前价格: ¥24.04
+    RSI指标: RSI6=25.2, RSI12=32.9, RSI24=40.8
+    底部预测: 10天后到达¥19.86 (RSI6=19.6)
+    置信度: 54.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益19.5%
+    建议止损: ¥22.83
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+77. sz002958
+    当前价格: ¥3.56
+    RSI指标: RSI6=22.3, RSI12=37.5, RSI24=48.2
+    底部预测: 7天后到达¥2.25 (RSI6=13.3)
+    置信度: 52.8% (高风险)
+    技术面: 横盘趋势
+    历史表现: 准确率66.7%, 平均收益22.1%
+    建议止损: ¥3.40
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.13 multi_rsi_consistency=0.05 
+
+78. sz002899
+    当前价格: ¥22.16
+    RSI指标: RSI6=23.4, RSI12=39.9, RSI24=47.7
+    底部预测: 9天后到达¥12.90 (RSI6=13.1)
+    置信度: 52.8% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率66.7%, 平均收益13.0%
+    建议止损: ¥20.72
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.13 multi_rsi_consistency=0.05 
+
+79. sh688531
+    当前价格: ¥46.92
+    RSI指标: RSI6=27.1, RSI12=23.6, RSI24=30.7
+    底部预测: 6天后到达¥29.78 (RSI6=13.8)
+    置信度: 52.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率50.0%, 平均收益10.3%
+    建议止损: ¥42.92
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.12 historical_accuracy=0.10 multi_rsi_consistency=0.10 
+
+80. sz002014
+    当前价格: ¥11.74
+    RSI指标: RSI6=29.7, RSI12=39.9, RSI24=48.3
+    底部预测: 10天后到达¥7.79 (RSI6=17.3)
+    置信度: 51.7% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率33.3%, 平均收益4.8%
+    建议止损: ¥11.41
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.15 historical_accuracy=0.07 multi_rsi_consistency=0.00 
+
+81. sz002595
+    当前价格: ¥56.88
+    RSI指标: RSI6=28.0, RSI12=33.6, RSI24=41.4
+    底部预测: 0天后到达¥56.88 (RSI6=28.0)
+    置信度: 51.7% (高风险)
+    技术面: 下降趋势, RSI背离, 成交量确认
+    历史表现: 准确率33.3%, 平均收益3.1%
+    建议止损: ¥54.55
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.15 historical_accuracy=0.07 multi_rsi_consistency=0.10 
+
+82. sh601916
+    当前价格: ¥3.44
+    RSI指标: RSI6=23.9, RSI12=39.2, RSI24=49.3
+    底部预测: 10天后到达¥2.47 (RSI6=16.4)
+    置信度: 51.5% (高风险)
+    技术面: 横盘趋势
+    历史表现: 准确率60.0%, 平均收益17.1%
+    建议止损: ¥3.27
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+83. sh600350
+    当前价格: ¥10.29
+    RSI指标: RSI6=29.3, RSI12=37.0, RSI24=42.1
+    底部预测: 0天后到达¥10.29 (RSI6=29.3)
+    置信度: 51.5% (高风险)
+    技术面: 横盘趋势
+    历史表现: 准确率60.0%, 平均收益8.0%
+    建议止损: ¥9.91
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+84. sh603208
+    当前价格: ¥15.02
+    RSI指标: RSI6=26.0, RSI12=37.6, RSI24=44.7
+    底部预测: 10天后到达¥8.38 (RSI6=13.0)
+    置信度: 51.5% (高风险)
+    技术面: 横盘趋势
+    历史表现: 准确率60.0%, 平均收益5.3%
+    建议止损: ¥13.92
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+85. sz300546
+    当前价格: ¥27.29
+    RSI指标: RSI6=24.3, RSI12=39.5, RSI24=49.0
+    底部预测: 8天后到达¥19.21 (RSI6=13.0)
+    置信度: 51.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益12.2%
+    建议止损: ¥24.97
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+86. sz002807
+    当前价格: ¥4.73
+    RSI指标: RSI6=22.0, RSI12=37.8, RSI24=48.8
+    底部预测: 9天后到达¥2.94 (RSI6=13.0)
+    置信度: 51.5% (高风险)
+    技术面: 横盘趋势
+    历史表现: 准确率60.0%, 平均收益27.6%
+    建议止损: ¥4.54
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+87. sh603076
+    当前价格: ¥28.61
+    RSI指标: RSI6=25.7, RSI12=38.0, RSI24=47.2
+    底部预测: 10天后到达¥23.21 (RSI6=19.2)
+    置信度: 51.0% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益17.1%
+    建议止损: ¥27.06
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.09 historical_accuracy=0.12 multi_rsi_consistency=0.00 
+
+88. sz001328
+    当前价格: ¥43.90
+    RSI指标: RSI6=29.4, RSI12=35.6, RSI24=43.1
+    底部预测: 10天后到达¥39.73 (RSI6=25.9)
+    置信度: 49.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率60.0%, 平均收益26.2%
+    建议止损: ¥41.33
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.12 historical_accuracy=0.12 multi_rsi_consistency=0.05 
+
+89. sh600000
+    当前价格: ¥13.07
+    RSI指标: RSI6=25.7, RSI12=38.5, RSI24=50.0
+    底部预测: 4天后到达¥8.15 (RSI6=14.2)
+    置信度: 46.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益23.4%
+    建议止损: ¥12.45
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.00 
+
+90. sh600793
+    当前价格: ¥25.58
+    RSI指标: RSI6=29.3, RSI12=39.9, RSI24=46.7
+    底部预测: 10天后到达¥23.47 (RSI6=26.3)
+    置信度: 46.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益49.6%
+    建议止损: ¥22.81
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.00 
+
+91. sh603900
+    当前价格: ¥9.77
+    RSI指标: RSI6=27.2, RSI12=35.2, RSI24=45.3
+    底部预测: 10天后到达¥9.00 (RSI6=24.2)
+    置信度: 46.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益4.3%
+    建议止损: ¥8.96
+    置信度因子: rsi_position=0.10 trend_consistency=0.20 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.00 
+
+92. sz000430
+    当前价格: ¥7.18
+    RSI指标: RSI6=27.3, RSI12=33.7, RSI24=41.8
+    底部预测: 10天后到达¥6.37 (RSI6=23.7)
+    置信度: 46.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益21.0%
+    建议止损: ¥6.80
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.10 
+
+93. sh600452
+    当前价格: ¥9.16
+    RSI指标: RSI6=30.0, RSI12=38.2, RSI24=43.0
+    底部预测: 10天后到达¥9.15 (RSI6=29.9)
+    置信度: 43.7% (高风险)
+    技术面: 横盘趋势, 成交量确认
+    历史表现: 准确率33.3%, 平均收益4.4%
+    建议止损: ¥8.98
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.12 historical_accuracy=0.07 multi_rsi_consistency=0.05 
+
+94. sh600795
+    当前价格: ¥4.65
+    RSI指标: RSI6=29.3, RSI12=38.5, RSI24=46.3
+    底部预测: 10天后到达¥2.87 (RSI6=16.4)
+    置信度: 42.0% (高风险)
+    技术面: 下降趋势, 成交量确认
+    历史表现: 准确率50.0%, 平均收益8.7%
+    建议止损: ¥4.50
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.12 historical_accuracy=0.10 multi_rsi_consistency=0.00 
+
+95. sz300945
+    当前价格: ¥19.41
+    RSI指标: RSI6=29.5, RSI12=37.1, RSI24=46.8
+    底部预测: 10天后到达¥18.67 (RSI6=27.9)
+    置信度: 36.5% (高风险)
+    技术面: 下降趋势
+    历史表现: 准确率60.0%, 平均收益17.0%
+    建议止损: ¥18.04
+    置信度因子: rsi_position=0.10 trend_consistency=0.10 volume_confirmation=0.04 historical_accuracy=0.12 multi_rsi_consistency=0.00 
+

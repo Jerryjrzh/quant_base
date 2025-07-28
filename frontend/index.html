@@ -1,381 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>量化分析平台</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
     <style>
-        body { font-family: sans-serif; padding: 1em; }
-        #controls { margin-bottom: 1em; }
-        
-        /* 回测结果区域的样式 */
-        #backtest-results {
-            margin-top: 1em;
-            padding: 1em;
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f0f2f5; 
+            margin: 0;
+            padding: 0;
         }
-        #backtest-results h3 { margin-top: 0; }
-        #backtest-results span { font-weight: bold; margin: 0 1em 0 0.5em; color: #333; }
         
-        /* 深度扫描结果样式 */
-        #deep-scan-section {
-            margin-top: 2em;
-            padding: 1em;
+        .app-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
             color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        #deep-scan-results {
-            margin-top: 1em;
-            background: white;
-            border-radius: 8px;
-            padding: 1em;
-            color: #333;
+        .app-header h1 {
+            margin: 0 0 1rem 0;
+            font-size: 1.8rem;
+            font-weight: 600;
         }
         
-        .deep-scan-header {
+        #controls {
             display: flex;
-            justify-content: space-between;
+            gap: 1rem;
             align-items: center;
-            margin-bottom: 1em;
+            flex-wrap: wrap;
         }
         
-        .deep-scan-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1em;
-            margin-bottom: 1em;
-        }
-        
-        .stat-card {
-            background: #f8f9fa;
-            padding: 1em;
-            border-radius: 8px;
-            text-align: center;
-            border-left: 4px solid #007bff;
-        }
-        
-        .stat-card.a-grade { border-left-color: #28a745; }
-        .stat-card.price-eval { border-left-color: #ffc107; }
-        .stat-card.buy-rec { border-left-color: #17a2b8; }
-        
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #007bff;
-        }
-        
-        .stat-card.a-grade .stat-number { color: #28a745; }
-        .stat-card.price-eval .stat-number { color: #ffc107; }
-        .stat-card.buy-rec .stat-number { color: #17a2b8; }
-        
-        .stat-label {
-            font-size: 0.9em;
-            color: #6c757d;
-            margin-top: 0.5em;
-        }
-        
-        .stock-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1em;
-            margin-top: 1em;
-        }
-        
-        .stock-card {
-            background: white;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 1em;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .stock-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .stock-card.grade-a {
-            border-left: 4px solid #28a745;
-            background: linear-gradient(135deg, #d4edda 0%, #f8f9fa 100%);
-        }
-        
-        .stock-card.grade-b {
-            border-left: 4px solid #007bff;
-        }
-        
-        .stock-card.grade-c {
-            border-left: 4px solid #ffc107;
-        }
-        
-        .stock-header {
+        .adjustment-control {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.5em;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
         }
         
-        .stock-code {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #495057;
+        .adjustment-control label {
+            font-size: 0.85rem;
+            margin: 0;
         }
         
-        .stock-grade {
-            padding: 0.2em 0.6em;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: bold;
+        .adjustment-control select {
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.3rem 0.5rem;
+            font-size: 0.8rem;
+            min-width: 80px;
         }
         
-        .grade-a { background: #28a745; color: white; }
-        .grade-b { background: #007bff; color: white; }
-        .grade-c { background: #ffc107; color: #212529; }
-        .grade-d { background: #6c757d; color: white; }
-        .grade-f { background: #dc3545; color: white; }
-        
-        .stock-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5em;
-            margin: 0.5em 0;
-            font-size: 0.9em;
-        }
-        
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .info-label {
-            color: #6c757d;
-        }
-        
-        .info-value {
+        #controls label {
             font-weight: 500;
         }
         
-        .price-evaluation {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 6px;
-            padding: 0.8em;
-            margin-top: 0.8em;
-        }
-        
-        .price-evaluation-header {
-            font-weight: bold;
-            color: #856404;
-            margin-bottom: 0.5em;
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-        }
-        
-        .action-button {
-            background: #007bff;
-            color: white;
+        #controls select, #controls button {
+            padding: 0.5rem 1rem;
             border: none;
-            padding: 0.5em 1em;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-top: 0.5em;
-            transition: background 0.2s;
+            border-radius: 6px;
+            font-size: 0.9rem;
         }
         
-        .action-button:hover {
-            background: #0056b3;
-        }
-        
-        .action-button.buy { background: #28a745; }
-        .action-button.buy:hover { background: #1e7e34; }
-        .action-button.hold { background: #ffc107; color: #212529; }
-        .action-button.hold:hover { background: #e0a800; }
-        .action-button.watch { background: #17a2b8; }
-        .action-button.watch:hover { background: #138496; }
-        
-        /* 悬浮图例样式 */
-        .legend-floating {
-            position: fixed;
-            top: 120px;
-            right: 20px;
-            z-index: 100;
+        #controls select {
             background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 150px;
+        }
+        
+        #controls button {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        #controls button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .chart-section {
+            flex: 4;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        #chart-container { 
+            width: 100%; 
+            height: 650px; 
+        }
+        
+        .sidebar {
+            flex: 0 0 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            min-width: 280px;
             max-width: 280px;
         }
         
-        .legend-toggle {
-            padding: 0.8em 1em;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-            background: #f8f9fa;
-            border-radius: 8px 8px 0 0;
-            border-bottom: 1px solid #e9ecef;
-            user-select: none;
-        }
-        
-        .legend-toggle:hover {
-            background: #e9ecef;
-        }
-        
-        .legend-toggle .legend-icon {
-            font-size: 16px;
-        }
-        
-        .legend-toggle .legend-text {
-            font-weight: 500;
-            color: #495057;
-            font-size: 14px;
-        }
-        
-        .legend-content {
-            display: none;
-            padding: 1em;
+        .trading-advice-panel {
             background: white;
-            border-radius: 0 0 8px 8px;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         
-        .legend-content.show {
-            display: block;
+        .backtest-panel {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         
-        .legend-items {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8em;
+        .advice-header {
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
         
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8em;
-            padding: 0.4em 0;
+        .advice-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1rem;
         }
         
-        .legend-icon {
-            font-size: 14px;
-            font-weight: bold;
-            min-width: 20px;
+        .action-recommendation {
             text-align: center;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
         }
         
-        .legend-icon.success { color: #27ae60; }
-        .legend-icon.fail { color: #2c3e50; }
-        .legend-icon.pre { color: #f5b041; }
-        .legend-icon.post { color: #3498db; }
-        .legend-icon.mid { color: #e74c3c; }
+        .action-recommendation.buy { background: #d4edda; color: #155724; }
+        .action-recommendation.hold { background: #fff3cd; color: #856404; }
+        .action-recommendation.watch { background: #e2e3e5; color: #383d41; }
+        .action-recommendation.avoid { background: #f8d7da; color: #721c24; }
+        .action-recommendation.loading { background: #cce7ff; color: #004085; }
+        .action-recommendation.error { background: #f8d7da; color: #721c24; }
         
-        .legend-text {
-            font-size: 13px;
-            color: #555;
-            line-height: 1.4;
-        }
-        
-        /* 响应式调整 */
-        @media (max-width: 768px) {
-            .legend-floating {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin: 1em 0;
-                max-width: none;
-            }
+        .action-text {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
         }
         
-        /* 状态统计样式 */
-        .state-stats-container {
-            margin-top: 1em;
-            padding: 1em;
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
+        .confidence-text {
+            font-size: 0.8rem;
+            opacity: 0.8;
         }
-        .state-stats-container h4 {
-            margin-top: 0;
-            margin-bottom: 0.8em;
-            color: #495057;
-        }
-        .state-stats-grid {
+        
+        .price-levels {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1em;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
         }
-        .state-stat-item {
-            background: white;
-            padding: 0.8em;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        
+        .price-item {
+            text-align: center;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 6px;
         }
-        .state-name {
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 0.5em;
-            color: #343a40;
+        
+        .price-label {
+            font-size: 0.7rem;
+            color: #6c757d;
+            margin-bottom: 0.2rem;
         }
-        .state-details {
+        
+        .price-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .analysis-logic {
+            margin-top: 1rem;
+        }
+        
+        .analysis-logic h4 {
+            margin: 0 0 0.6rem 0;
+            color: #2c3e50;
+            font-size: 0.9rem;
+        }
+        
+        .logic-item {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5em;
-        }
-        .state-details span {
-            font-size: 12px;
-            background: #e9ecef;
-            padding: 0.2em 0.5em;
-            border-radius: 3px;
-            color: #495057;
-        }
-        .backtest-summary {
-            margin-bottom: 1em;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            line-height: 1.3;
         }
         
-        /* 按钮样式 */
-        .history-button, .refresh-button, .multi-timeframe-button, .deep-scan-button {
-            margin-left: 1em;
-            padding: 0.5em 1em;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .history-button {
-            background-color: #3498db;
-            color: white;
-        }
-        .history-button:hover {
-            background-color: #2980b9;
-        }
-        .refresh-button {
-            background-color: #27ae60;
-            color: white;
-        }
-        .refresh-button:hover {
-            background-color: #229954;
-        }
-        .multi-timeframe-button {
-            background-color: #9b59b6;
-            color: white;
-        }
-        .multi-timeframe-button:hover {
-            background-color: #8e44ad;
-        }
-        .deep-scan-button {
-            background-color: #e67e22;
-            color: white;
-        }
-        .deep-scan-button:hover {
-            background-color: #d35400;
+        .logic-icon {
+            color: #007bff;
+            margin-right: 0.5rem;
+            font-weight: bold;
         }
         
-        /* 历史报告模态窗口样式 */
+
+        
         .modal {
             display: none;
             position: fixed;
@@ -386,427 +230,257 @@
             height: 100%;
             background-color: rgba(0,0,0,0.5);
         }
+        
         .modal-content {
-            background-color: #fefefe;
-            margin: 2% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 1200px;
-            max-height: 90vh;
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
             overflow-y: auto;
         }
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
+        
         .close {
             color: #aaa;
+            float: right;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
         }
+        
         .close:hover {
             color: #000;
         }
         
-        /* 历史报告内容样式 */
-        .history-tabs {
-            display: flex;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-        .history-tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            border: none;
-            background: none;
-            border-bottom: 2px solid transparent;
-        }
-        .history-tab.active {
-            border-bottom-color: #3498db;
-            color: #3498db;
-            font-weight: bold;
-        }
-        .history-tab:hover {
-            background-color: #f8f9fa;
+        #deep-scan-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         
-        .history-content {
-            display: none;
-        }
-        .history-content.active {
-            display: block;
-        }
-        
-        .report-summary {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        .report-summary h4 {
-            margin-top: 0;
-            color: #495057;
-        }
-        
-        .history-table {
+        .scan-results-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin-top: 1rem;
         }
-        .history-table th,
-        .history-table td {
-            padding: 8px 12px;
+        
+        .scan-results-table th,
+        .scan-results-table td {
+            padding: 0.8rem;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #dee2e6;
         }
-        .history-table th {
+        
+        .scan-results-table th {
             background-color: #f8f9fa;
-            font-weight: bold;
-            color: #495057;
-        }
-        .history-table tr:hover {
-            background-color: #f5f5f5;
+            font-weight: 600;
         }
         
-        .reliability-indicator {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .reliability-high {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .reliability-medium {
-            background-color: #fff3cd;
-            color: #856404;
-        }
-        .reliability-low {
-            background-color: #f8d7da;
-            color: #721c24;
+        .grade-a { color: #28a745; font-weight: bold; }
+        .grade-b { color: #17a2b8; }
+        .grade-c { color: #ffc107; }
+        .grade-d { color: #fd7e14; }
+        .grade-f { color: #dc3545; }
+        
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                flex-direction: row;
+                min-width: auto;
+                max-width: none;
+            }
+            
+            .sidebar > div {
+                flex: 1;
+            }
+            
+            #chart-container {
+                height: 500px;
+            }
         }
         
-        /* 多周期分析样式 */
-        .consensus-overview {
-            display: flex;
-            gap: 2em;
-            margin-bottom: 2em;
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 1rem;
+            }
+            
+            .sidebar {
+                flex-direction: column;
+            }
+            
+            #controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            #controls > * {
+                margin-bottom: 0.5rem;
+            }
+            
+            .price-levels {
+                grid-template-columns: 1fr;
+            }
+            
+            #chart-container {
+                height: 400px;
+            }
         }
-        .consensus-score {
-            text-align: center;
-        }
-        .score-circle {
-            width: 80px;
-            height: 80px;
-            border: 4px solid #95a5a6;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-        }
-        .score-value {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .consensus-details {
-            flex: 1;
-        }
-        .consensus-item {
-            margin-bottom: 0.5em;
-        }
-        .consensus-item .label {
-            font-weight: bold;
-            margin-right: 0.5em;
-        }
-        .recommendation-buy { color: #27ae60; font-weight: bold; }
-        .recommendation-watch { color: #f39c12; font-weight: bold; }
-        .recommendation-hold { color: #95a5a6; font-weight: bold; }
-        
-        .timeframe-signals h5 {
-            margin-bottom: 1em;
-            color: #495057;
-        }
-        .signals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1em;
-        }
-        .signal-item {
-            background: white;
-            padding: 1em;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .timeframe-name {
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 0.5em;
-        }
-        .signal-state {
-            color: #6c757d;
-            font-size: 12px;
-            margin-bottom: 0.5em;
-        }
-        .strength-bar {
-            width: 100%;
-            height: 8px;
-            background-color: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 0.3em;
-        }
-        .strength-fill {
-            height: 100%;
-            transition: width 0.3s ease;
-        }
-        .strength-text {
-            font-size: 11px;
-            color: #6c757d;
-        }
-        
-        .timeframe-selector {
-            margin-bottom: 1em;
-        }
-        .timeframe-selector select {
-            padding: 0.5em;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-left: 0.5em;
-        }
-        
-        .overview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1em;
-            margin-bottom: 1em;
-        }
-        .overview-card {
-            background: white;
-            padding: 1em;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .overview-card h5 {
-            margin: 0 0 0.5em 0;
-            color: #495057;
-        }
-        .overview-number {
-            font-size: 24px;
-            font-weight: bold;
-            color: #3498db;
-            margin: 0;
-        }
-        
-        #chart-container { width: 100%; height: 900px; }
     </style>
 </head>
 <body>
-    <h1>股票筛选与复盘</h1>
-    <div id="controls">
-        <label for="stock-select">选择股票:</label>
-        <select id="stock-select"></select>
-        <label for="strategy-select">选择策略:</label>
-        <select id="strategy-select">
-            <option value="PRE_CROSS">临界金叉</option>
-            <option value="TRIPLE_CROSS">三重金叉</option>
-            <option value="MACD_ZERO_AXIS">MACD零轴启动</option>
-        </select>
-        <button id="history-btn" class="history-button">📊 查看历史报告</button>
-        <button id="refresh-btn" class="refresh-button">🔄 刷新数据</button>
-        <button id="multi-timeframe-btn" class="multi-timeframe-button">⏰ 多周期分析</button>
-        <button id="deep-scan-btn" class="deep-scan-button">🔍 深度扫描</button>
-    </div>
+    <header class="app-header">
+        <h1>股票筛选与复盘</h1>
+        <div id="controls">
+            <label for="strategy-select">策略:</label>
+            <select id="strategy-select">
+                <option value="PRE_CROSS">临界金叉</option>
+                <option value="TRIPLE_CROSS">三重金叉</option>
+                <option value="MACD_ZERO_AXIS">MACD零轴启动</option>
+            </select>
+            <label for="stock-select">股票:</label>
+            <select id="stock-select"></select>
+            
+            <div class="adjustment-control">
+                <label for="adjustment-select">复权:</label>
+                <select id="adjustment-select">
+                    <option value="forward">前复权</option>
+                    <option value="backward">后复权</option>
+                    <option value="none">不复权</option>
+                </select>
+            </div>
+            
+            <button id="refresh-btn" class="refresh-button">🔄 刷新数据</button>
+            <button id="multi-timeframe-btn" class="multi-timeframe-button">⏰ 多周期分析</button>
+            <button id="deep-scan-btn" class="deep-scan-button">🔍 深度扫描</button>
+            <button id="core-pool-btn" class="core-pool-button">⭐ 核心池</button>
+            <button id="history-btn" class="history-button">📊 历史报告</button>
+        </div>
+    </header>
     
-    <div id="backtest-results" style="display: none;">
-        <h3>策略历史表现回测</h3>
-        <div class="backtest-summary">
-            <p>
-                总信号次数:<span id="total-signals"></span>
-                历史胜率:<span id="win-rate"></span>
-                平均最大收益:<span id="avg-max-profit"></span>
-                平均最大回撤:<span id="avg-max-drawdown"></span>
-                预期达峰天数:<span id="avg-days-to-peak"></span>
-            </p>
-        </div>
-        
-        <div id="state-statistics" class="state-stats-container">
-            <h4>📊 各状态表现统计</h4>
-            <div id="state-stats-content"></div>
-        </div>
-    </div>
-    
-    <!-- 悬浮图例说明 -->
-    <div id="legend" class="legend-floating">
-        <div class="legend-toggle" id="legend-toggle">
-            <span class="legend-icon">📊</span>
-            <span class="legend-text">图标说明</span>
-        </div>
-        <div class="legend-content" id="legend-content">
-            <div class="legend-items">
-                <div class="legend-item">
-                    <span class="legend-icon success">●</span>
-                    <span class="legend-text">成功信号 (收益 ≥ 5%)</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-icon fail">✗</span>
-                    <span class="legend-text">失败信号 (收益 < 5%)</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-icon pre">●</span>
-                    <span class="legend-text">PRE - 预交叉状态</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-icon post">●</span>
-                    <span class="legend-text">POST - 后交叉状态</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-icon mid">▲</span>
-                    <span class="legend-text">MID - 中间状态</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="chart-container"></div>
-    
-    <!-- 深度扫描结果区域 -->
-    <div id="deep-scan-section" style="display: none;">
-        <div class="deep-scan-header">
-            <h2>🔍 深度扫描结果</h2>
-            <button id="refresh-deep-scan" class="action-button">🔄 刷新深度扫描</button>
-        </div>
-        
-        <div id="deep-scan-results">
-            <div class="deep-scan-stats">
-                <div class="stat-card">
-                    <div class="stat-number" id="total-analyzed">0</div>
-                    <div class="stat-label">总分析数量</div>
-                </div>
-                <div class="stat-card a-grade">
-                    <div class="stat-number" id="a-grade-count">0</div>
-                    <div class="stat-label">A级股票</div>
-                </div>
-                <div class="stat-card price-eval">
-                    <div class="stat-number" id="price-eval-count">0</div>
-                    <div class="stat-label">价格评估</div>
-                </div>
-                <div class="stat-card buy-rec">
-                    <div class="stat-number" id="buy-rec-count">0</div>
-                    <div class="stat-label">买入推荐</div>
-                </div>
+    <main class="app-container">
+        <div class="main-content">
+            <div class="chart-section">
+                <div id="chart-container"></div>
             </div>
             
-            <div id="stock-grid" class="stock-grid">
-                <!-- 股票卡片将在这里动态生成 -->
-            </div>
-        </div>
-    </div>
-    
-    <!-- 历史报告模态窗口 -->
-    <div id="history-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>📊 历史筛选报告分析</h2>
-                <span class="close">&times;</span>
-            </div>
-            
-            <div class="history-tabs">
-                <button class="history-tab active" data-tab="overview">总览</button>
-                <button class="history-tab" data-tab="reports">历史报告</button>
-                <button class="history-tab" data-tab="reliability">可靠性分析</button>
-                <button class="history-tab" data-tab="performance">表现追踪</button>
-            </div>
-            
-            <div id="overview-content" class="history-content active">
-                <div class="report-summary">
-                    <h4>策略总体表现概览</h4>
-                    <div id="overview-stats"></div>
-                </div>
-                <div id="overview-charts"></div>
-            </div>
-            
-            <div id="reports-content" class="history-content">
-                <div class="report-summary">
-                    <h4>历史筛选报告列表</h4>
-                    <p>以下是所有历史筛选报告，按时间倒序排列</p>
-                </div>
-                <div id="reports-list"></div>
-            </div>
-            
-            <div id="reliability-content" class="history-content">
-                <div class="report-summary">
-                    <h4>数据可靠性分析</h4>
-                    <p>基于历史表现数据，评估当前筛选结果的可靠性</p>
-                </div>
-                <div id="reliability-analysis"></div>
-            </div>
-            
-            <div id="performance-content" class="history-content">
-                <div class="report-summary">
-                    <h4>历史信号表现追踪</h4>
-                    <p>追踪历史筛选出的股票在后续时间的实际表现</p>
-                </div>
-                <div id="performance-tracking"></div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 多周期分析模态窗口 -->
-    <div id="multi-timeframe-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>⏰ 多周期分析</h2>
-                <span class="close" id="multi-close">&times;</span>
-            </div>
-            
-            <div class="history-tabs">
-                <button class="history-tab active" data-tab="consensus">共振分析</button>
-                <button class="history-tab" data-tab="timeframes">周期对比</button>
-                <button class="history-tab" data-tab="details">详细数据</button>
-            </div>
-            
-            <div id="consensus-content" class="history-content active">
-                <div class="report-summary">
-                    <h4>多周期共振分析</h4>
-                    <div id="consensus-summary"></div>
-                </div>
-                <div id="consensus-chart"></div>
-            </div>
-            
-            <div id="timeframes-content" class="history-content">
-                <div class="report-summary">
-                    <h4>各周期对比分析</h4>
-                    <div class="timeframe-selector">
-                        <label>选择周期:</label>
-                        <select id="timeframe-select">
-                            <option value="daily">日线</option>
-                            <option value="60min">60分钟</option>
-                            <option value="30min">30分钟</option>
-                            <option value="15min">15分钟</option>
-                            <option value="5min">5分钟</option>
-                        </select>
+            <div class="sidebar">
+                <div id="backtest-results" class="backtest-panel" style="display: none;">
+                    <h3 style="margin: 0 0 0.8rem 0; color: #2c3e50; font-size: 1rem;">回测表现</h3>
+                    <div class="backtest-summary" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 0.8rem; font-size: 0.8rem;">
+                        <div style="background: #f8f9fa; padding: 0.4rem; border-radius: 4px; text-align: center;">
+                            <div style="color: #6c757d; font-size: 0.7rem;">总信号</div>
+                            <div id="total-signals" style="font-weight: 600; color: #2c3e50; font-size: 0.85rem;">--</div>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 0.4rem; border-radius: 4px; text-align: center;">
+                            <div style="color: #6c757d; font-size: 0.7rem;">胜率</div>
+                            <div id="win-rate" style="font-weight: 600; color: #2c3e50; font-size: 0.85rem;">--</div>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 0.4rem; border-radius: 4px; text-align: center;">
+                            <div style="color: #6c757d; font-size: 0.7rem;">平均收益</div>
+                            <div id="avg-max-profit" style="font-weight: 600; color: #28a745; font-size: 0.85rem;">--</div>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 0.4rem; border-radius: 4px; text-align: center;">
+                            <div style="color: #6c757d; font-size: 0.7rem;">平均回撤</div>
+                            <div id="avg-max-drawdown" style="font-weight: 600; color: #dc3545; font-size: 0.85rem;">--</div>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 0.4rem; border-radius: 4px; text-align: center; grid-column: span 2;">
+                            <div style="color: #6c757d; font-size: 0.7rem;">达峰天数</div>
+                            <div id="avg-days-to-peak" style="font-weight: 600; color: #2c3e50; font-size: 0.85rem;">--</div>
+                        </div>
+                    </div>
+                    <div id="state-statistics" class="state-stats-container">
+                        <h4 style="margin: 0 0 0.6rem 0; color: #2c3e50; font-size: 0.9rem;">状态统计</h4>
+                        <div id="state-stats-content" style="font-size: 0.75rem;"></div>
                     </div>
                 </div>
-                <div id="timeframe-chart"></div>
-            </div>
-            
-            <div id="details-content" class="history-content">
-                <div class="report-summary">
-                    <h4>多周期详细数据</h4>
-                    <p>各周期的技术指标和信号状态详情</p>
+                
+                <div id="trading-advice-panel" class="trading-advice-panel" style="display: none;">
+                    <div class="advice-header">
+                        <h3>交易建议</h3>
+                        <button id="advice-refresh" style="float: right; padding: 0.3rem 0.8rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">刷新</button>
+                    </div>
+                    <div class="advice-content">
+                        <div id="action-recommendation" class="action-recommendation loading">
+                            <div class="action-text">分析中...</div>
+                            <div class="confidence-text"></div>
+                        </div>
+                        
+                        <div class="price-levels">
+                            <div class="price-item">
+                                <div class="price-label">当前价格</div>
+                                <div id="current-price" class="price-value">--</div>
+                            </div>
+                            <div class="price-item">
+                                <div class="price-label">建议入场</div>
+                                <div id="entry-price" class="price-value">--</div>
+                            </div>
+                            <div class="price-item">
+                                <div class="price-label">目标价位</div>
+                                <div id="target-price" class="price-value">--</div>
+                            </div>
+                            <div class="price-item">
+                                <div class="price-label">止损价位</div>
+                                <div id="stop-price" class="price-value">--</div>
+                            </div>
+                            <div class="price-item">
+                                <div class="price-label">阻力位</div>
+                                <div id="resistance-level" class="price-value">--</div>
+                            </div>
+                            <div class="price-item">
+                                <div class="price-label">支撑位</div>
+                                <div id="support-level" class="price-value">--</div>
+                            </div>
+                        </div>
+                        
+                        <div class="analysis-logic">
+                            <h4>分析逻辑</h4>
+                            <div id="analysis-logic"></div>
+                        </div>
+                    </div>
                 </div>
-                <div id="details-table"></div>
             </div>
+        </div>
+        
+        <div id="deep-scan-section" style="display: none;">
+            </div>
+    </main>
+    
+    <!-- 历史报告模态框 -->
+    <div id="history-modal" class="modal">
+        <div class="modal-content">
+            <span id="history-close" class="close">&times;</span>
+            <h2>历史报告</h2>
+            <div id="history-content">加载中...</div>
+        </div>
+    </div>
+    
+    <!-- 核心池管理模态框 -->
+    <div id="core-pool-modal" class="modal">
+        <div class="modal-content">
+            <span id="core-pool-close" class="close">&times;</span>
+            <h2>核心池管理</h2>
+            <div style="margin-bottom: 1rem;">
+                <input type="text" id="new-stock-code" placeholder="输入股票代码 (如: SZ000001)" style="padding: 0.5rem; margin-right: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                <input type="text" id="new-stock-note" placeholder="备注 (可选)" style="padding: 0.5rem; margin-right: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                <button onclick="addToCorePool()" style="padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">添加</button>
+            </div>
+            <div id="core-pool-list">加载中...</div>
+        </div>
+    </div>
+    
+    <!-- 多周期分析模态框 -->
+    <div id="multi-timeframe-modal" class="modal">
+        <div class="modal-content">
+            <span id="multi-timeframe-close" class="close">&times;</span>
+            <h2>多周期分析</h2>
+            <div id="multi-timeframe-content">加载中...</div>
         </div>
     </div>
     

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-28T17:44:37.358589",
+  "stock_code": "sz002445",
+  "current_price": 2.59,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 2.46,
+    "target_price_2": 2.4,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.050193050193050155,
+    "discount_2": 0.07335907335907334,
+    "stop_loss": {
+      "conservative": 2.51,
+      "moderate": 2.38,
+      "aggressive": 2.38,
+      "technical": 1.34
+    },
+    "take_profit": {
+      "conservative": 2.8,
+      "moderate": 2.85,
+      "aggressive": 3.11
+    }
+  }
+}

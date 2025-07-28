@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-28T17:40:57.614703",
+  "stock_code": "sh603421",
+  "current_price": 6.95,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 6.6,
+    "target_price_2": 6.6,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.0503597122302159,
+    "discount_2": 0.0503597122302159,
+    "stop_loss": {
+      "conservative": 6.74,
+      "moderate": 6.39,
+      "aggressive": 6.39,
+      "technical": 6.6
+    },
+    "take_profit": {
+      "conservative": 7.51,
+      "moderate": 7.64,
+      "aggressive": 8.34
+    }
+  }
+}

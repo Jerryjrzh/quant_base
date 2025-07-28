@@ -1,0 +1,30 @@
+{
+  "test_time": "2025-07-28T19:17:20.519041",
+  "test_results": {
+    "dynamic_range_calculation": {
+      "rsi_range": [
+        15,
+        95
+      ],
+      "kdj_range": [
+        5,
+        95
+      ],
+      "macd_range": [
+        -0.6,
+        0.96
+      ]
+    },
+    "frontend_modification_check": true
+  },
+  "summary": {
+    "status": "PASSED",
+    "description": "动态指标范围功能已实现"
+  },
+  "improvements": [
+    "RSI指标现在根据实际数据动态调整显示范围，避免显示超出范围",
+    "KDJ指标现在根据实际数据动态调整显示范围，提高显示效果",
+    "MACD指标保持原有的动态范围计算逻辑",
+    "所有指标都添加了5个单位的缓冲区，确保数据完整显示"
+  ]
+}

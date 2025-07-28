@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>动态指标范围测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-container { margin-bottom: 30px; }
+        .chart-container { width: 100%; height: 400px; border: 1px solid #ddd; }
+        .info { background: #f0f8ff; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>动态指标范围测试</h1>
+    
+    <div class="test-container">
+        <h2>测试场景1: RSI指标在20-80范围内</h2>
+        <div class="info">
+            <strong>预期效果:</strong> RSI显示范围应该是15-85，而不是固定的0-100
+        </div>
+        <div id="chart1" class="chart-container"></div>
+    </div>
+    
+    <div class="test-container">
+        <h2>测试场景2: KDJ指标在30-70范围内</h2>
+        <div class="info">
+            <strong>预期效果:</strong> KDJ显示范围应该是25-75，而不是固定的0-100
+        </div>
+        <div id="chart2" class="chart-container"></div>
+    </div>
+    
+    <div class="test-container">
+        <h2>测试场景3: MACD指标在-0.5到0.8范围内</h2>
+        <div class="info">
+            <strong>预期效果:</strong> MACD显示范围应该动态调整为-0.6到0.96
+        </div>
+        <div id="chart3" class="chart-container"></div>
+    </div>
+
+    <script>
+        // 模拟数据
+        const dates = ['2024-01-01', '2024-01-02', '2024-01-03', '2024-01-04', '2024-01-05', '2024-01-06', '2024-01-07', '2024-01-08'];
+        
+        // 测试场景1: RSI在20-80范围
+        const rsi6Data1 = [25, 30, 45, 60, 75, 80, 35, 40];
+        const rsi12Data1 = [20, 35, 50, 65, 70, 75, 30, 45];
+        const rsi24Data1 = [30, 40, 55, 70, 65, 78, 35, 50];
+        
+        // 测试场景2: KDJ在30-70范围
+        const kData2 = [35, 40, 50, 60, 65, 70, 45, 55];
+        const dData2 = [30, 35, 45, 55, 60, 68, 40, 50];
+        const jData2 = [40, 45, 55, 65, 70, 72, 50, 60];
+        
+        // 测试场景3: MACD在-0.5到0.8范围
+        const difData3 = [-0.3, -0.1, 0.1, 0.3, 0.5, 0.7, 0.2, 0.4];
+        const deaData3 = [-0.2, 0.0, 0.2, 0.4, 0.6, 0.8, 0.3, 0.5];
+        const macdData3 = [-0.1, -0.1, -0.1, -0.1, -0.1, -0.1, -0.1, -0.1];
+        
+        function createChart(containerId, title, data, type) {
+            const chart = echarts.init(document.getElementById(containerId));
+            let option;
+            
+            if (type === 'rsi') {
+                // 计算RSI动态范围
+                const allRsiValues = [...data.rsi6, ...data.rsi12, ...data.rsi24].filter(val => val !== null && val !== undefined);
+                const rsiMin = allRsiValues.length > 0 ? Math.max(0, Math.min(...allRsiValues) - 5) : 0;
+                const rsiMax = allRsiValues.length > 0 ? Math.min(100, Math.max(...allRsiValues) + 5) : 100;
+                
+                option = {
+                    title: { text: title + ` (范围: ${rsiMin}-${rsiMax})` },
+                    tooltip: { trigger: 'axis' },
+                    legend: { data: ['RSI6', 'RSI12', 'RSI24'] },
+                    xAxis: { type: 'category', data: dates },
+                    yAxis: { 
+                        type: 'value',
+                        min: rsiMin,
+                        max: rsiMax,
+                        axisLabel: { formatter: '{value}' }
+                    },
+                    series: [
+                        { name: 'RSI6', type: 'line', data: data.rsi6, smooth: true },
+                        { name: 'RSI12', type: 'line', data: data.rsi12, smooth: true },
+                        { name: 'RSI24', type: 'line', data: data.rsi24, smooth: true }
+                    ]
+                };
+            } else if (type === 'kdj') {
+                // 计算KDJ动态范围
+                const allKdjValues = [...data.k, ...data.d, ...data.j].filter(val => val !== null && val !== undefined);
+                const kdjMin = allKdjValues.length > 0 ? Math.max(0, Math.min(...allKdjValues) - 5) : 0;
+                const kdjMax = allKdjValues.length > 0 ? Math.min(100, Math.max(...allKdjValues) + 5) : 100;
+                
+                option = {
+                    title: { text: title + ` (范围: ${kdjMin}-${kdjMax})` },
+                    tooltip: { trigger: 'axis' },
+                    legend: { data: ['K', 'D', 'J'] },
+                    xAxis: { type: 'category', data: dates },
+                    yAxis: { 
+                        type: 'value',
+                        min: kdjMin,
+                        max: kdjMax,
+                        axisLabel: { formatter: '{value}' }
+                    },
+                    series: [
+                        { name: 'K', type: 'line', data: data.k, smooth: true },
+                        { name: 'D', type: 'line', data: data.d, smooth: true },
+                        { name: 'J', type: 'line', data: data.j, smooth: true }
+                    ]
+                };
+            } else if (type === 'macd') {
+                // 计算MACD动态范围
+                const allMacdValues = [...data.dif, ...data.dea, ...data.macd].filter(val => val !== null && val !== undefined);
+                const macdMin = allMacdValues.length > 0 ? Math.min(...allMacdValues) * 1.2 : -1;
+                const macdMax = allMacdValues.length > 0 ? Math.max(...allMacdValues) * 1.2 : 1;
+                
+                option = {
+                    title: { text: title + ` (范围: ${macdMin.toFixed(3)}-${macdMax.toFixed(3)})` },
+                    tooltip: { trigger: 'axis' },
+                    legend: { data: ['DIF', 'DEA', 'MACD'] },
+                    xAxis: { type: 'category', data: dates },
+                    yAxis: { 
+                        type: 'value',
+                        min: macdMin,
+                        max: macdMax,
+                        axisLabel: { formatter: '{value}' }
+                    },
+                    series: [
+                        { name: 'DIF', type: 'line', data: data.dif, smooth: true },
+                        { name: 'DEA', type: 'line', data: data.dea, smooth: true },
+                        { name: 'MACD', type: 'bar', data: data.macd }
+                    ]
+                };
+            }
+            
+            chart.setOption(option);
+        }
+        
+        // 创建测试图表
+        createChart('chart1', 'RSI指标动态范围测试', {
+            rsi6: rsi6Data1,
+            rsi12: rsi12Data1, 
+            rsi24: rsi24Data1
+        }, 'rsi');
+        
+        createChart('chart2', 'KDJ指标动态范围测试', {
+            k: kData2,
+            d: dData2,
+            j: jData2
+        }, 'kdj');
+        
+        createChart('chart3', 'MACD指标动态范围测试', {
+            dif: difData3,
+            dea: deaData3,
+            macd: macdData3
+        }, 'macd');
+    </script>
+</body>
+</html>

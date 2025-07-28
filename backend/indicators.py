@@ -1,5 +1,5 @@
 """
-技术指标计算库 - 支持可配置参数
+技术指标计算库 - 支持可配置参数和复权处理
 所有函数接收一个包含标准OHLCV列的DataFrame，
 并返回一个或多个包含完整指标序列的Pandas Series。
 """
@@ -7,6 +7,12 @@ import pandas as pd
 import numpy as np
 from typing import Tuple, Optional, Union
 from dataclasses import dataclass
+
+# 导入复权处理模块
+try:
+    from .adjustment_processor import AdjustmentProcessor, AdjustmentConfig, create_adjustment_config
+except ImportError:
+    from adjustment_processor import AdjustmentProcessor, AdjustmentConfig, create_adjustment_config
 
 @dataclass
 class IndicatorConfig:
@@ -20,6 +26,7 @@ class MACDIndicatorConfig(IndicatorConfig):
     slow_period: int = 26
     signal_period: int = 9
     price_type: str = 'close'  # 'close', 'hl2', 'hlc3', 'ohlc4'
+    adjustment_config: Optional[AdjustmentConfig] = None  # 复权配置
 
 @dataclass
 class KDJIndicatorConfig(IndicatorConfig):
@@ -28,6 +35,7 @@ class KDJIndicatorConfig(IndicatorConfig):
     k_period: int = 3   # K值平滑周期
     d_period: int = 3   # D值平滑周期
     smoothing_method: str = 'ema'  # 'ema', 'sma'
+    adjustment_config: Optional[AdjustmentConfig] = None  # 复权配置
 
 @dataclass
 class RSIIndicatorConfig(IndicatorConfig):
@@ -35,6 +43,7 @@ class RSIIndicatorConfig(IndicatorConfig):
     period: int = 14
     price_type: str = 'close'
     smoothing_method: str = 'wilder'  # 'wilder', 'ema', 'sma'
+    adjustment_config: Optional[AdjustmentConfig] = None  # 复权配置
 
 @dataclass
 class VolumeIndicatorConfig(IndicatorConfig):
@@ -55,6 +64,25 @@ def get_price_series(df: pd.DataFrame, price_type: str = 'close') -> pd.Series:
     else:
         return df['close']
 
+def calculate_ma(df: pd.DataFrame, period: int, price_type: str = 'close', ma_type: str = 'sma') -> pd.Series:
+    """计算移动平均线
+    
+    Args:
+        df: 包含OHLCV数据的DataFrame
+        period: 移动平均周期
+        price_type: 价格类型 ('close', 'hl2', 'hlc3', 'ohlc4')
+        ma_type: 移动平均类型 ('sma', 'ema')
+    
+    Returns:
+        移动平均线序列
+    """
+    price = get_price_series(df, price_type)
+    
+    if ma_type == 'ema':
+        return price.ewm(span=period, adjust=False).mean()
+    else:  # sma (默认)
+        return price.rolling(window=period).mean()
+
 def calculate_volume_ma(df: pd.DataFrame, config: Optional[VolumeIndicatorConfig] = None) -> pd.Series:
     """计算成交量移动平均线 - 支持配置"""
     if config is None:
@@ -72,8 +100,9 @@ def calculate_macd(df: pd.DataFrame,
                   fast: Optional[int] = None, 
                   slow: Optional[int] = None, 
                   signal: Optional[int] = None,
-                  config: Optional[MACDIndicatorConfig] = None) -> Tuple[pd.Series, pd.Series]:
-    """计算MACD指标 - 支持配置和向后兼容"""
+                  config: Optional[MACDIndicatorConfig] = None,
+                  stock_code: Optional[str] = None) -> Tuple[pd.Series, pd.Series]:
+    """计算MACD指标 - 支持配置、复权处理和向后兼容"""
     
     # 向后兼容：如果传入了单独参数，使用它们
     if fast is not None or slow is not None or signal is not None:
@@ -81,11 +110,13 @@ def calculate_macd(df: pd.DataFrame,
         slow = slow or 26
         signal = signal or 9
         price_type = 'close'
+        adjustment_config = None
     elif config is not None:
         fast = config.fast_period
         slow = config.slow_period
         signal = config.signal_period
         price_type = config.price_type
+        adjustment_config = config.adjustment_config
     else:
         # 使用默认配置
         config = MACDIndicatorConfig()
@@ -93,9 +124,16 @@ def calculate_macd(df: pd.DataFrame,
         slow = config.slow_period
         signal = config.signal_period
         price_type = config.price_type
+        adjustment_config = config.adjustment_config
+    
+    # 应用复权处理
+    working_df = df.copy()
+    if adjustment_config is not None:
+        processor = AdjustmentProcessor(adjustment_config)
+        working_df = processor.process_data(working_df, stock_code)
     
     # 获取价格序列
-    price = get_price_series(df, price_type)
+    price = get_price_series(working_df, price_type)
     
     # 计算MACD
     ema_fast = price.ewm(span=fast, adjust=False).mean()
@@ -109,8 +147,9 @@ def calculate_kdj(df: pd.DataFrame,
                  n: Optional[int] = None,
                  k_period: Optional[int] = None,
                  d_period: Optional[int] = None,
-                 config: Optional[KDJIndicatorConfig] = None) -> Tuple[pd.Series, pd.Series, pd.Series]:
-    """计算KDJ指标 - 支持配置和向后兼容"""
+                 config: Optional[KDJIndicatorConfig] = None,
+                 stock_code: Optional[str] = None) -> Tuple[pd.Series, pd.Series, pd.Series]:
+    """计算KDJ指标 - 支持配置、复权处理和向后兼容"""
     
     # 向后兼容：如果传入了单独参数，使用它们
     if n is not None or k_period is not None or d_period is not None:
@@ -118,11 +157,13 @@ def calculate_kdj(df: pd.DataFrame,
         k_period = k_period or 3
         d_period = d_period or 3
         smoothing_method = 'ema'
+        adjustment_config = None
     elif config is not None:
         n = config.n_period
         k_period = config.k_period
         d_period = config.d_period
         smoothing_method = config.smoothing_method
+        adjustment_config = config.adjustment_config
     else:
         # 使用默认配置
         config = KDJIndicatorConfig()
@@ -130,16 +171,30 @@ def calculate_kdj(df: pd.DataFrame,
         k_period = config.k_period
         d_period = config.d_period
         smoothing_method = config.smoothing_method
+        adjustment_config = config.adjustment_config
+    
+    # 应用复权处理
+    working_df = df.copy()
+    if adjustment_config is not None:
+        processor = AdjustmentProcessor(adjustment_config)
+        working_df = processor.process_data(working_df, stock_code)
+        
+        # 记录复权信息（用于调试）
+        if stock_code:
+            adj_info = processor.get_adjustment_info(df, working_df)
+            print(f"📊 KDJ复权处理 {stock_code}: {adj_info['adjustment_type']}, "
+                  f"调整次数: {adj_info['adjustments_applied']}, "
+                  f"价格比例: {adj_info['price_change_ratio']:.4f}")
     
     # 计算RSV
-    low_n = df['low'].rolling(window=n).min()
-    high_n = df['high'].rolling(window=n).max()
+    low_n = working_df['low'].rolling(window=n).min()
+    high_n = working_df['high'].rolling(window=n).max()
     
     # 避免除以零
     high_minus_low = high_n - low_n
     rsv = pd.Series(
-        np.where(high_minus_low != 0, ((df['close'] - low_n) / high_minus_low) * 100, 0), 
-        index=df.index
+        np.where(high_minus_low != 0, ((working_df['close'] - low_n) / high_minus_low) * 100, 0), 
+        index=working_df.index
     )
     
     # 计算K和D值
@@ -157,27 +212,37 @@ def calculate_kdj(df: pd.DataFrame,
 
 def calculate_rsi(df: pd.DataFrame, 
                  periods: Optional[int] = None,
-                 config: Optional[RSIIndicatorConfig] = None) -> pd.Series:
-    """计算RSI指标 - 支持配置和向后兼容"""
+                 config: Optional[RSIIndicatorConfig] = None,
+                 stock_code: Optional[str] = None) -> pd.Series:
+    """计算RSI指标 - 支持配置、复权处理和向后兼容"""
     
     # 向后兼容：如果传入了periods参数，使用它
     if periods is not None:
         period = periods
         price_type = 'close'
         smoothing_method = 'wilder'
+        adjustment_config = None
     elif config is not None:
         period = config.period
         price_type = config.price_type
         smoothing_method = config.smoothing_method
+        adjustment_config = config.adjustment_config
     else:
         # 使用默认配置
         config = RSIIndicatorConfig()
         period = config.period
         price_type = config.price_type
         smoothing_method = config.smoothing_method
+        adjustment_config = config.adjustment_config
+    
+    # 应用复权处理
+    working_df = df.copy()
+    if adjustment_config is not None:
+        processor = AdjustmentProcessor(adjustment_config)
+        working_df = processor.process_data(working_df, stock_code)
     
     # 获取价格序列
-    price = get_price_series(df, price_type)
+    price = get_price_series(working_df, price_type)
     
     # 计算价格变化
     delta = price.diff(1)
@@ -275,19 +340,25 @@ def calculate_atr(df: pd.DataFrame, period: int = 14) -> pd.Series:
 
 # 指标配置工厂函数
 def create_macd_config(fast: int = 12, slow: int = 26, signal: int = 9, 
-                      price_type: str = 'close') -> MACDIndicatorConfig:
+                      price_type: str = 'close',
+                      adjustment_type: str = 'forward') -> MACDIndicatorConfig:
     """创建MACD配置"""
-    return MACDIndicatorConfig(fast, slow, signal, price_type)
+    adjustment_config = create_adjustment_config(adjustment_type) if adjustment_type != 'none' else None
+    return MACDIndicatorConfig(fast, slow, signal, price_type, adjustment_config)
 
 def create_kdj_config(n: int = 27, k_period: int = 3, d_period: int = 3,
-                     smoothing_method: str = 'ema') -> KDJIndicatorConfig:
+                     smoothing_method: str = 'ema',
+                     adjustment_type: str = 'forward') -> KDJIndicatorConfig:
     """创建KDJ配置"""
-    return KDJIndicatorConfig(n, k_period, d_period, smoothing_method)
+    adjustment_config = create_adjustment_config(adjustment_type) if adjustment_type != 'none' else None
+    return KDJIndicatorConfig(n, k_period, d_period, smoothing_method, adjustment_config)
 
 def create_rsi_config(period: int = 14, price_type: str = 'close',
-                     smoothing_method: str = 'wilder') -> RSIIndicatorConfig:
+                     smoothing_method: str = 'wilder',
+                     adjustment_type: str = 'forward') -> RSIIndicatorConfig:
     """创建RSI配置"""
-    return RSIIndicatorConfig(period, price_type, smoothing_method)
+    adjustment_config = create_adjustment_config(adjustment_type) if adjustment_type != 'none' else None
+    return RSIIndicatorConfig(period, price_type, smoothing_method, adjustment_config)
 
 def create_volume_config(ma_period: int = 30, ma_type: str = 'sma') -> VolumeIndicatorConfig:
     """创建成交量配置"""
