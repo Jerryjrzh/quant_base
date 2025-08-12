@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000783",
-  "optimization_date": "2025-07-23T12:21:14.898557",
+  "optimization_date": "2025-08-12T09:40:48.636881",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4792821586678533,
+  "best_score": 0.4817635216096292,
   "optimization_target": "composite_score"
 }

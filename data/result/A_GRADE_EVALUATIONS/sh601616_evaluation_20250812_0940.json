@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.075806",
+  "stock_code": "sh601616",
+  "current_price": 3.95,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 3.75,
+    "target_price_2": 3.75,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.050632911392405104,
+    "discount_2": 0.050632911392405104,
+    "stop_loss": {
+      "conservative": 3.83,
+      "moderate": 3.63,
+      "aggressive": 3.63,
+      "technical": 3.0
+    },
+    "take_profit": {
+      "conservative": 4.27,
+      "moderate": 4.35,
+      "aggressive": 4.74
+    }
+  }
+}

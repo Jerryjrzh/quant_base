@@ -1,0 +1,26 @@
+{
+  "test_type": "simulated_data",
+  "data_points": 100,
+  "test_time": "2025-07-29T19:01:01.816658",
+  "indicators": {
+    "MACD": {
+      "min_value": -0.37455971264106047,
+      "max_value": 0.1936567698474061,
+      "range": 0.5682164824884666,
+      "has_negative": true,
+      "has_positive": true,
+      "zero_crossings": 172
+    },
+    "KDJ": {
+      "min_value": -1.1471813548036494,
+      "max_value": 105.32027034743999,
+      "range": 106.46745170224364,
+      "has_negative": true,
+      "exceeds_100": true,
+      "k_min": 1.593608434426159,
+      "d_min": 2.7042177482967684,
+      "j_min": -1.1471813548036494,
+      "j_max": 105.32027034743999
+    }
+  }
+}

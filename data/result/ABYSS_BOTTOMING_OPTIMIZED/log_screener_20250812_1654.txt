@@ -1,0 +1,19 @@
+2025-08-12 16:54:07,103 - INFO - 成功加载配置文件: 深渊筑底优化版 v2.0
+2025-08-12 16:54:07,103 - INFO - ===== 开始执行深渊筑底策略筛选 (V2 优化版) =====
+2025-08-12 16:54:07,113 - INFO - 共找到 8697 个日线文件，开始处理...
+2025-08-12 16:54:07,354 - INFO - 发现高质量信号: sh600439
+2025-08-12 16:54:08,633 - INFO - 筛选完成，发现 1 个高质量信号。
+2025-08-12 16:54:08,647 - ERROR - 图表生成失败 for sh600439: "None of [Index(['ma30', 'ma45'], dtype='object')] are in the [columns]"
+Traceback (most recent call last):
+  File "/home/hypnosis/data/quant_base/backend/screener_abyss.py", line 249, in visualize_signal
+    mpf.make_addplot(df_chart[['ma30', 'ma45']], alpha=0.7),
+                     ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6249, in _raise_if_missing
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['ma30', 'ma45'], dtype='object')] are in the [columns]"
+2025-08-12 16:54:08,649 - INFO - 总耗时: 1.55 秒

@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000902",
-  "optimization_date": "2025-07-23T12:21:33.946356",
+  "optimization_date": "2025-08-12T09:40:43.172744",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.48308290467975723,
+  "best_score": 0.4825430380544928,
   "optimization_target": "composite_score"
 }

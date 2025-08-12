@@ -1,0 +1,522 @@
+{
+  "scan_time": "2025-07-29 12:01:25",
+  "total_positions": 31,
+  "positions": [
+    {
+      "stock_code": "sz300741",
+      "purchase_price": 26.92,
+      "quantity": 1000,
+      "purchase_date": "2024-01-15",
+      "note": "华宝股份 - 香精-食品",
+      "created_time": "2025-07-29 11:02:28",
+      "last_analysis_time": "2025-07-29 11:37:31",
+      "updated_time": "2025-07-29 11:37:31",
+      "current_price": 19.81,
+      "profit_loss_pct": -26.411589895988126,
+      "analysis_time": "2025-07-29 12:01:25",
+      "technical_analysis": {
+        "trend_analysis": {
+          "ma_signals": [
+            "价格在MA5之上",
+            "价格在MA13之上",
+            "MA5在MA13之上"
+          ],
+          "trend_strength": 0.75,
+          "price_position": "中期上升"
+        },
+        "momentum_analysis": {
+          "rsi_value": 66.80856355415614,
+          "macd_value": 0.13028450055606833,
+          "kdj_k_value": 78.26338762444752,
+          "momentum_signals": [
+            "MACD向上"
+          ]
+        },
+        "support_resistance": {
+          "resistance_level": 20.11,
+          "support_level": 18.04,
+          "distance_to_resistance": 1.5143866733972777,
+          "distance_to_support": 8.934881373043915
+        }
+      },
+      "position_advice": {
+        "action": "STOP_LOSS",
+        "confidence": 0.8,
+        "reasons": [
+          "亏损26.4%，建议止损"
+        ],
+        "add_position_price": null,
+        "reduce_position_price": null,
+        "stop_loss_price": 19.4138
+      },
+      "risk_assessment": {
+        "risk_level": "HIGH",
+        "risk_score": 8,
+        "volatility": 42.884366471025785,
+        "max_drawdown": 41.13222486144102,
+        "risk_factors": [
+          "高波动率(42.9%)",
+          "大幅回撤(41.1%)",
+          "价格接近近期高点"
+        ],
+        "price_position_pct": 85.50724637681157
+      },
+      "price_targets": {
+        "next_resistance": 22.56,
+        "next_support": 19.635820198482193,
+        "bb_upper_target": 19.71487959020369,
+        "bb_lower_target": 18.13312040979631,
+        "short_term_target": 20.8005,
+        "medium_term_target": 22.781499999999998,
+        "stop_loss_level": 18.2252
+      },
+      "timing_analysis": {
+        "holding_days": 561,
+        "expected_peak_date": null,
+        "days_to_peak": null,
+        "avg_cycle_days": 28,
+        "timing_advice": "持有时间较长，建议关注卖出时机"
+      }
+    },
+    {
+      "stock_code": "sh600618",
+      "purchase_price": 10.3,
+      "quantity": 500,
+      "purchase_date": "2024-02-20",
+      "note": "氯碱化工 - 化工",
+      "created_time": "2025-07-29 11:02:28",
+      "last_analysis_time": "2025-07-29 11:37:31",
+      "updated_time": "2025-07-29 11:37:31",
+      "current_price": 10.38,
+      "profit_loss_pct": 0.7766990291262142,
+      "analysis_time": "2025-07-29 12:01:25",
+      "technical_analysis": {
+        "trend_analysis": {
+          "ma_signals": [
+            "价格在MA13之上",
+            "MA5在MA13之上",
+            "MA13在MA45之上"
+          ],
+          "trend_strength": 0.75,
+          "price_position": "震荡整理"
+        },
+        "momentum_analysis": {
+          "rsi_value": 50.25091022890434,
+          "macd_value": 0.03778302873912223,
+          "kdj_k_value": 74.06730935270178,
+          "momentum_signals": []
+        },
+        "support_resistance": {
+          "resistance_level": 10.97,
+          "support_level": 9.15,
+          "distance_to_resistance": 5.684007707129092,
+          "distance_to_support": 11.849710982658964
+        }
+      },
+      "position_advice": {
+        "action": "HOLD",
+        "confidence": 0.6,
+        "reasons": [
+          "盈利0.8%，继续持有",
+          "价格在均线之上，趋势良好"
+        ],
+        "add_position_price": null,
+        "reduce_position_price": null,
+        "stop_loss_price": null
+      },
+      "risk_assessment": {
+        "risk_level": "MEDIUM",
+        "risk_score": 5,
+        "volatility": 39.78166000735842,
+        "max_drawdown": 42.79559597893729,
+        "risk_factors": [
+          "中等波动率(39.8%)",
+          "大幅回撤(42.8%)"
+        ],
+        "price_position_pct": 67.58241758241759
+      },
+      "price_targets": {
+        "next_resistance": 10.9,
+        "next_support": 9.4,
+        "bb_upper_target": 10.915719759339067,
+        "bb_lower_target": 9.260280240660931,
+        "short_term_target": 10.899000000000001,
+        "medium_term_target": 11.937,
+        "stop_loss_level": 9.549600000000002
+      },
+      "timing_analysis": {
+        "holding_days": 525,
+        "expected_peak_date": null,
+        "days_to_peak": null,
+        "avg_cycle_days": 31,
+        "timing_advice": "持有时间较长，建议关注卖出时机"
+      }
+    },
+    {
+      "stock_code": "sz002021",
+      "purchase_price": 2.32,
+      "quantity": 300,
+      "purchase_date": "2024-03-10",
+      "note": "中捷资源 - 资源",
+      "created_time": "2025-07-29 11:02:28",
+      "last_analysis_time": "2025-07-29 11:37:31",
+      "updated_time": "2025-07-29 11:37:31",
+      "current_price": 2.43,
+      "profit_loss_pct": 4.741379310344842,
+      "analysis_time": "2025-07-29 12:01:25",
+      "technical_analysis": {
+        "trend_analysis": {
+          "ma_signals": [
+            "价格在MA5之上",
+            "价格在MA13之上",
+            "MA5在MA13之上",
+            "MA13在MA45之上"
+          ],
+          "trend_strength": 1.0,
+          "price_position": "强势上升"
+        },
+        "momentum_analysis": {
+          "rsi_value": 63.70136671818772,
+          "macd_value": 0.000859854515685779,
+          "kdj_k_value": 90.40886203227015,
+          "momentum_signals": [
+            "MACD向上",
+            "KDJ超买"
+          ]
+        },
+        "support_resistance": {
+          "resistance_level": 2.45,
+          "support_level": 2.15,
+          "distance_to_resistance": 0.8230452674897125,
+          "distance_to_support": 11.522633744855977
+        }
+      },
+      "position_advice": {
+        "action": "HOLD",
+        "confidence": 0.6,
+        "reasons": [
+          "盈利4.7%，继续持有",
+          "价格在均线之上，趋势良好"
+        ],
+        "add_position_price": null,
+        "reduce_position_price": null,
+        "stop_loss_price": null
+      },
+      "risk_assessment": {
+        "risk_level": "HIGH",
+        "risk_score": 8,
+        "volatility": 43.80332293113776,
+        "max_drawdown": 41.72932330827068,
+        "risk_factors": [
+          "高波动率(43.8%)",
+          "大幅回撤(41.7%)",
+          "价格接近近期高点"
+        ],
+        "price_position_pct": 93.33333333333333
+      },
+      "price_targets": {
+        "next_resistance": 2.45,
+        "next_support": 2.33,
+        "bb_upper_target": 2.451542617049298,
+        "bb_lower_target": 2.3264573829507014,
+        "short_term_target": 2.5515000000000003,
+        "medium_term_target": 2.7944999999999998,
+        "stop_loss_level": 2.2356000000000003
+      },
+      "timing_analysis": {
+        "holding_days": 506,
+        "expected_peak_date": null,
+        "days_to_peak": null,
+        "avg_cycle_days": 23,
+        "timing_advice": "持有时间较长，建议关注卖出时机"
+      }
+    },
+    {
+      "stock_code": "SZ300739",
+      "purchase_price": 13.42,
+      "quantity": 3400,
+      "purchase_date": "2025-07-29",
+      "note": "明阳电路-等苹果发布会",
+      "created_time": "2025-07-29 11:39:08",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ300739 的数据"
+    },
+    {
+      "stock_code": "SH600121",
+      "purchase_price": 5.35,
+      "quantity": 100,
+      "purchase_date": "2025-07-29",
+      "note": "郑州煤电",
+      "created_time": "2025-07-29 11:40:33",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600121 的数据"
+    },
+    {
+      "stock_code": "SH600029",
+      "purchase_price": 7.09,
+      "quantity": 100,
+      "purchase_date": "2025-07-29",
+      "note": "南方航空",
+      "created_time": "2025-07-29 11:41:28",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600029 的数据"
+    },
+    {
+      "stock_code": "SH600596",
+      "purchase_price": 9.47,
+      "quantity": 100,
+      "purchase_date": "2025-07-29",
+      "note": "新安股份",
+      "created_time": "2025-07-29 11:42:24",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600596 的数据"
+    },
+    {
+      "stock_code": "SH600489",
+      "purchase_price": 9.03,
+      "quantity": 100,
+      "purchase_date": "2025-07-29",
+      "note": "中金黄金",
+      "created_time": "2025-07-29 11:43:34",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600489 的数据"
+    },
+    {
+      "stock_code": "SH688085",
+      "purchase_price": 18.7,
+      "quantity": 120,
+      "purchase_date": "2025-07-29",
+      "note": "三友医疗",
+      "created_time": "2025-07-29 11:44:27",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH688085 的数据"
+    },
+    {
+      "stock_code": "SH600166",
+      "purchase_price": 2.97,
+      "quantity": 900,
+      "purchase_date": "2025-07-29",
+      "note": "福田汽车",
+      "created_time": "2025-07-29 11:45:14",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600166 的数据"
+    },
+    {
+      "stock_code": "SH600172",
+      "purchase_price": 3.54,
+      "quantity": 700,
+      "purchase_date": "2025-07-29",
+      "note": "黄河旋风",
+      "created_time": "2025-07-29 11:45:47",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600172 的数据"
+    },
+    {
+      "stock_code": "SH601111",
+      "purchase_price": 7.29,
+      "quantity": 600,
+      "purchase_date": "2025-07-29",
+      "note": "中国国航",
+      "created_time": "2025-07-29 11:47:11",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH601111 的数据"
+    },
+    {
+      "stock_code": "SZ002852",
+      "purchase_price": 15.86,
+      "quantity": 1000,
+      "purchase_date": "2025-07-29",
+      "note": "",
+      "created_time": "2025-07-29 11:48:10",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ002852 的数据"
+    },
+    {
+      "stock_code": "SZ002678",
+      "purchase_price": 7.22,
+      "quantity": 2700,
+      "purchase_date": "2025-07-29",
+      "note": "珠江钢琴",
+      "created_time": "2025-07-29 11:49:12",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ002678 的数据"
+    },
+    {
+      "stock_code": "SZ000545",
+      "purchase_price": 4.6,
+      "quantity": 5500,
+      "purchase_date": "2025-07-29",
+      "note": "",
+      "created_time": "2025-07-29 11:49:42",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ000545 的数据"
+    },
+    {
+      "stock_code": "SZ300323",
+      "purchase_price": 11.7,
+      "quantity": 2200,
+      "purchase_date": "2025-07-29",
+      "note": "",
+      "created_time": "2025-07-29 11:50:16",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ300323 的数据"
+    },
+    {
+      "stock_code": "SH603366",
+      "purchase_price": 9.77,
+      "quantity": 2100,
+      "purchase_date": "2025-07-29",
+      "note": "日出东方",
+      "created_time": "2025-07-29 11:50:58",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH603366 的数据"
+    },
+    {
+      "stock_code": "SZ002103",
+      "purchase_price": 7.05,
+      "quantity": 2000,
+      "purchase_date": "2025-07-29",
+      "note": "广博股份",
+      "created_time": "2025-07-29 11:51:50",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ002103 的数据"
+    },
+    {
+      "stock_code": "SH600313",
+      "purchase_price": 7.87,
+      "quantity": 3300,
+      "purchase_date": "2025-07-29",
+      "note": "农发种业",
+      "created_time": "2025-07-29 11:52:40",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600313 的数据"
+    },
+    {
+      "stock_code": "SZ300334",
+      "purchase_price": 8.22,
+      "quantity": 3100,
+      "purchase_date": "2025-07-29",
+      "note": "津膜科技",
+      "created_time": "2025-07-29 11:53:16",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ300334 的数据"
+    },
+    {
+      "stock_code": "SH600127",
+      "purchase_price": 7.57,
+      "quantity": 3400,
+      "purchase_date": "2025-07-29",
+      "note": "金健米业",
+      "created_time": "2025-07-29 11:53:55",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600127 的数据"
+    },
+    {
+      "stock_code": "SZ002957",
+      "purchase_price": 18.18,
+      "quantity": 1400,
+      "purchase_date": "2025-07-29",
+      "note": "科瑞技术",
+      "created_time": "2025-07-29 11:54:28",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ002957 的数据"
+    },
+    {
+      "stock_code": "SZ002578",
+      "purchase_price": 3.55,
+      "quantity": 7000,
+      "purchase_date": "2025-07-29",
+      "note": "闽发铝业",
+      "created_time": "2025-07-29 11:55:10",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ002578 的数据"
+    },
+    {
+      "stock_code": "SZ300077",
+      "purchase_price": 27.34,
+      "quantity": 1000,
+      "purchase_date": "2025-07-29",
+      "note": "",
+      "created_time": "2025-07-29 11:55:37",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ300077 的数据"
+    },
+    {
+      "stock_code": "SZ002511",
+      "purchase_price": 13.1,
+      "quantity": 3900,
+      "purchase_date": "2025-07-29",
+      "note": "中顺洁柔",
+      "created_time": "2025-07-29 11:56:14",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ002511 的数据"
+    },
+    {
+      "stock_code": "SH600515",
+      "purchase_price": 6.16,
+      "quantity": 8402,
+      "purchase_date": "2025-07-29",
+      "note": "海南机场",
+      "created_time": "2025-07-29 11:57:17",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600515 的数据"
+    },
+    {
+      "stock_code": "SH601990",
+      "purchase_price": 9.06,
+      "quantity": 5000,
+      "purchase_date": "2025-07-29",
+      "note": "南京证券",
+      "created_time": "2025-07-29 11:57:48",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH601990 的数据"
+    },
+    {
+      "stock_code": "SH600177",
+      "purchase_price": 7.81,
+      "quantity": 6200,
+      "purchase_date": "2025-07-29",
+      "note": "雅戈尔",
+      "created_time": "2025-07-29 11:58:27",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600177 的数据"
+    },
+    {
+      "stock_code": "SZ002950",
+      "purchase_price": 13.33,
+      "quantity": 5200,
+      "purchase_date": "2025-07-29",
+      "note": "奥美医疗",
+      "created_time": "2025-07-29 11:59:04",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ002950 的数据"
+    },
+    {
+      "stock_code": "SZ002796",
+      "purchase_price": 12.69,
+      "quantity": 4000,
+      "purchase_date": "2025-07-29",
+      "note": "世嘉科技",
+      "created_time": "2025-07-29 11:59:42",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ002796 的数据"
+    },
+    {
+      "stock_code": "SZ300313",
+      "purchase_price": 6.6,
+      "quantity": 5100,
+      "purchase_date": "2025-07-29",
+      "note": "ST天山",
+      "created_time": "2025-07-29 12:00:23",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ300313 的数据"
+    }
+  ],
+  "summary": {
+    "profitable_count": 2,
+    "loss_count": 1,
+    "total_profit_loss": -20.89351155651707,
+    "high_risk_count": 2,
+    "action_required_count": 1
+  }
+}

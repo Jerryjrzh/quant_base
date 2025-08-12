@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-04T19:11:29.158767",
+  "stock_code": "sz000887",
+  "current_price": 18.51,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 18.7,
+    "target_price_2": 18.6,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010264721772015003,
+    "discount_2": -0.004862236628849262,
+    "stop_loss": {
+      "conservative": 17.95,
+      "moderate": 17.03,
+      "aggressive": 17.03,
+      "technical": 8.92
+    },
+    "take_profit": {
+      "conservative": 19.99,
+      "moderate": 20.36,
+      "aggressive": 22.21
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:47:00.215253",
+  "stock_code": "sz300371",
+  "current_price": 13.73,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 13.04,
+    "target_price_2": 13.04,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.050254916241806356,
+    "discount_2": 0.050254916241806356,
+    "stop_loss": {
+      "conservative": 13.32,
+      "moderate": 12.63,
+      "aggressive": 12.63,
+      "technical": 13.05
+    },
+    "take_profit": {
+      "conservative": 14.83,
+      "moderate": 15.1,
+      "aggressive": 16.48
+    }
+  }
+}

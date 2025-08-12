@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.072023",
+  "stock_code": "sh600054",
+  "current_price": 11.76,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 11.88,
+    "target_price_2": 11.85,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010204081632653145,
+    "discount_2": -0.007653061224489784,
+    "stop_loss": {
+      "conservative": 11.41,
+      "moderate": 10.82,
+      "aggressive": 10.82,
+      "technical": 8.98
+    },
+    "take_profit": {
+      "conservative": 12.7,
+      "moderate": 12.94,
+      "aggressive": 14.11
+    }
+  }
+}

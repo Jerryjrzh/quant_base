@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-04T19:11:29.041376",
+  "stock_code": "sh601002",
+  "current_price": 5.22,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 4.96,
+    "target_price_2": 4.96,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04980842911877391,
+    "discount_2": 0.04980842911877391,
+    "stop_loss": {
+      "conservative": 5.06,
+      "moderate": 4.8,
+      "aggressive": 4.8,
+      "technical": 4.96
+    },
+    "take_profit": {
+      "conservative": 5.64,
+      "moderate": 5.74,
+      "aggressive": 6.26
+    }
+  }
+}

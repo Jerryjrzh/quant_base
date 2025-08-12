@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002057",
-  "optimization_date": "2025-07-23T12:22:22.009154",
+  "optimization_date": "2025-08-12T09:40:52.010145",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.425940884210668,
+  "best_score": 0.42749508394350044,
   "optimization_target": "composite_score"
 }

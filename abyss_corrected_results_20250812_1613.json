@@ -1,0 +1,127 @@
+{
+  "test_time": "2025-08-12 16:13:16",
+  "strategy_config": {
+    "long_term_days": 400,
+    "min_drop_percent": 0.4,
+    "price_low_percentile": 0.35,
+    "volume_shrink_threshold": 0.7,
+    "volume_consistency_threshold": 0.3,
+    "volume_analysis_days": 30,
+    "hibernation_days": 40,
+    "hibernation_volatility_max": 0.4,
+    "washout_days": 15,
+    "washout_volume_shrink_ratio": 0.85,
+    "max_rise_from_bottom": 0.18,
+    "liftoff_volume_increase_ratio": 1.15
+  },
+  "test_results": {
+    "ideal": {
+      "success": true,
+      "expected": true,
+      "correct": true,
+      "details": {
+        "stage": "deep_decline_passed",
+        "signal": "ABYSS_BOTTOM_DETECTED",
+        "deep_decline_info": {
+          "drop_percent": "42.40%",
+          "price_position": "13.70%",
+          "long_term_high": "78.47",
+          "long_term_low": "39.92",
+          "current_price": "45.20",
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": "1,245,400",
+            "recent_avg": "433,500",
+            "shrink_ratio": "0.35",
+            "consistency_ratio": "100.00%",
+            "long_term_median": "432,000",
+            "recent_vs_median": "1.00",
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": "871,780"
+          }
+        },
+        "next_step": "可进行后续三个阶段的详细检查"
+      }
+    },
+    "realistic": {
+      "success": true,
+      "expected": true,
+      "correct": true,
+      "details": {
+        "stage": "deep_decline_passed",
+        "signal": "ABYSS_BOTTOM_DETECTED",
+        "deep_decline_info": {
+          "drop_percent": "42.68%",
+          "price_position": "15.68%",
+          "long_term_high": "78.86",
+          "long_term_low": "38.94",
+          "current_price": "45.20",
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": "1,244,098",
+            "recent_avg": "433,614",
+            "shrink_ratio": "0.35",
+            "consistency_ratio": "100.00%",
+            "long_term_median": "429,120",
+            "recent_vs_median": "1.01",
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": "870,869"
+          }
+        },
+        "next_step": "可进行后续三个阶段的详细检查"
+      }
+    },
+    "failed": {
+      "success": false,
+      "expected": false,
+      "correct": true,
+      "details": {
+        "stage": "deep_decline_failed",
+        "reason": {
+          "drop_percent": "19.88%",
+          "price_position": "43.18%",
+          "long_term_high": "92.99",
+          "long_term_low": "60.45",
+          "current_price": "74.50",
+          "conditions": {
+            "price_position_ok": false,
+            "drop_percent_ok": false,
+            "volume_ok": false
+          },
+          "volume_analysis": {
+            "historical_avg": "1,220,667",
+            "recent_avg": "954,667",
+            "shrink_ratio": "0.78",
+            "consistency_ratio": "0.00%",
+            "long_term_median": "1,030,000",
+            "recent_vs_median": "0.93",
+            "is_volume_shrunk": false,
+            "is_consistent": false,
+            "threshold_volume": "854,467"
+          }
+        },
+        "failed_conditions": [
+          "price_position_ok",
+          "drop_percent_ok",
+          "volume_ok"
+        ]
+      }
+    }
+  },
+  "summary": {
+    "total_tests": 3,
+    "correct_results": 3,
+    "accuracy": 1.0,
+    "optimization_status": "COMPLETED"
+  }
+}

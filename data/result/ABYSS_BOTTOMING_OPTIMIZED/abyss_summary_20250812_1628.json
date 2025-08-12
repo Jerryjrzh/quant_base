@@ -1,0 +1,1930 @@
+{
+  "scan_summary": {
+    "total_signals": 40,
+    "scan_timestamp": "2025-08-12 16:28:29",
+    "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+    "strategy_version": "optimized_v2.0",
+    "signal_distribution": {
+      "BUY": 33,
+      "POTENTIAL_BUY": 7
+    },
+    "config_used": {
+      "long_term_days": 400,
+      "min_drop_percent": 0.4,
+      "price_low_percentile": 0.35,
+      "volume_shrink_threshold": 0.7,
+      "volume_consistency_threshold": 0.3,
+      "volume_analysis_days": 30,
+      "hibernation_days": 40,
+      "hibernation_volatility_max": 0.4,
+      "washout_days": 15,
+      "washout_volume_shrink_ratio": 0.85,
+      "max_rise_from_bottom": 0.18,
+      "liftoff_volume_increase_ratio": 1.15
+    },
+    "processing_time": "2.71 秒",
+    "files_processed": 8968
+  },
+  "stocks_found": [
+    {
+      "stock_code": "sh600355",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:26",
+      "current_price": 2.97,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.5308056872037914,
+          "price_position": 0.20000000000000007,
+          "long_term_high": 6.33,
+          "long_term_low": 2.13,
+          "current_price": 2.97,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 23755198.83946981,
+            "recent_avg": 13862771.066666666,
+            "shrink_ratio": 0.5835678817233622,
+            "consistency_ratio": 0.7666666666666667,
+            "long_term_median": 19695251.0,
+            "recent_vs_median": 0.7038636403601389,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 16628639.187628865
+          }
+        },
+        "hibernation": {
+          "support_level": 2.62,
+          "resistance_level": 3.36,
+          "volatility": 0.28244274809160297,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 25181351.9,
+          "volume_stability": 0.6381837038317543
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh603178",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 18.64,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.6465010430494974,
+          "price_position": 0.10336664913203578,
+          "long_term_high": 52.73,
+          "long_term_low": 14.71,
+          "current_price": 18.64,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 5080498.761413844,
+            "recent_avg": 3203946.433333333,
+            "shrink_ratio": 0.6306362000650723,
+            "consistency_ratio": 0.7333333333333333,
+            "long_term_median": 3740300.0,
+            "recent_vs_median": 0.8566014579935656,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 3556349.1329896906
+          }
+        },
+        "hibernation": {
+          "support_level": 17.28,
+          "resistance_level": 21.5,
+          "volatility": 0.24421296296296288,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 5268765.1,
+          "volume_stability": 0.7731220136974014
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh603050",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 16.8,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.5053003533568905,
+          "price_position": 0.20037278657968316,
+          "long_term_high": 33.96,
+          "long_term_low": 12.5,
+          "current_price": 16.8,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 6524307.354933726,
+            "recent_avg": 2117279.433333333,
+            "shrink_ratio": 0.3245217182682591,
+            "consistency_ratio": 0.9333333333333333,
+            "long_term_median": 4377559.0,
+            "recent_vs_median": 0.4836666812105406,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 4567015.148453607
+          }
+        },
+        "hibernation": {
+          "support_level": 15.35,
+          "resistance_level": 17.42,
+          "volatility": 0.1348534201954399,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 2004346.225,
+          "volume_stability": 0.46107729671410264
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh600546",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 10.27,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4948352188883423,
+          "price_position": 0.1503378378378378,
+          "long_term_high": 20.33,
+          "long_term_low": 8.49,
+          "current_price": 10.27,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 60159369.02945508,
+            "recent_avg": 39848522.36666667,
+            "shrink_ratio": 0.6623826514396475,
+            "consistency_ratio": 0.6666666666666666,
+            "long_term_median": 32176495.0,
+            "recent_vs_median": 1.2384357701690836,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 42111558.320618555
+          }
+        },
+        "hibernation": {
+          "support_level": 8.49,
+          "resistance_level": 9.82,
+          "volatility": 0.15665488810365136,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 21955541.3,
+          "volume_stability": 0.416526366210464
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh600702",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:26",
+      "current_price": 53.26,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4531827515400411,
+          "price_position": 0.2368603042876901,
+          "long_term_high": 97.4,
+          "long_term_low": 39.56,
+          "current_price": 53.26,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 10277282.31120944,
+            "recent_avg": 6509985.133333334,
+            "shrink_ratio": 0.6334344952490881,
+            "consistency_ratio": 0.6,
+            "long_term_median": 7671967.0,
+            "recent_vs_median": 0.8485418580832443,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 7194097.617846608
+          }
+        },
+        "hibernation": {
+          "support_level": 48.25,
+          "resistance_level": 53.95,
+          "volatility": 0.11813471502590679,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 5919322.75,
+          "volume_stability": 0.3877688974999121
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh605577",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:26",
+      "current_price": 13.52,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.5833590138674885,
+          "price_position": 0.11953488372093023,
+          "long_term_high": 32.45,
+          "long_term_low": 10.95,
+          "current_price": 13.52,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 5608902.914583334,
+            "recent_avg": 3273038.7333333334,
+            "shrink_ratio": 0.5835434813505729,
+            "consistency_ratio": 0.8666666666666667,
+            "long_term_median": 4761353.0,
+            "recent_vs_median": 0.6874177850987594,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 3926232.040208333
+          }
+        },
+        "hibernation": {
+          "support_level": 12.15,
+          "resistance_level": 13.91,
+          "volatility": 0.1448559670781893,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 4339548.175,
+          "volume_stability": 0.6178325147277571
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh600088",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 16.85,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.47095761381475665,
+          "price_position": 0.24242424242424246,
+          "long_term_high": 31.85,
+          "long_term_low": 12.05,
+          "current_price": 16.85,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 6021667.010309278,
+            "recent_avg": 4135667.9,
+            "shrink_ratio": 0.6867978406842508,
+            "consistency_ratio": 0.6,
+            "long_term_median": 5268160.0,
+            "recent_vs_median": 0.7850308077203426,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 4215166.907216494
+          }
+        },
+        "hibernation": {
+          "support_level": 15.42,
+          "resistance_level": 16.73,
+          "volatility": 0.08495460440985736,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 3175377.575,
+          "volume_stability": 0.4703787434750433
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh603230",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 13.44,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4125874125874126,
+          "price_position": 0.2821292775665399,
+          "long_term_high": 22.88,
+          "long_term_low": 9.73,
+          "current_price": 13.44,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 6308547.767653759,
+            "recent_avg": 3001035.0,
+            "shrink_ratio": 0.4757093249554848,
+            "consistency_ratio": 1.0,
+            "long_term_median": 3484700.0,
+            "recent_vs_median": 0.8612032599649898,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 4415983.437357631
+          }
+        },
+        "hibernation": {
+          "support_level": 12.11,
+          "resistance_level": 13.39,
+          "volatility": 0.10569777043765492,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 3020612.525,
+          "volume_stability": 0.2141186674880025
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh600525",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 3.23,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4873015873015873,
+          "price_position": 0.06686930091185417,
+          "long_term_high": 6.3,
+          "long_term_low": 3.01,
+          "current_price": 3.23,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 17313192.25478645,
+            "recent_avg": 10970974.5,
+            "shrink_ratio": 0.6336771600839202,
+            "consistency_ratio": 0.6666666666666666,
+            "long_term_median": 12369348.5,
+            "recent_vs_median": 0.8869484516504649,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 12119234.578350514
+          }
+        },
+        "hibernation": {
+          "support_level": 3.19,
+          "resistance_level": 3.5,
+          "volatility": 0.09717868338557996,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 11714680.325,
+          "volume_stability": 0.2428685133884515
+        },
+        "washout": {
+          "washout_low": 3.12,
+          "support_break": 0.02194357366771155,
+          "volume_shrink_ratio": 0.9550513172027169,
+          "pit_days_count": 8,
+          "conditions": {
+            "support_broken": false,
+            "volume_shrink_ok": false
+          }
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh600026",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:26",
+      "current_price": 10.17,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4541062801932367,
+          "price_position": 0.04836895388076488,
+          "long_term_high": 18.63,
+          "long_term_low": 9.74,
+          "current_price": 10.17,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 38593454.443298966,
+            "recent_avg": 25280785.5,
+            "shrink_ratio": 0.655053709616542,
+            "consistency_ratio": 0.6333333333333333,
+            "long_term_median": 29154914.0,
+            "recent_vs_median": 0.8671191930115109,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 27015418.110309273
+          }
+        },
+        "hibernation": {
+          "support_level": 9.99,
+          "resistance_level": 11.88,
+          "volatility": 0.18918918918918926,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 38409562.625,
+          "volume_stability": 1.0161461721576017
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh603366",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 9.66,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.5796344647519582,
+          "price_position": 0.3221374045801527,
+          "long_term_high": 22.98,
+          "long_term_low": 3.33,
+          "current_price": 9.66,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 19453295.05007364,
+            "recent_avg": 12906275.933333334,
+            "shrink_ratio": 0.6634493488178743,
+            "consistency_ratio": 0.7,
+            "long_term_median": 10543540.0,
+            "recent_vs_median": 1.2240932299145575,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 13617306.535051547
+          }
+        },
+        "hibernation": {
+          "support_level": 9.26,
+          "resistance_level": 10.88,
+          "volatility": 0.17494600431965454,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 23617189.375,
+          "volume_stability": 0.6510672080408624
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh603721",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 19.84,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.5579322638146168,
+          "price_position": 0.14713896457765668,
+          "long_term_high": 44.88,
+          "long_term_low": 15.52,
+          "current_price": 19.84,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 6366446.910162003,
+            "recent_avg": 2668763.8666666667,
+            "shrink_ratio": 0.4191920398184482,
+            "consistency_ratio": 0.9333333333333333,
+            "long_term_median": 6008216.0,
+            "recent_vs_median": 0.44418573943857326,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 4456512.837113402
+          }
+        },
+        "hibernation": {
+          "support_level": 17.09,
+          "resistance_level": 21.49,
+          "volatility": 0.2574605032182562,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 3728348.2,
+          "volume_stability": 0.4895385155722782
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh603348",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 21.22,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4786240786240787,
+          "price_position": 0.1311329170383585,
+          "long_term_high": 40.7,
+          "long_term_low": 18.28,
+          "current_price": 21.22,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 6089995.0220913105,
+            "recent_avg": 3429524.066666667,
+            "shrink_ratio": 0.5631407011378746,
+            "consistency_ratio": 0.8333333333333334,
+            "long_term_median": 4477932.0,
+            "recent_vs_median": 0.7658722970037658,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 4262996.5154639175
+          }
+        },
+        "hibernation": {
+          "support_level": 19.88,
+          "resistance_level": 21.47,
+          "volatility": 0.07997987927565392,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 3343382.475,
+          "volume_stability": 0.3525458256045709
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh688496",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "POTENTIAL_BUY",
+      "signal_strength": 1,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 10.06,
+      "signal_details": {
+        "signal_state": "DEEP_DECLINE_ONLY",
+        "stage_passed": 1,
+        "deep_decline": {
+          "drop_percent": 0.5956591639871383,
+          "price_position": 0.21086261980830673,
+          "long_term_high": 24.88,
+          "long_term_low": 6.1,
+          "current_price": 10.06,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 7868423.072555205,
+            "recent_avg": 5374863.633333334,
+            "shrink_ratio": 0.6830928616536491,
+            "consistency_ratio": 0.7,
+            "long_term_median": 4419591.5,
+            "recent_vs_median": 1.2161448933308279,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 5507896.150788643
+          }
+        },
+        "hibernation": {
+          "support_level": 7.29,
+          "resistance_level": 9.65,
+          "volatility": 0.3237311385459534,
+          "volatility_ok": true,
+          "ma_convergence_ok": false,
+          "avg_volume": 7555738.15,
+          "volume_stability": 0.8490328534858346
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh600199",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 10.55,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.45023449713392394,
+          "price_position": 0.10743801652892569,
+          "long_term_high": 19.19,
+          "long_term_low": 9.51,
+          "current_price": 10.55,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 36963905.22680412,
+            "recent_avg": 15230945.1,
+            "shrink_ratio": 0.41204913297297885,
+            "consistency_ratio": 0.9,
+            "long_term_median": 15498565.0,
+            "recent_vs_median": 0.9827326013730948,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 25874733.658762883
+          }
+        },
+        "hibernation": {
+          "support_level": 9.77,
+          "resistance_level": 11.29,
+          "volatility": 0.15557830092118727,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 17736268.8,
+          "volume_stability": 0.6256819881061195
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh605108",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "POTENTIAL_BUY",
+      "signal_strength": 1,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 19.53,
+      "signal_details": {
+        "signal_state": "DEEP_DECLINE_ONLY",
+        "stage_passed": 1,
+        "deep_decline": {
+          "drop_percent": 0.4363636363636363,
+          "price_position": 0.2177961717537507,
+          "long_term_high": 34.65,
+          "long_term_low": 15.32,
+          "current_price": 19.53,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 3648224.9593495936,
+            "recent_avg": 2374893.033333333,
+            "shrink_ratio": 0.6509722014940464,
+            "consistency_ratio": 0.6666666666666666,
+            "long_term_median": 2304560.0,
+            "recent_vs_median": 1.0305190723319564,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 2553757.4715447156
+          }
+        },
+        "hibernation": {
+          "support_level": 18.6,
+          "resistance_level": 22.4,
+          "volatility": 0.20430107526881702,
+          "volatility_ok": true,
+          "ma_convergence_ok": false,
+          "avg_volume": 2489044.275,
+          "volume_stability": 0.4123107173997043
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sh603231",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:27",
+      "current_price": 17.51,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.5039660056657222,
+          "price_position": 0.16985534297713498,
+          "long_term_high": 35.3,
+          "long_term_low": 13.87,
+          "current_price": 17.51,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 5464388.29,
+            "recent_avg": 1885381.3,
+            "shrink_ratio": 0.3450306237297057,
+            "consistency_ratio": 1.0,
+            "long_term_median": 2418157.5,
+            "recent_vs_median": 0.7796767993813472,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 3825071.803
+          }
+        },
+        "hibernation": {
+          "support_level": 15.94,
+          "resistance_level": 17.37,
+          "volatility": 0.08971141781681315,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 1861712.15,
+          "volume_stability": 0.2835121168979508
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz003032",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 6.66,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.6033353186420488,
+          "price_position": 0.14658803706823928,
+          "long_term_high": 16.79,
+          "long_term_low": 4.92,
+          "current_price": 6.66,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 7708591.11732852,
+            "recent_avg": 5178975.266666667,
+            "shrink_ratio": 0.6718445936280878,
+            "consistency_ratio": 0.7666666666666667,
+            "long_term_median": 8968850.0,
+            "recent_vs_median": 0.5774402812698023,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 5396013.782129964
+          }
+        },
+        "hibernation": {
+          "support_level": 5.73,
+          "resistance_level": 6.87,
+          "volatility": 0.19895287958115176,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 7037951.025,
+          "volume_stability": 0.41271707472019353
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz000595",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 4.88,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.6086607858861267,
+          "price_position": 0.188235294117647,
+          "long_term_high": 12.47,
+          "long_term_low": 3.12,
+          "current_price": 4.88,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 27365974.72835821,
+            "recent_avg": 8544851.1,
+            "shrink_ratio": 0.31224362314218357,
+            "consistency_ratio": 1.0,
+            "long_term_median": 14166160.0,
+            "recent_vs_median": 0.6031875328247034,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 19156182.309850745
+          }
+        },
+        "hibernation": {
+          "support_level": 4.58,
+          "resistance_level": 5.35,
+          "volatility": 0.16812227074235797,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 11724638.725,
+          "volume_stability": 0.5165958629296796
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz001378",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 23.72,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.40700000000000003,
+          "price_position": 0.22843601895734597,
+          "long_term_high": 40.0,
+          "long_term_low": 18.9,
+          "current_price": 23.72,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 2421701.6313364054,
+            "recent_avg": 1183956.5,
+            "shrink_ratio": 0.48889445532009607,
+            "consistency_ratio": 0.9666666666666667,
+            "long_term_median": 1412653.0,
+            "recent_vs_median": 0.8381085093083722,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 1695191.1419354838
+          }
+        },
+        "hibernation": {
+          "support_level": 21.02,
+          "resistance_level": 23.43,
+          "volatility": 0.11465271170313987,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 1068923.375,
+          "volume_stability": 0.2545233006985564
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz000736",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 4.99,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.6430615164520744,
+          "price_position": 0.12378167641325537,
+          "long_term_high": 13.98,
+          "long_term_low": 3.72,
+          "current_price": 4.99,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 16150057.558173785,
+            "recent_avg": 11043025.0,
+            "shrink_ratio": 0.6837762008105637,
+            "consistency_ratio": 0.7,
+            "long_term_median": 14527310.5,
+            "recent_vs_median": 0.7601561899568403,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 11305040.29072165
+          }
+        },
+        "hibernation": {
+          "support_level": 4.31,
+          "resistance_level": 5.14,
+          "volatility": 0.19257540603248263,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 13475597.9,
+          "volume_stability": 0.38955655182207743
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz002182",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 12.61,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.42049632352941185,
+          "price_position": 0.3078668683812405,
+          "long_term_high": 21.76,
+          "long_term_low": 8.54,
+          "current_price": 12.61,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 27781362.899705015,
+            "recent_avg": 17378381.133333333,
+            "shrink_ratio": 0.6255409857346437,
+            "consistency_ratio": 0.7,
+            "long_term_median": 16526042.0,
+            "recent_vs_median": 1.0515755153795043,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 19446954.02979351
+          }
+        },
+        "hibernation": {
+          "support_level": 11.05,
+          "resistance_level": 12.67,
+          "volatility": 0.14660633484162888,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 14464700.625,
+          "volume_stability": 0.6777708749122204
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz300097",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 5.29,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.46993987975951906,
+          "price_position": 0.25673534072900156,
+          "long_term_high": 9.98,
+          "long_term_low": 3.67,
+          "current_price": 5.29,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 9251269.244477171,
+            "recent_avg": 3870051.7,
+            "shrink_ratio": 0.4183265666287192,
+            "consistency_ratio": 0.9333333333333333,
+            "long_term_median": 7229400.0,
+            "recent_vs_median": 0.5353212853072178,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 6475888.47113402
+          }
+        },
+        "hibernation": {
+          "support_level": 4.44,
+          "resistance_level": 5.3,
+          "volatility": 0.19369369369369355,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 4839935.625,
+          "volume_stability": 0.53626393222029
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz002581",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "POTENTIAL_BUY",
+      "signal_strength": 1,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 7.21,
+      "signal_details": {
+        "signal_state": "DEEP_DECLINE_ONLY",
+        "stage_passed": 1,
+        "deep_decline": {
+          "drop_percent": 0.5327284510693454,
+          "price_position": 0.15605749486652976,
+          "long_term_high": 15.43,
+          "long_term_low": 5.69,
+          "current_price": 7.21,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 26146578.506627392,
+            "recent_avg": 16979567.9,
+            "shrink_ratio": 0.6493992281130082,
+            "consistency_ratio": 0.7333333333333333,
+            "long_term_median": 9488955.5,
+            "recent_vs_median": 1.7894032593998357,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 18302604.954639174
+          }
+        },
+        "hibernation": {
+          "support_level": 7.43,
+          "resistance_level": 11.67,
+          "volatility": 0.5706594885598923,
+          "volatility_ok": false,
+          "ma_convergence_ok": false,
+          "avg_volume": 18839329.675,
+          "volume_stability": 0.8493144396876955
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz003004",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 18.9,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4272727272727273,
+          "price_position": 0.2942942942942942,
+          "long_term_high": 33.0,
+          "long_term_low": 13.02,
+          "current_price": 18.9,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 1813546.0122807017,
+            "recent_avg": 937073.8333333334,
+            "shrink_ratio": 0.5167080553720699,
+            "consistency_ratio": 0.8666666666666667,
+            "long_term_median": 1397270.0,
+            "recent_vs_median": 0.6706462124953183,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 1269482.208596491
+          }
+        },
+        "hibernation": {
+          "support_level": 17.02,
+          "resistance_level": 20.7,
+          "volatility": 0.2162162162162162,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 1487953.425,
+          "volume_stability": 0.4595013581762055
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz002047",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 2.11,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.43733333333333335,
+          "price_position": 0.3251028806584362,
+          "long_term_high": 3.75,
+          "long_term_low": 1.32,
+          "current_price": 2.11,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 33114924.784342688,
+            "recent_avg": 14035355.433333334,
+            "shrink_ratio": 0.4238377566833398,
+            "consistency_ratio": 0.8666666666666667,
+            "long_term_median": 17186178.5,
+            "recent_vs_median": 0.8166652891062044,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 23180447.34903988
+          }
+        },
+        "hibernation": {
+          "support_level": 1.74,
+          "resistance_level": 2.12,
+          "volatility": 0.21839080459770122,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 13986263.8,
+          "volume_stability": 0.5471567866634214
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz002762",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 6.61,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.40557553956834524,
+          "price_position": 0.34447674418604657,
+          "long_term_high": 11.12,
+          "long_term_low": 4.24,
+          "current_price": 6.61,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 15098857.765578635,
+            "recent_avg": 9432715.0,
+            "shrink_ratio": 0.6247303701015101,
+            "consistency_ratio": 0.6,
+            "long_term_median": 10473637.5,
+            "recent_vs_median": 0.9006149964613536,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 10569200.435905043
+          }
+        },
+        "hibernation": {
+          "support_level": 5.06,
+          "resistance_level": 7.05,
+          "volatility": 0.39328063241106725,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 12234896.75,
+          "volume_stability": 0.6840327430917167
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz300147",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 7.68,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.5342631898120073,
+          "price_position": 0.34692364714603413,
+          "long_term_high": 16.49,
+          "long_term_low": 3.0,
+          "current_price": 7.68,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 22630811.25478645,
+            "recent_avg": 12711750.033333333,
+            "shrink_ratio": 0.5617010318463409,
+            "consistency_ratio": 0.8666666666666667,
+            "long_term_median": 15815210.5,
+            "recent_vs_median": 0.8037673626496045,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 15841567.878350515
+          }
+        },
+        "hibernation": {
+          "support_level": 7.4,
+          "resistance_level": 9.15,
+          "volatility": 0.23648648648648649,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 17795554.35,
+          "volume_stability": 0.42950452773969816
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz002521",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 8.99,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4310126582278481,
+          "price_position": 0.27936507936507937,
+          "long_term_high": 15.8,
+          "long_term_low": 6.35,
+          "current_price": 8.99,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 6882856.513991163,
+            "recent_avg": 4307053.866666666,
+            "shrink_ratio": 0.625765459139164,
+            "consistency_ratio": 0.7333333333333333,
+            "long_term_median": 5021263.0,
+            "recent_vs_median": 0.8577630501861118,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 4817999.559793814
+          }
+        },
+        "hibernation": {
+          "support_level": 8.8,
+          "resistance_level": 9.37,
+          "volatility": 0.0647727272727271,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 3542901.3,
+          "volume_stability": 0.4515798406189332
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz002531",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 6.7,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4530612244897959,
+          "price_position": 0.09756097560975618,
+          "long_term_high": 12.25,
+          "long_term_low": 6.1,
+          "current_price": 6.7,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 45727196.47633136,
+            "recent_avg": 19691580.366666667,
+            "shrink_ratio": 0.43063170025871,
+            "consistency_ratio": 0.9,
+            "long_term_median": 27290704.0,
+            "recent_vs_median": 0.7215490068217613,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 32009037.53343195
+          }
+        },
+        "hibernation": {
+          "support_level": 6.31,
+          "resistance_level": 7.38,
+          "volatility": 0.16957210776545173,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 21818835.875,
+          "volume_stability": 0.5473284208451765
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz300052",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "POTENTIAL_BUY",
+      "signal_strength": 1,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 10.5,
+      "signal_details": {
+        "signal_state": "DEEP_DECLINE_ONLY",
+        "stage_passed": 1,
+        "deep_decline": {
+          "drop_percent": 0.6276595744680851,
+          "price_position": 0.13235294117647062,
+          "long_term_high": 28.2,
+          "long_term_low": 7.8,
+          "current_price": 10.5,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 22219787.268545993,
+            "recent_avg": 8795034.333333334,
+            "shrink_ratio": 0.39581991614219714,
+            "consistency_ratio": 0.9333333333333333,
+            "long_term_median": 13015205.0,
+            "recent_vs_median": 0.6757507341093232,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 15553851.087982194
+          }
+        },
+        "hibernation": {
+          "support_level": 9.06,
+          "resistance_level": 11.27,
+          "volatility": 0.24392935982339944,
+          "volatility_ok": true,
+          "ma_convergence_ok": false,
+          "avg_volume": 8748042.425,
+          "volume_stability": 0.4395687792954165
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz300175",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 5.11,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.6323741007194243,
+          "price_position": 0.15965583173996178,
+          "long_term_high": 13.9,
+          "long_term_low": 3.44,
+          "current_price": 5.11,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 14419755.785502959,
+            "recent_avg": 5931055.766666667,
+            "shrink_ratio": 0.4113145780616833,
+            "consistency_ratio": 0.9333333333333333,
+            "long_term_median": 11654744.0,
+            "recent_vs_median": 0.5088962714810953,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 10093829.049852071
+          }
+        },
+        "hibernation": {
+          "support_level": 4.65,
+          "resistance_level": 5.47,
+          "volatility": 0.17634408602150523,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 5321332.2,
+          "volume_stability": 0.6145314627728313
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz000518",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "POTENTIAL_BUY",
+      "signal_strength": 1,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 2.34,
+      "signal_details": {
+        "signal_state": "DEEP_DECLINE_ONLY",
+        "stage_passed": 1,
+        "deep_decline": {
+          "drop_percent": 0.41353383458646625,
+          "price_position": 0.27312775330396466,
+          "long_term_high": 3.99,
+          "long_term_low": 1.72,
+          "current_price": 2.34,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 25041043.47717231,
+            "recent_avg": 12255815.4,
+            "shrink_ratio": 0.4894291011144378,
+            "consistency_ratio": 0.9333333333333333,
+            "long_term_median": 15108900.5,
+            "recent_vs_median": 0.8111652730786069,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 17528730.434020616
+          }
+        },
+        "hibernation": {
+          "support_level": 2.07,
+          "resistance_level": 2.81,
+          "volatility": 0.35748792270531415,
+          "volatility_ok": true,
+          "ma_convergence_ok": false,
+          "avg_volume": 19641416.375,
+          "volume_stability": 0.6478998704476123
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz001300",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:28",
+      "current_price": 13.29,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.45488105004101725,
+          "price_position": 0.2817357512953368,
+          "long_term_high": 24.38,
+          "long_term_low": 8.94,
+          "current_price": 13.29,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 8123564.005847953,
+            "recent_avg": 3082815.933333333,
+            "shrink_ratio": 0.37949056979351553,
+            "consistency_ratio": 1.0,
+            "long_term_median": 4296650.0,
+            "recent_vs_median": 0.7174929150229442,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 5686494.804093567
+          }
+        },
+        "hibernation": {
+          "support_level": 12.61,
+          "resistance_level": 15.37,
+          "volatility": 0.21887390959555908,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 5542480.425,
+          "volume_stability": 0.8044127122885298
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz000820",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:29",
+      "current_price": 2.78,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.5165217391304349,
+          "price_position": 0.23650385604113106,
+          "long_term_high": 5.75,
+          "long_term_low": 1.86,
+          "current_price": 2.78,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 14640617.53106509,
+            "recent_avg": 7972179.166666667,
+            "shrink_ratio": 0.5445247886402985,
+            "consistency_ratio": 0.8,
+            "long_term_median": 9920031.5,
+            "recent_vs_median": 0.803644541518509,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 10248432.271745563
+          }
+        },
+        "hibernation": {
+          "support_level": 2.7,
+          "resistance_level": 3.24,
+          "volatility": 0.2,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 10531678.35,
+          "volume_stability": 0.8120619379132115
+        },
+        "washout": {
+          "washout_low": 2.66,
+          "support_break": 0.014814814814814828,
+          "volume_shrink_ratio": 0.7507170497663367,
+          "pit_days_count": 2,
+          "conditions": {
+            "support_broken": false,
+            "volume_shrink_ok": true
+          }
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz300393",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "POTENTIAL_BUY",
+      "signal_strength": 1,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:29",
+      "current_price": 6.23,
+      "signal_details": {
+        "signal_state": "DEEP_DECLINE_ONLY",
+        "stage_passed": 1,
+        "deep_decline": {
+          "drop_percent": 0.4326047358834244,
+          "price_position": 0.25314465408805037,
+          "long_term_high": 10.98,
+          "long_term_low": 4.62,
+          "current_price": 6.23,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 44846170.689807974,
+            "recent_avg": 28081093.333333332,
+            "shrink_ratio": 0.6261647962668799,
+            "consistency_ratio": 0.7666666666666667,
+            "long_term_median": 22506836.0,
+            "recent_vs_median": 1.2476695228655565,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 31392319.48286558
+          }
+        },
+        "hibernation": {
+          "support_level": 5.16,
+          "resistance_level": 6.85,
+          "volatility": 0.32751937984496116,
+          "volatility_ok": true,
+          "ma_convergence_ok": false,
+          "avg_volume": 22216345.075,
+          "volume_stability": 0.7778398267280289
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz002789",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:29",
+      "current_price": 8.62,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.44243208279430796,
+          "price_position": 0.2830188679245282,
+          "long_term_high": 15.46,
+          "long_term_low": 5.92,
+          "current_price": 8.62,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 3960439.7201767303,
+            "recent_avg": 2264451.033333333,
+            "shrink_ratio": 0.5717675796949852,
+            "consistency_ratio": 0.8333333333333334,
+            "long_term_median": 2338054.5,
+            "recent_vs_median": 0.9685193537333425,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 2772307.804123711
+          }
+        },
+        "hibernation": {
+          "support_level": 8.25,
+          "resistance_level": 10.16,
+          "volatility": 0.23151515151515153,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 4075857.0,
+          "volume_stability": 0.5021182048066102
+        },
+        "washout": {
+          "washout_low": 8.11,
+          "support_break": 0.016969696969697037,
+          "volume_shrink_ratio": 0.34451534627301345,
+          "pit_days_count": 7,
+          "conditions": {
+            "support_broken": false,
+            "volume_shrink_ok": true
+          }
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz002529",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:29",
+      "current_price": 6.39,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.5372918175235337,
+          "price_position": 0.2064171122994652,
+          "long_term_high": 13.81,
+          "long_term_low": 4.46,
+          "current_price": 6.39,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 11430526.474074075,
+            "recent_avg": 4446698.833333333,
+            "shrink_ratio": 0.38901959970251815,
+            "consistency_ratio": 0.9666666666666667,
+            "long_term_median": 6978650.0,
+            "recent_vs_median": 0.6371861081059135,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 8001368.531851852
+          }
+        },
+        "hibernation": {
+          "support_level": 6.06,
+          "resistance_level": 7.5,
+          "volatility": 0.2376237623762377,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 6737599.225,
+          "volume_stability": 0.6601374820518491
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "sz000521",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "BUY",
+      "signal_strength": 2,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:29",
+      "current_price": 7.32,
+      "signal_details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4208860759493671,
+          "price_position": 0.26008344923504867,
+          "long_term_high": 12.64,
+          "long_term_low": 5.45,
+          "current_price": 7.32,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 32337273.4005891,
+            "recent_avg": 18783318.566666666,
+            "shrink_ratio": 0.580856596472493,
+            "consistency_ratio": 0.8,
+            "long_term_median": 21374144.0,
+            "recent_vs_median": 0.8787869383993421,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 22636091.38041237
+          }
+        },
+        "hibernation": {
+          "support_level": 6.72,
+          "resistance_level": 7.81,
+          "volatility": 0.16220238095238093,
+          "volatility_ok": true,
+          "ma_convergence_ok": true,
+          "avg_volume": 17563434.325,
+          "volume_stability": 0.5427917797191902
+        },
+        "washout": "无有效挖坑数据",
+        "strategy_version": "optimized_v2.0"
+      }
+    },
+    {
+      "stock_code": "bj838701",
+      "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+      "signal_type": "POTENTIAL_BUY",
+      "signal_strength": 1,
+      "date": "2025-08-11",
+      "scan_timestamp": "2025-08-12 16:28:29",
+      "current_price": 19.74,
+      "signal_details": {
+        "signal_state": "DEEP_DECLINE_ONLY",
+        "stage_passed": 1,
+        "deep_decline": {
+          "drop_percent": 0.5596698639304037,
+          "price_position": 0.2792301062912956,
+          "long_term_high": 44.83,
+          "long_term_low": 10.02,
+          "current_price": 19.74,
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": true
+          },
+          "volume_analysis": {
+            "historical_avg": 2997477.397637795,
+            "recent_avg": 1146694.7,
+            "shrink_ratio": 0.38255324323835405,
+            "consistency_ratio": 0.9666666666666667,
+            "long_term_median": 1947983.0,
+            "recent_vs_median": 0.5886574472159151,
+            "is_volume_shrunk": true,
+            "is_consistent": true,
+            "threshold_volume": 2098234.1783464565
+          }
+        },
+        "hibernation": {
+          "support_level": 19.5,
+          "resistance_level": 29.88,
+          "volatility": 0.5323076923076923,
+          "volatility_ok": false,
+          "ma_convergence_ok": false,
+          "avg_volume": 1095615.875,
+          "volume_stability": 0.40867238179404275
+        },
+        "strategy_version": "optimized_v2.0"
+      }
+    }
+  ]
+}

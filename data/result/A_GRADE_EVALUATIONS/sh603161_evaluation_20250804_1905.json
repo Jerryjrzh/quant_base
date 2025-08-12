@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-04T19:05:30.775460",
+  "stock_code": "sh603161",
+  "current_price": 13.45,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 13.58,
+    "target_price_2": 13.91,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009665427509293738,
+    "discount_2": -0.034200743494423855,
+    "stop_loss": {
+      "conservative": 13.05,
+      "moderate": 12.37,
+      "aggressive": 12.37,
+      "technical": 12.78
+    },
+    "take_profit": {
+      "conservative": 14.53,
+      "moderate": 14.8,
+      "aggressive": 16.14
+    }
+  }
+}

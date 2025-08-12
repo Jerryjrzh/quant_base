@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:47:00.212951",
+  "stock_code": "sz002062",
+  "current_price": 5.79,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 5.85,
+    "target_price_2": 5.88,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010362694300518067,
+    "discount_2": -0.015544041450777177,
+    "stop_loss": {
+      "conservative": 5.62,
+      "moderate": 5.33,
+      "aggressive": 5.33,
+      "technical": 3.46
+    },
+    "take_profit": {
+      "conservative": 6.25,
+      "moderate": 6.37,
+      "aggressive": 6.95
+    }
+  }
+}

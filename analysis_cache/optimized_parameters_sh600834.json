@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600834",
-  "optimization_date": "2025-07-23T12:16:51.400201",
+  "optimization_date": "2025-08-04T19:09:03.096958",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.45323771960562187,
+  "best_score": 0.45261909895945934,
   "optimization_target": "composite_score"
 }

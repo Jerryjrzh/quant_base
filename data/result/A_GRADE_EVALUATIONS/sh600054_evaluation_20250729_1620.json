@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:20:12.341089",
+  "stock_code": "sh600054",
+  "current_price": 11.75,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 11.14,
+    "target_price_2": 10.85,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.05191489361702123,
+    "discount_2": 0.07659574468085109,
+    "stop_loss": {
+      "conservative": 11.38,
+      "moderate": 10.79,
+      "aggressive": 10.79,
+      "technical": 8.98
+    },
+    "take_profit": {
+      "conservative": 12.67,
+      "moderate": 12.9,
+      "aggressive": 14.08
+    }
+  }
+}

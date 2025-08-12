@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.140938",
+  "stock_code": "sh603191",
+  "current_price": 15.13,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 14.37,
+    "target_price_2": 14.37,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05023132848645086,
+    "discount_2": 0.05023132848645086,
+    "stop_loss": {
+      "conservative": 14.68,
+      "moderate": 13.92,
+      "aggressive": 13.92,
+      "technical": 13.95
+    },
+    "take_profit": {
+      "conservative": 16.34,
+      "moderate": 16.64,
+      "aggressive": 18.16
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.194506",
+  "stock_code": "sz300335",
+  "current_price": 6.17,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 6.23,
+    "target_price_2": 6.21,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009724473257698622,
+    "discount_2": -0.006482982171799033,
+    "stop_loss": {
+      "conservative": 5.98,
+      "moderate": 5.68,
+      "aggressive": 5.68,
+      "technical": 5.7
+    },
+    "take_profit": {
+      "conservative": 6.66,
+      "moderate": 6.79,
+      "aggressive": 7.4
+    }
+  }
+}

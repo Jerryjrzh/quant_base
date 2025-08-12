@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T11:16:16.982862",
+  "stock_code": "sz002661",
+  "current_price": 10.9,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 11.01,
+    "target_price_2": 11.14,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010091743119266002,
+    "discount_2": -0.02201834862385323,
+    "stop_loss": {
+      "conservative": 10.57,
+      "moderate": 10.03,
+      "aggressive": 10.03,
+      "technical": 10.36
+    },
+    "take_profit": {
+      "conservative": 11.77,
+      "moderate": 11.99,
+      "aggressive": 13.08
+    }
+  }
+}

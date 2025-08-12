@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603391",
-  "optimization_date": "2025-07-23T12:16:14.573155",
+  "optimization_date": "2025-08-04T19:08:12.811046",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.5081412338844646,
+  "best_score": 0.4890719837006043,
   "optimization_target": "composite_score"
 }

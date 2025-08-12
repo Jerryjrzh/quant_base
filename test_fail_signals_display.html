@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回测失败信号显示测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .strategy-selector {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .strategy-selector select {
+            padding: 8px 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 0 10px;
+        }
+        .strategy-selector button {
+            padding: 8px 20px;
+            font-size: 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        .strategy-selector button:hover {
+            background: #0056b3;
+        }
+        .chart-container {
+            width: 100%;
+            height: 600px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .success { background-color: #00ff00; }
+        .fail { background-color: #ff0000; }
+        .other { background-color: #ffff00; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #dc3545;
+            background: #f8d7da;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 回测成功/失败信号显示测试</h1>
+            <p>这个页面专门用来验证K线图上红色(失败)和绿色(成功)三角符号的显示</p>
+        </div>
+
+        <div class="strategy-selector">
+            <label>选择策略:</label>
+            <select id="strategy-select">
+                <option value="MACD_ZERO_AXIS">MACD零轴启动 (失败率高)</option>
+                <option value="TRIPLE_CROSS">三线交叉 (失败率高)</option>
+                <option value="PRE_CROSS">预交叉 (失败率中等)</option>
+                <option value="WEEKLY_GOLDEN_CROSS_MA">周线金叉+MA (成功率高)</option>
+            </select>
+            
+            <label>选择股票:</label>
+            <select id="stock-select">
+                <option value="sz300290">sz300290 (有较多失败信号)</option>
+                <option value="sz000001">sz000001</option>
+                <option value="sh600036">sh600036</option>
+                <option value="sz002415">sz002415</option>
+            </select>
+            
+            <button onclick="loadTestData()">加载测试数据</button>
+            <button onclick="showMockData()">显示模拟数据</button>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color success"></div>
+                <span>成功信号 (绿色三角)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color fail"></div>
+                <span>失败信号 (红色三角)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color other"></div>
+                <span>其他信号 (黄色三角)</span>
+            </div>
+        </div>
+
+        <div class="stats" id="stats-container" style="display: none;">
+            <div class="stat-card">
+                <div class="stat-value" id="total-signals">0</div>
+                <div class="stat-label">总信号数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="success-signals" style="color: #00aa00;">0</div>
+                <div class="stat-label">成功信号</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="fail-signals" style="color: #aa0000;">0</div>
+                <div class="stat-label">失败信号</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="success-rate">0%</div>
+                <div class="stat-label">成功率</div>
+            </div>
+        </div>
+
+        <div class="chart-container" id="chart-container"></div>
+
+        <div id="message-container"></div>
+    </div>
+
+    <script>
+        const chart = echarts.init(document.getElementById('chart-container'));
+        
+        function showMessage(message, type = 'info') {
+            const container = document.getElementById('message-container');
+            const className = type === 'error' ? 'error' : 'loading';
+            container.innerHTML = `<div class="${className}">${message}</div>`;
+        }
+
+        function updateStats(signalData) {
+            const successSignals = signalData.filter(s => s.state.includes('SUCCESS'));
+            const failSignals = signalData.filter(s => s.state.includes('FAIL'));
+            const totalSignals = signalData.length;
+            const successRate = totalSignals > 0 ? (successSignals.length / totalSignals * 100).toFixed(1) : 0;
+
+            document.getElementById('total-signals').textContent = totalSignals;
+            document.getElementById('success-signals').textContent = successSignals.length;
+            document.getElementById('fail-signals').textContent = failSignals.length;
+            document.getElementById('success-rate').textContent = successRate + '%';
+            document.getElementById('stats-container').style.display = 'grid';
+        }
+
+        function loadTestData() {
+            const strategy = document.getElementById('strategy-select').value;
+            const stockCode = document.getElementById('stock-select').value;
+            
+            showMessage('🔄 正在加载真实数据...');
+            
+            fetch(`/api/analysis/${stockCode}?strategy=${strategy}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    
+                    const signalData = data.signal_points || [];
+                    if (signalData.length === 0) {
+                        showMessage('⚠️ 该股票/策略组合没有信号数据，请尝试其他组合', 'error');
+                        return;
+                    }
+                    
+                    renderChart(data, stockCode, strategy);
+                    updateStats(signalData);
+                    document.getElementById('message-container').innerHTML = '';
+                })
+                .catch(error => {
+                    showMessage(`❌ 加载失败: ${error.message}`, 'error');
+                });
+        }
+
+        function showMockData() {
+            showMessage('🎨 显示模拟数据 (包含成功和失败信号)...');
+            
+            // 创建模拟数据，确保包含成功和失败信号
+            const mockData = createMockData();
+            renderChart(mockData, '模拟股票', '模拟策略');
+            updateStats(mockData.signal_points);
+            document.getElementById('message-container').innerHTML = '';
+        }
+
+        function createMockData() {
+            // 生成30天的模拟K线数据
+            const dates = [];
+            const klineData = [];
+            const signalPoints = [];
+            
+            let basePrice = 50;
+            const startDate = new Date();
+            startDate.setDate(startDate.getDate() - 30);
+            
+            for (let i = 0; i < 30; i++) {
+                const date = new Date(startDate);
+                date.setDate(date.getDate() + i);
+                const dateStr = date.toISOString().split('T')[0];
+                dates.push(dateStr);
+                
+                // 模拟价格波动
+                const change = (Math.random() - 0.5) * 0.1;
+                basePrice *= (1 + change);
+                
+                const open = basePrice * (1 + (Math.random() - 0.5) * 0.02);
+                const close = basePrice * (1 + (Math.random() - 0.5) * 0.02);
+                const high = Math.max(open, close) * (1 + Math.random() * 0.03);
+                const low = Math.min(open, close) * (1 - Math.random() * 0.03);
+                
+                klineData.push({
+                    date: dateStr,
+                    open: open,
+                    close: close,
+                    low: low,
+                    high: high,
+                    volume: Math.floor(Math.random() * 1000000) + 500000
+                });
+                
+                // 随机添加信号点，确保有成功和失败的
+                if (Math.random() < 0.3) { // 30%概率有信号
+                    const isSuccess = Math.random() < 0.4; // 40%成功率，确保有失败信号
+                    const state = isSuccess ? 'BUY_SUCCESS' : 'BUY_FAIL';
+                    const price = low + (high - low) * Math.random();
+                    
+                    signalPoints.push({
+                        date: dateStr,
+                        price: price,
+                        state: state,
+                        original_state: 'BUY'
+                    });
+                }
+            }
+            
+            // 确保至少有一些成功和失败的信号
+            if (signalPoints.filter(s => s.state.includes('SUCCESS')).length === 0) {
+                signalPoints[0] = { ...signalPoints[0], state: 'BUY_SUCCESS' };
+            }
+            if (signalPoints.filter(s => s.state.includes('FAIL')).length === 0) {
+                signalPoints[1] = { ...signalPoints[1], state: 'BUY_FAIL' };
+            }
+            
+            return {
+                kline_data: klineData,
+                signal_points: signalPoints,
+                indicator_data: klineData.map(k => ({
+                    date: k.date,
+                    ma13: k.close * (1 + (Math.random() - 0.5) * 0.05),
+                    ma45: k.close * (1 + (Math.random() - 0.5) * 0.1)
+                }))
+            };
+        }
+
+        function renderChart(chartData, stockCode, strategy) {
+            const dates = chartData.kline_data.map(item => item.date);
+            const klineData = chartData.kline_data.map(item => [item.open, item.close, item.low, item.high]);
+            const signalData = chartData.signal_points || [];
+            
+            const option = {
+                title: {
+                    text: `${stockCode} - ${strategy} (成功/失败信号测试)`,
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'cross' }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: dates
+                },
+                yAxis: {
+                    scale: true
+                },
+                series: [
+                    {
+                        name: 'K线',
+                        type: 'candlestick',
+                        data: klineData
+                    }
+                ]
+            };
+            
+            // 添加信号点
+            if (signalData.length > 0) {
+                const signalSeries = {
+                    name: '交易信号',
+                    type: 'scatter',
+                    data: signalData.map(signal => {
+                        const dateIndex = dates.indexOf(signal.date);
+                        return [dateIndex, signal.price];
+                    }),
+                    symbol: 'triangle',
+                    symbolSize: 15,
+                    itemStyle: {
+                        color: function(params) {
+                            const signal = signalData[params.dataIndex];
+                            if (signal.state.includes('SUCCESS')) return '#00ff00';
+                            if (signal.state.includes('FAIL')) return '#ff0000';
+                            return '#ffff00';
+                        }
+                    },
+                    tooltip: {
+                        formatter: function(params) {
+                            const signal = signalData[params.dataIndex];
+                            const color = signal.state.includes('SUCCESS') ? '🟢' : 
+                                         signal.state.includes('FAIL') ? '🔴' : '🟡';
+                            return `${color} ${signal.state}<br/>价格: ¥${signal.price.toFixed(2)}<br/>日期: ${signal.date}`;
+                        }
+                    }
+                };
+                option.series.push(signalSeries);
+            }
+            
+            chart.setOption(option, true);
+        }
+
+        // 页面加载时显示模拟数据
+        window.onload = function() {
+            showMockData();
+        };
+    </script>
+</body>
+</html>

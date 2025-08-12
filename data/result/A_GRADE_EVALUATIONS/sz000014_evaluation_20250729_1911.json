@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T19:11:30.884542",
+  "stock_code": "sz000014",
+  "current_price": 12.7,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 12.83,
+    "target_price_2": 12.84,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010236220472441007,
+    "discount_2": -0.01102362204724414,
+    "stop_loss": {
+      "conservative": 12.32,
+      "moderate": 11.68,
+      "aggressive": 11.68,
+      "technical": 9.18
+    },
+    "take_profit": {
+      "conservative": 13.72,
+      "moderate": 13.97,
+      "aggressive": 15.24
+    }
+  }
+}

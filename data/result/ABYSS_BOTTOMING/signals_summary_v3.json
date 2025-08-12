@@ -1,0 +1,10 @@
+{
+    "scan_summary": {
+        "strategy": "ABYSS_BOTTOMING (V3 精炼版)",
+        "scan_timestamp": "2025-08-12 15:04:04",
+        "files_processed": 8968,
+        "processing_time_seconds": "0.32",
+        "signals_found": 0
+    },
+    "stocks_found": []
+}

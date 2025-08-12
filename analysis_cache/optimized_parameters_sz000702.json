@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000702",
-  "optimization_date": "2025-07-23T12:17:48.611102",
+  "optimization_date": "2025-08-04T19:09:20.691093",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4591892336830151,
+  "best_score": 0.459629469995642,
   "optimization_target": "composite_score"
 }

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:20:12.465274",
+  "stock_code": "sz002616",
+  "current_price": 6.35,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 6.06,
+    "target_price_2": 5.9,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.045669291338582683,
+    "discount_2": 0.07086614173228335,
+    "stop_loss": {
+      "conservative": 6.19,
+      "moderate": 5.87,
+      "aggressive": 5.87,
+      "technical": 6.06
+    },
+    "take_profit": {
+      "conservative": 6.89,
+      "moderate": 7.02,
+      "aggressive": 7.66
+    }
+  }
+}

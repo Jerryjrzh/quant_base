@@ -1,0 +1,20 @@
+[
+  {
+    "stock_code": "sh600355",
+    "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-11",
+    "scan_timestamp": "2025-08-12 16:25:44",
+    "current_price": 2.97,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.5308056872037914,
+        "price_position": 0.20000000000000007,
+        "long_term_high": 6.33,
+        "long_term_low": 2.13,
+        "current_price": 2.97,
+        "conditions": {
+          "price_position_ok": 

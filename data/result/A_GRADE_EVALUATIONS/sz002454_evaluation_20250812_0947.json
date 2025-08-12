@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:47:00.207763",
+  "stock_code": "sz002454",
+  "current_price": 8.57,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 8.66,
+    "target_price_2": 8.69,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010501750291715269,
+    "discount_2": -0.014002333722286956,
+    "stop_loss": {
+      "conservative": 8.31,
+      "moderate": 7.88,
+      "aggressive": 7.88,
+      "technical": 4.78
+    },
+    "take_profit": {
+      "conservative": 9.26,
+      "moderate": 9.43,
+      "aggressive": 10.28
+    }
+  }
+}

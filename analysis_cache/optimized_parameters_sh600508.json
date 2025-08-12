@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600508",
-  "optimization_date": "2025-07-23T11:21:59.548366",
+  "optimization_date": "2025-08-04T19:07:14.223346",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.49074920322973525,
+  "best_score": 0.48936977976856305,
   "optimization_target": "composite_score"
 }

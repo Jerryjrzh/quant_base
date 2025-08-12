@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:20:12.484038",
+  "stock_code": "sz001230",
+  "current_price": 21.9,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 22.78,
+    "target_price_2": 23.45,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.0401826484018266,
+    "discount_2": -0.0707762557077626,
+    "stop_loss": {
+      "conservative": 21.87,
+      "moderate": 20.75,
+      "aggressive": 20.75,
+      "technical": 21.42
+    },
+    "take_profit": {
+      "conservative": 24.35,
+      "moderate": 24.81,
+      "aggressive": 27.06
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300080",
-  "optimization_date": "2025-07-23T12:21:33.098744",
+  "optimization_date": "2025-08-12T09:40:40.626224",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4529984457025211,
+  "best_score": 0.4539705162644127,
   "optimization_target": "composite_score"
 }

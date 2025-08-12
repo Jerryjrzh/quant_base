@@ -1,0 +1,136 @@
+{
+  "strategy_name": "深渊筑底优化版",
+  "_comment_strategy_name": "策略的名称",
+  "version": "2.0",
+  "_comment_version": "策略版本号",
+  "description": "经过测试验证的深渊筑底策略，能够准确识别深跌后的筑底形态",
+  "_comment_description": "策略的简要描述",
+  "last_updated": "2025-08-12",
+  "test_status": "PASSED",
+  "test_accuracy": "100%",
+  
+  "core_parameters": {
+    "_comment": "策略的核心参数，直接影响筛选逻辑",
+    "deep_decline_phase": {
+      "_comment": "第零阶段：深跌筑底参数",
+      "long_term_days": 400,
+      "_comment_long_term_days": "定义“长期”的时间窗口（天数），用于寻找历史高低点",
+      "min_drop_percent": 0.35,
+      "_comment_min_drop_percent": "从前期高点计算的最小下跌幅度，例如0.4代表至少下跌40%",
+      "price_low_percentile": 0.35,
+      "_comment_price_low_percentile": "当前价格处于长期价格区间的最低百分位，例如0.35代表处于最低的35%区域内"
+    },
+    
+    "volume_analysis": {
+      "_comment": "成交量地量分析参数",
+      "volume_shrink_threshold": 0.70,
+      "_comment_volume_shrink_threshold": "近期均量与中期均量的比值上限，低于此值视为“缩量”",
+      "volume_consistency_threshold": 0.30,
+      "_comment_volume_consistency_threshold": "在近期分析周期内，成交量低于阈值的天数所占的比例，用于确认地量的“持续性”",
+      "volume_analysis_days": 30,
+      "_comment_volume_analysis_days": "定义“近期”成交量分析的时间窗口（天数）"
+    },
+    
+    "hibernation_phase": {
+      "_comment": "第一阶段：横盘蓄势参数",
+      "hibernation_days": 80,
+      "_comment_hibernation_days": "横盘阶段的识别天数",
+      "hibernation_volatility_max": 0.40,
+      "_comment_hibernation_volatility_max": "横盘期间允许的最大振幅（(最高价-最低价)/均价）",
+      "ma_convergence_threshold": 0.05,
+      "_comment_ma_convergence_threshold": "均线收敛（粘合）程度的阈值，越小要求越粘合",
+      "volume_stability_max": 2.0,
+      "_comment_volume_stability_max": "横盘期间成交量的标准差与均值的比值上限，越小要求成交量越稳定"
+    },
+    
+    "washout_phase": {
+      "_comment": "第二阶段：缩量挖坑参数",
+      "washout_days": 15,
+      "_comment_washout_days": "挖坑阶段的识别天数",
+      "washout_volume_shrink_ratio": 0.85,
+      "_comment_washout_volume_shrink_ratio": "挖坑期间的均量与横盘期间的均量的比值上限，越小要求越缩量",
+      "washout_break_threshold": 0.98,
+      "_comment_washout_break_threshold": "价格跌破横盘支撑位的幅度，例如0.95代表至少跌破5%",
+      "min_pit_days": 3,
+      "_comment_min_pit_days": "在挖坑期间，价格处于平台之下的最少天数"
+    },
+    
+    "liftoff_phase": {
+      "_comment": "第三阶段：确认拉升参数",
+      "max_rise_from_bottom": 0.18,
+      "_comment_max_rise_from_bottom": "允许的从坑底（最低点）开始的最大反弹幅度，防止追高",
+      "liftoff_volume_increase_ratio": 2,
+      "_comment_liftoff_volume_increase_ratio": "拉升确认日的成交量相对于坑内均量的最小放大倍数",
+      "confirmation_days": 3,
+      "_comment_confirmation_days": "拉升确认的观察窗口（天数）",
+      "min_conditions_met": 3,
+      "_comment_min_conditions_met": "在多个拉升确认条件中，至少需要满足的条件数量",
+      "rsi_range": [25, 60],
+      "_comment_rsi_range": "拉升确认时，RSI指标所处的合理范围 [最小值, 最大值]"
+    }
+  },
+  
+  "market_filters": {
+    "_comment": "市场过滤条件，用于初步筛选股票池",
+    "valid_prefixes": {
+      "_comment": "只扫描指定板块的股票代码前缀",
+      "sh": ["600", "601", "603", "605", "688"],
+      "sz": ["000", "001", "002", "003", "300"],
+      "bj": ["430", "831", "832", "833", "834", "835", "836", "837", "838", "839"]
+    },
+    "exclude_st": true,
+    "_comment_exclude_st": "是否排除ST和*ST股票",
+    "exclude_delisted": true,
+    "_comment_exclude_delisted": "是否排除已退市股票",
+    "min_market_cap": 500000000,
+    "_comment_min_market_cap": "最小市值要求（元）",
+    "min_daily_volume": 10000000,
+    "_comment_min_daily_volume": "最小日均成交额要求（元）"
+  },
+  
+  "technical_indicators": {
+    "_comment": "计算各项技术指标时使用的参数",
+    "ma_periods": [7, 13, 30, 45, 60],
+    "rsi_period": 14,
+    "macd_fast": 12,
+    "macd_slow": 26,
+    "macd_signal": 9,
+    "volume_ma_periods": [20, 60, 120],
+    "bollinger_period": 20,
+    "bollinger_std": 2
+  },
+  
+  "risk_management": {
+    "_comment": "风险管理相关参数（在筛选阶段暂未使用，可用于后续交易系统）",
+    "max_signals_per_day": 30,
+    "min_liquidity_ratio": 0.002,
+    "max_correlation_threshold": 0.6,
+    "position_size_limit": 0.05,
+    "stop_loss_percent": 0.08
+  },
+  
+  "output_settings": {
+    "_comment": "输出和日志相关的设置",
+    "save_detailed_analysis": true,
+    "generate_charts": false,
+    "export_formats": ["json", "txt", "csv"],
+    "log_level": "INFO",
+    "include_backtest_metrics": true
+  },
+  
+  "performance_tuning": {
+    "_comment": "性能调优参数",
+    "enable_multiprocessing": true,
+    "max_workers": 8,
+    "chunk_size": 100,
+    "memory_limit_mb": 2048
+  },
+  
+  "data_requirements": {
+    "_comment": "数据要求",
+    "min_data_days": 400,
+    "required_fields": ["open", "high", "low", "close", "volume"],
+    "data_quality_checks": true,
+    "handle_missing_data": true
+  }
+}

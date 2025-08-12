@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>持仓管理按钮修复测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); }
+        .modal-content { background-color: white; margin: 15% auto; padding: 20px; border-radius: 5px; width: 80%; max-width: 600px; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: #000; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>持仓管理按钮修复测试</h1>
+    
+    <div class="test-section">
+        <h2>测试结果</h2>
+        <div id="test-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>模拟原始页面结构</h2>
+        <!-- 模拟原始页面的必要元素 -->
+        <select id="strategy-select">
+            <option value="PRE_CROSS">临界金叉</option>
+        </select>
+        <select id="stock-select">
+            <option value="">请选择股票</option>
+        </select>
+        <select id="adjustment-select">
+            <option value="forward">前复权</option>
+        </select>
+        
+        <button id="portfolio-btn" class="portfolio-button">💼 持仓管理</button>
+        <div id="chart-container" style="width: 100px; height: 100px; border: 1px solid #ccc;"></div>
+        
+        <!-- 其他必要的元素 -->
+        <div id="backtest-results" style="display: none;"></div>
+        <div id="trading-advice-panel" style="display: none;"></div>
+        <div id="deep-scan-section" style="display: none;"></div>
+    </div>
+    
+    <!-- 持仓管理模态框 -->
+    <div id="portfolio-modal" class="modal">
+        <div class="modal-content">
+            <span id="portfolio-close" class="close">&times;</span>
+            <h2>持仓管理</h2>
+            <div id="portfolio-content">
+                <div id="portfolio-loading">加载中...</div>
+            </div>
+            <button id="add-position-btn">添加持仓</button>
+            <button id="scan-portfolio-btn">深度扫描</button>
+            <button id="refresh-portfolio-btn">刷新</button>
+        </div>
+    </div>
+    
+    <!-- 其他模态框 -->
+    <div id="add-position-modal" class="modal">
+        <div class="modal-content">
+            <span id="add-position-close" class="close">&times;</span>
+            <h3>添加持仓</h3>
+            <form id="add-position-form">
+                <button type="button" id="cancel-add-position">取消</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="position-detail-modal" class="modal">
+        <div class="modal-content">
+            <span id="position-detail-close" class="close">&times;</span>
+            <h3>持仓详情</h3>
+        </div>
+    </div>
+    
+    <!-- 其他必要的模态框 -->
+    <div id="core-pool-modal" class="modal"></div>
+    <div id="history-modal" class="modal"></div>
+    <div id="multi-timeframe-modal" class="modal"></div>
+    
+    <script>
+        // 测试函数
+        function runTests() {
+            const results = document.getElementById('test-results');
+            let html = '<h3>测试结果:</h3>';
+            
+            // 测试1: 检查按钮是否存在
+            const portfolioBtn = document.getElementById('portfolio-btn');
+            html += `<p>持仓管理按钮: ${portfolioBtn ? '<span class="success">✅ 存在</span>' : '<span class="error">❌ 不存在</span>'}</p>`;
+            
+            // 测试2: 检查模态框是否存在
+            const portfolioModal = document.getElementById('portfolio-modal');
+            html += `<p>持仓管理模态框: ${portfolioModal ? '<span class="success">✅ 存在</span>' : '<span class="error">❌ 不存在</span>'}</p>`;
+            
+            // 测试3: 检查事件监听器
+            if (portfolioBtn) {
+                try {
+                    portfolioBtn.click();
+                    const isVisible = portfolioModal && portfolioModal.style.display === 'block';
+                    html += `<p>按钮点击功能: ${isVisible ? '<span class="success">✅ 正常</span>' : '<span class="error">❌ 异常</span>'}</p>`;
+                } catch (e) {
+                    html += `<p>按钮点击功能: <span class="error">❌ 错误: ${e.message}</span></p>`;
+                }
+            }
+            
+            results.innerHTML = html;
+        }
+        
+        // 模拟后端API响应
+        window.fetch = function(url, options) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    if (url.includes('/api/portfolio')) {
+                        resolve({
+                            json: () => Promise.resolve({
+                                success: true,
+                                portfolio: [
+                                    {
+                                        stock_code: 'SZ000001',
+                                        purchase_price: 10.0,
+                                        quantity: 100,
+                                        purchase_date: '2024-01-01',
+                                        note: '测试持仓'
+                                    }
+                                ]
+                            })
+                        });
+                    } else {
+                        resolve({
+                            json: () => Promise.resolve({ success: true, data: [] })
+                        });
+                    }
+                }, 100);
+            });
+        };
+    </script>
+    
+    <!-- 加载修复后的app.js -->
+    <script src="frontend/js/app.js"></script>
+    
+    <script>
+        // 页面加载完成后运行测试
+        setTimeout(runTests, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "stock_code": "sh600439",
+    "signal_type": "ABYSS_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.16,
+    "signal_details": {
+      "signal_state": "FULL_PATTERN_CONFIRMED",
+      "stage0_decline": {
+        "price_pos": 0.31136363636363634,
+        "drop_pct": 0.4894991922455574,
+        "volume": {
+          "mid_term_avg": 63596641.21111111,
+          "recent_avg": 35748770.1,
+          "shrink_ratio": 0.5621172662457251
+        }
+      },
+      "stage1_hibernation": {
+        "support": 3.26,
+        "resistance": 4.02,
+        "avg_volume": 52857267.425,
+        "volatility": 0.21128718376424793
+      },
+      "stage2_washout": {
+        "pit_low": 3.08,
+        "pit_avg_volume": 37517257.1,
+        "shrink_ratio": 0.7097842723942138
+      },
+      "stage3_liftoff": {
+        "rise_from_bottom": 0.025974025974025997,
+        "volume_increase_ratio": 1.1646335414003386,
+        "price_recovering": "True",
+        "near_bottom": "True",
+        "volume_confirming": "True"
+      }
+    }
+  }
+]

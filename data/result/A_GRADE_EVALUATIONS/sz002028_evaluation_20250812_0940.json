@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.170723",
+  "stock_code": "sz002028",
+  "current_price": 79.82,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 77.76,
+    "target_price_2": 77.37,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": 0.02580806815334488,
+    "discount_2": 0.030694061638686907,
+    "stop_loss": {
+      "conservative": 74.68,
+      "moderate": 70.83,
+      "aggressive": 70.83,
+      "technical": 13.53
+    },
+    "take_profit": {
+      "conservative": 83.15,
+      "moderate": 84.69,
+      "aggressive": 92.39
+    }
+  }
+}

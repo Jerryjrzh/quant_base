@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T11:16:16.972832",
+  "stock_code": "sz000042",
+  "current_price": 8.8,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 8.89,
+    "target_price_2": 8.92,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.01022727272727271,
+    "discount_2": -0.013636363636363547,
+    "stop_loss": {
+      "conservative": 8.54,
+      "moderate": 8.1,
+      "aggressive": 8.1,
+      "technical": 8.36
+    },
+    "take_profit": {
+      "conservative": 9.5,
+      "moderate": 9.68,
+      "aggressive": 10.56
+    }
+  }
+}

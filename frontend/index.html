@@ -285,6 +285,207 @@
         .grade-d { color: #fd7e14; }
         .grade-f { color: #dc3545; }
         
+        /* 持仓管理样式 */
+        .portfolio-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .portfolio-table th,
+        .portfolio-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .portfolio-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        
+        .portfolio-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .profit-positive { color: #28a745; font-weight: 600; }
+        .profit-negative { color: #dc3545; font-weight: 600; }
+        .profit-neutral { color: #6c757d; }
+        
+        .action-buy { background: #d4edda; color: #155724; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        .action-sell { background: #f8d7da; color: #721c24; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        .action-hold { background: #fff3cd; color: #856404; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        .action-watch { background: #e2e3e5; color: #383d41; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        .action-add { background: #cce7ff; color: #004085; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        .action-reduce { background: #ffeaa7; color: #6c5ce7; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        .action-stop_loss { background: #fab1a0; color: #e17055; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        
+        .risk-high { color: #dc3545; font-weight: 600; }
+        .risk-medium { color: #ffc107; font-weight: 600; }
+        .risk-low { color: #28a745; font-weight: 600; }
+        
+        .risk-clickable {
+            cursor: pointer;
+            text-decoration: underline;
+            transition: opacity 0.2s;
+        }
+        
+        .risk-clickable:hover {
+            opacity: 0.7;
+        }
+        
+        /* 风险评估详情模态框样式 */
+        .risk-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .risk-detail-section {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .risk-detail-section h4 {
+            margin: 0 0 1rem 0;
+            color: #495057;
+            font-size: 1.1rem;
+        }
+        
+        .risk-factor-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .risk-factor-list li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .risk-factor-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .risk-score-display {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .risk-score-high {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .risk-score-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .risk-score-low {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .stock-code-link {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .stock-code-link:hover {
+            text-decoration: underline;
+        }
+        
+        .position-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .detail-section {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .detail-section h4 {
+            margin: 0 0 0.8rem 0;
+            color: #2c3e50;
+            font-size: 1rem;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 0.3rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .detail-label {
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .detail-value {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .advice-reasons {
+            margin-top: 0.8rem;
+        }
+        
+        .advice-reasons ul {
+            margin: 0.5rem 0;
+            padding-left: 1.2rem;
+        }
+        
+        .advice-reasons li {
+            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        
+        .scan-summary {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .scan-summary-item {
+            text-align: center;
+        }
+        
+        .scan-summary-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1976d2;
+        }
+        
+        .scan-summary-label {
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 1200px) {
             .main-content {
@@ -343,6 +544,7 @@
                 <option value="PRE_CROSS">临界金叉</option>
                 <option value="TRIPLE_CROSS">三重金叉</option>
                 <option value="MACD_ZERO_AXIS">MACD零轴启动</option>
+                <option value="WEEKLY_GOLDEN_CROSS_MA">周线金叉+日线MA</option>
             </select>
             <label for="stock-select">股票:</label>
             <select id="stock-select"></select>
@@ -356,10 +558,25 @@
                 </select>
             </div>
             
+            <div class="adjustment-control">
+                <label for="timeframe-select">周期:</label>
+                <select id="timeframe-select">
+                    <option value="daily">日线</option>
+                    <option value="weekly">周线</option>
+                    <option value="monthly">月线</option>
+                    <option value="5min">5分钟</option>
+                    <option value="10min">10分钟</option>
+                    <option value="15min">15分钟</option>
+                    <option value="30min">30分钟</option>
+                    <option value="60min">60分钟</option>
+                </select>
+            </div>
+            
             <button id="refresh-btn" class="refresh-button">🔄 刷新数据</button>
             <button id="multi-timeframe-btn" class="multi-timeframe-button">⏰ 多周期分析</button>
             <button id="deep-scan-btn" class="deep-scan-button">🔍 深度扫描</button>
             <button id="core-pool-btn" class="core-pool-button">⭐ 核心池</button>
+            <button id="portfolio-btn" class="portfolio-button">💼 持仓管理</button>
             <button id="history-btn" class="history-button">📊 历史报告</button>
         </div>
     </header>
@@ -481,6 +698,88 @@
             <span id="multi-timeframe-close" class="close">&times;</span>
             <h2>多周期分析</h2>
             <div id="multi-timeframe-content">加载中...</div>
+        </div>
+    </div>
+    
+    <!-- 持仓管理模态框 -->
+    <div id="portfolio-modal" class="modal">
+        <div class="modal-content" style="max-width: 1200px;">
+            <span id="portfolio-close" class="close">&times;</span>
+            <h2>持仓管理</h2>
+            
+            <!-- 操作按钮区 -->
+            <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                <button id="add-position-btn" style="padding: 0.5rem 1rem; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">➕ 添加持仓</button>
+                <button id="scan-portfolio-btn" style="padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">🔍 深度扫描</button>
+                <button id="refresh-portfolio-btn" style="padding: 0.5rem 1rem; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">🔄 刷新</button>
+                <div id="portfolio-summary" style="margin-left: auto; font-size: 0.9rem; color: #6c757d;"></div>
+            </div>
+            
+            <!-- 持仓列表 -->
+            <div id="portfolio-content">
+                <div id="portfolio-loading" style="text-align: center; padding: 2rem; color: #6c757d;">
+                    加载中...
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 添加持仓模态框 -->
+    <div id="add-position-modal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <span id="add-position-close" class="close">&times;</span>
+            <h3>添加持仓</h3>
+            <form id="add-position-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                    <label for="position-stock-code" style="display: block; margin-bottom: 0.3rem; font-weight: 500;">股票代码:</label>
+                    <input type="text" id="position-stock-code" placeholder="如: SZ000001" required 
+                           style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label for="position-purchase-price" style="display: block; margin-bottom: 0.3rem; font-weight: 500;">购买价格:</label>
+                    <input type="number" id="position-purchase-price" step="0.01" min="0" required 
+                           style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label for="position-quantity" style="display: block; margin-bottom: 0.3rem; font-weight: 500;">持仓数量:</label>
+                    <input type="number" id="position-quantity" min="1" required 
+                           style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label for="position-purchase-date" style="display: block; margin-bottom: 0.3rem; font-weight: 500;">购买日期:</label>
+                    <input type="date" id="position-purchase-date" required 
+                           style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label for="position-note" style="display: block; margin-bottom: 0.3rem; font-weight: 500;">备注:</label>
+                    <textarea id="position-note" rows="3" placeholder="可选备注信息..." 
+                              style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; resize: vertical;"></textarea>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button type="button" id="cancel-add-position" 
+                            style="padding: 0.5rem 1rem; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">取消</button>
+                    <button type="submit" 
+                            style="padding: 0.5rem 1rem; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">添加</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- 风险评估详情模态框 -->
+    <div id="risk-assessment-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <span id="risk-assessment-close" class="close">&times;</span>
+            <h3 id="risk-assessment-title">风险评估详情</h3>
+            <div id="risk-assessment-content">加载中...</div>
+        </div>
+    </div>
+    
+    <!-- 持仓详情模态框 -->
+    <div id="position-detail-modal" class="modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <span id="position-detail-close" class="close">&times;</span>
+            <h3 id="position-detail-title">持仓详情</h3>
+            <div id="position-detail-content">加载中...</div>
         </div>
     </div>
     

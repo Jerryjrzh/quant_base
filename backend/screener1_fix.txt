@@ -1,0 +1,124 @@
+import os
+import glob
+import json
+import pandas as pd
+import numpy as np
+from multiprocessing import Pool, cpu_count
+from datetime import datetime
+import logging
+import data_loader
+import strategies
+import backtester
+import indicators
+from win_rate_filter import WinRateFilter, AdvancedTripleCrossFilter
+
+# === 调整后的策略逻辑 START ===
+# 因为您未提供 strategies.py 文件，我将调整后的逻辑直接添加到这里
+# 在实际应用中，您应该将此函数移动到 strategies.py 文件中
+def apply_value_reversal_strategy(df):
+    """
+    价值反转策略 (VALUE_REVERSAL) - 调整版
+    寻找满足以下条件中至少两个的股票（检查最近3天是否有信号）：
+    1. MACD底背离：价格接近新低，但MACD更高（使用滚动窗口）。
+    2. RSI超卖区启动：RSI从40以下的超卖区回升（放松阈值）。
+    3. 放量突破MA20：股价上穿20日均线，且成交量放大>1.2倍（放松）。
+    """
+    if len(df) < 60:  # 需要足够数据来判断背离
+        return None
+
+    try:
+        # 计算技术指标
+        macd_values = indicators.calculate_macd(df, fast_period=12, slow_period=26, signal_period=9)
+        df['dif'], df['dea'] = macd_values[0], macd_values[1]
+        df['rsi'] = indicators.calculate_rsi(df, timeperiod=14)
+        df['ma20'] = df['close'].rolling(window=20).mean()
+        df['volume_ma20'] = df['volume'].rolling(window=20).mean()
+
+        signal_series = pd.Series(False, index=df.index)
+        
+        # 检查最近3天（以捕获更多信号）
+        for idx in range(len(df) - 3, len(df)):
+            conditions_met = 0
+            
+            # 条件1：MACD底背离检查 (改进：使用滚动30天窗口比较极值)
+            window = 30  # 放松检测窗口
+            price_lows = df['low'].rolling(window=window).min()
+            dif_lows = df['dif'].rolling(window=window).min()
+            if not pd.isna(price_lows.iloc[idx]) and not pd.isna(dif_lows.iloc[idx]):
+                if df['low'].iloc[idx] <= price_lows.iloc[idx] * 1.02 and df['dif'].iloc[idx] > dif_lows.iloc[idx] * 0.98:
+                    conditions_met += 1
+
+            # 条件2：RSI超卖区启动 (放松到<40)
+            if idx > 0 and df['rsi'].iloc[idx-1] < 40 and df['rsi'].iloc[idx] > df['rsi'].iloc[idx-1]:
+                conditions_met += 1
+            
+            # 条件3：放量突破MA20 (放松volume到1.2倍)
+            if idx > 0 and (df['close'].iloc[idx-1] < df['ma20'].iloc[idx-1] and
+                            df['close'].iloc[idx] > df['ma20'].iloc[idx] and
+                            df['volume'].iloc[idx] > df['volume_ma20'].iloc[idx] * 1.2):
+                conditions_met += 1
+
+            if conditions_met >= 2:
+                signal_series.iloc[idx] = True
+            
+        return signal_series
+
+    except Exception as e:
+        # print(f"Error applying value reversal strategy: {e}")
+        return None
+
+# 将调整后的策略函数注册到 strategies 模块（模拟）
+strategies.apply_value_reversal_strategy = apply_value_reversal_strategy
+# === 调整后的策略逻辑 END ===
+
+# --- 配置 ---
+BASE_PATH = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
+MARKETS = ['sh', 'sz', 'bj']
+# --- 您可以在这里切换要运行的策略 ---
+#STRATEGY_TO_RUN = 'MACD_ZERO_AXIS' 
+#STRATEGY_TO_RUN = 'TRIPLE_CROSS' 
+#STRATEGY_TO_RUN = 'PRE_CROSS'
+#STRATEGY_TO_RUN = 'WEEKLY_GOLDEN_CROSS_MA'
+STRATEGY_TO_RUN = 'VALUE_REVERSAL' # <--- 新增的策略选项
+
+# --- 路径定义 ---
+backend_dir = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_PATH = os.path.abspath(os.path.join(backend_dir, '..', 'data', 'result'))
+
+# --- 初始化日志 ---
+DATE = datetime.now().strftime("%Y%m%d_%H%M")
+RESULT_DIR = os.path.join(OUTPUT_PATH, STRATEGY_TO_RUN)
+os.makedirs(RESULT_DIR, exist_ok=True)
+LOG_FILE = os.path.join(RESULT_DIR, f'log_screener_{DATE}.txt')
+
+file_handler = logging.FileHandler(LOG_FILE, 'a', 'utf-8')
+file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+logger = logging.getLogger('screener_logger')
+logger.setLevel(logging.INFO)
+if logger.hasHandlers():
+    logger.handlers.clear()
+logger.addHandler(file_handler)
+
+# (剩余脚本不变，省略以节省空间，但包括所有原有函数如calculate_backtest_stats等)
+# 在worker函数中，对于VALUE_REVERSAL，数据长度已放松到60天，但如果全局<150仍过滤，可临时注释全局检查进行测试。
+
+# 在_process_value_reversal_strategy中，检查signal_series.iloc[-3:].any() 以捕获最近信号
+def _process_value_reversal_strategy(df, result_base):
+    """处理VALUE_REVERSAL策略"""
+    try:
+        signal_series = strategies.apply_value_reversal_strategy(df)
+        if signal_series is not None and signal_series.iloc[-3:].any():  # 检查最近3天
+            backtest_stats = calculate_backtest_stats_fast(df, signal_series)
+            result_base.update({
+                'filter_status': 'passed',
+                **backtest_stats
+            })
+            return result_base
+        return None
+    except Exception as e:
+        logger.error(f"处理价值反转策略失败 {result_base.get('stock_code', '')}: {e}")
+        return None
+
+# (main函数等不变)
+if __name__ == '__main__':
+    main()

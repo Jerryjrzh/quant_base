@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600271",
-  "optimization_date": "2025-07-23T11:27:42.017176",
+  "optimization_date": "2025-08-04T19:07:21.088344",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.36624288861262666,
+  "best_score": 0.3680168761779065,
   "optimization_target": "composite_score"
 }

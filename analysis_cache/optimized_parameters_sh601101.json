@@ -1,6 +1,6 @@
 {
   "stock_code": "sh601101",
-  "optimization_date": "2025-07-23T09:00:48.099530",
+  "optimization_date": "2025-07-29T16:19:39.219397",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.48612605416878013,
+  "best_score": 0.48630344918441465,
   "optimization_target": "composite_score"
 }

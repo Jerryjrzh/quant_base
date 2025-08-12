@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T12:10:20.504838",
+  "stock_code": "sh600605",
+  "current_price": 40.78,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 41.19,
+    "target_price_2": 41.0,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010053948013732137,
+    "discount_2": -0.00539480137322214,
+    "stop_loss": {
+      "conservative": 39.56,
+      "moderate": 37.52,
+      "aggressive": 37.52,
+      "technical": 10.93
+    },
+    "take_profit": {
+      "conservative": 44.04,
+      "moderate": 44.86,
+      "aggressive": 48.94
+    }
+  }
+}

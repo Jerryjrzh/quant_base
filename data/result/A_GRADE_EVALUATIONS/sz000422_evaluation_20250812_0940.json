@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.156768",
+  "stock_code": "sz000422",
+  "current_price": 13.56,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 12.88,
+    "target_price_2": 12.88,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05014749262536871,
+    "discount_2": 0.05014749262536871,
+    "stop_loss": {
+      "conservative": 13.15,
+      "moderate": 12.48,
+      "aggressive": 12.48,
+      "technical": 2.83
+    },
+    "take_profit": {
+      "conservative": 14.64,
+      "moderate": 14.92,
+      "aggressive": 16.27
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300618",
-  "optimization_date": "2025-07-23T12:21:15.849673",
+  "optimization_date": "2025-08-12T09:40:21.845677",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.29215956718724767,
+  "best_score": 0.3102208755735997,
   "optimization_target": "composite_score"
 }

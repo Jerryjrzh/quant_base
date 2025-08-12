@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.097831",
+  "stock_code": "sh603926",
+  "current_price": 13.35,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 13.25,
+    "target_price_2": 13.19,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": 0.007490636704119823,
+    "discount_2": 0.011985018726591771,
+    "stop_loss": {
+      "conservative": 12.73,
+      "moderate": 12.07,
+      "aggressive": 12.07,
+      "technical": 11.64
+    },
+    "take_profit": {
+      "conservative": 14.17,
+      "moderate": 14.43,
+      "aggressive": 15.74
+    }
+  }
+}

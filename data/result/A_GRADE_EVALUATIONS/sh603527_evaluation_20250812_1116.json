@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T11:16:16.961982",
+  "stock_code": "sh603527",
+  "current_price": 11.79,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 11.91,
+    "target_price_2": 12.15,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010178117048346142,
+    "discount_2": -0.030534351145038274,
+    "stop_loss": {
+      "conservative": 11.44,
+      "moderate": 10.85,
+      "aggressive": 10.85,
+      "technical": 11.18
+    },
+    "take_profit": {
+      "conservative": 12.73,
+      "moderate": 12.97,
+      "aggressive": 14.15
+    }
+  }
+}

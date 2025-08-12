@@ -1,0 +1,223 @@
+{
+  "test_time": "2025-08-12 16:09:55",
+  "results": {
+    "strict": {
+      "ideal": {
+        "success": false,
+        "details": {
+          "stage": "deep_decline",
+          "reason": {
+            "drop_percent": "69.33%",
+            "price_position": "6.95%",
+            "volume_ratio": "1.46",
+            "volume_threshold": "256,000",
+            "recent_volume": "372,500",
+            "conditions": {
+              "price_position_ok": true,
+              "drop_percent_ok": true,
+              "volume_ok": false
+            },
+            "config_mode": "strict"
+          }
+        }
+      },
+      "realistic": {
+        "success": false,
+        "details": {
+          "stage": "deep_decline",
+          "reason": {
+            "drop_percent": "72.34%",
+            "price_position": "5.95%",
+            "volume_ratio": "1.83",
+            "volume_threshold": "204,400",
+            "recent_volume": "373,633",
+            "conditions": {
+              "price_position_ok": true,
+              "drop_percent_ok": true,
+              "volume_ok": false
+            },
+            "config_mode": "strict"
+          }
+        }
+      },
+      "failed": {
+        "success": false,
+        "details": {
+          "stage": "deep_decline",
+          "reason": {
+            "drop_percent": "35.03%",
+            "price_position": "17.86%",
+            "volume_ratio": "1.01",
+            "volume_threshold": "620,000",
+            "recent_volume": "629,000",
+            "conditions": {
+              "price_position_ok": true,
+              "drop_percent_ok": false,
+              "volume_ok": false
+            },
+            "config_mode": "strict"
+          }
+        }
+      }
+    },
+    "balanced": {
+      "ideal": {
+        "success": false,
+        "details": {
+          "stage": "deep_decline",
+          "reason": {
+            "drop_percent": "69.33%",
+            "price_position": "6.95%",
+            "volume_ratio": "1.32",
+            "volume_threshold": "283,000",
+            "recent_volume": "372,500",
+            "conditions": {
+              "price_position_ok": true,
+              "drop_percent_ok": true,
+              "volume_ok": false
+            },
+            "config_mode": "balanced"
+          }
+        }
+      },
+      "realistic": {
+        "success": false,
+        "details": {
+          "stage": "deep_decline",
+          "reason": {
+            "drop_percent": "72.34%",
+            "price_position": "5.95%",
+            "volume_ratio": "1.28",
+            "volume_threshold": "290,850",
+            "recent_volume": "373,633",
+            "conditions": {
+              "price_position_ok": true,
+              "drop_percent_ok": true,
+              "volume_ok": false
+            },
+            "config_mode": "balanced"
+          }
+        }
+      },
+      "failed": {
+        "success": false,
+        "details": {
+          "stage": "deep_decline",
+          "reason": {
+            "drop_percent": "35.03%",
+            "price_position": "17.86%",
+            "volume_ratio": "0.98",
+            "volume_threshold": "642,000",
+            "recent_volume": "629,000",
+            "conditions": {
+              "price_position_ok": true,
+              "drop_percent_ok": false,
+              "volume_ok": true
+            },
+            "config_mode": "balanced"
+          }
+        }
+      }
+    },
+    "loose": {
+      "ideal": {
+        "success": false,
+        "details": {
+          "stage": "deep_decline",
+          "reason": {
+            "drop_percent": "62.07%",
+            "price_position": "9.35%",
+            "volume_ratio": "1.24",
+            "volume_threshold": "301,000",
+            "recent_volume": "372,500",
+            "conditions": {
+              "price_position_ok": true,
+              "drop_percent_ok": true,
+              "volume_ok": false
+            },
+            "config_mode": "loose"
+          }
+        }
+      },
+      "realistic": {
+        "success": false,
+        "details": {
+          "stage": "deep_decline",
+          "reason": {
+            "drop_percent": "65.01%",
+            "price_position": "8.18%",
+            "volume_ratio": "1.09",
+            "volume_threshold": "341,550",
+            "recent_volume": "373,633",
+            "conditions": {
+              "price_position_ok": true,
+              "drop_percent_ok": true,
+              "volume_ok": false
+            },
+            "config_mode": "loose"
+          }
+        }
+      },
+      "failed": {
+        "success": false,
+        "details": {
+          "stage": "deep_decline",
+          "reason": {
+            "drop_percent": "32.86%",
+            "price_position": "19.32%",
+            "volume_ratio": "0.79",
+            "volume_threshold": "800,000",
+            "recent_volume": "629,000",
+            "conditions": {
+              "price_position_ok": true,
+              "drop_percent_ok": false,
+              "volume_ok": true
+            },
+            "config_mode": "loose"
+          }
+        }
+      }
+    }
+  },
+  "configs": {
+    "strict": {
+      "long_term_days": 500,
+      "min_drop_percent": 0.6,
+      "price_low_percentile": 0.2,
+      "volume_low_percentile": 0.15,
+      "hibernation_days": 45,
+      "hibernation_volatility_max": 0.25,
+      "washout_days": 20,
+      "washout_volume_shrink_ratio": 0.75,
+      "max_rise_from_bottom": 0.1,
+      "liftoff_volume_increase_ratio": 1.5,
+      "description": "严格模式：高质量信号，低假阳性"
+    },
+    "balanced": {
+      "long_term_days": 500,
+      "min_drop_percent": 0.45,
+      "price_low_percentile": 0.3,
+      "volume_low_percentile": 0.3,
+      "hibernation_days": 45,
+      "hibernation_volatility_max": 0.35,
+      "washout_days": 20,
+      "washout_volume_shrink_ratio": 0.85,
+      "max_rise_from_bottom": 0.15,
+      "liftoff_volume_increase_ratio": 1.2,
+      "description": "平衡模式：质量与数量兼顾"
+    },
+    "loose": {
+      "long_term_days": 400,
+      "min_drop_percent": 0.35,
+      "price_low_percentile": 0.4,
+      "volume_low_percentile": 0.4,
+      "hibernation_days": 30,
+      "hibernation_volatility_max": 0.45,
+      "washout_days": 15,
+      "washout_volume_shrink_ratio": 0.9,
+      "max_rise_from_bottom": 0.2,
+      "liftoff_volume_increase_ratio": 1.1,
+      "description": "宽松模式：更多机会，需要后续筛选"
+    }
+  }
+}

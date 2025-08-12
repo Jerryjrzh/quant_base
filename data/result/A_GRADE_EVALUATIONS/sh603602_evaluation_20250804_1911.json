@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-04T19:11:29.045510",
+  "stock_code": "sh603602",
+  "current_price": 15.71,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 14.92,
+    "target_price_2": 14.92,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05028644175684283,
+    "discount_2": 0.05028644175684283,
+    "stop_loss": {
+      "conservative": 15.24,
+      "moderate": 14.45,
+      "aggressive": 14.45,
+      "technical": 14.92
+    },
+    "take_profit": {
+      "conservative": 16.97,
+      "moderate": 17.28,
+      "aggressive": 18.85
+    }
+  }
+}

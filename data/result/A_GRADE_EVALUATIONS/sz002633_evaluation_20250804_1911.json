@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-04T19:11:29.136769",
+  "stock_code": "sz002633",
+  "current_price": 16.57,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 13.7,
+    "target_price_2": 13.34,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.17320458660229335,
+    "discount_2": 0.19493059746529875,
+    "stop_loss": {
+      "conservative": 13.99,
+      "moderate": 13.27,
+      "aggressive": 13.27,
+      "technical": 8.3
+    },
+    "take_profit": {
+      "conservative": 15.57,
+      "moderate": 15.86,
+      "aggressive": 17.3
+    }
+  }
+}

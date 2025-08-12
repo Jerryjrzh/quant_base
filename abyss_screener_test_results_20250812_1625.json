@@ -1,0 +1,20 @@
+{
+  "test_time": "2025-08-12 16:25:21",
+  "code_validation": true,
+  "strategy_accuracy": 1.0,
+  "strategy_results": {
+    "abyss_bottom": {
+      "has_signal": true,
+      "expected": true,
+      "correct": true,
+      "details": {
+        "signal_state": "HIBERNATION_CONFIRMED",
+        "stage_passed": 2,
+        "deep_decline": {
+          "drop_percent": 0.4284269094587759,
+          "price_position": 0.14119138149556404,
+          "long_term_high": 79.08,
+          "long_term_low": 39.63,
+          "current_price": 45.2,
+          "conditions": {
+            "price_position_ok": 

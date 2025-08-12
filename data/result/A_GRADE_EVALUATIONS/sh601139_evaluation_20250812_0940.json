@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.130383",
+  "stock_code": "sh601139",
+  "current_price": 6.59,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 6.26,
+    "target_price_2": 6.1,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.050075872534142654,
+    "discount_2": 0.07435508345978759,
+    "stop_loss": {
+      "conservative": 6.39,
+      "moderate": 6.06,
+      "aggressive": 6.06,
+      "technical": 6.26
+    },
+    "take_profit": {
+      "conservative": 7.12,
+      "moderate": 7.25,
+      "aggressive": 7.91
+    }
+  }
+}

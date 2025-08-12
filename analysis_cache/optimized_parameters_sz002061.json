@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002061",
-  "optimization_date": "2025-07-23T12:22:03.947649",
+  "optimization_date": "2025-08-04T19:11:19.653328",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.47122640132322063,
+  "best_score": 0.470118305974013,
   "optimization_target": "composite_score"
 }

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:35:00.773944",
+  "stock_code": "sh603272",
+  "current_price": 18.35,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 16.53,
+    "target_price_2": 16.1,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.09918256130790191,
+    "discount_2": 0.12261580381471389,
+    "stop_loss": {
+      "conservative": 16.88,
+      "moderate": 16.01,
+      "aggressive": 16.01,
+      "technical": 16.04
+    },
+    "take_profit": {
+      "conservative": 18.79,
+      "moderate": 19.14,
+      "aggressive": 20.88
+    }
+  }
+}

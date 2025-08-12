@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:35:00.771198",
+  "stock_code": "sh600158",
+  "current_price": 9.3,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 8.4,
+    "target_price_2": 8.18,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.09677419354838712,
+    "discount_2": 0.12043010752688182,
+    "stop_loss": {
+      "conservative": 8.57,
+      "moderate": 8.13,
+      "aggressive": 8.13,
+      "technical": 8.4
+    },
+    "take_profit": {
+      "conservative": 9.55,
+      "moderate": 9.72,
+      "aggressive": 10.61
+    }
+  }
+}

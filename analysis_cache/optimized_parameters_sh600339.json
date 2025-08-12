@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600339",
-  "optimization_date": "2025-07-23T11:58:00.947736",
+  "optimization_date": "2025-08-12T09:38:35.916561",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.49794561392278947,
+  "best_score": 0.5006340894472766,
   "optimization_target": "composite_score"
 }

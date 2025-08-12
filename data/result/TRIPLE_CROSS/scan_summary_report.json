@@ -1,14 +1,14 @@
 {
     "scan_summary": {
         "total_signals": 0,
-        "scan_timestamp": "2025-07-28 17:43:14",
+        "scan_timestamp": "2025-08-12 09:46:18",
         "strategy": "TRIPLE_CROSS",
         "total_historical_signals": 0,
         "avg_win_rate": "0.0%",
         "avg_profit_rate": "0.0%",
         "avg_days_to_peak": "0.0 天",
-        "processing_time": "1.71 秒",
-        "files_processed": 8947
+        "processing_time": "1.76 秒",
+        "files_processed": 8968
     },
     "signal_breakdown": {},
     "top_performers": []

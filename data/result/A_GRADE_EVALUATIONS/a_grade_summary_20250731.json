@@ -1,0 +1,52 @@
+[
+  {
+    "evaluation_time": "2025-07-31T19:40:08.751984",
+    "stock_code": "sh603811",
+    "current_price": 12.7,
+    "grade": "A",
+    "evaluation_details": {
+      "entry_strategy": "参数化突破确认",
+      "target_price_1": 12.83,
+      "target_price_2": 13.25,
+      "position_allocation": "确认突破后50%仓位",
+      "discount_1": -0.010236220472441007,
+      "discount_2": -0.04330708661417328,
+      "stop_loss": {
+        "conservative": 12.32,
+        "moderate": 11.68,
+        "aggressive": 11.68,
+        "technical": 12.06
+      },
+      "take_profit": {
+        "conservative": 13.72,
+        "moderate": 13.97,
+        "aggressive": 15.24
+      }
+    }
+  },
+  {
+    "evaluation_time": "2025-07-31T19:40:08.751267",
+    "stock_code": "sh603173",
+    "current_price": 45.39,
+    "grade": "A",
+    "evaluation_details": {
+      "entry_strategy": "参数化突破确认",
+      "target_price_1": 45.84,
+      "target_price_2": 45.62,
+      "position_allocation": "确认突破后50%仓位",
+      "discount_1": -0.009914077990746922,
+      "discount_2": -0.005067195417492771,
+      "stop_loss": {
+        "conservative": 44.03,
+        "moderate": 41.76,
+        "aggressive": 41.76,
+        "technical": 21.93
+      },
+      "take_profit": {
+        "conservative": 49.02,
+        "moderate": 49.93,
+        "aggressive": 54.47
+      }
+    }
+  }
+]

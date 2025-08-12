@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.121869",
+  "stock_code": "sh600426",
+  "current_price": 24.25,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 23.04,
+    "target_price_2": 23.04,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04989690721649488,
+    "discount_2": 0.04989690721649488,
+    "stop_loss": {
+      "conservative": 23.52,
+      "moderate": 22.31,
+      "aggressive": 22.31,
+      "technical": 19.53
+    },
+    "take_profit": {
+      "conservative": 26.19,
+      "moderate": 26.68,
+      "aggressive": 29.1
+    }
+  }
+}

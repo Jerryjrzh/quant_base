@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-04T19:11:29.138435",
+  "stock_code": "sz000426",
+  "current_price": 18.6,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 16.16,
+    "target_price_2": 15.73,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.1311827956989248,
+    "discount_2": 0.15430107526881726,
+    "stop_loss": {
+      "conservative": 16.5,
+      "moderate": 15.65,
+      "aggressive": 15.65,
+      "technical": 4.85
+    },
+    "take_profit": {
+      "conservative": 18.37,
+      "moderate": 18.71,
+      "aggressive": 20.41
+    }
+  }
+}

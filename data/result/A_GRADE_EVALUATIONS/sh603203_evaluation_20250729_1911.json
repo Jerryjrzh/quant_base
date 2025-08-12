@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T19:11:30.874626",
+  "stock_code": "sh603203",
+  "current_price": 26.47,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 26.73,
+    "target_price_2": 26.93,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009822440498677807,
+    "discount_2": -0.017378163959199125,
+    "stop_loss": {
+      "conservative": 25.68,
+      "moderate": 24.35,
+      "aggressive": 24.35,
+      "technical": 25.15
+    },
+    "take_profit": {
+      "conservative": 28.59,
+      "moderate": 29.12,
+      "aggressive": 31.76
+    }
+  }
+}

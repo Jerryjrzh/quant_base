@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.143284",
+  "stock_code": "sz002831",
+  "current_price": 24.65,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 24.9,
+    "target_price_2": 25.06,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010141987829614604,
+    "discount_2": -0.016632860040567958,
+    "stop_loss": {
+      "conservative": 23.91,
+      "moderate": 22.68,
+      "aggressive": 22.68,
+      "technical": 23.42
+    },
+    "take_profit": {
+      "conservative": 26.62,
+      "moderate": 27.12,
+      "aggressive": 29.58
+    }
+  }
+}

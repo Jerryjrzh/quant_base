@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指标显示范围测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-container { margin-bottom: 30px; }
+        .chart-container { width: 100%; height: 400px; border: 1px solid #ddd; }
+        .info { background: #f0f8ff; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>指标显示范围测试</h1>
+    
+    <div class="info">
+        <h3>测试目标：</h3>
+        <ul>
+            <li>✅ MACD顶部异常修复 - 改进范围计算</li>
+            <li>✅ KDJ底部负值显示 - 移除0下限限制</li>
+            <li>✅ K线三角图标优化 - 改进信号点显示</li>
+        </ul>
+    </div>
+    
+    <div class="test-container">
+        <h3>KDJ指标测试 (包含负值)</h3>
+        <div id="kdj-test-chart" class="chart-container"></div>
+    </div>
+    
+    <div class="test-container">
+        <h3>MACD指标测试 (范围优化)</h3>
+        <div id="macd-test-chart" class="chart-container"></div>
+    </div>
+    
+    <script>
+        // 模拟KDJ数据，包含负值
+        const kdjDates = [];
+        const kData = [];
+        const dData = [];
+        const jData = [];
+        
+        for (let i = 0; i < 50; i++) {
+            kdjDates.push(`2024-${String(Math.floor(i/30) + 1).padStart(2, '0')}-${String((i % 30) + 1).padStart(2, '0')}`);
+            kData.push(Math.sin(i * 0.2) * 30 + 50);
+            dData.push(Math.cos(i * 0.15) * 25 + 45);
+            jData.push(Math.sin(i * 0.3) * 60 + 40); // J值可能为负
+        }
+        
+        // 模拟MACD数据
+        const macdDates = [];
+        const difData = [];
+        const deaData = [];
+        const macdHistogram = [];
+        
+        for (let i = 0; i < 50; i++) {
+            macdDates.push(`2024-${String(Math.floor(i/30) + 1).padStart(2, '0')}-${String((i % 30) + 1).padStart(2, '0')}`);
+            const dif = Math.sin(i * 0.1) * 0.5;
+            const dea = Math.sin(i * 0.08) * 0.3;
+            difData.push(dif);
+            deaData.push(dea);
+            macdHistogram.push(dif - dea);
+        }
+        
+        // 使用修复后的范围计算逻辑
+        function calculateKdjRange(kData, dData, jData) {
+            const allKdjValues = [...kData, ...dData, ...jData].filter(val => val !== null && val !== undefined && !isNaN(val));
+            let kdjMin = -10;
+            let kdjMax = 110;
+            
+            if (allKdjValues.length > 0) {
+                const actualMin = Math.min(...allKdjValues);
+                const actualMax = Math.max(...allKdjValues);
+                
+                kdjMin = actualMin < 0 ? actualMin - 5 : Math.max(-10, actualMin - 5);
+                kdjMax = actualMax > 100 ? actualMax + 5 : Math.min(110, actualMax + 5);
+            }
+            
+            return { min: kdjMin, max: kdjMax };
+        }
+        
+        function calculateMacdRange(difData, deaData, macdData) {
+            const allMacdValues = [...difData, ...deaData, ...macdData].filter(val => val !== null && val !== undefined && !isNaN(val));
+            let macdMin = -1;
+            let macdMax = 1;
+            
+            if (allMacdValues.length > 0) {
+                const actualMin = Math.min(...allMacdValues);
+                const actualMax = Math.max(...allMacdValues);
+                
+                const range = actualMax - actualMin;
+                const padding = Math.max(range * 0.1, 0.01);
+                
+                macdMin = actualMin - padding;
+                macdMax = actualMax + padding;
+                
+                if (Math.abs(macdMax - macdMin) < 0.02) {
+                    const center = (macdMax + macdMin) / 2;
+                    macdMin = center - 0.01;
+                    macdMax = center + 0.01;
+                }
+            }
+            
+            return { min: macdMin, max: macdMax };
+        }
+        
+        // 渲染KDJ测试图表
+        const kdjChart = echarts.init(document.getElementById('kdj-test-chart'));
+        const kdjRange = calculateKdjRange(kData, dData, jData);
+        
+        kdjChart.setOption({
+            title: { text: `KDJ指标测试 (范围: ${kdjRange.min.toFixed(1)} ~ ${kdjRange.max.toFixed(1)})` },
+            tooltip: { trigger: 'axis' },
+            legend: { data: ['K', 'D', 'J'] },
+            xAxis: { type: 'category', data: kdjDates },
+            yAxis: { 
+                type: 'value', 
+                min: kdjRange.min, 
+                max: kdjRange.max,
+                axisLabel: { formatter: '{value}' }
+            },
+            series: [
+                { name: 'K', type: 'line', data: kData, smooth: true },
+                { name: 'D', type: 'line', data: dData, smooth: true },
+                { name: 'J', type: 'line', data: jData, smooth: true }
+            ]
+        });
+        
+        // 渲染MACD测试图表
+        const macdChart = echarts.init(document.getElementById('macd-test-chart'));
+        const macdRange = calculateMacdRange(difData, deaData, macdHistogram);
+        
+        macdChart.setOption({
+            title: { text: `MACD指标测试 (范围: ${macdRange.min.toFixed(3)} ~ ${macdRange.max.toFixed(3)})` },
+            tooltip: { trigger: 'axis' },
+            legend: { data: ['DIF', 'DEA', 'MACD'] },
+            xAxis: { type: 'category', data: macdDates },
+            yAxis: { 
+                type: 'value', 
+                min: macdRange.min, 
+                max: macdRange.max,
+                axisLabel: { formatter: '{value}' }
+            },
+            series: [
+                { name: 'DIF', type: 'line', data: difData, smooth: true },
+                { name: 'DEA', type: 'line', data: deaData, smooth: true },
+                { 
+                    name: 'MACD', 
+                    type: 'bar', 
+                    data: macdHistogram,
+                    itemStyle: {
+                        color: function(params) {
+                            return params.value >= 0 ? '#ff6b6b' : '#4ecdc4';
+                        }
+                    }
+                }
+            ]
+        });
+        
+        console.log('✅ 指标显示范围测试页面已加载');
+        console.log('KDJ范围:', kdjRange);
+        console.log('MACD范围:', macdRange);
+    </script>
+</body>
+</html>

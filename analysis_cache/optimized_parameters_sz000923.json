@@ -1,6 +1,6 @@
 {
   "stock_code": "sz000923",
-  "optimization_date": "2025-07-23T12:19:39.585290",
+  "optimization_date": "2025-08-04T19:09:57.973346",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.41254851890111716,
+  "best_score": 0.4118815254421902,
   "optimization_target": "composite_score"
 }

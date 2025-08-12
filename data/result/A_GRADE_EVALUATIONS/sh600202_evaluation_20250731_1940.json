@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-31T19:40:08.719534",
+  "stock_code": "sh600202",
+  "current_price": 5.97,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 6.03,
+    "target_price_2": 6.31,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.01005025125628149,
+    "discount_2": -0.05695142378559462,
+    "stop_loss": {
+      "conservative": 5.79,
+      "moderate": 5.49,
+      "aggressive": 5.49,
+      "technical": 4.79
+    },
+    "take_profit": {
+      "conservative": 6.45,
+      "moderate": 6.57,
+      "aggressive": 7.16
+    }
+  }
+}

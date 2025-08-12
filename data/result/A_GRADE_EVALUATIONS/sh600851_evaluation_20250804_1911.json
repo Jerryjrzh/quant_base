@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-04T19:11:29.052464",
+  "stock_code": "sh600851",
+  "current_price": 7.18,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 7.38,
+    "target_price_2": 7.41,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.027855153203342645,
+    "discount_2": -0.03203342618384407,
+    "stop_loss": {
+      "conservative": 7.09,
+      "moderate": 6.73,
+      "aggressive": 6.73,
+      "technical": 6.94
+    },
+    "take_profit": {
+      "conservative": 7.89,
+      "moderate": 8.04,
+      "aggressive": 8.77
+    }
+  }
+}

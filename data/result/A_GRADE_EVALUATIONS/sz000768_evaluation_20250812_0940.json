@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.145441",
+  "stock_code": "sz000768",
+  "current_price": 28.82,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 28.01,
+    "target_price_2": 28.01,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.028105482303955542,
+    "discount_2": 0.028105482303955542,
+    "stop_loss": {
+      "conservative": 28.6,
+      "moderate": 27.12,
+      "aggressive": 27.12,
+      "technical": 16.08
+    },
+    "take_profit": {
+      "conservative": 31.84,
+      "moderate": 32.43,
+      "aggressive": 35.38
+    }
+  }
+}

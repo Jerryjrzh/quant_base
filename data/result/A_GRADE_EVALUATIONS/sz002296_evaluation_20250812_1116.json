@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T11:16:16.978983",
+  "stock_code": "sz002296",
+  "current_price": 11.84,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 11.96,
+    "target_price_2": 12.16,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010135135135135219,
+    "discount_2": -0.027027027027027053,
+    "stop_loss": {
+      "conservative": 11.48,
+      "moderate": 10.89,
+      "aggressive": 10.89,
+      "technical": 7.81
+    },
+    "take_profit": {
+      "conservative": 12.79,
+      "moderate": 13.02,
+      "aggressive": 14.21
+    }
+  }
+}

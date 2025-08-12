@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-04T19:11:29.018588",
+  "stock_code": "sh600976",
+  "current_price": 42.38,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 37.48,
+    "target_price_2": 36.49,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.11562057574327525,
+    "discount_2": 0.1389806512505899,
+    "stop_loss": {
+      "conservative": 38.27,
+      "moderate": 36.29,
+      "aggressive": 36.29,
+      "technical": 17.2
+    },
+    "take_profit": {
+      "conservative": 42.61,
+      "moderate": 43.4,
+      "aggressive": 47.34
+    }
+  }
+}

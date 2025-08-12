@@ -1,0 +1,108 @@
+{
+  "strategy_name": "深渊筑底优化版",
+  "version": "2.0",
+  "description": "经过测试验证的深渊筑底策略，能够准确识别深跌后的筑底形态",
+  "last_updated": "2025-08-12",
+  "test_status": "PASSED",
+  "test_accuracy": "100%",
+  
+  "core_parameters": {
+    "deep_decline_phase": {
+      "long_term_days": 400,
+      "min_drop_percent": 0.40,
+      "price_low_percentile": 0.35,
+      "description": "第零阶段：深跌筑底参数（已优化测试通过）"
+    },
+    
+    "volume_analysis": {
+      "volume_shrink_threshold": 0.70,
+      "volume_consistency_threshold": 0.30,
+      "volume_analysis_days": 30,
+      "description": "成交量地量分析参数（核心优化）"
+    },
+    
+    "hibernation_phase": {
+      "hibernation_days": 40,
+      "hibernation_volatility_max": 0.40,
+      "ma_convergence_threshold": 0.05,
+      "volume_stability_max": 2.0,
+      "description": "第一阶段：横盘蓄势参数"
+    },
+    
+    "washout_phase": {
+      "washout_days": 15,
+      "washout_volume_shrink_ratio": 0.85,
+      "washout_break_threshold": 0.95,
+      "min_pit_days": 3,
+      "description": "第二阶段：缩量挖坑参数"
+    },
+    
+    "liftoff_phase": {
+      "max_rise_from_bottom": 0.18,
+      "liftoff_volume_increase_ratio": 1.15,
+      "confirmation_days": 3,
+      "min_conditions_met": 3,
+      "rsi_range": [25, 60],
+      "description": "第三阶段：确认拉升参数"
+    }
+  },
+  
+  "market_filters": {
+    "valid_prefixes": {
+      "sh": ["600", "601", "603", "605", "688"],
+      "sz": ["000", "001", "002", "003", "300"],
+      "bj": ["430", "831", "832", "833", "834", "835", "836", "837", "838", "839"]
+    },
+    "exclude_st": true,
+    "exclude_delisted": true,
+    "min_market_cap": 500000000,
+    "min_daily_volume": 10000000,
+    "description": "市场过滤条件"
+  },
+  
+  "technical_indicators": {
+    "ma_periods": [7, 13, 30, 45, 60],
+    "rsi_period": 14,
+    "macd_fast": 12,
+    "macd_slow": 26,
+    "macd_signal": 9,
+    "volume_ma_periods": [20, 60, 120],
+    "bollinger_period": 20,
+    "bollinger_std": 2,
+    "description": "技术指标参数"
+  },
+  
+  "risk_management": {
+    "max_signals_per_day": 30,
+    "min_liquidity_ratio": 0.002,
+    "max_correlation_threshold": 0.6,
+    "position_size_limit": 0.05,
+    "stop_loss_percent": 0.08,
+    "description": "风险管理参数"
+  },
+  
+  "output_settings": {
+    "save_detailed_analysis": true,
+    "generate_charts": false,
+    "export_formats": ["json", "txt", "csv"],
+    "log_level": "INFO",
+    "include_backtest_metrics": true,
+    "description": "输出设置"
+  },
+  
+  "performance_tuning": {
+    "enable_multiprocessing": true,
+    "max_workers": 8,
+    "chunk_size": 100,
+    "memory_limit_mb": 2048,
+    "description": "性能调优参数"
+  },
+  
+  "data_requirements": {
+    "min_data_days": 400,
+    "required_fields": ["open", "high", "low", "close", "volume"],
+    "data_quality_checks": true,
+    "handle_missing_data": true,
+    "description": "数据要求"
+  }
+}

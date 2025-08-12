@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:35:00.896693",
+  "stock_code": "sz300796",
+  "current_price": 10.81,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 10.15,
+    "target_price_2": 9.88,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.06105457909343202,
+    "discount_2": 0.08603145235892688,
+    "stop_loss": {
+      "conservative": 10.36,
+      "moderate": 9.83,
+      "aggressive": 9.83,
+      "technical": 10.15
+    },
+    "take_profit": {
+      "conservative": 11.53,
+      "moderate": 11.75,
+      "aggressive": 12.82
+    }
+  }
+}

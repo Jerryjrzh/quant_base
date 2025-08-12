@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:35:00.909223",
+  "stock_code": "sz002840",
+  "current_price": 10.68,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 9.98,
+    "target_price_2": 9.71,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.06554307116104863,
+    "discount_2": 0.09082397003745309,
+    "stop_loss": {
+      "conservative": 10.18,
+      "moderate": 9.66,
+      "aggressive": 9.66,
+      "technical": 9.98
+    },
+    "take_profit": {
+      "conservative": 11.34,
+      "moderate": 11.55,
+      "aggressive": 12.6
+    }
+  }
+}

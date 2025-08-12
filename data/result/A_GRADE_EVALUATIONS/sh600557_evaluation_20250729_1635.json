@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:35:00.876960",
+  "stock_code": "sh600557",
+  "current_price": 16.58,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 15.75,
+    "target_price_2": 15.75,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05006031363088048,
+    "discount_2": 0.05006031363088048,
+    "stop_loss": {
+      "conservative": 16.08,
+      "moderate": 15.25,
+      "aggressive": 15.25,
+      "technical": 14.32
+    },
+    "take_profit": {
+      "conservative": 17.91,
+      "moderate": 18.24,
+      "aggressive": 19.9
+    }
+  }
+}

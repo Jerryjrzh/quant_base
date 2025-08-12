@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>指标标注显示测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f0f2f5; 
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+        
+        .control-group label {
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        .control-group select {
+            padding: 4px 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        #chart-container { 
+            width: 100%; 
+            height: 700px; 
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+        }
+        
+        .info-panel {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .info-panel h3 {
+            margin: 0 0 10px 0;
+            color: #1976d2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .info-item {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .info-value {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>📊 指标标注显示测试</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="stock-select">股票:</label>
+                <select id="stock-select">
+                    <option value="sz000001">sz000001</option>
+                    <option value="sz000002">sz000002</option>
+                    <option value="sh600000">sh600000</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="timeframe-select">周期:</label>
+                <select id="timeframe-select">
+                    <option value="daily">日线</option>
+                    <option value="weekly">周线</option>
+                    <option value="monthly">月线</option>
+                    <option value="5min">5分钟</option>
+                    <option value="10min">10分钟</option>
+                    <option value="15min">15分钟</option>
+                    <option value="30min">30分钟</option>
+                    <option value="60min">60分钟</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="adjustment-select">复权:</label>
+                <select id="adjustment-select">
+                    <option value="forward">前复权</option>
+                    <option value="backward">后复权</option>
+                    <option value="none">不复权</option>
+                </select>
+            </div>
+            
+            <button id="load-btn" style="padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                🔄 加载数据
+            </button>
+        </div>
+        
+        <div id="chart-container"></div>
+        
+        <div class="info-panel">
+            <h3>📈 当前配置信息</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">股票代码:</span>
+                    <span class="info-value" id="info-stock">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">数据周期:</span>
+                    <span class="info-value" id="info-timeframe">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">分时间隔:</span>
+                    <span class="info-value" id="info-interval">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">复权方式:</span>
+                    <span class="info-value" id="info-adjustment">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">数据点数:</span>
+                    <span class="info-value" id="info-datapoints">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">加载状态:</span>
+                    <span class="info-value" id="info-status">待加载</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化图表
+        const chartContainer = document.getElementById('chart-container');
+        const myChart = echarts.init(chartContainer);
+        
+        // DOM元素
+        const stockSelect = document.getElementById('stock-select');
+        const timeframeSelect = document.getElementById('timeframe-select');
+        const adjustmentSelect = document.getElementById('adjustment-select');
+        const loadBtn = document.getElementById('load-btn');
+        
+        // 信息显示元素
+        const infoElements = {
+            stock: document.getElementById('info-stock'),
+            timeframe: document.getElementById('info-timeframe'),
+            interval: document.getElementById('info-interval'),
+            adjustment: document.getElementById('info-adjustment'),
+            datapoints: document.getElementById('info-datapoints'),
+            status: document.getElementById('info-status')
+        };
+        
+        // 更新信息显示
+        function updateInfo() {
+            infoElements.stock.textContent = stockSelect.value;
+            infoElements.timeframe.textContent = timeframeSelect.options[timeframeSelect.selectedIndex].text;
+            infoElements.interval.textContent = '-'; // 不再使用单独的interval
+            infoElements.adjustment.textContent = adjustmentSelect.options[adjustmentSelect.selectedIndex].text;
+        }
+        
+        // 加载数据
+        function loadData() {
+            const stockCode = stockSelect.value;
+            const timeframe = timeframeSelect.value;
+            const adjustment = adjustmentSelect.value;
+            
+            updateInfo();
+            infoElements.status.textContent = '加载中...';
+            infoElements.status.style.color = '#ffc107';
+            
+            myChart.showLoading();
+            
+            const url = `http://localhost:5000/api/analysis/${stockCode}?strategy=PRE_CROSS&timeframe=${timeframe}&adjustment=${adjustment}`;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    myChart.hideLoading();
+                    
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    
+                    // 更新数据点数信息
+                    infoElements.datapoints.textContent = data.kline_data ? data.kline_data.length : 0;
+                    infoElements.status.textContent = '加载成功';
+                    infoElements.status.style.color = '#28a745';
+                    
+                    // 渲染图表
+                    renderChart(data, stockCode, timeframe);
+                })
+                .catch(error => {
+                    myChart.hideLoading();
+                    console.error('加载数据失败:', error);
+                    
+                    infoElements.status.textContent = '加载失败';
+                    infoElements.status.style.color = '#dc3545';
+                    
+                    myChart.setOption({
+                        title: {
+                            text: '数据加载失败',
+                            subtext: error.message,
+                            left: 'center',
+                            top: 'center',
+                            textStyle: { color: '#dc3545' }
+                        }
+                    });
+                });
+        }
+        
+        // 渲染图表
+        function renderChart(data, stockCode, timeframe) {
+            const dates = data.kline_data.map(item => item.date);
+            const klineData = data.kline_data.map(item => [item.open, item.close, item.low, item.high]);
+            
+            // 技术指标数据
+            const ma13Data = data.indicator_data.map(item => item.ma13);
+            const ma45Data = data.indicator_data.map(item => item.ma45);
+            const difData = data.indicator_data.map(item => item.dif);
+            const deaData = data.indicator_data.map(item => item.dea);
+            const macdData = data.indicator_data.map(item => item.macd);
+            const kData = data.indicator_data.map(item => item.k);
+            const dData = data.indicator_data.map(item => item.d);
+            const jData = data.indicator_data.map(item => item.j);
+            const rsi6Data = data.indicator_data.map(item => item.rsi6);
+            const rsi12Data = data.indicator_data.map(item => item.rsi12);
+            const rsi24Data = data.indicator_data.map(item => item.rsi24);
+            
+            // 周期显示文本
+            const timeframeText = {
+                'daily': '日线',
+                'weekly': '周线', 
+                'monthly': '月线',
+                '5min': '5分钟',
+                '10min': '10分钟',
+                '15min': '15分钟',
+                '30min': '30分钟',
+                '60min': '60分钟'
+            }[timeframe] || '日线';
+            
+            const option = {
+                title: {
+                    text: `${stockCode} - 指标标注测试 (${timeframeText})`,
+                    left: 'center',
+                    textStyle: { fontSize: 16 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'cross' },
+                    backgroundColor: 'rgba(50, 50, 50, 0.9)',
+                    textStyle: { color: '#fff' }
+                },
+                legend: {
+                    data: ['K线', 'MA13', 'MA45', 'DIF', 'DEA', 'MACD', 'K', 'D', 'J', 'RSI6', 'RSI12', 'RSI24'],
+                    top: 30,
+                    textStyle: { fontSize: 12 }
+                },
+                // 指标标注
+                graphic: [
+                    {
+                        type: 'text',
+                        left: '8%',
+                        top: '8%',
+                        style: {
+                            text: 'K线 & MA(13,45)',
+                            fontSize: 14,
+                            fontWeight: 'bold',
+                            fill: '#2c3e50',
+                            backgroundColor: 'rgba(255,255,255,0.8)',
+                            padding: [4, 8],
+                            borderRadius: 4
+                        }
+                    },
+                    {
+                        type: 'text',
+                        left: '8%',
+                        top: '46%',
+                        style: {
+                            text: 'RSI(6,12,24)',
+                            fontSize: 14,
+                            fontWeight: 'bold',
+                            fill: '#2c3e50',
+                            backgroundColor: 'rgba(255,255,255,0.8)',
+                            padding: [4, 8],
+                            borderRadius: 4
+                        }
+                    },
+                    {
+                        type: 'text',
+                        left: '8%',
+                        top: '64%',
+                        style: {
+                            text: 'KDJ(27,3,3)',
+                            fontSize: 14,
+                            fontWeight: 'bold',
+                            fill: '#2c3e50',
+                            backgroundColor: 'rgba(255,255,255,0.8)',
+                            padding: [4, 8],
+                            borderRadius: 4
+                        }
+                    },
+                    {
+                        type: 'text',
+                        left: '8%',
+                        top: '82%',
+                        style: {
+                            text: 'MACD(12,26,9)',
+                            fontSize: 14,
+                            fontWeight: 'bold',
+                            fill: '#2c3e50',
+                            backgroundColor: 'rgba(255,255,255,0.8)',
+                            padding: [4, 8],
+                            borderRadius: 4
+                        }
+                    }
+                ],
+                grid: [
+                    { left: '8%', right: '5%', top: '8%', height: '35%' },      // K线和MA
+                    { left: '8%', right: '5%', top: '46%', height: '15%' },     // RSI指标
+                    { left: '8%', right: '5%', top: '64%', height: '15%' },     // KDJ指标
+                    { left: '8%', right: '5%', top: '82%', height: '15%' }      // MACD指标
+                ],
+                xAxis: [
+                    { type: 'category', data: dates, gridIndex: 0, axisLabel: { show: false } },
+                    { type: 'category', data: dates, gridIndex: 1, axisLabel: { show: false } },
+                    { type: 'category', data: dates, gridIndex: 2, axisLabel: { show: false } },
+                    { type: 'category', data: dates, gridIndex: 3, axisLabel: { fontSize: 10 } }
+                ],
+                yAxis: [
+                    { gridIndex: 0, scale: true, axisLabel: { fontSize: 10 } },
+                    { gridIndex: 1, max: 100, min: 0, axisLabel: { fontSize: 10 } },
+                    { gridIndex: 2, max: 100, min: 0, axisLabel: { fontSize: 10 } },
+                    { gridIndex: 3, scale: true, axisLabel: { fontSize: 10 } }
+                ],
+                dataZoom: [
+                    { type: 'inside', xAxisIndex: [0, 1, 2, 3], start: 70, end: 100 },
+                    { show: true, xAxisIndex: [0, 1, 2, 3], type: 'slider', bottom: '0%', height: 20, start: 70, end: 100 }
+                ],
+                series: [
+                    // K线
+                    { name: 'K线', type: 'candlestick', data: klineData, xAxisIndex: 0, yAxisIndex: 0 },
+                    // MA线
+                    { name: 'MA13', type: 'line', data: ma13Data, smooth: true, symbol: 'none', lineStyle: { width: 1, color: '#ff6b6b' }, xAxisIndex: 0, yAxisIndex: 0 },
+                    { name: 'MA45', type: 'line', data: ma45Data, smooth: true, symbol: 'none', lineStyle: { width: 1, color: '#4ecdc4' }, xAxisIndex: 0, yAxisIndex: 0 },
+                    // RSI
+                    { name: 'RSI6', type: 'line', data: rsi6Data, smooth: true, symbol: 'none', xAxisIndex: 1, yAxisIndex: 1, lineStyle: { color: '#ff6b6b' } },
+                    { name: 'RSI12', type: 'line', data: rsi12Data, smooth: true, symbol: 'none', xAxisIndex: 1, yAxisIndex: 1, lineStyle: { color: '#4ecdc4' } },
+                    { name: 'RSI24', type: 'line', data: rsi24Data, smooth: true, symbol: 'none', xAxisIndex: 1, yAxisIndex: 1, lineStyle: { color: '#45b7d1' } },
+                    // KDJ
+                    { name: 'K', type: 'line', data: kData, smooth: true, symbol: 'none', xAxisIndex: 2, yAxisIndex: 2, lineStyle: { color: '#f39c12' } },
+                    { name: 'D', type: 'line', data: dData, smooth: true, symbol: 'none', xAxisIndex: 2, yAxisIndex: 2, lineStyle: { color: '#e74c3c' } },
+                    { name: 'J', type: 'line', data: jData, smooth: true, symbol: 'none', xAxisIndex: 2, yAxisIndex: 2, lineStyle: { color: '#9b59b6' } },
+                    // MACD
+                    { name: 'DIF', type: 'line', data: difData, smooth: true, symbol: 'none', xAxisIndex: 3, yAxisIndex: 3, lineStyle: { color: '#2ecc71' } },
+                    { name: 'DEA', type: 'line', data: deaData, smooth: true, symbol: 'none', xAxisIndex: 3, yAxisIndex: 3, lineStyle: { color: '#e67e22' } },
+                    { name: 'MACD', type: 'bar', data: macdData, xAxisIndex: 3, yAxisIndex: 3, itemStyle: { color: function(params) { return params.value >= 0 ? '#ff6b6b' : '#4ecdc4'; } }, barWidth: '60%' }
+                ]
+            };
+            
+            myChart.setOption(option, true);
+        }
+        
+        // 事件监听
+        loadBtn.addEventListener('click', loadData);
+        
+        // 控件变化时自动更新信息
+        [stockSelect, timeframeSelect, adjustmentSelect].forEach(select => {
+            select.addEventListener('change', updateInfo);
+        });
+        
+        // 初始化
+        updateInfo();
+        
+        // 自动加载默认数据
+        setTimeout(loadData, 500);
+    </script>
+</body>
+</html>

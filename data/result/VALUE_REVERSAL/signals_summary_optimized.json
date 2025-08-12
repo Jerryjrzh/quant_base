@@ -1,0 +1,10 @@
+{
+    "scan_summary": {
+        "strategy": "VALUE_REVERSAL (GPT-5 Reviewer 优化版)",
+        "scan_timestamp": "2025-08-12 15:35:53",
+        "files_processed": 8968,
+        "processing_time_seconds": "0.05",
+        "signals_found": 0
+    },
+    "stocks_found": []
+}

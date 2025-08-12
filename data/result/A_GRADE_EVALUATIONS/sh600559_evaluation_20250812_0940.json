@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.079055",
+  "stock_code": "sh600559",
+  "current_price": 17.03,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 16.18,
+    "target_price_2": 16.18,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04991192014092785,
+    "discount_2": 0.04991192014092785,
+    "stop_loss": {
+      "conservative": 16.52,
+      "moderate": 15.67,
+      "aggressive": 15.67,
+      "technical": 10.99
+    },
+    "take_profit": {
+      "conservative": 18.39,
+      "moderate": 18.73,
+      "aggressive": 20.44
+    }
+  }
+}

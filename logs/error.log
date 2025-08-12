@@ -1,0 +1,37 @@
+总计处理股票数: 4648
+--------------------------------------------------------------------------------
+通过 [阶段 0: 深跌筑底] 的股票数: 371 (7.98%)
+通过 [阶段 1: 横盘蓄势] 的股票数: 231 (占上一阶段的 62.26%)
+通过 [阶段 2: 确认拉升] 的股票数: 0 (占上一阶段的 0.00%)
+================================================================================
+2025-08-12 19:46:59,673 - INFO - 漏斗分析 - S0: 371, S1: 231, S2(最终信号): 0
+
+未发现最终通过所有阶段的信号。请根据上方的漏斗分析报告调整config.json中的参数。
+2025-08-12 19:46:59,673 - INFO - 总耗时: 3.01 秒
+
+🎉 完整流程结束！
+
+
+2025-08-12 16:58:37,829 - ERROR - 图表生成失败 for sh600439: 'Unrecognized kwarg="s"'
+Traceback (most recent call last):
+  File "/home/hypnosis/data/quant_base/backend/screener_abyss.1.py", line 254, in visualize_signal
+    addplots.append(mpf.make_addplot(arrow_y, type='scatter', marker='^', color='lime', s=120))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/mplfinance/plotting.py", line 1432, in make_addplot
+    config = _process_kwargs(kwargs, _valid_addplot_kwargs())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/mplfinance/_arg_validators.py", line 339, in _process_kwargs
+    raise KeyError('Unrecognized kwarg="'+str(key)+'"')
+KeyError: 'Unrecognized kwarg="s"'
+
+Traceback (most recent call last):
+  File "/home/hypnosis/data/quant_base/backend/screener_abyss.py", line 249, in visualize_signal
+    mpf.make_addplot(df_chart[['ma30', 'ma45']], alpha=0.7),
+                     ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6249, in _raise_if_missing
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")

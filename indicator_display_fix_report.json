@@ -1,0 +1,26 @@
+{
+  "fix_time": "2025-07-29T18:57:02.874679",
+  "fixes_applied": [
+    {
+      "issue": "MACD顶部异常",
+      "solution": "改进MACD范围计算逻辑，使用更合理的边距策略",
+      "status": "已修复"
+    },
+    {
+      "issue": "KDJ底部负值不显示",
+      "solution": "移除KDJ指标0下限限制，允许显示负值",
+      "status": "已修复"
+    },
+    {
+      "issue": "K线三角图标异常",
+      "solution": "优化信号点显示，改进颜色和样式",
+      "status": "已修复"
+    }
+  ],
+  "test_files": [
+    "test_indicator_ranges_fix.html"
+  ],
+  "backup_files": [
+    "frontend/js/app.js.backup_*"
+  ]
+}

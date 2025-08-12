@@ -1,6 +1,6 @@
 {
   "stock_code": "sh600995",
-  "optimization_date": "2025-07-23T10:33:08.634155",
+  "optimization_date": "2025-08-04T19:06:59.033494",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.45043942604531245,
+  "best_score": 0.4496967732933669,
   "optimization_target": "composite_score"
 }

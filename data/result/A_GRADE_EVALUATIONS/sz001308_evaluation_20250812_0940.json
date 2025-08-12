@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.160470",
+  "stock_code": "sz001308",
+  "current_price": 23.9,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 22.7,
+    "target_price_2": 22.7,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.050209205020920473,
+    "discount_2": 0.050209205020920473,
+    "stop_loss": {
+      "conservative": 23.18,
+      "moderate": 21.99,
+      "aggressive": 21.99,
+      "technical": 22.7
+    },
+    "take_profit": {
+      "conservative": 25.81,
+      "moderate": 26.29,
+      "aggressive": 28.68
+    }
+  }
+}

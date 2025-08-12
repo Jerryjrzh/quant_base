@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:35:00.788613",
+  "stock_code": "sh603192",
+  "current_price": 21.87,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 22.31,
+    "target_price_2": 22.31,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.020118884316415075,
+    "discount_2": -0.020118884316415075,
+    "stop_loss": {
+      "conservative": 21.43,
+      "moderate": 20.32,
+      "aggressive": 20.32,
+      "technical": 20.99
+    },
+    "take_profit": {
+      "conservative": 23.86,
+      "moderate": 24.3,
+      "aggressive": 26.51
+    }
+  }
+}

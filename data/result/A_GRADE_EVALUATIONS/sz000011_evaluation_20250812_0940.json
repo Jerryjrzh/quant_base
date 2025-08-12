@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.142456",
+  "stock_code": "sz000011",
+  "current_price": 9.56,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 9.66,
+    "target_price_2": 9.61,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.010460251046025068,
+    "discount_2": -0.00523012552301244,
+    "stop_loss": {
+      "conservative": 9.27,
+      "moderate": 8.8,
+      "aggressive": 8.8,
+      "technical": 9.23
+    },
+    "take_profit": {
+      "conservative": 10.32,
+      "moderate": 10.52,
+      "aggressive": 11.47
+    }
+  }
+}

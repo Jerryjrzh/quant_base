@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:47:00.162159",
+  "stock_code": "sz300433",
+  "current_price": 24.26,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 24.5,
+    "target_price_2": 24.79,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009892827699917495,
+    "discount_2": -0.021846661170651177,
+    "stop_loss": {
+      "conservative": 23.53,
+      "moderate": 22.32,
+      "aggressive": 22.32,
+      "technical": 13.52
+    },
+    "take_profit": {
+      "conservative": 26.2,
+      "moderate": 26.69,
+      "aggressive": 29.11
+    }
+  }
+}

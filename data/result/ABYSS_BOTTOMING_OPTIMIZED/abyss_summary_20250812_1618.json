@@ -1,0 +1,10 @@
+{
+  "scan_summary": {
+    "total_signals": 0,
+    "strategy": "ABYSS_BOTTOMING_OPTIMIZED",
+    "scan_timestamp": "2025-08-12 16:18:01",
+    "processing_time": "1.15 秒",
+    "files_processed": 8968
+  },
+  "stocks_found": []
+}

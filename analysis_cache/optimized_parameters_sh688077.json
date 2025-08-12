@@ -1,6 +1,6 @@
 {
   "stock_code": "sh688077",
-  "optimization_date": "2025-07-23T08:58:32.613180",
+  "optimization_date": "2025-08-12T09:37:23.628612",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.41103839547651555,
+  "best_score": 0.4107695426518838,
   "optimization_target": "composite_score"
 }

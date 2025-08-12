@@ -1,6 +1,6 @@
 {
   "stock_code": "sh601015",
-  "optimization_date": "2025-07-23T11:40:20.987171",
+  "optimization_date": "2025-08-04T19:07:28.448333",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.457642069664994,
+  "best_score": 0.45978745708069996,
   "optimization_target": "composite_score"
 }

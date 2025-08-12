@@ -1,6 +1,6 @@
 {
   "stock_code": "sz002598",
-  "optimization_date": "2025-07-23T12:19:49.175069",
+  "optimization_date": "2025-08-04T19:10:06.755322",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.46309043197862154,
+  "best_score": 0.46258701683731085,
   "optimization_target": "composite_score"
 }

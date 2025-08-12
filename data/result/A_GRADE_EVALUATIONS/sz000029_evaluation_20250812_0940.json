@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.187033",
+  "stock_code": "sz000029",
+  "current_price": 21.45,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 20.27,
+    "target_price_2": 20.4,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": 0.055011655011655,
+    "discount_2": 0.04895104895104899,
+    "stop_loss": {
+      "conservative": 19.47,
+      "moderate": 18.46,
+      "aggressive": 18.46,
+      "technical": 10.14
+    },
+    "take_profit": {
+      "conservative": 21.68,
+      "moderate": 22.08,
+      "aggressive": 24.08
+    }
+  }
+}

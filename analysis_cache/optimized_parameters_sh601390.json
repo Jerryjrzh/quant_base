@@ -1,6 +1,6 @@
 {
   "stock_code": "sh601390",
-  "optimization_date": "2025-07-23T12:08:22.762189",
+  "optimization_date": "2025-08-04T19:08:28.328712",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4713135081557831,
+  "best_score": 0.47026521079216554,
   "optimization_target": "composite_score"
 }

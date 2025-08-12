@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>持仓管理按钮测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); }
+        .modal-content { background-color: white; margin: 15% auto; padding: 20px; border-radius: 5px; width: 80%; max-width: 600px; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: #000; }
+    </style>
+</head>
+<body>
+    <h1>持仓管理按钮测试</h1>
+    
+    <div class="test-section">
+        <h2>测试1: 基本按钮点击</h2>
+        <button id="test-btn-1" onclick="testBasicClick()">测试基本点击</button>
+        <div id="test-result-1"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>测试2: 模拟持仓管理按钮</h2>
+        <button id="portfolio-btn">💼 持仓管理</button>
+        <div id="test-result-2"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>测试3: 检查DOM元素</h2>
+        <button onclick="checkDOMElements()">检查DOM元素</button>
+        <div id="test-result-3"></div>
+    </div>
+    
+    <!-- 持仓管理模态框 -->
+    <div id="portfolio-modal" class="modal">
+        <div class="modal-content">
+            <span id="portfolio-close" class="close">&times;</span>
+            <h2>持仓管理</h2>
+            <p>这是持仓管理模态框的测试内容</p>
+            <button onclick="hidePortfolioModal()">关闭</button>
+        </div>
+    </div>
+    
+    <script>
+        // 测试函数
+        function testBasicClick() {
+            document.getElementById('test-result-1').innerHTML = '<span style="color: green;">✅ 基本点击功能正常</span>';
+        }
+        
+        function checkDOMElements() {
+            const portfolioBtn = document.getElementById('portfolio-btn');
+            const portfolioModal = document.getElementById('portfolio-modal');
+            const portfolioClose = document.getElementById('portfolio-close');
+            
+            let result = '<h4>DOM元素检查结果:</h4>';
+            result += `<p>portfolio-btn: ${portfolioBtn ? '✅ 存在' : '❌ 不存在'}</p>`;
+            result += `<p>portfolio-modal: ${portfolioModal ? '✅ 存在' : '❌ 不存在'}</p>`;
+            result += `<p>portfolio-close: ${portfolioClose ? '✅ 存在' : '❌ 不存在'}</p>`;
+            
+            document.getElementById('test-result-3').innerHTML = result;
+        }
+        
+        // 持仓管理功能
+        function showPortfolioModal() {
+            console.log('showPortfolioModal 被调用');
+            const portfolioModal = document.getElementById('portfolio-modal');
+            if (portfolioModal) {
+                portfolioModal.style.display = 'block';
+                document.getElementById('test-result-2').innerHTML = '<span style="color: green;">✅ 模态框已显示</span>';
+            } else {
+                document.getElementById('test-result-2').innerHTML = '<span style="color: red;">❌ 找不到模态框元素</span>';
+            }
+        }
+        
+        function hidePortfolioModal() {
+            console.log('hidePortfolioModal 被调用');
+            const portfolioModal = document.getElementById('portfolio-modal');
+            if (portfolioModal) {
+                portfolioModal.style.display = 'none';
+            }
+        }
+        
+        // 页面加载完成后绑定事件
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM加载完成');
+            
+            const portfolioBtn = document.getElementById('portfolio-btn');
+            const portfolioClose = document.getElementById('portfolio-close');
+            
+            if (portfolioBtn) {
+                console.log('找到持仓管理按钮，绑定事件');
+                portfolioBtn.addEventListener('click', function() {
+                    console.log('持仓管理按钮被点击');
+                    showPortfolioModal();
+                });
+            } else {
+                console.error('找不到持仓管理按钮');
+            }
+            
+            if (portfolioClose) {
+                portfolioClose.addEventListener('click', hidePortfolioModal);
+            }
+            
+            // 点击模态框外部关闭
+            window.addEventListener('click', function(event) {
+                const portfolioModal = document.getElementById('portfolio-modal');
+                if (event.target === portfolioModal) {
+                    hidePortfolioModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

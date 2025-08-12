@@ -1,0 +1,168 @@
+{
+  "test_time": "2025-08-12 16:11:29",
+  "strategy_config": {
+    "long_term_days": 400,
+    "min_drop_percent": 0.4,
+    "price_low_percentile": 0.35,
+    "volume_analysis_periods": [
+      60,
+      120,
+      250
+    ],
+    "volume_shrink_threshold": 0.6,
+    "volume_consistency_days": 20,
+    "hibernation_days": 40,
+    "hibernation_volatility_max": 0.4,
+    "washout_days": 15,
+    "washout_volume_shrink_ratio": 0.85,
+    "max_rise_from_bottom": 0.18,
+    "liftoff_volume_increase_ratio": 1.15
+  },
+  "test_results": {
+    "ideal": {
+      "success": false,
+      "expected": true,
+      "correct": false,
+      "details": {
+        "stage": "deep_decline_failed",
+        "reason": {
+          "drop_percent": "42.40%",
+          "price_position": "13.70%",
+          "long_term_high": "78.47",
+          "long_term_low": "39.92",
+          "current_price": "45.20",
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": false
+          },
+          "volume_analysis": {
+            "recent_volume": "439,000",
+            "avg_ratio": "1.30",
+            "volume_consistency": "0.00%",
+            "is_low_volume": false,
+            "analysis_periods": {
+              "60d": {
+                "mean": 409000.0,
+                "median": 410000,
+                "p25": 380000
+              },
+              "120d": {
+                "mean": 307025.0,
+                "median": 350000,
+                "p25": 204500
+              },
+              "250d": {
+                "mean": 314592.0,
+                "median": 321000,
+                "p25": 300000
+              }
+            }
+          }
+        },
+        "failed_conditions": [
+          "volume_ok"
+        ]
+      }
+    },
+    "realistic": {
+      "success": false,
+      "expected": true,
+      "correct": false,
+      "details": {
+        "stage": "deep_decline_failed",
+        "reason": {
+          "drop_percent": "43.38%",
+          "price_position": "16.53%",
+          "long_term_high": "79.83",
+          "long_term_low": "38.34",
+          "current_price": "45.20",
+          "conditions": {
+            "price_position_ok": true,
+            "drop_percent_ok": true,
+            "volume_ok": false
+          },
+          "volume_analysis": {
+            "recent_volume": "439,114",
+            "avg_ratio": "1.30",
+            "volume_consistency": "0.00%",
+            "is_low_volume": false,
+            "analysis_periods": {
+              "60d": {
+                "mean": 410904.93333333335,
+                "median": 405860,
+                "p25": 372240
+              },
+              "120d": {
+                "mean": 307204.93333333335,
+                "median": 296840,
+                "p25": 202730
+              },
+              "250d": {
+                "mean": 314696.356,
+                "median": 318660,
+                "p25": 253380
+              }
+            }
+          }
+        },
+        "failed_conditions": [
+          "volume_ok"
+        ]
+      }
+    },
+    "failed": {
+      "success": false,
+      "expected": false,
+      "correct": true,
+      "details": {
+        "stage": "deep_decline_failed",
+        "reason": {
+          "drop_percent": "19.88%",
+          "price_position": "43.18%",
+          "long_term_high": "92.99",
+          "long_term_low": "60.45",
+          "current_price": "74.50",
+          "conditions": {
+            "price_position_ok": false,
+            "drop_percent_ok": false,
+            "volume_ok": false
+          },
+          "volume_analysis": {
+            "recent_volume": "634,167",
+            "avg_ratio": "1.00",
+            "volume_consistency": "0.00%",
+            "is_low_volume": false,
+            "analysis_periods": {
+              "60d": {
+                "mean": 633125.0,
+                "median": 637500,
+                "p25": 617500
+              },
+              "120d": {
+                "mean": 631041.6666666666,
+                "median": 632500,
+                "p25": 617500
+              },
+              "250d": {
+                "mean": 630000.0,
+                "median": 630000,
+                "p25": 615000
+              }
+            }
+          }
+        },
+        "failed_conditions": [
+          "price_position_ok",
+          "drop_percent_ok",
+          "volume_ok"
+        ]
+      }
+    }
+  },
+  "summary": {
+    "total_tests": 3,
+    "correct_results": 1,
+    "accuracy": 0.3333333333333333
+  }
+}

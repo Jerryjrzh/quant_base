@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T19:07:37.034607",
+  "stock_code": "sz002020",
+  "current_price": 16.34,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 16.5,
+    "target_price_2": 16.65,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009791921664626693,
+    "discount_2": -0.01897184822521412,
+    "stop_loss": {
+      "conservative": 15.85,
+      "moderate": 15.03,
+      "aggressive": 15.03,
+      "technical": 10.41
+    },
+    "take_profit": {
+      "conservative": 17.65,
+      "moderate": 17.97,
+      "aggressive": 19.61
+    }
+  }
+}

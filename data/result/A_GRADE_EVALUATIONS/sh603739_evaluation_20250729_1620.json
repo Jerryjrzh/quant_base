@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:20:12.338082",
+  "stock_code": "sh603739",
+  "current_price": 14.54,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 12.77,
+    "target_price_2": 12.43,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.1217331499312242,
+    "discount_2": 0.14511691884456668,
+    "stop_loss": {
+      "conservative": 13.04,
+      "moderate": 12.36,
+      "aggressive": 12.36,
+      "technical": 12.77
+    },
+    "take_profit": {
+      "conservative": 14.52,
+      "moderate": 14.78,
+      "aggressive": 16.13
+    }
+  }
+}

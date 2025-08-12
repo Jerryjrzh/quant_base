@@ -1,6 +1,6 @@
 {
   "stock_code": "sh601989",
-  "optimization_date": "2025-07-23T16:37:29.953519",
+  "optimization_date": "2025-08-04T19:07:30.474185",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.5070619198181826,
+  "best_score": 0.5066531713928457,
   "optimization_target": "composite_score"
 }

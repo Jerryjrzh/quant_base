@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:16:03.210398",
+  "stock_code": "sh603712",
+  "current_price": 21.49,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 20.42,
+    "target_price_2": 19.88,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.04979060027919948,
+    "discount_2": 0.07491856677524428,
+    "stop_loss": {
+      "conservative": 20.85,
+      "moderate": 19.77,
+      "aggressive": 19.77,
+      "technical": 20.42
+    },
+    "take_profit": {
+      "conservative": 23.21,
+      "moderate": 23.64,
+      "aggressive": 25.79
+    }
+  }
+}

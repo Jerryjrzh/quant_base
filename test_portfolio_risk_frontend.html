@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>持仓风险评估功能测试</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f0f2f5; 
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .test-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+        }
+        
+        .test-section h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        
+        /* 复制前端样式 */
+        .portfolio-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .portfolio-table th,
+        .portfolio-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .portfolio-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .portfolio-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .profit-positive { color: #28a745; font-weight: 600; }
+        .profit-negative { color: #dc3545; font-weight: 600; }
+        .profit-neutral { color: #6c757d; }
+        
+        .action-buy { background: #d4edda; color: #155724; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        .action-hold { background: #fff3cd; color: #856404; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        .action-reduce { background: #f8d7da; color: #721c24; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }
+        
+        .risk-high { color: #dc3545; font-weight: 600; }
+        .risk-medium { color: #ffc107; font-weight: 600; }
+        .risk-low { color: #28a745; font-weight: 600; }
+        
+        .risk-clickable {
+            cursor: pointer;
+            text-decoration: underline;
+            transition: opacity 0.2s;
+        }
+        
+        .risk-clickable:hover {
+            opacity: 0.7;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: black;
+        }
+        
+        .risk-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .risk-detail-section {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .risk-detail-section h4 {
+            margin: 0 0 1rem 0;
+            color: #495057;
+            font-size: 1.1rem;
+        }
+        
+        .risk-score-display {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .risk-score-high {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .risk-score-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .risk-score-low {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .feature-highlight {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .feature-highlight h4 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>持仓风险评估功能测试</h1>
+        
+        <div class="feature-highlight">
+            <h4>🎯 新增功能</h4>
+            <ul>
+                <li><strong>支撑阻力位显示</strong>: 持仓列表新增支撑位和阻力位列</li>
+                <li><strong>风险评估详情</strong>: 点击风险等级可查看详细评估参数和逻辑</li>
+                <li><strong>风险管理建议</strong>: 基于风险评估提供个性化建议</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h3>1. 持仓列表 - 支撑阻力位显示</h3>
+            <p>新增的支撑位和阻力位列，帮助用户快速了解关键价位：</p>
+            
+            <table class="portfolio-table">
+                <thead>
+                    <tr>
+                        <th>股票代码</th>
+                        <th>购买价格</th>
+                        <th>当前价格</th>
+                        <th>盈亏</th>
+                        <th>操作建议</th>
+                        <th>置信度</th>
+                        <th>风险等级</th>
+                        <th style="background: #e7f3ff;">支撑位</th>
+                        <th style="background: #e7f3ff;">阻力位</th>
+                        <th>补仓价</th>
+                        <th>减仓价</th>
+                        <th>预期到顶</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>sz300741</td>
+                        <td>¥26.92</td>
+                        <td>¥19.81</td>
+                        <td class="profit-negative">-26.4%</td>
+                        <td><span class="action-hold">持有</span></td>
+                        <td>65%</td>
+                        <td>
+                            <span class="risk-high risk-clickable" onclick="showRiskDemo('sz300741', 'HIGH')" title="点击查看风险评估详情">
+                                高风险
+                            </span>
+                        </td>
+                        <td style="background: #f0f8ff; font-weight: 600;">¥19.64</td>
+                        <td style="background: #fff0f0; font-weight: 600;">¥22.56</td>
+                        <td>¥18.77</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td><button onclick="alert('查看详情')">详情</button></td>
+                    </tr>
+                    <tr>
+                        <td>sh600618</td>
+                        <td>¥10.30</td>
+                        <td>¥10.38</td>
+                        <td class="profit-positive">+0.8%</td>
+                        <td><span class="action-hold">持有</span></td>
+                        <td>55%</td>
+                        <td>
+                            <span class="risk-medium risk-clickable" onclick="showRiskDemo('sh600618', 'MEDIUM')" title="点击查看风险评估详情">
+                                中风险
+                            </span>
+                        </td>
+                        <td style="background: #f0f8ff; font-weight: 600;">¥9.40</td>
+                        <td style="background: #fff0f0; font-weight: 600;">¥10.90</td>
+                        <td>¥9.86</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td><button onclick="alert('查看详情')">详情</button></td>
+                    </tr>
+                    <tr>
+                        <td>sz002021</td>
+                        <td>¥2.32</td>
+                        <td>¥2.42</td>
+                        <td class="profit-positive">+4.3%</td>
+                        <td><span class="action-reduce">减仓</span></td>
+                        <td>70%</td>
+                        <td>
+                            <span class="risk-high risk-clickable" onclick="showRiskDemo('sz002021', 'HIGH')" title="点击查看风险评估详情">
+                                高风险
+                            </span>
+                        </td>
+                        <td style="background: #f0f8ff; font-weight: 600;">¥2.33</td>
+                        <td style="background: #fff0f0; font-weight: 600;">¥2.45</td>
+                        <td>--</td>
+                        <td>¥2.30</td>
+                        <td>--</td>
+                        <td><button onclick="alert('查看详情')">详情</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 4px;">
+                <strong>说明：</strong>
+                <ul style="margin: 0.5rem 0 0 1rem;">
+                    <li><span style="background: #f0f8ff; padding: 0.2rem 0.4rem;">支撑位</span>：重要的价格支撑水平，跌破可能继续下跌</li>
+                    <li><span style="background: #fff0f0; padding: 0.2rem 0.4rem;">阻力位</span>：重要的价格阻力水平，突破可能继续上涨</li>
+                    <li>点击风险等级可查看详细风险评估</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>2. 风险评估详情功能演示</h3>
+            <p>点击上表中的风险等级，或点击下面的按钮查看风险评估详情：</p>
+            
+            <div style="display: flex; gap: 1rem; margin: 1rem 0;">
+                <button onclick="showRiskDemo('sz300741', 'HIGH')" style="padding: 0.5rem 1rem; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    查看高风险详情
+                </button>
+                <button onclick="showRiskDemo('sh600618', 'MEDIUM')" style="padding: 0.5rem 1rem; background: #ffc107; color: #212529; border: none; border-radius: 4px; cursor: pointer;">
+                    查看中风险详情
+                </button>
+                <button onclick="showRiskDemo('sz002021', 'LOW')" style="padding: 0.5rem 1rem; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    查看低风险详情
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 风险评估详情模态框 -->
+    <div id="risk-assessment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideRiskModal()">&times;</span>
+            <h3 id="risk-assessment-title">风险评估详情</h3>
+            <div id="risk-assessment-content">加载中...</div>
+        </div>
+    </div>
+    
+    <script>
+        function showRiskDemo(stockCode, riskLevel) {
+            document.getElementById('risk-assessment-modal').style.display = 'block';
+            document.getElementById('risk-assessment-title').textContent = `${stockCode} 风险评估详情`;
+            
+            // 模拟不同风险等级的数据
+            const demoData = {
+                'HIGH': {
+                    risk_level: 'HIGH',
+                    risk_score: 8,
+                    volatility: 42.88,
+                    max_drawdown: 41.13,
+                    price_position_pct: 85.5,
+                    risk_factors: [
+                        '高波动率(42.9%)',
+                        '大幅回撤(41.1%)',
+                        '价格接近近期高点'
+                    ]
+                },
+                'MEDIUM': {
+                    risk_level: 'MEDIUM',
+                    risk_score: 5,
+                    volatility: 39.78,
+                    max_drawdown: 42.80,
+                    price_position_pct: 67.6,
+                    risk_factors: [
+                        '中等波动率(39.8%)',
+                        '大幅回撤(42.8%)'
+                    ]
+                },
+                'LOW': {
+                    risk_level: 'LOW',
+                    risk_score: 2,
+                    volatility: 18.5,
+                    max_drawdown: 12.3,
+                    price_position_pct: 35.2,
+                    risk_factors: [
+                        '低波动率(18.5%)',
+                        '回撤控制良好(12.3%)'
+                    ]
+                }
+            };
+            
+            displayRiskAssessmentDetail(demoData[riskLevel], stockCode);
+        }
+        
+        function hideRiskModal() {
+            document.getElementById('risk-assessment-modal').style.display = 'none';
+        }
+        
+        function displayRiskAssessmentDetail(riskAssessment, stockCode) {
+            const content = document.getElementById('risk-assessment-content');
+            
+            const riskLevel = riskAssessment.risk_level;
+            const riskScore = riskAssessment.risk_score;
+            const volatility = riskAssessment.volatility;
+            const maxDrawdown = riskAssessment.max_drawdown;
+            const pricePositionPct = riskAssessment.price_position_pct;
+            const riskFactors = riskAssessment.risk_factors;
+            
+            const riskScoreClass = riskLevel === 'HIGH' ? 'risk-score-high' : 
+                                  riskLevel === 'MEDIUM' ? 'risk-score-medium' : 'risk-score-low';
+            
+            let html = `
+                <div class="risk-detail-grid">
+                    <div class="risk-detail-section">
+                        <h4>风险等级评估</h4>
+                        <div class="risk-score-display ${riskScoreClass}">
+                            ${getRiskText(riskLevel)}
+                            <div style="font-size: 1rem; margin-top: 0.5rem;">
+                                风险评分: ${riskScore}/9
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: #6c757d; font-size: 0.9rem;">
+                            ${getRiskLevelDescription(riskLevel)}
+                        </div>
+                    </div>
+                    
+                    <div class="risk-detail-section">
+                        <h4>风险指标</h4>
+                        <div style="display: grid; gap: 0.8rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem; background: white; border-radius: 4px;">
+                                <span>年化波动率:</span>
+                                <span style="font-weight: 600; color: ${volatility > 40 ? '#dc3545' : volatility > 25 ? '#ffc107' : '#28a745'};">
+                                    ${volatility.toFixed(2)}%
+                                </span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem; background: white; border-radius: 4px;">
+                                <span>最大回撤:</span>
+                                <span style="font-weight: 600; color: ${maxDrawdown > 20 ? '#dc3545' : maxDrawdown > 10 ? '#ffc107' : '#28a745'};">
+                                    ${maxDrawdown.toFixed(2)}%
+                                </span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem; background: white; border-radius: 4px;">
+                                <span>价格位置:</span>
+                                <span style="font-weight: 600; color: ${pricePositionPct > 80 ? '#dc3545' : pricePositionPct < 20 ? '#28a745' : '#6c757d'};">
+                                    ${pricePositionPct.toFixed(1)}%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="risk-detail-section" style="grid-column: 1 / -1;">
+                        <h4>风险因素分析</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            ${riskFactors.map(factor => `<li style="padding: 0.3rem 0; border-bottom: 1px solid #dee2e6;">• ${factor}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="risk-detail-section" style="grid-column: 1 / -1;">
+                        <h4>风险管理建议</h4>
+                        <div style="background: white; padding: 1rem; border-radius: 4px; border-left: 4px solid #007bff;">
+                            ${getRiskManagementAdvice(riskLevel, volatility, maxDrawdown, pricePositionPct)}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            content.innerHTML = html;
+        }
+        
+        function getRiskText(riskLevel) {
+            const riskMap = {
+                'HIGH': '高风险',
+                'MEDIUM': '中风险',
+                'LOW': '低风险'
+            };
+            return riskMap[riskLevel] || '未知';
+        }
+        
+        function getRiskLevelDescription(riskLevel) {
+            switch (riskLevel) {
+                case 'HIGH':
+                    return '高风险：建议谨慎操作，密切关注市场变化';
+                case 'MEDIUM':
+                    return '中等风险：适度关注，注意风险控制';
+                case 'LOW':
+                    return '低风险：相对安全，可适当持有';
+                default:
+                    return '风险等级未知';
+            }
+        }
+        
+        function getRiskManagementAdvice(riskLevel, volatility, maxDrawdown, pricePosition) {
+            let advice = [];
+            
+            if (riskLevel === 'HIGH') {
+                advice.push('• 建议设置较紧的止损位，控制下行风险');
+                advice.push('• 考虑分批减仓，降低仓位风险');
+                advice.push('• 密切关注市场情绪和技术面变化');
+            } else if (riskLevel === 'MEDIUM') {
+                advice.push('• 保持适中仓位，避免过度集中');
+                advice.push('• 设置合理的止损和止盈位');
+                advice.push('• 定期评估持仓风险状况');
+            } else {
+                advice.push('• 可适当持有，但仍需关注市场变化');
+                advice.push('• 考虑在合适时机适度加仓');
+                advice.push('• 保持长期投资心态');
+            }
+            
+            if (volatility > 40) {
+                advice.push('• 高波动率提示：注意短期价格剧烈波动风险');
+            }
+            
+            if (maxDrawdown > 20) {
+                advice.push('• 大幅回撤提示：历史最大回撤较大，需要心理准备');
+            }
+            
+            if (pricePosition > 80) {
+                advice.push('• 高位提示：当前价格接近近期高点，注意回调风险');
+            } else if (pricePosition < 20) {
+                advice.push('• 低位提示：当前价格接近近期低点，可能存在反弹机会');
+            }
+            
+            return advice.join('<br>');
+        }
+        
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('risk-assessment-modal');
+            if (event.target === modal) {
+                hideRiskModal();
+            }
+        }
+    </script>
+</body>
+</html>

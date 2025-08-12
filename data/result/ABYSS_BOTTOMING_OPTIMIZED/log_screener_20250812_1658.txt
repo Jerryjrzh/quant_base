@@ -1,0 +1,17 @@
+2025-08-12 16:58:36,253 - INFO - 成功加载配置文件: 深渊筑底优化版 v2.0
+2025-08-12 16:58:36,253 - INFO - ===== 开始执行深渊筑底策略筛选 (V2 优化版) =====
+2025-08-12 16:58:36,258 - INFO - 共找到 8697 个日线文件，开始处理...
+2025-08-12 16:58:36,508 - INFO - 发现高质量信号: sh600439
+2025-08-12 16:58:37,822 - INFO - 筛选完成，发现 1 个高质量信号。
+2025-08-12 16:58:37,829 - ERROR - 图表生成失败 for sh600439: 'Unrecognized kwarg="s"'
+Traceback (most recent call last):
+  File "/home/hypnosis/data/quant_base/backend/screener_abyss.1.py", line 254, in visualize_signal
+    addplots.append(mpf.make_addplot(arrow_y, type='scatter', marker='^', color='lime', s=120))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/mplfinance/plotting.py", line 1432, in make_addplot
+    config = _process_kwargs(kwargs, _valid_addplot_kwargs())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/mplfinance/_arg_validators.py", line 339, in _process_kwargs
+    raise KeyError('Unrecognized kwarg="'+str(key)+'"')
+KeyError: 'Unrecognized kwarg="s"'
+2025-08-12 16:58:37,856 - INFO - 总耗时: 1.60 秒

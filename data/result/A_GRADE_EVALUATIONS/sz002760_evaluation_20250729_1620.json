@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:20:12.446389",
+  "stock_code": "sz002760",
+  "current_price": 19.66,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 18.68,
+    "target_price_2": 18.19,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.04984740590030521,
+    "discount_2": 0.07477110885045772,
+    "stop_loss": {
+      "conservative": 19.07,
+      "moderate": 18.09,
+      "aggressive": 18.09,
+      "technical": 17.62
+    },
+    "take_profit": {
+      "conservative": 21.23,
+      "moderate": 21.63,
+      "aggressive": 23.59
+    }
+  }
+}

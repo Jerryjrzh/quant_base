@@ -1,0 +1,48 @@
+2025-08-12 16:25:21,514 - INFO - 成功加载配置文件: 深渊筑底优化版 v2.0
+2025-08-12 16:25:21,514 - INFO - 策略初始化完成，参数: {'long_term_days': 400, 'min_drop_percent': 0.4, 'price_low_percentile': 0.35, 'volume_shrink_threshold': 0.7, 'volume_consistency_threshold': 0.3, 'volume_analysis_days': 30, 'hibernation_days': 40, 'hibernation_volatility_max': 0.4, 'washout_days': 15, 'washout_volume_shrink_ratio': 0.85, 'max_rise_from_bottom': 0.18, 'liftoff_volume_increase_ratio': 1.15}
+2025-08-12 16:25:21,514 - INFO - 策略初始化完成，参数: {'long_term_days': 400, 'min_drop_percent': 0.4, 'price_low_percentile': 0.35, 'volume_shrink_threshold': 0.7, 'volume_consistency_threshold': 0.3, 'volume_analysis_days': 30, 'hibernation_days': 40, 'hibernation_volatility_max': 0.4, 'washout_days': 15, 'washout_volume_shrink_ratio': 0.85, 'max_rise_from_bottom': 0.18, 'liftoff_volume_increase_ratio': 1.15}
+2025-08-12 16:25:43,915 - INFO - 成功加载配置文件: 深渊筑底优化版 v2.0
+2025-08-12 16:25:43,916 - INFO - 策略初始化完成，参数: {'long_term_days': 400, 'min_drop_percent': 0.4, 'price_low_percentile': 0.35, 'volume_shrink_threshold': 0.7, 'volume_consistency_threshold': 0.3, 'volume_analysis_days': 30, 'hibernation_days': 40, 'hibernation_volatility_max': 0.4, 'washout_days': 15, 'washout_volume_shrink_ratio': 0.85, 'max_rise_from_bottom': 0.18, 'liftoff_volume_increase_ratio': 1.15}
+2025-08-12 16:25:43,916 - INFO - ===== 开始执行深渊筑底策略筛选 =====
+2025-08-12 16:25:43,935 - INFO - 开始处理 8968 个股票文件
+2025-08-12 16:25:44,033 - INFO - 发现信号: sh605577 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,049 - INFO - 发现信号: sh600702 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,054 - INFO - 发现信号: sh600355 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,075 - INFO - 发现信号: sh600026 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,238 - INFO - 发现信号: sh603178 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,299 - INFO - 发现信号: sh600546 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,309 - INFO - 发现信号: sh600088 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,446 - INFO - 发现信号: sh603230 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,454 - INFO - 发现信号: sh603050 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,467 - INFO - 发现信号: sh600525 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,594 - INFO - 发现信号: sh603721 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,691 - INFO - 发现信号: sh688496 - POTENTIAL_BUY (阶段: 1/4)
+2025-08-12 16:25:44,728 - INFO - 发现信号: sh603348 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,775 - INFO - 发现信号: sh603231 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,781 - INFO - 发现信号: sh600199 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,838 - INFO - 发现信号: sh603366 - BUY (阶段: 2/4)
+2025-08-12 16:25:44,958 - INFO - 发现信号: sh605108 - POTENTIAL_BUY (阶段: 1/4)
+2025-08-12 16:25:45,087 - INFO - 发现信号: sz300097 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,147 - INFO - 发现信号: sz002581 - POTENTIAL_BUY (阶段: 1/4)
+2025-08-12 16:25:45,269 - INFO - 发现信号: sz002762 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,329 - INFO - 发现信号: sz003032 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,340 - INFO - 发现信号: sz300147 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,361 - INFO - 发现信号: sz000736 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,460 - INFO - 发现信号: sz003004 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,505 - INFO - 发现信号: sz000595 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,537 - INFO - 发现信号: sz002182 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,568 - INFO - 发现信号: sz001378 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,570 - INFO - 发现信号: sz300052 - POTENTIAL_BUY (阶段: 1/4)
+2025-08-12 16:25:45,580 - INFO - 发现信号: sz002531 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,583 - INFO - 发现信号: sz002047 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,671 - INFO - 发现信号: sz002521 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,702 - INFO - 发现信号: sz300175 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,892 - INFO - 发现信号: sz000518 - POTENTIAL_BUY (阶段: 1/4)
+2025-08-12 16:25:45,940 - INFO - 发现信号: sz002789 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,946 - INFO - 发现信号: sz001300 - BUY (阶段: 2/4)
+2025-08-12 16:25:45,972 - INFO - 发现信号: sz002529 - BUY (阶段: 2/4)
+2025-08-12 16:25:46,039 - INFO - 发现信号: sz000820 - BUY (阶段: 2/4)
+2025-08-12 16:25:46,103 - INFO - 发现信号: sz000521 - BUY (阶段: 2/4)
+2025-08-12 16:25:46,122 - INFO - 发现信号: sz300393 - POTENTIAL_BUY (阶段: 1/4)
+2025-08-12 16:25:46,316 - INFO - 发现信号: bj838701 - POTENTIAL_BUY (阶段: 1/4)
+2025-08-12 16:25:46,402 - INFO - 筛选完成，发现 40 个信号

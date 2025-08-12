@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-07-29T16:35:00.885236",
+  "stock_code": "sz003030",
+  "current_price": 19.22,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 17.46,
+    "target_price_2": 17.0,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.09157127991675329,
+    "discount_2": 0.11550468262226841,
+    "stop_loss": {
+      "conservative": 17.83,
+      "moderate": 16.91,
+      "aggressive": 16.91,
+      "technical": 17.86
+    },
+    "take_profit": {
+      "conservative": 19.85,
+      "moderate": 20.22,
+      "aggressive": 22.06
+    }
+  }
+}

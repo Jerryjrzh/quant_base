@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.081265",
+  "stock_code": "sh603586",
+  "current_price": 20.05,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 19.04,
+    "target_price_2": 19.04,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": 0.05037406483790531,
+    "discount_2": 0.05037406483790531,
+    "stop_loss": {
+      "conservative": 18.28,
+      "moderate": 17.34,
+      "aggressive": 17.34,
+      "technical": 17.65
+    },
+    "take_profit": {
+      "conservative": 20.36,
+      "moderate": 20.74,
+      "aggressive": 22.62
+    }
+  }
+}

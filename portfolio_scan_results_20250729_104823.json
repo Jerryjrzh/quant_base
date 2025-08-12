@@ -1,0 +1,43 @@
+{
+  "scan_time": "2025-07-29 10:48:23",
+  "total_positions": 3,
+  "positions": [
+    {
+      "stock_code": "SZ000001",
+      "purchase_price": 12.5,
+      "quantity": 1000,
+      "purchase_date": "2024-01-15",
+      "note": "平安银行 - 银行股投资",
+      "created_time": "2025-07-29 10:48:23",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ000001 的数据"
+    },
+    {
+      "stock_code": "SZ000002",
+      "purchase_price": 25.8,
+      "quantity": 500,
+      "purchase_date": "2024-02-20",
+      "note": "万科A - 地产龙头",
+      "created_time": "2025-07-29 10:48:23",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SZ000002 的数据"
+    },
+    {
+      "stock_code": "SH600036",
+      "purchase_price": 35.2,
+      "quantity": 300,
+      "purchase_date": "2024-03-10",
+      "note": "招商银行 - 优质银行股",
+      "created_time": "2025-07-29 10:48:23",
+      "last_analysis_time": null,
+      "error": "无法获取股票 SH600036 的数据"
+    }
+  ],
+  "summary": {
+    "profitable_count": 0,
+    "loss_count": 0,
+    "total_profit_loss": 0,
+    "high_risk_count": 0,
+    "action_required_count": 0
+  }
+}

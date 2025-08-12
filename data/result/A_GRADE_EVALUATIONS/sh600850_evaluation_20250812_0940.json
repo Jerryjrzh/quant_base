@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-12T09:40:59.109082",
+  "stock_code": "sh600850",
+  "current_price": 26.04,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 24.74,
+    "target_price_2": 24.74,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.049923195084485436,
+    "discount_2": 0.049923195084485436,
+    "stop_loss": {
+      "conservative": 25.26,
+      "moderate": 23.96,
+      "aggressive": 23.96,
+      "technical": 24.74
+    },
+    "take_profit": {
+      "conservative": 28.12,
+      "moderate": 28.64,
+      "aggressive": 31.25
+    }
+  }
+}

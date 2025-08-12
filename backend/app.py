@@ -12,6 +12,7 @@ import strategies
 import backtester
 import multi_timeframe
 from adjustment_processor import create_adjustment_config, create_adjustment_processor
+from portfolio_manager import create_portfolio_manager
 
 # --- 配置路径 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
@@ -54,18 +55,111 @@ def get_signals_summary():
     except FileNotFoundError:
         return jsonify({"error": f"Signal file not found for strategy '{strategy}'. Have you run screener.py?"}), 404
 
+def get_timeframe_data(stock_code, timeframe='daily'):
+    """获取指定周期的数据"""
+    market = stock_code[:2]
+    
+    # 分时数据处理
+    if timeframe in ['5min', '10min', '15min', '30min', '60min']:
+        min5_file = os.path.join(BASE_PATH, market, 'fzline', f'{stock_code}.lc5')
+        if not os.path.exists(min5_file):
+            # 如果没有分时数据，回退到日线数据
+            print(f"⚠️ 分时数据文件不存在，回退到日线数据: {min5_file}")
+            file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
+            if not os.path.exists(file_path):
+                return None, f"Data file not found: {file_path}"
+            return data_loader.get_daily_data(file_path), None
+        
+        min5_df = data_loader.get_5min_data(min5_file)
+        if min5_df is None:
+            # 如果分时数据加载失败，回退到日线数据
+            print(f"⚠️ 分时数据加载失败，回退到日线数据")
+            file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
+            if not os.path.exists(file_path):
+                return None, f"Data file not found: {file_path}"
+            return data_loader.get_daily_data(file_path), None
+        
+        if timeframe == '5min':
+            return min5_df, None
+        
+        # 重采样到其他分时周期
+        interval_map = {
+            '10min': '10T',
+            '15min': '15T', 
+            '30min': '30T',
+            '60min': '60T'
+        }
+        
+        try:
+            resampled_df = min5_df.resample(interval_map[timeframe]).agg({
+                'open': 'first',
+                'high': 'max',
+                'low': 'min',
+                'close': 'last',
+                'volume': 'sum'
+            }).dropna()
+            return resampled_df, None
+        except Exception as e:
+            print(f"⚠️ 分时数据重采样失败: {e}，回退到日线数据")
+            file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
+            if not os.path.exists(file_path):
+                return None, f"Data file not found: {file_path}"
+            return data_loader.get_daily_data(file_path), None
+    
+    elif timeframe == 'daily':
+        # 日线数据
+        file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
+        if not os.path.exists(file_path):
+            return None, f"Daily data file not found: {file_path}"
+        return data_loader.get_daily_data(file_path), None
+    
+    elif timeframe in ['weekly', 'monthly']:
+        # 周线和月线需要从日线数据重采样
+        file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
+        if not os.path.exists(file_path):
+            return None, f"Daily data file not found: {file_path}"
+        
+        daily_df = data_loader.get_daily_data(file_path)
+        if daily_df is None:
+            return None, "Failed to load daily data"
+        
+        # 重采样到周线或月线
+        try:
+            if timeframe == 'weekly':
+                resampled_df = daily_df.resample('W').agg({
+                    'open': 'first',
+                    'high': 'max', 
+                    'low': 'min',
+                    'close': 'last',
+                    'volume': 'sum'
+                }).dropna()
+            else:  # monthly
+                resampled_df = daily_df.resample('M').agg({
+                    'open': 'first',
+                    'high': 'max',
+                    'low': 'min', 
+                    'close': 'last',
+                    'volume': 'sum'
+                }).dropna()
+            
+            return resampled_df, None
+        except Exception as e:
+            return None, f"Failed to resample data: {str(e)}"
+    
+    else:
+        return None, f"Unsupported timeframe: {timeframe}"
+
 @app.route('/api/analysis/<stock_code>')
 def get_stock_analysis(stock_code):
     try:
         strategy_name = request.args.get('strategy', 'PRE_CROSS')
         adjustment_type = request.args.get('adjustment', 'forward')
-        market = stock_code[:2]
-        file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
-        if not os.path.exists(file_path): 
-            return jsonify({"error": f"Data file not found: {file_path}"}), 404
-
-        df = data_loader.get_daily_data(file_path)
-        if df is None: return jsonify({"error": "Failed to load data"}), 500
+        timeframe = request.args.get('timeframe', 'daily')
+        
+        # 获取指定周期的数据
+        df, error = get_timeframe_data(stock_code, timeframe)
+        if df is None:
+            return jsonify({"error": error}), 404
         
         # 应用复权处理
         if adjustment_type != 'none':
@@ -99,7 +193,7 @@ def get_stock_analysis(stock_code):
         signals = strategies.apply_strategy(strategy_name, df)
         backtest_results = backtester.run_backtest(df, signals)
         
-        # 构建信号点
+        # 构建信号点 - 修复：使用回测中实际的入场价格
         signal_points = []
         if signals is not None and not signals[signals != ''].empty:
             signal_df = df[signals != '']
@@ -111,17 +205,51 @@ def get_stock_analysis(stock_code):
                 idx_pos = df.index.get_loc(idx) if idx in df.index else 0
                 is_success = trade_results.get(idx_pos, {}).get('is_success', False)
                 final_state = f"{original_state}_SUCCESS" if is_success else f"{original_state}_FAIL"
+                
+                # 修复：使用回测中实际的入场价格，而不是固定使用最低价
+                actual_entry_price = trade_results.get(idx_pos, {}).get('entry_price')
+                if actual_entry_price is not None:
+                    # 使用回测中计算的实际入场价格
+                    display_price = float(actual_entry_price)
+                else:
+                    # 如果没有回测数据，回退到收盘价（更合理的默认值）
+                    display_price = float(row['close'])
+                
+                # 处理不同类型的时间索引格式
+                if hasattr(idx, 'strftime'):
+                    if timeframe in ['5min', '10min', '15min', '30min', '60min']:
+                        date_str = idx.strftime('%Y-%m-%d %H:%M')
+                    else:
+                        date_str = idx.strftime('%Y-%m-%d')
+                else:
+                    date_str = str(idx)
+                
                 signal_points.append({
-                    'date': idx.strftime('%Y-%m-%d'),
-                    'price': float(row['low']), 
+                    'date': date_str,
+                    'price': display_price, 
                     'state': final_state,
                     'original_state': original_state
                 })
 
         # 准备返回数据
         df.replace({np.nan: None}, inplace=True)
-        df_reset = df.reset_index().rename(columns={'index': 'date'})
-        df_reset['date'] = df_reset['date'].dt.strftime('%Y-%m-%d')
+        df_reset = df.reset_index()
+        
+        # 处理不同类型的时间索引
+        index_col = df_reset.columns[0]
+        
+        # 重命名索引列为date
+        if index_col != 'date':
+            df_reset = df_reset.rename(columns={index_col: 'date'})
+        
+        # 根据周期类型格式化日期
+        if timeframe in ['5min', '10min', '15min', '30min', '60min']:
+            # 分时数据显示时间
+            df_reset['date'] = pd.to_datetime(df_reset['date']).dt.strftime('%Y-%m-%d %H:%M')
+        else:
+            # 日线、周线、月线数据只显示日期
+            df_reset['date'] = pd.to_datetime(df_reset['date']).dt.strftime('%Y-%m-%d')
+        
         kline_data = df_reset[['date', 'open', 'close', 'low', 'high', 'volume']].to_dict('records')
         indicator_data = df_reset[['date', 'ma13', 'ma45', 'dif', 'dea', 'macd', 'k', 'd', 'j', 'rsi6', 'rsi12', 'rsi24']].to_dict('records')
         
@@ -146,14 +274,15 @@ def get_trading_advice(stock_code):
     try:
         # 使用与分析API相同的数据加载方式
         adjustment_type = request.args.get('adjustment', 'forward')
-        market = stock_code[:2]
-        file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
-        if not os.path.exists(file_path):
-            return jsonify({"error": f"无法找到股票 {stock_code} 的数据文件"}), 404
-
-        df = data_loader.get_daily_data(file_path)
-        if df is None or len(df) < 50:
-            return jsonify({"error": f"无法加载股票 {stock_code} 的数据或数据不足"}), 404
+        timeframe = request.args.get('timeframe', 'daily')
+        
+        # 获取指定周期的数据
+        df, error = get_timeframe_data(stock_code, timeframe)
+        if df is None:
+            return jsonify({"error": error}), 404
+        
+        if len(df) < 50:
+            return jsonify({"error": f"数据不足，需要至少50个数据点"}), 404
         
         # 应用复权处理
         if adjustment_type != 'none':
@@ -297,8 +426,8 @@ def manage_core_pool():
 
     if request.method == 'POST':
         data = request.get_json()
-        stock_code = data.get('stock_code', '').strip().upper()
-        if not stock_code or not (stock_code.startswith(('SZ', 'SH')) and len(stock_code) == 8):
+        stock_code = data.get('stock_code', '').strip().lower()
+        if not stock_code or not (stock_code.startswith(('sz', 'sh')) and len(stock_code) == 8):
             return jsonify({'error': '股票代码格式不正确'}), 400
         
         core_pool = load_core_pool_from_file()
@@ -317,7 +446,7 @@ def manage_core_pool():
         return jsonify({'success': True, 'message': f'股票 {stock_code} 添加成功', 'stock': new_stock})
 
     if request.method == 'DELETE':
-        stock_code = request.args.get('stock_code', '').strip().upper()
+        stock_code = request.args.get('stock_code', '').strip().lower()
         if not stock_code: return jsonify({'error': '股票代码不能为空'}), 400
         
         core_pool = load_core_pool_from_file()
@@ -331,6 +460,120 @@ def manage_core_pool():
         return jsonify({'success': True, 'message': f'股票 {stock_code} 已删除'})
 
     return jsonify({'error': '不支持的请求方法'}), 405
+
+# --- 持仓管理API ---
+@app.route('/api/portfolio', methods=['GET', 'POST', 'PUT', 'DELETE'])
+def manage_portfolio():
+    portfolio_manager = create_portfolio_manager()
+    
+    if request.method == 'GET':
+        # 获取持仓列表
+        portfolio = portfolio_manager.load_portfolio()
+        return jsonify({'success': True, 'portfolio': portfolio, 'count': len(portfolio)})
+    
+    elif request.method == 'POST':
+        # 添加持仓
+        data = request.get_json()
+        try:
+            stock_code = data.get('stock_code', '').strip().lower()
+            purchase_price = float(data.get('purchase_price', 0))
+            quantity = int(data.get('quantity', 0))
+            purchase_date = data.get('purchase_date', '')
+            note = data.get('note', '')
+            
+            if not stock_code or not (stock_code.startswith(('sz', 'sh')) and len(stock_code) == 8):
+                return jsonify({'error': '股票代码格式不正确'}), 400
+            
+            if purchase_price <= 0:
+                return jsonify({'error': '购买价格必须大于0'}), 400
+            
+            if quantity <= 0:
+                return jsonify({'error': '持仓数量必须大于0'}), 400
+            
+            position = portfolio_manager.add_position(
+                stock_code, purchase_price, quantity, purchase_date, note
+            )
+            return jsonify({'success': True, 'message': f'持仓 {stock_code} 添加成功', 'position': position})
+            
+        except ValueError as e:
+            return jsonify({'error': str(e)}), 400
+        except Exception as e:
+            return jsonify({'error': f'添加持仓失败: {str(e)}'}), 500
+    
+    elif request.method == 'PUT':
+        # 更新持仓
+        data = request.get_json()
+        stock_code = data.get('stock_code', '').strip().lower()
+        
+        if not stock_code:
+            return jsonify({'error': '股票代码不能为空'}), 400
+        
+        update_data = {k: v for k, v in data.items() if k != 'stock_code'}
+        
+        if portfolio_manager.update_position(stock_code, **update_data):
+            return jsonify({'success': True, 'message': f'持仓 {stock_code} 更新成功'})
+        else:
+            return jsonify({'error': f'持仓 {stock_code} 不存在'}), 404
+    
+    elif request.method == 'DELETE':
+        # 删除持仓
+        stock_code = request.args.get('stock_code', '').strip().lower()
+        
+        if not stock_code:
+            return jsonify({'error': '股票代码不能为空'}), 400
+        
+        if portfolio_manager.remove_position(stock_code):
+            return jsonify({'success': True, 'message': f'持仓 {stock_code} 已删除'})
+        else:
+            return jsonify({'error': f'持仓 {stock_code} 不存在'}), 404
+
+@app.route('/api/portfolio/scan', methods=['POST'])
+def scan_portfolio():
+    """扫描所有持仓并生成分析报告"""
+    try:
+        portfolio_manager = create_portfolio_manager()
+        results = portfolio_manager.scan_all_positions()
+        return jsonify({'success': True, 'results': results})
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': f'持仓扫描失败: {str(e)}'}), 500
+
+@app.route('/api/portfolio/analysis/<stock_code>')
+def get_position_analysis(stock_code):
+    """获取单个持仓的详细分析"""
+    try:
+        portfolio_manager = create_portfolio_manager()
+        portfolio = portfolio_manager.load_portfolio()
+        
+        # 找到对应的持仓
+        position = None
+        for p in portfolio:
+            if p['stock_code'] == stock_code:
+                position = p
+                break
+        
+        if not position:
+            return jsonify({'error': f'持仓 {stock_code} 不存在'}), 404
+        
+        # 进行深度分析
+        analysis = portfolio_manager.analyze_position_deep(
+            stock_code,
+            position['purchase_price'],
+            position['purchase_date']
+        )
+        
+        if 'error' in analysis:
+            return jsonify(analysis), 500
+        
+        # 合并持仓基本信息
+        result = {**position, **analysis}
+        return jsonify({'success': True, 'analysis': result})
+        
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': f'获取持仓分析失败: {str(e)}'}), 500
 
 
 if __name__ == '__main__':
