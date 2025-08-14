@@ -1,0 +1,4 @@
+2025-08-14 17:49:04,326 - INFO - 配置加载成功: 5 个策略
+2025-08-14 17:49:04,327 - INFO - 配置管理器初始化完成，配置文件: /home/hypnosis/data/quant_base/config/unified_strategy_config.json
+2025-08-14 17:49:04,329 - INFO - 加载配置文件: /home/hypnosis/data/quant_base/backend/strategies_config.json
+2025-08-14 17:49:04,330 - INFO - 通用筛选器初始化完成

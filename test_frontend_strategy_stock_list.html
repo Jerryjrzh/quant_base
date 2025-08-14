@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>策略股票列表测试</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .test-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+        }
+        
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+        
+        .result-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .result-box pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .status-success {
+            color: #28a745;
+            font-weight: 600;
+        }
+        
+        .status-error {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        
+        .status-info {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+        
+        .stock-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .stock-item {
+            background: #e3f2fd;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .stock-code {
+            font-weight: 600;
+            color: #1976d2;
+        }
+        
+        .stock-date {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .api-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .api-info code {
+            background: #f8f9fa;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🧪 策略股票列表功能测试</h1>
+            <p>测试前端策略选择后对应股票列表显示功能</p>
+        </div>
+        
+        <!-- 策略选择测试 -->
+        <div class="test-section">
+            <h3>1. 策略选择与股票列表</h3>
+            <div class="api-info">
+                <strong>测试API:</strong> 
+                <code>GET /api/strategies/{strategy_id}/stocks</code> (新API) 和 
+                <code>GET /api/signals_summary?strategy={old_id}</code> (兼容API)
+            </div>
+            
+            <div class="form-group">
+                <label for="strategy-select">选择策略:</label>
+                <select id="strategy-select">
+                    <option value="">加载中...</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="stock-select">股票列表:</label>
+                <select id="stock-select">
+                    <option value="">请先选择策略</option>
+                </select>
+            </div>
+            
+            <button class="btn" onclick="loadStrategies()">🔄 重新加载策略</button>
+            <button class="btn btn-success" onclick="testNewAPI()">🆕 测试新API</button>
+            <button class="btn btn-warning" onclick="testOldAPI()">🔄 测试兼容API</button>
+            
+            <div id="strategy-result" class="result-box" style="display: none;">
+                <pre id="strategy-result-content"></pre>
+            </div>
+        </div>
+        
+        <!-- API响应测试 -->
+        <div class="test-section">
+            <h3>2. API响应测试</h3>
+            <div class="api-info">
+                <strong>测试目标:</strong> 验证API返回数据格式和内容正确性
+            </div>
+            
+            <button class="btn" onclick="testAllAPIs()">🔍 测试所有API</button>
+            <button class="btn" onclick="testConfigAPI()">⚙️ 测试配置API</button>
+            <button class="btn" onclick="clearResults()">🗑️ 清空结果</button>
+            
+            <div id="api-result" class="result-box" style="display: none;">
+                <pre id="api-result-content"></pre>
+            </div>
+        </div>
+        
+        <!-- 前端集成测试 -->
+        <div class="test-section">
+            <h3>3. 前端集成测试</h3>
+            <div class="api-info">
+                <strong>测试场景:</strong> 模拟用户完整的策略选择和股票查看流程
+            </div>
+            
+            <div id="stock-display" class="stock-list"></div>
+            
+            <button class="btn" onclick="simulateUserFlow()">🎭 模拟用户流程</button>
+            <button class="btn btn-success" onclick="testErrorHandling()">❌ 测试错误处理</button>
+            
+            <div id="integration-result" class="result-box" style="display: none;">
+                <pre id="integration-result-content"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全局变量
+        let currentStrategies = {};
+        let currentStocks = [];
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStrategies();
+            setupEventListeners();
+        });
+        
+        // 设置事件监听器
+        function setupEventListeners() {
+            const strategySelect = document.getElementById('strategy-select');
+            strategySelect.addEventListener('change', function() {
+                const strategy = this.value;
+                if (strategy) {
+                    loadStockList(strategy);
+                } else {
+                    document.getElementById('stock-select').innerHTML = '<option value="">请先选择策略</option>';
+                }
+            });
+        }
+        
+        // 加载策略列表
+        async function loadStrategies() {
+            const strategySelect = document.getElementById('strategy-select');
+            strategySelect.innerHTML = '<option value="">加载中...</option>';
+            
+            try {
+                const response = await fetch('/api/strategies');
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentStrategies = data.data;
+                    strategySelect.innerHTML = '<option value="">请选择策略</option>';
+                    
+                    Object.keys(currentStrategies).forEach(strategyId => {
+                        const strategy = currentStrategies[strategyId];
+                        const option = document.createElement('option');
+                        option.value = strategyId;
+                        option.textContent = `${strategy.name || strategyId} v${strategy.version || '1.0'}`;
+                        strategySelect.appendChild(option);
+                    });
+                    
+                    logResult('strategy', `✅ 成功加载 ${Object.keys(currentStrategies).length} 个策略`);
+                } else {
+                    throw new Error(data.error || '获取策略失败');
+                }
+            } catch (error) {
+                strategySelect.innerHTML = '<option value="">加载失败</option>';
+                logResult('strategy', `❌ 加载策略失败: ${error.message}`, 'error');
+            }
+        }
+        
+        // 加载股票列表
+        async function loadStockList(strategyId) {
+            const stockSelect = document.getElementById('stock-select');
+            stockSelect.innerHTML = '<option value="">加载中...</option>';
+            
+            try {
+                // 优先使用新API
+                let response = await fetch(`/api/strategies/${encodeURIComponent(strategyId)}/stocks`);
+                let data;
+                
+                if (response.ok) {
+                    data = await response.json();
+                    if (data.success) {
+                        currentStocks = data.data;
+                        updateStockSelect(currentStocks);
+                        displayStocks(currentStocks);
+                        logResult('strategy', `✅ 新API成功获取 ${currentStocks.length} 只股票`);
+                        return;
+                    }
+                }
+                
+                // 回退到兼容API
+                const oldStrategyMapping = {
+                    '临界金叉_v1.0': 'PRE_CROSS',
+                    '三重金叉_v1.0': 'TRIPLE_CROSS',
+                    'macd零轴启动_v1.0': 'MACD_ZERO_AXIS',
+                    '周线金叉+日线ma_v1.0': 'WEEKLY_GOLDEN_CROSS_MA',
+                    '深渊筑底策略_v2.0': 'ABYSS_BOTTOMING'
+                };
+                
+                const oldStrategyId = oldStrategyMapping[strategyId] || strategyId;
+                response = await fetch(`/api/signals_summary?strategy=${oldStrategyId}`);
+                
+                if (response.ok) {
+                    data = await response.json();
+                    if (Array.isArray(data)) {
+                        currentStocks = data;
+                        updateStockSelect(currentStocks);
+                        displayStocks(currentStocks);
+                        logResult('strategy', `✅ 兼容API成功获取 ${currentStocks.length} 只股票`);
+                        return;
+                    }
+                }
+                
+                throw new Error('所有API都失败了');
+                
+            } catch (error) {
+                stockSelect.innerHTML = '<option value="">加载失败</option>';
+                logResult('strategy', `❌ 加载股票列表失败: ${error.message}`, 'error');
+            }
+        }
+        
+        // 更新股票下拉框
+        function updateStockSelect(stocks) {
+            const stockSelect = document.getElementById('stock-select');
+            stockSelect.innerHTML = '<option value="">请选择股票</option>';
+            
+            if (stocks.length === 0) {
+                stockSelect.innerHTML += '<option disabled>该策略今日无信号</option>';
+                return;
+            }
+            
+            stocks.forEach(stock => {
+                const option = document.createElement('option');
+                option.value = stock.stock_code;
+                option.textContent = `${stock.stock_code} (${stock.date})`;
+                stockSelect.appendChild(option);
+            });
+        }
+        
+        // 显示股票列表
+        function displayStocks(stocks) {
+            const stockDisplay = document.getElementById('stock-display');
+            
+            if (stocks.length === 0) {
+                stockDisplay.innerHTML = '<div class="loading">该策略今日无信号</div>';
+                return;
+            }
+            
+            stockDisplay.innerHTML = stocks.map(stock => `
+                <div class="stock-item">
+                    <div class="stock-code">${stock.stock_code}</div>
+                    <div class="stock-date">${stock.date}</div>
+                    ${stock.signal_type ? `<div class="stock-date">信号: ${stock.signal_type}</div>` : ''}
+                </div>
+            `).join('');
+        }
+        
+        // 测试新API
+        async function testNewAPI() {
+            const strategyId = document.getElementById('strategy-select').value;
+            if (!strategyId) {
+                alert('请先选择策略');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/strategies/${encodeURIComponent(strategyId)}/stocks`);
+                const data = await response.json();
+                
+                logResult('strategy', `新API测试结果:\n${JSON.stringify(data, null, 2)}`);
+            } catch (error) {
+                logResult('strategy', `新API测试失败: ${error.message}`, 'error');
+            }
+        }
+        
+        // 测试兼容API
+        async function testOldAPI() {
+            const strategyId = document.getElementById('strategy-select').value;
+            if (!strategyId) {
+                alert('请先选择策略');
+                return;
+            }
+            
+            const oldStrategyMapping = {
+                '临界金叉_v1.0': 'PRE_CROSS',
+                '三重金叉_v1.0': 'TRIPLE_CROSS',
+                'macd零轴启动_v1.0': 'MACD_ZERO_AXIS',
+                '周线金叉+日线ma_v1.0': 'WEEKLY_GOLDEN_CROSS_MA',
+                '深渊筑底策略_v2.0': 'ABYSS_BOTTOMING'
+            };
+            
+            const oldStrategyId = oldStrategyMapping[strategyId] || strategyId;
+            
+            try {
+                const response = await fetch(`/api/signals_summary?strategy=${oldStrategyId}`);
+                const data = await response.json();
+                
+                logResult('strategy', `兼容API测试结果:\n${JSON.stringify(data, null, 2)}`);
+            } catch (error) {
+                logResult('strategy', `兼容API测试失败: ${error.message}`, 'error');
+            }
+        }
+        
+        // 测试所有API
+        async function testAllAPIs() {
+            logResult('api', '开始测试所有API...');
+            
+            const apis = [
+                { name: '策略列表', url: '/api/strategies' },
+                { name: '统一配置', url: '/api/config/unified' },
+                { name: '系统信息', url: '/api/system/info' }
+            ];
+            
+            for (const api of apis) {
+                try {
+                    const response = await fetch(api.url);
+                    const data = await response.json();
+                    
+                    logResult('api', `✅ ${api.name}: ${response.status} - ${data.success ? '成功' : '失败'}`);
+                } catch (error) {
+                    logResult('api', `❌ ${api.name}: ${error.message}`, 'error');
+                }
+            }
+        }
+        
+        // 测试配置API
+        async function testConfigAPI() {
+            try {
+                const response = await fetch('/api/config/unified');
+                const data = await response.json();
+                
+                logResult('api', `配置API测试结果:\n${JSON.stringify(data, null, 2)}`);
+            } catch (error) {
+                logResult('api', `配置API测试失败: ${error.message}`, 'error');
+            }
+        }
+        
+        // 模拟用户流程
+        async function simulateUserFlow() {
+            logResult('integration', '🎭 开始模拟用户流程...');
+            
+            // 1. 加载策略
+            logResult('integration', '1. 加载策略列表...');
+            await loadStrategies();
+            
+            // 2. 选择第一个策略
+            const strategySelect = document.getElementById('strategy-select');
+            const firstStrategy = strategySelect.options[1]?.value;
+            
+            if (firstStrategy) {
+                strategySelect.value = firstStrategy;
+                logResult('integration', `2. 选择策略: ${firstStrategy}`);
+                
+                // 3. 加载股票列表
+                logResult('integration', '3. 加载股票列表...');
+                await loadStockList(firstStrategy);
+                
+                // 4. 选择第一只股票
+                const stockSelect = document.getElementById('stock-select');
+                const firstStock = stockSelect.options[1]?.value;
+                
+                if (firstStock) {
+                    stockSelect.value = firstStock;
+                    logResult('integration', `4. 选择股票: ${firstStock}`);
+                    logResult('integration', '✅ 用户流程模拟完成');
+                } else {
+                    logResult('integration', '⚠️ 没有可选择的股票');
+                }
+            } else {
+                logResult('integration', '❌ 没有可选择的策略', 'error');
+            }
+        }
+        
+        // 测试错误处理
+        async function testErrorHandling() {
+            logResult('integration', '🧪 测试错误处理...');
+            
+            // 测试不存在的策略
+            try {
+                const response = await fetch('/api/strategies/不存在的策略/stocks');
+                const data = await response.json();
+                
+                if (!data.success) {
+                    logResult('integration', '✅ 正确处理了不存在的策略');
+                } else {
+                    logResult('integration', '⚠️ 应该返回错误但返回了成功', 'error');
+                }
+            } catch (error) {
+                logResult('integration', `✅ 正确捕获了网络错误: ${error.message}`);
+            }
+            
+            // 测试空策略ID
+            try {
+                const response = await fetch('/api/strategies//stocks');
+                logResult('integration', `空策略ID测试: ${response.status}`);
+            } catch (error) {
+                logResult('integration', `✅ 正确处理了空策略ID: ${error.message}`);
+            }
+        }
+        
+        // 清空结果
+        function clearResults() {
+            ['strategy', 'api', 'integration'].forEach(type => {
+                const resultBox = document.getElementById(`${type}-result`);
+                const resultContent = document.getElementById(`${type}-result-content`);
+                if (resultBox && resultContent) {
+                    resultBox.style.display = 'none';
+                    resultContent.textContent = '';
+                }
+            });
+        }
+        
+        // 记录结果
+        function logResult(type, message, level = 'info') {
+            const resultBox = document.getElementById(`${type}-result`);
+            const resultContent = document.getElementById(`${type}-result-content`);
+            
+            if (resultBox && resultContent) {
+                resultBox.style.display = 'block';
+                
+                const timestamp = new Date().toLocaleTimeString();
+                const levelClass = level === 'error' ? 'status-error' : 
+                                 level === 'success' ? 'status-success' : 'status-info';
+                
+                const logEntry = `[${timestamp}] ${message}\n`;
+                resultContent.textContent += logEntry;
+                resultContent.scrollTop = resultContent.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>

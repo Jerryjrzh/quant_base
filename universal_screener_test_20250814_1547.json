@@ -1,0 +1,13 @@
+{
+  "test_time": "2025-08-14 15:47:30",
+  "total_tests": 5,
+  "passed_tests": 5,
+  "test_results": {
+    "策略管理器": true,
+    "策略实例创建": true,
+    "筛选器初始化": true,
+    "模拟筛选": true,
+    "API兼容性": true
+  },
+  "system_status": "READY"
+}

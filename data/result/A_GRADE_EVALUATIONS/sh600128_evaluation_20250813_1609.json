@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T16:09:30.765127",
+  "stock_code": "sh600128",
+  "current_price": 10.92,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 10.37,
+    "target_price_2": 10.37,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05036630036630043,
+    "discount_2": 0.05036630036630043,
+    "stop_loss": {
+      "conservative": 10.59,
+      "moderate": 10.05,
+      "aggressive": 10.05,
+      "technical": 7.39
+    },
+    "take_profit": {
+      "conservative": 11.79,
+      "moderate": 12.01,
+      "aggressive": 13.1
+    }
+  }
+}

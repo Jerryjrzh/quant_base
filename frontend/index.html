@@ -86,7 +86,7 @@
             flex-direction: column;
             gap: 1.5rem;
             padding: 1.5rem;
-            max-width: 1400px;
+            max-width: none;
             margin: 0 auto;
         }
         
@@ -101,11 +101,18 @@
             padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            height: calc(100vh - 200px);
+            min-height: 800px;
         }
         
         #chart-container { 
             width: 100%; 
-            height: 650px; 
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 970px;
+            min-height: 650px; 
         }
         
         .sidebar {
@@ -486,6 +493,166 @@
             font-size: 0.8rem;
         }
         
+        /* 策略配置样式 */
+        .strategy-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.2s;
+        }
+        
+        .strategy-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .strategy-card.disabled {
+            opacity: 0.6;
+            background: #e9ecef;
+        }
+        
+        .strategy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 0.5rem;
+        }
+        
+        .strategy-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .strategy-version {
+            font-size: 0.8rem;
+            color: #6c757d;
+            background: #e9ecef;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .strategy-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background: #ccc;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .toggle-switch.active {
+            background: #28a745;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(26px);
+        }
+        
+        .strategy-description {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .strategy-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .meta-item {
+            background: white;
+            padding: 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .meta-label {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 0.3rem;
+        }
+        
+        .meta-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .strategy-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .strategy-tag {
+            background: #007bff;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+        
+        .strategy-actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+        }
+        
+        .btn-config {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .btn-config:hover {
+            background: #138496;
+        }
+        
+        .btn-test {
+            background: #ffc107;
+            color: #212529;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .btn-test:hover {
+            background: #e0a800;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 1200px) {
             .main-content {
@@ -541,10 +708,7 @@
         <div id="controls">
             <label for="strategy-select">策略:</label>
             <select id="strategy-select">
-                <option value="PRE_CROSS">临界金叉</option>
-                <option value="TRIPLE_CROSS">三重金叉</option>
-                <option value="MACD_ZERO_AXIS">MACD零轴启动</option>
-                <option value="WEEKLY_GOLDEN_CROSS_MA">周线金叉+日线MA</option>
+                <option value="">加载中...</option>
             </select>
             <label for="stock-select">股票:</label>
             <select id="stock-select"></select>
@@ -577,6 +741,7 @@
             <button id="deep-scan-btn" class="deep-scan-button">🔍 深度扫描</button>
             <button id="core-pool-btn" class="core-pool-button">⭐ 核心池</button>
             <button id="portfolio-btn" class="portfolio-button">💼 持仓管理</button>
+            <button id="strategy-config-btn" class="strategy-config-button">⚙️ 策略配置</button>
             <button id="history-btn" class="history-button">📊 历史报告</button>
         </div>
     </header>
@@ -783,6 +948,22 @@
         </div>
     </div>
     
+    <!-- 策略配置模态框 -->
+    <div id="strategy-config-modal" class="modal">
+        <div class="modal-content" style="max-width: 1000px;">
+            <span id="strategy-config-close" class="close">&times;</span>
+            <h2>策略配置管理</h2>
+            
+            <!-- 策略列表 -->
+            <div id="strategy-config-content">
+                <div id="strategy-config-loading" style="text-align: center; padding: 2rem; color: #6c757d;">
+                    加载中...
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/strategy-config.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

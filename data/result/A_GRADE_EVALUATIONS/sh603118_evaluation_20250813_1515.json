@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.360498",
+  "stock_code": "sh603118",
+  "current_price": 11.4,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 10.83,
+    "target_price_2": 10.83,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.050000000000000024,
+    "discount_2": 0.050000000000000024,
+    "stop_loss": {
+      "conservative": 11.06,
+      "moderate": 10.49,
+      "aggressive": 10.49,
+      "technical": 11.04
+    },
+    "take_profit": {
+      "conservative": 12.31,
+      "moderate": 12.54,
+      "aggressive": 13.68
+    }
+  }
+}

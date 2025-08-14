@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T16:07:57.625656",
+  "stock_code": "sz000061",
+  "current_price": 6.67,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 6.34,
+    "target_price_2": 6.17,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.0494752623688156,
+    "discount_2": 0.07496251874062969,
+    "stop_loss": {
+      "conservative": 6.47,
+      "moderate": 6.14,
+      "aggressive": 6.14,
+      "technical": 5.48
+    },
+    "take_profit": {
+      "conservative": 7.2,
+      "moderate": 7.34,
+      "aggressive": 8.0
+    }
+  }
+}

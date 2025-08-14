@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T16:07:57.631040",
+  "stock_code": "sz002971",
+  "current_price": 27.32,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 26.21,
+    "target_price_2": 26.21,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04062957540263541,
+    "discount_2": 0.04062957540263541,
+    "stop_loss": {
+      "conservative": 26.76,
+      "moderate": 25.38,
+      "aggressive": 25.38,
+      "technical": 12.72
+    },
+    "take_profit": {
+      "conservative": 29.8,
+      "moderate": 30.35,
+      "aggressive": 33.11
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.393045",
+  "stock_code": "sz002083",
+  "current_price": 5.01,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 5.06,
+    "target_price_2": 5.07,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009980039920159646,
+    "discount_2": -0.011976047904191716,
+    "stop_loss": {
+      "conservative": 4.86,
+      "moderate": 4.61,
+      "aggressive": 4.61,
+      "technical": 4.76
+    },
+    "take_profit": {
+      "conservative": 5.41,
+      "moderate": 5.51,
+      "aggressive": 6.01
+    }
+  }
+}

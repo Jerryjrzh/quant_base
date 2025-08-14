@@ -1,0 +1,1802 @@
+[
+  {
+    "stock_code": "sh600665",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.44,
+    "signal_details": {
+      "weekly_support": 3.301538461538461,
+      "weekly_pressure": 3.53,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603817",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.07,
+    "signal_details": {
+      "weekly_support": 5.8769230769230765,
+      "weekly_pressure": 6.16,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600780",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.04,
+    "signal_details": {
+      "weekly_support": 6.027692307692307,
+      "weekly_pressure": 6.38,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600722",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.15,
+    "signal_details": {
+      "weekly_support": 5.9630769230769225,
+      "weekly_pressure": 7.96,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600975",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.47,
+    "signal_details": {
+      "weekly_support": 6.214615384615385,
+      "weekly_pressure": 6.7,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601611",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.38,
+    "signal_details": {
+      "weekly_support": 9.170769230769231,
+      "weekly_pressure": 10.69,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600995",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.22,
+    "signal_details": {
+      "weekly_support": 10.027692307692309,
+      "weekly_pressure": 10.92,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600753",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.81,
+    "signal_details": {
+      "weekly_support": 6.869230769230769,
+      "weekly_pressure": 7.52,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh605286",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 39.49,
+    "signal_details": {
+      "weekly_support": 38.36846153846154,
+      "weekly_pressure": 40.95,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603086",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.75,
+    "signal_details": {
+      "weekly_support": 9.620000000000001,
+      "weekly_pressure": 12.21,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601991",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.4,
+    "signal_details": {
+      "weekly_support": 3.3115384615384613,
+      "weekly_pressure": 4.14,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600980",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 22.31,
+    "signal_details": {
+      "weekly_support": 21.759999999999998,
+      "weekly_pressure": 25.2,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600168",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.94,
+    "signal_details": {
+      "weekly_support": 4.729230769230769,
+      "weekly_pressure": 4.99,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600056",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.91,
+    "signal_details": {
+      "weekly_support": 10.599230769230768,
+      "weekly_pressure": 11.76,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688506",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 303.39,
+    "signal_details": {
+      "weekly_support": 300.40846153846155,
+      "weekly_pressure": 335.0,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600815",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.89,
+    "signal_details": {
+      "weekly_support": 2.775384615384615,
+      "weekly_pressure": 3.61,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600715",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.36,
+    "signal_details": {
+      "weekly_support": 2.3153846153846156,
+      "weekly_pressure": 2.43,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600800",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.23,
+    "signal_details": {
+      "weekly_support": 4.085384615384616,
+      "weekly_pressure": 4.53,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600180",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.64,
+    "signal_details": {
+      "weekly_support": 4.498461538461538,
+      "weekly_pressure": 4.8,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603587",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.85,
+    "signal_details": {
+      "weekly_support": 12.558461538461538,
+      "weekly_pressure": 12.98,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603318",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.98,
+    "signal_details": {
+      "weekly_support": 6.683846153846153,
+      "weekly_pressure": 7.09,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600101",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.34,
+    "signal_details": {
+      "weekly_support": 10.463076923076922,
+      "weekly_pressure": 12.1,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600936",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.83,
+    "signal_details": {
+      "weekly_support": 3.733846153846154,
+      "weekly_pressure": 4.03,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh605056",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 15.21,
+    "signal_details": {
+      "weekly_support": 14.876923076923077,
+      "weekly_pressure": 16.31,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603595",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.37,
+    "signal_details": {
+      "weekly_support": 19.223076923076924,
+      "weekly_pressure": 20.88,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600076",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.47,
+    "signal_details": {
+      "weekly_support": 2.36,
+      "weekly_pressure": 2.57,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600396",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.39,
+    "signal_details": {
+      "weekly_support": 3.293846153846154,
+      "weekly_pressure": 4.12,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600371",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.6,
+    "signal_details": {
+      "weekly_support": 9.236153846153845,
+      "weekly_pressure": 9.7,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600352",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.59,
+    "signal_details": {
+      "weekly_support": 10.316923076923077,
+      "weekly_pressure": 10.99,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601956",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.07,
+    "signal_details": {
+      "weekly_support": 6.743076923076924,
+      "weekly_pressure": 7.4,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603230",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.44,
+    "signal_details": {
+      "weekly_support": 12.983846153846155,
+      "weekly_pressure": 13.66,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600697",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.76,
+    "signal_details": {
+      "weekly_support": 12.222307692307693,
+      "weekly_pressure": 12.83,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600551",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.14,
+    "signal_details": {
+      "weekly_support": 8.946923076923078,
+      "weekly_pressure": 10.67,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600746",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.28,
+    "signal_details": {
+      "weekly_support": 8.045384615384615,
+      "weekly_pressure": 8.38,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600057",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.02,
+    "signal_details": {
+      "weekly_support": 7.133846153846155,
+      "weekly_pressure": 7.68,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600589",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.13,
+    "signal_details": {
+      "weekly_support": 7.897692307692308,
+      "weekly_pressure": 9.36,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601368",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.08,
+    "signal_details": {
+      "weekly_support": 4.895384615384615,
+      "weekly_pressure": 5.24,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600726",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.58,
+    "signal_details": {
+      "weekly_support": 2.483076923076923,
+      "weekly_pressure": 2.89,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688799",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 50.68,
+    "signal_details": {
+      "weekly_support": 49.825384615384614,
+      "weekly_pressure": 63.71,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600571",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.09,
+    "signal_details": {
+      "weekly_support": 17.375384615384615,
+      "weekly_pressure": 23.76,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601169",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.45,
+    "signal_details": {
+      "weekly_support": 6.634615384615385,
+      "weekly_pressure": 7.3,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600758",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.04,
+    "signal_details": {
+      "weekly_support": 3.8815384615384616,
+      "weekly_pressure": 4.33,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603353",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.3,
+    "signal_details": {
+      "weekly_support": 16.55153846153846,
+      "weekly_pressure": 19.3,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600880",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.22,
+    "signal_details": {
+      "weekly_support": 5.126153846153846,
+      "weekly_pressure": 6.07,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600429",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.69,
+    "signal_details": {
+      "weekly_support": 4.603846153846154,
+      "weekly_pressure": 5.0,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600638",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.95,
+    "signal_details": {
+      "weekly_support": 5.8076923076923075,
+      "weekly_pressure": 6.69,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603708",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.88,
+    "signal_details": {
+      "weekly_support": 10.493076923076924,
+      "weekly_pressure": 10.99,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600769",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.73,
+    "signal_details": {
+      "weekly_support": 10.668461538461539,
+      "weekly_pressure": 11.24,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600535",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.27,
+    "signal_details": {
+      "weekly_support": 16.084615384615383,
+      "weekly_pressure": 16.97,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603155",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.01,
+    "signal_details": {
+      "weekly_support": 15.340000000000002,
+      "weekly_pressure": 20.54,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600558",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.53,
+    "signal_details": {
+      "weekly_support": 5.323846153846153,
+      "weekly_pressure": 6.27,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600061",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.75,
+    "signal_details": {
+      "weekly_support": 7.445384615384615,
+      "weekly_pressure": 8.01,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600446",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.16,
+    "signal_details": {
+      "weekly_support": 17.813846153846153,
+      "weekly_pressure": 21.19,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600489",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.62,
+    "signal_details": {
+      "weekly_support": 14.475384615384614,
+      "weekly_pressure": 16.1,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603856",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.15,
+    "signal_details": {
+      "weekly_support": 11.862307692307693,
+      "weekly_pressure": 14.78,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603053",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.95,
+    "signal_details": {
+      "weekly_support": 9.584615384615386,
+      "weekly_pressure": 10.2,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600173",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.46,
+    "signal_details": {
+      "weekly_support": 6.173846153846153,
+      "weekly_pressure": 7.65,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600858",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.79,
+    "signal_details": {
+      "weekly_support": 5.611538461538462,
+      "weekly_pressure": 6.65,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600598",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 15.19,
+    "signal_details": {
+      "weekly_support": 14.640000000000002,
+      "weekly_pressure": 15.66,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603693",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.82,
+    "signal_details": {
+      "weekly_support": 13.843076923076923,
+      "weekly_pressure": 16.0,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600796",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.11,
+    "signal_details": {
+      "weekly_support": 5.9,
+      "weekly_pressure": 6.24,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600727",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.1,
+    "signal_details": {
+      "weekly_support": 7.813846153846153,
+      "weekly_pressure": 8.65,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603356",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.32,
+    "signal_details": {
+      "weekly_support": 13.743846153846153,
+      "weekly_pressure": 14.81,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600490",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.65,
+    "signal_details": {
+      "weekly_support": 4.487692307692308,
+      "weekly_pressure": 4.97,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600476",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.82,
+    "signal_details": {
+      "weekly_support": 18.32923076923077,
+      "weekly_pressure": 20.66,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601881",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.4,
+    "signal_details": {
+      "weekly_support": 16.823076923076925,
+      "weekly_pressure": 18.19,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601228",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.37,
+    "signal_details": {
+      "weekly_support": 3.2776923076923077,
+      "weekly_pressure": 3.45,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603065",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.24,
+    "signal_details": {
+      "weekly_support": 9.243846153846153,
+      "weekly_pressure": 10.39,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600790",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.83,
+    "signal_details": {
+      "weekly_support": 3.790769230769231,
+      "weekly_pressure": 4.09,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh605005",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.3,
+    "signal_details": {
+      "weekly_support": 18.426153846153845,
+      "weekly_pressure": 19.36,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603232",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.13,
+    "signal_details": {
+      "weekly_support": 15.866923076923076,
+      "weekly_pressure": 18.98,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600153",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.33,
+    "signal_details": {
+      "weekly_support": 10.233076923076924,
+      "weekly_pressure": 10.94,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600362",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 24.02,
+    "signal_details": {
+      "weekly_support": 22.88923076923077,
+      "weekly_pressure": 24.49,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600223",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.51,
+    "signal_details": {
+      "weekly_support": 8.28076923076923,
+      "weekly_pressure": 8.78,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600273",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.92,
+    "signal_details": {
+      "weekly_support": 8.659230769230769,
+      "weekly_pressure": 9.19,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603836",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.15,
+    "signal_details": {
+      "weekly_support": 13.693076923076923,
+      "weekly_pressure": 15.75,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600064",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.67,
+    "signal_details": {
+      "weekly_support": 7.722307692307693,
+      "weekly_pressure": 8.15,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600834",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.99,
+    "signal_details": {
+      "weekly_support": 8.77153846153846,
+      "weekly_pressure": 9.45,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600771",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 21.42,
+    "signal_details": {
+      "weekly_support": 20.85,
+      "weekly_pressure": 22.08,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603948",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 21.42,
+    "signal_details": {
+      "weekly_support": 20.725384615384616,
+      "weekly_pressure": 26.7,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300468",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 38.36,
+    "signal_details": {
+      "weekly_support": 36.78076923076923,
+      "weekly_pressure": 52.0,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000766",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 22.7,
+    "signal_details": {
+      "weekly_support": 23.373846153846156,
+      "weekly_pressure": 26.7,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000559",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.79,
+    "signal_details": {
+      "weekly_support": 7.7907692307692304,
+      "weekly_pressure": 8.4,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000505",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.77,
+    "signal_details": {
+      "weekly_support": 6.58,
+      "weekly_pressure": 7.5,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002114",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.33,
+    "signal_details": {
+      "weekly_support": 7.0600000000000005,
+      "weekly_pressure": 7.62,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000037",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.35,
+    "signal_details": {
+      "weekly_support": 9.163076923076924,
+      "weekly_pressure": 11.41,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz003019",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 30.58,
+    "signal_details": {
+      "weekly_support": 30.94846153846154,
+      "weekly_pressure": 35.5,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300121",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.82,
+    "signal_details": {
+      "weekly_support": 14.326153846153847,
+      "weekly_pressure": 15.46,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002537",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.44,
+    "signal_details": {
+      "weekly_support": 9.222307692307691,
+      "weekly_pressure": 12.27,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000755",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.02,
+    "signal_details": {
+      "weekly_support": 5.014615384615384,
+      "weekly_pressure": 5.37,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000555",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.15,
+    "signal_details": {
+      "weekly_support": 12.882307692307693,
+      "weekly_pressure": 15.2,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300040",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.63,
+    "signal_details": {
+      "weekly_support": 7.408461538461538,
+      "weekly_pressure": 8.48,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300645",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.85,
+    "signal_details": {
+      "weekly_support": 18.28923076923077,
+      "weekly_pressure": 23.32,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300957",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 45.61,
+    "signal_details": {
+      "weekly_support": 44.81923076923077,
+      "weekly_pressure": 47.07,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000791",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.72,
+    "signal_details": {
+      "weekly_support": 6.521538461538461,
+      "weekly_pressure": 7.39,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002169",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.64,
+    "signal_details": {
+      "weekly_support": 6.342307692307693,
+      "weekly_pressure": 6.65,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000756",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.85,
+    "signal_details": {
+      "weekly_support": 16.088461538461537,
+      "weekly_pressure": 17.98,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000899",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.49,
+    "signal_details": {
+      "weekly_support": 9.192307692307692,
+      "weekly_pressure": 10.36,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002871",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 11.21,
+    "signal_details": {
+      "weekly_support": 10.796153846153846,
+      "weekly_pressure": 13.07,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300255",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 44.46,
+    "signal_details": {
+      "weekly_support": 43.36769230769231,
+      "weekly_pressure": 53.0,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002802",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.13,
+    "signal_details": {
+      "weekly_support": 13.87153846153846,
+      "weekly_pressure": 14.27,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300741",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.4,
+    "signal_details": {
+      "weekly_support": 18.54230769230769,
+      "weekly_pressure": 20.28,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz001338",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 11.86,
+    "signal_details": {
+      "weekly_support": 11.855384615384613,
+      "weekly_pressure": 12.27,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002485",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.9,
+    "signal_details": {
+      "weekly_support": 3.9161538461538465,
+      "weekly_pressure": 4.85,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000906",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.61,
+    "signal_details": {
+      "weekly_support": 6.450000000000001,
+      "weekly_pressure": 6.79,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002616",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.34,
+    "signal_details": {
+      "weekly_support": 6.163846153846153,
+      "weekly_pressure": 6.6,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300682",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.58,
+    "signal_details": {
+      "weekly_support": 19.25307692307692,
+      "weekly_pressure": 26.07,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002667",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.76,
+    "signal_details": {
+      "weekly_support": 12.241538461538463,
+      "weekly_pressure": 13.62,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002348",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.87,
+    "signal_details": {
+      "weekly_support": 3.801538461538461,
+      "weekly_pressure": 4.2,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002495",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.76,
+    "signal_details": {
+      "weekly_support": 2.6361538461538463,
+      "weekly_pressure": 2.78,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300506",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.04,
+    "signal_details": {
+      "weekly_support": 3.983076923076923,
+      "weekly_pressure": 4.35,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300277",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.97,
+    "signal_details": {
+      "weekly_support": 12.71923076923077,
+      "weekly_pressure": 14.08,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002060",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.73,
+    "signal_details": {
+      "weekly_support": 3.588461538461538,
+      "weekly_pressure": 4.18,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300487",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 50.92,
+    "signal_details": {
+      "weekly_support": 49.697692307692314,
+      "weekly_pressure": 55.88,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300575",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.93,
+    "signal_details": {
+      "weekly_support": 6.678461538461538,
+      "weekly_pressure": 7.38,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002238",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.89,
+    "signal_details": {
+      "weekly_support": 8.692307692307692,
+      "weekly_pressure": 9.53,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002349",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.83,
+    "signal_details": {
+      "weekly_support": 7.53923076923077,
+      "weekly_pressure": 8.06,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002259",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.2,
+    "signal_details": {
+      "weekly_support": 4.13,
+      "weekly_pressure": 4.57,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz003003",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.75,
+    "signal_details": {
+      "weekly_support": 12.17153846153846,
+      "weekly_pressure": 14.88,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz001219",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.35,
+    "signal_details": {
+      "weekly_support": 13.885384615384615,
+      "weekly_pressure": 14.66,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300663",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.94,
+    "signal_details": {
+      "weekly_support": 18.643076923076922,
+      "weekly_pressure": 22.55,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000062",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 26.29,
+    "signal_details": {
+      "weekly_support": 25.874615384615385,
+      "weekly_pressure": 28.0,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000767",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.05,
+    "signal_details": {
+      "weekly_support": 2.9976923076923074,
+      "weekly_pressure": 3.52,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002177",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.47,
+    "signal_details": {
+      "weekly_support": 6.636923076923077,
+      "weekly_pressure": 8.61,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000862",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.7,
+    "signal_details": {
+      "weekly_support": 5.568461538461539,
+      "weekly_pressure": 5.97,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000902",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.04,
+    "signal_details": {
+      "weekly_support": 13.833076923076922,
+      "weekly_pressure": 15.03,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002095",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 20.79,
+    "signal_details": {
+      "weekly_support": 20.11,
+      "weekly_pressure": 23.39,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000027",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.68,
+    "signal_details": {
+      "weekly_support": 6.523076923076923,
+      "weekly_pressure": 6.79,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000661",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 104.44,
+    "signal_details": {
+      "weekly_support": 103.62000000000002,
+      "weekly_pressure": 110.66,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000881",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.17,
+    "signal_details": {
+      "weekly_support": 8.086923076923076,
+      "weekly_pressure": 9.07,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002703",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.58,
+    "signal_details": {
+      "weekly_support": 12.417692307692308,
+      "weekly_pressure": 14.01,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002202",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.25,
+    "signal_details": {
+      "weekly_support": 9.772307692307693,
+      "weekly_pressure": 10.75,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300989",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.42,
+    "signal_details": {
+      "weekly_support": 16.763846153846153,
+      "weekly_pressure": 18.95,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002959",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 49.83,
+    "signal_details": {
+      "weekly_support": 47.81384615384616,
+      "weekly_pressure": 50.47,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002825",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.53,
+    "signal_details": {
+      "weekly_support": 10.308461538461538,
+      "weekly_pressure": 11.06,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002909",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.5,
+    "signal_details": {
+      "weekly_support": 6.23,
+      "weekly_pressure": 6.8,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz003042",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.86,
+    "signal_details": {
+      "weekly_support": 17.05461538461538,
+      "weekly_pressure": 18.6,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002554",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.96,
+    "signal_details": {
+      "weekly_support": 2.8276923076923075,
+      "weekly_pressure": 3.29,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002880",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 29.67,
+    "signal_details": {
+      "weekly_support": 28.98615384615385,
+      "weekly_pressure": 30.81,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000407",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.58,
+    "signal_details": {
+      "weekly_support": 3.4453846153846155,
+      "weekly_pressure": 3.68,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000600",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.38,
+    "signal_details": {
+      "weekly_support": 7.223846153846154,
+      "weekly_pressure": 8.49,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz003016",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.06,
+    "signal_details": {
+      "weekly_support": 7.728461538461539,
+      "weekly_pressure": 9.9,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002715",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.88,
+    "signal_details": {
+      "weekly_support": 17.962307692307693,
+      "weekly_pressure": 19.6,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz003002",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 26.05,
+    "signal_details": {
+      "weekly_support": 26.835384615384616,
+      "weekly_pressure": 34.61,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300569",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.6,
+    "signal_details": {
+      "weekly_support": 5.386923076923077,
+      "weekly_pressure": 6.5,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002277",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.12,
+    "signal_details": {
+      "weekly_support": 6.015384615384615,
+      "weekly_pressure": 6.55,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300085",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 42.27,
+    "signal_details": {
+      "weekly_support": 40.47461538461538,
+      "weekly_pressure": 48.53,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300239",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.97,
+    "signal_details": {
+      "weekly_support": 5.7407692307692315,
+      "weekly_pressure": 6.4,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000539",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.73,
+    "signal_details": {
+      "weekly_support": 4.726923076923077,
+      "weekly_pressure": 5.4,
+      "daily_pattern": "Bullish_Engulfing",
+      "signal_state": "MTF_V2_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002769",
+    "signal_type": "MTF_V2_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.82,
+    "signal_details": {
+      "weekly_support": 8.546923076923077,
+      "weekly_pressure": 11.22,
+      "daily_pattern": "Hammer",
+      "signal_state": "MTF_V2_BUY"
+    }
+  }
+]

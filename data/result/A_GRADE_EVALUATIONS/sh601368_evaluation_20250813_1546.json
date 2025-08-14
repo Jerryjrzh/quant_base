@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:46:55.762576",
+  "stock_code": "sh601368",
+  "current_price": 5.08,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 4.83,
+    "target_price_2": 4.83,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.049212598425196846,
+    "discount_2": 0.049212598425196846,
+    "stop_loss": {
+      "conservative": 4.93,
+      "moderate": 4.67,
+      "aggressive": 4.67,
+      "technical": 4.83
+    },
+    "take_profit": {
+      "conservative": 5.49,
+      "moderate": 5.59,
+      "aggressive": 6.1
+    }
+  }
+}

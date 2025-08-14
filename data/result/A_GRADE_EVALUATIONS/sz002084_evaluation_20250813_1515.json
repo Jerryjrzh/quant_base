@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.415877",
+  "stock_code": "sz002084",
+  "current_price": 3.69,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 3.51,
+    "target_price_2": 3.41,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.04878048780487809,
+    "discount_2": 0.07588075880758803,
+    "stop_loss": {
+      "conservative": 3.58,
+      "moderate": 3.39,
+      "aggressive": 3.39,
+      "technical": 3.51
+    },
+    "take_profit": {
+      "conservative": 3.99,
+      "moderate": 4.06,
+      "aggressive": 4.43
+    }
+  }
+}

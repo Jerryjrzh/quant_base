@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T16:07:57.621645",
+  "stock_code": "sz002320",
+  "current_price": 8.06,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 7.66,
+    "target_price_2": 7.66,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04962779156327547,
+    "discount_2": 0.04962779156327547,
+    "stop_loss": {
+      "conservative": 7.82,
+      "moderate": 7.42,
+      "aggressive": 7.42,
+      "technical": 7.66
+    },
+    "take_profit": {
+      "conservative": 8.7,
+      "moderate": 8.87,
+      "aggressive": 9.67
+    }
+  }
+}

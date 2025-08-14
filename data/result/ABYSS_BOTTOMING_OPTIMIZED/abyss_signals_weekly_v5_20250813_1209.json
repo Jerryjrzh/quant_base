@@ -1,0 +1,3212 @@
+[
+  {
+    "stock_code": "sh603051",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 20.65,
+    "details": {
+      "stage0": {
+        "price_pos": 0.028437290409121362,
+        "drop_pct": 0.7781478298238076
+      },
+      "stage1": {
+        "support": 19.94,
+        "resistance": 30.09,
+        "avg_volume": 13966082.166666666,
+        "volatility": 0.39474963539134655
+      },
+      "stage2": {
+        "pit_low": 19.9
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603279",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 15.99,
+    "details": {
+      "stage0": {
+        "price_pos": 0.07819548872180453,
+        "drop_pct": 0.5349040139616056
+      },
+      "stage1": {
+        "support": 14.43,
+        "resistance": 18.8,
+        "avg_volume": 25270544.583333332,
+        "volatility": 0.2682215743440234
+      },
+      "stage2": {
+        "pit_low": 15.47
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600032",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 7.63,
+    "details": {
+      "stage0": {
+        "price_pos": 0.19199057714958773,
+        "drop_pct": 0.47342995169082125
+      },
+      "stage1": {
+        "support": 7.15,
+        "resistance": 9.3,
+        "avg_volume": 84114007.75,
+        "volatility": 0.2791452529077631
+      },
+      "stage2": {
+        "pit_low": 7.46
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603596",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 50.16,
+    "details": {
+      "stage0": {
+        "price_pos": 0.24781262619464256,
+        "drop_pct": 0.5269709543568465
+      },
+      "stage1": {
+        "support": 47.94,
+        "resistance": 67.4,
+        "avg_volume": 40789678.375,
+        "volatility": 0.34502526521083904
+      },
+      "stage2": {
+        "pit_low": 46.69
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603517",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 15.98,
+    "details": {
+      "stage0": {
+        "price_pos": 0.08398104265402843,
+        "drop_pct": 0.7514774494556764
+      },
+      "stage1": {
+        "support": 14.51,
+        "resistance": 18.88,
+        "avg_volume": 69315840.70833333,
+        "volatility": 0.27580403397585923
+      },
+      "stage2": {
+        "pit_low": 15.09
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600600",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 67.97,
+    "details": {
+      "stage0": {
+        "price_pos": 0.20386473429951685,
+        "drop_pct": 0.4590529247910864
+      },
+      "stage1": {
+        "support": 67.18,
+        "resistance": 81.88,
+        "avg_volume": 29823938.25,
+        "volatility": 0.20220314308967302
+      },
+      "stage2": {
+        "pit_low": 67.49
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603801",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 10.09,
+    "details": {
+      "stage0": {
+        "price_pos": 0.042277531537674745,
+        "drop_pct": 0.7357255107386066
+      },
+      "stage1": {
+        "support": 9.23,
+        "resistance": 13.1,
+        "avg_volume": 36233814.875,
+        "volatility": 0.35160508782556016
+      },
+      "stage2": {
+        "pit_low": 9.82
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600085",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 36.61,
+    "details": {
+      "stage0": {
+        "price_pos": 0.17254784688995214,
+        "drop_pct": 0.4304604853764779
+      },
+      "stage1": {
+        "support": 33.3,
+        "resistance": 38.36,
+        "avg_volume": 35230255.875,
+        "volatility": 0.1379059732000909
+      },
+      "stage2": {
+        "pit_low": 35.92
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh601633",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 22.52,
+    "details": {
+      "stage0": {
+        "price_pos": 0.20225385527876633,
+        "drop_pct": 0.37392271337225463
+      },
+      "stage1": {
+        "support": 20.6,
+        "resistance": 27.79,
+        "avg_volume": 89917765.33333333,
+        "volatility": 0.30522145181831034
+      },
+      "stage2": {
+        "pit_low": 21.5
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603939",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 24.05,
+    "details": {
+      "stage0": {
+        "price_pos": 0.11601716124419025,
+        "drop_pct": 0.6727891156462585
+      },
+      "stage1": {
+        "support": 22.66,
+        "resistance": 29.26,
+        "avg_volume": 36170132.333333336,
+        "volatility": 0.2573433844554199
+      },
+      "stage2": {
+        "pit_low": 23.6
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600657",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 3.89,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2684563758389262,
+        "drop_pct": 0.45670391061452514
+      },
+      "stage1": {
+        "support": 3.73,
+        "resistance": 5.08,
+        "avg_volume": 123920061.375,
+        "volatility": 0.31883487502460145
+      },
+      "stage2": {
+        "pit_low": 3.8
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh688366",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 54.9,
+    "details": {
+      "stage0": {
+        "price_pos": 0.08245243128964061,
+        "drop_pct": 0.5425
+      },
+      "stage1": {
+        "support": 49.05,
+        "resistance": 65.0,
+        "avg_volume": 3921220.0416666665,
+        "volatility": 0.2912178199744386
+      },
+      "stage2": {
+        "pit_low": 53.03
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600976",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 42.14,
+    "details": {
+      "stage0": {
+        "price_pos": 0.11718588817825457,
+        "drop_pct": 0.5038266807959496
+      },
+      "stage1": {
+        "support": 38.41,
+        "resistance": 48.14,
+        "avg_volume": 10437020.041666666,
+        "volatility": 0.23404191346703154
+      },
+      "stage2": {
+        "pit_low": 40.33
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603529",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 35.66,
+    "details": {
+      "stage0": {
+        "price_pos": 0.23448141661801902,
+        "drop_pct": 0.5245333333333334
+      },
+      "stage1": {
+        "support": 33.33,
+        "resistance": 47.44,
+        "avg_volume": 28031427.333333332,
+        "volatility": 0.35568439626922105
+      },
+      "stage2": {
+        "pit_low": 34.55
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603345",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 73.68,
+    "details": {
+      "stage0": {
+        "price_pos": 0.05058150267675839,
+        "drop_pct": 0.5826441599637475
+      },
+      "stage1": {
+        "support": 71.5,
+        "resistance": 86.66,
+        "avg_volume": 19104760.958333332,
+        "volatility": 0.19235629054343398
+      },
+      "stage2": {
+        "pit_low": 73.3
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600138",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 9.89,
+    "details": {
+      "stage0": {
+        "price_pos": 0.1391625615763548,
+        "drop_pct": 0.41409952606635064
+      },
+      "stage1": {
+        "support": 9.29,
+        "resistance": 11.27,
+        "avg_volume": 76178083.83333333,
+        "volatility": 0.19797525309336336
+      },
+      "stage2": {
+        "pit_low": 9.77
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh605011",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 22.54,
+    "details": {
+      "stage0": {
+        "price_pos": 0.27800829875518673,
+        "drop_pct": 0.5008857395925598
+      },
+      "stage1": {
+        "support": 21.17,
+        "resistance": 28.31,
+        "avg_volume": 37047297.375,
+        "volatility": 0.3026652772135576
+      },
+      "stage2": {
+        "pit_low": 22.05
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600809",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 186.62,
+    "details": {
+      "stage0": {
+        "price_pos": 0.23057221025670882,
+        "drop_pct": 0.41461731493099124
+      },
+      "stage1": {
+        "support": 168.3,
+        "resistance": 228.93,
+        "avg_volume": 31085182.291666668,
+        "volatility": 0.3069115851150665
+      },
+      "stage2": {
+        "pit_low": 176.66
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600477",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 2.69,
+    "details": {
+      "stage0": {
+        "price_pos": 0.1453201970443349,
+        "drop_pct": 0.5633116883116883
+      },
+      "stage1": {
+        "support": 2.42,
+        "resistance": 3.14,
+        "avg_volume": 152768015.20833334,
+        "volatility": 0.2672027215092007
+      },
+      "stage2": {
+        "pit_low": 2.62
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600566",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 26.62,
+    "details": {
+      "stage0": {
+        "price_pos": 0.22505219206680588,
+        "drop_pct": 0.41080123948649844
+      },
+      "stage1": {
+        "support": 25.0,
+        "resistance": 30.39,
+        "avg_volume": 31099465.333333332,
+        "volatility": 0.19777397260273977
+      },
+      "stage2": {
+        "pit_low": 26.39
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603392",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 56.58,
+    "details": {
+      "stage0": {
+        "price_pos": 0.13104822638501393,
+        "drop_pct": 0.658312700042273
+      },
+      "stage1": {
+        "support": 57.6,
+        "resistance": 80.0,
+        "avg_volume": 19183685.166666668,
+        "volatility": 0.34169998283872854
+      },
+      "stage2": {
+        "pit_low": 56.05
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600559",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 17.03,
+    "details": {
+      "stage0": {
+        "price_pos": 0.07657095297544741,
+        "drop_pct": 0.5657827638959714
+      },
+      "stage1": {
+        "support": 16.22,
+        "resistance": 20.06,
+        "avg_volume": 73572085.20833333,
+        "volatility": 0.21682665160926032
+      },
+      "stage2": {
+        "pit_low": 16.6
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600702",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 53.26,
+    "details": {
+      "stage0": {
+        "price_pos": 0.07804489005354903,
+        "drop_pct": 0.7523942352394236
+      },
+      "stage1": {
+        "support": 48.25,
+        "resistance": 62.6,
+        "avg_volume": 38543412.75,
+        "volatility": 0.26149150380392694
+      },
+      "stage2": {
+        "pit_low": 51.4
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603927",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 20.15,
+    "details": {
+      "stage0": {
+        "price_pos": 0.16897328612809778,
+        "drop_pct": 0.5616706547748532
+      },
+      "stage1": {
+        "support": 17.92,
+        "resistance": 25.33,
+        "avg_volume": 64878940.0,
+        "volatility": 0.3604450840106202
+      },
+      "stage2": {
+        "pit_low": 19.52
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603711",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 13.74,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2660280029476787,
+        "drop_pct": 0.420253164556962
+      },
+      "stage1": {
+        "support": 12.5,
+        "resistance": 16.13,
+        "avg_volume": 29847510.041666668,
+        "volatility": 0.2618103137396321
+      },
+      "stage2": {
+        "pit_low": 13.36
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600280",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 3.48,
+    "details": {
+      "stage0": {
+        "price_pos": 0.3350253807106599,
+        "drop_pct": 0.42950819672131146
+      },
+      "stage1": {
+        "support": 3.1,
+        "resistance": 4.18,
+        "avg_volume": 210893978.41666666,
+        "volatility": 0.3044397463002113
+      },
+      "stage2": {
+        "pit_low": 3.41
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600217",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 4.47,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2642369020501138,
+        "drop_pct": 0.4194805194805195
+      },
+      "stage1": {
+        "support": 4.3,
+        "resistance": 5.65,
+        "avg_volume": 126215358.125,
+        "volatility": 0.28731045490822044
+      },
+      "stage2": {
+        "pit_low": 4.36
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603606",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 48.91,
+    "details": {
+      "stage0": {
+        "price_pos": 0.3009762387179959,
+        "drop_pct": 0.4369099700667742
+      },
+      "stage1": {
+        "support": 45.22,
+        "resistance": 54.34,
+        "avg_volume": 40893305.25,
+        "volatility": 0.18500862156405326
+      },
+      "stage2": {
+        "pit_low": 47.28
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh688019",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 146.5,
+    "details": {
+      "stage0": {
+        "price_pos": 0.24004588690789158,
+        "drop_pct": 0.5204425676781564
+      },
+      "stage1": {
+        "support": 133.08,
+        "resistance": 192.54,
+        "avg_volume": 12179767.5,
+        "volatility": 0.36347242704648075
+      },
+      "stage2": {
+        "pit_low": 145.28
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh688696",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 107.77,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2477745451387381,
+        "drop_pct": 0.6164768683274022
+      },
+      "stage1": {
+        "support": 104.0,
+        "resistance": 136.98,
+        "avg_volume": 4163539.3333333335,
+        "volatility": 0.2741631567279981
+      },
+      "stage2": {
+        "pit_low": 102.61
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600872",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 18.92,
+    "details": {
+      "stage0": {
+        "price_pos": 0.10733182161753603,
+        "drop_pct": 0.5552421250587681
+      },
+      "stage1": {
+        "support": 18.41,
+        "resistance": 22.26,
+        "avg_volume": 51331583.5,
+        "volatility": 0.19382853307042025
+      },
+      "stage2": {
+        "pit_low": 18.7
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600970",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 9.23,
+    "details": {
+      "stage0": {
+        "price_pos": 0.1685552407932013,
+        "drop_pct": 0.3887417218543046
+      },
+      "stage1": {
+        "support": 8.25,
+        "resistance": 10.2,
+        "avg_volume": 103351650.70833333,
+        "volatility": 0.21102944492041298
+      },
+      "stage2": {
+        "pit_low": 9.0
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603288",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 38.49,
+    "details": {
+      "stage0": {
+        "price_pos": 0.10324650811627027,
+        "drop_pct": 0.5524418604651162
+      },
+      "stage1": {
+        "support": 37.92,
+        "resistance": 45.75,
+        "avg_volume": 62372284.875,
+        "volatility": 0.19042600624214662
+      },
+      "stage2": {
+        "pit_low": 37.9
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh601238",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 7.63,
+    "details": {
+      "stage0": {
+        "price_pos": 0.0706179066834804,
+        "drop_pct": 0.49133333333333334
+      },
+      "stage1": {
+        "support": 7.33,
+        "resistance": 9.51,
+        "avg_volume": 115228899.91666667,
+        "volatility": 0.26948235900077255
+      },
+      "stage2": {
+        "pit_low": 7.46
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600116",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 6.8,
+    "details": {
+      "stage0": {
+        "price_pos": 0.10650887573964497,
+        "drop_pct": 0.39982347749338043
+      },
+      "stage1": {
+        "support": 6.26,
+        "resistance": 7.61,
+        "avg_volume": 78275774.91666667,
+        "volatility": 0.19690063810391986
+      },
+      "stage2": {
+        "pit_low": 6.73
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603589",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 34.35,
+    "details": {
+      "stage0": {
+        "price_pos": 0.03346411262404807,
+        "drop_pct": 0.5493900039354584
+      },
+      "stage1": {
+        "support": 32.9,
+        "resistance": 38.71,
+        "avg_volume": 22443719.333333332,
+        "volatility": 0.16309344187515357
+      },
+      "stage2": {
+        "pit_low": 33.22
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603317",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 11.25,
+    "details": {
+      "stage0": {
+        "price_pos": 0.11956521739130435,
+        "drop_pct": 0.6428571428571429
+      },
+      "stage1": {
+        "support": 10.5,
+        "resistance": 14.93,
+        "avg_volume": 43626053.833333336,
+        "volatility": 0.3590193827243871
+      },
+      "stage2": {
+        "pit_low": 11.11
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600373",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 10.05,
+    "details": {
+      "stage0": {
+        "price_pos": 0.16271186440677968,
+        "drop_pct": 0.4957350727546412
+      },
+      "stage1": {
+        "support": 9.91,
+        "resistance": 12.28,
+        "avg_volume": 55835842.541666664,
+        "volatility": 0.21989407352998025
+      },
+      "stage2": {
+        "pit_low": 9.94
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603866",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 5.58,
+    "details": {
+      "stage0": {
+        "price_pos": 0.05634861006761833,
+        "drop_pct": 0.6923925027563396
+      },
+      "stage1": {
+        "support": 5.27,
+        "resistance": 6.37,
+        "avg_volume": 91277323.375,
+        "volatility": 0.19450379429750247
+      },
+      "stage2": {
+        "pit_low": 5.43
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600422",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 14.64,
+    "details": {
+      "stage0": {
+        "price_pos": 0.24272486772486773,
+        "drop_pct": 0.4388654656956688
+      },
+      "stage1": {
+        "support": 14.07,
+        "resistance": 18.64,
+        "avg_volume": 62258144.5,
+        "volatility": 0.2830378570875591
+      },
+      "stage2": {
+        "pit_low": 14.41
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600132",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 55.25,
+    "details": {
+      "stage0": {
+        "price_pos": 0.049079754601226974,
+        "drop_pct": 0.6067615658362989
+      },
+      "stage1": {
+        "support": 54.0,
+        "resistance": 60.5,
+        "avg_volume": 19446007.041666668,
+        "volatility": 0.11401591837629639
+      },
+      "stage2": {
+        "pit_low": 54.9
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600115",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 3.84,
+    "details": {
+      "stage0": {
+        "price_pos": 0.1762452107279693,
+        "drop_pct": 0.35893155258764614
+      },
+      "stage1": {
+        "support": 3.47,
+        "resistance": 4.14,
+        "avg_volume": 354884986.7916667,
+        "volatility": 0.1748776508972266
+      },
+      "stage2": {
+        "pit_low": 3.76
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600779",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 43.04,
+    "details": {
+      "stage0": {
+        "price_pos": 0.20384307445956765,
+        "drop_pct": 0.5360068995256576
+      },
+      "stage1": {
+        "support": 40.0,
+        "resistance": 54.68,
+        "avg_volume": 23598523.625,
+        "volatility": 0.31908419069700045
+      },
+      "stage2": {
+        "pit_low": 41.0
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603043",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 16.16,
+    "details": {
+      "stage0": {
+        "price_pos": 0.17828632251197443,
+        "drop_pct": 0.48860759493670886
+      },
+      "stage1": {
+        "support": 14.42,
+        "resistance": 17.68,
+        "avg_volume": 18315031.166666668,
+        "volatility": 0.20603570864275556
+      },
+      "stage2": {
+        "pit_low": 15.72
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603885",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 12.57,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2572815533980583,
+        "drop_pct": 0.3783382789317507
+      },
+      "stage1": {
+        "support": 11.91,
+        "resistance": 14.48,
+        "avg_volume": 78112448.70833333,
+        "volatility": 0.19650195928509992
+      },
+      "stage2": {
+        "pit_low": 12.17
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600199",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 10.55,
+    "details": {
+      "stage0": {
+        "price_pos": 0.04733727810650892,
+        "drop_pct": 0.6648665819567979
+      },
+      "stage1": {
+        "support": 9.51,
+        "resistance": 12.54,
+        "avg_volume": 65418222.041666664,
+        "volatility": 0.2807288449660284
+      },
+      "stage2": {
+        "pit_low": 10.35
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh605108",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 19.53,
+    "details": {
+      "stage0": {
+        "price_pos": 0.16438891058180402,
+        "drop_pct": 0.5228438797947715
+      },
+      "stage1": {
+        "support": 18.6,
+        "resistance": 24.37,
+        "avg_volume": 16581712.958333334,
+        "volatility": 0.2773482876026437
+      },
+      "stage2": {
+        "pit_low": 18.87
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh601111",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 7.3,
+    "details": {
+      "stage0": {
+        "price_pos": 0.19120135363790183,
+        "drop_pct": 0.3956953642384106
+      },
+      "stage1": {
+        "support": 6.71,
+        "resistance": 8.21,
+        "avg_volume": 343121925.8333333,
+        "volatility": 0.20112855466785864
+      },
+      "stage2": {
+        "pit_low": 7.17
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603886",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 12.78,
+    "details": {
+      "stage0": {
+        "price_pos": 0.14868309260832624,
+        "drop_pct": 0.43947368421052635
+      },
+      "stage1": {
+        "support": 12.45,
+        "resistance": 14.98,
+        "avg_volume": 13732967.416666666,
+        "volatility": 0.18760427609219563
+      },
+      "stage2": {
+        "pit_low": 12.54
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603919",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 18.97,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2283105022831049,
+        "drop_pct": 0.38409090909090915
+      },
+      "stage1": {
+        "support": 17.44,
+        "resistance": 20.22,
+        "avg_volume": 18058506.5,
+        "volatility": 0.14807252713109464
+      },
+      "stage2": {
+        "pit_low": 18.11
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600094",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 3.22,
+    "details": {
+      "stage0": {
+        "price_pos": 0.32191780821917815,
+        "drop_pct": 0.38076923076923075
+      },
+      "stage1": {
+        "support": 2.88,
+        "resistance": 3.82,
+        "avg_volume": 121947328.41666667,
+        "volatility": 0.2905344494526722
+      },
+      "stage2": {
+        "pit_low": 3.07
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603100",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 20.42,
+    "details": {
+      "stage0": {
+        "price_pos": 0.17289719626168232,
+        "drop_pct": 0.5298180980888786
+      },
+      "stage1": {
+        "support": 20.0,
+        "resistance": 24.32,
+        "avg_volume": 31414582.333333332,
+        "volatility": 0.205030849549122
+      },
+      "stage2": {
+        "pit_low": 20.07
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600754",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 22.3,
+    "details": {
+      "stage0": {
+        "price_pos": 0.017814981755741612,
+        "drop_pct": 0.6723479282985602
+      },
+      "stage1": {
+        "support": 21.7,
+        "resistance": 28.28,
+        "avg_volume": 41848071.625,
+        "volatility": 0.2683022137650998
+      },
+      "stage2": {
+        "pit_low": 22.06
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600491",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 3.47,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2388663967611336,
+        "drop_pct": 0.5200553250345782
+      },
+      "stage1": {
+        "support": 3.34,
+        "resistance": 4.31,
+        "avg_volume": 111156348.66666667,
+        "volatility": 0.25423173528448173
+      },
+      "stage2": {
+        "pit_low": 3.39
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh600436",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 202.83,
+    "details": {
+      "stage0": {
+        "price_pos": 0.14798476037698025,
+        "drop_pct": 0.38592188919164394
+      },
+      "stage1": {
+        "support": 193.16,
+        "resistance": 212.67,
+        "avg_volume": 9550419.458333334,
+        "volatility": 0.09569393635936313
+      },
+      "stage2": {
+        "pit_low": 198.55
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sh603888",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 19.36,
+    "details": {
+      "stage0": {
+        "price_pos": 0.1640625,
+        "drop_pct": 0.5487179487179488
+      },
+      "stage1": {
+        "support": 18.9,
+        "resistance": 27.19,
+        "avg_volume": 41073890.166666664,
+        "volatility": 0.3552920587867642
+      },
+      "stage2": {
+        "pit_low": 18.88
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300567",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 60.1,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2562620423892101,
+        "drop_pct": 0.4906779661016949
+      },
+      "stage1": {
+        "support": 55.0,
+        "resistance": 74.17,
+        "avg_volume": 30714320.333333332,
+        "volatility": 0.30977854685259126
+      },
+      "stage2": {
+        "pit_low": 57.98
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002154",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 3.86,
+    "details": {
+      "stage0": {
+        "price_pos": 0.19121447028423766,
+        "drop_pct": 0.4477825464949929
+      },
+      "stage1": {
+        "support": 3.6,
+        "resistance": 4.42,
+        "avg_volume": 130385430.33333333,
+        "volatility": 0.2069618256388684
+      },
+      "stage2": {
+        "pit_low": 3.76
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000629",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 2.75,
+    "details": {
+      "stage0": {
+        "price_pos": 0.12887828162291168,
+        "drop_pct": 0.5703125
+      },
+      "stage1": {
+        "support": 2.44,
+        "resistance": 3.07,
+        "avg_volume": 395425889.75,
+        "volatility": 0.2327227951362167
+      },
+      "stage2": {
+        "pit_low": 2.65
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300999",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 30.76,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2641025641025643,
+        "drop_pct": 0.35889954147561476
+      },
+      "stage1": {
+        "support": 28.57,
+        "resistance": 33.6,
+        "avg_volume": 32653907.458333332,
+        "volatility": 0.16216869735763897
+      },
+      "stage2": {
+        "pit_low": 30.01
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002677",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 7.09,
+    "details": {
+      "stage0": {
+        "price_pos": 0.1038961038961039,
+        "drop_pct": 0.5170299727520435
+      },
+      "stage1": {
+        "support": 6.62,
+        "resistance": 8.29,
+        "avg_volume": 26907964.25,
+        "volatility": 0.22910712244197998
+      },
+      "stage2": {
+        "pit_low": 6.88
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300413",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 22.48,
+    "details": {
+      "stage0": {
+        "price_pos": 0.17007327419976861,
+        "drop_pct": 0.4890909090909091
+      },
+      "stage1": {
+        "support": 20.94,
+        "resistance": 30.15,
+        "avg_volume": 63182963.375,
+        "volatility": 0.37301292652468854
+      },
+      "stage2": {
+        "pit_low": 21.68
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002304",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 69.68,
+    "details": {
+      "stage0": {
+        "price_pos": 0.05106282845713393,
+        "drop_pct": 0.6345326759676911
+      },
+      "stage1": {
+        "support": 63.17,
+        "resistance": 80.33,
+        "avg_volume": 28479182.0,
+        "volatility": 0.24070415785105606
+      },
+      "stage2": {
+        "pit_low": 67.35
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002568",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 24.64,
+    "details": {
+      "stage0": {
+        "price_pos": 0.321762349799733,
+        "drop_pct": 0.45195729537366547
+      },
+      "stage1": {
+        "support": 22.71,
+        "resistance": 31.7,
+        "avg_volume": 49028437.791666664,
+        "volatility": 0.34700376338898
+      },
+      "stage2": {
+        "pit_low": 23.8
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300848",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 17.36,
+    "details": {
+      "stage0": {
+        "price_pos": 0.18162839248434237,
+        "drop_pct": 0.6124999999999999
+      },
+      "stage1": {
+        "support": 16.01,
+        "resistance": 19.97,
+        "avg_volume": 21650558.416666668,
+        "volatility": 0.2250905904364918
+      },
+      "stage2": {
+        "pit_low": 16.75
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002372",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 10.88,
+    "details": {
+      "stage0": {
+        "price_pos": 0.04537205081669691,
+        "drop_pct": 0.5918979744936234
+      },
+      "stage1": {
+        "support": 10.13,
+        "resistance": 12.68,
+        "avg_volume": 44704301.208333336,
+        "volatility": 0.2213381555153706
+      },
+      "stage2": {
+        "pit_low": 10.56
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000711",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 1.71,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2135922330097087,
+        "drop_pct": 0.4864864864864865
+      },
+      "stage1": {
+        "support": 1.58,
+        "resistance": 1.94,
+        "avg_volume": 200896206.0,
+        "volatility": 0.2020107552022445
+      },
+      "stage2": {
+        "pit_low": 1.65
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002567",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 4.93,
+    "details": {
+      "stage0": {
+        "price_pos": 0.08318264014466545,
+        "drop_pct": 0.507
+      },
+      "stage1": {
+        "support": 4.66,
+        "resistance": 5.51,
+        "avg_volume": 203382056.875,
+        "volatility": 0.17339566510837223
+      },
+      "stage2": {
+        "pit_low": 4.79
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002415",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 28.85,
+    "details": {
+      "stage0": {
+        "price_pos": 0.17157065893079154,
+        "drop_pct": 0.4092956592956593
+      },
+      "stage1": {
+        "support": 27.02,
+        "resistance": 34.07,
+        "avg_volume": 185110900.875,
+        "volatility": 0.24037505327461287
+      },
+      "stage2": {
+        "pit_low": 28.0
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002984",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 19.3,
+    "details": {
+      "stage0": {
+        "price_pos": 0.0603363006923839,
+        "drop_pct": 0.49608355091383805
+      },
+      "stage1": {
+        "support": 18.08,
+        "resistance": 25.59,
+        "avg_volume": 70038377.29166667,
+        "volatility": 0.3606026048856612
+      },
+      "stage2": {
+        "pit_low": 19.09
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000707",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 6.68,
+    "details": {
+      "stage0": {
+        "price_pos": 0.18083462132921171,
+        "drop_pct": 0.4424040066777964
+      },
+      "stage1": {
+        "support": 5.99,
+        "resistance": 7.64,
+        "avg_volume": 37826819.5,
+        "volatility": 0.24776324845147962
+      },
+      "stage2": {
+        "pit_low": 6.51
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000610",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 12.79,
+    "details": {
+      "stage0": {
+        "price_pos": 0.3348534201954397,
+        "drop_pct": 0.4439130434782609
+      },
+      "stage1": {
+        "support": 11.8,
+        "resistance": 14.89,
+        "avg_volume": 65259449.333333336,
+        "volatility": 0.24089654052298196
+      },
+      "stage2": {
+        "pit_low": 12.51
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000721",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 8.53,
+    "details": {
+      "stage0": {
+        "price_pos": 0.25377969762419,
+        "drop_pct": 0.61834451901566
+      },
+      "stage1": {
+        "support": 7.95,
+        "resistance": 10.51,
+        "avg_volume": 117374011.79166667,
+        "volatility": 0.2848268508645867
+      },
+      "stage2": {
+        "pit_low": 8.41
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300298",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 21.03,
+    "details": {
+      "stage0": {
+        "price_pos": 0.0919080919080919,
+        "drop_pct": 0.46365723029839323
+      },
+      "stage1": {
+        "support": 19.32,
+        "resistance": 27.69,
+        "avg_volume": 31351296.708333332,
+        "volatility": 0.36990387802452773
+      },
+      "stage2": {
+        "pit_low": 20.6
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000069",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 2.32,
+    "details": {
+      "stage0": {
+        "price_pos": 0.12614678899082565,
+        "drop_pct": 0.6215334420880914
+      },
+      "stage1": {
+        "support": 2.18,
+        "resistance": 2.64,
+        "avg_volume": 229942080.70833334,
+        "volatility": 0.19263653812598147
+      },
+      "stage2": {
+        "pit_low": 2.24
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002216",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 11.35,
+    "details": {
+      "stage0": {
+        "price_pos": 0.22846441947565538,
+        "drop_pct": 0.42062276671771315
+      },
+      "stage1": {
+        "support": 10.24,
+        "resistance": 12.28,
+        "avg_volume": 27419515.875,
+        "volatility": 0.17949846018477775
+      },
+      "stage2": {
+        "pit_low": 10.98
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300316",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 28.75,
+    "details": {
+      "stage0": {
+        "price_pos": 0.11736565141125818,
+        "drop_pct": 0.6581450653983353
+      },
+      "stage1": {
+        "support": 25.68,
+        "resistance": 35.47,
+        "avg_volume": 51477366.083333336,
+        "volatility": 0.3335888917284266
+      },
+      "stage2": {
+        "pit_low": 27.77
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000090",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 3.58,
+    "details": {
+      "stage0": {
+        "price_pos": 0.08941176470588233,
+        "drop_pct": 0.5194630872483221
+      },
+      "stage1": {
+        "support": 3.44,
+        "resistance": 4.07,
+        "avg_volume": 94891435.95833333,
+        "volatility": 0.17011701170117022
+      },
+      "stage2": {
+        "pit_low": 3.48
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002507",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 13.35,
+    "details": {
+      "stage0": {
+        "price_pos": 0.09766233766233762,
+        "drop_pct": 0.5654296874999999
+      },
+      "stage1": {
+        "support": 12.23,
+        "resistance": 14.43,
+        "avg_volume": 62740103.291666664,
+        "volatility": 0.16558472104619432
+      },
+      "stage2": {
+        "pit_low": 13.04
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000035",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 4.35,
+    "details": {
+      "stage0": {
+        "price_pos": 0.32330827067669166,
+        "drop_pct": 0.3829787234042554
+      },
+      "stage1": {
+        "support": 4.12,
+        "resistance": 5.08,
+        "avg_volume": 107568979.29166667,
+        "volatility": 0.21432558139534882
+      },
+      "stage2": {
+        "pit_low": 4.27
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002531",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 6.7,
+    "details": {
+      "stage0": {
+        "price_pos": 0.05429864253393671,
+        "drop_pct": 0.60932944606414
+      },
+      "stage1": {
+        "support": 6.1,
+        "resistance": 8.1,
+        "avg_volume": 104341625.5,
+        "volatility": 0.28776978417266186
+      },
+      "stage2": {
+        "pit_low": 6.46
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000620",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 1.65,
+    "details": {
+      "stage0": {
+        "price_pos": 0.19428571428571426,
+        "drop_pct": 0.6308724832214765
+      },
+      "stage1": {
+        "support": 1.47,
+        "resistance": 2.03,
+        "avg_volume": 402873746.7083333,
+        "volatility": 0.3267687819110138
+      },
+      "stage2": {
+        "pit_low": 1.6
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002572",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 13.75,
+    "details": {
+      "stage0": {
+        "price_pos": 0.12150349650349654,
+        "drop_pct": 0.4222689075630252
+      },
+      "stage1": {
+        "support": 13.23,
+        "resistance": 18.41,
+        "avg_volume": 47115790.333333336,
+        "volatility": 0.3352569980044226
+      },
+      "stage2": {
+        "pit_low": 13.51
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300861",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 15.16,
+    "details": {
+      "stage0": {
+        "price_pos": 0.019326150162476498,
+        "drop_pct": 0.790896551724138
+      },
+      "stage1": {
+        "support": 14.03,
+        "resistance": 21.35,
+        "avg_volume": 19859309.541666668,
+        "volatility": 0.39578264395782653
+      },
+      "stage2": {
+        "pit_low": 14.3
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002179",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 39.08,
+    "details": {
+      "stage0": {
+        "price_pos": 0.2400611620795106,
+        "drop_pct": 0.43280116110304795
+      },
+      "stage1": {
+        "support": 35.43,
+        "resistance": 44.0,
+        "avg_volume": 78152128.58333333,
+        "volatility": 0.21432814046787887
+      },
+      "stage2": {
+        "pit_low": 37.5
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000869",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 21.74,
+    "details": {
+      "stage0": {
+        "price_pos": 0.16329378925331473,
+        "drop_pct": 0.3554699080936851
+      },
+      "stage1": {
+        "support": 20.09,
+        "resistance": 24.77,
+        "avg_volume": 9165227.625,
+        "volatility": 0.2120845921450151
+      },
+      "stage2": {
+        "pit_low": 21.36
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300628",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 34.19,
+    "details": {
+      "stage0": {
+        "price_pos": 0.1717378583967232,
+        "drop_pct": 0.6234996145798921
+      },
+      "stage1": {
+        "support": 32.72,
+        "resistance": 43.3,
+        "avg_volume": 35748635.583333336,
+        "volatility": 0.291269486217695
+      },
+      "stage2": {
+        "pit_low": 33.21
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002737",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 16.19,
+    "details": {
+      "stage0": {
+        "price_pos": 0.05325077399380813,
+        "drop_pct": 0.485705209656925
+      },
+      "stage1": {
+        "support": 15.33,
+        "resistance": 19.01,
+        "avg_volume": 25924807.75,
+        "volatility": 0.220458289651041
+      },
+      "stage2": {
+        "pit_low": 15.9
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002840",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 10.63,
+    "details": {
+      "stage0": {
+        "price_pos": 0.06346025384101545,
+        "drop_pct": 0.5687626774847869
+      },
+      "stage1": {
+        "support": 10.1,
+        "resistance": 12.0,
+        "avg_volume": 60502005.791666664,
+        "volatility": 0.17566162024731313
+      },
+      "stage2": {
+        "pit_low": 10.35
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002187",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 6.43,
+    "details": {
+      "stage0": {
+        "price_pos": 0.3422913719943423,
+        "drop_pct": 0.4196750902527076
+      },
+      "stage1": {
+        "support": 5.92,
+        "resistance": 8.67,
+        "avg_volume": 144906069.83333334,
+        "volatility": 0.3947604521801543
+      },
+      "stage2": {
+        "pit_low": 6.35
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300015",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 12.98,
+    "details": {
+      "stage0": {
+        "price_pos": 0.15208978328173373,
+        "drop_pct": 0.6279736314130123
+      },
+      "stage1": {
+        "support": 11.77,
+        "resistance": 14.69,
+        "avg_volume": 316237771.7083333,
+        "volatility": 0.22464418515194257
+      },
+      "stage2": {
+        "pit_low": 12.66
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002327",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 7.33,
+    "details": {
+      "stage0": {
+        "price_pos": 0.174573055028463,
+        "drop_pct": 0.37243150684931503
+      },
+      "stage1": {
+        "support": 7.22,
+        "resistance": 8.85,
+        "avg_volume": 27174918.458333332,
+        "volatility": 0.20343213728549137
+      },
+      "stage2": {
+        "pit_low": 7.18
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000703",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 6.0,
+    "details": {
+      "stage0": {
+        "price_pos": 0.15533980582524265,
+        "drop_pct": 0.3670886075949367
+      },
+      "stage1": {
+        "support": 5.45,
+        "resistance": 6.43,
+        "avg_volume": 58736658.625,
+        "volatility": 0.1623972933784436
+      },
+      "stage2": {
+        "pit_low": 5.93
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000858",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 123.94,
+    "details": {
+      "stage0": {
+        "price_pos": 0.15507220852412823,
+        "drop_pct": 0.436354540906817
+      },
+      "stage1": {
+        "support": 117.0,
+        "resistance": 142.96,
+        "avg_volume": 95103883.79166667,
+        "volatility": 0.2021105080984991
+      },
+      "stage2": {
+        "pit_low": 120.39
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002791",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 22.5,
+    "details": {
+      "stage0": {
+        "price_pos": 0.0268067767531632,
+        "drop_pct": 0.8013420448525517
+      },
+      "stage1": {
+        "support": 20.57,
+        "resistance": 26.95,
+        "avg_volume": 32606949.958333332,
+        "volatility": 0.2796814495506685
+      },
+      "stage2": {
+        "pit_low": 21.87
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002557",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 23.13,
+    "details": {
+      "stage0": {
+        "price_pos": 0.058554437328453744,
+        "drop_pct": 0.5716666666666667
+      },
+      "stage1": {
+        "support": 21.21,
+        "resistance": 28.1,
+        "avg_volume": 38287308.291666664,
+        "volatility": 0.28322828172101944
+      },
+      "stage2": {
+        "pit_low": 22.28
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300426",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 9.75,
+    "details": {
+      "stage0": {
+        "price_pos": 0.3149717514124294,
+        "drop_pct": 0.4987146529562982
+      },
+      "stage1": {
+        "support": 9.02,
+        "resistance": 12.3,
+        "avg_volume": 47926713.333333336,
+        "volatility": 0.32797266894425475
+      },
+      "stage2": {
+        "pit_low": 9.67
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002597",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 22.86,
+    "details": {
+      "stage0": {
+        "price_pos": 0.24958568114020546,
+        "drop_pct": 0.4975824175824176
+      },
+      "stage1": {
+        "support": 21.34,
+        "resistance": 26.78,
+        "avg_volume": 41967634.166666664,
+        "volatility": 0.22584327970939286
+      },
+      "stage2": {
+        "pit_low": 22.36
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002832",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 16.12,
+    "details": {
+      "stage0": {
+        "price_pos": 0.032286598850066364,
+        "drop_pct": 0.5757894736842105
+      },
+      "stage1": {
+        "support": 15.39,
+        "resistance": 19.43,
+        "avg_volume": 35894649.416666664,
+        "volatility": 0.23469610050105288
+      },
+      "stage2": {
+        "pit_low": 15.86
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300144",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 8.54,
+    "details": {
+      "stage0": {
+        "price_pos": 0.15510597302504814,
+        "drop_pct": 0.5066435586366262
+      },
+      "stage1": {
+        "support": 8.33,
+        "resistance": 10.48,
+        "avg_volume": 179324694.5,
+        "volatility": 0.23733958879536368
+      },
+      "stage2": {
+        "pit_low": 8.45
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002508",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 19.48,
+    "details": {
+      "stage0": {
+        "price_pos": 0.128352490421456,
+        "drop_pct": 0.41201328101418655
+      },
+      "stage1": {
+        "support": 18.15,
+        "resistance": 24.19,
+        "avg_volume": 36280441.666666664,
+        "volatility": 0.29199315137476095
+      },
+      "stage2": {
+        "pit_low": 19.05
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002088",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 11.56,
+    "details": {
+      "stage0": {
+        "price_pos": 0.10731446876668445,
+        "drop_pct": 0.5912305516265912
+      },
+      "stage1": {
+        "support": 10.35,
+        "resistance": 13.59,
+        "avg_volume": 15469436.125,
+        "volatility": 0.27306247146820245
+      },
+      "stage2": {
+        "pit_low": 10.7
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002100",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 6.59,
+    "details": {
+      "stage0": {
+        "price_pos": 0.1373134328358209,
+        "drop_pct": 0.4672594987873888
+      },
+      "stage1": {
+        "support": 6.07,
+        "resistance": 7.03,
+        "avg_volume": 149064736.08333334,
+        "volatility": 0.15220981700469047
+      },
+      "stage2": {
+        "pit_low": 6.37
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz003012",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 6.04,
+    "details": {
+      "stage0": {
+        "price_pos": 0.12484237074401011,
+        "drop_pct": 0.5346687211093991
+      },
+      "stage1": {
+        "support": 5.5,
+        "resistance": 6.55,
+        "avg_volume": 32105526.208333332,
+        "volatility": 0.17418953480334554
+      },
+      "stage2": {
+        "pit_low": 5.91
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz002410",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 13.36,
+    "details": {
+      "stage0": {
+        "price_pos": 0.07162258756254467,
+        "drop_pct": 0.8293742017879949
+      },
+      "stage1": {
+        "support": 12.79,
+        "resistance": 16.2,
+        "avg_volume": 169071688.66666666,
+        "volatility": 0.24207288215806907
+      },
+      "stage2": {
+        "pit_low": 12.88
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz300294",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 27.05,
+    "details": {
+      "stage0": {
+        "price_pos": 0.21709491347666499,
+        "drop_pct": 0.35564554549785604
+      },
+      "stage1": {
+        "support": 25.33,
+        "resistance": 30.76,
+        "avg_volume": 28312449.25,
+        "volatility": 0.1999539700805525
+      },
+      "stage2": {
+        "pit_low": 26.67
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  },
+  {
+    "stock_code": "sz000860",
+    "highest_stage": 2,
+    "date": "2025-08-15",
+    "current_price": 15.94,
+    "details": {
+      "stage0": {
+        "price_pos": 0.08098451766574033,
+        "drop_pct": 0.5922230749552316
+      },
+      "stage1": {
+        "support": 15.06,
+        "resistance": 18.22,
+        "avg_volume": 53494742.458333336,
+        "volatility": 0.19360767895435502
+      },
+      "stage2": {
+        "pit_low": 15.69
+      },
+      "liftoff": {
+        "price_recovering": "True",
+        "near_baseline": "True",
+        "volume_confirming": "False",
+        "rsi_ok": "True",
+        "conditions_met": 3.0,
+        "min_req": 3
+      },
+      "final_path": "B_Platform"
+    }
+  }
+]

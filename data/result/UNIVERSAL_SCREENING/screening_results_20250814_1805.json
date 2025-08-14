@@ -1,0 +1,2173 @@
+[
+  {
+    "stock_code": "sh603276",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:40",
+    "current_price": 17.0,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.41520467836257313,
+        "price_position": 0.3324115044247788,
+        "long_term_high": 29.07,
+        "long_term_low": 10.99,
+        "current_price": 17.0,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 4127250.6622807016,
+          "recent_avg": 2789668.6666666665,
+          "shrink_ratio": 0.6759145239618441,
+          "consistency_ratio": 0.7,
+          "long_term_median": 2622441.0,
+          "recent_vs_median": 1.0637679424119233,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 2889075.463596491
+        }
+      },
+      "hibernation": {
+        "support_level": 14.72,
+        "resistance_level": 17.77,
+        "volatility": 0.20720108695652165,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 3453133.45,
+        "volume_stability": 0.6509098711766156
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh603517",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:41",
+    "current_price": 15.57,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1105
+    }
+  },
+  {
+    "stock_code": "sh600171",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:39",
+    "current_price": 34.77,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1135
+    }
+  },
+  {
+    "stock_code": "sh600355",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:39",
+    "current_price": 3.36,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.45098039215686275,
+        "price_position": 0.3082706766917293,
+        "long_term_high": 6.12,
+        "long_term_low": 2.13,
+        "current_price": 3.36,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 23732581.047058824,
+          "recent_avg": 15754991.733333332,
+          "shrink_ratio": 0.6638549638614147,
+          "consistency_ratio": 0.7333333333333333,
+          "long_term_median": 19735900.0,
+          "recent_vs_median": 0.7982910195802235,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 16612806.732941177
+        }
+      },
+      "hibernation": {
+        "support_level": 2.71,
+        "resistance_level": 3.36,
+        "volatility": 0.2398523985239852,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 21905902.8,
+        "volume_stability": 0.6059467656388546
+      },
+      "washout": {
+        "washout_low": 2.62,
+        "support_break": 0.03321033210332098,
+        "volume_shrink_ratio": 0.5240879823496706,
+        "pit_days_count": 5,
+        "conditions": {
+          "support_broken": false,
+          "volume_shrink_ok": true
+        }
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh603178",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:40",
+    "current_price": 18.3,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.652948985397307,
+        "price_position": 0.09442398737506576,
+        "long_term_high": 52.73,
+        "long_term_low": 14.71,
+        "current_price": 18.3,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 5076444.913362702,
+          "recent_avg": 3049543.1333333333,
+          "shrink_ratio": 0.6007241653122316,
+          "consistency_ratio": 0.7333333333333333,
+          "long_term_median": 3738450.0,
+          "recent_vs_median": 0.8157239319325745,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 3553511.4393538916
+        }
+      },
+      "hibernation": {
+        "support_level": 17.28,
+        "resistance_level": 20.65,
+        "volatility": 0.195023148148148,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 4254103.75,
+        "volume_stability": 0.5217782864441216
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh600054",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:40",
+    "current_price": 11.78,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1107
+    }
+  },
+  {
+    "stock_code": "sh603050",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:41",
+    "current_price": 16.43,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.5161955241460542,
+        "price_position": 0.18313140726933827,
+        "long_term_high": 33.96,
+        "long_term_low": 12.5,
+        "current_price": 16.43,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 6525159.914705883,
+          "recent_avg": 2352607.066666667,
+          "shrink_ratio": 0.3605439709400147,
+          "consistency_ratio": 0.9,
+          "long_term_median": 4376558.0,
+          "recent_vs_median": 0.5375473298118446,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 4567611.940294118
+        }
+      },
+      "hibernation": {
+        "support_level": 15.35,
+        "resistance_level": 17.42,
+        "volatility": 0.1348534201954399,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 1957616.55,
+        "volume_stability": 0.4613602098730261
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh600546",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:40",
+    "current_price": 10.06,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.5051647811116576,
+        "price_position": 0.1326013513513514,
+        "long_term_high": 20.33,
+        "long_term_low": 8.49,
+        "current_price": 10.06,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 60127855.20851689,
+          "recent_avg": 40118350.666666664,
+          "shrink_ratio": 0.6672173908006626,
+          "consistency_ratio": 0.6666666666666666,
+          "long_term_median": 32142571.5,
+          "recent_vs_median": 1.248137556967608,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 42089498.64596182
+        }
+      },
+      "hibernation": {
+        "support_level": 8.49,
+        "resistance_level": 10.52,
+        "volatility": 0.2391048292108362,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 28352173.8,
+        "volume_stability": 0.9487668016401287
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh600860",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:40",
+    "current_price": 12.88,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1117
+    }
+  },
+  {
+    "stock_code": "sh600702",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:39",
+    "current_price": 53.58,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4498973305954826,
+        "price_position": 0.24239280774550476,
+        "long_term_high": 97.4,
+        "long_term_low": 39.56,
+        "current_price": 53.58,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 10274032.270588236,
+          "recent_avg": 6556222.4,
+          "shrink_ratio": 0.6381352741872035,
+          "consistency_ratio": 0.6,
+          "long_term_median": 7676649.5,
+          "recent_vs_median": 0.8540473809570178,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 7191822.589411764
+        }
+      },
+      "hibernation": {
+        "support_level": 48.25,
+        "resistance_level": 54.88,
+        "volatility": 0.13740932642487053,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 6418469.7,
+        "volume_stability": 0.38788010511094273
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh605577",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:39",
+    "current_price": 13.32,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.589522342064715,
+        "price_position": 0.1102325581395349,
+        "long_term_high": 32.45,
+        "long_term_low": 10.95,
+        "current_price": 13.32,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 5602249.037422038,
+          "recent_avg": 3571477.1,
+          "shrink_ratio": 0.6375077359366144,
+          "consistency_ratio": 0.8333333333333334,
+          "long_term_median": 4755806.0,
+          "recent_vs_median": 0.7509719908675838,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 3921574.3261954263
+        }
+      },
+      "hibernation": {
+        "support_level": 12.15,
+        "resistance_level": 13.91,
+        "volatility": 0.1448559670781893,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 4330626.1,
+        "volume_stability": 0.6166754106966857
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh688593",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:40",
+    "current_price": 16.84,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 470
+    }
+  },
+  {
+    "stock_code": "sh600026",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:39",
+    "current_price": 10.07,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.45947396672034346,
+        "price_position": 0.037120359955005636,
+        "long_term_high": 18.63,
+        "long_term_low": 9.74,
+        "current_price": 10.07,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 38683468.56828194,
+          "recent_avg": 25350676.066666666,
+          "shrink_ratio": 0.6553361682631701,
+          "consistency_ratio": 0.6333333333333333,
+          "long_term_median": 29144218.5,
+          "recent_vs_median": 0.8698355067117914,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 27078427.99779736
+        }
+      },
+      "hibernation": {
+        "support_level": 9.99,
+        "resistance_level": 11.88,
+        "volatility": 0.18918918918918926,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 40387839.325,
+        "volume_stability": 0.9467900432283424
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh603366",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:42",
+    "current_price": 9.61,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.581810269799826,
+        "price_position": 0.3195928753180661,
+        "long_term_high": 22.98,
+        "long_term_low": 3.33,
+        "current_price": 9.61,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 19528278.03524229,
+          "recent_avg": 12896611.233333332,
+          "shrink_ratio": 0.6604069857085749,
+          "consistency_ratio": 0.7333333333333333,
+          "long_term_median": 10541770.0,
+          "recent_vs_median": 1.2233819589436434,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 13669794.624669602
+        }
+      },
+      "hibernation": {
+        "support_level": 9.26,
+        "resistance_level": 10.88,
+        "volatility": 0.17494600431965454,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 21909894.35,
+        "volume_stability": 0.5953025053580223
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh603721",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:41",
+    "current_price": 19.22,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.57174688057041,
+        "price_position": 0.1260217983651226,
+        "long_term_high": 44.88,
+        "long_term_low": 15.52,
+        "current_price": 19.22,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 6362224.385294118,
+          "recent_avg": 2667363.566666667,
+          "shrink_ratio": 0.4192501560982524,
+          "consistency_ratio": 0.9333333333333333,
+          "long_term_median": 5997100.0,
+          "recent_vs_median": 0.4447755693029409,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 4453557.069705882
+        }
+      },
+      "hibernation": {
+        "support_level": 18.06,
+        "resistance_level": 21.49,
+        "volatility": 0.18992248062015504,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 3480294.25,
+        "volume_stability": 0.4509051933605344
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh603261",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:42",
+    "current_price": 20.73,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.5881184184383071,
+        "price_position": 0.17225950782997765,
+        "long_term_high": 50.33,
+        "long_term_low": 14.57,
+        "current_price": 20.73,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 1808309.621686747,
+          "recent_avg": 1128722.8666666667,
+          "shrink_ratio": 0.6241867283843912,
+          "consistency_ratio": 0.7333333333333333,
+          "long_term_median": 1571272.0,
+          "recent_vs_median": 0.7183497616368565,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 1265816.7351807228
+        }
+      },
+      "hibernation": {
+        "support_level": 18.06,
+        "resistance_level": 22.57,
+        "volatility": 0.24972314507198237,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 1672188.275,
+        "volume_stability": 0.4767706838681128
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh688620",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:42",
+    "current_price": 13.01,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 443
+    }
+  },
+  {
+    "stock_code": "sh603348",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:42",
+    "current_price": 21.03,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4832923832923833,
+        "price_position": 0.12265834076717216,
+        "long_term_high": 40.7,
+        "long_term_low": 18.28,
+        "current_price": 21.03,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 6087633.487518355,
+          "recent_avg": 3468549.3,
+          "shrink_ratio": 0.5697697318854138,
+          "consistency_ratio": 0.8333333333333334,
+          "long_term_median": 4477644.5,
+          "recent_vs_median": 0.7746370440976277,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 4261343.441262849
+        }
+      },
+      "hibernation": {
+        "support_level": 19.88,
+        "resistance_level": 21.37,
+        "volatility": 0.07494969818913491,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 3228839.575,
+        "volume_stability": 0.32195318880970153
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh688496",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:41",
+    "current_price": 9.39,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.622588424437299,
+        "price_position": 0.17518636847710334,
+        "long_term_high": 24.88,
+        "long_term_low": 6.1,
+        "current_price": 9.39,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 7853966.1100628935,
+          "recent_avg": 5228962.133333334,
+          "shrink_ratio": 0.6657734525533191,
+          "consistency_ratio": 0.7333333333333333,
+          "long_term_median": 4424644.0,
+          "recent_vs_median": 1.1817814344687017,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 5497776.277044025
+        }
+      },
+      "hibernation": {
+        "support_level": 7.6,
+        "resistance_level": 9.65,
+        "volatility": 0.2697368421052633,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 7395924.125,
+        "volume_stability": 0.8565906756787243
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh600199",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:42",
+    "current_price": 10.44,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4449760765550239,
+        "price_position": 0.09999999999999998,
+        "long_term_high": 18.81,
+        "long_term_low": 9.51,
+        "current_price": 10.44,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 36911698.46108664,
+          "recent_avg": 14510014.833333334,
+          "shrink_ratio": 0.3931007089427273,
+          "consistency_ratio": 0.9,
+          "long_term_median": 15428103.0,
+          "recent_vs_median": 0.9404924787793635,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 25838188.922760647
+        }
+      },
+      "hibernation": {
+        "support_level": 9.77,
+        "resistance_level": 11.29,
+        "volatility": 0.15557830092118727,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 18035392.7,
+        "volume_stability": 0.6197967084532787
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh603231",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:42",
+    "current_price": 17.2,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4169491525423729,
+        "price_position": 0.21305182341650672,
+        "long_term_high": 29.5,
+        "long_term_low": 13.87,
+        "current_price": 17.2,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 5448572.407960199,
+          "recent_avg": 1992210.0333333334,
+          "shrink_ratio": 0.36563890211365735,
+          "consistency_ratio": 1.0,
+          "long_term_median": 2420548.0,
+          "recent_vs_median": 0.8230409119477629,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 3814000.685572139
+        }
+      },
+      "hibernation": {
+        "support_level": 15.94,
+        "resistance_level": 17.37,
+        "volatility": 0.08971141781681315,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 1794632.325,
+        "volume_stability": 0.25867841726148183
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh600756",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:43",
+    "current_price": 15.39,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1191
+    }
+  },
+  {
+    "stock_code": "sz003032",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:44",
+    "current_price": 6.47,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.6146515783204288,
+        "price_position": 0.13058129738837404,
+        "long_term_high": 16.79,
+        "long_term_low": 4.92,
+        "current_price": 6.47,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 7707435.012589928,
+          "recent_avg": 4868169.666666667,
+          "shrink_ratio": 0.6316199434331419,
+          "consistency_ratio": 0.8,
+          "long_term_median": 8959450.0,
+          "recent_vs_median": 0.5433558607578218,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 5395204.508812949
+        }
+      },
+      "hibernation": {
+        "support_level": 5.85,
+        "resistance_level": 6.87,
+        "volatility": 0.17435897435897446,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 7036850.525,
+        "volume_stability": 0.4127700682807644
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz000595",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:44",
+    "current_price": 4.98,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.6006415396952687,
+        "price_position": 0.19893048128342247,
+        "long_term_high": 12.47,
+        "long_term_low": 3.12,
+        "current_price": 4.98,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 27456274.86289121,
+          "recent_avg": 9395041.366666667,
+          "shrink_ratio": 0.3421819388676293,
+          "consistency_ratio": 0.9666666666666667,
+          "long_term_median": 14150520.0,
+          "recent_vs_median": 0.6639361215465345,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 19219392.404023845
+        }
+      },
+      "hibernation": {
+        "support_level": 4.58,
+        "resistance_level": 5.35,
+        "volatility": 0.16812227074235797,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 10151299.525,
+        "volume_stability": 0.3631444574637412
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz001378",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:45",
+    "current_price": 23.25,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.41875,
+        "price_position": 0.20616113744075834,
+        "long_term_high": 40.0,
+        "long_term_low": 18.9,
+        "current_price": 23.25,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 2412816.7339449544,
+          "recent_avg": 1216775.0333333334,
+          "shrink_ratio": 0.5042964996947392,
+          "consistency_ratio": 0.9,
+          "long_term_median": 1412205.0,
+          "recent_vs_median": 0.8616135995364225,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 1688971.713761468
+        }
+      },
+      "hibernation": {
+        "support_level": 21.02,
+        "resistance_level": 23.43,
+        "volatility": 0.11465271170313987,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 1076877.4,
+        "volume_stability": 0.2500689120521698
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz000736",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:44",
+    "current_price": 4.81,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.6559370529327612,
+        "price_position": 0.10623781676413249,
+        "long_term_high": 13.98,
+        "long_term_low": 3.72,
+        "current_price": 4.81,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 16176484.569117647,
+          "recent_avg": 10951753.7,
+          "shrink_ratio": 0.6770169163272888,
+          "consistency_ratio": 0.7,
+          "long_term_median": 14487646.0,
+          "recent_vs_median": 0.7559374173002295,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 11323539.198382352
+        }
+      },
+      "hibernation": {
+        "support_level": 4.31,
+        "resistance_level": 5.14,
+        "volatility": 0.19257540603248263,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 13279329.025,
+        "volume_stability": 0.4045161087034328
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz002182",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:44",
+    "current_price": 12.59,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4214154411764706,
+        "price_position": 0.3063540090771558,
+        "long_term_high": 21.76,
+        "long_term_low": 8.54,
+        "current_price": 12.59,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 27754455.277941175,
+          "recent_avg": 18476285.966666665,
+          "shrink_ratio": 0.6657052275621975,
+          "consistency_ratio": 0.6,
+          "long_term_median": 16544296.5,
+          "recent_vs_median": 1.1167767675504767,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 19428118.69455882
+        }
+      },
+      "hibernation": {
+        "support_level": 11.05,
+        "resistance_level": 12.95,
+        "volatility": 0.17194570135746592,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 16478566.2,
+        "volume_stability": 0.6721108450024343
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz300097",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:43",
+    "current_price": 5.42,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.45691382765531063,
+        "price_position": 0.277337559429477,
+        "long_term_high": 9.98,
+        "long_term_low": 3.67,
+        "current_price": 5.42,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 9243043.701470587,
+          "recent_avg": 4190167.4,
+          "shrink_ratio": 0.453331990557757,
+          "consistency_ratio": 0.8333333333333334,
+          "long_term_median": 7234700.0,
+          "recent_vs_median": 0.5791763860284462,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 6470130.591029411
+        }
+      },
+      "hibernation": {
+        "support_level": 4.63,
+        "resistance_level": 5.3,
+        "volatility": 0.1447084233261339,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 4797563.625,
+        "volume_stability": 0.5405220685798526
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz002581",
+    "strategy": "深渊筑底策略",
+    "signal_type": "POTENTIAL_BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:43",
+    "current_price": 7.29,
+    "signal_details": {
+      "signal_state": "DEEP_DECLINE_ONLY",
+      "stage_passed": 1,
+      "deep_decline": {
+        "drop_percent": 0.5130260521042085,
+        "price_position": 0.1724137931034482,
+        "long_term_high": 14.97,
+        "long_term_low": 5.69,
+        "current_price": 7.29,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 26115187.50882353,
+          "recent_avg": 14824595.4,
+          "shrink_ratio": 0.5676618402602401,
+          "consistency_ratio": 0.8,
+          "long_term_median": 9464811.0,
+          "recent_vs_median": 1.5662854123553023,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 18280631.256176468
+        }
+      },
+      "hibernation": {
+        "support_level": 7.25,
+        "resistance_level": 11.67,
+        "volatility": 0.6096551724137931,
+        "volatility_ok": false,
+        "ma_convergence_ok": true,
+        "avg_volume": 18947489.825,
+        "volume_stability": 0.8428336449998015
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz000723",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:43",
+    "current_price": 4.51,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.40264900662251657,
+        "price_position": 0.19363395225464192,
+        "long_term_high": 7.55,
+        "long_term_low": 3.78,
+        "current_price": 4.51,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 130281871.40234949,
+          "recent_avg": 88810773.53333333,
+          "shrink_ratio": 0.6816817457208535,
+          "consistency_ratio": 0.7,
+          "long_term_median": 54349931.5,
+          "recent_vs_median": 1.6340549303789524,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 91197309.98164463
+        }
+      },
+      "hibernation": {
+        "support_level": 4.17,
+        "resistance_level": 5.09,
+        "volatility": 0.22062350119904076,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 68849036.775,
+        "volume_stability": 1.026119106531112
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz003004",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:44",
+    "current_price": 18.77,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4312121212121212,
+        "price_position": 0.2877877877877878,
+        "long_term_high": 33.0,
+        "long_term_low": 13.02,
+        "current_price": 18.77,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 1815623.1241258741,
+          "recent_avg": 995307.3666666667,
+          "shrink_ratio": 0.5481905101565911,
+          "consistency_ratio": 0.8333333333333334,
+          "long_term_median": 1398035.0,
+          "recent_vs_median": 0.7119330822666576,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 1270936.1868881118
+        }
+      },
+      "hibernation": {
+        "support_level": 17.02,
+        "resistance_level": 20.7,
+        "volatility": 0.2162162162162162,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 1403271.225,
+        "volume_stability": 0.49466490559293996
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz002662",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:44",
+    "current_price": 3.57,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1102
+    }
+  },
+  {
+    "stock_code": "sz002762",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:44",
+    "current_price": 6.4,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4244604316546762,
+        "price_position": 0.3139534883720931,
+        "long_term_high": 11.12,
+        "long_term_low": 4.24,
+        "current_price": 6.4,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 15082532.445925927,
+          "recent_avg": 8901909.4,
+          "shrink_ratio": 0.5902131775227556,
+          "consistency_ratio": 0.6333333333333333,
+          "long_term_median": 10468510.0,
+          "recent_vs_median": 0.8503511387962566,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 10557772.712148149
+        }
+      },
+      "hibernation": {
+        "support_level": 5.06,
+        "resistance_level": 7.05,
+        "volatility": 0.39328063241106725,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 12297738.35,
+        "volume_stability": 0.6793972094490394
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz300147",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:44",
+    "current_price": 7.58,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.5403274711946634,
+        "price_position": 0.33951074870274284,
+        "long_term_high": 16.49,
+        "long_term_low": 3.0,
+        "current_price": 7.58,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 22614835.07352941,
+          "recent_avg": 12574566.666666666,
+          "shrink_ratio": 0.5560317652453347,
+          "consistency_ratio": 0.9,
+          "long_term_median": 15704385.0,
+          "recent_vs_median": 0.8007041769968494,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 15830384.551470587
+        }
+      },
+      "hibernation": {
+        "support_level": 7.4,
+        "resistance_level": 9.15,
+        "volatility": 0.23648648648648649,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 16538234.375,
+        "volume_stability": 0.4154686031241626
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz300389",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:44",
+    "current_price": 11.82,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.40751879699248117,
+        "price_position": 0.3021459227467811,
+        "long_term_high": 19.95,
+        "long_term_low": 8.3,
+        "current_price": 11.82,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 7670494.938325991,
+          "recent_avg": 3703086.466666667,
+          "shrink_ratio": 0.48277021188867747,
+          "consistency_ratio": 1.0,
+          "long_term_median": 5169753.5,
+          "recent_vs_median": 0.7162984592334367,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 5369346.456828194
+        }
+      },
+      "hibernation": {
+        "support_level": 10.37,
+        "resistance_level": 12.09,
+        "volatility": 0.16586306653809071,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 3876661.15,
+        "volume_stability": 0.3370919951903665
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz002521",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:43",
+    "current_price": 8.86,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.439240506329114,
+        "price_position": 0.26560846560846557,
+        "long_term_high": 15.8,
+        "long_term_low": 6.35,
+        "current_price": 8.86,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 6872188.897209985,
+          "recent_avg": 4411785.2,
+          "shrink_ratio": 0.6419767072746101,
+          "consistency_ratio": 0.7,
+          "long_term_median": 5018427.5,
+          "recent_vs_median": 0.879117054097125,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 4810532.228046989
+        }
+      },
+      "hibernation": {
+        "support_level": 8.8,
+        "resistance_level": 9.39,
+        "volatility": 0.06704545454545452,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 3777879.125,
+        "volume_stability": 0.5191029244752342
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz002531",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:45",
+    "current_price": 6.53,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4394849785407725,
+        "price_position": 0.07747747747747757,
+        "long_term_high": 11.65,
+        "long_term_low": 6.1,
+        "current_price": 6.53,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 45755355.116519175,
+          "recent_avg": 19416705.1,
+          "shrink_ratio": 0.4243591826695262,
+          "consistency_ratio": 0.9333333333333333,
+          "long_term_median": 27250498.0,
+          "recent_vs_median": 0.7125266151099331,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 32028748.58156342
+        }
+      },
+      "hibernation": {
+        "support_level": 6.36,
+        "resistance_level": 7.38,
+        "volatility": 0.16037735849056597,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 22961230.45,
+        "volume_stability": 0.4894417598874456
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz002101",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:45",
+    "current_price": 12.9,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1131
+    }
+  },
+  {
+    "stock_code": "sz300052",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:45",
+    "current_price": 10.47,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.628723404255319,
+        "price_position": 0.13088235294117653,
+        "long_term_high": 28.2,
+        "long_term_low": 7.8,
+        "current_price": 10.47,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 22192539.167159762,
+          "recent_avg": 9099800.6,
+          "shrink_ratio": 0.41003873110048483,
+          "consistency_ratio": 0.9333333333333333,
+          "long_term_median": 13002893.0,
+          "recent_vs_median": 0.6998289226866667,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 15534777.417011833
+        }
+      },
+      "hibernation": {
+        "support_level": 9.06,
+        "resistance_level": 11.27,
+        "volatility": 0.24392935982339944,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 8901676.525,
+        "volume_stability": 0.45069718765957995
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz002630",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:45",
+    "current_price": 2.47,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.5883333333333333,
+        "price_position": 0.20135746606334845,
+        "long_term_high": 6.0,
+        "long_term_low": 1.58,
+        "current_price": 2.47,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 54086674.722058825,
+          "recent_avg": 37805283.93333333,
+          "shrink_ratio": 0.698975933122299,
+          "consistency_ratio": 0.7,
+          "long_term_median": 29725257.0,
+          "recent_vs_median": 1.2718236189962404,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 37860672.30544118
+        }
+      },
+      "hibernation": {
+        "support_level": 2.45,
+        "resistance_level": 2.94,
+        "volatility": 0.1999999999999999,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 69227994.225,
+        "volume_stability": 0.5621511072364921
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz300175",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:45",
+    "current_price": 5.25,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.6223021582733813,
+        "price_position": 0.17304015296367112,
+        "long_term_high": 13.9,
+        "long_term_low": 3.44,
+        "current_price": 5.25,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 14394950.830383481,
+          "recent_avg": 6444014.1,
+          "shrink_ratio": 0.4476579445063885,
+          "consistency_ratio": 0.9,
+          "long_term_median": 11646422.5,
+          "recent_vs_median": 0.5533041670092254,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 10076465.581268437
+        }
+      },
+      "hibernation": {
+        "support_level": 4.65,
+        "resistance_level": 5.47,
+        "volatility": 0.17634408602150523,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 5437883.85,
+        "volume_stability": 0.59868109692807
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz000518",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:46",
+    "current_price": 2.27,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.431077694235589,
+        "price_position": 0.24229074889867838,
+        "long_term_high": 3.99,
+        "long_term_low": 1.72,
+        "current_price": 2.27,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 25038555.725,
+          "recent_avg": 11827250.8,
+          "shrink_ratio": 0.4723615423309325,
+          "consistency_ratio": 0.9333333333333333,
+          "long_term_median": 15096700.0,
+          "recent_vs_median": 0.7834328561871138,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 17526989.0075
+        }
+      },
+      "hibernation": {
+        "support_level": 2.09,
+        "resistance_level": 2.81,
+        "volatility": 0.3444976076555025,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 19880237.725,
+        "volume_stability": 0.6464232662356945
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz001300",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:46",
+    "current_price": 13.11,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.46226415094339623,
+        "price_position": 0.2700777202072539,
+        "long_term_high": 24.38,
+        "long_term_low": 8.94,
+        "current_price": 13.11,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 8138163.632653061,
+          "recent_avg": 3028799.433333333,
+          "shrink_ratio": 0.3721723437927405,
+          "consistency_ratio": 1.0,
+          "long_term_median": 4290900.0,
+          "recent_vs_median": 0.7058657701958407,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 5696714.542857142
+        }
+      },
+      "hibernation": {
+        "support_level": 12.61,
+        "resistance_level": 15.37,
+        "volatility": 0.21887390959555908,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 5476400.45,
+        "volume_stability": 0.8189223392104004
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz001333",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:46",
+    "current_price": 22.02,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 572
+    }
+  },
+  {
+    "stock_code": "sz000820",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:46",
+    "current_price": 2.68,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.5339130434782609,
+        "price_position": 0.21079691516709514,
+        "long_term_high": 5.75,
+        "long_term_low": 1.86,
+        "current_price": 2.68,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 14646931.177252585,
+          "recent_avg": 8055684.3,
+          "shrink_ratio": 0.5499912713805114,
+          "consistency_ratio": 0.8,
+          "long_term_median": 9912627.0,
+          "recent_vs_median": 0.8126689625262808,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 10252851.824076809
+        }
+      },
+      "hibernation": {
+        "support_level": 2.7,
+        "resistance_level": 3.12,
+        "volatility": 0.15555555555555553,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 8753914.0,
+        "volume_stability": 0.7325978015012864
+      },
+      "washout": {
+        "washout_low": 2.66,
+        "support_break": 0.014814814814814828,
+        "volume_shrink_ratio": 0.8625483031552135,
+        "pit_days_count": 3,
+        "conditions": {
+          "support_broken": false,
+          "volume_shrink_ok": false
+        }
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz001210",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:46",
+    "current_price": 15.2,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 831
+    }
+  },
+  {
+    "stock_code": "sz000536",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:47",
+    "current_price": 4.85,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1173
+    }
+  },
+  {
+    "stock_code": "sz002239",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:45",
+    "current_price": 2.94,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1179
+    }
+  },
+  {
+    "stock_code": "sz000810",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:45",
+    "current_price": 11.65,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 1106
+    }
+  },
+  {
+    "stock_code": "sz300393",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:46",
+    "current_price": 5.94,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.45901639344262296,
+        "price_position": 0.2075471698113208,
+        "long_term_high": 10.98,
+        "long_term_low": 4.62,
+        "current_price": 5.94,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 44838499.37020649,
+          "recent_avg": 27149178.266666666,
+          "shrink_ratio": 0.6054881106192033,
+          "consistency_ratio": 0.8,
+          "long_term_median": 22499949.0,
+          "recent_vs_median": 1.2066328802197137,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 31386949.55914454
+        }
+      },
+      "hibernation": {
+        "support_level": 5.16,
+        "resistance_level": 6.85,
+        "volatility": 0.32751937984496116,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 23476144.25,
+        "volume_stability": 0.7160402436700077
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz002789",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:46",
+    "current_price": 8.43,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4547218628719276,
+        "price_position": 0.2631027253668763,
+        "long_term_high": 15.46,
+        "long_term_low": 5.92,
+        "current_price": 8.43,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 3960229.2088235295,
+          "recent_avg": 2208922.033333333,
+          "shrink_ratio": 0.557776309616569,
+          "consistency_ratio": 0.8333333333333334,
+          "long_term_median": 2334609.0,
+          "recent_vs_median": 0.9461635902771441,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 2772160.4461764707
+        }
+      },
+      "hibernation": {
+        "support_level": 8.2,
+        "resistance_level": 10.16,
+        "volatility": 0.23902439024390257,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 3840186.6,
+        "volume_stability": 0.5191300723198649
+      },
+      "washout": {
+        "washout_low": 8.11,
+        "support_break": 0.010975609756097545,
+        "volume_shrink_ratio": 0.35720473409634135,
+        "pit_days_count": 6,
+        "conditions": {
+          "support_broken": false,
+          "volume_shrink_ok": true
+        }
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz002529",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:46",
+    "current_price": 6.39,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.5372918175235337,
+        "price_position": 0.2064171122994652,
+        "long_term_high": 13.81,
+        "long_term_low": 4.46,
+        "current_price": 6.39,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 11411615.908419497,
+          "recent_avg": 4689998.933333334,
+          "shrink_ratio": 0.4109846467819732,
+          "consistency_ratio": 0.9666666666666667,
+          "long_term_median": 6975504.0,
+          "recent_vs_median": 0.6723526978600161,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 7988131.135893648
+        }
+      },
+      "hibernation": {
+        "support_level": 6.06,
+        "resistance_level": 7.25,
+        "volatility": 0.19636963696369644,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 5727436.55,
+        "volume_stability": 0.49300392579620217
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sz000521",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:47",
+    "current_price": 7.21,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.4295886075949367,
+        "price_position": 0.24478442280945753,
+        "long_term_high": 12.64,
+        "long_term_low": 5.45,
+        "current_price": 7.21,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 32413074.450807635,
+          "recent_avg": 17784664.466666665,
+          "shrink_ratio": 0.5486879837226772,
+          "consistency_ratio": 0.8666666666666667,
+          "long_term_median": 21334190.5,
+          "recent_vs_median": 0.8336226521773425,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 22689152.115565345
+        }
+      },
+      "hibernation": {
+        "support_level": 6.72,
+        "resistance_level": 7.81,
+        "volatility": 0.16220238095238093,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 18207704.475,
+        "volume_stability": 0.5187106800559066
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "bj838701",
+    "strategy": "深渊筑底策略",
+    "signal_type": "POTENTIAL_BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 18:05:47",
+    "current_price": 19.24,
+    "signal_details": {
+      "signal_state": "DEEP_DECLINE_ONLY",
+      "stage_passed": 1,
+      "deep_decline": {
+        "drop_percent": 0.5708231095248718,
+        "price_position": 0.2648664176960643,
+        "long_term_high": 44.83,
+        "long_term_low": 10.02,
+        "current_price": 19.24,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 2994172.996078431,
+          "recent_avg": 1077872.4666666666,
+          "shrink_ratio": 0.3599900433536714,
+          "consistency_ratio": 0.9666666666666667,
+          "long_term_median": 1926889.0,
+          "recent_vs_median": 0.5593848253151409,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 2095921.0972549017
+        }
+      },
+      "hibernation": {
+        "support_level": 19.5,
+        "resistance_level": 29.88,
+        "volatility": 0.5323076923076923,
+        "volatility_ok": false,
+        "ma_convergence_ok": false,
+        "avg_volume": 1112035.5,
+        "volume_stability": 0.39671317937709005
+      },
+      "strategy_version": "2.0"
+    }
+  }
+]

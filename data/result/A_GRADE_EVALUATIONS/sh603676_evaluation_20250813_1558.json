@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:58:36.308191",
+  "stock_code": "sh603676",
+  "current_price": 12.98,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 12.33,
+    "target_price_2": 12.33,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05007704160246536,
+    "discount_2": 0.05007704160246536,
+    "stop_loss": {
+      "conservative": 12.59,
+      "moderate": 11.94,
+      "aggressive": 11.94,
+      "technical": 10.32
+    },
+    "take_profit": {
+      "conservative": 14.02,
+      "moderate": 14.28,
+      "aggressive": 15.58
+    }
+  }
+}

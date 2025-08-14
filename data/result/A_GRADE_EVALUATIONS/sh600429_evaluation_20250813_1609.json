@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T16:09:30.772504",
+  "stock_code": "sh600429",
+  "current_price": 4.69,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 4.46,
+    "target_price_2": 4.46,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.049040511727078975,
+    "discount_2": 0.049040511727078975,
+    "stop_loss": {
+      "conservative": 4.55,
+      "moderate": 4.31,
+      "aggressive": 4.31,
+      "technical": 4.46
+    },
+    "take_profit": {
+      "conservative": 5.07,
+      "moderate": 5.16,
+      "aggressive": 5.63
+    }
+  }
+}

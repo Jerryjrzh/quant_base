@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.414586",
+  "stock_code": "sz000407",
+  "current_price": 3.58,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 3.4,
+    "target_price_2": 3.31,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.05027932960893859,
+    "discount_2": 0.07541899441340782,
+    "stop_loss": {
+      "conservative": 3.47,
+      "moderate": 3.29,
+      "aggressive": 3.29,
+      "technical": 3.48
+    },
+    "take_profit": {
+      "conservative": 3.87,
+      "moderate": 3.94,
+      "aggressive": 4.3
+    }
+  }
+}

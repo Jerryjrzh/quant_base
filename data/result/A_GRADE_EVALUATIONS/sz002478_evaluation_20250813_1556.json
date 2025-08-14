@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:56:58.476377",
+  "stock_code": "sz002478",
+  "current_price": 5.58,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 5.3,
+    "target_price_2": 5.3,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.050179211469534094,
+    "discount_2": 0.050179211469534094,
+    "stop_loss": {
+      "conservative": 5.41,
+      "moderate": 5.13,
+      "aggressive": 5.13,
+      "technical": 5.3
+    },
+    "take_profit": {
+      "conservative": 6.03,
+      "moderate": 6.14,
+      "aggressive": 6.7
+    }
+  }
+}

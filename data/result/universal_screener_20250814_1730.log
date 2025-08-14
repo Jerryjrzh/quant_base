@@ -1,0 +1,22 @@
+2025-08-14 17:30:28,820 - INFO - 配置加载成功: 5 个策略
+2025-08-14 17:30:28,820 - INFO - 配置管理器初始化完成，配置文件: /home/hypnosis/data/quant_base/config/unified_strategy_config.json
+2025-08-14 17:30:28,823 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/weekly_golden_cross_ma_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,823 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/macd_zero_axis_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,825 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/abyss_bottoming_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,825 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/pre_cross_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,826 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/triple_cross_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,826 - INFO - 策略管理器初始化完成，发现 0 个策略
+2025-08-14 17:30:28,826 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/weekly_golden_cross_ma_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,827 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/macd_zero_axis_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,827 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/abyss_bottoming_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,827 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/pre_cross_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,827 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/triple_cross_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,827 - INFO - 策略管理器初始化完成，发现 0 个策略
+2025-08-14 17:30:28,827 - INFO - 加载配置文件: /home/hypnosis/data/quant_base/backend/strategies_config.json
+2025-08-14 17:30:28,827 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/weekly_golden_cross_ma_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,827 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/macd_zero_axis_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,827 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/abyss_bottoming_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,828 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/pre_cross_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,828 - ERROR - 加载策略文件失败 /home/hypnosis/data/quant_base/backend/strategies/triple_cross_strategy.py: No module named 'base_strategy'
+2025-08-14 17:30:28,828 - INFO - 策略管理器初始化完成，发现 0 个策略
+2025-08-14 17:30:28,828 - INFO - 通用筛选器初始化完成

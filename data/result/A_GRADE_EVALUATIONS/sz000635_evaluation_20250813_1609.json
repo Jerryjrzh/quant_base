@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T16:09:30.788184",
+  "stock_code": "sz000635",
+  "current_price": 9.41,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 9.5,
+    "target_price_2": 9.53,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": -0.009564293304994672,
+    "discount_2": -0.012752391073326165,
+    "stop_loss": {
+      "conservative": 9.13,
+      "moderate": 8.66,
+      "aggressive": 8.66,
+      "technical": 7.68
+    },
+    "take_profit": {
+      "conservative": 10.16,
+      "moderate": 10.35,
+      "aggressive": 11.29
+    }
+  }
+}

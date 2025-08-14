@@ -5,6 +5,7 @@
   "last_updated": "2025-08-12",
   "test_status": "PASSED",
   "test_accuracy": "100%",
+  "analysis_timeframe": "daily",
   
   "core_parameters": {
     "deep_decline_phase": {

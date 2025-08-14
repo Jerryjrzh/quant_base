@@ -1,0 +1,224 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-08-14T18:16:30.468720",
+  "strategies": {
+    "深渊筑底策略_v2.0": {
+      "id": "深渊筑底策略_v2.0",
+      "name": "深渊筑底策略",
+      "version": "2.0",
+      "enabled": true,
+      "description": "经过测试验证的深渊筑底策略，识别从深度下跌中恢复的股票",
+      "priority": 1,
+      "config": {
+        "long_term_days": 400,
+        "min_drop_percent": 0.4,
+        "price_low_percentile": 0.35,
+        "volume_shrink_threshold": 0.7,
+        "volume_consistency_threshold": 0.3,
+        "volume_analysis_days": 30,
+        "hibernation_days": 40,
+        "hibernation_volatility_max": 0.4,
+        "washout_days": 15,
+        "washout_volume_shrink_ratio": 0.85,
+        "max_rise_from_bottom": 0.18,
+        "liftoff_volume_increase_ratio": 1.15
+      },
+      "risk_level": "medium",
+      "expected_signals_per_day": "5-15",
+      "suitable_market": [
+        "熊市末期",
+        "震荡市"
+      ],
+      "tags": [
+        "深跌",
+        "筑底",
+        "反转",
+        "价值投资"
+      ],
+      "legacy_mapping": {
+        "old_id": "ABYSS_BOTTOMING",
+        "api_id": "ABYSS_BOTTOMING"
+      }
+    },
+    "临界金叉_v1.0": {
+      "id": "临界金叉_v1.0",
+      "name": "临界金叉",
+      "version": "1.0",
+      "enabled": true,
+      "description": "识别即将形成金叉的股票，提前布局",
+      "priority": 2,
+      "config": {
+        "ma_short": 13,
+        "ma_long": 45,
+        "cross_threshold": 0.02,
+        "volume_increase_ratio": 1.2
+      },
+      "risk_level": "low",
+      "expected_signals_per_day": "10-20",
+      "suitable_market": [
+        "牛市",
+        "震荡市"
+      ],
+      "tags": [
+        "金叉",
+        "趋势",
+        "技术分析"
+      ],
+      "legacy_mapping": {
+        "old_id": "PRE_CROSS",
+        "api_id": "PRE_CROSS"
+      }
+    },
+    "三重金叉_v1.0": {
+      "id": "三重金叉_v1.0",
+      "name": "三重金叉",
+      "version": "1.0",
+      "enabled": true,
+      "description": "MA、MACD、KDJ三重金叉共振信号",
+      "priority": 3,
+      "config": {
+        "ma_short": 13,
+        "ma_long": 45,
+        "macd_fast": 12,
+        "macd_slow": 26,
+        "macd_signal": 9,
+        "kdj_k": 27,
+        "kdj_d": 3,
+        "kdj_j": 3
+      },
+      "risk_level": "medium",
+      "expected_signals_per_day": "3-8",
+      "suitable_market": [
+        "牛市",
+        "震荡市上升阶段"
+      ],
+      "tags": [
+        "三重金叉",
+        "共振",
+        "强势"
+      ],
+      "legacy_mapping": {
+        "old_id": "TRIPLE_CROSS",
+        "api_id": "TRIPLE_CROSS"
+      }
+    },
+    "MACD零轴启动_v1.0": {
+      "id": "MACD零轴启动_v1.0",
+      "name": "MACD零轴启动",
+      "version": "1.0",
+      "enabled": true,
+      "description": "MACD在零轴附近启动的强势信号",
+      "priority": 4,
+      "config": {
+        "macd_fast": 12,
+        "macd_slow": 26,
+        "macd_signal": 9,
+        "zero_threshold": 0.01,
+        "volume_increase_ratio": 1.3
+      },
+      "risk_level": "medium",
+      "expected_signals_per_day": "5-12",
+      "suitable_market": [
+        "牛市",
+        "震荡市"
+      ],
+      "tags": [
+        "MACD",
+        "零轴",
+        "启动"
+      ],
+      "legacy_mapping": {
+        "old_id": "MACD_ZERO_AXIS",
+        "api_id": "MACD_ZERO_AXIS"
+      }
+    },
+    "周线金叉+日线MA_v1.0": {
+      "id": "周线金叉+日线MA_v1.0",
+      "name": "周线金叉+日线MA",
+      "version": "1.0",
+      "enabled": true,
+      "description": "周线级别金叉配合日线MA确认",
+      "priority": 5,
+      "config": {
+        "weekly_ma_short": 5,
+        "weekly_ma_long": 20,
+        "daily_ma": 13,
+        "confirmation_days": 3
+      },
+      "risk_level": "low",
+      "expected_signals_per_day": "2-5",
+      "suitable_market": [
+        "牛市",
+        "震荡市"
+      ],
+      "tags": [
+        "周线",
+        "金叉",
+        "多周期"
+      ],
+      "legacy_mapping": {
+        "old_id": "WEEKLY_GOLDEN_CROSS_MA",
+        "api_id": "WEEKLY_GOLDEN_CROSS_MA"
+      }
+    }
+  },
+  "global_settings": {
+    "max_concurrent_strategies": 5,
+    "default_data_length": 500,
+    "enable_parallel_processing": true,
+    "log_level": "INFO",
+    "cache_enabled": true,
+    "cache_ttl": 3600
+  },
+  "market_filters": {
+    "valid_prefixes": {
+      "sh": [
+        "600",
+        "601",
+        "603",
+        "605",
+        "688"
+      ],
+      "sz": [
+        "000",
+        "001",
+        "002",
+        "003",
+        "300"
+      ],
+      "bj": [
+        "430",
+        "831",
+        "832",
+        "833",
+        "834",
+        "835",
+        "836",
+        "837",
+        "838",
+        "839"
+      ]
+    },
+    "exclude_st": true,
+    "exclude_delisted": true,
+    "min_market_cap": 500000000,
+    "min_daily_volume": 10000000
+  },
+  "output_settings": {
+    "save_detailed_analysis": true,
+    "generate_charts": false,
+    "export_formats": [
+      "json",
+      "txt",
+      "csv"
+    ],
+    "max_signals_per_strategy": 50
+  },
+  "frontend_settings": {
+    "default_timeframe": "daily",
+    "default_adjustment": "forward",
+    "chart_data_points": 60,
+    "auto_refresh_interval": 300000,
+    "enable_real_time": false
+  }
+}

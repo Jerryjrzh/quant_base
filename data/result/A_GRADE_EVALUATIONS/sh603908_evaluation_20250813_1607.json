@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T16:07:57.601535",
+  "stock_code": "sh603908",
+  "current_price": 26.79,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 25.45,
+    "target_price_2": 25.45,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05001866368047778,
+    "discount_2": 0.05001866368047778,
+    "stop_loss": {
+      "conservative": 25.99,
+      "moderate": 24.65,
+      "aggressive": 24.65,
+      "technical": 24.35
+    },
+    "take_profit": {
+      "conservative": 28.93,
+      "moderate": 29.47,
+      "aggressive": 32.15
+    }
+  }
+}

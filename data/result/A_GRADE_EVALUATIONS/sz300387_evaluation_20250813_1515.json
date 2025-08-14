@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.413941",
+  "stock_code": "sz300387",
+  "current_price": 9.62,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 9.14,
+    "target_price_2": 9.14,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.04989604989604976,
+    "discount_2": 0.04989604989604976,
+    "stop_loss": {
+      "conservative": 9.33,
+      "moderate": 8.85,
+      "aggressive": 8.85,
+      "technical": 9.14
+    },
+    "take_profit": {
+      "conservative": 10.39,
+      "moderate": 10.58,
+      "aggressive": 11.54
+    }
+  }
+}

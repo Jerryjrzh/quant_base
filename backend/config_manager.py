@@ -1,398 +1,312 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-配置管理工具 - 用于调试和验证策略参数
-提供命令行界面和API接口来管理策略配置
+统一配置管理器
+前后端共享的配置加载和管理系统
 """
-import json
+
 import os
-import argparse
-from typing import Dict, Any, List, Optional
+import json
+import logging
+from typing import Dict, List, Any, Optional
+from pathlib import Path
 from datetime import datetime
-import pandas as pd
 
-from strategy_config import (
-    config_manager, config_debugger, 
-    get_strategy_config, update_strategy_config,
-    validate_strategy_config, list_available_strategies
-)
-import data_loader
-import strategies
-import backtester
+logger = logging.getLogger(__name__)
 
-class ConfigTester:
-    """配置测试器 - 用于验证配置参数的效果"""
+
+class ConfigManager:
+    """统一配置管理器"""
     
-    def __init__(self):
-        self.base_path = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
-        self.test_stocks = [
-            'sh600036',  # 招商银行
-            'sz000002',  # 万科A
-            'sz000858',  # 五粮液
-            'sh600519',  # 贵州茅台
-            'sz002415'   # 海康威视
-        ]
+    def __init__(self, config_path: str = None):
+        """
+        初始化配置管理器
+        
+        Args:
+            config_path: 配置文件路径
+        """
+        if config_path is None:
+            # 默认配置文件路径
+            self.config_path = os.path.join(
+                os.path.dirname(os.path.dirname(__file__)), 
+                'config', 
+                'unified_strategy_config.json'
+            )
+        else:
+            self.config_path = config_path
+        
+        self.config: Dict[str, Any] = {}
+        self.load_config()
+        
+        logger.info(f"配置管理器初始化完成，配置文件: {self.config_path}")
     
-    def test_config_on_stocks(self, strategy_name: str, config_updates: Dict[str, Any] = None) -> Dict[str, Any]:
-        """在测试股票上验证配置效果"""
-        print(f"\n=== 测试 {strategy_name} 策略配置 ===")
-        
-        # 备份原配置
-        original_config = config_manager.get_config(strategy_name)
-        
-        # 应用新配置
-        if config_updates:
-            print(f"应用配置更新: {config_updates}")
-            config_manager.update_config(strategy_name, config_updates)
-        
-        results = {}
-        strategy_func = strategies.get_strategy_function(strategy_name)
-        
-        if not strategy_func:
-            print(f"未找到策略函数: {strategy_name}")
-            return results
-        
-        for stock_code in self.test_stocks:
-            try:
-                print(f"测试股票: {stock_code}")
-                
-                # 加载数据
-                df = self._load_stock_data(stock_code)
-                if df is None:
-                    continue
-                
-                # 应用策略
-                signal_series = strategy_func(df)
-                if signal_series is None:
-                    continue
-                
-                # 执行回测
-                backtest_result = backtester.run_backtest(df, signal_series)
-                
-                if isinstance(backtest_result, dict) and backtest_result.get('total_signals', 0) > 0:
-                    results[stock_code] = {
-                        'total_signals': backtest_result.get('total_signals', 0),
-                        'win_rate': backtest_result.get('win_rate', '0%'),
-                        'avg_profit': backtest_result.get('avg_max_profit', '0%'),
-                        'avg_days': backtest_result.get('avg_days_to_peak', '0 天')
-                    }
-                    print(f"  信号数: {results[stock_code]['total_signals']}, "
-                          f"胜率: {results[stock_code]['win_rate']}, "
-                          f"收益: {results[stock_code]['avg_profit']}")
-                else:
-                    print(f"  无有效信号")
-                    
-            except Exception as e:
-                print(f"  测试失败: {e}")
-        
-        # 恢复原配置
-        if config_updates and original_config:
-            config_manager.configs[strategy_name] = original_config
-            config_manager.save_configs()
-        
-        return results
-    
-    def _load_stock_data(self, stock_code: str) -> Optional[pd.DataFrame]:
-        """加载股票数据"""
+    def load_config(self):
+        """加载配置文件"""
         try:
-            if stock_code.startswith('sh'):
-                market = 'sh'
-            elif stock_code.startswith('sz'):
-                market = 'sz'
+            if os.path.exists(self.config_path):
+                with open(self.config_path, 'r', encoding='utf-8') as f:
+                    self.config = json.load(f)
+                logger.info(f"配置加载成功: {len(self.config.get('strategies', {}))} 个策略")
             else:
-                return None
-            
-            file_path = os.path.join(self.base_path, market, 'lday', f'{stock_code}.day')
-            return data_loader.get_daily_data(file_path)
+                logger.warning(f"配置文件不存在: {self.config_path}")
+                self.config = self._get_default_config()
+                self.save_config()
         except Exception as e:
-            print(f"加载{stock_code}数据失败: {e}")
-            return None
+            logger.error(f"加载配置失败: {e}")
+            self.config = self._get_default_config()
     
-    def compare_configs(self, strategy_name: str, config_variants: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """比较不同配置的效果"""
-        print(f"\n=== 比较 {strategy_name} 不同配置效果 ===")
-        
-        comparison_results = {}
-        
-        for i, config_variant in enumerate(config_variants):
-            variant_name = f"配置{i+1}"
-            print(f"\n测试 {variant_name}: {config_variant}")
+    def save_config(self):
+        """保存配置文件"""
+        try:
+            # 确保目录存在
+            os.makedirs(os.path.dirname(self.config_path), exist_ok=True)
             
-            results = self.test_config_on_stocks(strategy_name, config_variant)
-            comparison_results[variant_name] = {
-                'config': config_variant,
-                'results': results,
-                'summary': self._summarize_results(results)
-            }
-        
-        # 生成对比报告
-        self._print_comparison_report(comparison_results)
-        
-        return comparison_results
+            # 更新时间戳
+            self.config['last_updated'] = datetime.now().isoformat()
+            
+            with open(self.config_path, 'w', encoding='utf-8') as f:
+                json.dump(self.config, f, ensure_ascii=False, indent=2)
+            
+            logger.info("配置保存成功")
+        except Exception as e:
+            logger.error(f"保存配置失败: {e}")
     
-    def _summarize_results(self, results: Dict[str, Any]) -> Dict[str, float]:
-        """汇总测试结果"""
-        if not results:
-            return {'avg_win_rate': 0, 'avg_profit': 0, 'total_signals': 0}
-        
-        win_rates = []
-        profits = []
-        total_signals = 0
-        
-        for stock_result in results.values():
-            try:
-                win_rate = float(stock_result['win_rate'].replace('%', ''))
-                profit = float(stock_result['avg_profit'].replace('%', ''))
-                win_rates.append(win_rate)
-                profits.append(profit)
-                total_signals += stock_result['total_signals']
-            except:
-                continue
-        
+    def _get_default_config(self) -> Dict[str, Any]:
+        """获取默认配置"""
         return {
-            'avg_win_rate': sum(win_rates) / len(win_rates) if win_rates else 0,
-            'avg_profit': sum(profits) / len(profits) if profits else 0,
-            'total_signals': total_signals
+            "version": "2.0",
+            "last_updated": datetime.now().isoformat(),
+            "strategies": {},
+            "global_settings": {
+                "max_concurrent_strategies": 5,
+                "default_data_length": 500,
+                "enable_parallel_processing": True,
+                "log_level": "INFO"
+            },
+            "market_filters": {
+                "valid_prefixes": {
+                    "sh": ["600", "601", "603", "605", "688"],
+                    "sz": ["000", "001", "002", "003", "300"]
+                },
+                "exclude_st": True,
+                "exclude_delisted": True,
+                "min_market_cap": 500000000,
+                "min_daily_volume": 10000000
+            },
+            "output_settings": {
+                "save_detailed_analysis": True,
+                "generate_charts": False,
+                "export_formats": ["json", "txt", "csv"],
+                "max_signals_per_strategy": 50
+            },
+            "frontend_settings": {
+                "default_timeframe": "daily",
+                "default_adjustment": "forward",
+                "chart_data_points": 60,
+                "auto_refresh_interval": 300000,
+                "enable_real_time": False
+            }
         }
     
-    def _print_comparison_report(self, comparison_results: Dict[str, Any]):
-        """打印对比报告"""
-        print(f"\n=== 配置对比报告 ===")
-        print(f"{'配置':<10} {'平均胜率':<10} {'平均收益':<10} {'总信号数':<10}")
-        print("-" * 50)
+    def get_strategies(self) -> Dict[str, Any]:
+        """获取所有策略配置"""
+        return self.config.get('strategies', {})
+    
+    def get_strategy(self, strategy_id: str) -> Optional[Dict[str, Any]]:
+        """获取单个策略配置"""
+        return self.config.get('strategies', {}).get(strategy_id)
+    
+    def add_strategy(self, strategy_id: str, strategy_config: Dict[str, Any]):
+        """添加策略配置"""
+        if 'strategies' not in self.config:
+            self.config['strategies'] = {}
         
-        for variant_name, data in comparison_results.items():
-            summary = data['summary']
-            print(f"{variant_name:<10} {summary['avg_win_rate']:<9.1f}% "
-                  f"{summary['avg_profit']:<9.1f}% {summary['total_signals']:<10}")
-
-class ConfigOptimizer:
-    """配置优化器 - 自动寻找最佳参数组合"""
+        self.config['strategies'][strategy_id] = strategy_config
+        self.save_config()
+        logger.info(f"添加策略配置: {strategy_id}")
     
-    def __init__(self):
-        self.tester = ConfigTester()
-    
-    def optimize_macd_params(self, strategy_name: str) -> Dict[str, Any]:
-        """优化MACD参数"""
-        print(f"\n=== 优化 {strategy_name} 的MACD参数 ===")
+    def update_strategy(self, strategy_id: str, strategy_config: Dict[str, Any]):
+        """更新策略配置"""
+        if 'strategies' not in self.config:
+            self.config['strategies'] = {}
         
-        # 定义参数搜索空间
-        fast_periods = [8, 10, 12, 14]
-        slow_periods = [20, 24, 26, 30]
-        signal_periods = [6, 8, 9, 12]
+        if strategy_id in self.config['strategies']:
+            self.config['strategies'][strategy_id].update(strategy_config)
+        else:
+            self.config['strategies'][strategy_id] = strategy_config
         
-        best_config = None
-        best_score = 0
+        self.save_config()
+        logger.info(f"更新策略配置: {strategy_id}")
+    
+    def remove_strategy(self, strategy_id: str):
+        """删除策略配置"""
+        if strategy_id in self.config.get('strategies', {}):
+            del self.config['strategies'][strategy_id]
+            self.save_config()
+            logger.info(f"删除策略配置: {strategy_id}")
+    
+    def enable_strategy(self, strategy_id: str):
+        """启用策略"""
+        strategy = self.get_strategy(strategy_id)
+        if strategy:
+            strategy['enabled'] = True
+            self.save_config()
+            logger.info(f"启用策略: {strategy_id}")
+    
+    def disable_strategy(self, strategy_id: str):
+        """禁用策略"""
+        strategy = self.get_strategy(strategy_id)
+        if strategy:
+            strategy['enabled'] = False
+            self.save_config()
+            logger.info(f"禁用策略: {strategy_id}")
+    
+    def get_enabled_strategies(self) -> List[str]:
+        """获取已启用的策略ID列表"""
+        enabled = []
+        for strategy_id, strategy in self.get_strategies().items():
+            if strategy.get('enabled', True):
+                enabled.append(strategy_id)
+        return enabled
+    
+    def get_global_settings(self) -> Dict[str, Any]:
+        """获取全局设置"""
+        return self.config.get('global_settings', {})
+    
+    def update_global_settings(self, settings: Dict[str, Any]):
+        """更新全局设置"""
+        if 'global_settings' not in self.config:
+            self.config['global_settings'] = {}
         
-        total_combinations = len(fast_periods) * len(slow_periods) * len(signal_periods)
-        current_combination = 0
+        self.config['global_settings'].update(settings)
+        self.save_config()
+        logger.info("更新全局设置")
+    
+    def get_market_filters(self) -> Dict[str, Any]:
+        """获取市场过滤器"""
+        return self.config.get('market_filters', {})
+    
+    def get_output_settings(self) -> Dict[str, Any]:
+        """获取输出设置"""
+        return self.config.get('output_settings', {})
+    
+    def get_frontend_settings(self) -> Dict[str, Any]:
+        """获取前端设置"""
+        return self.config.get('frontend_settings', {})
+    
+    def get_legacy_mapping(self, strategy_id: str) -> Optional[Dict[str, str]]:
+        """获取策略的兼容性映射"""
+        strategy = self.get_strategy(strategy_id)
+        if strategy:
+            return strategy.get('legacy_mapping', {})
+        return None
+    
+    def find_strategy_by_old_id(self, old_id: str) -> Optional[str]:
+        """通过旧ID查找新策略ID"""
+        for strategy_id, strategy in self.get_strategies().items():
+            legacy_mapping = strategy.get('legacy_mapping', {})
+            if legacy_mapping.get('old_id') == old_id or legacy_mapping.get('api_id') == old_id:
+                return strategy_id
+        return None
+    
+    def get_strategy_display_info(self, strategy_id: str) -> Dict[str, Any]:
+        """获取策略显示信息"""
+        strategy = self.get_strategy(strategy_id)
+        if not strategy:
+            return {}
         
-        for fast in fast_periods:
-            for slow in slow_periods:
-                if fast >= slow:  # 快线必须小于慢线
-                    continue
-                    
-                for signal in signal_periods:
-                    current_combination += 1
-                    print(f"测试组合 {current_combination}/{total_combinations}: "
-                          f"MACD({fast},{slow},{signal})")
-                    
-                    config_update = {
-                        'macd': {
-                            'fast_period': fast,
-                            'slow_period': slow,
-                            'signal_period': signal
-                        }
-                    }
-                    
-                    results = self.tester.test_config_on_stocks(strategy_name, config_update)
-                    summary = self.tester._summarize_results(results)
-                    
-                    # 综合评分：胜率权重60%，收益权重40%
-                    score = summary['avg_win_rate'] * 0.6 + summary['avg_profit'] * 0.4
-                    
-                    if score > best_score:
-                        best_score = score
-                        best_config = config_update.copy()
-                        print(f"  ★ 新的最佳配置！评分: {score:.2f}")
-                    else:
-                        print(f"  评分: {score:.2f}")
+        return {
+            'id': strategy_id,
+            'name': strategy.get('name', '未知策略'),
+            'version': strategy.get('version', '1.0'),
+            'description': strategy.get('description', ''),
+            'enabled': strategy.get('enabled', True),
+            'risk_level': strategy.get('risk_level', 'medium'),
+            'expected_signals_per_day': strategy.get('expected_signals_per_day', '未知'),
+            'suitable_market': strategy.get('suitable_market', []),
+            'tags': strategy.get('tags', [])
+        }
+    
+    def export_config(self, export_path: str = None) -> str:
+        """导出配置文件"""
+        if export_path is None:
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            export_path = f"config_backup_{timestamp}.json"
         
-        print(f"\n=== MACD参数优化结果 ===")
-        print(f"最佳配置: {best_config}")
-        print(f"最佳评分: {best_score:.2f}")
-        
-        return best_config
-    
-    def optimize_kdj_params(self, strategy_name: str) -> Dict[str, Any]:
-        """优化KDJ参数"""
-        print(f"\n=== 优化 {strategy_name} 的KDJ参数 ===")
-        
-        # 定义参数搜索空间
-        n_periods = [7, 9, 14, 21, 27]
-        k_periods = [1, 3, 5]
-        d_periods = [1, 3, 5]
-        
-        best_config = None
-        best_score = 0
-        
-        for n in n_periods:
-            for k in k_periods:
-                for d in d_periods:
-                    print(f"测试KDJ({n},{k},{d})")
-                    
-                    config_update = {
-                        'kdj': {
-                            'n_period': n,
-                            'k_period': k,
-                            'd_period': d
-                        }
-                    }
-                    
-                    results = self.tester.test_config_on_stocks(strategy_name, config_update)
-                    summary = self.tester._summarize_results(results)
-                    
-                    score = summary['avg_win_rate'] * 0.6 + summary['avg_profit'] * 0.4
-                    
-                    if score > best_score:
-                        best_score = score
-                        best_config = config_update.copy()
-                        print(f"  ★ 新的最佳配置！评分: {score:.2f}")
-                    else:
-                        print(f"  评分: {score:.2f}")
-        
-        print(f"\n=== KDJ参数优化结果 ===")
-        print(f"最佳配置: {best_config}")
-        print(f"最佳评分: {best_score:.2f}")
-        
-        return best_config
-
-def create_config_cli():
-    """创建命令行界面"""
-    parser = argparse.ArgumentParser(description='策略配置管理工具')
-    subparsers = parser.add_subparsers(dest='command', help='可用命令')
-    
-    # 显示配置
-    show_parser = subparsers.add_parser('show', help='显示策略配置')
-    show_parser.add_argument('strategy', help='策略名称')
-    
-    # 更新配置
-    update_parser = subparsers.add_parser('update', help='更新策略配置')
-    update_parser.add_argument('strategy', help='策略名称')
-    update_parser.add_argument('--config', help='配置JSON字符串')
-    update_parser.add_argument('--file', help='配置文件路径')
-    
-    # 验证配置
-    validate_parser = subparsers.add_parser('validate', help='验证策略配置')
-    validate_parser.add_argument('strategy', help='策略名称')
-    
-    # 测试配置
-    test_parser = subparsers.add_parser('test', help='测试策略配置')
-    test_parser.add_argument('strategy', help='策略名称')
-    test_parser.add_argument('--config', help='测试配置JSON字符串')
-    
-    # 比较配置
-    compare_parser = subparsers.add_parser('compare', help='比较不同配置')
-    compare_parser.add_argument('strategy1', help='策略1名称')
-    compare_parser.add_argument('strategy2', help='策略2名称')
-    
-    # 优化参数
-    optimize_parser = subparsers.add_parser('optimize', help='优化策略参数')
-    optimize_parser.add_argument('strategy', help='策略名称')
-    optimize_parser.add_argument('--indicator', choices=['macd', 'kdj', 'rsi'], help='要优化的指标')
-    
-    # 列出策略
-    subparsers.add_parser('list', help='列出所有可用策略')
-    
-    # 重置配置
-    reset_parser = subparsers.add_parser('reset', help='重置策略配置为默认值')
-    reset_parser.add_argument('strategy', help='策略名称')
-    
-    return parser
-
-def main():
-    """主函数"""
-    parser = create_config_cli()
-    args = parser.parse_args()
-    
-    if not args.command:
-        parser.print_help()
-        return
-    
-    try:
-        if args.command == 'show':
-            config_debugger.print_config(args.strategy)
+        try:
+            with open(export_path, 'w', encoding='utf-8') as f:
+                json.dump(self.config, f, ensure_ascii=False, indent=2)
             
-        elif args.command == 'update':
-            if args.config:
-                config_updates = json.loads(args.config)
-                update_strategy_config(args.strategy, config_updates)
-                print(f"已更新 {args.strategy} 配置")
-            elif args.file:
-                config_manager.import_config(args.strategy, args.file)
-                print(f"已从文件导入 {args.strategy} 配置")
-            else:
-                print("请提供 --config 或 --file 参数")
-                
-        elif args.command == 'validate':
-            is_valid, errors = validate_strategy_config(args.strategy)
-            if is_valid:
-                print(f"✅ {args.strategy} 配置有效")
-            else:
-                print(f"❌ {args.strategy} 配置无效:")
-                for error in errors:
-                    print(f"  - {error}")
-                    
-        elif args.command == 'test':
-            tester = ConfigTester()
-            config_updates = json.loads(args.config) if args.config else None
-            results = tester.test_config_on_stocks(args.strategy, config_updates)
+            logger.info(f"配置导出成功: {export_path}")
+            return export_path
+        except Exception as e:
+            logger.error(f"配置导出失败: {e}")
+            raise
+    
+    def import_config(self, import_path: str, merge: bool = True):
+        """导入配置文件"""
+        try:
+            with open(import_path, 'r', encoding='utf-8') as f:
+                imported_config = json.load(f)
             
-            if results:
-                summary = tester._summarize_results(results)
-                print(f"\n测试结果汇总:")
-                print(f"平均胜率: {summary['avg_win_rate']:.1f}%")
-                print(f"平均收益: {summary['avg_profit']:.1f}%")
-                print(f"总信号数: {summary['total_signals']}")
+            if merge:
+                # 合并配置
+                self._merge_config(imported_config)
             else:
-                print("测试未产生有效结果")
-                
-        elif args.command == 'compare':
-            config_debugger.compare_configs(args.strategy1, args.strategy2)
+                # 完全替换
+                self.config = imported_config
             
-        elif args.command == 'optimize':
-            optimizer = ConfigOptimizer()
-            if args.indicator == 'macd':
-                best_config = optimizer.optimize_macd_params(args.strategy)
-            elif args.indicator == 'kdj':
-                best_config = optimizer.optimize_kdj_params(args.strategy)
-            else:
-                print("请指定要优化的指标: --indicator macd|kdj|rsi")
-                return
+            self.save_config()
+            logger.info(f"配置导入成功: {import_path}")
+        except Exception as e:
+            logger.error(f"配置导入失败: {e}")
+            raise
+    
+    def _merge_config(self, imported_config: Dict[str, Any]):
+        """合并配置"""
+        # 合并策略
+        if 'strategies' in imported_config:
+            if 'strategies' not in self.config:
+                self.config['strategies'] = {}
+            self.config['strategies'].update(imported_config['strategies'])
+        
+        # 合并其他设置
+        for key in ['global_settings', 'market_filters', 'output_settings', 'frontend_settings']:
+            if key in imported_config:
+                if key not in self.config:
+                    self.config[key] = {}
+                self.config[key].update(imported_config[key])
+    
+    def validate_config(self) -> List[str]:
+        """验证配置文件"""
+        errors = []
+        
+        # 检查必需字段
+        required_fields = ['version', 'strategies', 'global_settings']
+        for field in required_fields:
+            if field not in self.config:
+                errors.append(f"缺少必需字段: {field}")
+        
+        # 检查策略配置
+        strategies = self.get_strategies()
+        for strategy_id, strategy in strategies.items():
+            if not isinstance(strategy, dict):
+                errors.append(f"策略配置格式错误: {strategy_id}")
+                continue
             
-            if best_config:
-                print(f"\n是否应用最佳配置到 {args.strategy}? (y/n): ", end='')
-                if input().lower() == 'y':
-                    update_strategy_config(args.strategy, best_config)
-                    print("配置已应用")
-                    
-        elif args.command == 'list':
-            strategy_list = list_available_strategies()
-            print("可用策略:")
-            for strategy in strategy_list:
-                description = strategies.get_strategy_description(strategy)
-                print(f"  - {strategy}: {description}")
-                
-        elif args.command == 'reset':
-            backup = config_manager.reset_to_default(args.strategy)
-            if backup:
-                print(f"已重置 {args.strategy} 配置为默认值")
-                print("原配置已备份")
-            else:
-                print(f"策略 {args.strategy} 不存在")
-                
-    except Exception as e:
-        print(f"执行命令时出错: {e}")
-        import traceback
-        traceback.print_exc()
+            # 检查策略必需字段
+            strategy_required = ['name', 'version', 'config']
+            for field in strategy_required:
+                if field not in strategy:
+                    errors.append(f"策略 {strategy_id} 缺少必需字段: {field}")
+        
+        return errors
+    
+    def reload_config(self):
+        """重新加载配置"""
+        logger.info("重新加载配置...")
+        self.load_config()
 
-if __name__ == '__main__':
-    main()
+
+# 全局配置管理器实例
+config_manager = ConfigManager()

@@ -1,6 +1,6 @@
 {
   "stock_code": "sh603282",
-  "optimization_date": "2025-07-23T11:42:28.443108",
+  "optimization_date": "2025-08-13T15:14:13.267000",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4000065430838691,
+  "best_score": 0.40585784686410303,
   "optimization_target": "composite_score"
 }

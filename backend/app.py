@@ -13,6 +13,8 @@ import backtester
 import multi_timeframe
 from adjustment_processor import create_adjustment_config, create_adjustment_processor
 from portfolio_manager import create_portfolio_manager
+from strategy_manager import strategy_manager
+from config_manager import config_manager
 
 # --- 配置路径 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
@@ -47,13 +49,142 @@ def index():
     return send_from_directory(frontend_dir, 'index.html')
 
 # --- API 端点 ---
+
+@app.route('/api/strategies')
+def get_available_strategies():
+    """获取可用策略列表"""
+    try:
+        strategies = strategy_manager.get_available_strategies()
+        return jsonify({
+            'success': True,
+            'strategies': strategies
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'获取策略列表失败: {str(e)}'
+        }), 500
+
+@app.route('/api/strategies/<strategy_id>/config', methods=['GET', 'PUT'])
+def manage_strategy_config(strategy_id):
+    """管理策略配置"""
+    if request.method == 'GET':
+        try:
+            config = strategy_manager.strategy_configs.get(strategy_id, {})
+            return jsonify({
+                'success': True,
+                'config': config
+            })
+        except Exception as e:
+            return jsonify({
+                'success': False,
+                'error': f'获取策略配置失败: {str(e)}'
+            }), 500
+    
+    elif request.method == 'PUT':
+        try:
+            data = request.get_json()
+            strategy_manager.update_strategy_config(strategy_id, data)
+            return jsonify({
+                'success': True,
+                'message': f'策略 {strategy_id} 配置已更新'
+            })
+        except Exception as e:
+            return jsonify({
+                'success': False,
+                'error': f'更新策略配置失败: {str(e)}'
+            }), 500
+
+@app.route('/api/strategies/<strategy_id>/toggle', methods=['POST'])
+def toggle_strategy(strategy_id):
+    """启用/禁用策略"""
+    try:
+        data = request.get_json()
+        enabled = data.get('enabled', True)
+        
+        if enabled:
+            strategy_manager.enable_strategy(strategy_id)
+        else:
+            strategy_manager.disable_strategy(strategy_id)
+        
+        return jsonify({
+            'success': True,
+            'message': f'策略 {strategy_id} 已{"启用" if enabled else "禁用"}'
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'切换策略状态失败: {str(e)}'
+        }), 500
+
+@app.route('/api/config/unified')
+def get_unified_config():
+    """获取统一配置"""
+    try:
+        # 获取完整配置
+        config_data = {
+            'strategies': config_manager.get_strategies(),
+            'global_settings': config_manager.config.get('global_settings', {}),
+            'market_filters': config_manager.config.get('market_filters', {}),
+            'output_settings': config_manager.config.get('output_settings', {}),
+            'frontend_settings': config_manager.config.get('frontend_settings', {}),
+            'version': config_manager.config.get('version', '2.0'),
+            'last_updated': config_manager.config.get('last_updated')
+        }
+        
+        return jsonify({
+            'success': True,
+            'data': config_data
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'获取统一配置失败: {str(e)}'
+        }), 500
+
 @app.route('/api/signals_summary')
 def get_signals_summary():
+    """兼容旧版API - 获取策略信号摘要"""
     strategy = request.args.get('strategy', 'PRE_CROSS')
+    
+    # 首先尝试从文件系统读取（保持向后兼容）
     try:
         return send_from_directory(os.path.join(RESULT_PATH, strategy), 'signals_summary.json')
     except FileNotFoundError:
-        return jsonify({"error": f"Signal file not found for strategy '{strategy}'. Have you run screener.py?"}), 404
+        # 如果文件不存在，尝试动态生成
+        try:
+            # 导入筛选器
+            from universal_screener import UniversalScreener
+            
+            # 策略ID映射
+            strategy_mapping = {
+                'PRE_CROSS': '临界金叉_v1.0',
+                'TRIPLE_CROSS': '三重金叉_v1.0', 
+                'MACD_ZERO_AXIS': 'macd零轴启动_v1.0',
+                'WEEKLY_GOLDEN_CROSS_MA': '周线金叉+日线ma_v1.0',
+                'ABYSS_BOTTOMING': '深渊筑底策略_v2.0'
+            }
+            
+            new_strategy_id = strategy_mapping.get(strategy, strategy)
+            
+            # 创建筛选器实例并运行
+            screener = UniversalScreener()
+            results = screener.run_screening([new_strategy_id])
+            
+            # 转换为旧版API格式
+            stock_list = []
+            for result in results:
+                stock_list.append({
+                    'stock_code': result.stock_code,
+                    'date': str(result.date),  # 使用正确的字段名
+                    'signal_type': result.signal_type,
+                    'price': result.current_price  # 使用正确的字段名
+                })
+            
+            return jsonify(stock_list)
+            
+        except Exception as e:
+            return jsonify({"error": f"无法获取策略 '{strategy}' 的信号: {str(e)}"}), 500
 
 def get_timeframe_data(stock_code, timeframe='daily'):
     """获取指定周期的数据"""
@@ -190,7 +321,43 @@ def get_stock_analysis(stock_code):
         df['rsi24'] = indicators.calculate_rsi(df, 24)
         
         # 应用策略和回测
-        signals = strategies.apply_strategy(strategy_name, df)
+        # 使用统一配置管理器查找策略ID
+        strategy_id = config_manager.find_strategy_by_old_id(strategy_name)
+        signals = None
+        
+        if strategy_id:
+            try:
+                # 使用策略管理器获取策略实例
+                strategy_instance = strategy_manager.get_strategy_instance(strategy_id)
+                if strategy_instance:
+                    signals = strategy_instance.apply_strategy(df)
+                    if signals is None:
+                        signals = pd.Series([False] * len(df), index=df.index)
+                else:
+                    print(f"策略实例未找到: {strategy_id}")
+                    print(f"可用策略: {list(strategy_manager.registered_strategies.keys())}")
+            except Exception as e:
+                print(f"策略管理器错误: {e}")
+                import traceback
+                traceback.print_exc()
+        
+        # 如果策略管理器失败，尝试使用传统方法
+        if signals is None:
+            try:
+                if hasattr(strategies, 'apply_strategy'):
+                    signals = strategies.apply_strategy(strategy_name, df)
+                else:
+                    # 最后的回退方案
+                    signals = pd.Series([False] * len(df), index=df.index)
+                    print(f"警告: 策略 {strategy_name} 未找到，返回空信号")
+            except Exception as e:
+                print(f"传统策略调用失败: {e}")
+                signals = pd.Series([False] * len(df), index=df.index)
+        # ---新增的防御性代码---
+        #检查 signals是否为元组，如果是，则只取第一个元素
+        if isinstance(signals, tuple) and len(signals) > 0:
+            print(f"警告：策略{strategy_name} 返回了一个元组，自动取第一个元素作为信号，原始信号{signals}")
+            signals = signals[0]
         backtest_results = backtester.run_backtest(df, signals)
         
         # 构建信号点 - 修复：使用回测中实际的入场价格

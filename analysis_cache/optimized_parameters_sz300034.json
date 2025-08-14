@@ -1,6 +1,6 @@
 {
   "stock_code": "sz300034",
-  "optimization_date": "2025-07-23T12:18:34.015757",
+  "optimization_date": "2025-08-13T15:14:49.449630",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.4225157552811571,
+  "best_score": 0.4267877702451828,
   "optimization_target": "composite_score"
 }

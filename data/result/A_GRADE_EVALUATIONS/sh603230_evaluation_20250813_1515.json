@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.292966",
+  "stock_code": "sh603230",
+  "current_price": 13.44,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 12.5,
+    "target_price_2": 12.17,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.06994047619047615,
+    "discount_2": 0.09449404761904759,
+    "stop_loss": {
+      "conservative": 12.77,
+      "moderate": 12.11,
+      "aggressive": 12.11,
+      "technical": 12.5
+    },
+    "take_profit": {
+      "conservative": 14.21,
+      "moderate": 14.48,
+      "aggressive": 15.79
+    }
+  }
+}

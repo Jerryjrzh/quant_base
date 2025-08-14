@@ -1,0 +1,51 @@
+{
+  "strategies": {
+    "深渊筑底策略_v2.0": {
+      "enabled": true,
+      "description": "经过测试验证的深渊筑底策略，识别从深度下跌中恢复的股票",
+      "priority": 1,
+      "config": {
+        "long_term_days": 400,
+        "min_drop_percent": 0.40,
+        "price_low_percentile": 0.35,
+        "volume_shrink_threshold": 0.70,
+        "volume_consistency_threshold": 0.30,
+        "volume_analysis_days": 30,
+        "hibernation_days": 40,
+        "hibernation_volatility_max": 0.40,
+        "washout_days": 15,
+        "washout_volume_shrink_ratio": 0.85,
+        "max_rise_from_bottom": 0.18,
+        "liftoff_volume_increase_ratio": 1.15
+      },
+      "risk_level": "medium",
+      "expected_signals_per_day": "5-15",
+      "suitable_market": ["熊市末期", "震荡市"],
+      "tags": ["深跌", "筑底", "反转", "价值投资"]
+    }
+  },
+  "global_settings": {
+    "max_concurrent_strategies": 5,
+    "default_data_length": 500,
+    "enable_parallel_processing": true,
+    "log_level": "INFO"
+  },
+  "market_filters": {
+    "valid_prefixes": {
+      "sh": ["600", "601", "603", "605", "688"],
+      "sz": ["000", "001", "002", "003", "300"],
+      "bj": ["430", "831", "832", "833", "834", "835", "836", "837", "838", "839"]
+    },
+    "exclude_st": true,
+    "exclude_delisted": true,
+    "min_market_cap": 500000000,
+    "min_daily_volume": 10000000
+  },
+  "output_settings": {
+    "save_detailed_analysis": true,
+    "generate_charts": false,
+    "export_formats": ["json", "txt", "csv"],
+    "max_signals_per_strategy": 50
+  },
+  "last_updated": "2025-08-12T16:30:00"
+}

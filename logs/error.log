@@ -1,3 +1,10 @@
+ERROR - 多进程处理失败: Can't pickle <class 'strategies.weekly_golden_cross_ma_strategy.WeeklyGoldenCrossMaStrategy'>: it's not the same object as strategies.weekly_golden_cross_ma_strategy.WeeklyGoldenCrossMaStrategy
+
+
+[username = Wifi@9BA9E1]
+                [web_passwd = W1f1s3t.A9E1]
+
+
 总计处理股票数: 4648
 --------------------------------------------------------------------------------
 通过 [阶段 0: 深跌筑底] 的股票数: 371 (7.98%)

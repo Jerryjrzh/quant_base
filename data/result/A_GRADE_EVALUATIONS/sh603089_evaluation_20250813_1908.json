@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T19:08:36.699588",
+  "stock_code": "sh603089",
+  "current_price": 16.48,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 16.21,
+    "target_price_2": 16.35,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": 0.016383495145631043,
+    "discount_2": 0.007888349514563046,
+    "stop_loss": {
+      "conservative": 15.57,
+      "moderate": 14.77,
+      "aggressive": 14.77,
+      "technical": 13.84
+    },
+    "take_profit": {
+      "conservative": 17.33,
+      "moderate": 17.66,
+      "aggressive": 19.26
+    }
+  }
+}

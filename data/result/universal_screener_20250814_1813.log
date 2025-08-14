@@ -1,0 +1,536 @@
+2025-08-14 18:13:10,236 - INFO - 配置加载成功: 5 个策略
+2025-08-14 18:13:10,236 - INFO - 配置管理器初始化完成，配置文件: /home/hypnosis/data/quant_base/config/unified_strategy_config.json
+2025-08-14 18:13:10,239 - INFO - 加载配置文件: /home/hypnosis/data/quant_base/backend/strategies_config.json
+2025-08-14 18:13:10,239 - INFO - 通用筛选器初始化完成
+2025-08-14 18:13:10,244 - INFO - 获取策略股票列表: MACD零轴启动_v1.0
+2025-08-14 18:13:10,244 - INFO - 开始运行策略筛选: MACD零轴启动_v1.0
+2025-08-14 18:13:10,244 - INFO - ===== 开始执行通用股票筛选 =====
+2025-08-14 18:13:10,244 - INFO - 配置保存成功
+2025-08-14 18:13:10,244 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:10,244 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:10,251 - INFO - 共找到 8973 个股票文件
+2025-08-14 18:13:10,251 - INFO - 启用的策略: ['深渊筑底策略_v2.0', '临界金叉_v1.0', '三重金叉_v1.0', 'MACD零轴启动_v1.0', '周线金叉+日线MA_v1.0']
+2025-08-14 18:13:19,035 - INFO - 筛选完成，发现 54 个信号，耗时 8.79 秒
+2025-08-14 18:13:19,036 - INFO - 配置保存成功
+2025-08-14 18:13:19,036 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:19,036 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:19,061 - INFO - 配置保存成功
+2025-08-14 18:13:19,061 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:19,061 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:19,061 - INFO - 配置保存成功
+2025-08-14 18:13:19,061 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:19,061 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:19,062 - INFO - 配置保存成功
+2025-08-14 18:13:19,062 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:13:19,062 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:13:19,062 - INFO - 配置保存成功
+2025-08-14 18:13:19,062 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:13:19,062 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:13:19,062 - INFO - 配置保存成功
+2025-08-14 18:13:19,062 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:19,062 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:19,063 - INFO - 配置保存成功
+2025-08-14 18:13:19,063 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:19,063 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:19,063 - INFO - 配置保存成功
+2025-08-14 18:13:19,063 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:19,063 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:19,063 - INFO - 配置保存成功
+2025-08-14 18:13:19,063 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:19,063 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:19,063 - INFO - 配置保存成功
+2025-08-14 18:13:19,063 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:19,063 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:19,064 - INFO - 筛选完成，获得 54 个结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,064 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:19,065 - INFO - 获取策略股票列表: 三重金叉_v1.0
+2025-08-14 18:13:19,065 - INFO - 开始运行策略筛选: 三重金叉_v1.0
+2025-08-14 18:13:19,065 - INFO - ===== 开始执行通用股票筛选 =====
+2025-08-14 18:13:19,065 - INFO - 配置保存成功
+2025-08-14 18:13:19,065 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:19,065 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:19,071 - INFO - 共找到 8973 个股票文件
+2025-08-14 18:13:19,071 - INFO - 启用的策略: ['深渊筑底策略_v2.0', '临界金叉_v1.0', '三重金叉_v1.0', 'MACD零轴启动_v1.0', '周线金叉+日线MA_v1.0']
+2025-08-14 18:13:27,907 - INFO - 筛选完成，发现 54 个信号，耗时 8.84 秒
+2025-08-14 18:13:27,908 - INFO - 配置保存成功
+2025-08-14 18:13:27,908 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:27,908 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:27,915 - INFO - 配置保存成功
+2025-08-14 18:13:27,915 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:27,915 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:27,915 - INFO - 配置保存成功
+2025-08-14 18:13:27,915 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:27,915 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:27,915 - INFO - 配置保存成功
+2025-08-14 18:13:27,915 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:13:27,916 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:13:27,916 - INFO - 配置保存成功
+2025-08-14 18:13:27,916 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:13:27,916 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:13:27,916 - INFO - 配置保存成功
+2025-08-14 18:13:27,916 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:27,916 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:27,916 - INFO - 配置保存成功
+2025-08-14 18:13:27,916 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:27,916 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:27,916 - INFO - 配置保存成功
+2025-08-14 18:13:27,916 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:27,916 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:27,916 - INFO - 配置保存成功
+2025-08-14 18:13:27,916 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:27,916 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:27,916 - INFO - 配置保存成功
+2025-08-14 18:13:27,916 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:27,917 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:27,917 - INFO - 筛选完成，获得 54 个结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,917 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:13:27,918 - INFO - ===== 开始执行通用股票筛选 =====
+2025-08-14 18:13:27,919 - INFO - 配置保存成功
+2025-08-14 18:13:27,919 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:27,919 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:27,924 - INFO - 共找到 8973 个股票文件
+2025-08-14 18:13:27,924 - INFO - 启用的策略: ['深渊筑底策略_v2.0', '临界金叉_v1.0', '三重金叉_v1.0', 'MACD零轴启动_v1.0', '周线金叉+日线MA_v1.0']
+2025-08-14 18:13:36,810 - INFO - 筛选完成，发现 54 个信号，耗时 8.89 秒
+2025-08-14 18:13:36,810 - INFO - 配置保存成功
+2025-08-14 18:13:36,810 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:36,810 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:36,818 - INFO - 配置保存成功
+2025-08-14 18:13:36,818 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:36,818 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:36,818 - INFO - 配置保存成功
+2025-08-14 18:13:36,818 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:36,818 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:36,818 - INFO - 配置保存成功
+2025-08-14 18:13:36,818 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:13:36,818 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:13:36,818 - INFO - 配置保存成功
+2025-08-14 18:13:36,818 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:13:36,818 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:13:36,818 - INFO - 配置保存成功
+2025-08-14 18:13:36,818 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:36,818 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:36,819 - INFO - 配置保存成功
+2025-08-14 18:13:36,819 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:36,819 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:36,819 - INFO - 配置保存成功
+2025-08-14 18:13:36,819 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:36,819 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:36,819 - INFO - 配置保存成功
+2025-08-14 18:13:36,819 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:36,819 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:36,819 - INFO - 配置保存成功
+2025-08-14 18:13:36,819 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:36,819 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:36,820 - ERROR - 获取信号摘要失败: 'StrategyResult' object has no attribute 'signal_date'
+2025-08-14 18:13:36,820 - INFO - ===== 开始执行通用股票筛选 =====
+2025-08-14 18:13:36,820 - INFO - 配置保存成功
+2025-08-14 18:13:36,820 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:36,820 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:36,826 - INFO - 共找到 8973 个股票文件
+2025-08-14 18:13:36,826 - INFO - 启用的策略: ['深渊筑底策略_v2.0', '临界金叉_v1.0', '三重金叉_v1.0', 'MACD零轴启动_v1.0', '周线金叉+日线MA_v1.0']
+2025-08-14 18:13:45,536 - INFO - 筛选完成，发现 54 个信号，耗时 8.72 秒
+2025-08-14 18:13:45,537 - INFO - 配置保存成功
+2025-08-14 18:13:45,537 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:45,537 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:45,544 - INFO - 配置保存成功
+2025-08-14 18:13:45,544 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:45,544 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:45,544 - INFO - 配置保存成功
+2025-08-14 18:13:45,544 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:45,544 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:45,544 - INFO - 配置保存成功
+2025-08-14 18:13:45,544 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:13:45,544 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:13:45,544 - INFO - 配置保存成功
+2025-08-14 18:13:45,544 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:13:45,544 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:13:45,545 - INFO - 配置保存成功
+2025-08-14 18:13:45,545 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:45,545 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:13:45,545 - INFO - 配置保存成功
+2025-08-14 18:13:45,545 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:45,545 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:13:45,545 - INFO - 配置保存成功
+2025-08-14 18:13:45,545 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:45,545 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:13:45,545 - INFO - 配置保存成功
+2025-08-14 18:13:45,545 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:45,545 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:45,545 - INFO - 配置保存成功
+2025-08-14 18:13:45,545 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:45,545 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:13:45,546 - ERROR - 获取信号摘要失败: 'StrategyResult' object has no attribute 'signal_date'
+2025-08-14 18:13:58,544 - INFO - 配置加载成功: 5 个策略
+2025-08-14 18:13:58,544 - INFO - 配置管理器初始化完成，配置文件: /home/hypnosis/data/quant_base/config/unified_strategy_config.json
+2025-08-14 18:13:58,547 - INFO - 加载配置文件: /home/hypnosis/data/quant_base/backend/strategies_config.json
+2025-08-14 18:13:58,547 - INFO - 通用筛选器初始化完成
+2025-08-14 18:13:58,553 - INFO - 获取策略股票列表: MACD零轴启动_v1.0
+2025-08-14 18:13:58,553 - INFO - 开始运行策略筛选: MACD零轴启动_v1.0
+2025-08-14 18:13:58,553 - INFO - ===== 开始执行通用股票筛选 =====
+2025-08-14 18:13:58,553 - INFO - 配置保存成功
+2025-08-14 18:13:58,553 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:58,553 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:13:58,560 - INFO - 共找到 8973 个股票文件
+2025-08-14 18:13:58,560 - INFO - 启用的策略: ['深渊筑底策略_v2.0', '临界金叉_v1.0', '三重金叉_v1.0', 'MACD零轴启动_v1.0', '周线金叉+日线MA_v1.0']
+2025-08-14 18:14:07,493 - INFO - 筛选完成，发现 54 个信号，耗时 8.94 秒
+2025-08-14 18:14:07,493 - INFO - 配置保存成功
+2025-08-14 18:14:07,493 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:07,493 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:07,518 - INFO - 配置保存成功
+2025-08-14 18:14:07,518 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:07,518 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:07,518 - INFO - 配置保存成功
+2025-08-14 18:14:07,518 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:07,518 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:07,519 - INFO - 配置保存成功
+2025-08-14 18:14:07,519 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:14:07,519 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:14:07,519 - INFO - 配置保存成功
+2025-08-14 18:14:07,519 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:14:07,519 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:14:07,520 - INFO - 配置保存成功
+2025-08-14 18:14:07,520 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:07,520 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:07,520 - INFO - 配置保存成功
+2025-08-14 18:14:07,520 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:07,520 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:07,520 - INFO - 配置保存成功
+2025-08-14 18:14:07,520 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:07,520 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:07,520 - INFO - 配置保存成功
+2025-08-14 18:14:07,520 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:07,520 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:07,520 - INFO - 配置保存成功
+2025-08-14 18:14:07,520 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:07,520 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:07,521 - INFO - 筛选完成，获得 54 个结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,521 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:07,522 - INFO - 获取策略股票列表: 三重金叉_v1.0
+2025-08-14 18:14:07,522 - INFO - 开始运行策略筛选: 三重金叉_v1.0
+2025-08-14 18:14:07,522 - INFO - ===== 开始执行通用股票筛选 =====
+2025-08-14 18:14:07,523 - INFO - 配置保存成功
+2025-08-14 18:14:07,523 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:07,523 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:07,528 - INFO - 共找到 8973 个股票文件
+2025-08-14 18:14:07,528 - INFO - 启用的策略: ['深渊筑底策略_v2.0', '临界金叉_v1.0', '三重金叉_v1.0', 'MACD零轴启动_v1.0', '周线金叉+日线MA_v1.0']
+2025-08-14 18:14:16,493 - INFO - 筛选完成，发现 54 个信号，耗时 8.97 秒
+2025-08-14 18:14:16,494 - INFO - 配置保存成功
+2025-08-14 18:14:16,494 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:16,494 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:16,501 - INFO - 配置保存成功
+2025-08-14 18:14:16,501 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:16,501 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:16,501 - INFO - 配置保存成功
+2025-08-14 18:14:16,501 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:16,501 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:16,501 - INFO - 配置保存成功
+2025-08-14 18:14:16,501 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:14:16,501 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:14:16,502 - INFO - 配置保存成功
+2025-08-14 18:14:16,502 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:14:16,502 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:14:16,502 - INFO - 配置保存成功
+2025-08-14 18:14:16,502 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:16,502 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:16,502 - INFO - 配置保存成功
+2025-08-14 18:14:16,502 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:16,502 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:16,502 - INFO - 配置保存成功
+2025-08-14 18:14:16,502 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:16,502 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:16,502 - INFO - 配置保存成功
+2025-08-14 18:14:16,502 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:16,502 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:16,503 - INFO - 配置保存成功
+2025-08-14 18:14:16,503 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:16,503 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:16,503 - INFO - 筛选完成，获得 54 个结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,503 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,504 - WARNING - 处理结果时出错: 'StrategyResult' object has no attribute 'signal_date', 跳过该结果
+2025-08-14 18:14:16,505 - INFO - ===== 开始执行通用股票筛选 =====
+2025-08-14 18:14:16,505 - INFO - 配置保存成功
+2025-08-14 18:14:16,505 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:16,505 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:16,511 - INFO - 共找到 8973 个股票文件
+2025-08-14 18:14:16,511 - INFO - 启用的策略: ['深渊筑底策略_v2.0', '临界金叉_v1.0', '三重金叉_v1.0', 'MACD零轴启动_v1.0', '周线金叉+日线MA_v1.0']
+2025-08-14 18:14:25,474 - INFO - 筛选完成，发现 54 个信号，耗时 8.97 秒
+2025-08-14 18:14:25,475 - INFO - 配置保存成功
+2025-08-14 18:14:25,475 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:25,475 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:25,482 - INFO - 配置保存成功
+2025-08-14 18:14:25,482 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:25,482 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:25,482 - INFO - 配置保存成功
+2025-08-14 18:14:25,482 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:25,482 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:25,483 - INFO - 配置保存成功
+2025-08-14 18:14:25,483 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:14:25,483 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:14:25,483 - INFO - 配置保存成功
+2025-08-14 18:14:25,483 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:14:25,483 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:14:25,483 - INFO - 配置保存成功
+2025-08-14 18:14:25,483 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:25,483 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:25,483 - INFO - 配置保存成功
+2025-08-14 18:14:25,483 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:25,483 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:25,483 - INFO - 配置保存成功
+2025-08-14 18:14:25,483 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:25,483 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:25,484 - INFO - 配置保存成功
+2025-08-14 18:14:25,484 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:25,484 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:25,484 - INFO - 配置保存成功
+2025-08-14 18:14:25,484 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:25,484 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:25,484 - ERROR - 获取信号摘要失败: 'StrategyResult' object has no attribute 'signal_date'
+2025-08-14 18:14:25,485 - INFO - ===== 开始执行通用股票筛选 =====
+2025-08-14 18:14:25,485 - INFO - 配置保存成功
+2025-08-14 18:14:25,485 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:25,485 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:25,491 - INFO - 共找到 8973 个股票文件
+2025-08-14 18:14:25,491 - INFO - 启用的策略: ['深渊筑底策略_v2.0', '临界金叉_v1.0', '三重金叉_v1.0', 'MACD零轴启动_v1.0', '周线金叉+日线MA_v1.0']
+2025-08-14 18:14:34,319 - INFO - 筛选完成，发现 54 个信号，耗时 8.83 秒
+2025-08-14 18:14:34,320 - INFO - 配置保存成功
+2025-08-14 18:14:34,320 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:34,320 - INFO - 禁用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:34,345 - INFO - 配置保存成功
+2025-08-14 18:14:34,345 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:34,345 - INFO - 禁用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:34,345 - INFO - 配置保存成功
+2025-08-14 18:14:34,345 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:34,345 - INFO - 禁用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:34,346 - INFO - 配置保存成功
+2025-08-14 18:14:34,346 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:14:34,346 - INFO - 禁用策略: 临界金叉_v1.0
+2025-08-14 18:14:34,346 - INFO - 配置保存成功
+2025-08-14 18:14:34,346 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:14:34,346 - INFO - 禁用策略: 三重金叉_v1.0
+2025-08-14 18:14:34,346 - INFO - 配置保存成功
+2025-08-14 18:14:34,346 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:34,346 - INFO - 启用策略: 深渊筑底策略_v2.0
+2025-08-14 18:14:34,347 - INFO - 配置保存成功
+2025-08-14 18:14:34,347 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:34,347 - INFO - 启用策略: 临界金叉_v1.0
+2025-08-14 18:14:34,347 - INFO - 配置保存成功
+2025-08-14 18:14:34,347 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:34,347 - INFO - 启用策略: 三重金叉_v1.0
+2025-08-14 18:14:34,347 - INFO - 配置保存成功
+2025-08-14 18:14:34,347 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:34,347 - INFO - 启用策略: MACD零轴启动_v1.0
+2025-08-14 18:14:34,347 - INFO - 配置保存成功
+2025-08-14 18:14:34,347 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:34,347 - INFO - 启用策略: 周线金叉+日线MA_v1.0
+2025-08-14 18:14:34,348 - ERROR - 获取信号摘要失败: 'StrategyResult' object has no attribute 'signal_date'

@@ -48,8 +48,8 @@ def check_macd_zero_axis_filter(df, signal_idx, signal_state, lookback_days=5):
         price_increase = (current_high - base_price) / base_price
         
         # 如果5日内涨幅超过5%，则排除
-        if price_increase > 0.25 or price_increase < 0.05:
-            return True, f"五日内涨幅{price_increase:.1%}超过25%,低于5%，排除高低风险"
+        if price_increase > 0.25:
+            return True, f"五日内涨幅{price_increase:.1%}超过25%，排除高低风险"
         
         return False, ""
         

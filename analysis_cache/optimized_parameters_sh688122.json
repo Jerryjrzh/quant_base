@@ -1,6 +1,6 @@
 {
   "stock_code": "sh688122",
-  "optimization_date": "2025-07-23T12:16:58.665637",
+  "optimization_date": "2025-08-13T15:14:33.724344",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.483332315013324,
+  "best_score": 0.4881282645537325,
   "optimization_target": "composite_score"
 }

@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const historyClose = document.getElementById('history-close');
     const multiTimeframeModal = document.getElementById('multi-timeframe-modal');
     const multiTimeframeClose = document.getElementById('multi-timeframe-close');
+    
+    // 策略配置模态框
+    const strategyConfigBtn = document.getElementById('strategy-config-btn');
+    const strategyConfigModal = document.getElementById('strategy-config-modal');
+    const strategyConfigClose = document.getElementById('strategy-config-close');
 
 
     // --- 事件监听 ---
@@ -73,36 +78,79 @@ document.addEventListener('DOMContentLoaded', function () {
     if (corePoolClose) corePoolClose.addEventListener('click', hideCorePoolModal);
     if (historyClose) historyClose.addEventListener('click', hideHistoryModal);
     if (multiTimeframeClose) multiTimeframeClose.addEventListener('click', hideMultiTimeframeModal);
+    if (strategyConfigBtn) strategyConfigBtn.addEventListener('click', showStrategyConfigModal);
+    if (strategyConfigClose) strategyConfigClose.addEventListener('click', hideStrategyConfigModal);
     
     // 点击模态框外部关闭
     window.addEventListener('click', (event) => {
         if (event.target === corePoolModal) hideCorePoolModal();
         if (event.target === historyModal) hideHistoryModal();
         if (event.target === multiTimeframeModal) hideMultiTimeframeModal();
+        if (event.target === strategyConfigModal) hideStrategyConfigModal();
     });
+    
+    // 初始化：延迟加载可用策略，确保configManager已初始化
+    setTimeout(() => {
+        initializeStrategies();
+    }, 100);
 
 
     // --- 主要功能函数 ---
 
     function populateStockList() {
         const strategy = strategySelect.value;
-        fetch(`/api/signals_summary?strategy=${strategy}`)
+        if (!strategy) return;
+        
+        // 显示加载状态
+        stockSelect.innerHTML = '<option value="">加载中...</option>';
+        
+        // 优先使用新的API接口
+        fetch(`/api/strategies/${encodeURIComponent(strategy)}/stocks`)
+            .then(response => {
+                if (!response.ok) {
+                    // 如果新API失败，回退到旧API
+                    const apiStrategy = mapNewToOldStrategyId(strategy);
+                    return fetch(`/api/signals_summary?strategy=${apiStrategy}`);
+                }
+                return response;
+            })
             .then(response => {
                 if (!response.ok) throw new Error(`无法加载信号文件 (策略: ${strategy})`);
                 return response.json();
             })
             .then(data => {
                 stockSelect.innerHTML = '<option value="">请选择股票</option>';
-                if (!data || data.length === 0) {
-                    stockSelect.innerHTML += `<option disabled>策略 ${strategy} 今日无信号</option>`;
-                    return;
+                
+                // 处理新API格式
+                if (data.success && data.data) {
+                    const stockList = data.data;
+                    if (stockList.length === 0) {
+                        stockSelect.innerHTML += `<option disabled>策略 ${strategy} 今日无信号</option>`;
+                        return;
+                    }
+                    stockList.forEach(signal => {
+                        const option = document.createElement('option');
+                        option.value = signal.stock_code;
+                        option.textContent = `${signal.stock_code} (${signal.date})`;
+                        stockSelect.appendChild(option);
+                    });
+                } 
+                // 处理旧API格式（兼容性）
+                else if (Array.isArray(data)) {
+                    if (data.length === 0) {
+                        stockSelect.innerHTML += `<option disabled>策略 ${strategy} 今日无信号</option>`;
+                        return;
+                    }
+                    data.forEach(signal => {
+                        const option = document.createElement('option');
+                        option.value = signal.stock_code;
+                        option.textContent = `${signal.stock_code} (${signal.date})`;
+                        stockSelect.appendChild(option);
+                    });
                 }
-                data.forEach(signal => {
-                    const option = document.createElement('option');
-                    option.value = signal.stock_code;
-                    option.textContent = `${signal.stock_code} (${signal.date})`;
-                    stockSelect.appendChild(option);
-                });
+                else {
+                    throw new Error('返回数据格式不正确');
+                }
             })
             .catch(error => {
                 console.error('Error fetching signal summary:', error);
@@ -127,7 +175,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const adjustmentType = adjustmentSelect ? adjustmentSelect.value : 'forward';
         const timeframe = timeframeSelect ? timeframeSelect.value : 'daily';
         
-        fetch(`/api/analysis/${stockCode}?strategy=${strategy}&adjustment=${adjustmentType}&timeframe=${timeframe}`)
+        // 将新策略ID映射为旧策略ID用于API调用
+        const apiStrategy = mapNewToOldStrategyId(strategy);
+        
+        fetch(`/api/analysis/${stockCode}?strategy=${apiStrategy}&adjustment=${adjustmentType}&timeframe=${timeframe}`)
             .then(response => response.json())
             .then(chartData => {
                 myChart.hideLoading();
@@ -179,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // 计算合理的数据显示范围
         const totalDataPoints = dates.length;
-        const defaultShowCount = Math.min(60, totalDataPoints); // 默认显示最近60个交易日
+        const defaultShowCount = Math.min(252, totalDataPoints); // 默认显示最近60个交易日
         const startPercent = Math.max(0, ((totalDataPoints - defaultShowCount) / totalDataPoints) * 100);
         
         // 计算各指标的动态范围 - 修复版本
@@ -213,17 +264,17 @@ document.addEventListener('DOMContentLoaded', function () {
             
             // 使用更合理的范围扩展策略
             const range = actualMax - actualMin;
-            const padding = Math.max(range * 0.1, 0.01); // 至少10%的边距，最小0.01
-            
+            //const padding = Math.max(range * 0.1, 0.01); // 至少10%的边距，最小0.01
+            const padding =  0.01; // 至少10%的边距，最小0.01
             macdMin = actualMin - padding;
             macdMax = actualMax + padding;
             
             // 确保范围不会过小
-            if (Math.abs(macdMax - macdMin) < 0.02) {
-                const center = (macdMax + macdMin) / 2;
-                macdMin = center - 0.01;
-                macdMax = center + 0.01;
-            }
+            //if (Math.abs(macdMax - macdMin) < 0.02) {
+              //  const center = (macdMax + macdMin) / 2;
+                //macdMin = center - 0.01;
+                //macdMax = center + 0.01;
+            //}
         }
 
         // 获取当前周期设置用于标题显示
@@ -304,10 +355,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             ],
             grid: [
-                { left: '8%', right: '5%', top: '8%', height: '35%' },      // K线和MA
-                { left: '8%', right: '5%', top: '46%', height: '15%' },     // RSI指标
-                { left: '8%', right: '5%', top: '64%', height: '15%' },     // KDJ指标
-                { left: '8%', right: '5%', top: '82%', height: '15%' }      // MACD指标
+                { left: '2%', right: '1%', top: '8%', height: '35%' },      // K线和MA
+                { left: '2%', right: '1%', top: '46%', height: '20%' },     // RSI指标
+                { left: '2%', right: '1%', top: '66%', height: '20%' },     // KDJ指标
+                { left: '2%', right: '1%', top: '85%', height: '20%' }      // MACD指标
             ],
             xAxis: [
                 { 
@@ -525,8 +576,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         
                         // 更清晰的颜色区分
                         if (signal.state && signal.state.includes('SUCCESS')) return '#00cc00';
-                        if (signal.state && signal.state.includes('FAIL')) return '#cc0000';
-                        return '#ff9900'; // 橙色表示待确认
+                        //if (signal.state && signal.state.includes('FAIL')) return '#cc0000';
+                        //return '#ff9900'; // 橙色表示待确认
                     },
                     borderColor: '#ffffff',
                     borderWidth: 1
@@ -612,7 +663,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const adjustmentType = adjustmentSelect ? adjustmentSelect.value : 'forward';
         const timeframe = timeframeSelect ? timeframeSelect.value : 'daily';
         
-        fetch(`/api/trading_advice/${stockCode}?strategy=${strategy}&adjustment=${adjustmentType}&timeframe=${timeframe}`)
+        // 将新策略ID映射为旧策略ID用于API调用
+        const apiStrategy = mapNewToOldStrategyId(strategy);
+        
+        fetch(`/api/trading_advice/${stockCode}?strategy=${apiStrategy}&adjustment=${adjustmentType}&timeframe=${timeframe}`)
             .then(response => response.json())
             .then(data => {
                 if (data.error) throw new Error(data.error);
@@ -772,6 +826,222 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
         .catch(error => alert(`添加出错: ${error.message}`));
+    };
+
+
+    // --- 策略配置管理功能 ---
+    async function initializeStrategies() {
+        try {
+            // 等待配置管理器加载完成
+            if (typeof configManager !== 'undefined') {
+                await configManager.waitForLoad();
+                await loadAvailableStrategies();
+            } else {
+                // 如果配置管理器不可用，使用传统方式
+                loadAvailableStrategiesLegacy();
+            }
+        } catch (error) {
+            console.error('初始化策略失败:', error);
+            loadAvailableStrategiesLegacy();
+        }
+    }
+    
+    async function loadAvailableStrategies() {
+        try {
+            // 使用统一配置管理器
+            if (typeof configManager !== 'undefined' && configManager.loaded) {
+                const strategies = configManager.getEnabledStrategies();
+                const strategyList = Object.keys(strategies).map(id => ({
+                    id: id,
+                    ...strategies[id]
+                }));
+                populateStrategySelect(strategyList);
+                return;
+            }
+        } catch (error) {
+            console.error('使用配置管理器加载策略失败:', error);
+        }
+        
+        // 回退到API调用
+        loadAvailableStrategiesLegacy();
+    }
+    
+    function loadAvailableStrategiesLegacy() {
+        fetch('/api/strategies')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    populateStrategySelect(data.strategies);
+                } else {
+                    console.error('加载策略失败:', data.error);
+                    strategySelect.innerHTML = '<option value="">加载策略失败</option>';
+                }
+            })
+            .catch(error => {
+                console.error('加载策略出错:', error);
+                strategySelect.innerHTML = '<option value="">加载策略出错</option>';
+            });
+    }
+
+    function populateStrategySelect(strategies) {
+        strategySelect.innerHTML = '<option value="">请选择策略</option>';
+        
+        // 只显示启用且兼容的策略
+        const enabledStrategies = strategies.filter(strategy => 
+            strategy.enabled !== false && isStrategyCompatible(strategy)
+        );
+        
+        if (enabledStrategies.length === 0) {
+            strategySelect.innerHTML += '<option disabled>暂无可用策略</option>';
+            return;
+        }
+        
+        enabledStrategies.forEach(strategy => {
+            const option = document.createElement('option');
+            option.value = strategy.id;
+            option.textContent = getStrategyDisplayName(strategy);
+            strategySelect.appendChild(option);
+        });
+        
+        // 如果只有一个策略，自动选择
+        if (enabledStrategies.length === 1) {
+            strategySelect.value = enabledStrategies[0].id;
+            populateStockList();
+        }
+    }
+
+    function showStrategyConfigModal() {
+        if (strategyConfigModal) {
+            strategyConfigModal.style.display = 'block';
+            loadStrategyConfigData();
+        }
+    }
+
+    function hideStrategyConfigModal() {
+        if (strategyConfigModal) {
+            strategyConfigModal.style.display = 'none';
+        }
+    }
+
+    function loadStrategyConfigData() {
+        const contentDiv = document.getElementById('strategy-config-content');
+        contentDiv.innerHTML = '<div id="strategy-config-loading" style="text-align: center; padding: 2rem; color: #6c757d;">加载中...</div>';
+        
+        fetch('/api/strategies')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    displayStrategyConfigData(data.strategies);
+                } else {
+                    throw new Error(data.error);
+                }
+            })
+            .catch(error => {
+                console.error('加载策略配置失败:', error);
+                contentDiv.innerHTML = `<p style="color: #dc3545;">加载策略配置失败: ${error.message}</p>`;
+            });
+    }
+
+    function displayStrategyConfigData(strategies) {
+        const contentDiv = document.getElementById('strategy-config-content');
+        
+        if (!strategies || strategies.length === 0) {
+            contentDiv.innerHTML = '<p>暂无可用策略。</p>';
+            return;
+        }
+        
+        let html = '';
+        strategies.forEach(strategy => {
+            const isEnabled = strategy.enabled !== false;
+            const config = strategy.config || {};
+            
+            html += `
+                <div class="strategy-card ${isEnabled ? '' : 'disabled'}" data-strategy-id="${strategy.id}">
+                    <div class="strategy-header">
+                        <div>
+                            <h4 class="strategy-title">${strategy.name}</h4>
+                            <span class="strategy-version">v${strategy.version}</span>
+                        </div>
+                        <div class="strategy-toggle">
+                            <span style="font-size: 0.9rem; color: #6c757d;">${isEnabled ? '启用' : '禁用'}</span>
+                            <div class="toggle-switch ${isEnabled ? 'active' : ''}" onclick="toggleStrategy('${strategy.id}', ${!isEnabled})">
+                                <div class="toggle-slider"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-description">
+                        ${strategy.description || '暂无描述'}
+                    </div>
+                    
+                    <div class="strategy-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">数据长度要求</div>
+                            <div class="meta-value">${strategy.required_data_length || 'N/A'} 天</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">风险等级</div>
+                            <div class="meta-value">${config.risk_level || 'N/A'}</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">预期信号数</div>
+                            <div class="meta-value">${config.expected_signals_per_day || 'N/A'}</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">适用市场</div>
+                            <div class="meta-value">${config.suitable_market ? config.suitable_market.join(', ') : 'N/A'}</div>
+                        </div>
+                    </div>
+                    
+                    ${config.tags ? `
+                        <div class="strategy-tags">
+                            ${config.tags.map(tag => `<span class="strategy-tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                    
+                    <div class="strategy-actions">
+                        <button class="btn-config" onclick="showStrategyDetailConfig('${strategy.id}')">详细配置</button>
+                        <button class="btn-test" onclick="testStrategy('${strategy.id}')">测试策略</button>
+                    </div>
+                </div>
+            `;
+        });
+        
+        contentDiv.innerHTML = html;
+    }
+
+    // 全局函数，供HTML调用
+    window.toggleStrategy = function(strategyId, enable) {
+        fetch(`/api/strategies/${strategyId}/toggle`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ enabled: enable })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // 重新加载策略配置和下拉框
+                loadStrategyConfigData();
+                initializeStrategies();
+                alert(data.message);
+            } else {
+                alert(`操作失败: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            console.error('切换策略状态失败:', error);
+            alert(`操作出错: ${error.message}`);
+        });
+    };
+
+    window.showStrategyDetailConfig = function(strategyId) {
+        alert(`策略 ${strategyId} 的详细配置功能正在开发中...`);
+        // TODO: 实现详细配置界面
+    };
+
+    window.testStrategy = function(strategyId) {
+        alert(`策略 ${strategyId} 的测试功能正在开发中...`);
+        // TODO: 实现策略测试功能
     };
 
     // --- 其他模态框功能 ---
@@ -984,8 +1254,22 @@ document.addEventListener('DOMContentLoaded', function () {
             chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             
             // 显示提示信息
+            const infoDiv = document.createElement('div');
+            infoDiv.textContent
+                = `已将 ${stockCode} 添加到选择列表，并加载图表分析。`;
+            infoDiv.style.top = '20px';
+            infoDiv.style.left = '50%';
+            infoDiv.style.transform = 'translateX(-50%)';
+            infoDiv.style.background = '#f8f9fa';
+            infoDiv.style.padding = '10px 24px';
+            infoDiv.style.borderRadius = '8px';
+            infoDiv.style.zIndex = '9999';
+            infoDiv.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            document.body.appendChild(infoDiv);
             setTimeout(() => {
-                alert(`已加载 ${stockCode} 的图表分析`);
+                //alert(`已加载 ${stockCode} 的图表分析`);
+            //}, 500);
+                infoDiv.remove();
             }, 500);
         }
     }

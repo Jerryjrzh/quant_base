@@ -116,13 +116,259 @@ def apply_daily_ma_pullback_strategy(df):
 strategies.apply_daily_ma_pullback_strategy = apply_daily_ma_pullback_strategy
 
 # === 新增 END ===
+# screener.day.py 中
+
+def _process_watchlist_setup_strategy(df, result_base):
+    """处理 WATCHLIST_SETUP 策略"""
+    try:
+        signal_series = strategies.apply_watchlist_setup_strategy(df)
+        if signal_series is not None and signal_series.iloc[-1]:
+            # 这个策略产出的是观察列表，回测的意义是看第二天上涨概率
+            backtest_stats = calculate_backtest_stats_fast(df, signal_series)
+            result_base.update({
+                'filter_status': 'passed',
+                'description': '突破前夜，建议次日重点观察', # 添加描述
+                **backtest_stats
+            })
+            return result_base
+        return None
+    except Exception as e:
+        logger.error(f"处理 WATCHLIST_SETUP 策略失败 {result_base.get('stock_code', '')}: {e}")
+        return None
 
 
+def apply_watchlist_setup_strategy(df):
+    """
+    【V8版策略】寻找“突破前夜”信号，生成次日观察列表
+    """
+    # === 可调参数 ===
+    MA_COMPRESSION_THRESHOLD = 0.05  # 均线粘合度阈值 (5%)
+    MACD_ZERO_AXIS_THRESHOLD = 0.03  # MACD贴近零轴的阈值(相对股价)
+    QUIET_VOLUME_RATIO = 0.8         # 成交量极度萎缩（低于20日均量的80%）
+    RSI_READY_LOWER_BOUND = 40       # RSI准备区的下限
+    RSI_READY_UPPER_BOUND = 50       # RSI准备区的上限
+
+    if len(df) < 60: # 需要一段时间计算均线和指标
+        return None
+
+    try:
+        # --- 1. 计算所需指标 ---
+        mas_to_check = [10, 20, 30, 60]
+        for p in mas_to_check: df[f'ma{p}'] = talib.MA(df['close'], timeperiod=p)
+        df['macd_dif'], df['macd_dea'], df['macd_hist'] = talib.MACD(df['close'], fastperiod=12, slowperiod=26, signalperiod=9)
+        df['rsi'] = talib.RSI(df['close'], timeperiod=14)
+        df['vol_ma20'] = talib.MA(df['volume'], timeperiod=20)
+        
+        if df.iloc[-3:].isnull().values.any(): return None # 确保最近三天数据有效
+
+        # --- 2. 寻找“突破前夜”的各项设置条件 ---
+        latest = df.iloc[-1]
+        previous = df.iloc[-2]
+
+        # 条件a: 均线系统高度粘合 (与V7相同)
+        ma_values = [latest[f'ma{p}'] for p in mas_to_check]
+        ma_spread = (max(ma_values) - min(ma_values)) / latest['close']
+        are_mas_coiling = ma_spread < MA_COMPRESSION_THRESHOLD
+
+        # 条件b: MACD即将金叉的“前夜”信号
+        # 1. DIF仍低于DEA (金叉还没发生)
+        is_before_gold_cross = latest['macd_dif'] <= latest['macd_dea']
+        # 2. MACD绿柱开始缩短 (空头动能衰竭)
+        is_hist_shrinking = latest['macd_hist'] > previous['macd_hist'] and latest['macd_hist'] < 0
+        # 3. 发生在零轴附近
+        is_near_zero_axis = abs(latest['macd_dif'] / latest['close']) < MACD_ZERO_AXIS_THRESHOLD
+        
+        is_macd_setup = is_before_gold_cross and is_hist_shrinking and is_near_zero_axis
+
+        # 条件c: RSI处于“准备发射”区，且开始抬头
+        is_rsi_ready = (RSI_READY_LOWER_BOUND < latest['rsi'] < RSI_READY_UPPER_BOUND) and \
+                       (latest['rsi'] > previous['rsi'])
+
+        # 条件d: 成交量极度萎缩，地量信号
+        is_volume_quiet = latest['volume'] < latest['vol_ma20'] * QUIET_VOLUME_RATIO
+
+        # 最终判断：所有“前夜”信号必须同时出现
+        # if are_mas_coiling and is_macd_setup and is_rsi_ready and is_volume_quiet:
+        if True:
+            signal_series = pd.Series(False, index=df.index)
+            signal_series.iloc[-1] = True
+            return signal_series
+
+        return None
+    except Exception as e:
+        return None
+# screener.day.py 中
+
+def _process_early_breakout_strategy(df, result_base):
+    """处理 EARLY_BREAKOUT 策略"""
+    try:
+        signal_series = strategies.apply_early_breakout_strategy(df)
+        if signal_series is not None and signal_series.iloc[-1]:
+            backtest_stats = calculate_backtest_stats_fast(df, signal_series)
+            result_base.update({
+                'filter_status': 'passed',
+                **backtest_stats
+            })
+            return result_base
+        return None
+    except Exception as e:
+        logger.error(f"处理 EARLY_BREAKOUT 策略失败 {result_base.get('stock_code', '')}: {e}")
+        return None
+
+
+def apply_early_breakout_strategy(df):
+    """
+    【V7版策略】通过多指标共振，寻找突破“前夜”的临界点
+    """
+    # === 可调参数 ===
+    CONSOLIDATION_DAYS = 44      # 定义盘整期长度
+    MA_COMPRESSION_THRESHOLD = 0.05 # 均线粘合度阈值 (5%)
+    MACD_ZERO_AXIS_THRESHOLD = 0.03 # MACD贴近零轴的阈值(相对股价)
+    MODERATE_VOLUME_RATIO = 1.5   # 温和放量比例
+
+    if len(df) < CONSOLIDATION_DAYS + 150:
+        return None
+
+    try:
+        # --- 1. 计算所需指标 ---
+        # 均线
+        mas_to_check = [10, 20, 30, 60]
+        for p in mas_to_check:
+            df[f'ma{p}'] = talib.MA(df['close'], timeperiod=p)
+        # MACD
+        df['macd_dif'], df['macd_dea'], df['macd_hist'] = talib.MACD(df['close'], fastperiod=12, slowperiod=26, signalperiod=9)
+        # RSI
+        df['rsi'] = talib.RSI(df['close'], timeperiod=14)
+        # Volume
+        df['vol_ma20'] = talib.MA(df['volume'], timeperiod=20)
+        
+        if df.iloc[-2:].isnull().values.any(): return None # 确保最后两天数据有效
+
+        # --- 2. 寻找突破“前夜”的信号共振 ---
+        latest = df.iloc[-1]
+        previous = df.iloc[-2]
+
+        # 信号a: 均线系统高度粘合
+        # 计算最近一天几条均线的最大值和最小值，看它们的差距
+        ma_values = [latest[f'ma{p}'] for p in mas_to_check]
+        ma_spread = (max(ma_values) - min(ma_values)) / latest['close']
+        are_mas_coiling = ma_spread < MA_COMPRESSION_THRESHOLD
+
+        # 信号b: MACD在零轴附近发生“金叉”
+        is_macd_gold_cross = latest['macd_dif'] > latest['macd_dea'] and \
+                             previous['macd_dif'] < previous['macd_dea']
+        # 并且，金叉必须发生在零轴附近
+        is_near_zero_axis = abs(latest['macd_dif'] / latest['close']) < MACD_ZERO_AXIS_THRESHOLD
+
+        is_macd_breakout_signal = is_macd_gold_cross and is_near_zero_axis
+
+        # 信号c: RSI向上突破50，进入强势区
+        is_rsi_breakout = latest['rsi'] > 50 and previous['rsi'] < 50
+        
+        # 信号d: 成交量开始温和放大
+        is_volume_moderate_spike = latest['volume'] > latest['vol_ma20'] * MODERATE_VOLUME_RATIO
+
+        # 最终判断：核心是MACD信号，并由其他信号辅助确认
+        # (均线粘合 AND MACD零轴金叉) AND (RSI突破 OR 成交量温和放大)
+        if are_mas_coiling and is_macd_breakout_signal and (is_rsi_breakout or is_volume_moderate_spike):
+            signal_series = pd.Series(False, index=df.index)
+            signal_series.iloc[-1] = True
+            return signal_series
+
+        return None
+    except Exception as e:
+        return None
+# screener.day.py 中
+
+def _process_phase1_breakout_strategy(df, result_base):
+    """处理 PHASE1_BREAKOUT 策略"""
+    try:
+        # 这个策略不需要传递 stock_code，但为了统一接口可以保留
+        signal_series = strategies.apply_phase1_breakout_strategy(df)
+        if signal_series is not None and signal_series.iloc[-1]:
+            # 对于突破策略，回测可能意义不大，但可以保留框架
+            backtest_stats = calculate_backtest_stats_fast(df, signal_series)
+            result_base.update({
+                'filter_status': 'passed',
+                **backtest_stats
+            })
+            return result_base
+        return None
+    except Exception as e:
+        logger.error(f"处理 PHASE1_BREAKOUT 策略失败 {result_base.get('stock_code', '')}: {e}")
+        return None
+
+
+def apply_phase1_breakout_strategy(df):
+    """
+    【V6版策略】寻找第一阶段末期，放量突破长期盘整区的股票
+    """
+    # === 可调参数 ===
+    CONSOLIDATION_DAYS = 30      # 盘整期天数（约2个月）
+    VOLATILITY_THRESHOLD = 0.30  # 盘整期内最大振幅（30%）
+    BREAKOUT_VOLUME_RATIO = 2.0  # 突破日成交量至少是20日均量的2倍
+    LONG_TERM_MA = 150           # 定义关键的长期均线
+
+    if len(df) < CONSOLIDATION_DAYS + LONG_TERM_MA: # 确保有足够数据
+        logger.info("数据长度不足")
+        return None
+
+    try:
+        # --- 1. 计算所需指标 ---
+        df[f'ma{LONG_TERM_MA}'] = talib.MA(df['close'], timeperiod=LONG_TERM_MA)
+        df['vol_ma20'] = talib.MA(df['volume'], timeperiod=20)
+        if df.iloc[-1].isnull().values.any(): return None
+
+        # --- 2. 判断是否存在一个稳定的长期盘整区 ---
+        # 定义盘整期的时间窗口 (从今天往前数，但不包含今天)
+        consolidation_window = df.iloc[-CONSOLIDATION_DAYS-1:-1]
+        
+        # 条件a: 盘整区波动率足够低
+        max_price_in_window = consolidation_window['high'].max()
+        min_price_in_window = consolidation_window['low'].min()
+        volatility = (max_price_in_window - min_price_in_window) / min_price_in_window
+        if volatility > VOLATILITY_THRESHOLD:
+            logger.info("波动太大，不符合稳定盘整区的特征")
+            return None # 波动太大，不是稳定的盘整
+
+        # 条件b: 盘整期内，价格主要在长期均线下方运行
+        avg_price = consolidation_window['close'].mean()
+        avg_long_ma = consolidation_window[f'ma{LONG_TERM_MA}'].mean()
+        if avg_price > avg_long_ma:
+            logger.info("价格未在长期均线下方运行")
+            return None # 价格不符合“长期均线压制”的特征
+
+        # --- 3. 寻找今天的“突破”信号 ---
+        latest_d = df.iloc[-1]
+
+        # 信号a: 价格突破！今日收盘价 > 整个盘整区的最高价
+        is_price_breakout = latest_d['close'] > max_price_in_window
+
+        # 信号b: 均线突破！今日向上穿越长期均线
+        is_ma_crossover = latest_d['close'] > latest_d[f'ma{LONG_TERM_MA}'] and \
+                          df['close'].iloc[-2] < df[f'ma{LONG_TERM_MA}'].iloc[-2]
+        
+        # 信号c: 成交量激增！
+        is_volume_spike = latest_d['volume'] > latest_d['vol_ma20'] * BREAKOUT_VOLUME_RATIO
+
+        # 最终判断：必须同时满足价格突破和成交量激增，均线突破作为加分项（用 or 连接）
+        #if is_price_breakout and is_volume_spike and (is_price_breakout or is_ma_crossover):
+        if True:
+            signal_series = pd.Series(False, index=df.index)
+            signal_series.iloc[-1] = True
+            return signal_series
+        
+        return None
+    except Exception as e:
+        return None    
 # --- 配置 ---
 BASE_PATH = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
 MARKETS = ['sh', 'sz', 'bj']
 # --- 修改：将新策略设为默认 ---
-STRATEGY_TO_RUN = 'DAILY_MA_PULLBACK' 
+STRATEGY_TO_RUN = 'PHASE1_BREAKOUT' # <-- 设置为新策略的名称
+#STRATEGY_TO_RUN = 'EARLY_BREAKOUT' # <-- 设置为V7策略的名称
+#STRATEGY_TO_RUN = 'WATCHLIST_SETUP' # <-- 设置为V8策略的名称
+#STRATEGY_TO_RUN = 'DAILY_MA_PULLBACK' 
 # STRATEGY_TO_RUN = 'MACD_ZERO_AXIS' 
 #STRATEGY_TO_RUN = 'TRIPLE_CROSS' 
 #STRATEGY_TO_RUN = 'PRE_CROSS'
@@ -369,7 +615,7 @@ def worker(args):
     stock_code_full = os.path.basename(file_path).split('.')[0]
     stock_code_no_prefix = stock_code_full.replace(market, '')
 
-    valid_prefixes = ('600', '601', '603', '000', '001', '002', '003', '300', '688')
+    valid_prefixes = ('600', '601', '603', '000', '001', '002', '003', '300', '688', '999999', '399001')
     if not stock_code_no_prefix.startswith(valid_prefixes):
         return None
 
@@ -400,7 +646,12 @@ def worker(args):
             return _process_macd_zero_axis_strategy(df, result_base, stock_code_full)
         elif STRATEGY_TO_RUN == 'WEEKLY_GOLDEN_CROSS_MA':
             return _process_weekly_golden_cross_ma_strategy(df, result_base, stock_code_full)
-        
+        elif STRATEGY_TO_RUN == 'WATCHLIST_SETUP':
+            return _process_watchlist_setup_strategy(df, result_base)
+        elif STRATEGY_TO_RUN == 'EARLY_BREAKOUT':
+            return _process_early_breakout_strategy(df, result_base)
+        elif STRATEGY_TO_RUN == 'PHASE1_BREAKOUT':
+            return _process_phase1_breakout_strategy(df, result_base)
         return None
         
     except Exception as e:

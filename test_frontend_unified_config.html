@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端统一配置测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .status.loading {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+        .status.success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .status.error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .config-display {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .strategy-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .strategy-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #fafafa;
+        }
+        .strategy-card h4 {
+            margin: 0 0 10px 0;
+            color: #007bff;
+        }
+        .strategy-card .enabled {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .strategy-card .disabled {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 前端统一配置系统测试</h1>
+        
+        <div class="test-section">
+            <h3>1. 配置加载状态</h3>
+            <div id="loading-status" class="status loading">正在加载配置...</div>
+            <button onclick="reloadConfig()">重新加载配置</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>2. 策略列表</h3>
+            <div id="strategy-status" class="status loading">等待配置加载...</div>
+            <div id="strategy-list" class="strategy-list"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>3. 兼容性映射测试</h3>
+            <div id="mapping-status" class="status loading">等待配置加载...</div>
+            <div id="mapping-results" class="config-display"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>4. 前端设置</h3>
+            <div id="settings-status" class="status loading">等待配置加载...</div>
+            <div id="settings-display" class="config-display"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>5. API测试</h3>
+            <button onclick="testApiCall()">测试API调用</button>
+            <div id="api-results" class="config-display"></div>
+        </div>
+    </div>
+
+    <!-- 引入配置管理器 -->
+    <script src="frontend/js/strategy-config.js"></script>
+    
+    <script>
+        // 测试状态
+        let testResults = {
+            configLoaded: false,
+            strategiesLoaded: false,
+            mappingTested: false,
+            settingsLoaded: false
+        };
+        
+        // 页面加载完成后开始测试
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('开始前端配置测试...');
+            await runAllTests();
+        });
+        
+        async function runAllTests() {
+            try {
+                await testConfigLoading();
+                await testStrategyList();
+                await testCompatibilityMapping();
+                await testFrontendSettings();
+                
+                console.log('所有测试完成！', testResults);
+            } catch (error) {
+                console.error('测试失败:', error);
+                updateStatus('loading-status', 'error', `测试失败: ${error.message}`);
+            }
+        }
+        
+        async function testConfigLoading() {
+            console.log('测试配置加载...');
+            updateStatus('loading-status', 'loading', '正在加载配置...');
+            
+            try {
+                // 等待配置加载完成
+                await configManager.waitForLoad();
+                
+                if (configManager.loaded) {
+                    testResults.configLoaded = true;
+                    updateStatus('loading-status', 'success', 
+                        `✅ 配置加载成功！版本: ${configManager.config?.version || 'unknown'}`);
+                } else {
+                    throw new Error('配置加载失败');
+                }
+            } catch (error) {
+                updateStatus('loading-status', 'error', `❌ 配置加载失败: ${error.message}`);
+                throw error;
+            }
+        }
+        
+        async function testStrategyList() {
+            console.log('测试策略列表...');
+            updateStatus('strategy-status', 'loading', '正在加载策略列表...');
+            
+            try {
+                const strategies = configManager.getStrategies();
+                const enabledStrategies = configManager.getEnabledStrategies();
+                
+                if (Object.keys(strategies).length > 0) {
+                    testResults.strategiesLoaded = true;
+                    updateStatus('strategy-status', 'success', 
+                        `✅ 策略加载成功！总数: ${Object.keys(strategies).length}, 启用: ${Object.keys(enabledStrategies).length}`);
+                    
+                    // 显示策略卡片
+                    displayStrategies(strategies);
+                } else {
+                    throw new Error('没有找到策略');
+                }
+            } catch (error) {
+                updateStatus('strategy-status', 'error', `❌ 策略加载失败: ${error.message}`);
+                throw error;
+            }
+        }
+        
+        async function testCompatibilityMapping() {
+            console.log('测试兼容性映射...');
+            updateStatus('mapping-status', 'loading', '正在测试兼容性映射...');
+            
+            try {
+                const testMappings = [
+                    'ABYSS_BOTTOMING',
+                    'PRE_CROSS', 
+                    'TRIPLE_CROSS',
+                    'MACD_ZERO_AXIS',
+                    'WEEKLY_GOLDEN_CROSS_MA'
+                ];
+                
+                let results = '兼容性映射测试结果:\n\n';
+                let successCount = 0;
+                
+                testMappings.forEach(oldId => {
+                    const newId = mapOldToNewStrategyId(oldId);
+                    const apiId = mapNewToOldStrategyId(newId);
+                    
+                    results += `${oldId}:\n`;
+                    results += `  -> 新ID: ${newId}\n`;
+                    results += `  -> API ID: ${apiId}\n`;
+                    results += `  -> 状态: ${newId !== oldId ? '✅ 映射成功' : '⚠️ 无映射'}\n\n`;
+                    
+                    if (newId !== oldId) successCount++;
+                });
+                
+                document.getElementById('mapping-results').textContent = results;
+                
+                testResults.mappingTested = true;
+                updateStatus('mapping-status', 'success', 
+                    `✅ 兼容性映射测试完成！成功映射: ${successCount}/${testMappings.length}`);
+                    
+            } catch (error) {
+                updateStatus('mapping-status', 'error', `❌ 兼容性映射测试失败: ${error.message}`);
+                throw error;
+            }
+        }
+        
+        async function testFrontendSettings() {
+            console.log('测试前端设置...');
+            updateStatus('settings-status', 'loading', '正在加载前端设置...');
+            
+            try {
+                const frontendSettings = configManager.getFrontendSettings();
+                const globalSettings = configManager.getGlobalSettings();
+                
+                let settingsText = '前端设置:\n';
+                settingsText += JSON.stringify(frontendSettings, null, 2);
+                settingsText += '\n\n全局设置:\n';
+                settingsText += JSON.stringify(globalSettings, null, 2);
+                
+                document.getElementById('settings-display').textContent = settingsText;
+                
+                testResults.settingsLoaded = true;
+                updateStatus('settings-status', 'success', '✅ 前端设置加载成功！');
+                
+            } catch (error) {
+                updateStatus('settings-status', 'error', `❌ 前端设置加载失败: ${error.message}`);
+                throw error;
+            }
+        }
+        
+        function displayStrategies(strategies) {
+            const container = document.getElementById('strategy-list');
+            container.innerHTML = '';
+            
+            Object.keys(strategies).forEach(strategyId => {
+                const strategy = strategies[strategyId];
+                const card = document.createElement('div');
+                card.className = 'strategy-card';
+                
+                const enabledClass = strategy.enabled !== false ? 'enabled' : 'disabled';
+                const enabledText = strategy.enabled !== false ? '启用' : '禁用';
+                
+                card.innerHTML = `
+                    <h4>${getStrategyDisplayName(strategy)}</h4>
+                    <p><strong>ID:</strong> ${strategyId}</p>
+                    <p><strong>描述:</strong> ${strategy.description || '无描述'}</p>
+                    <p><strong>状态:</strong> <span class="${enabledClass}">${enabledText}</span></p>
+                    <p><strong>风险等级:</strong> ${strategy.risk_level || 'unknown'}</p>
+                    <p><strong>预期信号:</strong> ${strategy.expected_signals_per_day || '未知'}</p>
+                    <p><strong>适用市场:</strong> ${(strategy.suitable_market || []).join(', ') || '未知'}</p>
+                    <p><strong>标签:</strong> ${(strategy.tags || []).join(', ') || '无'}</p>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+        
+        async function testApiCall() {
+            const resultsDiv = document.getElementById('api-results');
+            resultsDiv.textContent = '正在测试API调用...';
+            
+            try {
+                const response = await fetch('/api/config/unified');
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultsDiv.textContent = `✅ API调用成功！\n\n${JSON.stringify(data.data, null, 2)}`;
+                } else {
+                    resultsDiv.textContent = `❌ API调用失败: ${data.error}`;
+                }
+            } catch (error) {
+                resultsDiv.textContent = `❌ API调用异常: ${error.message}`;
+            }
+        }
+        
+        async function reloadConfig() {
+            console.log('重新加载配置...');
+            configManager.loaded = false;
+            await configManager.loadConfig();
+            await runAllTests();
+        }
+        
+        function updateStatus(elementId, type, message) {
+            const element = document.getElementById(elementId);
+            element.className = `status ${type}`;
+            element.textContent = message;
+        }
+    </script>
+</body>
+</html>

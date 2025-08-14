@@ -1,0 +1,62 @@
+[
+  {
+    "stock_code": "sh603276",
+    "strategy": "深渊筑底策略",
+    "signal_type": "BUY",
+    "signal_strength": 2,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 17:41:55",
+    "current_price": 17.0,
+    "signal_details": {
+      "signal_state": "HIBERNATION_CONFIRMED",
+      "stage_passed": 2,
+      "deep_decline": {
+        "drop_percent": 0.41520467836257313,
+        "price_position": 0.3324115044247788,
+        "long_term_high": 29.07,
+        "long_term_low": 10.99,
+        "current_price": 17.0,
+        "conditions": {
+          "price_position_ok": true,
+          "drop_percent_ok": true,
+          "volume_ok": true
+        },
+        "volume_analysis": {
+          "historical_avg": 4127250.6622807016,
+          "recent_avg": 2789668.6666666665,
+          "shrink_ratio": 0.6759145239618441,
+          "consistency_ratio": 0.7,
+          "long_term_median": 2622441.0,
+          "recent_vs_median": 1.0637679424119233,
+          "is_volume_shrunk": true,
+          "is_consistent": true,
+          "threshold_volume": 2889075.463596491
+        }
+      },
+      "hibernation": {
+        "support_level": 14.72,
+        "resistance_level": 17.77,
+        "volatility": 0.20720108695652165,
+        "volatility_ok": true,
+        "ma_convergence_ok": true,
+        "avg_volume": 3453133.45,
+        "volume_stability": 0.6509098711766156
+      },
+      "washout": {
+        "error": "无有效挖坑数据"
+      },
+      "strategy_version": "2.0"
+    }
+  },
+  {
+    "stock_code": "sh603517",
+    "strategy": "周线金叉+日线MA",
+    "signal_type": "BUY",
+    "signal_strength": 1,
+    "date": "2025-08-14",
+    "scan_timestamp": "2025-08-14 17:41:56",
+    "current_price": 15.57,
+    "signal_details": {
+      "strategy": "周线金叉+日线MA",
+      "version": "1.0",
+      "signal_count": 

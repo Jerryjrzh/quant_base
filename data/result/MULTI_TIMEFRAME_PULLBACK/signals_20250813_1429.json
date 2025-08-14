@@ -1,0 +1,3915 @@
+[
+  {
+    "stock_code": "sh600833",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.4,
+    "signal_details": {
+      "weekly_support": 13.09,
+      "weekly_pressure": 13.77,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600665",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.44,
+    "signal_details": {
+      "weekly_support": 3.301538461538461,
+      "weekly_pressure": 3.53,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600305",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.91,
+    "signal_details": {
+      "weekly_support": 7.771538461538461,
+      "weekly_pressure": 7.98,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601388",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.64,
+    "signal_details": {
+      "weekly_support": 2.5676923076923077,
+      "weekly_pressure": 2.85,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600526",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.99,
+    "signal_details": {
+      "weekly_support": 4.857692307692307,
+      "weekly_pressure": 5.05,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600798",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.05,
+    "signal_details": {
+      "weekly_support": 4.143846153846154,
+      "weekly_pressure": 5.16,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688526",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.3,
+    "signal_details": {
+      "weekly_support": 16.525384615384613,
+      "weekly_pressure": 17.76,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603383",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 41.06,
+    "signal_details": {
+      "weekly_support": 40.51307692307693,
+      "weekly_pressure": 44.74,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600403",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.88,
+    "signal_details": {
+      "weekly_support": 3.933846153846154,
+      "weekly_pressure": 4.44,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600714",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.18,
+    "signal_details": {
+      "weekly_support": 11.754615384615384,
+      "weekly_pressure": 13.58,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603123",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.62,
+    "signal_details": {
+      "weekly_support": 12.743846153846155,
+      "weekly_pressure": 17.68,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600741",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.17,
+    "signal_details": {
+      "weekly_support": 18.044615384615387,
+      "weekly_pressure": 19.21,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600753",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.81,
+    "signal_details": {
+      "weekly_support": 6.869230769230769,
+      "weekly_pressure": 7.52,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh605286",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 39.49,
+    "signal_details": {
+      "weekly_support": 38.36846153846154,
+      "weekly_pressure": 40.95,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688656",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 113.43,
+    "signal_details": {
+      "weekly_support": 117.09538461538462,
+      "weekly_pressure": 157.63,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603086",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.75,
+    "signal_details": {
+      "weekly_support": 9.620000000000001,
+      "weekly_pressure": 12.21,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600597",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.6,
+    "signal_details": {
+      "weekly_support": 8.51153846153846,
+      "weekly_pressure": 9.25,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601022",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.62,
+    "signal_details": {
+      "weekly_support": 9.723846153846154,
+      "weekly_pressure": 10.78,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600168",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.94,
+    "signal_details": {
+      "weekly_support": 4.729230769230769,
+      "weekly_pressure": 4.99,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688506",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 303.39,
+    "signal_details": {
+      "weekly_support": 300.40846153846155,
+      "weekly_pressure": 335.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600703",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.99,
+    "signal_details": {
+      "weekly_support": 12.418461538461539,
+      "weekly_pressure": 13.1,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603578",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.3,
+    "signal_details": {
+      "weekly_support": 13.874615384615383,
+      "weekly_pressure": 15.8,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600287",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.83,
+    "signal_details": {
+      "weekly_support": 5.762307692307692,
+      "weekly_pressure": 6.66,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600715",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.36,
+    "signal_details": {
+      "weekly_support": 2.3153846153846156,
+      "weekly_pressure": 2.43,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600158",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.63,
+    "signal_details": {
+      "weekly_support": 8.46923076923077,
+      "weekly_pressure": 9.47,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600800",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.23,
+    "signal_details": {
+      "weekly_support": 4.085384615384616,
+      "weekly_pressure": 4.53,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600180",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.64,
+    "signal_details": {
+      "weekly_support": 4.498461538461538,
+      "weekly_pressure": 4.8,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603657",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 30.88,
+    "signal_details": {
+      "weekly_support": 29.825384615384618,
+      "weekly_pressure": 37.54,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601200",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.29,
+    "signal_details": {
+      "weekly_support": 8.044615384615385,
+      "weekly_pressure": 8.41,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600998",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.37,
+    "signal_details": {
+      "weekly_support": 5.29,
+      "weekly_pressure": 5.58,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603587",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.85,
+    "signal_details": {
+      "weekly_support": 12.558461538461538,
+      "weekly_pressure": 12.98,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603215",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.7,
+    "signal_details": {
+      "weekly_support": 18.02384615384615,
+      "weekly_pressure": 20.44,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601326",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.34,
+    "signal_details": {
+      "weekly_support": 3.282307692307692,
+      "weekly_pressure": 3.42,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600936",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.83,
+    "signal_details": {
+      "weekly_support": 3.733846153846154,
+      "weekly_pressure": 4.03,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh605056",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 15.21,
+    "signal_details": {
+      "weekly_support": 14.876923076923077,
+      "weekly_pressure": 16.31,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603595",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.37,
+    "signal_details": {
+      "weekly_support": 19.223076923076924,
+      "weekly_pressure": 20.88,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600743",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.17,
+    "signal_details": {
+      "weekly_support": 2.166153846153846,
+      "weekly_pressure": 2.39,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601678",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.46,
+    "signal_details": {
+      "weekly_support": 4.291538461538462,
+      "weekly_pressure": 4.75,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603533",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 20.69,
+    "signal_details": {
+      "weekly_support": 20.680000000000003,
+      "weekly_pressure": 23.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600128",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.92,
+    "signal_details": {
+      "weekly_support": 10.484615384615383,
+      "weekly_pressure": 12.23,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600336",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.17,
+    "signal_details": {
+      "weekly_support": 6.951538461538462,
+      "weekly_pressure": 7.58,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603416",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 56.57,
+    "signal_details": {
+      "weekly_support": 55.85923076923078,
+      "weekly_pressure": 61.45,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600189",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.34,
+    "signal_details": {
+      "weekly_support": 7.383846153846154,
+      "weekly_pressure": 7.66,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600608",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.95,
+    "signal_details": {
+      "weekly_support": 3.879230769230769,
+      "weekly_pressure": 4.23,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600624",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.39,
+    "signal_details": {
+      "weekly_support": 7.11,
+      "weekly_pressure": 7.85,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600759",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.44,
+    "signal_details": {
+      "weekly_support": 2.353076923076923,
+      "weekly_pressure": 2.75,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600370",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 1.95,
+    "signal_details": {
+      "weekly_support": 1.939230769230769,
+      "weekly_pressure": 2.08,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688136",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 48.2,
+    "signal_details": {
+      "weekly_support": 47.99538461538462,
+      "weekly_pressure": 58.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601956",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.07,
+    "signal_details": {
+      "weekly_support": 6.743076923076924,
+      "weekly_pressure": 7.4,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688266",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 109.57,
+    "signal_details": {
+      "weekly_support": 113.26307692307692,
+      "weekly_pressure": 134.17,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600551",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.14,
+    "signal_details": {
+      "weekly_support": 8.946923076923078,
+      "weekly_pressure": 10.67,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600746",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.28,
+    "signal_details": {
+      "weekly_support": 8.045384615384615,
+      "weekly_pressure": 8.38,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600467",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.42,
+    "signal_details": {
+      "weekly_support": 2.3476923076923075,
+      "weekly_pressure": 2.53,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600589",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.13,
+    "signal_details": {
+      "weekly_support": 7.897692307692308,
+      "weekly_pressure": 9.36,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600521",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 20.9,
+    "signal_details": {
+      "weekly_support": 20.096923076923076,
+      "weekly_pressure": 24.24,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601128",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.91,
+    "signal_details": {
+      "weekly_support": 7.589999999999999,
+      "weekly_pressure": 7.94,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600166",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.7,
+    "signal_details": {
+      "weekly_support": 2.7084615384615387,
+      "weekly_pressure": 2.9,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603577",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.93,
+    "signal_details": {
+      "weekly_support": 9.496153846153847,
+      "weekly_pressure": 10.38,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600293",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.16,
+    "signal_details": {
+      "weekly_support": 3.097692307692308,
+      "weekly_pressure": 3.4,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601368",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.08,
+    "signal_details": {
+      "weekly_support": 4.895384615384615,
+      "weekly_pressure": 5.24,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600650",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.42,
+    "signal_details": {
+      "weekly_support": 16.204615384615384,
+      "weekly_pressure": 20.68,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603511",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 15.45,
+    "signal_details": {
+      "weekly_support": 15.42846153846154,
+      "weekly_pressure": 21.4,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688799",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 50.68,
+    "signal_details": {
+      "weekly_support": 49.825384615384614,
+      "weekly_pressure": 63.71,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600675",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.06,
+    "signal_details": {
+      "weekly_support": 2.946153846153846,
+      "weekly_pressure": 3.21,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603136",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.81,
+    "signal_details": {
+      "weekly_support": 12.547692307692309,
+      "weekly_pressure": 14.58,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603020",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.27,
+    "signal_details": {
+      "weekly_support": 9.075384615384616,
+      "weekly_pressure": 9.62,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603718",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.61,
+    "signal_details": {
+      "weekly_support": 7.476153846153846,
+      "weekly_pressure": 7.81,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600758",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.04,
+    "signal_details": {
+      "weekly_support": 3.8815384615384616,
+      "weekly_pressure": 4.33,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688633",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 28.85,
+    "signal_details": {
+      "weekly_support": 27.76076923076923,
+      "weekly_pressure": 29.5,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603353",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.3,
+    "signal_details": {
+      "weekly_support": 16.55153846153846,
+      "weekly_pressure": 19.3,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603217",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.63,
+    "signal_details": {
+      "weekly_support": 18.083076923076923,
+      "weekly_pressure": 19.5,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688063",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 44.6,
+    "signal_details": {
+      "weekly_support": 43.884615384615394,
+      "weekly_pressure": 49.36,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603569",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.15,
+    "signal_details": {
+      "weekly_support": 7.905384615384616,
+      "weekly_pressure": 8.19,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603917",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.01,
+    "signal_details": {
+      "weekly_support": 13.476923076923075,
+      "weekly_pressure": 14.49,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600227",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.47,
+    "signal_details": {
+      "weekly_support": 2.4446153846153846,
+      "weekly_pressure": 2.8,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600880",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.22,
+    "signal_details": {
+      "weekly_support": 5.126153846153846,
+      "weekly_pressure": 6.07,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601921",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.32,
+    "signal_details": {
+      "weekly_support": 8.123846153846154,
+      "weekly_pressure": 8.38,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600429",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.69,
+    "signal_details": {
+      "weekly_support": 4.603846153846154,
+      "weekly_pressure": 5.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603982",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.43,
+    "signal_details": {
+      "weekly_support": 9.421538461538463,
+      "weekly_pressure": 11.99,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600512",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.4,
+    "signal_details": {
+      "weekly_support": 2.3015384615384615,
+      "weekly_pressure": 2.56,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601007",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.69,
+    "signal_details": {
+      "weekly_support": 7.586923076923076,
+      "weekly_pressure": 8.01,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600638",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.95,
+    "signal_details": {
+      "weekly_support": 5.8076923076923075,
+      "weekly_pressure": 6.69,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601677",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.13,
+    "signal_details": {
+      "weekly_support": 12.505384615384616,
+      "weekly_pressure": 13.21,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603708",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.88,
+    "signal_details": {
+      "weekly_support": 10.493076923076924,
+      "weekly_pressure": 10.99,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603823",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.06,
+    "signal_details": {
+      "weekly_support": 12.556923076923077,
+      "weekly_pressure": 15.6,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh605033",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 21.49,
+    "signal_details": {
+      "weekly_support": 20.883076923076924,
+      "weekly_pressure": 31.1,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600769",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.73,
+    "signal_details": {
+      "weekly_support": 10.668461538461539,
+      "weekly_pressure": 11.24,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600535",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.27,
+    "signal_details": {
+      "weekly_support": 16.084615384615383,
+      "weekly_pressure": 16.97,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600550",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.78,
+    "signal_details": {
+      "weekly_support": 8.633846153846154,
+      "weekly_pressure": 9.93,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603585",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.64,
+    "signal_details": {
+      "weekly_support": 18.994615384615386,
+      "weekly_pressure": 21.97,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600572",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.62,
+    "signal_details": {
+      "weekly_support": 4.538461538461538,
+      "weekly_pressure": 4.77,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688196",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 45.99,
+    "signal_details": {
+      "weekly_support": 44.35153846153845,
+      "weekly_pressure": 49.58,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600446",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.16,
+    "signal_details": {
+      "weekly_support": 17.813846153846153,
+      "weekly_pressure": 21.19,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603990",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 15.2,
+    "signal_details": {
+      "weekly_support": 15.68,
+      "weekly_pressure": 17.39,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600318",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.9,
+    "signal_details": {
+      "weekly_support": 9.55923076923077,
+      "weekly_pressure": 10.98,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603970",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.24,
+    "signal_details": {
+      "weekly_support": 14.156923076923078,
+      "weekly_pressure": 14.94,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600874",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.01,
+    "signal_details": {
+      "weekly_support": 5.968461538461539,
+      "weekly_pressure": 6.18,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600858",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.79,
+    "signal_details": {
+      "weekly_support": 5.611538461538462,
+      "weekly_pressure": 6.65,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600987",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.47,
+    "signal_details": {
+      "weekly_support": 7.205384615384616,
+      "weekly_pressure": 7.54,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603693",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.82,
+    "signal_details": {
+      "weekly_support": 13.843076923076923,
+      "weekly_pressure": 16.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600796",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.11,
+    "signal_details": {
+      "weekly_support": 5.9,
+      "weekly_pressure": 6.24,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600218",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.3,
+    "signal_details": {
+      "weekly_support": 8.953846153846154,
+      "weekly_pressure": 9.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600476",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.82,
+    "signal_details": {
+      "weekly_support": 18.32923076923077,
+      "weekly_pressure": 20.66,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603043",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.16,
+    "signal_details": {
+      "weekly_support": 15.876923076923076,
+      "weekly_pressure": 16.2,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600539",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 11.52,
+    "signal_details": {
+      "weekly_support": 11.287692307692307,
+      "weekly_pressure": 15.48,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603688",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 34.59,
+    "signal_details": {
+      "weekly_support": 34.18692307692308,
+      "weekly_pressure": 38.53,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603065",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.24,
+    "signal_details": {
+      "weekly_support": 9.243846153846153,
+      "weekly_pressure": 10.39,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600790",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.83,
+    "signal_details": {
+      "weekly_support": 3.790769230769231,
+      "weekly_pressure": 4.09,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600082",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.06,
+    "signal_details": {
+      "weekly_support": 3.9238461538461538,
+      "weekly_pressure": 4.29,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh605005",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.3,
+    "signal_details": {
+      "weekly_support": 18.426153846153845,
+      "weekly_pressure": 19.36,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603232",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.13,
+    "signal_details": {
+      "weekly_support": 15.866923076923076,
+      "weekly_pressure": 18.98,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603659",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.05,
+    "signal_details": {
+      "weekly_support": 17.516923076923078,
+      "weekly_pressure": 19.34,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600153",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.33,
+    "signal_details": {
+      "weekly_support": 10.233076923076924,
+      "weekly_pressure": 10.94,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603300",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.81,
+    "signal_details": {
+      "weekly_support": 10.586923076923076,
+      "weekly_pressure": 12.77,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600017",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.28,
+    "signal_details": {
+      "weekly_support": 3.186923076923077,
+      "weekly_pressure": 3.4,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600362",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 24.02,
+    "signal_details": {
+      "weekly_support": 22.88923076923077,
+      "weekly_pressure": 24.49,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600223",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.51,
+    "signal_details": {
+      "weekly_support": 8.28076923076923,
+      "weekly_pressure": 8.78,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603069",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 21.16,
+    "signal_details": {
+      "weekly_support": 20.686153846153843,
+      "weekly_pressure": 24.77,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh605366",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.54,
+    "signal_details": {
+      "weekly_support": 6.3684615384615375,
+      "weekly_pressure": 8.26,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603836",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.15,
+    "signal_details": {
+      "weekly_support": 13.693076923076923,
+      "weekly_pressure": 15.75,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688331",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 65.39,
+    "signal_details": {
+      "weekly_support": 64.2,
+      "weekly_pressure": 79.5,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600713",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.26,
+    "signal_details": {
+      "weekly_support": 5.207692307692308,
+      "weekly_pressure": 5.39,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601330",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.26,
+    "signal_details": {
+      "weekly_support": 7.3707692307692305,
+      "weekly_pressure": 7.82,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600819",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.41,
+    "signal_details": {
+      "weekly_support": 6.203846153846153,
+      "weekly_pressure": 7.77,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603128",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.37,
+    "signal_details": {
+      "weekly_support": 6.313846153846153,
+      "weekly_pressure": 6.8,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh605208",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.27,
+    "signal_details": {
+      "weekly_support": 12.847692307692306,
+      "weekly_pressure": 13.94,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh688458",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 44.08,
+    "signal_details": {
+      "weekly_support": 42.51769230769231,
+      "weekly_pressure": 48.25,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600834",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.99,
+    "signal_details": {
+      "weekly_support": 8.77153846153846,
+      "weekly_pressure": 9.45,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600229",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.12,
+    "signal_details": {
+      "weekly_support": 6.975384615384616,
+      "weekly_pressure": 7.33,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600771",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 21.42,
+    "signal_details": {
+      "weekly_support": 20.85,
+      "weekly_pressure": 22.08,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600250",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 11.47,
+    "signal_details": {
+      "weekly_support": 11.485384615384616,
+      "weekly_pressure": 15.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600783",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.83,
+    "signal_details": {
+      "weekly_support": 12.447692307692307,
+      "weekly_pressure": 13.28,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603855",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 21.69,
+    "signal_details": {
+      "weekly_support": 21.080000000000002,
+      "weekly_pressure": 22.9,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600851",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.1,
+    "signal_details": {
+      "weekly_support": 6.926923076923076,
+      "weekly_pressure": 7.37,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh600794",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.61,
+    "signal_details": {
+      "weekly_support": 4.653076923076923,
+      "weekly_pressure": 5.73,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh601188",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.55,
+    "signal_details": {
+      "weekly_support": 3.5,
+      "weekly_pressure": 3.74,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603839",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.7,
+    "signal_details": {
+      "weekly_support": 7.4192307692307695,
+      "weekly_pressure": 10.38,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sh603948",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 21.42,
+    "signal_details": {
+      "weekly_support": 20.725384615384616,
+      "weekly_pressure": 26.7,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000563",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.63,
+    "signal_details": {
+      "weekly_support": 3.5515384615384615,
+      "weekly_pressure": 3.93,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002395",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.72,
+    "signal_details": {
+      "weekly_support": 18.173846153846156,
+      "weekly_pressure": 20.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000766",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 22.7,
+    "signal_details": {
+      "weekly_support": 23.373846153846156,
+      "weekly_pressure": 26.7,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000559",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.79,
+    "signal_details": {
+      "weekly_support": 7.7907692307692304,
+      "weekly_pressure": 8.4,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002893",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 11.09,
+    "signal_details": {
+      "weekly_support": 10.754615384615384,
+      "weekly_pressure": 11.8,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002235",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.06,
+    "signal_details": {
+      "weekly_support": 7.866923076923078,
+      "weekly_pressure": 11.66,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002099",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.23,
+    "signal_details": {
+      "weekly_support": 6.0138461538461545,
+      "weekly_pressure": 6.41,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000893",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 31.41,
+    "signal_details": {
+      "weekly_support": 30.643846153846155,
+      "weekly_pressure": 33.38,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300773",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 26.79,
+    "signal_details": {
+      "weekly_support": 26.645384615384614,
+      "weekly_pressure": 35.97,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002586",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.17,
+    "signal_details": {
+      "weekly_support": 3.0561538461538467,
+      "weekly_pressure": 3.22,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300692",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.59,
+    "signal_details": {
+      "weekly_support": 6.383076923076922,
+      "weekly_pressure": 6.88,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002284",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 11.49,
+    "signal_details": {
+      "weekly_support": 11.13076923076923,
+      "weekly_pressure": 11.77,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300073",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 42.71,
+    "signal_details": {
+      "weekly_support": 41.20538461538461,
+      "weekly_pressure": 45.69,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002114",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.33,
+    "signal_details": {
+      "weekly_support": 7.0600000000000005,
+      "weekly_pressure": 7.62,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000037",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.35,
+    "signal_details": {
+      "weekly_support": 9.163076923076924,
+      "weekly_pressure": 11.41,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz001215",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 29.02,
+    "signal_details": {
+      "weekly_support": 28.476153846153846,
+      "weekly_pressure": 29.78,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz003019",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 30.58,
+    "signal_details": {
+      "weekly_support": 30.94846153846154,
+      "weekly_pressure": 35.5,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300121",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.82,
+    "signal_details": {
+      "weekly_support": 14.326153846153847,
+      "weekly_pressure": 15.46,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002612",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.82,
+    "signal_details": {
+      "weekly_support": 17.47,
+      "weekly_pressure": 19.1,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002537",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.44,
+    "signal_details": {
+      "weekly_support": 9.222307692307691,
+      "weekly_pressure": 12.27,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300464",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.73,
+    "signal_details": {
+      "weekly_support": 5.461538461538462,
+      "weekly_pressure": 5.75,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002034",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.42,
+    "signal_details": {
+      "weekly_support": 17.158461538461538,
+      "weekly_pressure": 17.68,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002678",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.02,
+    "signal_details": {
+      "weekly_support": 4.912307692307692,
+      "weekly_pressure": 5.3,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300065",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.04,
+    "signal_details": {
+      "weekly_support": 17.71,
+      "weekly_pressure": 21.16,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000755",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.02,
+    "signal_details": {
+      "weekly_support": 5.014615384615384,
+      "weekly_pressure": 5.37,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300650",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.96,
+    "signal_details": {
+      "weekly_support": 14.743076923076924,
+      "weekly_pressure": 18.22,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300245",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.0,
+    "signal_details": {
+      "weekly_support": 17.911538461538463,
+      "weekly_pressure": 20.47,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002261",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 31.47,
+    "signal_details": {
+      "weekly_support": 30.746923076923075,
+      "weekly_pressure": 34.25,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300428",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.94,
+    "signal_details": {
+      "weekly_support": 18.04769230769231,
+      "weekly_pressure": 18.99,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002895",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 25.18,
+    "signal_details": {
+      "weekly_support": 24.298461538461538,
+      "weekly_pressure": 25.9,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300217",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.31,
+    "signal_details": {
+      "weekly_support": 5.135384615384615,
+      "weekly_pressure": 5.39,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000555",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.15,
+    "signal_details": {
+      "weekly_support": 12.882307692307693,
+      "weekly_pressure": 15.2,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300040",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.63,
+    "signal_details": {
+      "weekly_support": 7.408461538461538,
+      "weekly_pressure": 8.48,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002479",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.4,
+    "signal_details": {
+      "weekly_support": 5.19923076923077,
+      "weekly_pressure": 5.58,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300947",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 22.61,
+    "signal_details": {
+      "weekly_support": 22.753846153846155,
+      "weekly_pressure": 28.8,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300645",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.85,
+    "signal_details": {
+      "weekly_support": 18.28923076923077,
+      "weekly_pressure": 23.32,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300957",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 45.61,
+    "signal_details": {
+      "weekly_support": 44.81923076923077,
+      "weekly_pressure": 47.07,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000948",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 20.05,
+    "signal_details": {
+      "weekly_support": 19.79,
+      "weekly_pressure": 22.23,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000997",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 29.21,
+    "signal_details": {
+      "weekly_support": 30.52,
+      "weekly_pressure": 34.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000055",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.26,
+    "signal_details": {
+      "weekly_support": 4.164615384615384,
+      "weekly_pressure": 4.39,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002672",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.78,
+    "signal_details": {
+      "weekly_support": 4.62,
+      "weekly_pressure": 5.04,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz003039",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.15,
+    "signal_details": {
+      "weekly_support": 13.851538461538464,
+      "weekly_pressure": 15.24,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300824",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.84,
+    "signal_details": {
+      "weekly_support": 12.314615384615385,
+      "weekly_pressure": 13.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000554",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.96,
+    "signal_details": {
+      "weekly_support": 6.793846153846155,
+      "weekly_pressure": 8.27,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300674",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 26.13,
+    "signal_details": {
+      "weekly_support": 26.25692307692308,
+      "weekly_pressure": 31.8,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002805",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.48,
+    "signal_details": {
+      "weekly_support": 12.87153846153846,
+      "weekly_pressure": 15.51,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002749",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 15.42,
+    "signal_details": {
+      "weekly_support": 15.154615384615385,
+      "weekly_pressure": 16.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300664",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.63,
+    "signal_details": {
+      "weekly_support": 5.423846153846153,
+      "weekly_pressure": 5.65,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000601",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.38,
+    "signal_details": {
+      "weekly_support": 5.245384615384615,
+      "weekly_pressure": 6.73,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002344",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.52,
+    "signal_details": {
+      "weekly_support": 4.393076923076924,
+      "weekly_pressure": 4.69,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002169",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.64,
+    "signal_details": {
+      "weekly_support": 6.342307692307693,
+      "weekly_pressure": 6.65,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002445",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.46,
+    "signal_details": {
+      "weekly_support": 2.4646153846153847,
+      "weekly_pressure": 2.61,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300013",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.18,
+    "signal_details": {
+      "weekly_support": 4.067692307692307,
+      "weekly_pressure": 4.34,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000507",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.7,
+    "signal_details": {
+      "weekly_support": 5.550769230769232,
+      "weekly_pressure": 5.87,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300228",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.11,
+    "signal_details": {
+      "weekly_support": 7.7784615384615385,
+      "weekly_pressure": 8.36,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002108",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.64,
+    "signal_details": {
+      "weekly_support": 3.626923076923077,
+      "weekly_pressure": 4.52,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002094",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.75,
+    "signal_details": {
+      "weekly_support": 8.877692307692307,
+      "weekly_pressure": 10.17,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002090",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.12,
+    "signal_details": {
+      "weekly_support": 9.836923076923076,
+      "weekly_pressure": 11.15,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002871",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 11.21,
+    "signal_details": {
+      "weekly_support": 10.796153846153846,
+      "weekly_pressure": 13.07,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300796",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.82,
+    "signal_details": {
+      "weekly_support": 10.568461538461538,
+      "weekly_pressure": 11.2,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000990",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.7,
+    "signal_details": {
+      "weekly_support": 7.654615384615385,
+      "weekly_pressure": 8.09,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300255",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 44.46,
+    "signal_details": {
+      "weekly_support": 43.36769230769231,
+      "weekly_pressure": 53.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002802",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.13,
+    "signal_details": {
+      "weekly_support": 13.87153846153846,
+      "weekly_pressure": 14.27,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002627",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.55,
+    "signal_details": {
+      "weekly_support": 5.419230769230769,
+      "weekly_pressure": 5.62,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz001338",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 11.86,
+    "signal_details": {
+      "weekly_support": 11.855384615384613,
+      "weekly_pressure": 12.27,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002487",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 32.51,
+    "signal_details": {
+      "weekly_support": 30.99846153846154,
+      "weekly_pressure": 34.95,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300348",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.83,
+    "signal_details": {
+      "weekly_support": 16.26923076923077,
+      "weekly_pressure": 21.46,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300578",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 20.93,
+    "signal_details": {
+      "weekly_support": 20.543076923076924,
+      "weekly_pressure": 22.99,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000815",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.55,
+    "signal_details": {
+      "weekly_support": 12.973846153846154,
+      "weekly_pressure": 13.8,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000782",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.11,
+    "signal_details": {
+      "weekly_support": 4.931538461538461,
+      "weekly_pressure": 5.19,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000812",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.83,
+    "signal_details": {
+      "weekly_support": 4.643076923076923,
+      "weekly_pressure": 5.06,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300020",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.04,
+    "signal_details": {
+      "weekly_support": 3.93,
+      "weekly_pressure": 4.27,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300061",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.8,
+    "signal_details": {
+      "weekly_support": 12.86076923076923,
+      "weekly_pressure": 14.33,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002440",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.64,
+    "signal_details": {
+      "weekly_support": 7.688461538461539,
+      "weekly_pressure": 8.22,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000906",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.61,
+    "signal_details": {
+      "weekly_support": 6.450000000000001,
+      "weekly_pressure": 6.79,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002616",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.34,
+    "signal_details": {
+      "weekly_support": 6.163846153846153,
+      "weekly_pressure": 6.6,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002442",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.57,
+    "signal_details": {
+      "weekly_support": 6.349230769230768,
+      "weekly_pressure": 6.96,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002374",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.84,
+    "signal_details": {
+      "weekly_support": 2.836153846153846,
+      "weekly_pressure": 3.2,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000008",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.93,
+    "signal_details": {
+      "weekly_support": 2.808461538461539,
+      "weekly_pressure": 2.95,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300682",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.58,
+    "signal_details": {
+      "weekly_support": 19.25307692307692,
+      "weekly_pressure": 26.07,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002819",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 29.27,
+    "signal_details": {
+      "weekly_support": 28.726923076923075,
+      "weekly_pressure": 31.94,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002598",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.99,
+    "signal_details": {
+      "weekly_support": 10.810769230769232,
+      "weekly_pressure": 11.62,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002052",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.87,
+    "signal_details": {
+      "weekly_support": 10.386153846153844,
+      "weekly_pressure": 13.16,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300130",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 29.43,
+    "signal_details": {
+      "weekly_support": 29.403076923076924,
+      "weekly_pressure": 39.85,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002115",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.74,
+    "signal_details": {
+      "weekly_support": 8.421538461538463,
+      "weekly_pressure": 9.47,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300382",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.93,
+    "signal_details": {
+      "weekly_support": 15.415384615384616,
+      "weekly_pressure": 17.38,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300277",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.97,
+    "signal_details": {
+      "weekly_support": 12.71923076923077,
+      "weekly_pressure": 14.08,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300949",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 42.07,
+    "signal_details": {
+      "weekly_support": 41.13076923076923,
+      "weekly_pressure": 46.61,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300640",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.87,
+    "signal_details": {
+      "weekly_support": 6.585384615384616,
+      "weekly_pressure": 6.93,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300466",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.91,
+    "signal_details": {
+      "weekly_support": 10.453846153846154,
+      "weekly_pressure": 11.48,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002615",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.71,
+    "signal_details": {
+      "weekly_support": 8.29846153846154,
+      "weekly_pressure": 8.94,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002799",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.61,
+    "signal_details": {
+      "weekly_support": 8.406153846153845,
+      "weekly_pressure": 11.18,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000917",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.64,
+    "signal_details": {
+      "weekly_support": 7.515384615384614,
+      "weekly_pressure": 7.95,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002238",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.89,
+    "signal_details": {
+      "weekly_support": 8.692307692307692,
+      "weekly_pressure": 9.53,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000911",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.68,
+    "signal_details": {
+      "weekly_support": 7.49923076923077,
+      "weekly_pressure": 8.31,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002788",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.72,
+    "signal_details": {
+      "weekly_support": 8.531538461538462,
+      "weekly_pressure": 8.79,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000753",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.41,
+    "signal_details": {
+      "weekly_support": 5.2638461538461545,
+      "weekly_pressure": 5.9,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002375",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.01,
+    "signal_details": {
+      "weekly_support": 3.911538461538461,
+      "weekly_pressure": 4.16,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002259",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.2,
+    "signal_details": {
+      "weekly_support": 4.13,
+      "weekly_pressure": 4.57,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300663",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.94,
+    "signal_details": {
+      "weekly_support": 18.643076923076922,
+      "weekly_pressure": 22.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002694",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.71,
+    "signal_details": {
+      "weekly_support": 4.727692307692307,
+      "weekly_pressure": 5.21,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000428",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.39,
+    "signal_details": {
+      "weekly_support": 3.3023076923076924,
+      "weekly_pressure": 3.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002907",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 18.06,
+    "signal_details": {
+      "weekly_support": 17.558461538461536,
+      "weekly_pressure": 21.52,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002191",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.09,
+    "signal_details": {
+      "weekly_support": 3.9669230769230763,
+      "weekly_pressure": 4.18,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000062",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 26.29,
+    "signal_details": {
+      "weekly_support": 25.874615384615385,
+      "weekly_pressure": 28.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz003035",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.78,
+    "signal_details": {
+      "weekly_support": 4.716153846153846,
+      "weekly_pressure": 4.9,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300091",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.95,
+    "signal_details": {
+      "weekly_support": 2.873076923076923,
+      "weekly_pressure": 3.16,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002152",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 13.19,
+    "signal_details": {
+      "weekly_support": 13.001538461538463,
+      "weekly_pressure": 14.54,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000900",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.35,
+    "signal_details": {
+      "weekly_support": 4.293846153846153,
+      "weekly_pressure": 4.65,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300386",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.4,
+    "signal_details": {
+      "weekly_support": 19.58923076923077,
+      "weekly_pressure": 24.0,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300854",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.5,
+    "signal_details": {
+      "weekly_support": 17.20076923076923,
+      "weekly_pressure": 18.69,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300169",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.34,
+    "signal_details": {
+      "weekly_support": 8.255384615384616,
+      "weekly_pressure": 11.67,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300542",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 22.14,
+    "signal_details": {
+      "weekly_support": 21.66846153846154,
+      "weekly_pressure": 26.66,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300779",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 191.46,
+    "signal_details": {
+      "weekly_support": 183.58153846153849,
+      "weekly_pressure": 251.65,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000973",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.76,
+    "signal_details": {
+      "weekly_support": 6.643076923076923,
+      "weekly_pressure": 8.01,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300531",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.18,
+    "signal_details": {
+      "weekly_support": 18.975384615384616,
+      "weekly_pressure": 25.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002596",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.95,
+    "signal_details": {
+      "weekly_support": 3.8307692307692305,
+      "weekly_pressure": 5.11,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300987",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 19.69,
+    "signal_details": {
+      "weekly_support": 18.994615384615386,
+      "weekly_pressure": 23.65,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002177",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.47,
+    "signal_details": {
+      "weekly_support": 6.636923076923077,
+      "weekly_pressure": 8.61,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002969",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 3.69,
+    "signal_details": {
+      "weekly_support": 3.5415384615384613,
+      "weekly_pressure": 3.96,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002638",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.33,
+    "signal_details": {
+      "weekly_support": 2.346923076923077,
+      "weekly_pressure": 2.75,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000566",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.34,
+    "signal_details": {
+      "weekly_support": 6.252307692307692,
+      "weekly_pressure": 7.34,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300798",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.1,
+    "signal_details": {
+      "weekly_support": 8.924615384615384,
+      "weekly_pressure": 11.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300750",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 263.66,
+    "signal_details": {
+      "weekly_support": 260.5253846153846,
+      "weekly_pressure": 292.2,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz001258",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.39,
+    "signal_details": {
+      "weekly_support": 7.185384615384615,
+      "weekly_pressure": 7.87,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000019",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.98,
+    "signal_details": {
+      "weekly_support": 6.815384615384615,
+      "weekly_pressure": 7.21,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000862",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.7,
+    "signal_details": {
+      "weekly_support": 5.568461538461539,
+      "weekly_pressure": 5.97,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002095",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 20.79,
+    "signal_details": {
+      "weekly_support": 20.11,
+      "weekly_pressure": 23.39,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002476",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.95,
+    "signal_details": {
+      "weekly_support": 4.76,
+      "weekly_pressure": 5.9,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000819",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 16.34,
+    "signal_details": {
+      "weekly_support": 15.838461538461539,
+      "weekly_pressure": 18.99,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000553",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.96,
+    "signal_details": {
+      "weekly_support": 7.116153846153845,
+      "weekly_pressure": 7.7,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002900",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 15.63,
+    "signal_details": {
+      "weekly_support": 15.23,
+      "weekly_pressure": 17.46,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002366",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.19,
+    "signal_details": {
+      "weekly_support": 7.850769230769231,
+      "weekly_pressure": 10.18,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002217",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.49,
+    "signal_details": {
+      "weekly_support": 2.3969230769230774,
+      "weekly_pressure": 3.12,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300180",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.42,
+    "signal_details": {
+      "weekly_support": 8.391538461538461,
+      "weekly_pressure": 10.42,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000676",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.75,
+    "signal_details": {
+      "weekly_support": 8.696153846153846,
+      "weekly_pressure": 9.58,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002300",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.61,
+    "signal_details": {
+      "weekly_support": 6.513846153846154,
+      "weekly_pressure": 7.46,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300522",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 14.43,
+    "signal_details": {
+      "weekly_support": 14.172307692307694,
+      "weekly_pressure": 18.12,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000881",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.17,
+    "signal_details": {
+      "weekly_support": 8.086923076923076,
+      "weekly_pressure": 9.07,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002703",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.58,
+    "signal_details": {
+      "weekly_support": 12.417692307692308,
+      "weekly_pressure": 14.01,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002100",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.59,
+    "signal_details": {
+      "weekly_support": 6.369230769230769,
+      "weekly_pressure": 6.88,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002202",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.25,
+    "signal_details": {
+      "weekly_support": 9.772307692307693,
+      "weekly_pressure": 10.75,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000677",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.5,
+    "signal_details": {
+      "weekly_support": 5.5284615384615385,
+      "weekly_pressure": 6.22,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300989",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.42,
+    "signal_details": {
+      "weekly_support": 16.763846153846153,
+      "weekly_pressure": 18.95,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002959",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 49.83,
+    "signal_details": {
+      "weekly_support": 47.81384615384616,
+      "weekly_pressure": 50.47,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002825",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 10.53,
+    "signal_details": {
+      "weekly_support": 10.308461538461538,
+      "weekly_pressure": 11.06,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002909",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.5,
+    "signal_details": {
+      "weekly_support": 6.23,
+      "weekly_pressure": 6.8,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000779",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 9.7,
+    "signal_details": {
+      "weekly_support": 9.34153846153846,
+      "weekly_pressure": 10.3,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002061",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.14,
+    "signal_details": {
+      "weekly_support": 4.031538461538461,
+      "weekly_pressure": 4.33,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002806",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 12.56,
+    "signal_details": {
+      "weekly_support": 12.213846153846154,
+      "weekly_pressure": 14.47,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002554",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 2.96,
+    "signal_details": {
+      "weekly_support": 2.8276923076923075,
+      "weekly_pressure": 3.29,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz003029",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 26.21,
+    "signal_details": {
+      "weekly_support": 25.974615384615383,
+      "weekly_pressure": 36.5,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002880",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 29.67,
+    "signal_details": {
+      "weekly_support": 28.98615384615385,
+      "weekly_pressure": 30.81,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002360",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.49,
+    "signal_details": {
+      "weekly_support": 5.305384615384615,
+      "weekly_pressure": 6.42,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz000962",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 17.58,
+    "signal_details": {
+      "weekly_support": 16.963076923076922,
+      "weekly_pressure": 18.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002082",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 7.4,
+    "signal_details": {
+      "weekly_support": 7.107692307692308,
+      "weekly_pressure": 9.1,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300569",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 5.6,
+    "signal_details": {
+      "weekly_support": 5.386923076923077,
+      "weekly_pressure": 6.5,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002277",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 6.12,
+    "signal_details": {
+      "weekly_support": 6.015384615384615,
+      "weekly_pressure": 6.55,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002682",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 4.94,
+    "signal_details": {
+      "weekly_support": 4.8,
+      "weekly_pressure": 5.15,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300085",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 42.27,
+    "signal_details": {
+      "weekly_support": 40.47461538461538,
+      "weekly_pressure": 48.53,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300721",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 15.55,
+    "signal_details": {
+      "weekly_support": 15.11923076923077,
+      "weekly_pressure": 16.19,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz300364",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 25.75,
+    "signal_details": {
+      "weekly_support": 24.93769230769231,
+      "weekly_pressure": 29.48,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  },
+  {
+    "stock_code": "sz002769",
+    "signal_type": "MTF_BUY",
+    "date": "2025-08-11",
+    "current_price": 8.82,
+    "signal_details": {
+      "weekly_support": 8.546923076923077,
+      "weekly_pressure": 11.22,
+      "daily_confirmation_candle": true,
+      "weekly_support_tested": true,
+      "signal_state": "MULTI_TIMEFRAME_BUY"
+    }
+  }
+]

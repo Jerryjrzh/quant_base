@@ -1,0 +1,105 @@
+{
+    "scan_summary": {
+        "total_signals": 6,
+        "scan_timestamp": "2025-08-14 08:57:46",
+        "strategy": "DAILY_MA_PULLBACK",
+        "total_historical_signals": 6,
+        "avg_win_rate": "0.0%",
+        "avg_profit_rate": "2.0%",
+        "avg_days_to_peak": "0.0 天",
+        "processing_time": "2.12 秒",
+        "files_processed": 8971
+    },
+    "signal_breakdown": {},
+    "top_performers": [
+        {
+            "stock_code": "sh603926",
+            "strategy": "DAILY_MA_PULLBACK",
+            "date": "2025-08-13",
+            "scan_timestamp": "2025-08-14 08:57:45",
+            "filter_status": "passed",
+            "total_signals": 1,
+            "win_rate": "0.0%",
+            "avg_max_profit": "4.6%",
+            "avg_max_drawdown": "0.0%",
+            "avg_days_to_peak": "0.0 天"
+        },
+        {
+            "stock_code": "sz000007",
+            "strategy": "DAILY_MA_PULLBACK",
+            "date": "2025-08-13",
+            "scan_timestamp": "2025-08-14 08:57:46",
+            "filter_status": "passed",
+            "total_signals": 1,
+            "win_rate": "0.0%",
+            "avg_max_profit": "2.4%",
+            "avg_max_drawdown": "0.0%",
+            "avg_days_to_peak": "0.0 天"
+        },
+        {
+            "stock_code": "sh600396",
+            "strategy": "DAILY_MA_PULLBACK",
+            "date": "2025-08-13",
+            "scan_timestamp": "2025-08-14 08:57:44",
+            "filter_status": "passed",
+            "total_signals": 1,
+            "win_rate": "0.0%",
+            "avg_max_profit": "1.5%",
+            "avg_max_drawdown": "0.0%",
+            "avg_days_to_peak": "0.0 天"
+        },
+        {
+            "stock_code": "sz002666",
+            "strategy": "DAILY_MA_PULLBACK",
+            "date": "2025-08-13",
+            "scan_timestamp": "2025-08-14 08:57:45",
+            "filter_status": "passed",
+            "total_signals": 1,
+            "win_rate": "0.0%",
+            "avg_max_profit": "1.3%",
+            "avg_max_drawdown": "0.0%",
+            "avg_days_to_peak": "0.0 天"
+        },
+        {
+            "stock_code": "sh603192",
+            "strategy": "DAILY_MA_PULLBACK",
+            "date": "2025-08-13",
+            "scan_timestamp": "2025-08-14 08:57:44",
+            "filter_status": "passed",
+            "total_signals": 1,
+            "win_rate": "0.0%",
+            "avg_max_profit": "1.1%",
+            "avg_max_drawdown": "0.0%",
+            "avg_days_to_peak": "0.0 天"
+        },
+        {
+            "stock_code": "sh603879",
+            "strategy": "DAILY_MA_PULLBACK",
+            "date": "2025-08-13",
+            "scan_timestamp": "2025-08-14 08:57:44",
+            "filter_status": "passed",
+            "total_signals": 1,
+            "win_rate": "0.0%",
+            "avg_max_profit": "1.0%",
+            "avg_max_drawdown": "0.0%",
+            "avg_days_to_peak": "0.0 天"
+        }
+    ],
+    "deep_scan_summary": {
+        "total_analyzed": 6,
+        "a_grade_count": 3,
+        "price_evaluated_count": 3,
+        "buy_recommendations": 4,
+        "a_grade_stocks": [
+            "sh603192",
+            "sh603926",
+            "sz002666"
+        ],
+        "buy_recommendation_stocks": [
+            "sh603192",
+            "sh600396",
+            "sh603926",
+            "sz002666"
+        ]
+    }
+}

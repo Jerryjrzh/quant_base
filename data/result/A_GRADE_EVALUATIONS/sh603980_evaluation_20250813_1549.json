@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:49:36.466773",
+  "stock_code": "sh603980",
+  "current_price": 5.96,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 5.72,
+    "target_price_2": 5.72,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.040268456375838965,
+    "discount_2": 0.040268456375838965,
+    "stop_loss": {
+      "conservative": 5.84,
+      "moderate": 5.54,
+      "aggressive": 5.54,
+      "technical": 5.72
+    },
+    "take_profit": {
+      "conservative": 6.5,
+      "moderate": 6.62,
+      "aggressive": 7.22
+    }
+  }
+}

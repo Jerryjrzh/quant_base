@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.391846",
+  "stock_code": "sz002624",
+  "current_price": 15.21,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化突破确认",
+    "target_price_1": 15.14,
+    "target_price_2": 15.26,
+    "position_allocation": "确认突破后50%仓位",
+    "discount_1": 0.004602235371466159,
+    "discount_2": -0.003287310979618602,
+    "stop_loss": {
+      "conservative": 14.54,
+      "moderate": 13.79,
+      "aggressive": 13.79,
+      "technical": 14.24
+    },
+    "take_profit": {
+      "conservative": 16.19,
+      "moderate": 16.49,
+      "aggressive": 17.99
+    }
+  }
+}

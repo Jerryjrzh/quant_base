@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.412210",
+  "stock_code": "sz002061",
+  "current_price": 4.14,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 3.93,
+    "target_price_2": 3.93,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.050724637681159306,
+    "discount_2": 0.050724637681159306,
+    "stop_loss": {
+      "conservative": 4.02,
+      "moderate": 3.81,
+      "aggressive": 3.81,
+      "technical": 3.93
+    },
+    "take_profit": {
+      "conservative": 4.47,
+      "moderate": 4.55,
+      "aggressive": 4.97
+    }
+  }
+}

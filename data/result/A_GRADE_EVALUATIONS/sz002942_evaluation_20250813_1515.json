@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.408227",
+  "stock_code": "sz002942",
+  "current_price": 18.91,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 17.96,
+    "target_price_2": 17.96,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.050237969328397636,
+    "discount_2": 0.050237969328397636,
+    "stop_loss": {
+      "conservative": 18.34,
+      "moderate": 17.4,
+      "aggressive": 17.4,
+      "technical": 17.96
+    },
+    "take_profit": {
+      "conservative": 20.42,
+      "moderate": 20.8,
+      "aggressive": 22.69
+    }
+  }
+}

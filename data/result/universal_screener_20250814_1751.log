@@ -1,0 +1,9 @@
+2025-08-14 17:51:05,265 - INFO - 加载配置文件: /home/hypnosis/data/quant_base/backend/strategies_config.json
+2025-08-14 17:51:05,266 - INFO - 配置加载成功: 5 个策略
+2025-08-14 17:51:05,266 - INFO - 配置管理器初始化完成，配置文件: /home/hypnosis/data/quant_base/config/unified_strategy_config.json
+2025-08-14 17:51:05,268 - INFO - 通用筛选器初始化完成
+2025-08-14 17:51:05,268 - INFO - ===== 开始执行通用股票筛选 =====
+2025-08-14 17:51:05,285 - INFO - 共找到 8973 个股票文件
+2025-08-14 17:51:05,285 - INFO - 启用的策略: ['深渊筑底策略_v2.0', '临界金叉_v1.0', '三重金叉_v1.0', 'MACD零轴启动_v1.0', '周线金叉+日线MA_v1.0']
+2025-08-14 17:51:14,125 - INFO - 筛选完成，发现 54 个信号，耗时 8.86 秒
+2025-08-14 17:51:14,132 - INFO - 结果已保存至: /home/hypnosis/data/quant_base/data/result/UNIVERSAL_SCREENING

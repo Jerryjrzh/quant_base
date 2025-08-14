@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-13T15:15:19.291210",
+  "stock_code": "sh688376",
+  "current_price": 45.95,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化回调买入",
+    "target_price_1": 36.08,
+    "target_price_2": 35.13,
+    "position_allocation": "等待5%回调后建仓",
+    "discount_1": 0.21479869423286188,
+    "discount_2": 0.2354733405875952,
+    "stop_loss": {
+      "conservative": 36.84,
+      "moderate": 34.94,
+      "aggressive": 34.94,
+      "technical": 33.91
+    },
+    "take_profit": {
+      "conservative": 41.02,
+      "moderate": 41.78,
+      "aggressive": 45.58
+    }
+  }
+}

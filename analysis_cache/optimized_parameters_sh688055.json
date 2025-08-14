@@ -1,6 +1,6 @@
 {
   "stock_code": "sh688055",
-  "optimization_date": "2025-07-23T11:22:03.036499",
+  "optimization_date": "2025-08-13T15:14:27.839707",
   "best_parameters": {
     "pre_entry_discount": 0.05,
     "pre_entry_discount_2": 0.05,
@@ -26,6 +26,6 @@
     "trend_confirm_days": 5,
     "volume_threshold": 2.0
   },
-  "best_score": 0.41117425227445625,
+  "best_score": 0.41505279647704824,
   "optimization_target": "composite_score"
 }
