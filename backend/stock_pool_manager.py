@@ -581,6 +581,8 @@ class StockPoolManager:
             return 'SH'
         elif stock_code.startswith('sz'):
             return 'SZ'
+        elif '#' in stock_code
+            return 'HK'
         else:
             return 'UNKNOWN'
     

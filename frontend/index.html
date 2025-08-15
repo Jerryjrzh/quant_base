@@ -312,14 +312,37 @@
             font-weight: 600;
             position: sticky;
             top: 0;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+        
+        .portfolio-table th:hover {
+            background-color: #e9ecef;
+        }
+        
+        .portfolio-table th.sortable::after {
+            content: ' ↕';
+            color: #6c757d;
+            font-size: 12px;
+        }
+        
+        .portfolio-table th.sort-asc::after {
+            content: ' ↑';
+            color: #007bff;
+        }
+        
+        .portfolio-table th.sort-desc::after {
+            content: ' ↓';
+            color: #007bff;
         }
         
         .portfolio-table tbody tr:hover {
             background-color: #f8f9fa;
         }
         
-        .profit-positive { color: #28a745; font-weight: 600; }
-        .profit-negative { color: #dc3545; font-weight: 600; }
+        .profit-positive { color: #dc3545; font-weight: 600; }
+        .profit-negative { color: #28a745; font-weight: 600; }
         .profit-neutral { color: #6c757d; }
         
         .action-buy { background: #d4edda; color: #155724; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; }

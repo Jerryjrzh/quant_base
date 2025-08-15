@@ -12,7 +12,7 @@ from datetime import datetime
 
 def fix_portfolio_case():
     """修复持仓数据中的股票代码大小写"""
-    portfolio_file = os.path.join('data', 'portfolio.json')
+    portfolio_file = os.path.join('data', 'portfolio', 'portfolio.json')
     
     if not os.path.exists(portfolio_file):
         print("持仓文件不存在")

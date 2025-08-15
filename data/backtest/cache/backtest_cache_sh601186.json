@@ -1,0 +1,110 @@
+{
+  "cache_time": "2025-08-15 10:38:29",
+  "backtest_results": {
+    "stock_code": "sh601186",
+    "current_price": 8.09,
+    "add_coefficient_analysis": {
+      "0.96": {
+        "success_rate": 100.0,
+        "avg_return": 8.827145435264924,
+        "total_scenarios": 475,
+        "success_count": 475,
+        "score": 63.53085817410597
+      },
+      "0.97": {
+        "success_rate": 100.0,
+        "avg_return": 8.133543872852231,
+        "total_scenarios": 544,
+        "success_count": 544,
+        "score": 63.25341754914089
+      },
+      "0.98": {
+        "success_rate": 100.0,
+        "avg_return": 7.760148087041919,
+        "total_scenarios": 635,
+        "success_count": 635,
+        "score": 63.104059234816766
+      },
+      "0.99": {
+        "success_rate": 99.87277353689568,
+        "avg_return": 7.798725338830965,
+        "total_scenarios": 786,
+        "success_count": 785,
+        "score": 63.04315425766979
+      },
+      "1.0": {
+        "success_rate": 99.66139954853274,
+        "avg_return": 7.885267477834393,
+        "total_scenarios": 886,
+        "success_count": 883,
+        "score": 62.9509467202534
+      }
+    },
+    "sell_coefficient_analysis": {
+      "1.02": {
+        "success_rate": 100.0,
+        "avg_return": 8.988140832870373,
+        "avg_hold_days": 11.640845070422536,
+        "total_scenarios": 284,
+        "success_count": 284,
+        "score": 71.05559717943858
+      },
+      "1.03": {
+        "success_rate": 100.0,
+        "avg_return": 10.061484816566407,
+        "avg_hold_days": 12.775193798449612,
+        "total_scenarios": 258,
+        "success_count": 258,
+        "score": 70.2432516465203
+      },
+      "1.05": {
+        "success_rate": 100.0,
+        "avg_return": 12.55096534508642,
+        "avg_hold_days": 13.940928270042194,
+        "total_scenarios": 237,
+        "success_count": 237,
+        "score": 69.82436133348374
+      },
+      "1.08": {
+        "success_rate": 100.0,
+        "avg_return": 15.778940295818927,
+        "avg_hold_days": 15.258064516129032,
+        "total_scenarios": 217,
+        "success_count": 217,
+        "score": 69.47561757261664
+      },
+      "1.1": {
+        "success_rate": 100.0,
+        "avg_return": 18.678712874945337,
+        "avg_hold_days": 15.893048128342246,
+        "total_scenarios": 187,
+        "success_count": 187,
+        "score": 69.71056573414135
+      },
+      "1.15": {
+        "success_rate": 100.0,
+        "avg_return": 24.447244041026682,
+        "avg_hold_days": 17.357664233576642,
+        "total_scenarios": 137,
+        "success_count": 137,
+        "score": 69.97650897873136
+      }
+    },
+    "best_add_coefficient": 0.96,
+    "best_sell_coefficient": 1.02,
+    "best_add_score": 63.53085817410597,
+    "best_sell_score": 71.05559717943858,
+    "prediction": {
+      "support_level": 8.04,
+      "resistance_level": 8.93,
+      "optimal_add_price": 7.718399999999999,
+      "optimal_sell_price": 9.1086,
+      "current_sell_price": 9.1086,
+      "current_to_sell_return": 12.590852904820757,
+      "expected_return": 18.01150497512438,
+      "expected_days_to_peak": 27,
+      "confidence_level": "high"
+    },
+    "analysis_time": "2025-08-15 10:38:29"
+  }
+}

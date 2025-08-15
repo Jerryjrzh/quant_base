@@ -1,0 +1,51 @@
+{
+  "cache_time": "2025-08-15 16:53:17",
+  "analysis_results": {
+    "stock_code": "31#09988",
+    "analysis_time": "2025-08-15 16:53:17",
+    "current_price": 118.50000762939453,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.96,
+      "best_add_score": 65.646432891267,
+      "add_coefficient_analysis": {
+        "0.96": {
+          "success_rate": 99.71223021582733,
+          "avg_return": 14.54773690442651,
+          "score": 65.646432891267
+        },
+        "0.97": {
+          "success_rate": 99.46949602122017,
+          "avg_return": 14.284744547203706,
+          "score": 65.39559543161357
+        },
+        "0.98": {
+          "success_rate": 98.97435897435898,
+          "avg_return": 13.488484425785012,
+          "score": 64.78000915492939
+        },
+        "0.99": {
+          "success_rate": 98.30097087378641,
+          "avg_return": 12.85068692692778,
+          "score": 64.12085729504295
+        },
+        "1.0": {
+          "success_rate": 96.74418604651163,
+          "avg_return": 12.488946726689559,
+          "score": 63.042090318582794
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 112.41600585937499,
+      "support_level": 117.10000610351562,
+      "resistance_level": 122.00000762939453,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 111.24500579833983
+    },
+    "from_cache": false
+  }
+}

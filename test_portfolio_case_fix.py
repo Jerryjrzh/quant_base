@@ -18,7 +18,7 @@ def test_portfolio_case_consistency():
     print("=== 持仓股票代码大小写一致性测试 ===\n")
     
     # 1. 检查现有持仓数据
-    portfolio_file = os.path.join('data', 'portfolio.json')
+    portfolio_file = os.path.join('data', 'portfolio', 'portfolio.json')
     if os.path.exists(portfolio_file):
         with open(portfolio_file, 'r', encoding='utf-8') as f:
             portfolio = json.load(f)

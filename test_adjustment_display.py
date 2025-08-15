@@ -38,7 +38,10 @@ def test_adjustment_display():
         print("-" * 30)
         
         # 构建文件路径
-        market = stock_code[:2]
+        if '#' in stock_code:
+            market = 'ds'
+        else:
+            market = stock_code[:2]
         file_path = os.path.join(base_path, market, 'lday', f'{stock_code}.day')
         
         if not os.path.exists(file_path):

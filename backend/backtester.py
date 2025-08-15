@@ -1,5 +1,13 @@
+#!/usr/bin/env python3
 import numpy as np
 import pandas as pd
+import os
+from datetime import datetime
+
+# 导入必要的模块 (原portfolio_manager中的依赖)
+import data_loader
+import indicators
+from adjustment_processor import create_adjustment_config, create_adjustment_processor
 
 # --- 回测配置 ---
 # 信号出现后，向后观察的最大天数
@@ -433,3 +441,158 @@ def run_backtest(df, signal_series):
         "trades": trades,
         "entry_indices": valid_entry_indices
     }
+
+# --- 新增：从 portfolio_manager 迁移并整合的功能 ---
+
+def _calculate_price_targets(df: pd.DataFrame, current_price: float) -> dict:
+    """计算价格目标（支撑位和阻力位），这是一个辅助函数"""
+    recent_data = df.tail(60)
+    resistance_levels = []
+    support_levels = []
+    
+    # 基于历史高低点
+    highs = recent_data['high'].rolling(window=5).max()
+    lows = recent_data['low'].rolling(window=5).min()
+    
+    for i in range(5, len(recent_data)-5):
+        if highs.iloc[i] == recent_data['high'].iloc[i]:
+            resistance_levels.append(float(recent_data['high'].iloc[i]))
+        if lows.iloc[i] == recent_data['low'].iloc[i]:
+            support_levels.append(float(recent_data['low'].iloc[i]))
+    
+    resistance_levels = sorted(list(set(resistance_levels)), reverse=True)
+    support_levels = sorted(list(set(support_levels)))
+    
+    next_resistance = next((level for level in resistance_levels if level > current_price), None)
+    next_support = next((level for level in reversed(support_levels) if level < current_price), None)
+    
+    return {'next_resistance': next_resistance, 'next_support': next_support}
+
+def _optimize_coefficients_historically(df: pd.DataFrame) -> dict:
+    """
+    通过历史数据回测，优化补仓和卖出系数。
+    (此函数逻辑源自 portfolio_manager._generate_backtest_analysis)
+    """
+    add_coefficients = [0.96, 0.97, 0.98, 0.99, 1.00]
+    sell_coefficients = [1.02, 1.03, 1.05, 1.08, 1.10, 1.15]
+    
+    add_results = {}
+    best_add_coefficient = None
+    best_add_score = -999
+
+    # 回测补仓系数
+    for add_coeff in add_coefficients:
+        success_count, total_scenarios, total_return = 0, 0, 0
+        
+        for i in range(100, len(df) - 30):
+            current_data = df.iloc[:i+1]
+            future_data = df.iloc[i+1:i+31]
+            if len(future_data) < 15: continue
+            
+            hist_price = float(current_data.iloc[-1]['close'])
+            price_targets = _calculate_price_targets(current_data, hist_price)
+            support_level = price_targets.get('next_support')
+            if not support_level: continue
+            
+            add_price = support_level * add_coeff
+            if float(future_data['low'].min()) <= add_price:
+                total_scenarios += 1
+                return_pct = (float(future_data['high'].max()) - add_price) / add_price * 100
+                if return_pct > 0: success_count += 1
+                total_return += return_pct
+        
+        if total_scenarios > 0:
+            success_rate = success_count / total_scenarios * 100
+            avg_return = total_return / total_scenarios
+            score = success_rate * 0.6 + avg_return * 0.4
+            add_results[add_coeff] = {'success_rate': success_rate, 'avg_return': avg_return, 'score': score}
+            if score > best_add_score:
+                best_add_score = score
+                best_add_coefficient = add_coeff
+
+    # 简单返回最优补仓系数和详细分析
+    return {
+        'best_add_coefficient': best_add_coefficient,
+        'best_add_score': best_add_score,
+        'add_coefficient_analysis': add_results,
+    }
+
+def _generate_forward_advice(df: pd.DataFrame, backtest_results: dict) -> dict:
+    """
+    基于最新的数据和历史回测的最优系数，生成前瞻性的交易建议。
+    (此函数逻辑源自 portfolio_manager._generate_prediction_analysis)
+    """
+    current_price = float(df.iloc[-1]['close'])
+    price_targets = _calculate_price_targets(df, current_price)
+    support_level = price_targets.get('next_support')
+    
+    best_add_coefficient = backtest_results.get('best_add_coefficient')
+    optimal_add_price = None
+    if support_level and best_add_coefficient:
+        optimal_add_price = support_level * best_add_coefficient
+
+    # 简化版建议生成
+    action = 'HOLD'
+    reasons = []
+    confidence = 0.6
+
+    # 结合技术指标
+    latest = df.iloc[-1]
+    if latest['rsi6'] < 30:
+        action = 'BUY'
+        reasons.append(f"RSI(6)为{latest['rsi6']:.1f}，进入超卖区，存在反弹机会。")
+        confidence = 0.75
+    elif latest['close'] < latest['ma60']:
+        action = 'AVOID'
+        reasons.append(f"价格位于长期均线MA60下方，趋势偏弱。")
+        confidence = 0.5
+    else:
+        reasons.append("当前技术指标处于中性区域，建议继续观察。")
+
+    return {
+        'action': action,
+        'confidence': confidence,
+        'optimal_add_price': optimal_add_price,
+        'support_level': support_level,
+        'resistance_level': price_targets.get('next_resistance'),
+        'reasons': reasons,
+        'stop_loss_price': support_level * 0.95 if support_level else current_price * 0.92
+    }
+
+
+def get_deep_analysis(stock_code: str, df: pd.DataFrame = None) -> dict:
+    """
+    【统一入口函数】
+    对单只股票进行深度回测分析，并生成前瞻性交易建议。
+    """
+    try:
+        # 1. 获取和准备数据
+        if df is None:
+            # 使用统一的数据处理模块
+            from data_handler import get_full_data_with_indicators
+            df = get_full_data_with_indicators(stock_code)
+            if df is None:
+                return {'error': '无法获取股票数据或数据不足'}
+
+        # 2. 执行历史回测，优化系数
+        backtest_results = _optimize_coefficients_historically(df)
+        
+        # 3. 基于最新数据和回测结果，生成前瞻性建议
+        forward_advice = _generate_forward_advice(df, backtest_results)
+
+        # 4. 组装最终结果
+        analysis_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        return {
+            'stock_code': stock_code,
+            'analysis_time': analysis_time,
+            'current_price': float(df.iloc[-1]['close']),
+            'backtest_analysis': backtest_results,
+            'trading_advice': forward_advice,
+            'from_cache': False # 默认实时计算
+        }
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return {'error': f'深度分析失败: {str(e)}'}
+
+

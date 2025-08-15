@@ -3,29 +3,71 @@ import struct
 import pandas as pd
 from datetime import datetime
 
-def get_daily_data(file_path):
-    """从.day文件读取完整的日线数据"""
+def get_daily_data(file_path, stock_code=None):
+    """
+    从.day文件读取完整的日线数据。
+    【已合并】能自动识别并解析沪深A股和港股两种不同的文件格式。
+    """
     data = []
     record_size = 32
-    unpack_format = '<IIIIIfI'
+
+    # --- 核心逻辑：根据股票代码选择解析方案 ---
+    is_hk_stock = stock_code and '#' in stock_code
+    
+    if is_hk_stock:
+        # 港股 (.day文件) 格式：价格和成交额为浮点数
+        # 格式: 4字节日期(I), 4*4字节OHLC价(f), 4字节成交额(f), 4字节成交量(i), 4字节保留(I)
+        unpack_format = '<IfffffIi' # 注意：成交量为有符号整数i，与A股不同
+        price_divisor = 1.0  # 价格已经是float，无需除法
+    else:
+        # 沪深A股 (.day文件) 格式：价格为整数，成交额为浮点数
+        # 格式: 5*4字节整数(I)OHLC, 4字节成交额(f), 4字节成交量(I)
+        unpack_format = '<IIIIIfI'
+        price_divisor = 100.0 # 价格是整数，需要除以100
+
     unpack_size = struct.calcsize(unpack_format)
+    # --- 方案选择结束 ---
+
     with open(file_path, 'rb') as f:
         while True:
             chunk = f.read(record_size)
-            if len(chunk) < record_size: break
+            if len(chunk) < record_size:
+                break
+            
             try:
-                date, open_p, high_p, low_p, close_p, amount, volume = struct.unpack(unpack_format, chunk[:unpack_size])
-                open_p, high_p, low_p, close_p = open_p / 100, high_p / 100, low_p / 100, close_p / 100
-                if open_p <= 0: continue
+                # 使用选择好的格式进行一次解包
+                if is_hk_stock:
+                    date, open_p, high_p, low_p, close_p, amount, volume, _reserved = struct.unpack(unpack_format, chunk)
+                else:
+                    date, open_p, high_p, low_p, close_p, amount, volume = struct.unpack(unpack_format, chunk[:unpack_size])
+
+                # 使用选择好的除数处理价格
+                # (对港股来说，除以1.0等于没变)
+                open_p /= price_divisor
+                high_p /= price_divisor
+                low_p /= price_divisor
+                close_p /= price_divisor
+                
+                if open_p <= 0:
+                    continue
+
                 data.append({
-                    'date': datetime.strptime(str(date), '%Y%m%d'), 'open': open_p, 'high': high_p, 
-                    'low': low_p, 'close': close_p, 'volume': volume
+                    'date': datetime.strptime(str(date), '%Y%m%d'),
+                    'open': open_p,
+                    'high': high_p,
+                    'low': low_p,
+                    'close': close_p,
+                    'volume': volume,
+                    'amount': amount
                 })
-            except (struct.error, ValueError): continue
-    if not data: return None
+            except (struct.error, ValueError):
+                continue
+    
+    if not data:
+        return None
+        
     df = pd.DataFrame(data).sort_values('date').reset_index(drop=True)
-    # 设置日期为索引，确保是DatetimeIndex
-    df.set_index('date', inplace=True)
+    df.set_index('date', inplace=True) # 设置日期为索引，确保是DatetimeIndex
     return df
 
 def get_5min_data(file_path):
@@ -95,7 +137,11 @@ def get_multi_timeframe_data(stock_code, base_path=None):
     if base_path is None:
         base_path = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
     
-    market = stock_code[:2]
+    # 根据股票代码确定市场
+    if '#' in stock_code:
+        market = 'ds'  # 港股
+    else:
+        market = stock_code[:2]  # A股
     
     # 构建文件路径
     daily_file = os.path.join(base_path, market, 'lday', f'{stock_code}.day')
@@ -114,7 +160,7 @@ def get_multi_timeframe_data(stock_code, base_path=None):
     # 加载日线数据
     if os.path.exists(daily_file):
         try:
-            result['daily_data'] = get_daily_data(daily_file)
+            result['daily_data'] = get_daily_data(daily_file, stock_code)
             result['data_status']['daily_available'] = result['daily_data'] is not None
         except Exception as e:
             print(f"加载日线数据失败 {stock_code}: {e}")

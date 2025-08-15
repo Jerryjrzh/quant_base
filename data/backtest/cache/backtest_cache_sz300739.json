@@ -1,0 +1,55 @@
+{
+  "cache_time": "2025-08-15 09:30:35",
+  "backtest_results": {
+    "stock_code": "sz300739",
+    "current_price": 15.8,
+    "coefficient_analysis": {
+      "0.98": {
+        "success_rate": 100.0,
+        "avg_return": 12.350450601365806,
+        "total_scenarios": 719,
+        "success_count": 719,
+        "score": 64.94018024054633
+      },
+      "0.99": {
+        "success_rate": 99.87577639751552,
+        "avg_return": 11.915952373794958,
+        "total_scenarios": 805,
+        "success_count": 804,
+        "score": 64.69184678802729
+      },
+      "1.0": {
+        "success_rate": 99.17840375586854,
+        "avg_return": 11.332030565038254,
+        "total_scenarios": 852,
+        "success_count": 845,
+        "score": 64.03985447953642
+      },
+      "1.01": {
+        "success_rate": 97.07158351409979,
+        "avg_return": 10.669210232402236,
+        "total_scenarios": 922,
+        "success_count": 895,
+        "score": 62.51063420142076
+      },
+      "1.02": {
+        "success_rate": 93.15352697095436,
+        "avg_return": 9.684553853241143,
+        "total_scenarios": 964,
+        "success_count": 898,
+        "score": 59.76593772386907
+      }
+    },
+    "best_coefficient": 0.98,
+    "best_score": 64.94018024054633,
+    "prediction": {
+      "support_level": 15.36,
+      "resistance_level": 17.71,
+      "optimal_add_price": 15.0528,
+      "expected_return": 17.652529761904773,
+      "expected_days_to_peak": 32,
+      "confidence_level": "high"
+    },
+    "analysis_time": "2025-08-15 09:30:35"
+  }
+}

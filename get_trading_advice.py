@@ -1,162 +1,76 @@
 #!/usr/bin/env python3
 """
-快速获取交易建议的工具
-使用方法: python get_trading_advice.py [股票代码] [信号状态]
+快速获取交易建议的工具 - 基于深度回测分析
+使用方法: python get_trading_advice.py [股票代码]
 """
 
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), 'backend'))
 
-import pandas as pd
-from datetime import datetime
-import data_loader
-import strategies
-import indicators
-from trading_advisor import TradingAdvisor
+# 直接从 backtester 导入核心分析功能
+from backtester import get_deep_analysis
 
-def get_stock_advice(stock_code, signal_state=None, entry_price=None):
-    """获取指定股票的交易建议"""
-    
-    # 加载股票数据
-    base_path = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
-    market = stock_code[:2]
-    file_path = os.path.join(base_path, market, 'lday', f'{stock_code}.day')
-    
-    if not os.path.exists(file_path):
-        return f"❌ 股票数据文件不存在: {stock_code}"
-    
-    try:
-        df = data_loader.get_daily_data(file_path)
-        if df is None or len(df) < 50:
-            return f"❌ 股票数据不足: {stock_code}"
-        
-        # 数据加载器已经设置了date为索引，无需再次设置
-        
-        # 计算技术指标
-        macd_values = indicators.calculate_macd(df)
-        df['dif'], df['dea'] = macd_values[0], macd_values[1]
-        
-        # 如果没有指定信号状态，自动检测最新信号
-        if signal_state is None:
-            signals = strategies.apply_macd_zero_axis_strategy(df)
-            if signals is not None and signals.any():
-                # 找到最近的信号
-                recent_signals = signals[signals != ''].tail(5)
-                if not recent_signals.empty:
-                    signal_idx = df.index.get_loc(recent_signals.index[-1])
-                    signal_state = recent_signals.iloc[-1]
-                else:
-                    return f"❌ 未发现有效信号: {stock_code}"
-            else:
-                return f"❌ 未发现有效信号: {stock_code}"
-        else:
-            # 使用最新数据点作为信号位置
-            signal_idx = len(df) - 1
-        
-        # 初始化交易顾问
-        advisor = TradingAdvisor()
-        
-        # 生成交易报告
-        current_price = df.iloc[-1]['close']
-        report = advisor.generate_trading_report(
-            df, signal_idx, signal_state, entry_price, current_price
-        )
-        
-        return format_simple_advice(stock_code, report)
-        
-    except Exception as e:
-        return f"❌ 处理股票 {stock_code} 失败: {e}"
+def format_advice(analysis: dict):
+    """格式化建议输出"""
+    if 'error' in analysis:
+        return f"❌ 分析失败: {analysis['error']}"
 
-def format_simple_advice(stock_code, report):
-    """格式化简洁的建议输出"""
-    if 'error' in report:
-        return f"❌ {report['error']}"
-    
     output = []
-    output.append(f"📊 {stock_code} 交易建议")
-    output.append("=" * 40)
+    output.append(f"📊 {analysis['stock_code']} 深度交易分析")
+    output.append("=" * 50)
     
-    # 基本信息
-    if 'stock_info' in report:
-        info = report['stock_info']
-        output.append(f"📅 日期: {info['signal_date']}")
-        output.append(f"🎯 信号: {info['signal_state']}")
-        output.append(f"💰 价格: ¥{info['current_price']:.2f}")
-        output.append("")
+    output.append(f"📅 分析时间: {analysis['analysis_time']}")
+    output.append(f"💰 当前价格: ¥{analysis['current_price']:.2f}")
+    output.append("")
+
+    # 操作建议
+    advice = analysis['trading_advice']
+    output.append("💡 操作建议:")
+    output.append(f"   🎯 建议操作: {advice['action']}")
+    output.append(f"   🔍 置信度: {advice['confidence']*100:.0f}%")
     
-    # 入场建议
-    if 'entry_analysis' in report and report['entry_analysis']:
-        entry = report['entry_analysis']
-        if 'entry_strategies' in entry and entry['entry_strategies']:
-            strategy = entry['entry_strategies'][0]  # 取第一个策略
-            output.append("🚀 入场建议:")
-            output.append(f"  策略: {strategy['strategy']}")
-            output.append(f"  价位1: ¥{strategy['entry_price_1']}")
-            output.append(f"  价位2: ¥{strategy['entry_price_2']}")
-            output.append(f"  仓位: {strategy['position_allocation']}")
-            output.append("")
+    if advice.get('optimal_add_price'):
+        output.append(f"   📉 建议补仓价 (基于历史最优系数): ¥{advice['optimal_add_price']:.2f}")
+    else:
+        output.append(f"   📉 建议补仓价: 暂无明确信号")
         
-        if 'risk_management' in entry and 'stop_loss_levels' in entry['risk_management']:
-            stops = entry['risk_management']['stop_loss_levels']
-            output.append("⚠️ 止损建议:")
-            output.append(f"  适中止损: ¥{stops.get('moderate', 'N/A')}")
-            output.append(f"  技术止损: ¥{stops.get('technical', 'N/A')}")
-            output.append("")
+    if advice.get('stop_loss_price'):
+        output.append(f"   ⛔ 止损价参考: ¥{advice['stop_loss_price']:.2f}")
     
-    # 出场建议
-    if 'exit_analysis' in report and report['exit_analysis']:
-        exit_data = report['exit_analysis']
-        if 'current_status' in exit_data:
-            status = exit_data['current_status']
-            output.append("📈 持仓状态:")
-            output.append(f"  当前盈亏: {status['current_pnl']}")
-            output.append(f"  持有天数: {status['holding_days']}天")
-            output.append("")
-        
-        if 'price_targets' in exit_data:
-            targets = exit_data['price_targets']
-            output.append("🎯 价格目标:")
-            output.append(f"  止损位: ¥{targets.get('stop_loss', 'N/A')}")
-            output.append(f"  目标位: ¥{targets.get('take_profit_1', 'N/A')}")
-            output.append("")
-        
-        if 'exit_strategies' in exit_data and exit_data['exit_strategies']:
-            strategy = exit_data['exit_strategies'][0]
-            output.append("💡 当前建议:")
-            output.append(f"  {strategy['action']}")
-            output.append("")
-    
-    # 操作摘要
-    if 'action_summary' in report and report['action_summary']:
-        output.append("📋 操作要点:")
-        for action in report['action_summary'][:2]:  # 只显示前两个要点
-            output.append(f"  • {action}")
-        output.append("")
-    
+    if advice.get('reasons'):
+        output.append("   📋 建议原因:")
+        for reason in advice['reasons']:
+            output.append(f"     • {reason}")
+    output.append("")
+
+    # 回测分析摘要
+    backtest = analysis['backtest_analysis']
+    output.append("🔍 历史回测摘要:")
+    if backtest.get('best_add_coefficient'):
+        output.append(f"   🎯 历史最优补仓系数: {backtest['best_add_coefficient']} (综合评分: {backtest['best_add_score']:.2f})")
+        output.append("   (注: 系数代表在支撑位价格上的乘数)")
+    else:
+        output.append("   🎯 历史最优补仓系数: 未找到有效策略")
+    output.append("")
+
     return "\n".join(output)
 
 def main():
     """主函数"""
     if len(sys.argv) < 2:
-        print("使用方法:")
-        print("  python get_trading_advice.py <股票代码> [信号状态] [入场价格]")
-        print("")
-        print("示例:")
-        print("  python get_trading_advice.py sh000001")
-        print("  python get_trading_advice.py sz000001 PRE")
-        print("  python get_trading_advice.py sh600000 MID 12.50")
-        print("")
-        print("信号状态: PRE(预备), MID(进行中), POST(已突破)")
+        print("使用方法: python get_trading_advice.py <股票代码>")
+        print("示例: python get_trading_advice.py sh600006")
         return
     
     stock_code = sys.argv[1].lower()
-    signal_state = sys.argv[2] if len(sys.argv) > 2 else None
-    entry_price = float(sys.argv[3]) if len(sys.argv) > 3 else None
     
-    print("🤖 正在分析股票交易机会...")
-    result = get_stock_advice(stock_code, signal_state, entry_price)
-    print(result)
+    print("🤖 正在进行深度回测分析...")
+    # 直接调用 backtester
+    analysis_result = get_deep_analysis(stock_code)
+    
+    # 格式化并打印结果
+    print(format_advice(analysis_result))
 
 if __name__ == "__main__":
     main()

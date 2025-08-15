@@ -188,7 +188,10 @@ def get_signals_summary():
 
 def get_timeframe_data(stock_code, timeframe='daily'):
     """获取指定周期的数据"""
-    market = stock_code[:2]
+    if '#' in stock_code:
+        market = 'ds'
+    else:
+        market = stock_code[:2]
     
     # 分时数据处理
     if timeframe in ['5min', '10min', '15min', '30min', '60min']:
@@ -699,7 +702,11 @@ def scan_portfolio():
     """扫描所有持仓并生成分析报告"""
     try:
         portfolio_manager = create_portfolio_manager()
-        results = portfolio_manager.scan_all_positions()
+        
+        # 后端自动判断是否需要重新扫描
+        # 首先尝试获取缓存结果
+        results = portfolio_manager.scan_all_positions(force_refresh=False)
+        
         return jsonify({'success': True, 'results': results})
     except Exception as e:
         import traceback

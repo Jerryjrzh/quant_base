@@ -30,7 +30,10 @@ def test_signal_point_positioning():
         
         try:
             # 加载数据
-            market = stock_code[:2]
+            if '#' in stock_code:
+                market = 'ds'
+            else:
+                market = stock_code[:2]
             base_path = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
             file_path = os.path.join(base_path, market, 'lday', f'{stock_code}.day')
             

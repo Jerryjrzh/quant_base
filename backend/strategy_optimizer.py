@@ -88,7 +88,10 @@ class StrategyOptimizer:
         """分析信号阶段的触底情况"""
         try:
             # 获取股票数据
-            market = stock_code[:2]
+            if '#' in stock_code:
+                market = 'ds'
+            else:
+                market = stock_code[:2]
             file_path = os.path.join(
                 os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc"),
                 market, 'lday', f'{stock_code}.day'
@@ -229,7 +232,10 @@ class StrategyOptimizer:
             for stock_code in stock_codes:
                 try:
                     # 获取股票数据
-                    market = stock_code[:2]
+                    if '#' in stock_code:
+                        market = 'ds'
+                    else:
+                        market = stock_code[:2]
                     file_path = os.path.join(
                         os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc"),
                         market, 'lday', f'{stock_code}.day'

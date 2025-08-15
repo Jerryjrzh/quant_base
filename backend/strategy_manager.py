@@ -43,6 +43,9 @@ class StrategyManager:
         self.discover_strategies()
         
         #logger.info(f"策略管理器初始化完成，发现 {len(self.registered_strategies)} 个策略")
+        
+        # 注册配置文件中的策略
+        self._register_config_strategies()
     
     @property
     def strategy_configs(self):
@@ -70,9 +73,38 @@ class StrategyManager:
                     self._load_strategy_from_file(strategy_file)
                 except Exception as e:
                     logger.error(f"加载策略文件失败 {strategy_file}: {e}")
+            
+            # 注册完成后，确保配置文件中的策略都有对应的实现
+            self._ensure_config_strategy_mapping()
                     
         except Exception as e:
             logger.error(f"策略发现失败: {e}")
+    
+    def _ensure_config_strategy_mapping(self):
+        """确保配置文件中的策略都有对应的注册策略"""
+        config_strategies = self.config_manager.get_strategies()
+        
+        for config_id in config_strategies.keys():
+            if config_id not in self.registered_strategies:
+                # 尝试找到匹配的注册策略
+                matched_id = None
+                config_name = config_strategies[config_id].get('name', '')
+                
+                for registered_id, strategy_class in self.registered_strategies.items():
+                    try:
+                        temp_instance = strategy_class()
+                        if temp_instance.name == config_name:
+                            matched_id = registered_id
+                            break
+                    except:
+                        continue
+                
+                if matched_id:
+                    # 创建别名映射
+                    self.registered_strategies[config_id] = self.registered_strategies[matched_id]
+                    logger.info(f"创建策略别名映射: {config_id} -> {matched_id}")
+                else:
+                    logger.warning(f"配置中的策略未找到对应实现: {config_id}")
     
     def _load_strategy_from_file(self, strategy_file: Path):
         """从文件加载策略"""
@@ -103,6 +135,12 @@ class StrategyManager:
                         # 注册策略
                         self.registered_strategies[strategy_id] = attr
                         
+                        # 同时注册英文名称作为别名（向后兼容）
+                        english_name = self._get_english_name(temp_instance.name)
+                        if english_name != temp_instance.name:
+                            english_id = f"{english_name}_v{temp_instance.version}"
+                            self.registered_strategies[english_id] = attr
+                        
                         #logger.info(f"发现策略: {strategy_id} ({attr.__name__})")
                         found_strategy = True
                         break
@@ -126,6 +164,17 @@ class StrategyManager:
             logger.error(f"生成策略ID失败: {e}")
             return strategy_class.__name__.lower()
     
+    def _get_english_name(self, chinese_name: str) -> str:
+        """获取策略的英文名称（用于向后兼容）"""
+        name_mapping = {
+            "深渊筑底策略": "ABYSS_BOTTOMING",
+            "临界金叉": "PRE_CROSS", 
+            "三重金叉": "TRIPLE_CROSS",
+            "MACD零轴启动": "MACD_ZERO_AXIS",
+            "周线金叉+日线MA": "WEEKLY_GOLDEN_CROSS_MA"
+        }
+        return name_mapping.get(chinese_name, chinese_name)
+    
     def register_strategy(self, strategy_id: str, strategy_class: Type[BaseStrategy], config: Dict[str, Any] = None):
         """手动注册策略"""
         try:
@@ -142,8 +191,15 @@ class StrategyManager:
         try:
             if strategy_id not in self.strategy_instances:
                 if strategy_id not in self.registered_strategies:
-                    logger.error(f"策略未注册: {strategy_id}")
-                    return None
+                    # 尝试查找别名或相似的策略ID
+                    alternative_id = self._find_alternative_strategy_id(strategy_id)
+                    if alternative_id:
+                        #logger.warning(f"策略ID {strategy_id} 未找到，使用替代ID: {alternative_id}")
+                        strategy_id = alternative_id
+                    else:
+                        logger.error(f"策略未注册: {strategy_id}")
+                        logger.error(f"可用策略: {list(self.registered_strategies.keys())}")
+                        return None
                 
                 # 创建策略实例
                 strategy_class = self.registered_strategies[strategy_id]
@@ -158,6 +214,36 @@ class StrategyManager:
         except Exception as e:
             logger.error(f"获取策略实例失败 {strategy_id}: {e}")
             return None
+    
+    def _find_alternative_strategy_id(self, strategy_id: str) -> Optional[str]:
+        """查找替代的策略ID"""
+        # 检查是否有完全匹配的策略
+        for registered_id in self.registered_strategies.keys():
+            if registered_id == strategy_id:
+                return registered_id
+        
+        # 检查是否有部分匹配的策略
+        for registered_id in self.registered_strategies.keys():
+            if strategy_id in registered_id or registered_id in strategy_id:
+                return registered_id
+        
+        # 检查英文名称映射
+        name_mapping = {
+            "深渊筑底策略": "ABYSS_BOTTOMING",
+            "临界金叉": "PRE_CROSS", 
+            "三重金叉": "TRIPLE_CROSS",
+            "MACD零轴启动": "MACD_ZERO_AXIS",
+            "周线金叉+日线MA": "WEEKLY_GOLDEN_CROSS_MA"
+        }
+        
+        for chinese_name, english_name in name_mapping.items():
+            if chinese_name in strategy_id:
+                # 尝试查找对应的英文策略ID
+                for registered_id in self.registered_strategies.keys():
+                    if english_name in registered_id:
+                        return registered_id
+        
+        return None
     
     def get_available_strategies(self) -> List[Dict[str, Any]]:
         """获取可用策略列表"""
@@ -246,6 +332,32 @@ class StrategyManager:
         
         logger.info(f"策略重新加载完成，发现 {len(self.registered_strategies)} 个策略")
 
+
+
+    def _register_config_strategies(self):
+        """注册配置文件中的策略"""
+        try:
+            config_strategies = self.config_manager.get_strategies()
+            
+            for config_id, config_data in config_strategies.items():
+                if config_id not in self.registered_strategies:
+                    # 尝试根据名称找到对应的策略类
+                    strategy_name = config_data.get('name', '')
+                    
+                    # 查找匹配的策略类
+                    for registered_id, strategy_class in list(self.registered_strategies.items()):
+                        try:
+                            temp_instance = strategy_class()
+                            if temp_instance.name == strategy_name:
+                                # 注册配置ID作为别名
+                                self.registered_strategies[config_id] = strategy_class
+                                logger.info(f"注册策略别名: {config_id} -> {registered_id}")
+                                break
+                        except Exception as e:
+                            continue
+                            
+        except Exception as e:
+            logger.error(f"注册配置策略失败: {e}")
 
 # 全局策略管理器实例
 strategy_manager = StrategyManager()

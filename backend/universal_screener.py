@@ -45,12 +45,13 @@ sys.path.append(os.path.dirname(__file__))
 
 # 导入策略相关模块
 from strategies.base_strategy import StrategyResult
+import backtester
 
 warnings.filterwarnings('ignore')
 
 # --- 配置 ---
 BASE_PATH = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
-MARKETS = ['sh', 'sz', 'bj']
+MARKETS = ['sh', 'sz', 'bj', 'ds']
 
 # --- 路径定义 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
@@ -81,6 +82,8 @@ def process_single_stock_worker(args):
     # 在工作进程中重新导入必要的模块
     from strategy_manager import StrategyManager
     from strategies.base_strategy import StrategyResult
+    # 【重要】导入新的数据处理器
+    from data_handler import get_full_data_with_indicators
     
     stock_code_full = os.path.basename(file_path).split('.')[0]
     
@@ -88,7 +91,8 @@ def process_single_stock_worker(args):
     valid_prefixes = {
         'sh': ['600', '601', '603', '605', '688'],
         'sz': ['000', '001', '002', '003', '300'],
-        'bj': ['430', '831', '832', '833', '834', '835', '836', '837', '838', '839']
+        'bj': ['430', '831', '832', '833', '834', '835', '836', '837', '838', '839'],
+        'ds': ['31#']
     }
     
     market_prefixes = valid_prefixes.get(market, [])
@@ -99,8 +103,9 @@ def process_single_stock_worker(args):
         return []
     
     try:
-        # 读取股票数据
-        df = read_day_file_worker(file_path)
+        # 【优化】一次性获取包含所有指标的数据
+        # 注意：这里不再需要手动复权和计算指标
+        df = get_full_data_with_indicators(stock_code_full)
         if df is None:
             return []
         
@@ -150,48 +155,7 @@ def process_single_stock_worker(args):
         return []
 
 
-def read_day_file_worker(file_path: str) -> Optional[pd.DataFrame]:
-    """工作进程中读取通达信.day文件"""
-    try:
-        with open(file_path, 'rb') as f:
-            data = []
-            while True:
-                chunk = f.read(32)  # 每条记录32字节
-                if len(chunk) < 32:
-                    break
-                
-                # 解析数据结构
-                date, open_price, high, low, close, amount, volume, _ = struct.unpack('<IIIIIIII', chunk)
-                
-                # 转换日期格式
-                year = date // 10000
-                month = (date % 10000) // 100
-                day = date % 100
-                
-                # 价格需要除以100
-                data.append({
-                    'date': f"{year:04d}-{month:02d}-{day:02d}",
-                    'open': open_price / 100.0,
-                    'high': high / 100.0,
-                    'low': low / 100.0,
-                    'close': close / 100.0,
-                    'volume': volume,
-                    'amount': amount
-                })
-        
-        if not data:
-            return None
-            
-        # 转换为DataFrame
-        df = pd.DataFrame(data)
-        df['date'] = pd.to_datetime(df['date'])
-        df.set_index('date', inplace=True)
-        df.sort_index(inplace=True)
-        
-        return df
-        
-    except Exception as e:
-        return None
+# 【注意】read_day_file_worker 函数已删除，因为不再被使用
 
 
 class UniversalScreener:
@@ -240,7 +204,8 @@ class UniversalScreener:
                 "valid_prefixes": {
                     "sh": ["600", "601", "603", "605", "688"],
                     "sz": ["000", "001", "002", "003", "300"],
-                    "bj": ["430", "831", "832", "833", "834", "835", "836", "837", "838", "839"]
+                    "bj": ["430", "831", "832", "833", "834", "835", "836", "837", "838", "839"],
+                    "ds": ["31#", "43#", "48#"]
                 },
                 "exclude_st": True,
                 "exclude_delisted": True,
@@ -256,48 +221,9 @@ class UniversalScreener:
         }
     
     def read_day_file(self, file_path: str) -> Optional[pd.DataFrame]:
-        """读取通达信.day文件"""
-        try:
-            with open(file_path, 'rb') as f:
-                data = []
-                while True:
-                    chunk = f.read(32)  # 每条记录32字节
-                    if len(chunk) < 32:
-                        break
-                    
-                    # 解析数据结构
-                    date, open_price, high, low, close, amount, volume, _ = struct.unpack('<IIIIIIII', chunk)
-                    
-                    # 转换日期格式
-                    year = date // 10000
-                    month = (date % 10000) // 100
-                    day = date % 100
-                    
-                    # 价格需要除以100
-                    data.append({
-                        'date': f"{year:04d}-{month:02d}-{day:02d}",
-                        'open': open_price / 100.0,
-                        'high': high / 100.0,
-                        'low': low / 100.0,
-                        'close': close / 100.0,
-                        'volume': volume,
-                        'amount': amount
-                    })
-            
-            if not data:
-                return None
-                
-            # 转换为DataFrame
-            df = pd.DataFrame(data)
-            df['date'] = pd.to_datetime(df['date'])
-            df.set_index('date', inplace=True)
-            df.sort_index(inplace=True)
-            
-            return df
-            
-        except Exception as e:
-            logger.error(f"读取文件失败 {file_path}: {e}")
-            return None
+        """读取通达信.day文件 - 使用统一数据处理模块"""
+        from data_handler import read_day_file
+        return read_day_file(file_path)
     
     def is_valid_stock_code(self, stock_code: str, market: str) -> bool:
         """检查股票代码是否有效"""
@@ -313,6 +239,8 @@ class UniversalScreener:
                     market_prefixes = ['000', '001', '002', '003', '300']
                 elif market == 'bj':
                     market_prefixes = ['430', '831', '832', '833', '834', '835', '836', '837', '838', '839']
+                elif market == 'ds':
+                    market_prefixes = ['31#', '43#', '48#']
             
             stock_code_no_prefix = stock_code.replace(market, '')
             return any(stock_code_no_prefix.startswith(prefix) for prefix in market_prefixes)
@@ -440,7 +368,7 @@ class UniversalScreener:
             
             if enable_parallel:
                 try:
-                    max_workers = min(cpu_count(), 8)
+                    max_workers = min(cpu_count(), 32)
                     # 准备多进程参数
                     process_args = [(file_path, market, enabled_strategies, self.config) for file_path, market in all_files]
                     
@@ -457,6 +385,12 @@ class UniversalScreener:
             all_results = []
             for results in results_list:
                 all_results.extend(results)
+
+            # 【新增】对筛选结果进行回测分析
+            run_backtest = self.config.get('global_settings', {}).get('run_backtest_after_scan', True)
+            if run_backtest and all_results:
+                logger.info(f"对 {len(all_results)} 个信号结果进行回测摘要分析...")
+                all_results = self._run_backtest_on_results(all_results)
             
             end_time = datetime.now()
             processing_time = (end_time - start_time).total_seconds()
@@ -638,6 +572,50 @@ class UniversalScreener:
         except Exception as e:
             logger.error(f"生成CSV报告失败: {e}")
     
+    def _run_backtest_on_results(self, results: List[StrategyResult]) -> List[StrategyResult]:
+        """
+        【新增函数】
+        为筛选出的结果列表中的每个股票运行一次简化的回测。
+        """
+        # 按股票代码分组，避免重复加载数据和回测
+        stocks_to_backtest = {res.stock_code for res in results}
+        backtest_summaries = {}
+
+        for i, stock_code in enumerate(stocks_to_backtest, 1):
+            logger.info(f"回测分析 [{i}/{len(stocks_to_backtest)}]: {stock_code}")
+            if '#' in stock_code:
+                market = 'ds'
+            else:
+                market = stock_code[:2]  # 前两位是市场代码
+            try:
+                # 使用与 portfolio_manager 相同的方式获取数据
+                df = self.read_day_file(os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day'))
+                if df is None or len(df) < 100: continue
+
+                # 生成信号Series用于回测
+                signals_for_stock = [res for res in results if res.stock_code == stock_code]
+                strategy_name = signals_for_stock[0].strategy_name
+                strategy = self.strategy_manager.get_strategy_instance(strategy_name)
+                if not strategy: continue
+                
+                signal_series, _ = strategy.apply_strategy(df)
+                
+                # 调用标准回测函数
+                backtest_result = backtester.run_backtest(df, signal_series)
+                backtest_summaries[stock_code] = backtest_result
+            except Exception as e:
+                logger.error(f"为 {stock_code} 生成回测摘要失败: {e}")
+                continue
+
+        # 将回测结果附加到原始结果中
+        for res in results:
+            summary = backtest_summaries.get(res.stock_code)
+            if summary and 'win_rate' in summary:
+                res.signal_details['backtest_win_rate'] = summary['win_rate']
+                res.signal_details['backtest_avg_profit'] = summary['avg_max_profit']
+        
+        return results
+
     def get_available_strategies(self) -> List[Dict[str, Any]]:
         """获取可用策略列表"""
         return self.strategy_manager.get_available_strategies()

@@ -182,9 +182,9 @@ def calculate_kdj(df: pd.DataFrame,
         # 记录复权信息（用于调试）
         if stock_code:
             adj_info = processor.get_adjustment_info(df, working_df)
-            print(f"📊 KDJ复权处理 {stock_code}: {adj_info['adjustment_type']}, "
-                  f"调整次数: {adj_info['adjustments_applied']}, "
-                  f"价格比例: {adj_info['price_change_ratio']:.4f}")
+            #print(f"📊 KDJ复权处理 {stock_code}: {adj_info['adjustment_type']}, "
+             #     f"调整次数: {adj_info['adjustments_applied']}, "
+              #    f"价格比例: {adj_info['price_change_ratio']:.4f}")
     
     # 计算RSV
     low_n = working_df['low'].rolling(window=n).min()

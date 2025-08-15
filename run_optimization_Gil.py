@@ -31,7 +31,10 @@ def optimize_stock_parameters(stock_code, optimization_target='win_rate'):
 
     # 加载股票数据
     base_path = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
-    market = stock_code[:2]
+    if '#' in stock_code:
+        market = 'ds'
+    else:
+        market = stock_code[:2]
     file_path = os.path.join(base_path, market, 'lday', f'{stock_code}.day')
 
     if not os.path.exists(file_path):
@@ -153,7 +156,10 @@ def compare_default_vs_optimized(stock_code):
 
     # 加载数据
     base_path = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
-    market = stock_code[:2]
+    if '#' in stock_code:
+        market = 'ds'
+    else:
+        market = stock_code[:2]
     file_path = os.path.join(base_path, market, 'lday', f'{stock_code}.day')
 
     df = data_loader.get_daily_data(file_path)

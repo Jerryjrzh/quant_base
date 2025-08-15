@@ -1,0 +1,312 @@
+[
+  {
+    "stock_code": "sz300741",
+    "purchase_price": 26.92,
+    "quantity": 1000,
+    "purchase_date": "2024-01-15",
+    "note": "华宝股份 - 香精-食品",
+    "created_time": "2025-07-29 11:02:28",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600618",
+    "purchase_price": 10.3,
+    "quantity": 500,
+    "purchase_date": "2024-02-20",
+    "note": "氯碱化工 - 化工",
+    "created_time": "2025-07-29 11:02:28",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz002021",
+    "purchase_price": 2.32,
+    "quantity": 300,
+    "purchase_date": "2024-03-10",
+    "note": "中捷资源 - 资源",
+    "created_time": "2025-07-29 11:02:28",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz300739",
+    "purchase_price": 13.42,
+    "quantity": 3400,
+    "purchase_date": "2025-07-29",
+    "note": "明阳电路-等苹果发布会",
+    "created_time": "2025-07-29 11:39:08",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600121",
+    "purchase_price": 5.35,
+    "quantity": 100,
+    "purchase_date": "2025-07-29",
+    "note": "郑州煤电",
+    "created_time": "2025-07-29 11:40:33",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600029",
+    "purchase_price": 7.09,
+    "quantity": 100,
+    "purchase_date": "2025-07-29",
+    "note": "南方航空",
+    "created_time": "2025-07-29 11:41:28",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600596",
+    "purchase_price": 9.47,
+    "quantity": 100,
+    "purchase_date": "2025-07-29",
+    "note": "新安股份",
+    "created_time": "2025-07-29 11:42:24",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600489",
+    "purchase_price": 9.03,
+    "quantity": 100,
+    "purchase_date": "2025-07-29",
+    "note": "中金黄金",
+    "created_time": "2025-07-29 11:43:34",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh688085",
+    "purchase_price": 18.7,
+    "quantity": 120,
+    "purchase_date": "2025-07-29",
+    "note": "三友医疗",
+    "created_time": "2025-07-29 11:44:27",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600166",
+    "purchase_price": 2.97,
+    "quantity": 900,
+    "purchase_date": "2025-07-29",
+    "note": "福田汽车",
+    "created_time": "2025-07-29 11:45:14",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600172",
+    "purchase_price": 3.54,
+    "quantity": 700,
+    "purchase_date": "2025-07-29",
+    "note": "黄河旋风",
+    "created_time": "2025-07-29 11:45:47",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh601111",
+    "purchase_price": 7.29,
+    "quantity": 600,
+    "purchase_date": "2025-07-29",
+    "note": "中国国航",
+    "created_time": "2025-07-29 11:47:11",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz002852",
+    "purchase_price": 15.86,
+    "quantity": 1000,
+    "purchase_date": "2025-07-29",
+    "note": "",
+    "created_time": "2025-07-29 11:48:10",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz002678",
+    "purchase_price": 7.22,
+    "quantity": 2700,
+    "purchase_date": "2025-07-29",
+    "note": "珠江钢琴",
+    "created_time": "2025-07-29 11:49:12",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz000545",
+    "purchase_price": 4.6,
+    "quantity": 5500,
+    "purchase_date": "2025-07-29",
+    "note": "",
+    "created_time": "2025-07-29 11:49:42",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz300323",
+    "purchase_price": 11.7,
+    "quantity": 2200,
+    "purchase_date": "2025-07-29",
+    "note": "",
+    "created_time": "2025-07-29 11:50:16",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh603366",
+    "purchase_price": 9.77,
+    "quantity": 2100,
+    "purchase_date": "2025-07-29",
+    "note": "日出东方",
+    "created_time": "2025-07-29 11:50:58",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz002103",
+    "purchase_price": 7.05,
+    "quantity": 2000,
+    "purchase_date": "2025-07-29",
+    "note": "广博股份",
+    "created_time": "2025-07-29 11:51:50",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600313",
+    "purchase_price": 7.87,
+    "quantity": 3300,
+    "purchase_date": "2025-07-29",
+    "note": "农发种业",
+    "created_time": "2025-07-29 11:52:40",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz300334",
+    "purchase_price": 8.22,
+    "quantity": 3100,
+    "purchase_date": "2025-07-29",
+    "note": "津膜科技",
+    "created_time": "2025-07-29 11:53:16",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600127",
+    "purchase_price": 7.57,
+    "quantity": 3400,
+    "purchase_date": "2025-07-29",
+    "note": "金健米业",
+    "created_time": "2025-07-29 11:53:55",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz002957",
+    "purchase_price": 18.18,
+    "quantity": 1400,
+    "purchase_date": "2025-07-29",
+    "note": "科瑞技术",
+    "created_time": "2025-07-29 11:54:28",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz002578",
+    "purchase_price": 3.55,
+    "quantity": 7000,
+    "purchase_date": "2025-07-29",
+    "note": "闽发铝业",
+    "created_time": "2025-07-29 11:55:10",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz300077",
+    "purchase_price": 27.34,
+    "quantity": 1000,
+    "purchase_date": "2025-07-29",
+    "note": "",
+    "created_time": "2025-07-29 11:55:37",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz002511",
+    "purchase_price": 13.1,
+    "quantity": 3900,
+    "purchase_date": "2025-07-29",
+    "note": "中顺洁柔",
+    "created_time": "2025-07-29 11:56:14",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600515",
+    "purchase_price": 6.16,
+    "quantity": 8402,
+    "purchase_date": "2025-07-29",
+    "note": "海南机场",
+    "created_time": "2025-07-29 11:57:17",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh601990",
+    "purchase_price": 9.06,
+    "quantity": 5000,
+    "purchase_date": "2025-07-29",
+    "note": "南京证券",
+    "created_time": "2025-07-29 11:57:48",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sh600177",
+    "purchase_price": 7.81,
+    "quantity": 6200,
+    "purchase_date": "2025-07-29",
+    "note": "雅戈尔",
+    "created_time": "2025-07-29 11:58:27",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz002950",
+    "purchase_price": 13.33,
+    "quantity": 5200,
+    "purchase_date": "2025-07-29",
+    "note": "奥美医疗",
+    "created_time": "2025-07-29 11:59:04",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz002796",
+    "purchase_price": 12.69,
+    "quantity": 4000,
+    "purchase_date": "2025-07-29",
+    "note": "世嘉科技",
+    "created_time": "2025-07-29 11:59:42",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  },
+  {
+    "stock_code": "sz300313",
+    "purchase_price": 6.6,
+    "quantity": 5100,
+    "purchase_date": "2025-07-29",
+    "note": "ST天山",
+    "created_time": "2025-07-29 12:00:23",
+    "last_analysis_time": "2025-08-15 08:55:42",
+    "updated_time": "2025-08-15 08:55:42"
+  }
+]

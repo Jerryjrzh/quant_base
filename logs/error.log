@@ -1,3 +1,7 @@
+🤖 正在分析股票交易机会...
+❌ 处理股票 sz300739 失败: module 'strategies' has no attribute 'apply_macd_zero_axis_strategy'
+
+
 ERROR - 多进程处理失败: Can't pickle <class 'strategies.weekly_golden_cross_ma_strategy.WeeklyGoldenCrossMaStrategy'>: it's not the same object as strategies.weekly_golden_cross_ma_strategy.WeeklyGoldenCrossMaStrategy
 
 

@@ -28,7 +28,8 @@
     "max_concurrent_strategies": 5,
     "default_data_length": 500,
     "enable_parallel_processing": true,
-    "log_level": "INFO"
+    "log_level": "INFO",
+    "run_backtest_after_scan": true
   },
   "market_filters": {
     "valid_prefixes": {

@@ -66,7 +66,10 @@ class EnhancedKDJAnalyzer:
     def _load_stock_data(self, stock_code: str, days: int):
         """加载股票数据"""
         base_path = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
-        market = stock_code[:2]
+        if '#' in stock_code:
+            market = 'ds'
+        else:
+            market = stock_code[:2]
         file_path = os.path.join(base_path, market, 'lday', f'{stock_code}.day')
         
         if not os.path.exists(file_path):

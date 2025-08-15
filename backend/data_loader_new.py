@@ -92,7 +92,10 @@ def get_multi_timeframe_data(stock_code, base_path=None):
     if base_path is None:
         base_path = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
 
-    market = stock_code[:2]
+    if '#' in stock_code:
+        market = 'ds'
+    else:
+        market = stock_code[:2]
 
     # 构建文件路径
     daily_file = os.path.join(base_path, market, 'lday', f'{stock_code}.day')
