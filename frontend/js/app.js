@@ -133,7 +133,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     stockList.forEach(signal => {
                         const option = document.createElement('option');
                         option.value = signal.stock_code;
-                        option.textContent = `${signal.stock_code} (${signal.date})`;
+                        
+                        // 构建显示文本：股票代码 股票名称 [板块] (日期)
+                        let displayText = signal.stock_code;
+                        if (signal.name && signal.name !== `股票${signal.stock_code}`) {
+                            displayText += ` ${signal.name}`;
+                        }
+                        if (signal.sector && signal.sector !== '未知板块') {
+                            displayText += ` [${signal.sector}]`;
+                        }
+                        displayText += ` (${signal.date})`;
+                        
+                        option.textContent = displayText;
+                        // 将股票信息存储在option中，供后续使用
+                        option.dataset.stockName = signal.name || '';
+                        option.dataset.sector = signal.sector || '';
+                        option.dataset.industry = signal.industry || '';
+                        option.dataset.market = signal.market || '';
+                        
                         stockSelect.appendChild(option);
                     });
                 }
@@ -146,7 +163,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     data.forEach(signal => {
                         const option = document.createElement('option');
                         option.value = signal.stock_code;
-                        option.textContent = `${signal.stock_code} (${signal.date})`;
+                        
+                        // 构建显示文本
+                        let displayText = signal.stock_code;
+                        if (signal.name && signal.name !== `股票${signal.stock_code}`) {
+                            displayText += ` ${signal.name}`;
+                        }
+                        if (signal.sector && signal.sector !== '未知板块') {
+                            displayText += ` [${signal.sector}]`;
+                        }
+                        displayText += ` (${signal.date})`;
+                        
+                        option.textContent = displayText;
+                        // 将股票信息存储在option中
+                        option.dataset.stockName = signal.name || '';
+                        option.dataset.sector = signal.sector || '';
+                        option.dataset.industry = signal.industry || '';
+                        option.dataset.market = signal.market || '';
+                        
                         stockSelect.appendChild(option);
                     });
                 }
@@ -210,6 +244,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function renderEchart(chartData, stockCode, strategy) {
+        // 获取股票名称和板块信息
+        const selectedOption = stockSelect.querySelector(`option[value="${stockCode}"]`);
+        const stockName = selectedOption ? selectedOption.dataset.stockName : '';
+        const sector = selectedOption ? selectedOption.dataset.sector : '';
+        
         const dates = chartData.kline_data.map(item => item.date);
         const klineData = chartData.kline_data.map(item => [item.open, item.close, item.low, item.high]);
         const volumeData = chartData.kline_data.map(item => item.volume);
@@ -292,9 +331,19 @@ document.addEventListener('DOMContentLoaded', function () {
             '60min': '60分钟'
         }[timeframe] || '日线';
 
+        // 构建图表标题
+        let chartTitle = stockCode;
+        if (stockName && stockName !== `股票${stockCode}`) {
+            chartTitle += ` ${stockName}`;
+        }
+        if (sector && sector !== '未知板块') {
+            chartTitle += ` [${sector}]`;
+        }
+        chartTitle += ` - ${strategy}策略分析 (${timeframeText})`;
+
         const option = {
             title: {
-                text: `${stockCode} - ${strategy}策略分析 (${timeframeText})`,
+                text: chartTitle,
                 left: 'center',
                 textStyle: { fontSize: 16 }
             },

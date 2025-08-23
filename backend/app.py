@@ -15,6 +15,7 @@ from adjustment_processor import create_adjustment_config, create_adjustment_pro
 from portfolio_manager import create_portfolio_manager
 from strategy_manager import strategy_manager
 from config_manager import config_manager
+from stock_info_crawler import get_stock_info, get_multiple_stock_info
 
 # --- 配置路径 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
@@ -174,15 +175,52 @@ def get_signals_summary():
             screener = UniversalScreener()
             results = screener.run_screening([new_strategy_id])
             
-            # 转换为旧版API格式
+            # 转换为旧版API格式并收集股票代码
             stock_list = []
+            stock_codes = []
             for result in results:
-                stock_list.append({
+                stock_data = {
                     'stock_code': result.stock_code,
                     'date': str(result.date),  # 使用正确的字段名
                     'signal_type': result.signal_type,
                     'price': result.current_price  # 使用正确的字段名
-                })
+                }
+                stock_list.append(stock_data)
+                stock_codes.append(result.stock_code)
+            
+            # 批量获取股票基本信息
+            if stock_codes:
+                try:
+                    stock_info_map = get_multiple_stock_info(stock_codes, use_cache=True)
+                    # 将股票信息合并到结果中
+                    for stock_data in stock_list:
+                        stock_code = stock_data['stock_code']
+                        stock_info = stock_info_map.get(stock_code)
+                        if stock_info:
+                            stock_data.update({
+                                'name': stock_info.name,
+                                'sector': stock_info.sector,
+                                'industry': stock_info.industry,
+                                'market': stock_info.market
+                            })
+                        else:
+                            stock_data.update({
+                                'name': f'股票{stock_code}',
+                                'sector': '未知板块',
+                                'industry': '未知行业',
+                                'market': 'A股'
+                            })
+                except Exception as info_error:
+                    print(f"获取股票基本信息失败: {info_error}，使用默认信息")
+                    # 如果获取失败，至少提供默认信息
+                    for stock_data in stock_list:
+                        stock_code = stock_data['stock_code']
+                        stock_data.update({
+                            'name': f'股票{stock_code}',
+                            'sector': '未知板块',
+                            'industry': '未知行业',
+                            'market': 'A股'
+                        })
             
             return jsonify(stock_list)
             
@@ -589,6 +627,62 @@ def get_deep_scan_results():
 def run_deep_scan_from_signals():
     # ... (此部分逻辑无需修改，保持原样)
     return jsonify({"success": True, "message": "深度扫描已触发"})
+
+# --- 股票信息API ---
+@app.route('/api/stock_info/<stock_code>')
+def get_single_stock_info(stock_code):
+    """获取单个股票的基本信息"""
+    try:
+        # 获取股票信息
+        stock_info = get_stock_info(stock_code, use_cache=True)
+        
+        return jsonify({
+            'success': True,
+            'data': stock_info.to_dict()
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'获取股票信息失败: {str(e)}'
+        }), 500
+
+@app.route('/api/stock_info/batch', methods=['POST'])
+def get_batch_stock_info():
+    """批量获取股票信息"""
+    try:
+        data = request.get_json()
+        stock_codes = data.get('stock_codes', [])
+        
+        if not stock_codes:
+            return jsonify({
+                'success': False,
+                'error': '股票代码列表不能为空'
+            }), 400
+        
+        # 限制批量查询数量，避免请求过大
+        if len(stock_codes) > 50:
+            return jsonify({
+                'success': False,
+                'error': '单次最多查询50只股票'
+            }), 400
+        
+        # 批量获取股票信息
+        stock_info_map = get_multiple_stock_info(stock_codes, use_cache=True)
+        
+        # 转换为前端需要的格式
+        results = {}
+        for code, info in stock_info_map.items():
+            results[code] = info.to_dict()
+        
+        return jsonify({
+            'success': True,
+            'data': results
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'批量获取股票信息失败: {str(e)}'
+        }), 500
 
 # --- 核心池管理 (统一版本) ---
 @app.route('/api/core_pool', methods=['GET', 'POST', 'DELETE'])
