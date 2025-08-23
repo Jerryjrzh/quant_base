@@ -156,13 +156,16 @@ def get_signals_summary():
             # 导入筛选器
             from universal_screener import UniversalScreener
             
-            # 策略ID映射
+            # 策略ID映射 - 添加新迁移的策略
             strategy_mapping = {
                 'PRE_CROSS': '临界金叉_v1.0',
                 'TRIPLE_CROSS': '三重金叉_v1.0', 
-                'MACD_ZERO_AXIS': 'macd零轴启动_v1.0',
-                'WEEKLY_GOLDEN_CROSS_MA': '周线金叉+日线ma_v1.0',
-                'ABYSS_BOTTOMING': '深渊筑底策略_v2.0'
+                'MACD_ZERO_AXIS': 'MACD零轴启动_v1.0',
+                'WEEKLY_GOLDEN_CROSS_MA': '周线金叉+日线MA_v1.0',
+                'ABYSS_BOTTOMING': '深渊筑底策略_v2.0',
+                # 新迁移的策略
+                'VALUE_REVERSAL': '价值反转策略（最终版）_v1.0',
+                'REVERSED_SHORT': '反转做多策略（优化版）_v1.0'
             }
             
             new_strategy_id = strategy_mapping.get(strategy, strategy)
