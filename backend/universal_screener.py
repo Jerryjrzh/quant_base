@@ -48,6 +48,14 @@ from strategies.base_strategy import StrategyResult
 import backtester
 from win_rate_filter import WinRateFilter, AdvancedTripleCrossFilter
 import indicators
+# 导入基于人工分析逻辑的策略
+from human_logic_strategies import (
+    annual_bottom_opportunity_strategy,
+    strong_stock_ma13_pullback_strategy,
+    long_term_consolidation_breakout_strategy,
+    is_strong_stock,
+    get_optimal_timeframe
+)
 
 warnings.filterwarnings('ignore')
 
@@ -119,6 +127,7 @@ def process_single_stock_worker(args):
         # 对每个启用的策略进行筛选
         for strategy_id in enabled_strategies:
             try:
+                # 处理所有策略通过统一的策略管理器
                 strategy = strategy_manager.get_strategy_instance(strategy_id)
                 if strategy is None:
                     continue
@@ -133,13 +142,24 @@ def process_single_stock_worker(args):
                 if signal_series is not None and details is not None:
                     # 检查最新一天是否有信号
                     latest_signal = signal_series.iloc[-1]
-                    if latest_signal in ['POTENTIAL_BUY', 'BUY', 'STRONG_BUY']:
+                    # 处理布尔信号和字符串信号
+                    has_signal = False
+                    if isinstance(latest_signal, bool):
+                        has_signal = latest_signal
+                        signal_type = 'BUY' if latest_signal else 'HOLD'
+                    elif isinstance(latest_signal, str):
+                        has_signal = latest_signal in ['POTENTIAL_BUY', 'BUY', 'STRONG_BUY']
+                        signal_type = latest_signal
+                    else:
+                        continue
+                    
+                    if has_signal:
                         # 创建策略结果
                         result = StrategyResult(
                             stock_code=stock_code_full,
                             strategy_name=strategy.name,
-                            signal_type=latest_signal,
-                            signal_strength=details.get('stage_passed', 1),
+                            signal_type=signal_type,
+                            signal_strength=details.get('signal_strength', details.get('stage_passed', 1)),
                             date=df.index[-1].strftime('%Y-%m-%d'),
                             current_price=float(df['close'].iloc[-1]),
                             signal_details=details
@@ -251,6 +271,7 @@ def check_triple_cross_enhanced_filter(df, signal_idx, stock_code):
             'cross_stage': 'UNKNOWN',
             'filter_type': 'error'
         }
+
 
 
 class UniversalScreener:

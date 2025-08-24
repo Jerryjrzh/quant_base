@@ -13,10 +13,16 @@ import importlib.util
 try:
     from .value_reversal_final_strategy import ValueReversalFinalStrategy
     from .reversed_short_optimized_strategy import ReversedShortOptimizedStrategy
+    from .annual_bottom_opportunity_strategy import AnnualBottomOpportunityStrategy
+    from .strong_stock_ma13_pullback_strategy import StrongStockMA13PullbackStrategy
+    from .long_term_consolidation_breakout_strategy import LongTermConsolidationBreakoutStrategy
 except ImportError as e:
     print(f"警告：导入新策略类失败: {e}")
     ValueReversalFinalStrategy = None
     ReversedShortOptimizedStrategy = None
+    AnnualBottomOpportunityStrategy = None
+    StrongStockMA13PullbackStrategy = None
+    LongTermConsolidationBreakoutStrategy = None
 
 # 直接导入strategies.py文件，避免循环导入
 backend_dir = os.path.dirname(os.path.dirname(__file__))
@@ -58,7 +64,11 @@ if os.path.exists(strategies_file):
         'validate_strategy_config',
         # 新迁移的策略类
         'ValueReversalFinalStrategy',
-        'ReversedShortOptimizedStrategy'
+        'ReversedShortOptimizedStrategy',
+        # 人工分析逻辑策略类
+        'AnnualBottomOpportunityStrategy',
+        'StrongStockMA13PullbackStrategy',
+        'LongTermConsolidationBreakoutStrategy'
     ]
     
 else:

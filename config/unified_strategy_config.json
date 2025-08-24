@@ -261,6 +261,144 @@
         "old_id": "REVERSED_SHORT_OPTIMIZED",
         "api_id": "REVERSED_SHORT"
       }
+    },
+    "年度见底机会策略_v1.0": {
+      "id": "年度见底机会策略_v1.0",
+      "name": "年度见底机会策略",
+      "version": "1.0",
+      "enabled": true,
+      "description": "基于人工分析逻辑，一年2-5次精准见底机会捕捉",
+      "priority": 8,
+      "config": {
+        "rsi": {
+          "period": 14,
+          "oversold_threshold": 30
+        },
+        "macd": {
+          "fast_period": 12,
+          "slow_period": 26,
+          "signal_period": 9,
+          "convergence_threshold": 0.01
+        },
+        "kdj": {
+          "n_period": 27,
+          "k_period": 3,
+          "d_period": 3,
+          "oversold_threshold": 20
+        },
+        "volume": {
+          "shrink_ratio": 0.7,
+          "analysis_period": 20
+        },
+        "signal_spacing": {
+          "min_days": 60,
+          "max_annual_signals": 5
+        }
+      },
+      "risk_level": "low",
+      "expected_signals_per_year": "2-5",
+      "suitable_market": [
+        "熊市末期",
+        "震荡市底部",
+        "年度机会"
+      ],
+      "tags": [
+        "年度机会",
+        "见底信号",
+        "四重指标",
+        "人工分析逻辑"
+      ],
+      "legacy_mapping": {
+        "old_id": "ANNUAL_BOTTOM_OPPORTUNITY",
+        "api_id": "ANNUAL_BOTTOM"
+      }
+    },
+    "强势股MA13回调策略_v1.0": {
+      "id": "强势股MA13回调策略_v1.0",
+      "name": "强势股MA13回调策略",
+      "version": "1.0",
+      "enabled": true,
+      "description": "专门针对强势股在MA13附近的回调机会，基于人工分析逻辑",
+      "priority": 9,
+      "config": {
+        "ma": {
+          "short_period": 13,
+          "long_period": 45,
+          "pullback_tolerance": 0.05
+        },
+        "strength_confirmation": {
+          "trend_days": 5,
+          "pullback_from_high": 0.05
+        },
+        "rsi_filter": {
+          "min_level": 35
+        },
+        "kdj_filter": {
+          "min_k_level": 30
+        }
+      },
+      "risk_level": "medium",
+      "expected_signals_per_day": "3-8",
+      "timeframe": "daily_with_hourly",
+      "strong_stock_only": true,
+      "suitable_market": [
+        "牛市",
+        "强势股行情",
+        "震荡市上升"
+      ],
+      "tags": [
+        "强势股",
+        "MA13回调",
+        "小时线分析",
+        "人工分析逻辑"
+      ],
+      "legacy_mapping": {
+        "old_id": "STRONG_STOCK_MA13_PULLBACK",
+        "api_id": "STRONG_PULLBACK"
+      }
+    },
+    "长周期横盘突破策略_v1.0": {
+      "id": "长周期横盘突破策略_v1.0",
+      "name": "长周期横盘突破策略",
+      "version": "1.0",
+      "enabled": true,
+      "description": "识别长期横盘后的强势突破机会，筹码充足后的稳定强势上升",
+      "priority": 10,
+      "config": {
+        "consolidation": {
+          "days": 60,
+          "range_threshold": 0.15
+        },
+        "breakout": {
+          "threshold": 0.02,
+          "volume_surge_ratio": 1.3
+        },
+        "volume": {
+          "consistency_threshold": 0.6,
+          "adequacy_ratio": 0.8
+        },
+        "technical_indicators": {
+          "rsi_min": 50,
+          "macd_golden_cross": true
+        }
+      },
+      "risk_level": "medium",
+      "expected_signals_per_day": "1-3",
+      "suitable_market": [
+        "震荡市",
+        "横盘整理后",
+        "筹码充足期"
+      ],
+      "tags": [
+        "横盘突破",
+        "长周期",
+        "筹码充足",
+        "稳定强势"
+      ],
+      "legacy_mapping": {
+        "old_id": "LONG_TERM_CONSOLIDATION_BREAKOUT",
+        "api_id": "BREAKOUT"
+      }
     }
   },
   "global_settings": {

@@ -166,7 +166,11 @@ def get_signals_summary():
                 'ABYSS_BOTTOMING': '深渊筑底策略_v2.0',
                 # 新迁移的策略
                 'VALUE_REVERSAL': '价值反转策略（最终版）_v1.0',
-                'REVERSED_SHORT': '反转做多策略（优化版）_v1.0'
+                'REVERSED_SHORT': '反转做多策略（优化版）_v1.0',
+                # 人工分析逻辑策略
+                'ANNUAL_BOTTOM_OPPORTUNITY': '年度见底机会策略_v1.0',
+                'STRONG_STOCK_MA13_PULLBACK': '强势股MA13回调策略_v1.0',
+                'LONG_TERM_CONSOLIDATION_BREAKOUT': '长周期横盘突破策略_v1.0'
             }
             
             new_strategy_id = strategy_mapping.get(strategy, strategy)
