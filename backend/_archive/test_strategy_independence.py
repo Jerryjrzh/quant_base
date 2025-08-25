@@ -9,9 +9,10 @@
 import sys
 import os
 
-# 添加后端目录到Python路径
-backend_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, backend_dir)
+# Fix import path to run from archive
+_PROJ_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if _PROJ_ROOT not in sys.path:
+    sys.path.insert(0, _PROJ_ROOT)
 
 def test_strategy_imports():
     """测试策略类的导入"""

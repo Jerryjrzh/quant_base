@@ -48,14 +48,6 @@ from strategies.base_strategy import StrategyResult
 import backtester
 from win_rate_filter import WinRateFilter, AdvancedTripleCrossFilter
 import indicators
-# 导入基于人工分析逻辑的策略
-from human_logic_strategies import (
-    annual_bottom_opportunity_strategy,
-    strong_stock_ma13_pullback_strategy,
-    long_term_consolidation_breakout_strategy,
-    is_strong_stock,
-    get_optimal_timeframe
-)
 
 warnings.filterwarnings('ignore')
 
