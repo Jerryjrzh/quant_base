@@ -1,3 +1,13 @@
+📊 分析持仓 1/31: sz300741
+Traceback (most recent call last):
+  File "/home/hypnosis/data/git/quant_base/backend/app.py", line 708, in scan_portfolio
+    results = portfolio_manager.scan_all_positions(force_refresh=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hypnosis/data/git/quant_base/backend/portfolio_manager.py", line 294, in scan_all_positions
+    if analysis['risk_assessment']['risk_level'] == 'HIGH':
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'risk_assessment'
+
 🤖 正在分析股票交易机会...
 ❌ 处理股票 sz300739 失败: module 'strategies' has no attribute 'apply_macd_zero_axis_strategy'
 

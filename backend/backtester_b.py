@@ -8,7 +8,7 @@ from datetime import datetime
 import data_loader
 import indicators
 from adjustment_processor import create_adjustment_config, create_adjustment_processor
-
+import logging
 # --- 回测配置 ---
 # 信号出现后，向后观察的最大天数
 MAX_LOOKAHEAD_DAYS = 30
@@ -444,17 +444,22 @@ def run_backtest(df, signal_series):
 
 # --- 新增：从 portfolio_manager 迁移并整合的功能 ---
 
+# backtester.py
+
 def _calculate_price_targets(df: pd.DataFrame, current_price: float) -> dict:
-    """计算价格目标（支撑位和阻力位），这是一个辅助函数"""
-    recent_data = df.tail(60)
+    """
+    【已增强】计算价格目标，增加数据窗口和后备支撑逻辑
+    """
+    # --- 核心修改 1：扩大历史数据窗口 ---
+    recent_data = df.tail(120)  # 从 60天 扩大到 120天
     resistance_levels = []
     support_levels = []
     
-    # 基于历史高低点
-    highs = recent_data['high'].rolling(window=5).max()
-    lows = recent_data['low'].rolling(window=5).min()
+    # 使用稍宽的滚动窗口寻找更有意义的高低点
+    highs = recent_data['high'].rolling(window=7).max()
+    lows = recent_data['low'].rolling(window=7).min()
     
-    for i in range(5, len(recent_data)-5):
+    for i in range(7, len(recent_data)-7):
         if highs.iloc[i] == recent_data['high'].iloc[i]:
             resistance_levels.append(float(recent_data['high'].iloc[i]))
         if lows.iloc[i] == recent_data['low'].iloc[i]:
@@ -466,129 +471,325 @@ def _calculate_price_targets(df: pd.DataFrame, current_price: float) -> dict:
     next_resistance = next((level for level in resistance_levels if level > current_price), None)
     next_support = next((level for level in reversed(support_levels) if level < current_price), None)
     
+    # --- 核心修改 2：增加后备支撑位逻辑 ---
+    # 如果通过滚动窗口找不到任何支撑位，则使用最近30天的最低价作为后备
+    if next_support is None:
+        fallback_support = float(df['low'].tail(30).min())
+        # 如果当前价高于近期最低价，则该最低价可作为支撑
+        if current_price > fallback_support:
+            next_support = fallback_support
+
     return {'next_resistance': next_resistance, 'next_support': next_support}
 
+# backtester.py
+
+def _classify_market_regime(df_segment: pd.DataFrame) -> str:
+    """
+    【已修改】根据数据片段判断当前的市场阶段 (上涨/下跌/震荡)。
+    使用 45日 和 150日 均线进行判断。
+    """
+    try:
+        # --- 核心修改：使用 MA45 和 MA150 ---
+        # MA45 通常已在 data_handler 中预先计算好，直接使用以提升性能
+        #ma45 = df_segment['ma45'].iloc[-1]
+        ma45 = df_segment['close'].rolling(window=45).mean().iloc[-1] 
+        # MA150 和 MA240 未在 data_handler 中预计算，此处即时计算
+        ma150 = df_segment['close'].rolling(window=150).mean().iloc[-1]
+        
+        current_price = df_segment['close'].iloc[-1]
+        
+        # 判断斜率，使用 MA45 的斜率来判断中期趋势方向
+        # 确保有足够的数据计算斜率
+        if len(df_segment) > 55: # 45 + 10
+             ma45_10_days_ago = df_segment['close'].iloc[:-10].rolling(window=45).mean().iloc[-1]
+             ma45_slope = (ma45 - ma45_10_days_ago) / 10
+        else:
+             ma45_slope = 0
+
+        # 如果均线数据不足（例如在历史数据的早期），则默认为震荡市
+        if pd.isna(ma45) or pd.isna(ma150):
+            return 'SIDEWAYS'
+
+        # 核心判断规则
+        if current_price > ma45 and ma45 > ma150 and ma45_slope > 0:
+            return 'UPTREND'
+        elif current_price < ma45 and ma45 < ma150 and ma45_slope < 0:
+            return 'DOWNTREND'
+        else:
+            return 'SIDEWAYS'
+            
+    except Exception:
+        # 如果计算过程中出现任何问题（如列不存在），安全地回退到默认值
+        return 'SIDEWAYS'
+    
 def _optimize_coefficients_historically(df: pd.DataFrame) -> dict:
     """
-    通过历史数据回测，优化补仓和卖出系数。
-    (此函数逻辑源自 portfolio_manager._generate_backtest_analysis)
+    【最终优化版】通过历史数据回测，动态地优化不同市场阶段下的补仓和卖出系数。
     """
+    logger = logging.getLogger(__name__)
     add_coefficients = [0.97, 0.98, 0.99, 1.00]
-    sell_coefficients = [1.02, 1.03, 1.05, 1.08, 1.10, 1.15]
+    sell_coefficients = [1.03, 1.05, 1.08, 1.10, 1.15, 1.20]
     
-    add_results = {}
-    best_add_coefficient = None
-    best_add_score = -999
-
-    # 回测补仓系数
-    for add_coeff in add_coefficients:
-        success_count, total_scenarios, total_return = 0, 0, 0
-        
-        for i in range(100, len(df) - 30):
-            current_data = df.iloc[:i+1]
-            future_data = df.iloc[i+1:i+31]
-            if len(future_data) < 15: continue
-            
-            hist_price = float(current_data.iloc[-1]['close'])
-            price_targets = _calculate_price_targets(current_data, hist_price)
-            support_level = price_targets.get('next_support')
-            if not support_level: continue
-            
-            add_price = support_level * add_coeff
-            if float(future_data['low'].min()) <= add_price:
-                total_scenarios += 1
-                return_pct = (float(future_data['high'].max()) - add_price) / add_price * 100
-                if return_pct > 0: success_count += 1
-                total_return += return_pct
-        
-        if total_scenarios > 0:
-            success_rate = success_count / total_scenarios * 100
-            avg_return = total_return / total_scenarios
-            score = success_rate * 0.6 + avg_return * 0.4
-            add_results[add_coeff] = {'success_rate': success_rate, 'avg_return': avg_return, 'score': score}
-            if score > best_add_score:
-                best_add_score = score
-                best_add_coefficient = add_coeff
-
-    # 简单返回最优补仓系数和详细分析
-    return {
-        'best_add_coefficient': best_add_coefficient,
-        'best_add_score': best_add_score,
-        'add_coefficient_analysis': add_results,
+    regimes = ['UPTREND', 'DOWNTREND', 'SIDEWAYS']
+    
+    # --- 核心修改：为“买入”和“卖出”系数，以及每个市场阶段创建独立的统计容器 ---
+    results_by_coeff = {
+        'add': {coeff: {regime: [] for regime in regimes} for coeff in add_coefficients},
+        'sell': {coeff: {regime: [] for regime in regimes} for coeff in sell_coefficients}
     }
+    logger.info("开始滑动窗口遍历历史数据进行回测...")
+    # 滑动窗口遍历历史数据
+    for i in range(200, len(df) - 30):
+        current_data = df.iloc[:i+1]
+        future_data = df.iloc[i+1:i+31]
+        if len(future_data) < 15: continue
+        
+        # 1. 阶段识别
+        regime = _classify_market_regime(current_data)
+        logger.info(f"当前市场阶段: {regime} (数据长度: {len(current_data)})")
+        # --- 2a. 模拟“补仓”交易 (针对震荡/下跌趋势) ---
+        if regime in ['SIDEWAYS', 'DOWNTREND']:
+            support_level = _calculate_price_targets(current_data, float(current_data.iloc[-1]['close'])).get('next_support')
+            if support_level:
+                for add_coeff in add_coefficients:
+                    add_price = support_level * add_coeff
+                    if float(future_data['low'].min()) <= add_price * 1.02:
+                        return_pct = (float(future_data['high'].max()) - add_price) / add_price * 100
+                        results_by_coeff['add'][add_coeff][regime].append({'return_pct': return_pct})
+        
+        else:
+            # 在上涨趋势中，使用回调至均线的策略，不计算补仓系数
+            ma60 = current_data['close'].rolling(window=60).mean().iloc[-1]
+            if pd.notna(ma60) and float(current_data.iloc[-1]['close']) < ma60 * 0.98:
+                # 如果当前价低于MA60的98%，则视为回调买入
+                entry_price = ma60 * 0.98
+                for add_coeff in add_coefficients:
+                    add_price = entry_price * add_coeff
+                    if float(future_data['low'].min()) <= add_price * 1.02:
+                        return_pct = (float(future_data['high'].max()) - add_price) / add_price * 100
+                        results_by_coeff['add'][add_coeff][regime].append({'return_pct': return_pct})
+        # --- 2b. 模拟“卖出”交易 (适用于所有趋势) ---
+        entry_price = float(current_data.iloc[-1]['close'])
+        future_highs = future_data['high']
+        for sell_coeff in sell_coefficients:
+            sell_price = entry_price * sell_coeff
+            if float(future_highs.max()) >= sell_price:
+                days_to_sell_series = future_highs[future_highs >= sell_price]
+                if not days_to_sell_series.empty:
+                    days_to_sell_index = days_to_sell_series.index[0]
+                    hold_days = (days_to_sell_index - current_data.index[-1]).days
+                    return_pct = (sell_price - entry_price) / entry_price * 100
+                    results_by_coeff['sell'][sell_coeff][regime].append({
+                        'return_pct': return_pct,
+                        'hold_days': hold_days
+                    })
+
+    # --- 3. 分阶段汇总和计算最优系数 ---
+    final_analysis = {}
+    MIN_WIN_RATE_THRESHOLD = 40.0
+
+    for regime in regimes:
+        final_analysis[regime] = {}
+        logger.info(f"处理市场阶段: {regime}")
+        # --- 处理补仓系数 (只在震荡/下跌趋势中计算) ---
+        if regime in ['SIDEWAYS', 'DOWNTREND']:
+            best_add_score = -1
+            best_add_coeff = None
+            for coeff, trades in results_by_coeff['add'].items():
+                regime_trades = trades[regime]
+                if not regime_trades: continue
+                
+                success_rate_pct = sum(1 for t in regime_trades if t['return_pct'] > 0) / len(regime_trades) * 100
+                avg_return_pct = np.mean([t['return_pct'] for t in regime_trades])
+                
+                score = 0.0
+                if success_rate_pct >= MIN_WIN_RATE_THRESHOLD:
+                    score = (success_rate_pct / 100) * avg_return_pct
+                
+                if score > best_add_score:
+                    best_add_score = score
+                    best_add_coeff = coeff
+            final_analysis[regime]['add_side'] = {'best_coefficient': best_add_coeff, 'best_score': best_add_score}
+        else:
+             # 上涨趋势中使用回调至均线的策略，不计算补仓系数
+            final_analysis[regime]['add_side'] = {'best_coefficient': 'MA_PULLBACK', 'best_score': None}
+
+
+        # --- 处理卖出系数 (在所有趋势中计算) ---
+        best_sell_score = -1
+        best_sell_coeff = None
+        best_sell_stats = {}
+        for coeff, trades in results_by_coeff['sell'].items():
+            regime_trades = trades[regime]
+            if not regime_trades: continue
+            
+            avg_return_pct = np.mean([t['return_pct'] for t in regime_trades])
+            avg_hold_days = np.mean([t['hold_days'] for t in regime_trades])
+            
+            # 评分：收益率越高越好，持有天数越短越好
+            score = avg_return_pct / (1 + avg_hold_days * 0.1)
+            
+            if score > best_sell_score:
+                best_sell_score = score
+                best_sell_coeff = coeff
+                best_sell_stats = {
+                    'avg_return': f"{avg_return_pct:.1f}%",
+                    'avg_hold_days': f"{avg_hold_days:.1f}"
+                }
+
+        final_analysis[regime]['sell_side'] = {
+            'best_coefficient': best_sell_coeff, 
+            'best_score': best_sell_score,
+            'performance': best_sell_stats
+        }
+
+    return final_analysis
 
 def _generate_forward_advice(df: pd.DataFrame, backtest_results: dict) -> dict:
     """
-    基于最新的数据和历史回测的最优系数，生成前瞻性的交易建议。
-    (此函数逻辑源自 portfolio_manager._generate_prediction_analysis)
+    【最终优化版】基于最新的数据和历史回测的最优系数，生成前瞻性的交易建议。
+    优化了形态识别、趋势判断和规则引擎的优先级。
     """
-    current_price = float(df.iloc[-1]['close'])
-    price_targets = _calculate_price_targets(df, current_price)
-    support_level = price_targets.get('next_support')
-    
-    best_add_coefficient = backtest_results.get('best_add_coefficient')
-    optimal_add_price = None
-    if support_level and best_add_coefficient:
-        optimal_add_price = support_level * best_add_coefficient
+    try:
+        # --- 1. 数据准备 ---
+        latest = df.iloc[-1]
+        current_price = float(latest['close'])
+        
+        # --- 2. 上下文分析：将您的“盘感”转化为量化指标 ---
+        # a. 是否经历长期下跌？
+        high_250d = df['high'].tail(250).max()
+        is_long_term_decline = current_price < high_250d * 0.65  # 条件放宽: 当前价比年内高点跌去35%以上
 
-    # 简化版建议生成
-    action = 'HOLD'
-    reasons = []
-    confidence = 0.6
+        # b. 是否处于近期横盘整理？
+        recent_30d = df.tail(30)
+        high_30d = recent_30d['high'].max()
+        low_30d = recent_30d['low'].min()
+        consolidation_range = (high_30d - low_30d) / recent_30d['close'].mean()
+        is_consolidating = consolidation_range < 0.20  # 条件放宽: 30日振幅小于20%
+        
+        # c. 是否已从近期低点反弹？ (核心修改)
+        # 条件1: 价格脱离最低点超过2%
+        bounce_from_low_pct = (current_price - low_30d) / low_30d
+        is_bouncing_from_low = bounce_from_low_pct > 0.02
+        # 条件2: MACD动能增强 (MACD柱状图连续2天回升)
+        macd_momentum_increasing = (df['macd'].iloc[-1] > df['macd'].iloc[-2] and 
+                                    df['macd'].iloc[-2] > df['macd'].iloc[-3])
 
-    # 结合技术指标
-    latest = df.iloc[-1]
-    if latest['rsi6'] < 30:
-        action = 'BUY'
-        reasons.append(f"RSI(6)为{latest['rsi6']:.1f}，进入超卖区，存在反弹机会。")
-        confidence = 0.75
-    elif latest['close'] < latest['ma60']:
-        action = 'AVOID'
-        reasons.append(f"价格位于长期均线MA60下方，趋势偏弱。")
+        # --- 3. 核心规则引擎：根据上下文和指标生成建议 ---
+        action = 'HOLD'
         confidence = 0.5
-    else:
-        reasons.append("当前技术指标处于中性区域，建议继续观察。")
+        reasons = []
 
-    return {
-        'action': action,
-        'confidence': confidence,
-        'optimal_add_price': optimal_add_price,
-        'support_level': support_level,
-        'resistance_level': price_targets.get('next_resistance'),
-        'reasons': reasons,
-        'stop_loss_price': support_level * 0.95 if support_level else current_price * 0.92
-    }
+        # 规则1：底部企稳形态 (最高优先级)
+        if is_long_term_decline and is_consolidating and is_bouncing_from_low and macd_momentum_increasing:
+            action = 'BUY'
+            confidence = 0.80 # 形态确认，给予高置信度
+            reasons.append(f"形态识别：该股经历长期下跌后，近期处于横盘震荡区间({consolidation_range*100:.1f}%)，有底部企稳迹象。")
+            reasons.append(f"确认信号：价格已从30日低点 ¥{low_30d:.2f} 反弹 {bounce_from_low_pct*100:.1f}%，且MACD动能增强。")
+        
+        # 规则2：常规技术指标分析 (在无特殊形态时执行)
+        else: 
+            # 趋势判断 (核心修改)
+            ma60 = latest.get('ma60')
+            if ma60:
+                dist_to_ma60 = (current_price - ma60) / ma60
+                if dist_to_ma60 < -0.03: # 价格在MA60下方超过3%
+                    action = 'AVOID'
+                    confidence = 0.50
+                    reasons.append(f"趋势判断：价格(¥{current_price:.2f})显著低于长期均线MA60(¥{ma60:.2f})，主要趋势偏弱。")
+                elif -0.03 <= dist_to_ma60 <= 0: # 价格紧贴MA60下方
+                    action = 'WATCH'
+                    confidence = 0.60
+                    reasons.append(f"趋势观察：价格(¥{current_price:.2f})正尝试突破长期均线MA60(¥{ma60:.2f})，等待趋势反转信号。")
+                else: # 价格在MA60上方
+                    action = 'HOLD'
+                    confidence = 0.65
+                    reasons.append(f"趋势判断：价格(¥{current_price:.2f})位于长期均线MA60(¥{ma60:.2f})之上，趋势向好。")
 
+            # RSI指标 (作为辅助判断)
+            rsi6 = latest.get('rsi6')
+            if rsi6 and rsi6 < 30:
+                if action != 'AVOID': action = 'BUY' # 只有在趋势不是明确向下时，才采纳超卖信号
+                confidence = max(confidence, 0.70)
+                reasons.append(f"技术指标：RSI(6)为{rsi6:.1f}，进入短期超卖区，存在反弹机会。")
+        
+        if not reasons:
+            reasons.append("当前技术指标和形态处于中性区域，建议继续观察。")
+        
+        # --- 4. 价格目标计算 (逻辑不变) ---
+        price_targets = _calculate_price_targets(df, current_price)
+        support_level = price_targets.get('next_support')
+        
+        best_add_coefficient = backtest_results.get('best_add_coefficient')
+        optimal_add_price = None
+        if support_level and best_add_coefficient:
+            optimal_add_price = support_level * best_add_coefficient
+
+        # --- 5. 组装返回结果 ---
+        return {
+            'action': action,
+            'confidence': round(confidence, 2),
+            'optimal_add_price': optimal_add_price,
+            'support_level': support_level,
+            'resistance_level': price_targets.get('next_resistance'),
+            'reasons': reasons,
+            'stop_loss_price': low_30d * 0.98 if is_bouncing_from_low else (support_level * 0.95 if support_level else current_price * 0.92)
+        }
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return {'error': f'生成交易建议失败: {e}', 'action': 'ERROR'}
+
+
+# backend/backtester.py
 
 def get_deep_analysis(stock_code: str, df: pd.DataFrame = None) -> dict:
     """
-    【统一入口函数】
-    对单只股票进行深度回测分析，并生成前瞻性交易建议。
+    【已重构】对单只股票进行真正的深度分析。
+    统一调用高级回测引擎和系数优化引擎。
     """
     try:
         # 1. 获取和准备数据
         if df is None:
-            # 使用统一的数据处理模块
             from data_handler import get_full_data_with_indicators
+            # 获取数据并计算所有基础指标
             df = get_full_data_with_indicators(stock_code)
             if df is None:
                 return {'error': '无法获取股票数据或数据不足'}
 
-        # 2. 执行历史回测，优化系数
-        backtest_results = _optimize_coefficients_historically(df)
+        # --- 新增：调用高级回测引擎 ---
+        # 2. 使用基准策略生成交易信号
+        #    这里我们使用 MACD_ZERO_AXIS 作为基准策略来进行回测分析
+        import strategies
+        signal_series = strategies.apply_macd_zero_axis_strategy(df)
         
-        # 3. 基于最新数据和回测结果，生成前瞻性建议
-        forward_advice = _generate_forward_advice(df, backtest_results)
+        # 3. 执行高级回测
+        advanced_backtest_results = run_backtest(df, signal_series)
 
-        # 4. 组装最终结果
+        # 4. 执行系数优化回测 (作为补充)
+        coefficient_backtest_results = _optimize_coefficients_historically(df)
+        
+        # 5. 生成前瞻性交易建议
+        #    我们将系数优化的结果传递给建议函数，用于计算补仓价
+        forward_advice = _generate_forward_advice(df, coefficient_backtest_results)
+
+        # 6. 组装最终结果
         analysis_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        # 将两部分回测结果合并
+        final_backtest_summary = {
+            **advanced_backtest_results,
+            **coefficient_backtest_results
+        }
+        
         return {
             'stock_code': stock_code,
             'analysis_time': analysis_time,
             'current_price': float(df.iloc[-1]['close']),
-            'backtest_analysis': backtest_results,
+            # --- 修改点：返回合并后的、更完整的摘要 ---
+            'backtest_analysis': final_backtest_summary,
             'trading_advice': forward_advice,
-            'from_cache': False # 默认实时计算
+            'from_cache': False
         }
     except Exception as e:
         import traceback

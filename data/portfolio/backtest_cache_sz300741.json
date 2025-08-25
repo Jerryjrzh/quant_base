@@ -1,0 +1,51 @@
+{
+  "cache_time": "2025-08-18 09:25:11",
+  "analysis_results": {
+    "stock_code": "sz300741",
+    "analysis_time": "2025-08-18 09:25:11",
+    "current_price": 19.28,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.96,
+      "best_add_score": 66.60609523143324,
+      "add_coefficient_analysis": {
+        "0.96": {
+          "success_rate": 100.0,
+          "avg_return": 16.515238078583106,
+          "score": 66.60609523143324
+        },
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 15.736044574941156,
+          "score": 66.29441782997647
+        },
+        "0.98": {
+          "success_rate": 100.0,
+          "avg_return": 14.867890846598602,
+          "score": 65.94715633863945
+        },
+        "0.99": {
+          "success_rate": 99.8896247240618,
+          "avg_return": 13.705560661508557,
+          "score": 65.4159990990405
+        },
+        "1.0": {
+          "success_rate": 99.47534102833158,
+          "avg_return": 12.871336195306448,
+          "score": 64.83373909512153
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "AVOID",
+      "confidence": 0.5,
+      "optimal_add_price": 18.144,
+      "support_level": 18.9,
+      "resistance_level": 22.56,
+      "reasons": [
+        "价格位于长期均线MA60下方，趋势偏弱。"
+      ],
+      "stop_loss_price": 17.955
+    },
+    "from_cache": false
+  }
+}

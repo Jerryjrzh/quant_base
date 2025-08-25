@@ -1,0 +1,51 @@
+{
+  "cache_time": "2025-08-20 10:50:43",
+  "analysis_results": {
+    "stock_code": "sh603366",
+    "analysis_time": "2025-08-20 10:50:43",
+    "current_price": 9.78,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.96,
+      "best_add_score": 65.94340051932204,
+      "add_coefficient_analysis": {
+        "0.96": {
+          "success_rate": 99.84802431610942,
+          "avg_return": 15.086464824140979,
+          "score": 65.94340051932204
+        },
+        "0.97": {
+          "success_rate": 99.86206896551724,
+          "avg_return": 14.259298769613487,
+          "score": 65.62096088715573
+        },
+        "0.98": {
+          "success_rate": 99.87179487179488,
+          "avg_return": 14.128058050415182,
+          "score": 65.574300143243
+        },
+        "0.99": {
+          "success_rate": 99.6547756041427,
+          "avg_return": 14.290223666333107,
+          "score": 65.50895482901886
+        },
+        "1.0": {
+          "success_rate": 99.57173447537473,
+          "avg_return": 13.743364803535322,
+          "score": 65.24038660663896
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "AVOID",
+      "confidence": 0.5,
+      "optimal_add_price": 9.3696,
+      "support_level": 9.76,
+      "resistance_level": 10.88,
+      "reasons": [
+        "价格位于长期均线MA60下方，趋势偏弱。"
+      ],
+      "stop_loss_price": 9.272
+    },
+    "from_cache": false
+  }
+}

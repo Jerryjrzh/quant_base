@@ -51,6 +51,7 @@ warnings.filterwarnings('ignore')
 
 # --- 配置 ---
 BASE_PATH = os.path.expanduser("~/.local/share/tdxcfv/drive_c/tc/vipdoc")
+#MARKETS = ['sh', 'sz', 'bj', 'ds']
 MARKETS = ['sh', 'sz', 'bj', 'ds']
 
 # --- 路径定义 ---
@@ -92,7 +93,7 @@ def process_single_stock_worker(args):
         'sh': ['600', '601', '603', '605', '688'],
         'sz': ['000', '001', '002', '003', '300'],
         'bj': ['430', '831', '832', '833', '834', '835', '836', '837', '838', '839'],
-        'ds': ['31#']
+ #       'ds': ['31#']
     }
     
     market_prefixes = valid_prefixes.get(market, [])
@@ -205,7 +206,7 @@ class UniversalScreener:
                     "sh": ["600", "601", "603", "605", "688"],
                     "sz": ["000", "001", "002", "003", "300"],
                     "bj": ["430", "831", "832", "833", "834", "835", "836", "837", "838", "839"],
-                    "ds": ["31#", "43#", "48#"]
+                    #"ds": ["31#", "43#", "48#"]
                 },
                 "exclude_st": True,
                 "exclude_delisted": True,

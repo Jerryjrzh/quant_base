@@ -1,0 +1,44 @@
+{
+  "cache_time": "2025-08-20 19:25:31",
+  "analysis_results": {
+    "stock_code": "sh605577",
+    "analysis_time": "2025-08-20 19:25:31",
+    "current_price": 14.07,
+    "backtest_analysis": {
+      "total_signals": 30,
+      "win_rate": "46.7%",
+      "avg_max_profit": "22.8%",
+      "avg_max_drawdown": "-4.4%",
+      "avg_days_to_peak": "18.3 天",
+      "state_statistics": {
+        "PRE": {
+          "count": 24,
+          "win_rate": "54.2%",
+          "avg_max_profit": "25.3%",
+          "avg_max_drawdown": "-4.6%",
+          "avg_days_to_peak": "19.1 天"
+        },
+        "MID": {
+          "count": 6,
+          "win_rate": "16.7%",
+          "avg_max_profit": "12.4%",
+          "avg_max_drawdown": "-3.8%",
+          "avg_days_to_peak": "8.0 天"
+        }
+      },
+      "trades": [
+        {
+          "signal_idx": 47,
+          "signal_state": "PRE",
+          "entry_idx": 49,
+          "entry_price": 12.03,
+          "entry_strategy": "PRE状态-信号后2天低点买入",
+          "bottom_idx": 47,
+          "bottom_price": 11.93,
+          "top_idx": 76,
+          "top_price": 15.35,
+          "cycle_max_pnl": 0.28667225481978204,
+          "actual_max_pnl": 0.2759767248545304,
+          "max_drawdown": -0.01579384871155441,
+          "days_to_peak": 27,
+          "trend_confirmed": 
