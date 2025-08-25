@@ -118,6 +118,134 @@ def toggle_strategy(strategy_id):
             'error': f'切换策略状态失败: {str(e)}'
         }), 500
 
+@app.route('/api/strategies/<strategy_id>/stocks')
+def get_strategy_stocks(strategy_id):
+    """获取指定策略的股票列表"""
+    try:
+        print(f"🎯 收到策略股票列表请求: strategy_id={strategy_id}")
+        # 策略ID映射 - 处理前端使用的不同ID格式
+        strategy_mapping = {
+            'PRE_CROSS': '临界金叉_v1.0',
+            'TRIPLE_CROSS': '三重金叉_v1.0', 
+            'MACD_ZERO_AXIS': 'MACD零轴启动_v1.0',
+            'WEEKLY_GOLDEN_CROSS_MA': '周线金叉+日线MA_v1.0',
+            'ABYSS_BOTTOMING': '深渊筑底策略_v2.0',
+            'VALUE_REVERSAL': '价值反转策略（最终版）_v1.0',
+            'REVERSED_SHORT': '反转做多策略（优化版）_v1.0',
+            # 修复映射以匹配前端
+            'ANNUAL_BOTTOM_OPPORTUNITY': '年度见底机会策略_v1.0',
+            'ANNUAL_BOTTOM': '年度见底机会策略_v1.0',  # 保持向后兼容
+            'STRONG_STOCK_MA13_PULLBACK': '强势股MA13回调策略_v1.0',
+            'STRONG_PULLBACK': '强势股MA13回调策略_v1.0',  # 保持向后兼容
+            'LONG_TERM_CONSOLIDATION_BREAKOUT': '长周期横盘突破策略_v1.0',
+            'BREAKOUT': '长周期横盘突破策略_v1.0'  # 保持向后兼容
+        }
+        
+        # 尝试映射策略ID
+        mapped_strategy_id = strategy_mapping.get(strategy_id, strategy_id)
+        print(f"📋 策略ID映射: {strategy_id} -> {mapped_strategy_id}")
+        
+        # 导入筛选器并运行指定策略
+        from universal_screener import UniversalScreener
+        screener = UniversalScreener()
+        
+        print(f"🔍 开始筛选策略: {mapped_strategy_id}")
+        results = screener.run_screening([mapped_strategy_id])
+        print(f"📊 筛选结果数量: {len(results) if results else 0}")
+        
+        # 检查结果是否为空或None
+        if not results:
+            print(f"⚠️ 策略 {mapped_strategy_id} 没有返回任何结果")
+            return jsonify({
+                'success': True,
+                'strategy_id': strategy_id,
+                'mapped_strategy_id': mapped_strategy_id,
+                'total_count': 0,
+                'data': [],
+                'stocks': [],
+                'message': f'策略 {strategy_id} 今日无信号'
+            })
+        
+        # 转换结果格式
+        stocks = []
+        stock_codes = []
+        
+        for result in results:
+            # 确保所有字段都有有效值
+            stock_data = {
+                'stock_code': str(result.stock_code) if result.stock_code else '',
+                'date': str(result.date) if result.date else '',
+                'signal_type': str(result.signal_type) if result.signal_type else '',
+                'signal_strength': int(result.signal_strength) if result.signal_strength is not None else 0,
+                'current_price': float(result.current_price) if result.current_price is not None else 0.0,
+                'strategy_name': str(result.strategy_name) if result.strategy_name else '',
+                'price': float(result.current_price) if result.current_price is not None else 0.0  # 兼容旧版API字段名
+            }
+            stocks.append(stock_data)
+            if result.stock_code:
+                stock_codes.append(result.stock_code)
+        
+        # 批量获取股票基本信息
+        if stock_codes:
+            try:
+                stock_info_map = get_multiple_stock_info(stock_codes, use_cache=True)
+                # 将股票信息合并到结果中
+                for stock_data in stocks:
+                    stock_code = stock_data['stock_code']
+                    stock_info = stock_info_map.get(stock_code)
+                    if stock_info:
+                        stock_data.update({
+                            'name': stock_info.name,
+                            'sector': stock_info.sector,
+                            'industry': stock_info.industry,
+                            'market': stock_info.market
+                        })
+                    else:
+                        stock_data.update({
+                            'name': f'股票{stock_code}',
+                            'sector': '未知板块',
+                            'industry': '未知行业',
+                            'market': 'A股'
+                        })
+            except Exception as e:
+                print(f"获取股票信息失败: {e}")
+                # 即使获取股票信息失败，也要确保stocks有基本信息
+                for stock_data in stocks:
+                    if 'name' not in stock_data:
+                        stock_code = stock_data['stock_code']
+                        stock_data.update({
+                            'name': f'股票{stock_code}',
+                            'sector': '未知板块',
+                            'industry': '未知行业',
+                            'market': 'A股'
+                        })
+        
+        # 确保返回的数据格式正确
+        response_data = {
+            'success': True,
+            'strategy_id': strategy_id,
+            'mapped_strategy_id': mapped_strategy_id,
+            'total_count': len(stocks),
+            'data': stocks if stocks else [],  # 确保data字段始终是数组
+            'stocks': stocks if stocks else []  # 保持向后兼容
+        }
+        
+        return jsonify(response_data)
+        
+    except Exception as e:
+        import traceback
+        error_details = traceback.format_exc()
+        print(f"获取策略股票列表失败: {e}")
+        print(f"详细错误信息: {error_details}")
+        
+        return jsonify({
+            'success': False,
+            'error': f'获取策略股票列表失败: {str(e)}',
+            'data': [],  # 确保前端有data字段
+            'stocks': [],  # 确保前端有stocks字段
+            'total_count': 0
+        }), 500
+
 @app.route('/api/config/unified')
 def get_unified_config():
     """获取统一配置"""
@@ -169,8 +297,11 @@ def get_signals_summary():
                 'REVERSED_SHORT': '反转做多策略（优化版）_v1.0',
                 # 人工分析逻辑策略
                 'ANNUAL_BOTTOM_OPPORTUNITY': '年度见底机会策略_v1.0',
+                'ANNUAL_BOTTOM': '年度见底机会策略_v1.0',
                 'STRONG_STOCK_MA13_PULLBACK': '强势股MA13回调策略_v1.0',
-                'LONG_TERM_CONSOLIDATION_BREAKOUT': '长周期横盘突破策略_v1.0'
+                'STRONG_PULLBACK': '强势股MA13回调策略_v1.0',
+                'LONG_TERM_CONSOLIDATION_BREAKOUT': '长周期横盘突破策略_v1.0',
+                'BREAKOUT': '长周期横盘突破策略_v1.0'
             }
             
             new_strategy_id = strategy_mapping.get(strategy, strategy)

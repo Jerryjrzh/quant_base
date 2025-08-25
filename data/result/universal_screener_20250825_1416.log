@@ -1,53 +1,26 @@
- * Detected change in '/home/hypnosis/data/git/quant_base/backend/universal_screener.py', reloading
- * Restarting with stat
-量化分析平台后端启动...
-请在浏览器中打开 http://127.0.0.1:5000
- * Debugger is active!
- * Debugger PIN: 379-086-729
-🎯 收到策略股票列表请求: strategy_id=MACD零轴启动_v1.0
-📋 策略ID映射: MACD零轴启动_v1.0 -> MACD零轴启动_v1.0
 2025-08-25 14:16:02,334 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:16:02,335 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: MACD零轴启动_v1.0
 2025-08-25 14:16:02,335 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:16:02,335 - INFO - 指定运行策略: ['MACD零轴启动_v1.0']
 2025-08-25 14:16:02,343 - INFO - 共找到 11848 个股票文件
 2025-08-25 14:16:07,286 - INFO - 筛选完成，发现 0 个信号，耗时 4.95 秒
-📊 筛选结果数量: 0
-⚠️ 策略 MACD零轴启动_v1.0 没有返回任何结果
-172.27.28.139 - - [25/Aug/2025 14:16:07] "GET /api/strategies/MACD零轴启动_v1.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:16:07,288 - INFO - 172.27.28.139 - - [25/Aug/2025 14:16:07] "GET /api/strategies/MACD零轴启动_v1.0/stocks HTTP/1.1" 200 -
-^[[B🎯 收到策略股票列表请求: strategy_id=三重金叉_v1.0
-📋 策略ID映射: 三重金叉_v1.0 -> 三重金叉_v1.0
 2025-08-25 14:16:23,442 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:16:23,444 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: 三重金叉_v1.0
 2025-08-25 14:16:23,444 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:16:23,444 - INFO - 指定运行策略: ['三重金叉_v1.0']
 2025-08-25 14:16:23,452 - INFO - 共找到 11848 个股票文件
 2025-08-25 14:16:28,620 - INFO - 筛选完成，发现 0 个信号，耗时 5.18 秒
-📊 筛选结果数量: 0
-⚠️ 策略 三重金叉_v1.0 没有返回任何结果
-172.27.28.139 - - [25/Aug/2025 14:16:28] "GET /api/strategies/三重金叉_v1.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:16:28,622 - INFO - 172.27.28.139 - - [25/Aug/2025 14:16:28] "GET /api/strategies/三重金叉_v1.0/stocks HTTP/1.1" 200 -
-🎯 收到策略股票列表请求: strategy_id=临界金叉_v1.0
-📋 策略ID映射: 临界金叉_v1.0 -> 临界金叉_v1.0
 2025-08-25 14:16:36,162 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:16:36,164 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: 临界金叉_v1.0
 2025-08-25 14:16:36,164 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:16:36,164 - INFO - 指定运行策略: ['临界金叉_v1.0']
 2025-08-25 14:16:36,172 - INFO - 共找到 11848 个股票文件
 2025-08-25 14:16:41,277 - INFO - 筛选完成，发现 0 个信号，耗时 5.11 秒
-📊 筛选结果数量: 0
-⚠️ 策略 临界金叉_v1.0 没有返回任何结果
-172.27.28.139 - - [25/Aug/2025 14:16:41] "GET /api/strategies/临界金叉_v1.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:16:41,279 - INFO - 172.27.28.139 - - [25/Aug/2025 14:16:41] "GET /api/strategies/临界金叉_v1.0/stocks HTTP/1.1" 200 -
-🎯 收到策略股票列表请求: strategy_id=价值反转策略（最终版）_v1.0
-📋 策略ID映射: 价值反转策略（最终版）_v1.0 -> 价值反转策略（最终版）_v1.0
 2025-08-25 14:16:47,087 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:16:47,089 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: 价值反转策略（最终版）_v1.0
 2025-08-25 14:16:47,089 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:16:47,089 - INFO - 指定运行策略: ['价值反转策略（最终版）_v1.0']
 2025-08-25 14:16:47,097 - INFO - 共找到 11848 个股票文件
@@ -61,14 +34,9 @@
 2025-08-25 14:16:52,488 - INFO - 回测分析 [7/8]: sz000651
 2025-08-25 14:16:52,491 - INFO - 回测分析 [8/8]: sh688141
 2025-08-25 14:16:52,493 - INFO - 筛选完成，发现 8 个信号，耗时 5.40 秒
-📊 筛选结果数量: 8
-172.27.28.139 - - [25/Aug/2025 14:16:54] "GET /api/strategies/价值反转策略（最终版）_v1.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:16:54,296 - INFO - 172.27.28.139 - - [25/Aug/2025 14:16:54] "GET /api/strategies/价值反转策略（最终版）_v1.0/stocks HTTP/1.1" 200 -
-🎯 收到策略股票列表请求: strategy_id=反转做多策略（优化版）_v1.0
-📋 策略ID映射: 反转做多策略（优化版）_v1.0 -> 反转做多策略（优化版）_v1.0
 2025-08-25 14:17:01,071 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:17:01,073 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: 反转做多策略（优化版）_v1.0
 2025-08-25 14:17:01,073 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:17:01,073 - INFO - 指定运行策略: ['反转做多策略（优化版）_v1.0']
 2025-08-25 14:17:01,082 - INFO - 共找到 11848 个股票文件
@@ -83,14 +51,9 @@
 2025-08-25 14:17:05,873 - INFO - 回测分析 [8/9]: sz000651
 2025-08-25 14:17:05,876 - INFO - 回测分析 [9/9]: sh688141
 2025-08-25 14:17:05,878 - INFO - 筛选完成，发现 9 个信号，耗时 4.80 秒
-📊 筛选结果数量: 9
-172.27.28.139 - - [25/Aug/2025 14:17:07] "GET /api/strategies/反转做多策略（优化版）_v1.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:17:07,402 - INFO - 172.27.28.139 - - [25/Aug/2025 14:17:07] "GET /api/strategies/反转做多策略（优化版）_v1.0/stocks HTTP/1.1" 200 -
-🎯 收到策略股票列表请求: strategy_id=周线金叉+日线MA_v1.0
-📋 策略ID映射: 周线金叉+日线MA_v1.0 -> 周线金叉+日线MA_v1.0
 2025-08-25 14:17:14,640 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:17:14,641 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: 周线金叉+日线MA_v1.0
 2025-08-25 14:17:14,641 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:17:14,641 - INFO - 指定运行策略: ['周线金叉+日线MA_v1.0']
 2025-08-25 14:17:14,649 - INFO - 共找到 11848 个股票文件
@@ -103,40 +66,23 @@
 2025-08-25 14:17:20,668 - INFO - 回测分析 [6/7]: sz002892
 2025-08-25 14:17:20,675 - INFO - 回测分析 [7/7]: sh603111
 2025-08-25 14:17:20,683 - INFO - 筛选完成，发现 7 个信号，耗时 6.04 秒
-📊 筛选结果数量: 7
-172.27.28.139 - - [25/Aug/2025 14:17:22] "GET /api/strategies/周线金叉+日线MA_v1.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:17:22,422 - INFO - 172.27.28.139 - - [25/Aug/2025 14:17:22] "GET /api/strategies/周线金叉+日线MA_v1.0/stocks HTTP/1.1" 200 -
-🎯 收到策略股票列表请求: strategy_id=年度见底机会策略_v1.0
-📋 策略ID映射: 年度见底机会策略_v1.0 -> 年度见底机会策略_v1.0
 2025-08-25 14:17:37,650 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:17:37,652 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: 年度见底机会策略_v1.0
 2025-08-25 14:17:37,652 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:17:37,652 - INFO - 指定运行策略: ['年度见底机会策略_v1.0']
 2025-08-25 14:17:37,660 - INFO - 共找到 11848 个股票文件
 2025-08-25 14:17:42,664 - INFO - 筛选完成，发现 0 个信号，耗时 5.01 秒
-📊 筛选结果数量: 0
-⚠️ 策略 年度见底机会策略_v1.0 没有返回任何结果
-172.27.28.139 - - [25/Aug/2025 14:17:42] "GET /api/strategies/年度见底机会策略_v1.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:17:42,666 - INFO - 172.27.28.139 - - [25/Aug/2025 14:17:42] "GET /api/strategies/年度见底机会策略_v1.0/stocks HTTP/1.1" 200 -
-🎯 收到策略股票列表请求: strategy_id=强势股MA13回调策略_v1.0
-📋 策略ID映射: 强势股MA13回调策略_v1.0 -> 强势股MA13回调策略_v1.0
 2025-08-25 14:17:48,564 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:17:48,566 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: 强势股MA13回调策略_v1.0
 2025-08-25 14:17:48,566 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:17:48,566 - INFO - 指定运行策略: ['强势股MA13回调策略_v1.0']
 2025-08-25 14:17:48,574 - INFO - 共找到 11848 个股票文件
 2025-08-25 14:17:53,706 - INFO - 筛选完成，发现 0 个信号，耗时 5.14 秒
-📊 筛选结果数量: 0
-⚠️ 策略 强势股MA13回调策略_v1.0 没有返回任何结果
-172.27.28.139 - - [25/Aug/2025 14:17:53] "GET /api/strategies/强势股MA13回调策略_v1.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:17:53,708 - INFO - 172.27.28.139 - - [25/Aug/2025 14:17:53] "GET /api/strategies/强势股MA13回调策略_v1.0/stocks HTTP/1.1" 200 -
-🎯 收到策略股票列表请求: strategy_id=深渊筑底策略_v2.0
-📋 策略ID映射: 深渊筑底策略_v2.0 -> 深渊筑底策略_v2.0
 2025-08-25 14:18:33,073 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:18:33,075 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: 深渊筑底策略_v2.0
 2025-08-25 14:18:33,075 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:18:33,075 - INFO - 指定运行策略: ['深渊筑底策略_v2.0']
 2025-08-25 14:18:33,083 - INFO - 共找到 11848 个股票文件
@@ -165,79 +111,11 @@
 2025-08-25 14:18:38,267 - INFO - 回测分析 [22/23]: sh603261
 2025-08-25 14:18:38,271 - INFO - 回测分析 [23/23]: sz300268
 2025-08-25 14:18:38,275 - INFO - 筛选完成，发现 23 个信号，耗时 5.20 秒
-📊 筛选结果数量: 23
-🎯 收到策略股票列表请求: strategy_id=长周期横盘突破策略_v1.0
-📋 策略ID映射: 长周期横盘突破策略_v1.0 -> 长周期横盘突破策略_v1.0
 2025-08-25 14:18:45,286 - INFO - 加载配置文件: /home/hypnosis/data/git/quant_base/backend/strategies_config.json
 2025-08-25 14:18:45,288 - INFO - 通用筛选器初始化完成
-🔍 开始筛选策略: 长周期横盘突破策略_v1.0
 2025-08-25 14:18:45,288 - INFO - ===== 开始执行通用股票筛选 =====
 2025-08-25 14:18:45,288 - INFO - 指定运行策略: ['长周期横盘突破策略_v1.0']
 2025-08-25 14:18:45,296 - INFO - 共找到 11848 个股票文件
-172.27.28.139 - - [25/Aug/2025 14:18:45] "GET /api/strategies/深渊筑底策略_v2.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:18:45,783 - INFO - 172.27.28.139 - - [25/Aug/2025 14:18:45] "GET /api/strategies/深渊筑底策略_v2.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:18:50,335 - INFO - 筛选完成，发现 0 个信号，耗时 5.05 秒
-📊 筛选结果数量: 0
-⚠️ 策略 长周期横盘突破策略_v1.0 没有返回任何结果
-172.27.28.139 - - [25/Aug/2025 14:18:50] "GET /api/strategies/长周期横盘突破策略_v1.0/stocks HTTP/1.1" 200 -
 2025-08-25 14:18:50,337 - INFO - 172.27.28.139 - - [25/Aug/2025 14:18:50] "GET /api/strategies/长周期横盘突破策略_v1.0/stocks HTTP/1.1" 200 -
-
-
-📊 分析持仓 1/31: sz300741
-Traceback (most recent call last):
-  File "/home/hypnosis/data/git/quant_base/backend/app.py", line 708, in scan_portfolio
-    results = portfolio_manager.scan_all_positions(force_refresh=False)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/hypnosis/data/git/quant_base/backend/portfolio_manager.py", line 294, in scan_all_positions
-    if analysis['risk_assessment']['risk_level'] == 'HIGH':
-       ~~~~~~~~^^^^^^^^^^^^^^^^^^^
-KeyError: 'risk_assessment'
-
-🤖 正在分析股票交易机会...
-❌ 处理股票 sz300739 失败: module 'strategies' has no attribute 'apply_macd_zero_axis_strategy'
-
-
-ERROR - 多进程处理失败: Can't pickle <class 'strategies.weekly_golden_cross_ma_strategy.WeeklyGoldenCrossMaStrategy'>: it's not the same object as strategies.weekly_golden_cross_ma_strategy.WeeklyGoldenCrossMaStrategy
-
-
-[username = Wifi@9BA9E1]
-                [web_passwd = W1f1s3t.A9E1]
-
-
-总计处理股票数: 4648
---------------------------------------------------------------------------------
-通过 [阶段 0: 深跌筑底] 的股票数: 371 (7.98%)
-通过 [阶段 1: 横盘蓄势] 的股票数: 231 (占上一阶段的 62.26%)
-通过 [阶段 2: 确认拉升] 的股票数: 0 (占上一阶段的 0.00%)
-================================================================================
-2025-08-12 19:46:59,673 - INFO - 漏斗分析 - S0: 371, S1: 231, S2(最终信号): 0
-
-未发现最终通过所有阶段的信号。请根据上方的漏斗分析报告调整config.json中的参数。
-2025-08-12 19:46:59,673 - INFO - 总耗时: 3.01 秒
-
-🎉 完整流程结束！
-
-
-2025-08-12 16:58:37,829 - ERROR - 图表生成失败 for sh600439: 'Unrecognized kwarg="s"'
-Traceback (most recent call last):
-  File "/home/hypnosis/data/quant_base/backend/screener_abyss.1.py", line 254, in visualize_signal
-    addplots.append(mpf.make_addplot(arrow_y, type='scatter', marker='^', color='lime', s=120))
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/mplfinance/plotting.py", line 1432, in make_addplot
-    config = _process_kwargs(kwargs, _valid_addplot_kwargs())
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/mplfinance/_arg_validators.py", line 339, in _process_kwargs
-    raise KeyError('Unrecognized kwarg="'+str(key)+'"')
-KeyError: 'Unrecognized kwarg="s"'
-
-Traceback (most recent call last):
-  File "/home/hypnosis/data/quant_base/backend/screener_abyss.py", line 249, in visualize_signal
-    mpf.make_addplot(df_chart[['ma30', 'ma45']], alpha=0.7),
-                     ~~~~~~~~^^^^^^^^^^^^^^^^^^
-  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
-    indexer = self.columns._get_indexer_strict(key, "columns")[1]
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
-    self._raise_if_missing(keyarr, indexer, axis_name)
-  File "/home/hypnosis/work/AI_local/ai_env/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6249, in _raise_if_missing
-    raise KeyError(f"None of [{key}] are in the [{axis_name}]")

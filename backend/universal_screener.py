@@ -476,12 +476,15 @@ class UniversalScreener:
         start_time = datetime.now()
         logger.info("===== 开始执行通用股票筛选 =====")
         
-        # 如果指定了策略，临时启用这些策略
-        original_enabled = []
+        # 确定要运行的策略
         if selected_strategies:
-            original_enabled = self.strategy_manager.get_enabled_strategies()
-            for strategy_id in selected_strategies:
-                self.strategy_manager.enable_strategy(strategy_id)
+            # 如果指定了策略，只运行这些策略
+            enabled_strategies = selected_strategies
+            logger.info(f"指定运行策略: {enabled_strategies}")
+        else:
+            # 否则运行所有启用的策略
+            enabled_strategies = self.strategy_manager.get_enabled_strategies()
+            logger.info(f"启用的策略: {enabled_strategies}")
         
         try:
             # 收集股票文件
@@ -491,10 +494,6 @@ class UniversalScreener:
                 return []
             
             logger.info(f"共找到 {len(all_files)} 个股票文件")
-            
-            # 获取启用的策略
-            enabled_strategies = self.strategy_manager.get_enabled_strategies()
-            logger.info(f"启用的策略: {enabled_strategies}")
             
             if not enabled_strategies:
                 logger.error("没有启用的策略")
@@ -556,15 +555,9 @@ class UniversalScreener:
             self.results = all_results
             return all_results
             
-        finally:
-            # 恢复原始策略启用状态
-            if selected_strategies and original_enabled:
-                # 禁用所有策略
-                for strategy_id in self.strategy_manager.registered_strategies.keys():
-                    self.strategy_manager.disable_strategy(strategy_id)
-                # 重新启用原始策略
-                for strategy_id in original_enabled:
-                    self.strategy_manager.enable_strategy(strategy_id)
+        except Exception as e:
+            logger.error(f"筛选过程中发生错误: {e}")
+            return []
     
     def save_results(self, results: List[StrategyResult], output_dir: Optional[str] = None) -> Dict[str, str]:
         """
