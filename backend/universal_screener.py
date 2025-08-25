@@ -736,7 +736,7 @@ class UniversalScreener:
                 'avg_win_rate': f"{avg_win_rate:.1f}%",
                 'avg_profit_rate': f"{avg_profit_rate:.1f}%"
             },
-            'signal_breakdown': signal_strength_breakdown,
+            'signal_breakdown': {k: [result.to_dict() for result in v] for k, v in signal_strength_breakdown.items()},
             'top_performers': top_performers,
             'results': [result.to_dict() for result in results]
         }

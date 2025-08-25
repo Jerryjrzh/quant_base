@@ -74,11 +74,26 @@ class ValueReversalFinalStrategy(BaseStrategy):
     def validate_config(self) -> bool:
         """验证配置参数"""
         try:
-            required_keys = ['macd', 'rsi', 'ma', 'volume', 'divergence']
-            for key in required_keys:
-                if key not in self.config:
-                    logger.error(f"配置缺少必要参数: {key}")
-                    return False
+            # 如果没有配置或配置为空，使用默认配置
+            if not self.config:
+                self.config = self.get_default_config()
+                return True
+            
+            # 合并默认配置和用户配置
+            default_config = self.get_default_config()
+            merged_config = {}
+            
+            for key, default_value in default_config.items():
+                if key in self.config:
+                    if isinstance(default_value, dict) and isinstance(self.config[key], dict):
+                        # 递归合并嵌套字典
+                        merged_config[key] = {**default_value, **self.config[key]}
+                    else:
+                        merged_config[key] = self.config[key]
+                else:
+                    merged_config[key] = default_value
+            
+            self.config = merged_config
             
             # 验证数值范围
             if self.config['rsi']['oversold_threshold'] <= 0 or self.config['rsi']['oversold_threshold'] >= 100:
@@ -92,7 +107,9 @@ class ValueReversalFinalStrategy(BaseStrategy):
             return True
         except Exception as e:
             logger.error(f"配置验证失败: {e}")
-            return False
+            # 如果验证失败，使用默认配置
+            self.config = self.get_default_config()
+            return True
     
     def get_required_data_length(self) -> int:
         """获取所需的最小数据长度"""
