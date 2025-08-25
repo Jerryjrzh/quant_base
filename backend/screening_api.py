@@ -16,6 +16,7 @@ from typing import Dict, List, Any
 from universal_screener import UniversalScreener
 from strategy_manager import strategy_manager
 from config_manager import config_manager
+from stock_info_crawler import get_multiple_stock_info
 
 # 创建Flask应用
 app = Flask(__name__)
@@ -277,6 +278,8 @@ def get_strategy_stocks(strategy_id):
         
         # 转换为前端需要的格式
         stock_list = []
+        stock_codes = []
+        
         for result in results:
             try:
                 stock_list.append({
@@ -286,14 +289,50 @@ def get_strategy_stocks(strategy_id):
                     'price': result.current_price,  # 使用正确的字段名
                     'strategy_name': result.strategy_name
                 })
+                stock_codes.append(result.stock_code)
             except Exception as result_error:
                 logger.warning(f"处理结果时出错: {result_error}, 跳过该结果")
                 continue
         
+        # 批量获取股票基本信息（名称、板块等）
+        stock_info_map = {}
+        if stock_codes:
+            try:
+                logger.info(f"正在获取 {len(stock_codes)} 个股票的基本信息...")
+                stock_info_map = get_multiple_stock_info(stock_codes, use_cache=True)
+                logger.info(f"成功获取 {len(stock_info_map)} 个股票的基本信息")
+            except Exception as info_error:
+                logger.warning(f"获取股票基本信息失败: {info_error}，将使用默认信息")
+        
+        # 将股票基本信息合并到结果中
+        enhanced_stock_list = []
+        for stock_data in stock_list:
+            stock_code = stock_data['stock_code']
+            stock_info = stock_info_map.get(stock_code)
+            
+            enhanced_data = stock_data.copy()
+            if stock_info:
+                enhanced_data.update({
+                    'name': stock_info.name,
+                    'sector': stock_info.sector,
+                    'industry': stock_info.industry,
+                    'market': stock_info.market
+                })
+            else:
+                # 提供默认信息
+                enhanced_data.update({
+                    'name': f'股票{stock_code}',
+                    'sector': '未知板块',
+                    'industry': '未知行业', 
+                    'market': 'A股'
+                })
+            
+            enhanced_stock_list.append(enhanced_data)
+        
         return jsonify({
             'success': True,
-            'data': stock_list,
-            'total': len(stock_list),
+            'data': enhanced_stock_list,
+            'total': len(enhanced_stock_list),
             'strategy_id': strategy_id,
             'scan_timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         })
@@ -318,9 +357,16 @@ def get_signals_summary():
         strategy_mapping = {
             'PRE_CROSS': '临界金叉_v1.0',
             'TRIPLE_CROSS': '三重金叉_v1.0', 
-            'MACD_ZERO_AXIS': 'macd零轴启动_v1.0',
-            'WEEKLY_GOLDEN_CROSS_MA': '周线金叉+日线ma_v1.0',
-            'ABYSS_BOTTOMING': '深渊筑底策略_v2.0'
+            'MACD_ZERO_AXIS': 'MACD零轴启动_v1.0',
+            'WEEKLY_GOLDEN_CROSS_MA': '周线金叉+日线MA_v1.0',
+            'ABYSS_BOTTOMING': '深渊筑底策略_v2.0',
+            # 新迁移的策略
+            'VALUE_REVERSAL': '价值反转策略（最终版）_v1.0',
+            'REVERSED_SHORT': '反转做多策略（优化版）_v1.0',
+            # 人工分析逻辑策略
+            'ANNUAL_BOTTOM_OPPORTUNITY': '年度见底机会策略_v1.0',
+            'STRONG_STOCK_MA13_PULLBACK': '强势股MA13回调策略_v1.0',
+            'LONG_TERM_CONSOLIDATION_BREAKOUT': '长周期横盘突破策略_v1.0'
         }
         
         new_strategy_id = strategy_mapping.get(strategy, strategy)
