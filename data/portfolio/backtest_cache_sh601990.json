@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:04:22",
+  "analysis_results": {
+    "stock_code": "sh601990",
+    "analysis_time": "2025-08-25 19:04:22",
+    "current_price": 8.95,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 64.246701414066,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 10.616753535164994,
+          "score": 64.246701414066
+        },
+        "0.98": {
+          "success_rate": 100.0,
+          "avg_return": 9.980589854541865,
+          "score": 63.992235941816745
+        },
+        "0.99": {
+          "success_rate": 99.88290398126463,
+          "avg_return": 9.637446573588358,
+          "score": 63.78472101819412
+        },
+        "1.0": {
+          "success_rate": 99.47201689545935,
+          "avg_return": 9.297482361426809,
+          "score": 63.40220308184633
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 7.9346,
+      "support_level": 8.18,
+      "resistance_level": null,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 7.770999999999999
+    },
+    "from_cache": false
+  }
+}

@@ -1,3 +1,9 @@
+Request ID: def823cb-f4be-4ad4-b9f2-fa08eada51da
+{"error":"ERROR_UNSPECIFIED","details":{"title":"Cursor Pro Required","detail":"Agent and Edit rely on custom models that cannot be billed to an API key. Please use a Pro or Business subscription and/or disable API keys. Ask should still work.","additionalInfo":{},"buttons":[],"planChoices":[]}}
+Agent and Edit rely on custom models that cannot be billed to an API key. Please use a Pro or Business subscription and/or disable API keys. Ask should still work.
+
+
+
  * Detected change in '/home/hypnosis/data/git/quant_base/backend/universal_screener.py', reloading
  * Restarting with stat
 量化分析平台后端启动...

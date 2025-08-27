@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:04:31",
+  "analysis_results": {
+    "stock_code": "sz002796",
+    "analysis_time": "2025-08-25 19:04:31",
+    "current_price": 13.6,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 68.12305299805197,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 20.307632495129926,
+          "score": 68.12305299805197
+        },
+        "0.98": {
+          "success_rate": 99.87373737373737,
+          "avg_return": 20.037521844671954,
+          "score": 67.9392511621112
+        },
+        "0.99": {
+          "success_rate": 99.87951807228916,
+          "avg_return": 19.31046162502544,
+          "score": 67.65189549338366
+        },
+        "1.0": {
+          "success_rate": 99.44567627494457,
+          "avg_return": 18.853886162220984,
+          "score": 67.20896022985514
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 13.1726,
+      "support_level": 13.58,
+      "resistance_level": 15.5,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 12.901
+    },
+    "from_cache": false
+  }
+}

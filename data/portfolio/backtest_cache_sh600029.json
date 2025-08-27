@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:03:23",
+  "analysis_results": {
+    "stock_code": "sh600029",
+    "analysis_time": "2025-08-25 19:03:23",
+    "current_price": 6.0,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 64.46466596026652,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 11.161664900666276,
+          "score": 64.46466596026652
+        },
+        "0.98": {
+          "success_rate": 100.0,
+          "avg_return": 10.913598774160981,
+          "score": 64.3654395096644
+        },
+        "0.99": {
+          "success_rate": 99.88165680473374,
+          "avg_return": 10.327347767061324,
+          "score": 64.05993318966478
+        },
+        "1.0": {
+          "success_rate": 99.26701570680628,
+          "avg_return": 9.93138660972221,
+          "score": 63.53276406797265
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 5.6259999999999994,
+      "support_level": 5.8,
+      "resistance_level": 6.06,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 5.51
+    },
+    "from_cache": false
+  }
+}

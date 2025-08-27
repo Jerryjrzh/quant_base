@@ -2,27 +2,11 @@
 """
 策略模块初始化文件
 导入所有策略函数以保持向后兼容性
-同时导入新迁移的策略类
 """
 
 import sys
 import os
 import importlib.util
-
-# 导入新迁移的策略类
-try:
-    from .value_reversal_final_strategy import ValueReversalFinalStrategy
-    from .reversed_short_optimized_strategy import ReversedShortOptimizedStrategy
-    from .annual_bottom_opportunity_strategy import AnnualBottomOpportunityStrategy
-    from .strong_stock_ma13_pullback_strategy import StrongStockMA13PullbackStrategy
-    from .long_term_consolidation_breakout_strategy import LongTermConsolidationBreakoutStrategy
-except ImportError as e:
-    print(f"警告：导入新策略类失败: {e}")
-    ValueReversalFinalStrategy = None
-    ReversedShortOptimizedStrategy = None
-    AnnualBottomOpportunityStrategy = None
-    StrongStockMA13PullbackStrategy = None
-    LongTermConsolidationBreakoutStrategy = None
 
 # 直接导入strategies.py文件，避免循环导入
 backend_dir = os.path.dirname(os.path.dirname(__file__))
@@ -48,7 +32,7 @@ if os.path.exists(strategies_file):
     list_available_strategies = strategies_module.list_available_strategies
     validate_strategy_config = strategies_module.validate_strategy_config
     
-    # 导出所有函数和新策略类
+    # 导出所有函数
     __all__ = [
         'apply_triple_cross',
         'apply_pre_cross', 
@@ -61,14 +45,7 @@ if os.path.exists(strategies_file):
         'get_strategy_function',
         'get_strategy_description',
         'list_available_strategies',
-        'validate_strategy_config',
-        # 新迁移的策略类
-        'ValueReversalFinalStrategy',
-        'ReversedShortOptimizedStrategy',
-        # 人工分析逻辑策略类
-        'AnnualBottomOpportunityStrategy',
-        'StrongStockMA13PullbackStrategy',
-        'LongTermConsolidationBreakoutStrategy'
+        'validate_strategy_config'
     ]
     
 else:

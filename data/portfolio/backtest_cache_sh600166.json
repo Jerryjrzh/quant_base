@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:03:34",
+  "analysis_results": {
+    "stock_code": "sh600166",
+    "analysis_time": "2025-08-25 19:03:34",
+    "current_price": 2.78,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 65.81236488333155,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 14.530912208328887,
+          "score": 65.81236488333155
+        },
+        "0.98": {
+          "success_rate": 100.0,
+          "avg_return": 14.431618242735944,
+          "score": 65.77264729709438
+        },
+        "0.99": {
+          "success_rate": 100.0,
+          "avg_return": 13.86581034314355,
+          "score": 65.54632413725741
+        },
+        "1.0": {
+          "success_rate": 99.53379953379954,
+          "avg_return": 14.025577211770095,
+          "score": 65.33051060498775
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 2.6771999999999996,
+      "support_level": 2.76,
+      "resistance_level": 2.9,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 2.622
+    },
+    "from_cache": false
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:04:07",
+  "analysis_results": {
+    "stock_code": "sz002957",
+    "analysis_time": "2025-08-25 19:04:07",
+    "current_price": 17.66,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 66.72590352293373,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 16.814758807334343,
+          "score": 66.72590352293373
+        },
+        "0.98": {
+          "success_rate": 100.0,
+          "avg_return": 16.10287136990599,
+          "score": 66.4411485479624
+        },
+        "0.99": {
+          "success_rate": 100.0,
+          "avg_return": 15.436214579610887,
+          "score": 66.17448583184435
+        },
+        "1.0": {
+          "success_rate": 99.4407158836689,
+          "avg_return": 15.254278328262975,
+          "score": 65.76614086150653
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 16.2281,
+      "support_level": 16.73,
+      "resistance_level": 17.73,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 15.8935
+    },
+    "from_cache": false
+  }
+}

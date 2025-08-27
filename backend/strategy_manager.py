@@ -171,10 +171,7 @@ class StrategyManager:
             "临界金叉": "PRE_CROSS", 
             "三重金叉": "TRIPLE_CROSS",
             "MACD零轴启动": "MACD_ZERO_AXIS",
-            "周线金叉+日线MA": "WEEKLY_GOLDEN_CROSS_MA",
-            "年度见底机会策略": "ANNUAL_BOTTOM_OPPORTUNITY",
-            "强势股MA13回调策略": "STRONG_STOCK_MA13_PULLBACK",
-            "长周期横盘突破策略": "LONG_TERM_CONSOLIDATION_BREAKOUT"
+            "周线金叉+日线MA": "WEEKLY_GOLDEN_CROSS_MA"
         }
         return name_mapping.get(chinese_name, chinese_name)
     
@@ -236,10 +233,7 @@ class StrategyManager:
             "临界金叉": "PRE_CROSS", 
             "三重金叉": "TRIPLE_CROSS",
             "MACD零轴启动": "MACD_ZERO_AXIS",
-            "周线金叉+日线MA": "WEEKLY_GOLDEN_CROSS_MA",
-            "年度见底机会策略": "ANNUAL_BOTTOM_OPPORTUNITY",
-            "强势股MA13回调策略": "STRONG_STOCK_MA13_PULLBACK",
-            "长周期横盘突破策略": "LONG_TERM_CONSOLIDATION_BREAKOUT"
+            "周线金叉+日线MA": "WEEKLY_GOLDEN_CROSS_MA"
         }
         
         for chinese_name, english_name in name_mapping.items():

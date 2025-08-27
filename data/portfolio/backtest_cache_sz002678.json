@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:03:46",
+  "analysis_results": {
+    "stock_code": "sz002678",
+    "analysis_time": "2025-08-25 19:03:46",
+    "current_price": 5.01,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 65.30079060799957,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 13.251976519998951,
+          "score": 65.30079060799957
+        },
+        "0.98": {
+          "success_rate": 100.0,
+          "avg_return": 12.771729129339933,
+          "score": 65.10869165173597
+        },
+        "0.99": {
+          "success_rate": 99.77973568281938,
+          "avg_return": 11.967131248456617,
+          "score": 64.65469390907427
+        },
+        "1.0": {
+          "success_rate": 99.58071278825996,
+          "avg_return": 11.494913982269633,
+          "score": 64.34639326586382
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 4.8306000000000004,
+      "support_level": 4.98,
+      "resistance_level": 6.78,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 4.731
+    },
+    "from_cache": false
+  }
+}

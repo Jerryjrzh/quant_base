@@ -29,7 +29,7 @@ class StockPoolManager:
         self._init_database()
     
     def _init_database(self):
-        """初始化数据库表结构"""
+        """初始化数据库表结构，并自动迁移添加新字段"""
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
             
@@ -59,6 +59,16 @@ class StockPoolManager:
                     max_drawdown REAL,
                     sharpe_ratio REAL,
                     
+                    -- 新增：数据丰富字段
+                    health_score REAL,                     -- 健康分 (由enricher计算)
+                    sector TEXT,                           -- 所属板块/概念
+                    eps REAL,                              -- 每股收益 (来自fhps)
+                    dividend_yield REAL,                   -- 股息率 (来自fhps)
+                    lhb_history TEXT,                      -- 龙虎榜历史 (JSON格式)
+                    block_trade_history TEXT,              -- 大宗交易历史 (JSON格式)
+                    fund_flow_summary TEXT,                -- 资金流向摘要 (JSON格式)
+                    limit_up_reason TEXT,                  -- 最近涨停原因
+                    
                     -- 状态管理
                     status TEXT DEFAULT 'active',  -- active, inactive, monitoring
                     last_signal_date DATETIME,
@@ -73,6 +83,45 @@ class StockPoolManager:
                     notes TEXT
                 )
             ''')
+            
+            # --- 新增：数据库迁移逻辑 ---
+            # 1. 定义最新的、完整的表应有的所有字段
+            expected_columns = {
+                'id', 'stock_code', 'stock_name', 'market', 'industry', 'overall_score', 
+                'grade', 'risk_level', 'optimized_params', 'optimization_date', 
+                'optimization_method', 'credibility_score', 'win_rate', 'avg_return', 
+                'max_drawdown', 'sharpe_ratio', 'health_score', 'sector', 'eps', 
+                'dividend_yield', 'lhb_history', 'block_trade_history', 
+                'fund_flow_summary', 'limit_up_reason', 'status', 'last_signal_date', 
+                'signal_count', 'success_count', 'created_at', 'updated_at', 'notes'
+            }
+
+            # 2. 获取当前表实际存在的字段
+            cursor.execute('PRAGMA table_info(core_stock_pool)')
+            existing_columns = {row[1] for row in cursor.fetchall()}
+
+            # 3. 找出缺失的字段并添加
+            missing_columns = expected_columns - existing_columns
+            if missing_columns:
+                self.logger.info(f"数据库迁移：发现缺失字段 {missing_columns}，正在添加...")
+                for column in missing_columns:
+                    # 注意：这里我们简单地将新字段类型设为TEXT或REAL，可以根据需要调整
+                    # SQLite的类型亲和性使得TEXT可以存储各种数据
+                    column_type = 'REAL' if column in ['health_score', 'eps', 'dividend_yield', 'overall_score', 'credibility_score', 'win_rate', 'avg_return', 'max_drawdown', 'sharpe_ratio'] else 'TEXT'
+                    if column in ['signal_count', 'success_count']:
+                        column_type = 'INTEGER DEFAULT 0'
+                    elif column == 'status':
+                        column_type = "TEXT DEFAULT 'active'"
+                    elif column in ['created_at', 'updated_at']:
+                        column_type = 'DATETIME DEFAULT CURRENT_TIMESTAMP'
+                    elif column == 'credibility_score':
+                        column_type = 'REAL DEFAULT 1.0'
+                    
+                    try:
+                        cursor.execute(f'ALTER TABLE core_stock_pool ADD COLUMN {column} {column_type}')
+                        self.logger.info(f"成功添加字段: {column}")
+                    except sqlite3.OperationalError as e:
+                        self.logger.error(f"添加字段 {column} 失败: {e}")
             
             # 创建信号历史表
             cursor.execute('''
@@ -231,6 +280,46 @@ class StockPoolManager:
             self.logger.error(f"获取核心观察池失败: {e}")
             return []
     
+    def get_all_stocks(self, limit: Optional[int] = None) -> List[Dict]:
+        """获取所有股票列表（包括所有状态）"""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                
+                query = '''
+                    SELECT stock_code, stock_name, market, industry, overall_score, grade,
+                           risk_level, optimized_params, credibility_score, win_rate,
+                           avg_return, status, last_signal_date, signal_count, success_count,
+                           created_at, updated_at, notes
+                    FROM core_stock_pool 
+                    ORDER BY overall_score DESC, credibility_score DESC
+                '''
+                
+                if limit:
+                    query += f' LIMIT {limit}'
+                
+                cursor.execute(query)
+                rows = cursor.fetchall()
+                
+                columns = [desc[0] for desc in cursor.description]
+                result = []
+                
+                for row in rows:
+                    stock_data = dict(zip(columns, row))
+                    # 解析JSON参数
+                    if stock_data['optimized_params']:
+                        try:
+                            stock_data['optimized_params'] = json.loads(stock_data['optimized_params'])
+                        except:
+                            stock_data['optimized_params'] = None
+                    result.append(stock_data)
+                
+                return result
+                
+        except Exception as e:
+            self.logger.error(f"获取所有股票失败: {e}")
+            return []
+
     def update_stock_credibility(self, stock_code: str, new_credibility: float) -> bool:
         """更新股票信任度"""
         try:
@@ -462,6 +551,45 @@ class StockPoolManager:
             self.logger.error(f"调整观察池失败: {e}")
             return {'promoted': 0, 'demoted': 0, 'removed': 0}
     
+    def get_stock_by_code(self, stock_code: str) -> Optional[Dict[str, Any]]:
+        """根据股票代码获取单只股票的完整信息"""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                
+                cursor.execute('''
+                    SELECT stock_code, stock_name, market, industry, overall_score, grade,
+                           risk_level, optimized_params, credibility_score, win_rate,
+                           avg_return, health_score, sector, eps, dividend_yield,
+                           lhb_history, block_trade_history, fund_flow_summary,
+                           limit_up_reason, status, last_signal_date, signal_count,
+                           success_count, created_at, updated_at, notes
+                    FROM core_stock_pool 
+                    WHERE stock_code = ?
+                ''', (stock_code,))
+                
+                row = cursor.fetchone()
+                if not row:
+                    return None
+                
+                columns = [desc[0] for desc in cursor.description]
+                stock_data = dict(zip(columns, row))
+                
+                # 解析JSON字段
+                json_fields = ['optimized_params', 'lhb_history', 'block_trade_history', 'fund_flow_summary']
+                for field in json_fields:
+                    if stock_data.get(field):
+                        try:
+                            stock_data[field] = json.loads(stock_data[field])
+                        except:
+                            pass  # 保持原值
+                
+                return stock_data
+                
+        except Exception as e:
+            self.logger.error(f"获取股票信息失败 {stock_code}: {e}")
+            return None
+
     def get_pool_statistics(self) -> Dict[str, Any]:
         """获取观察池统计信息"""
         try:
@@ -581,7 +709,7 @@ class StockPoolManager:
             return 'SH'
         elif stock_code.startswith('sz'):
             return 'SZ'
-        elif '#' in stock_code
+        elif '#' in stock_code:
             return 'HK'
         else:
             return 'UNKNOWN'
@@ -612,6 +740,118 @@ class StockPoolManager:
         else:
             return 'STABLE'
     
+    def update_stock_profile(self, stock_code: str, data: dict) -> bool:
+        """更新股票画像数据，如果股票不存在则自动添加"""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                
+                # 首先检查股票是否存在
+                cursor.execute('SELECT COUNT(*) FROM core_stock_pool WHERE stock_code = ?', (stock_code,))
+                exists = cursor.fetchone()[0] > 0
+                
+                if not exists:
+                    # 股票不存在，先添加基本记录
+                    cursor.execute('''
+                        INSERT INTO core_stock_pool 
+                        (stock_code, stock_name, market, overall_score, grade, status, created_at, updated_at)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    ''', (
+                        stock_code,
+                        f"股票{stock_code}",  # 临时名称
+                        self._get_market_from_code(stock_code),
+                        0.0,  # 默认评分
+                        'F',  # 默认评级
+                        'active',
+                        datetime.now().isoformat(),
+                        datetime.now().isoformat()
+                    ))
+                    self.logger.info(f"股票 {stock_code} 已自动添加到观察池")
+                
+                # 构建动态更新语句
+                update_fields = []
+                values = []
+                
+                for key, value in data.items():
+                    if key in ['health_score', 'sector', 'eps', 'dividend_yield', 
+                              'lhb_history', 'block_trade_history', 'fund_flow_summary', 
+                              'limit_up_reason', 'optimized_params', 'optimization_date', 'optimization_method']:
+                        update_fields.append(f"{key} = ?")
+                        if isinstance(value, dict):
+                            values.append(json.dumps(value))
+                        else:
+                            values.append(value)
+                
+                if not update_fields:
+                    return False
+                
+                # 添加更新时间
+                update_fields.append("updated_at = ?")
+                values.append(datetime.now().isoformat())
+                values.append(stock_code)
+                
+                update_sql = f'''
+                    UPDATE core_stock_pool 
+                    SET {", ".join(update_fields)}
+                    WHERE stock_code = ?
+                '''
+                
+                cursor.execute(update_sql, values)
+                conn.commit()
+                
+                if cursor.rowcount > 0:
+                    self.logger.info(f"股票 {stock_code} 画像数据已更新")
+                    return True
+                else:
+                    self.logger.warning(f"股票 {stock_code} 更新失败")
+                    return False
+                    
+        except Exception as e:
+            self.logger.error(f"更新股票画像数据失败: {e}")
+            return False
+
+    # backend/stock_pool_manager.py -> class StockPoolManager
+
+    def get_all_profiles(self) -> List[Dict]:
+        """
+        获取数据库中所有已生成画像的股票信息。
+        """
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                
+                # 查询所有 optimized_params 字段不为空的股票
+                query = '''
+                    SELECT *
+                    FROM core_stock_pool 
+                    WHERE optimized_params IS NOT NULL AND optimized_params != ''
+                    ORDER BY overall_score DESC, stock_code
+                '''
+                
+                cursor.execute(query)
+                rows = cursor.fetchall()
+                
+                columns = [desc[0] for desc in cursor.description]
+                result = []
+                
+                for row in rows:
+                    stock_data = dict(zip(columns, row))
+                    # 将JSON字符串字段解析为字典对象，便于处理
+                    for key in ['optimized_params', 'lhb_history', 'block_trade_history', 'fund_flow_summary']:
+                        if stock_data.get(key) and isinstance(stock_data[key], str):
+                            try:
+                                stock_data[key] = json.loads(stock_data[key])
+                            except json.JSONDecodeError:
+                                self.logger.warning(f"无法解析 {key} JSON 字段: {stock_data['stock_code']}")
+                                stock_data[key] = None # 解析失败则设为None
+                    result.append(stock_data)
+                
+                return result
+                
+        except Exception as e:
+            self.logger.error(f"获取所有画像失败: {e}")
+            return []
+        
     def _calculate_new_credibility(self, current_credibility: float, 
                                  actual_win_rate: float, signal_count: int) -> float:
         """计算新的信任度"""

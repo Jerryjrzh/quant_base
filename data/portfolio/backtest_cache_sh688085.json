@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:03:31",
+  "analysis_results": {
+    "stock_code": "sh688085",
+    "analysis_time": "2025-08-25 19:03:31",
+    "current_price": 22.46,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 65.77478215526648,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 99.86449864498645,
+          "avg_return": 14.640207420686512,
+          "score": 65.77478215526648
+        },
+        "0.98": {
+          "success_rate": 99.86824769433466,
+          "avg_return": 13.739173625987679,
+          "score": 65.41661806699587
+        },
+        "0.99": {
+          "success_rate": 99.75429975429975,
+          "avg_return": 13.197095349751748,
+          "score": 65.13141799248055
+        },
+        "1.0": {
+          "success_rate": 99.43310657596372,
+          "avg_return": 13.318019775204107,
+          "score": 64.98707185565988
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 18.43,
+      "support_level": 19.0,
+      "resistance_level": 22.5,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 18.05
+    },
+    "from_cache": false
+  }
+}

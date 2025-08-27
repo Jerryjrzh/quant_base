@@ -1,0 +1,137 @@
+grades:
+  A:
+    name: "A级 (优质股票)"
+    description: "高置信度、低风险的优质投资标的"
+    rules:
+      - type: comprehensive_score
+        range: [80, 101]
+        reason: "综合评分A级 ({score:.1f}分)"
+      - type: confidence_and_risk
+        confidence_min: 0.85
+        risk_levels: ["低"]
+        reason: "高置信度A级 (置信度{confidence:.1%}, {risk_level}风险)"
+      - type: confidence_and_risk
+        confidence_range: [0.80, 0.85]
+        risk_levels: ["低", "中"]
+        reason: "中高置信度A级 (置信度{confidence:.1%}, {risk_level}风险)"
+      - type: source_specific
+        sources: ["rsi_analysis_txt"]
+        reason: "RSI分析A级推荐"
+      - type: source_specific
+        sources: ["rsi_report_txt"]
+        conditions:
+          confidence_min: 0.85
+          risk_levels: ["低", "中"]
+        reason: "RSI扫描A级 (置信度{confidence:.1%})"
+      - type: source_specific
+        sources: ["strategy_analysis_txt"]
+        conditions:
+          strength_min: 15.0
+          max_gain_min: 0.15
+        reason: "策略分析A级 (强势度{strength}%)"
+      - type: direct_grade
+        reason: "直接标记为A级"
+    risk_warning:
+      - "A级股票虽然质量较高，但仍存在市场风险"
+      - "建议合理配置仓位，不宜全仓投入单只股票"
+      - "密切关注市场环境变化和个股基本面"
+      - "设置合理的止盈止损位"
+      - "本报告仅供参考，不构成投资建议"
+
+  B:
+    name: "B级 (潜力股票)"
+    description: "中等置信度、可接受风险的潜力投资标的"
+    rules:
+      - type: comprehensive_score
+        range: [60, 80]
+        reason: "综合评分B级 ({score:.1f}分)"
+      - type: confidence_and_risk
+        confidence_range: [0.60, 0.85]
+        risk_levels: ["中", "低"]
+        reason: "中等置信度B级 (置信度{confidence:.1%}, {risk_level}风险)"
+      - type: rsi_range
+        range: [20, 40]
+        confidence_min: 0.60
+        reason: "RSI范围B级 (RSI6={rsi:.1f}, 置信度{confidence:.1%})"
+      - type: signal_strength
+        min: 1
+        confidence_min: 0.60
+        reason: "信号强度B级 (强度{strength}, 置信度{confidence:.1%})"
+      - type: source_specific
+        sources: ["universal_screening", "abyss_bottoming", "macd_zero_axis"]
+        conditions:
+          confidence_min: 0.60
+        reason: "通用筛选B级"
+      - type: source_specific
+        sources: ["weekly_golden_cross_ma"]
+        conditions:
+          signal_strength_min: 1
+        reason: "周线金叉B级"
+      - type: source_specific
+        sources: ["value_reversal"]
+        conditions:
+          confidence_min: 0.60
+        reason: "价值反转B级"
+      - type: direct_grade
+        reason: "直接标记为B级"
+    risk_warning:
+      - "B级股票属于中等质量投资标的，存在一定投资风险"
+      - "建议采用分散投资策略，单只股票仓位不宜过重"
+      - "密切关注市场环境变化，及时调整投资策略"
+      - "建议设置止损位，控制单笔投资风险"
+      - "B级股票适合有一定风险承受能力的投资者"
+      - "投资前请仔细研究个股基本面和技术面"
+      - "本报告仅供参考，不构成投资建议"
+
+  C:
+    name: "C级 (观察股票)"
+    description: "较低置信度、高风险的观察类投资标的"
+    rules:
+      - type: comprehensive_score
+        range: [40, 60]
+        reason: "综合评分C级 ({score:.1f}分)"
+      - type: confidence_and_risk
+        confidence_range: [0.40, 0.60]
+        risk_levels: ["高", "中"]
+        reason: "低置信度C级 (置信度{confidence:.1%}, {risk_level}风险)"
+      - type: rsi_range
+        range: [15, 25]
+        confidence_min: 0.40
+        reason: "极低RSI C级 (RSI6={rsi:.1f})"
+      - type: signal_strength
+        min: 1
+        confidence_min: 0.40
+        reason: "弱信号C级 (强度{strength})"
+      - type: direct_grade
+        reason: "直接标记为C级"
+    risk_warning:
+      - "C级股票风险较高，仅适合风险承受能力强的投资者"
+      - "建议仅用少量资金进行试探性投资"
+      - "严格设置止损位，控制亏损风险"
+      - "密切关注技术指标变化，及时止损或止盈"
+      - "不建议长期持有，适合短线操作"
+      - "投资前务必深入研究个股情况"
+      - "本报告仅供参考，投资需谨慎"
+
+# 全局配置
+global_settings:
+  # 数据缓存设置
+  enable_data_cache: true
+  cache_size_limit: 1000
+  
+  # 报告设置
+  default_periods: [5, 15, 23]  # 默认计算的涨幅周期
+  report_format: "txt"  # 默认报告格式
+  export_excel: true  # 是否导出Excel
+  
+  # 文件搜索设置
+  search_patterns:
+    rsi_files: ["rsi_bottom_signals_*.json", "rsi_investment_analysis_*.txt", "rsi_bottom_report_*.txt"]
+    strategy_files: ["precise_strategy_analysis_*.txt"]
+    general_files: ["*_results_*.json"]
+  
+  # 去重设置
+  deduplication:
+    enabled: true
+    merge_scores: true  # 合并重复记录的评分
+    keep_latest: true   # 保留最新记录

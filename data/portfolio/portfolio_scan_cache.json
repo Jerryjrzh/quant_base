@@ -1,7 +1,7 @@
 {
-  "scan_time": "2025-08-15 08:55:42",
+  "scan_time": "2025-08-25 19:03:07",
   "results": {
-    "scan_time": "2025-08-15 08:55:42",
+    "scan_time": "2025-08-25 19:03:07",
     "total_positions": 31,
     "positions": [
       {
@@ -11,70 +11,53 @@
         "purchase_date": "2024-01-15",
         "note": "华宝股份 - 香精-食品",
         "created_time": "2025-07-29 11:02:28",
-        "last_analysis_time": "2025-08-15 08:55:41",
-        "updated_time": "2025-08-15 08:55:41",
-        "current_price": 19.03,
-        "profit_loss_pct": -29.309063893016347,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 42.00964954815754,
-            "macd_value": 0.0008525336096733699,
-            "kdj_k_value": 48.402688229967566,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 20.28,
-            "support_level": 18.2,
-            "distance_to_resistance": 6.568575932737781,
-            "distance_to_support": 4.3615344193378975
+        "last_analysis_time": "2025-08-25 18:58:12",
+        "updated_time": "2025-08-25 18:58:12",
+        "current_price": 19.39,
+        "profit_loss_pct": -27.971768202080238,
+        "analysis_time": "2025-08-25 18:58:12",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 66.28980306517487,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 15.724507662937155,
+              "score": 66.28980306517487
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 14.846319940653935,
+              "score": 65.93852797626157
+            },
+            "0.99": {
+              "success_rate": 99.8901098901099,
+              "avg_return": 13.684897128513319,
+              "score": 65.40802478547127
+            },
+            "1.0": {
+              "success_rate": 99.47862356621481,
+              "avg_return": 12.844877035673226,
+              "score": 64.82512495399817
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.8,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 18.333,
+          "support_level": 18.9,
+          "resistance_level": 22.56,
           "reasons": [
-            "亏损29.3%，建议止损"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 18.6494
+          "stop_loss_price": 17.955
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 42.73611605316678,
-          "max_drawdown": 41.13222486144102,
-          "risk_factors": [
-            "高波动率(42.7%)",
-            "大幅回撤(41.1%)"
-          ],
-          "price_position_pct": 39.9038461538462
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 22.56,
-          "next_support": 18.9,
-          "bb_upper_target": 19.768619470844186,
-          "bb_lower_target": 18.779380529155816,
-          "short_term_target": 19.9815,
-          "medium_term_target": 21.8845,
-          "stop_loss_level": 17.5076
-        },
-        "timing_analysis": {
-          "holding_days": 578,
-          "expected_peak_date": null,
-          "days_to_peak": null,
-          "avg_cycle_days": 28,
-          "timing_advice": "持有时间较长，建议关注卖出时机"
-        }
+        "holding_days": 588
       },
       {
         "stock_code": "sh600618",
@@ -83,71 +66,53 @@
         "purchase_date": "2024-02-20",
         "note": "氯碱化工 - 化工",
         "created_time": "2025-07-29 11:02:28",
-        "last_analysis_time": "2025-08-15 08:55:41",
-        "updated_time": "2025-08-15 08:55:41",
-        "current_price": 10.05,
-        "profit_loss_pct": -2.4271844660194173,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.25,
-            "price_position": "中期下降"
-          },
-          "momentum_analysis": {
-            "rsi_value": 34.17944125549741,
-            "macd_value": -0.052159104449584076,
-            "kdj_k_value": 39.18981102264803,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 10.97,
-            "support_level": 9.59,
-            "distance_to_resistance": 9.154228855721392,
-            "distance_to_support": 4.577114427860705
+        "last_analysis_time": "2025-08-15 08:55:42",
+        "updated_time": "2025-08-15 08:55:42",
+        "current_price": 10.74,
+        "profit_loss_pct": 4.27184466019417,
+        "analysis_time": "2025-08-25 19:03:10",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 65.02225293838349,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 12.555632345958735,
+              "score": 65.02225293838349
+            },
+            "0.98": {
+              "success_rate": 99.85935302390999,
+              "avg_return": 12.027049655231052,
+              "score": 64.72643167643841
+            },
+            "0.99": {
+              "success_rate": 99.87228607918263,
+              "avg_return": 11.474294449177204,
+              "score": 64.51308942718046
+            },
+            "1.0": {
+              "success_rate": 99.18604651162791,
+              "avg_return": 11.263698892293624,
+              "score": 64.01710746389419
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
-          "confidence": 0.5,
+          "confidence": 0.6,
+          "optimal_add_price": 9.9231,
+          "support_level": 10.23,
+          "resistance_level": 10.97,
           "reasons": [
-            "盈利-2.4%，继续持有"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 9.7185
         },
         "risk_assessment": {
-          "risk_level": "MEDIUM",
-          "risk_score": 5,
-          "volatility": 39.64712552419201,
-          "max_drawdown": 42.79559597893729,
-          "risk_factors": [
-            "中等波动率(39.6%)",
-            "大幅回撤(42.8%)"
-          ],
-          "price_position_pct": 33.33333333333338
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 10.97,
-          "next_support": 10.03,
-          "bb_upper_target": 10.792647004059699,
-          "bb_lower_target": 9.931352995940301,
-          "short_term_target": 10.552500000000002,
-          "medium_term_target": 11.5575,
-          "stop_loss_level": 9.246
-        },
-        "timing_analysis": {
-          "holding_days": 542,
-          "expected_peak_date": null,
-          "days_to_peak": null,
-          "avg_cycle_days": 32,
-          "timing_advice": "持有时间较长，建议关注卖出时机"
-        }
+        "holding_days": 552
       },
       {
         "stock_code": "sz002021",
@@ -156,70 +121,53 @@
         "purchase_date": "2024-03-10",
         "note": "中捷资源 - 资源",
         "created_time": "2025-07-29 11:02:28",
-        "last_analysis_time": "2025-08-15 08:55:41",
-        "updated_time": "2025-08-15 08:55:41",
-        "current_price": 2.4,
-        "profit_loss_pct": 3.448275862068969,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 39.274407704873596,
-            "macd_value": 0.0014951157967639794,
-            "kdj_k_value": 65.74280052064555,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 2.5,
-            "support_level": 2.31,
-            "distance_to_resistance": 4.1666666666666705,
-            "distance_to_support": 3.7499999999999942
+        "last_analysis_time": "2025-08-15 08:55:42",
+        "updated_time": "2025-08-15 08:55:42",
+        "current_price": 2.47,
+        "profit_loss_pct": 6.465517241379326,
+        "analysis_time": "2025-08-25 19:03:14",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 67.04630274661139,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 17.61575686652846,
+              "score": 67.04630274661139
+            },
+            "0.98": {
+              "success_rate": 99.74193548387098,
+              "avg_return": 16.930675326308503,
+              "score": 66.61743142084597
+            },
+            "0.99": {
+              "success_rate": 99.76218787158146,
+              "avg_return": 16.663495873656846,
+              "score": 66.52271107241161
+            },
+            "1.0": {
+              "success_rate": 99.23830250272034,
+              "avg_return": 16.667790528369924,
+              "score": 66.21009771298017
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
-          "confidence": 0.5,
+          "confidence": 0.6,
+          "optimal_add_price": 2.3183000000000002,
+          "support_level": 2.39,
+          "resistance_level": 2.5,
           "reasons": [
-            "盈利3.4%，继续持有"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 2.2705
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 43.64670435092461,
-          "max_drawdown": 41.72932330827068,
-          "risk_factors": [
-            "高波动率(43.6%)",
-            "大幅回撤(41.7%)"
-          ],
-          "price_position_pct": 47.36842105263152
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 2.5,
-          "next_support": 2.39,
-          "bb_upper_target": 2.4994461972915407,
-          "bb_lower_target": 2.3285538027084596,
-          "short_term_target": 2.52,
-          "medium_term_target": 2.76,
-          "stop_loss_level": 2.208
-        },
-        "timing_analysis": {
-          "holding_days": 523,
-          "expected_peak_date": null,
-          "days_to_peak": null,
-          "avg_cycle_days": 23,
-          "timing_advice": "持有时间较长，建议关注卖出时机"
-        }
+        "holding_days": 533
       },
       {
         "stock_code": "sz300739",
@@ -230,70 +178,51 @@
         "created_time": "2025-07-29 11:39:08",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 15.8,
-        "profit_loss_pct": 17.734724292101347,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 45.47376444479856,
-            "macd_value": -0.022184643781000546,
-            "kdj_k_value": 45.8639258235294,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 17.71,
-            "support_level": 14.66,
-            "distance_to_resistance": 12.08860759493671,
-            "distance_to_support": 7.215189873417725
+        "current_price": 17.57,
+        "profit_loss_pct": 30.92399403874814,
+        "analysis_time": "2025-08-25 19:03:17",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 66.14630787582823,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 15.365769689570563,
+              "score": 66.14630787582823
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 14.466956274237939,
+              "score": 65.78678250969517
+            },
+            "0.99": {
+              "success_rate": 99.88165680473374,
+              "avg_return": 14.124252833049376,
+              "score": 65.57869521606
+            },
+            "1.0": {
+              "success_rate": 99.5505617977528,
+              "avg_return": 13.497733319451344,
+              "score": 65.12943040643222
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
-          "confidence": 0.5,
+          "confidence": 0.6,
+          "optimal_add_price": 14.899199999999999,
+          "support_level": 15.36,
+          "resistance_level": 17.71,
           "reasons": [
-            "盈利17.7%，继续持有"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 14.591999999999999
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 46.253846617537995,
-          "max_drawdown": 44.19143345452684,
-          "risk_factors": [
-            "高波动率(46.3%)",
-            "大幅回撤(44.2%)"
-          ],
-          "price_position_pct": 37.37704918032788
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 17.71,
-          "next_support": 15.36,
-          "bb_upper_target": 16.447171029502176,
-          "bb_lower_target": 15.181828970497824,
-          "short_term_target": 16.59,
-          "medium_term_target": 18.169999999999998,
-          "stop_loss_level": 14.536000000000001
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-31",
-          "days_to_peak": 15,
-          "avg_cycle_days": 33,
-          "timing_advice": "预计15天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600121",
@@ -304,72 +233,51 @@
         "created_time": "2025-07-29 11:40:33",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 4.04,
-        "profit_loss_pct": -24.48598130841121,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.25,
-            "price_position": "中期下降"
-          },
-          "momentum_analysis": {
-            "rsi_value": 31.265791670267177,
-            "macd_value": -0.02852094247526546,
-            "kdj_k_value": 11.770407023183935,
-            "momentum_signals": [
-              "MACD向下",
-              "KDJ超卖"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 4.82,
-            "support_level": 3.93,
-            "distance_to_resistance": 19.30693069306931,
-            "distance_to_support": 2.72277227722772
+        "current_price": 4.17,
+        "profit_loss_pct": -22.056074766355135,
+        "analysis_time": "2025-08-25 19:03:19",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.99,
+          "best_add_score": 66.47387208208339,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 14.985086507245498,
+              "score": 65.9940346028982
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 14.760366230310227,
+              "score": 65.90414649212408
+            },
+            "0.99": {
+              "success_rate": 99.65397923875432,
+              "avg_return": 16.703711347077,
+              "score": 66.47387208208339
+            },
+            "1.0": {
+              "success_rate": 99.25053533190578,
+              "avg_return": 16.753155940207268,
+              "score": 66.25158357522638
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.8,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 4.0887,
+          "support_level": 4.13,
+          "resistance_level": 4.82,
           "reasons": [
-            "亏损24.5%，建议止损",
-            "价格跌破长期均线，趋势转弱"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 3.9592
+          "stop_loss_price": 3.9234999999999998
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 52.54567228660244,
-          "max_drawdown": 48.283261802575105,
-          "risk_factors": [
-            "高波动率(52.5%)",
-            "大幅回撤(48.3%)",
-            "价格接近近期低点"
-          ],
-          "price_position_pct": 12.359550561797738
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 4.82,
-          "next_support": 3.81,
-          "bb_upper_target": 4.477429596716643,
-          "bb_lower_target": 3.9745704032833564,
-          "short_term_target": 4.242,
-          "medium_term_target": 4.646,
-          "stop_loss_level": 3.7168
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-25",
-          "days_to_peak": 9,
-          "avg_cycle_days": 27,
-          "timing_advice": "预计9天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600029",
@@ -380,72 +288,51 @@
         "created_time": "2025-07-29 11:41:28",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 5.76,
-        "profit_loss_pct": -18.758815232722146,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA5之上",
-              "价格在MA13之上",
-              "MA5在MA13之上"
-            ],
-            "trend_strength": 0.75,
-            "price_position": "中期上升"
-          },
-          "momentum_analysis": {
-            "rsi_value": 59.725585851535975,
-            "macd_value": 0.0061679146096019904,
-            "kdj_k_value": 32.388854824029394,
-            "momentum_signals": [
-              "MACD向上"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 5.99,
-            "support_level": 5.64,
-            "distance_to_resistance": 3.993055555555563,
-            "distance_to_support": 2.0833333333333353
+        "current_price": 6.0,
+        "profit_loss_pct": -15.373765867418898,
+        "analysis_time": "2025-08-25 19:03:23",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 64.46466596026652,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 11.161664900666276,
+              "score": 64.46466596026652
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 10.913598774160981,
+              "score": 64.3654395096644
+            },
+            "0.99": {
+              "success_rate": 99.88165680473374,
+              "avg_return": 10.327347767061324,
+              "score": 64.05993318966478
+            },
+            "1.0": {
+              "success_rate": 99.26701570680628,
+              "avg_return": 9.93138660972221,
+              "score": 63.53276406797265
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.8,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 5.6259999999999994,
+          "support_level": 5.8,
+          "resistance_level": 6.06,
           "reasons": [
-            "亏损18.8%，建议止损",
-            "价格跌破长期均线，趋势转弱"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 5.6448
+          "stop_loss_price": 5.51
         },
         "risk_assessment": {
-          "risk_level": "MEDIUM",
-          "risk_score": 5,
-          "volatility": 30.658250207222554,
-          "max_drawdown": 27.895392278953917,
-          "risk_factors": [
-            "中等波动率(30.7%)",
-            "大幅回撤(27.9%)"
-          ],
-          "price_position_pct": 34.28571428571426
+          "risk_level": "HIGH",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 6.06,
-          "next_support": 5.75,
-          "bb_upper_target": 5.870536108672968,
-          "bb_lower_target": 5.635463891327032,
-          "short_term_target": 6.048,
-          "medium_term_target": 6.624,
-          "stop_loss_level": 5.2992
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-25",
-          "days_to_peak": 9,
-          "avg_cycle_days": 27,
-          "timing_advice": "预计9天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600596",
@@ -456,69 +343,51 @@
         "created_time": "2025-07-29 11:42:24",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 9.67,
-        "profit_loss_pct": 2.111932418162611,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.25,
-            "price_position": "中期下降"
-          },
-          "momentum_analysis": {
-            "rsi_value": 33.23360948445547,
-            "macd_value": -0.09755810960538613,
-            "kdj_k_value": 56.88396706659937,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 10.96,
-            "support_level": 8.3,
-            "distance_to_resistance": 13.340227507755955,
-            "distance_to_support": 14.167528438469484
+        "current_price": 10.48,
+        "profit_loss_pct": 10.665258711721222,
+        "analysis_time": "2025-08-25 19:03:25",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 65.01233085802713,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 12.530827145067834,
+              "score": 65.01233085802713
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 12.14619120247554,
+              "score": 64.85847648099022
+            },
+            "0.99": {
+              "success_rate": 99.85935302390999,
+              "avg_return": 12.459519210856753,
+              "score": 64.8994194986887
+            },
+            "1.0": {
+              "success_rate": 99.50062421972534,
+              "avg_return": 12.362174605779021,
+              "score": 64.64524437414681
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
-          "confidence": 0.5,
+          "confidence": 0.6,
+          "optimal_add_price": 9.506,
+          "support_level": 9.8,
+          "resistance_level": 10.96,
           "reasons": [
-            "盈利2.1%，继续持有"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 9.31
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 43.42121075459967,
-          "max_drawdown": 41.94378888650503,
-          "risk_factors": [
-            "高波动率(43.4%)",
-            "大幅回撤(41.9%)"
-          ],
-          "price_position_pct": 51.50375939849621
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 10.96,
-          "next_support": 7.97,
-          "bb_upper_target": 10.70285986224572,
-          "bb_lower_target": 9.334140137754279,
-          "short_term_target": 10.153500000000001,
-          "medium_term_target": 11.1205,
-          "stop_loss_level": 8.8964
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-27",
-          "days_to_peak": 11,
-          "avg_cycle_days": 29,
-          "timing_advice": "预计11天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600489",
@@ -529,71 +398,51 @@
         "created_time": "2025-07-29 11:43:34",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 14.66,
-        "profit_loss_pct": 62.34772978959027,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 44.32338370448403,
-            "macd_value": -0.04165195318144549,
-            "kdj_k_value": 40.48839054580313,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 16.1,
-            "support_level": 13.73,
-            "distance_to_resistance": 9.822646657571632,
-            "distance_to_support": 6.343792633015005
+        "current_price": 15.15,
+        "profit_loss_pct": 67.77408637873755,
+        "analysis_time": "2025-08-25 19:03:28",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 64.55080595525595,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 11.377014888139872,
+              "score": 64.55080595525595
+            },
+            "0.98": {
+              "success_rate": 99.86244841815682,
+              "avg_return": 11.168243629701994,
+              "score": 64.38476650277488
+            },
+            "0.99": {
+              "success_rate": 99.87789987789988,
+              "avg_return": 10.846412937493199,
+              "score": 64.26530510173721
+            },
+            "1.0": {
+              "success_rate": 98.67986798679867,
+              "avg_return": 10.80800555678081,
+              "score": 63.531123014791525
+            }
           }
         },
         "position_advice": {
-          "action": "REDUCE",
-          "confidence": 0.7,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 14.1717,
+          "support_level": 14.61,
+          "resistance_level": 16.1,
           "reasons": [
-            "已获利62.3%，建议减仓锁定利润",
-            "价格跌破长期均线，趋势转弱"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": 13.927,
-          "stop_loss_price": null
+          "stop_loss_price": 13.879499999999998
         },
         "risk_assessment": {
-          "risk_level": "MEDIUM",
-          "risk_score": 5,
-          "volatility": 33.87815987122143,
-          "max_drawdown": 24.70733210104744,
-          "risk_factors": [
-            "中等波动率(33.9%)",
-            "大幅回撤(24.7%)"
-          ],
-          "price_position_pct": 39.24050632911389
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 16.1,
-          "next_support": 14.61,
-          "bb_upper_target": 15.708953174431011,
-          "bb_lower_target": 14.12304682556899,
-          "short_term_target": 15.393,
-          "medium_term_target": 16.858999999999998,
-          "stop_loss_level": 13.487200000000001
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-27",
-          "days_to_peak": 11,
-          "avg_cycle_days": 29,
-          "timing_advice": "预计11天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh688085",
@@ -604,70 +453,51 @@
         "created_time": "2025-07-29 11:44:27",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 20.25,
-        "profit_loss_pct": 8.28877005347594,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.75,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 50.727304178854666,
-            "macd_value": 0.042047848451176484,
-            "kdj_k_value": 76.09489961901059,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 22.5,
-            "support_level": 15.585533934504037,
-            "distance_to_resistance": 11.11111111111111,
-            "distance_to_support": 23.034400323436856
+        "current_price": 22.46,
+        "profit_loss_pct": 20.106951871657763,
+        "analysis_time": "2025-08-25 19:03:31",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 65.77478215526648,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 99.86449864498645,
+              "avg_return": 14.640207420686512,
+              "score": 65.77478215526648
+            },
+            "0.98": {
+              "success_rate": 99.86824769433466,
+              "avg_return": 13.739173625987679,
+              "score": 65.41661806699587
+            },
+            "0.99": {
+              "success_rate": 99.75429975429975,
+              "avg_return": 13.197095349751748,
+              "score": 65.13141799248055
+            },
+            "1.0": {
+              "success_rate": 99.43310657596372,
+              "avg_return": 13.318019775204107,
+              "score": 64.98707185565988
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
           "confidence": 0.6,
+          "optimal_add_price": 18.43,
+          "support_level": 19.0,
+          "resistance_level": 22.5,
           "reasons": [
-            "盈利8.3%，继续持有",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 18.05
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 48.71848110618636,
-          "max_drawdown": 33.74045801526718,
-          "risk_factors": [
-            "高波动率(48.7%)",
-            "大幅回撤(33.7%)"
-          ],
-          "price_position_pct": 67.45952646686956
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 20.79,
-          "next_support": 19.0,
-          "bb_upper_target": 21.663144731880024,
-          "bb_lower_target": 17.431855268119982,
-          "short_term_target": 21.2625,
-          "medium_term_target": 23.287499999999998,
-          "stop_loss_level": 18.630000000000003
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-26",
-          "days_to_peak": 10,
-          "avg_cycle_days": 28,
-          "timing_advice": "预计10天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600166",
@@ -678,70 +508,51 @@
         "created_time": "2025-07-29 11:45:14",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 2.64,
-        "profit_loss_pct": -11.111111111111112,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [],
-            "trend_strength": 0.0,
-            "price_position": "弱势下降"
-          },
-          "momentum_analysis": {
-            "rsi_value": 32.71809505633398,
-            "macd_value": -0.012471884550918542,
-            "kdj_k_value": 12.97717457164724,
-            "momentum_signals": [
-              "MACD向下",
-              "KDJ超卖"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 2.9,
-            "support_level": 2.63,
-            "distance_to_resistance": 9.84848484848484,
-            "distance_to_support": 0.3787878787878875
+        "current_price": 2.78,
+        "profit_loss_pct": -6.3973063973064095,
+        "analysis_time": "2025-08-25 19:03:34",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 65.81236488333155,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 14.530912208328887,
+              "score": 65.81236488333155
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 14.431618242735944,
+              "score": 65.77264729709438
+            },
+            "0.99": {
+              "success_rate": 100.0,
+              "avg_return": 13.86581034314355,
+              "score": 65.54632413725741
+            },
+            "1.0": {
+              "success_rate": 99.53379953379954,
+              "avg_return": 14.025577211770095,
+              "score": 65.33051060498775
+            }
           }
         },
         "position_advice": {
-          "action": "ADD",
+          "action": "HOLD",
           "confidence": 0.6,
+          "optimal_add_price": 2.6771999999999996,
+          "support_level": 2.76,
+          "resistance_level": 2.9,
           "reasons": [
-            "RSI超卖，价格回调，可考虑补仓",
-            "价格跌破长期均线，趋势转弱"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": 2.508,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 2.622
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 41.52189899366077,
-          "max_drawdown": 28.755364806866957,
-          "risk_factors": [
-            "高波动率(41.5%)",
-            "大幅回撤(28.8%)",
-            "价格接近近期低点"
-          ],
-          "price_position_pct": 3.703703703703789
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 2.9,
-          "next_support": 2.62,
-          "bb_upper_target": 2.8905253301760196,
-          "bb_lower_target": 2.6094746698239804,
-          "short_term_target": 2.7720000000000002,
-          "medium_term_target": 3.036,
-          "stop_loss_level": 2.4288000000000003
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-25",
-          "days_to_peak": 9,
-          "avg_cycle_days": 27,
-          "timing_advice": "预计9天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600172",
@@ -752,71 +563,51 @@
         "created_time": "2025-07-29 11:45:47",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 5.03,
-        "profit_loss_pct": 42.09039548022599,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA5之上",
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 1.0,
-            "price_position": "强势上升"
-          },
-          "momentum_analysis": {
-            "rsi_value": 61.34807386269941,
-            "macd_value": 0.06921249545870096,
-            "kdj_k_value": 78.60230832994677,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 5.5,
-            "support_level": 4.13,
-            "distance_to_resistance": 9.343936381709735,
-            "distance_to_support": 17.892644135188874
+        "current_price": 4.94,
+        "profit_loss_pct": 39.54802259887006,
+        "analysis_time": "2025-08-25 19:03:37",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.99,
+          "best_add_score": 67.99157278669169,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 17.778478233804567,
+              "score": 67.11139129352182
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 18.775899539105847,
+              "score": 67.51035981564235
+            },
+            "0.99": {
+              "success_rate": 100.0,
+              "avg_return": 19.97893196672923,
+              "score": 67.99157278669169
+            },
+            "1.0": {
+              "success_rate": 100.0,
+              "avg_return": 19.91350114701117,
+              "score": 67.96540045880447
+            }
           }
         },
         "position_advice": {
-          "action": "REDUCE",
-          "confidence": 0.7999999999999999,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 4.2669,
+          "support_level": 4.31,
+          "resistance_level": 5.5,
           "reasons": [
-            "已获利42.1%，建议减仓锁定利润",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": 4.7785,
-          "stop_loss_price": null
+          "stop_loss_price": 4.094499999999999
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 57.226545382593955,
-          "max_drawdown": 48.34170854271357,
-          "risk_factors": [
-            "高波动率(57.2%)",
-            "大幅回撤(48.3%)"
-          ],
-          "price_position_pct": 65.69343065693432
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": null,
-          "next_support": 4.31,
-          "bb_upper_target": 5.130489352780734,
-          "bb_lower_target": 4.019510647219264,
-          "short_term_target": 5.2815,
-          "medium_term_target": 5.7844999999999995,
-          "stop_loss_level": 4.6276
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-27",
-          "days_to_peak": 11,
-          "avg_cycle_days": 29,
-          "timing_advice": "预计11天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh601111",
@@ -827,69 +618,51 @@
         "created_time": "2025-07-29 11:47:11",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 7.26,
-        "profit_loss_pct": -0.41152263374485937,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [],
-            "trend_strength": 0.0,
-            "price_position": "弱势下降"
-          },
-          "momentum_analysis": {
-            "rsi_value": 35.97158181587214,
-            "macd_value": 0.004316544945782694,
-            "kdj_k_value": 18.757070634509155,
-            "momentum_signals": [
-              "KDJ超卖"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 7.78,
-            "support_level": 7.17,
-            "distance_to_resistance": 7.1625344352617155,
-            "distance_to_support": 1.2396694214876014
+        "current_price": 7.54,
+        "profit_loss_pct": 3.4293552812071333,
+        "analysis_time": "2025-08-25 19:03:40",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 64.96450949370406,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 12.411273734260151,
+              "score": 64.96450949370406
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 11.729269243814286,
+              "score": 64.69170769752571
+            },
+            "0.99": {
+              "success_rate": 100.0,
+              "avg_return": 11.082679007050084,
+              "score": 64.43307160282004
+            },
+            "1.0": {
+              "success_rate": 99.68354430379746,
+              "avg_return": 10.636793324434793,
+              "score": 64.06484391205238
+            }
           }
         },
         "position_advice": {
-          "action": "WATCH",
-          "confidence": 0.3,
+          "action": "AVOID",
+          "confidence": 0.5,
+          "optimal_add_price": 7.2847,
+          "support_level": 7.51,
+          "resistance_level": 8.14,
           "reasons": [
-            "盈利-0.4%，继续持有",
-            "价格跌破长期均线，趋势转弱"
+            "价格位于长期均线MA60下方，趋势偏弱。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 7.134499999999999
         },
         "risk_assessment": {
-          "risk_level": "MEDIUM",
-          "risk_score": 5,
-          "volatility": 33.986676434055305,
-          "max_drawdown": 27.41071428571427,
-          "risk_factors": [
-            "中等波动率(34.0%)",
-            "大幅回撤(27.4%)",
-            "价格接近近期低点"
-          ],
-          "price_position_pct": 14.754098360655707
+          "risk_level": "HIGH",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 8.14,
-          "next_support": 7.25,
-          "bb_upper_target": 7.662046459235445,
-          "bb_lower_target": 7.1009535407645545,
-          "short_term_target": 7.623,
-          "medium_term_target": 8.348999999999998,
-          "stop_loss_level": 6.6792
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-25",
-          "days_to_peak": 9,
-          "avg_cycle_days": 27,
-          "timing_advice": "预计9天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz002852",
@@ -900,70 +673,51 @@
         "created_time": "2025-07-29 11:48:10",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 11.8,
-        "profit_loss_pct": -25.59899117276166,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 44.25623510677932,
-            "macd_value": -0.02680630410704843,
-            "kdj_k_value": 68.35077874329512,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 12.87,
-            "support_level": 10.03,
-            "distance_to_resistance": 9.067796610169479,
-            "distance_to_support": 15.00000000000001
+        "current_price": 11.81,
+        "profit_loss_pct": -25.535939470365694,
+        "analysis_time": "2025-08-25 19:03:43",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 66.57684265510171,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 99.7340425531915,
+              "avg_return": 16.841042807967053,
+              "score": 66.57684265510171
+            },
+            "0.98": {
+              "success_rate": 99.62168978562421,
+              "avg_return": 15.940301537569193,
+              "score": 66.1491344864022
+            },
+            "0.99": {
+              "success_rate": 99.63503649635037,
+              "avg_return": 15.23420254316867,
+              "score": 65.87470291507769
+            },
+            "1.0": {
+              "success_rate": 99.34065934065934,
+              "avg_return": 15.564724956615384,
+              "score": 65.83028558704176
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.8,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 11.4363,
+          "support_level": 11.79,
+          "resistance_level": 12.87,
           "reasons": [
-            "亏损25.6%，建议止损"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 11.564
+          "stop_loss_price": 11.200499999999998
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 46.718085529174594,
-          "max_drawdown": 41.6874687968048,
-          "risk_factors": [
-            "高波动率(46.7%)",
-            "大幅回撤(41.7%)"
-          ],
-          "price_position_pct": 62.32394366197188
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 12.42,
-          "next_support": 11.35,
-          "bb_upper_target": 12.568678897287691,
-          "bb_lower_target": 10.878321102712308,
-          "short_term_target": 12.39,
-          "medium_term_target": 13.57,
-          "stop_loss_level": 10.856000000000002
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-25",
-          "days_to_peak": 9,
-          "avg_cycle_days": 27,
-          "timing_advice": "预计9天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz002678",
@@ -974,70 +728,51 @@
         "created_time": "2025-07-29 11:49:12",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 4.84,
-        "profit_loss_pct": -32.96398891966759,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [],
-            "trend_strength": 0.0,
-            "price_position": "弱势下降"
-          },
-          "momentum_analysis": {
-            "rsi_value": 29.782394622908896,
-            "macd_value": -0.009132351823948465,
-            "kdj_k_value": 31.829734050025493,
-            "momentum_signals": [
-              "RSI超卖",
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 5.19,
-            "support_level": 4.77,
-            "distance_to_resistance": 7.231404958677697,
-            "distance_to_support": 1.446280991735543
+        "current_price": 5.01,
+        "profit_loss_pct": -30.60941828254848,
+        "analysis_time": "2025-08-25 19:03:46",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 65.30079060799957,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 13.251976519998951,
+              "score": 65.30079060799957
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 12.771729129339933,
+              "score": 65.10869165173597
+            },
+            "0.99": {
+              "success_rate": 99.77973568281938,
+              "avg_return": 11.967131248456617,
+              "score": 64.65469390907427
+            },
+            "1.0": {
+              "success_rate": 99.58071278825996,
+              "avg_return": 11.494913982269633,
+              "score": 64.34639326586382
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.8,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 4.8306000000000004,
+          "support_level": 4.98,
+          "resistance_level": 6.78,
           "reasons": [
-            "亏损33.0%，建议止损",
-            "价格跌破长期均线，趋势转弱"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 4.7432
+          "stop_loss_price": 4.731
         },
         "risk_assessment": {
-          "risk_level": "MEDIUM",
-          "risk_score": 5,
-          "volatility": 39.83466176733344,
-          "max_drawdown": 35.91065292096221,
-          "risk_factors": [
-            "中等波动率(39.8%)",
-            "大幅回撤(35.9%)",
-            "价格接近近期低点"
-          ],
-          "price_position_pct": 16.666666666666703
+          "risk_level": "HIGH",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 6.78,
-          "next_support": 4.82,
-          "bb_upper_target": 5.0791349370535155,
-          "bb_lower_target": 4.864865062946484,
-          "short_term_target": 5.082,
-          "medium_term_target": 5.566,
-          "stop_loss_level": 4.4528
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-23",
-          "days_to_peak": 7,
-          "avg_cycle_days": 25,
-          "timing_advice": "预计7天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz000545",
@@ -1048,75 +783,51 @@
         "created_time": "2025-07-29 11:49:42",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 3.22,
-        "profit_loss_pct": -29.99999999999999,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA5之上",
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 1.0,
-            "price_position": "强势上升"
-          },
-          "momentum_analysis": {
-            "rsi_value": 90.53374611377151,
-            "macd_value": 0.028846321095375868,
-            "kdj_k_value": 74.15268848940923,
-            "momentum_signals": [
-              "RSI超买",
-              "MACD向上"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 3.3,
-            "support_level": 2.32,
-            "distance_to_resistance": 2.4844720496894293,
-            "distance_to_support": 27.95031055900622
+        "current_price": 3.28,
+        "profit_loss_pct": -28.695652173913043,
+        "analysis_time": "2025-08-25 19:03:49",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 67.86818038664525,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 19.670450966613117,
+              "score": 67.86818038664525
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 18.72980842760368,
+              "score": 67.49192337104147
+            },
+            "0.99": {
+              "success_rate": 99.88038277511961,
+              "avg_return": 18.01178129402672,
+              "score": 67.13294218268246
+            },
+            "1.0": {
+              "success_rate": 98.77232142857143,
+              "avg_return": 17.45519103914192,
+              "score": 66.24546927279962
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.9,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 2.7354,
+          "support_level": 2.82,
+          "resistance_level": 3.48,
           "reasons": [
-            "亏损30.0%，建议止损",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 3.1556
+          "stop_loss_price": 2.679
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 8,
-          "volatility": 49.24857874627114,
-          "max_drawdown": 46.30225080385852,
-          "risk_factors": [
-            "高波动率(49.2%)",
-            "大幅回撤(46.3%)",
-            "价格接近近期高点"
-          ],
-          "price_position_pct": 91.83673469387759
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 3.3,
-          "next_support": 2.82,
-          "bb_upper_target": 3.0616043852129806,
-          "bb_lower_target": 2.5693956147870196,
-          "short_term_target": 3.3810000000000002,
-          "medium_term_target": 3.703,
-          "stop_loss_level": 2.9624
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-24",
-          "days_to_peak": 8,
-          "avg_cycle_days": 26,
-          "timing_advice": "预计8天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz300323",
@@ -1127,70 +838,51 @@
         "created_time": "2025-07-29 11:50:16",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 7.66,
-        "profit_loss_pct": -34.52991452991452,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.75,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 52.897670891346095,
-            "macd_value": 0.0033916858697619068,
-            "kdj_k_value": 77.54794046891593,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 7.8,
-            "support_level": 7.29,
-            "distance_to_resistance": 1.8276762402088733,
-            "distance_to_support": 4.83028720626632
+        "current_price": 9.77,
+        "profit_loss_pct": -16.495726495726494,
+        "analysis_time": "2025-08-25 19:03:52",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 67.55567771093835,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 18.889194277345887,
+              "score": 67.55567771093835
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 18.36439782950589,
+              "score": 67.34575913180235
+            },
+            "0.99": {
+              "success_rate": 100.0,
+              "avg_return": 17.753112762682132,
+              "score": 67.10124510507285
+            },
+            "1.0": {
+              "success_rate": 99.78586723768737,
+              "avg_return": 17.26674414264737,
+              "score": 66.77821799967137
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.9,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 7.1974,
+          "support_level": 7.42,
+          "resistance_level": null,
           "reasons": [
-            "亏损34.5%，建议止损",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 7.5068
+          "stop_loss_price": 7.0489999999999995
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 51.752476641787304,
-          "max_drawdown": 44.945355191256816,
-          "risk_factors": [
-            "高波动率(51.8%)",
-            "大幅回撤(44.9%)"
-          ],
-          "price_position_pct": 72.54901960784319
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 8.35,
-          "next_support": 7.42,
-          "bb_upper_target": 7.8225743497460645,
-          "bb_lower_target": 7.340425650253936,
-          "short_term_target": 8.043000000000001,
-          "medium_term_target": 8.809,
-          "stop_loss_level": 7.0472
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-26",
-          "days_to_peak": 10,
-          "avg_cycle_days": 28,
-          "timing_advice": "预计10天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh603366",
@@ -1201,66 +893,56 @@
         "created_time": "2025-07-29 11:50:58",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 9.61,
-        "profit_loss_pct": -1.6376663254861836,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [],
-            "trend_strength": 0.0,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 47.2066493525808,
-            "macd_value": -1.0287316146842529e-05,
-            "kdj_k_value": 23.16037940038614,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 10.12,
-            "support_level": 9.42,
-            "distance_to_resistance": 5.306971904266387,
-            "distance_to_support": 1.9771071800208069
+        "current_price": 9.78,
+        "profit_loss_pct": 0.1023541453428842,
+        "analysis_time": "2025-08-20 10:50:43",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.96,
+          "best_add_score": 65.94340051932204,
+          "add_coefficient_analysis": {
+            "0.96": {
+              "success_rate": 99.84802431610942,
+              "avg_return": 15.086464824140979,
+              "score": 65.94340051932204
+            },
+            "0.97": {
+              "success_rate": 99.86206896551724,
+              "avg_return": 14.259298769613487,
+              "score": 65.62096088715573
+            },
+            "0.98": {
+              "success_rate": 99.87179487179488,
+              "avg_return": 14.128058050415182,
+              "score": 65.574300143243
+            },
+            "0.99": {
+              "success_rate": 99.6547756041427,
+              "avg_return": 14.290223666333107,
+              "score": 65.50895482901886
+            },
+            "1.0": {
+              "success_rate": 99.57173447537473,
+              "avg_return": 13.743364803535322,
+              "score": 65.24038660663896
+            }
           }
         },
         "position_advice": {
-          "action": "WATCH",
-          "confidence": 0.3,
+          "action": "AVOID",
+          "confidence": 0.5,
+          "optimal_add_price": 9.3696,
+          "support_level": 9.76,
+          "resistance_level": 10.88,
           "reasons": [
-            "盈利-1.6%，继续持有",
-            "价格跌破长期均线，趋势转弱"
+            "价格位于长期均线MA60下方，趋势偏弱。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 9.272
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 53.71331295154425,
-          "max_drawdown": 48.7603305785124,
-          "risk_factors": [
-            "高波动率(53.7%)",
-            "大幅回撤(48.8%)"
-          ],
-          "price_position_pct": 27.142857142857103
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 10.88,
-          "next_support": 9.55,
-          "bb_upper_target": 9.962603631862585,
-          "bb_lower_target": 9.415396368137415,
-          "short_term_target": 10.0905,
-          "medium_term_target": 11.051499999999999,
-          "stop_loss_level": 8.8412
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-25",
-          "days_to_peak": 9,
-          "avg_cycle_days": 27,
-          "timing_advice": "预计9天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz002103",
@@ -1271,71 +953,51 @@
         "created_time": "2025-07-29 11:51:50",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 10.35,
-        "profit_loss_pct": 46.808510638297875,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA13之上",
-              "MA5在MA13之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 51.10841672551198,
-            "macd_value": 0.023243764380063495,
-            "kdj_k_value": 32.701945905700995,
-            "momentum_signals": [
-              "MACD向上"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 11.12,
-            "support_level": 9.97,
-            "distance_to_resistance": 7.439613526570045,
-            "distance_to_support": 3.671497584541053
+        "current_price": 10.83,
+        "profit_loss_pct": 53.61702127659574,
+        "analysis_time": "2025-08-25 19:03:55",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 67.2527190005014,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 18.131797501253512,
+              "score": 67.2527190005014
+            },
+            "0.98": {
+              "success_rate": 99.87789987789988,
+              "avg_return": 17.510248377184023,
+              "score": 66.93083927761353
+            },
+            "0.99": {
+              "success_rate": 99.88399071925754,
+              "avg_return": 16.606413376969417,
+              "score": 66.57295978234228
+            },
+            "1.0": {
+              "success_rate": 99.11894273127754,
+              "avg_return": 16.540215323733346,
+              "score": 66.08745176825985
+            }
           }
         },
         "position_advice": {
-          "action": "REDUCE",
-          "confidence": 0.7,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 10.4469,
+          "support_level": 10.77,
+          "resistance_level": 12.25,
           "reasons": [
-            "已获利46.8%，建议减仓锁定利润",
-            "价格跌破长期均线，趋势转弱"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": 9.8325,
-          "stop_loss_price": null
+          "stop_loss_price": 10.231499999999999
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 58.29395518540361,
-          "max_drawdown": 48.564733450497954,
-          "risk_factors": [
-            "高波动率(58.3%)",
-            "大幅回撤(48.6%)"
-          ],
-          "price_position_pct": 33.04347826086952
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 12.25,
-          "next_support": 10.34,
-          "bb_upper_target": 10.522645553431454,
-          "bb_lower_target": 10.129354446568547,
-          "short_term_target": 10.8675,
-          "medium_term_target": 11.902499999999998,
-          "stop_loss_level": 9.522
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-23",
-          "days_to_peak": 7,
-          "avg_cycle_days": 25,
-          "timing_advice": "预计7天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600313",
@@ -1346,71 +1008,51 @@
         "created_time": "2025-07-29 11:52:40",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 6.32,
-        "profit_loss_pct": -19.695044472681065,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 30.754066177829955,
-            "macd_value": -0.009937582087281918,
-            "kdj_k_value": 35.23082672317092,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 6.6,
-            "support_level": 6.25,
-            "distance_to_resistance": 4.430379746835433,
-            "distance_to_support": 1.1075949367088653
+        "current_price": 6.54,
+        "profit_loss_pct": -16.89961880559085,
+        "analysis_time": "2025-08-25 19:03:58",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 66.65182079736576,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 16.629551993414406,
+              "score": 66.65182079736576
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 15.850519337652965,
+              "score": 66.34020773506118
+            },
+            "0.99": {
+              "success_rate": 99.87421383647799,
+              "avg_return": 15.641924527173108,
+              "score": 66.18129811275604
+            },
+            "1.0": {
+              "success_rate": 98.76126126126125,
+              "avg_return": 15.901233760333927,
+              "score": 65.61725026089032
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.8,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 6.1594999999999995,
+          "support_level": 6.35,
+          "resistance_level": 6.6,
           "reasons": [
-            "亏损19.7%，建议止损",
-            "价格跌破长期均线，趋势转弱"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 6.1936
+          "stop_loss_price": 6.0325
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 47.65767130601291,
-          "max_drawdown": 30.934150076569683,
-          "risk_factors": [
-            "高波动率(47.7%)",
-            "大幅回撤(30.9%)"
-          ],
-          "price_position_pct": 20.0000000000001
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 6.6,
-          "next_support": 6.31,
-          "bb_upper_target": 6.532326273914406,
-          "bb_lower_target": 6.314673726085593,
-          "short_term_target": 6.636000000000001,
-          "medium_term_target": 7.268,
-          "stop_loss_level": 5.814400000000001
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-29",
-          "days_to_peak": 13,
-          "avg_cycle_days": 31,
-          "timing_advice": "预计13天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz300334",
@@ -1421,70 +1063,51 @@
         "created_time": "2025-07-29 11:53:16",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 7.25,
-        "profit_loss_pct": -11.800486618004873,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 35.046714560294305,
-            "macd_value": -0.01533431145013378,
-            "kdj_k_value": 61.61668005688692,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 7.69,
-            "support_level": 6.9,
-            "distance_to_resistance": 6.068965517241385,
-            "distance_to_support": 4.827586206896547
+        "current_price": 7.62,
+        "profit_loss_pct": -7.299270072992707,
+        "analysis_time": "2025-08-25 19:04:01",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 67.91990441322103,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 19.799761033052594,
+              "score": 67.91990441322103
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 18.767289262812366,
+              "score": 67.50691570512495
+            },
+            "0.99": {
+              "success_rate": 99.7794928335171,
+              "avg_return": 18.089879210915804,
+              "score": 67.10364738447657
+            },
+            "1.0": {
+              "success_rate": 99.6845425867508,
+              "avg_return": 17.236324375482102,
+              "score": 66.70525530224332
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
-          "confidence": 0.5,
+          "confidence": 0.6,
+          "optimal_add_price": 7.0325,
+          "support_level": 7.25,
+          "resistance_level": 7.69,
           "reasons": [
-            "小幅亏损11.8%，继续观察"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 6.887499999999999
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 51.72463307667747,
-          "max_drawdown": 47.45351657235247,
-          "risk_factors": [
-            "高波动率(51.7%)",
-            "大幅回撤(47.5%)"
-          ],
-          "price_position_pct": 44.30379746835438
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 7.65,
-          "next_support": 7.16,
-          "bb_upper_target": 7.62136411430856,
-          "bb_lower_target": 7.0796358856914425,
-          "short_term_target": 7.612500000000001,
-          "medium_term_target": 8.337499999999999,
-          "stop_loss_level": 6.67
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-25",
-          "days_to_peak": 9,
-          "avg_cycle_days": 27,
-          "timing_advice": "预计9天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600127",
@@ -1495,71 +1118,51 @@
         "created_time": "2025-07-29 11:53:55",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 6.93,
-        "profit_loss_pct": -8.454425363276098,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 36.710377195560774,
-            "macd_value": -0.005943505979545349,
-            "kdj_k_value": 27.93279749705868,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 7.44,
-            "support_level": 6.8,
-            "distance_to_resistance": 7.35930735930737,
-            "distance_to_support": 1.8759018759018746
+        "current_price": 7.1,
+        "profit_loss_pct": -6.208718626155886,
+        "analysis_time": "2025-08-25 19:04:04",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 65.16627036864512,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 12.915675921612788,
+              "score": 65.16627036864512
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 12.335409487108986,
+              "score": 64.9341637948436
+            },
+            "0.99": {
+              "success_rate": 100.0,
+              "avg_return": 11.72197474211658,
+              "score": 64.68878989684663
+            },
+            "1.0": {
+              "success_rate": 99.69072164948454,
+              "avg_return": 11.552061050765367,
+              "score": 64.43525740999686
+            }
           }
         },
         "position_advice": {
-          "action": "WATCH",
-          "confidence": 0.3,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 6.722099999999999,
+          "support_level": 6.93,
+          "resistance_level": 7.44,
           "reasons": [
-            "小幅亏损8.5%，继续观察",
-            "价格跌破长期均线，趋势转弱"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 6.583499999999999
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 42.401453888829145,
-          "max_drawdown": 29.23809523809524,
-          "risk_factors": [
-            "高波动率(42.4%)",
-            "大幅回撤(29.2%)"
-          ],
-          "price_position_pct": 20.312499999999968
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 7.44,
-          "next_support": 6.92,
-          "bb_upper_target": 7.124586010278828,
-          "bb_lower_target": 6.881413989721172,
-          "short_term_target": 7.2765,
-          "medium_term_target": 7.969499999999999,
-          "stop_loss_level": 6.3756
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-26",
-          "days_to_peak": 10,
-          "avg_cycle_days": 28,
-          "timing_advice": "预计10天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz002957",
@@ -1570,70 +1173,51 @@
         "created_time": "2025-07-29 11:54:28",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 16.83,
-        "profit_loss_pct": -7.425742574257434,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 39.16413479132919,
-            "macd_value": -0.03696463065014652,
-            "kdj_k_value": 57.247452261944915,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 17.73,
-            "support_level": 15.95,
-            "distance_to_resistance": 5.347593582887714,
-            "distance_to_support": 5.228758169934635
+        "current_price": 17.66,
+        "profit_loss_pct": -2.860286028602858,
+        "analysis_time": "2025-08-25 19:04:07",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 66.72590352293373,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 16.814758807334343,
+              "score": 66.72590352293373
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 16.10287136990599,
+              "score": 66.4411485479624
+            },
+            "0.99": {
+              "success_rate": 100.0,
+              "avg_return": 15.436214579610887,
+              "score": 66.17448583184435
+            },
+            "1.0": {
+              "success_rate": 99.4407158836689,
+              "avg_return": 15.254278328262975,
+              "score": 65.76614086150653
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
-          "confidence": 0.5,
+          "confidence": 0.6,
+          "optimal_add_price": 16.2281,
+          "support_level": 16.73,
+          "resistance_level": 17.73,
           "reasons": [
-            "小幅亏损7.4%，继续观察"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 15.8935
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 48.00768306917766,
-          "max_drawdown": 43.9875065070276,
-          "risk_factors": [
-            "高波动率(48.0%)",
-            "大幅回撤(44.0%)"
-          ],
-          "price_position_pct": 49.43820224719092
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 17.73,
-          "next_support": 16.7,
-          "bb_upper_target": 17.441961695519428,
-          "bb_lower_target": 16.67803830448057,
-          "short_term_target": 17.671499999999998,
-          "medium_term_target": 19.354499999999998,
-          "stop_loss_level": 15.4836
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-09-01",
-          "days_to_peak": 16,
-          "avg_cycle_days": 34,
-          "timing_advice": "预计16天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz002578",
@@ -1644,72 +1228,51 @@
         "created_time": "2025-07-29 11:55:10",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 3.53,
-        "profit_loss_pct": -0.5633802816901414,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.75,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 49.58849255658394,
-            "macd_value": -0.00014382674290802644,
-            "kdj_k_value": 53.66303846395587,
-            "momentum_signals": [
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 3.75,
-            "support_level": 3.33,
-            "distance_to_resistance": 6.2322946175637455,
-            "distance_to_support": 5.665722379603392
+        "current_price": 3.58,
+        "profit_loss_pct": 0.8450704225352182,
+        "analysis_time": "2025-08-25 19:04:10",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 67.0322274987994,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 17.580568746998498,
+              "score": 67.0322274987994
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 16.640123625266515,
+              "score": 66.65604945010661
+            },
+            "0.99": {
+              "success_rate": 100.0,
+              "avg_return": 16.285496297004215,
+              "score": 66.51419851880169
+            },
+            "1.0": {
+              "success_rate": 99.56942949407966,
+              "avg_return": 15.816220814281882,
+              "score": 66.06814602216055
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
           "confidence": 0.6,
+          "optimal_add_price": 3.395,
+          "support_level": 3.5,
+          "resistance_level": 3.75,
           "reasons": [
-            "盈利-0.6%，继续持有",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 3.3249999999999997
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 44.45281594725831,
-          "max_drawdown": 53.14401622718052,
-          "risk_factors": [
-            "高波动率(44.5%)",
-            "大幅回撤(53.1%)"
-          ],
-          "price_position_pct": 47.619047619047564
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 3.75,
-          "next_support": 3.5,
-          "bb_upper_target": 3.72188960122625,
-          "bb_lower_target": 3.3431103987737503,
-          "short_term_target": 3.7065,
-          "medium_term_target": 4.0595,
-          "stop_loss_level": 3.2476
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-23",
-          "days_to_peak": 7,
-          "avg_cycle_days": 25,
-          "timing_advice": "预计7天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz300077",
@@ -1720,70 +1283,51 @@
         "created_time": "2025-07-29 11:55:37",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 25.38,
-        "profit_loss_pct": -7.16898317483541,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.75,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 50.12217592316036,
-            "macd_value": 0.022653702681459303,
-            "kdj_k_value": 61.23301964822329,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 26.48,
-            "support_level": 24.19,
-            "distance_to_resistance": 4.334121355397957,
-            "distance_to_support": 4.688731284475957
+        "current_price": 29.14,
+        "profit_loss_pct": 6.583760058522314,
+        "analysis_time": "2025-08-25 19:04:13",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 67.65306792411265,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 19.132669810281612,
+              "score": 67.65306792411265
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 18.127096516194808,
+              "score": 67.25083860647793
+            },
+            "0.99": {
+              "success_rate": 99.8911860718172,
+              "avg_return": 17.491770790385605,
+              "score": 66.93141995924456
+            },
+            "1.0": {
+              "success_rate": 99.58071278825996,
+              "avg_return": 16.97068509053308,
+              "score": 66.53670170916921
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
           "confidence": 0.6,
+          "optimal_add_price": 24.085099999999997,
+          "support_level": 24.83,
+          "resistance_level": null,
           "reasons": [
-            "小幅亏损7.2%，继续观察",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 23.588499999999996
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 51.73906272869833,
-          "max_drawdown": 42.42692648361382,
-          "risk_factors": [
-            "高波动率(51.7%)",
-            "大幅回撤(42.4%)"
-          ],
-          "price_position_pct": 51.96506550218333
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 27.69,
-          "next_support": 24.83,
-          "bb_upper_target": 26.119070794524138,
-          "bb_lower_target": 24.42692920547586,
-          "short_term_target": 26.649,
-          "medium_term_target": 29.186999999999998,
-          "stop_loss_level": 23.3496
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-27",
-          "days_to_peak": 11,
-          "avg_cycle_days": 29,
-          "timing_advice": "预计11天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz002511",
@@ -1794,73 +1338,51 @@
         "created_time": "2025-07-29 11:56:14",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 8.06,
-        "profit_loss_pct": -38.473282442748086,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.75,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 56.07040216977633,
-            "macd_value": 0.008292850511565752,
-            "kdj_k_value": 84.11644184686156,
-            "momentum_signals": [
-              "KDJ超买"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 8.35,
-            "support_level": 6.79,
-            "distance_to_resistance": 3.5980148883374587,
-            "distance_to_support": 15.756823821339955
+        "current_price": 8.83,
+        "profit_loss_pct": -32.595419847328245,
+        "analysis_time": "2025-08-25 19:04:16",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 64.38835235108515,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 99.86807387862797,
+              "avg_return": 11.168770059770909,
+              "score": 64.38835235108515
+            },
+            "0.98": {
+              "success_rate": 99.87654320987654,
+              "avg_return": 10.273631131253268,
+              "score": 64.03537837842723
+            },
+            "0.99": {
+              "success_rate": 99.88571428571429,
+              "avg_return": 9.975976480251807,
+              "score": 63.92181916352929
+            },
+            "1.0": {
+              "success_rate": 99.44933920704845,
+              "avg_return": 9.456940437269386,
+              "score": 63.45237969913682
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.9,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 7.7503,
+          "support_level": 7.99,
+          "resistance_level": null,
           "reasons": [
-            "亏损38.5%，建议止损",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 7.8988000000000005
+          "stop_loss_price": 7.5905
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 7,
-          "volatility": 36.17356275246242,
-          "max_drawdown": 34.99853070819865,
-          "risk_factors": [
-            "中等波动率(36.2%)",
-            "大幅回撤(35.0%)",
-            "价格接近近期高点"
-          ],
-          "price_position_pct": 81.41025641025647
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 8.25,
-          "next_support": 7.78,
-          "bb_upper_target": 8.30653079664078,
-          "bb_lower_target": 7.48446920335922,
-          "short_term_target": 8.463000000000001,
-          "medium_term_target": 9.269,
-          "stop_loss_level": 7.4152000000000005
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-30",
-          "days_to_peak": 14,
-          "avg_cycle_days": 32,
-          "timing_advice": "预计14天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600515",
@@ -1871,70 +1393,51 @@
         "created_time": "2025-07-29 11:57:17",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 3.79,
-        "profit_loss_pct": -38.47402597402598,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.25,
-            "price_position": "中期下降"
-          },
-          "momentum_analysis": {
-            "rsi_value": 29.56864442825912,
-            "macd_value": -0.034474948982899545,
-            "kdj_k_value": 29.712701057314725,
-            "momentum_signals": [
-              "RSI超卖",
-              "MACD向下"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 4.5,
-            "support_level": 3.51,
-            "distance_to_resistance": 18.733509234828492,
-            "distance_to_support": 7.38786279683378
+        "current_price": 4.02,
+        "profit_loss_pct": -34.74025974025975,
+        "analysis_time": "2025-08-25 19:04:19",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 66.05641128669811,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 99.73474801061008,
+              "avg_return": 15.538906200830153,
+              "score": 66.05641128669811
+            },
+            "0.98": {
+              "success_rate": 99.74587039390089,
+              "avg_return": 14.603836085084833,
+              "score": 65.68905667037447
+            },
+            "0.99": {
+              "success_rate": 99.63503649635037,
+              "avg_return": 14.067881572461918,
+              "score": 65.408174526795
+            },
+            "1.0": {
+              "success_rate": 99.23747276688452,
+              "avg_return": 14.405950101043912,
+              "score": 65.30486370054828
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.8,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 3.783,
+          "support_level": 3.9,
+          "resistance_level": 4.5,
           "reasons": [
-            "亏损38.5%，建议止损"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 3.7142
+          "stop_loss_price": 3.7049999999999996
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 42.3208244832322,
-          "max_drawdown": 38.891091487955784,
-          "risk_factors": [
-            "高波动率(42.3%)",
-            "大幅回撤(38.9%)"
-          ],
-          "price_position_pct": 28.282828282828305
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 4.5,
-          "next_support": 3.57,
-          "bb_upper_target": 4.222196502144042,
-          "bb_lower_target": 3.6608034978559574,
-          "short_term_target": 3.9795000000000003,
-          "medium_term_target": 4.358499999999999,
-          "stop_loss_level": 3.4868
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-25",
-          "days_to_peak": 9,
-          "avg_cycle_days": 27,
-          "timing_advice": "预计9天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh601990",
@@ -1945,71 +1448,51 @@
         "created_time": "2025-07-29 11:57:48",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 8.44,
-        "profit_loss_pct": -6.8432671081677805,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA5之上",
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 1.0,
-            "price_position": "强势上升"
-          },
-          "momentum_analysis": {
-            "rsi_value": 59.466580656050056,
-            "macd_value": -0.0015733956914584304,
-            "kdj_k_value": 65.74557160069097,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 8.65,
-            "support_level": 7.98,
-            "distance_to_resistance": 2.4881516587677828,
-            "distance_to_support": 5.450236966824634
+        "current_price": 8.95,
+        "profit_loss_pct": -1.2141280353201016,
+        "analysis_time": "2025-08-25 19:04:22",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 64.246701414066,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 10.616753535164994,
+              "score": 64.246701414066
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 9.980589854541865,
+              "score": 63.992235941816745
+            },
+            "0.99": {
+              "success_rate": 99.88290398126463,
+              "avg_return": 9.637446573588358,
+              "score": 63.78472101819412
+            },
+            "1.0": {
+              "success_rate": 99.47201689545935,
+              "avg_return": 9.297482361426809,
+              "score": 63.40220308184633
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
           "confidence": 0.6,
+          "optimal_add_price": 7.9346,
+          "support_level": 8.18,
+          "resistance_level": null,
           "reasons": [
-            "小幅亏损6.8%，继续观察",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 7.770999999999999
         },
         "risk_assessment": {
-          "risk_level": "MEDIUM",
-          "risk_score": 5,
-          "volatility": 35.72146642289577,
-          "max_drawdown": 29.39632545931759,
-          "risk_factors": [
-            "中等波动率(35.7%)",
-            "大幅回撤(29.4%)"
-          ],
-          "price_position_pct": 68.65671641791032
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 8.65,
-          "next_support": 8.18,
-          "bb_upper_target": 8.593577471487489,
-          "bb_lower_target": 8.161422528512514,
-          "short_term_target": 8.862,
-          "medium_term_target": 9.706,
-          "stop_loss_level": 7.7648
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-29",
-          "days_to_peak": 13,
-          "avg_cycle_days": 31,
-          "timing_advice": "预计13天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sh600177",
@@ -2020,68 +1503,51 @@
         "created_time": "2025-07-29 11:58:27",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 7.41,
-        "profit_loss_pct": -5.121638924455819,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA5之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.5,
-            "price_position": "短期上升"
-          },
-          "momentum_analysis": {
-            "rsi_value": 44.902081824332846,
-            "macd_value": -0.00701444778071945,
-            "kdj_k_value": 29.907257968950567,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 7.66,
-            "support_level": 7.24,
-            "distance_to_resistance": 3.3738191632928474,
-            "distance_to_support": 2.2941970310391353
+        "current_price": 7.6,
+        "profit_loss_pct": -2.688860435339308,
+        "analysis_time": "2025-08-25 19:04:25",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 63.34611549706322,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 99.78354978354979,
+              "avg_return": 8.68996406733336,
+              "score": 63.34611549706322
+            },
+            "0.98": {
+              "success_rate": 99.82238010657194,
+              "avg_return": 8.27443113341693,
+              "score": 63.20320051730994
+            },
+            "0.99": {
+              "success_rate": 99.72789115646259,
+              "avg_return": 7.396494216210165,
+              "score": 62.79533238036162
+            },
+            "1.0": {
+              "success_rate": 99.35135135135134,
+              "avg_return": 6.87334444142344,
+              "score": 62.36014858738018
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
-          "confidence": 0.5,
+          "confidence": 0.6,
+          "optimal_add_price": 7.2071,
+          "support_level": 7.43,
+          "resistance_level": 7.66,
           "reasons": [
-            "小幅亏损5.1%，继续观察"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 7.0584999999999996
         },
         "risk_assessment": {
           "risk_level": "LOW",
-          "risk_score": 3,
-          "volatility": 21.770966227322393,
-          "max_drawdown": 15.44607190412783,
-          "risk_factors": [
-            "低波动率(21.8%)",
-            "中等回撤(15.4%)"
-          ],
-          "price_position_pct": 40.47619047619047
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 7.66,
-          "next_support": 7.32,
-          "bb_upper_target": 7.578469294548355,
-          "bb_lower_target": 7.323530705451643,
-          "short_term_target": 7.780500000000001,
-          "medium_term_target": 8.5215,
-          "stop_loss_level": 6.817200000000001
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-23",
-          "days_to_peak": 7,
-          "avg_cycle_days": 25,
-          "timing_advice": "预计7天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz002950",
@@ -2092,70 +1558,51 @@
         "created_time": "2025-07-29 11:59:04",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 9.74,
-        "profit_loss_pct": -26.931732933233306,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.75,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 58.29163817380894,
-            "macd_value": 0.031029413309384857,
-            "kdj_k_value": 72.81070229313661,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 10.26,
-            "support_level": 8.7,
-            "distance_to_resistance": 5.338809034907593,
-            "distance_to_support": 10.677618069815205
+        "current_price": 9.67,
+        "profit_loss_pct": -27.456864216054015,
+        "analysis_time": "2025-08-25 19:04:28",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 64.8164258694977,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 99.86979166666666,
+              "avg_return": 12.236377173744275,
+              "score": 64.8164258694977
+            },
+            "0.98": {
+              "success_rate": 99.88207547169812,
+              "avg_return": 12.015287691212754,
+              "score": 64.73536035950397
+            },
+            "0.99": {
+              "success_rate": 99.88776655443323,
+              "avg_return": 11.189799320212241,
+              "score": 64.40857966074483
+            },
+            "1.0": {
+              "success_rate": 99.4731296101159,
+              "avg_return": 10.66893975972697,
+              "score": 63.95145366996033
+            }
           }
         },
         "position_advice": {
-          "action": "STOP_LOSS",
-          "confidence": 0.9,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 9.331399999999999,
+          "support_level": 9.62,
+          "resistance_level": 10.26,
           "reasons": [
-            "亏损26.9%，建议止损",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": 9.5452
+          "stop_loss_price": 9.139
         },
         "risk_assessment": {
           "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 43.245415448210764,
-          "max_drawdown": 38.1624758220503,
-          "risk_factors": [
-            "高波动率(43.2%)",
-            "大幅回撤(38.2%)"
-          ],
-          "price_position_pct": 66.66666666666671
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 9.83,
-          "next_support": 8.59,
-          "bb_upper_target": 9.98368621172503,
-          "bb_lower_target": 8.87631378827497,
-          "short_term_target": 10.227,
-          "medium_term_target": 11.200999999999999,
-          "stop_loss_level": 8.9608
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-24",
-          "days_to_peak": 8,
-          "avg_cycle_days": 26,
-          "timing_advice": "预计8天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz002796",
@@ -2166,70 +1613,51 @@
         "created_time": "2025-07-29 11:59:42",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 14.01,
-        "profit_loss_pct": 10.401891252955085,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 0.75,
-            "price_position": "震荡整理"
-          },
-          "momentum_analysis": {
-            "rsi_value": 53.8325900955052,
-            "macd_value": 0.14078988487861943,
-            "kdj_k_value": 72.6240592757554,
-            "momentum_signals": []
-          },
-          "support_resistance": {
-            "resistance_level": 15.5,
-            "support_level": 11.28,
-            "distance_to_resistance": 10.635260528194149,
-            "distance_to_support": 19.486081370449682
+        "current_price": 13.6,
+        "profit_loss_pct": 7.1710007880220665,
+        "analysis_time": "2025-08-25 19:04:31",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 68.12305299805197,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 20.307632495129926,
+              "score": 68.12305299805197
+            },
+            "0.98": {
+              "success_rate": 99.87373737373737,
+              "avg_return": 20.037521844671954,
+              "score": 67.9392511621112
+            },
+            "0.99": {
+              "success_rate": 99.87951807228916,
+              "avg_return": 19.31046162502544,
+              "score": 67.65189549338366
+            },
+            "1.0": {
+              "success_rate": 99.44567627494457,
+              "avg_return": 18.853886162220984,
+              "score": 67.20896022985514
+            }
           }
         },
         "position_advice": {
           "action": "HOLD",
           "confidence": 0.6,
+          "optimal_add_price": 13.1726,
+          "support_level": 13.58,
+          "resistance_level": 15.5,
           "reasons": [
-            "盈利10.4%，继续持有",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": null,
-          "stop_loss_price": null
+          "stop_loss_price": 12.901
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 55.453896327113725,
-          "max_drawdown": 48.151408450704224,
-          "risk_factors": [
-            "高波动率(55.5%)",
-            "大幅回撤(48.2%)"
-          ],
-          "price_position_pct": 64.69194312796208
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 14.61,
-          "next_support": 11.51,
-          "bb_upper_target": 15.412757396643158,
-          "bb_lower_target": 10.561242603356842,
-          "short_term_target": 14.7105,
-          "medium_term_target": 16.1115,
-          "stop_loss_level": 12.8892
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-26",
-          "days_to_peak": 10,
-          "avg_cycle_days": 28,
-          "timing_advice": "预计10天内可能到达高点，密切关注"
-        }
+        "holding_days": 27
       },
       {
         "stock_code": "sz300313",
@@ -2240,83 +1668,61 @@
         "created_time": "2025-07-29 12:00:23",
         "last_analysis_time": "2025-08-15 08:55:42",
         "updated_time": "2025-08-15 08:55:42",
-        "current_price": 10.41,
-        "profit_loss_pct": 57.72727272727274,
-        "analysis_time": "2025-08-15 08:55:42",
-        "technical_analysis": {
-          "trend_analysis": {
-            "ma_signals": [
-              "价格在MA5之上",
-              "价格在MA13之上",
-              "MA5在MA13之上",
-              "MA13在MA45之上"
-            ],
-            "trend_strength": 1.0,
-            "price_position": "强势上升"
-          },
-          "momentum_analysis": {
-            "rsi_value": 64.52869554232284,
-            "macd_value": 0.022527058221444074,
-            "kdj_k_value": 72.68492849547462,
-            "momentum_signals": [
-              "MACD向上"
-            ]
-          },
-          "support_resistance": {
-            "resistance_level": 11.1,
-            "support_level": 8.241666666666667,
-            "distance_to_resistance": 6.628242074927949,
-            "distance_to_support": 20.82933077169388
+        "current_price": 8.78,
+        "profit_loss_pct": 33.030303030303024,
+        "analysis_time": "2025-08-25 19:04:34",
+        "backtest_analysis": {
+          "best_add_coefficient": 0.97,
+          "best_add_score": 67.54683249464995,
+          "add_coefficient_analysis": {
+            "0.97": {
+              "success_rate": 100.0,
+              "avg_return": 18.867081236624873,
+              "score": 67.54683249464995
+            },
+            "0.98": {
+              "success_rate": 100.0,
+              "avg_return": 17.94948281066583,
+              "score": 67.17979312426633
+            },
+            "0.99": {
+              "success_rate": 99.77703455964325,
+              "avg_return": 17.295271391709697,
+              "score": 66.78432929246983
+            },
+            "1.0": {
+              "success_rate": 99.25531914893617,
+              "avg_return": 17.051523732004963,
+              "score": 66.37380098216369
+            }
           }
         },
         "position_advice": {
-          "action": "REDUCE",
-          "confidence": 0.7999999999999999,
+          "action": "HOLD",
+          "confidence": 0.6,
+          "optimal_add_price": 7.986861772853185,
+          "support_level": 8.23387811634349,
+          "resistance_level": 9.316620498614958,
           "reasons": [
-            "已获利57.7%，建议减仓锁定利润",
-            "价格在均线之上，趋势良好"
+            "当前技术指标处于中性区域，建议继续观察。"
           ],
-          "add_position_price": null,
-          "reduce_position_price": 9.8895,
-          "stop_loss_price": null
+          "stop_loss_price": 7.8221842105263155
         },
         "risk_assessment": {
-          "risk_level": "HIGH",
-          "risk_score": 6,
-          "volatility": 55.43362581654607,
-          "max_drawdown": 51.0196362674328,
-          "risk_factors": [
-            "高波动率(55.4%)",
-            "大幅回撤(51.0%)"
-          ],
-          "price_position_pct": 75.86005830903791
+          "risk_level": "LOW",
+          "risk_factors": []
         },
-        "price_targets": {
-          "next_resistance": 11.1,
-          "next_support": 9.59,
-          "bb_upper_target": 11.175395575891606,
-          "bb_lower_target": 8.740548868552835,
-          "short_term_target": 10.9305,
-          "medium_term_target": 11.971499999999999,
-          "stop_loss_level": 9.577200000000001
-        },
-        "timing_analysis": {
-          "holding_days": 17,
-          "expected_peak_date": "2025-08-28",
-          "days_to_peak": 12,
-          "avg_cycle_days": 30,
-          "timing_advice": "预计12天后可能到达高点，继续持有"
-        }
+        "holding_days": 27
       }
     ],
     "summary": {
-      "profitable_count": 9,
-      "loss_count": 22,
-      "total_profit_loss": -131.22674694608017,
-      "high_risk_count": 24,
-      "action_required_count": 16
+      "profitable_count": 14,
+      "loss_count": 17,
+      "total_profit_loss": -20.564536959521483,
+      "high_risk_count": 13,
+      "action_required_count": 0
     },
     "from_cache": false,
-    "scan_duration": "0.4秒"
+    "scan_duration": "86.4秒"
   }
 }

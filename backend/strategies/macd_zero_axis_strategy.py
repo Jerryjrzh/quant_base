@@ -76,7 +76,10 @@ class MacdZeroAxisStrategy(BaseStrategy):
         return self.config['macd']['slow_period'] + self.config['macd']['signal_period'] + 20
     
     def apply_strategy(self, df):
-        """应用MACD零轴启动策略"""
+        """
+        【已优化】应用MACD零轴启动策略
+        根据 test_fix_4.md 优化建议，避免在死叉后生成信号
+        """
         try:
             # 计算MACD指标
             dif, dea = indicators.calculate_macd(
@@ -97,8 +100,20 @@ class MacdZeroAxisStrategy(BaseStrategy):
             # MACD柱状图上升
             is_increasing = macd_bar > macd_bar.shift(1)
             
-            # 基础过滤条件
-            primary_filter_passed = is_near_zero & is_increasing
+            # 【新增】检查DIF趋势方向 - 必须向上才能生成信号
+            dif_trending_up = dif > dif.shift(1)
+            
+            # 【新增】检查是否刚发生死叉 - 如果刚死叉则不生成信号
+            is_dead_cross = (dif.shift(1) > dea.shift(1)) & (dif <= dea)
+            recent_dead_cross = is_dead_cross.rolling(window=3, min_periods=1).sum() > 0
+            
+            # 基础过滤条件（加强版）
+            primary_filter_passed = (
+                is_near_zero & 
+                is_increasing & 
+                dif_trending_up &  # DIF必须向上
+                (~recent_dead_cross)  # 最近没有死叉
+            )
             
             # 金叉判断
             is_mid_cross = (dif.shift(1) < dea.shift(1)) & (dif > dea)
@@ -109,10 +124,20 @@ class MacdZeroAxisStrategy(BaseStrategy):
                 min_periods=1
             ).sum() > 0
             
-            # 三个阶段的信号
-            signal_pre = primary_filter_passed & (dif < dea)  # 金叉前
+            # 三个阶段的信号（更严格的条件）
+            signal_pre = (
+                primary_filter_passed & 
+                (dif < dea) & 
+                (dif > dif.shift(1)) &  # DIF必须向上接近DEA
+                (abs(dif - dea) < self.config['macd']['zero_axis_range'])  # 接近金叉
+            )
             signal_mid = primary_filter_passed & is_mid_cross  # 金叉时
-            signal_post = primary_filter_passed & (dif > dea) & cross_occured_recently & (~is_mid_cross)  # 金叉后
+            signal_post = (
+                primary_filter_passed & 
+                (dif > dea) & 
+                cross_occured_recently & 
+                (~is_mid_cross)
+            )  # 金叉后
             
             # 生成信号序列
             results = pd.Series([''] * len(df), index=df.index)
@@ -123,7 +148,8 @@ class MacdZeroAxisStrategy(BaseStrategy):
             signal_details = {
                 'strategy': self.name,
                 'version': self.version,
-                'signal_count': (results != '').sum()
+                'signal_count': (results != '').sum(),
+                'optimization_note': '已优化：避免死叉后信号，增强DIF趋势检查'
             }
             
             return results, signal_details

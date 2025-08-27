@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:03:17",
+  "analysis_results": {
+    "stock_code": "sz300739",
+    "analysis_time": "2025-08-25 19:03:17",
+    "current_price": 17.57,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 66.14630787582823,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 15.365769689570563,
+          "score": 66.14630787582823
+        },
+        "0.98": {
+          "success_rate": 100.0,
+          "avg_return": 14.466956274237939,
+          "score": 65.78678250969517
+        },
+        "0.99": {
+          "success_rate": 99.88165680473374,
+          "avg_return": 14.124252833049376,
+          "score": 65.57869521606
+        },
+        "1.0": {
+          "success_rate": 99.5505617977528,
+          "avg_return": 13.497733319451344,
+          "score": 65.12943040643222
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 14.899199999999999,
+      "support_level": 15.36,
+      "resistance_level": 17.71,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 14.591999999999999
+    },
+    "from_cache": false
+  }
+}

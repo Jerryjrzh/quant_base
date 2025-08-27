@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:03:43",
+  "analysis_results": {
+    "stock_code": "sz002852",
+    "analysis_time": "2025-08-25 19:03:43",
+    "current_price": 11.81,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 66.57684265510171,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 99.7340425531915,
+          "avg_return": 16.841042807967053,
+          "score": 66.57684265510171
+        },
+        "0.98": {
+          "success_rate": 99.62168978562421,
+          "avg_return": 15.940301537569193,
+          "score": 66.1491344864022
+        },
+        "0.99": {
+          "success_rate": 99.63503649635037,
+          "avg_return": 15.23420254316867,
+          "score": 65.87470291507769
+        },
+        "1.0": {
+          "success_rate": 99.34065934065934,
+          "avg_return": 15.564724956615384,
+          "score": 65.83028558704176
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "HOLD",
+      "confidence": 0.6,
+      "optimal_add_price": 11.4363,
+      "support_level": 11.79,
+      "resistance_level": 12.87,
+      "reasons": [
+        "当前技术指标处于中性区域，建议继续观察。"
+      ],
+      "stop_loss_price": 11.200499999999998
+    },
+    "from_cache": false
+  }
+}

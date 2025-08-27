@@ -1,0 +1,46 @@
+{
+  "cache_time": "2025-08-25 19:03:40",
+  "analysis_results": {
+    "stock_code": "sh601111",
+    "analysis_time": "2025-08-25 19:03:40",
+    "current_price": 7.54,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.97,
+      "best_add_score": 64.96450949370406,
+      "add_coefficient_analysis": {
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 12.411273734260151,
+          "score": 64.96450949370406
+        },
+        "0.98": {
+          "success_rate": 100.0,
+          "avg_return": 11.729269243814286,
+          "score": 64.69170769752571
+        },
+        "0.99": {
+          "success_rate": 100.0,
+          "avg_return": 11.082679007050084,
+          "score": 64.43307160282004
+        },
+        "1.0": {
+          "success_rate": 99.68354430379746,
+          "avg_return": 10.636793324434793,
+          "score": 64.06484391205238
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "AVOID",
+      "confidence": 0.5,
+      "optimal_add_price": 7.2847,
+      "support_level": 7.51,
+      "resistance_level": 8.14,
+      "reasons": [
+        "价格位于长期均线MA60下方，趋势偏弱。"
+      ],
+      "stop_loss_price": 7.134499999999999
+    },
+    "from_cache": false
+  }
+}

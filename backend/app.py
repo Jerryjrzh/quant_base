@@ -15,7 +15,6 @@ from adjustment_processor import create_adjustment_config, create_adjustment_pro
 from portfolio_manager import create_portfolio_manager
 from strategy_manager import strategy_manager
 from config_manager import config_manager
-from stock_info_crawler import get_stock_info, get_multiple_stock_info
 
 # --- 配置路径 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
@@ -86,11 +85,18 @@ def manage_strategy_config(strategy_id):
         try:
             data = request.get_json()
             strategy_manager.update_strategy_config(strategy_id, data)
+            
+            # 策略配置更新后，清理相关缓存
+            from analysis_cache import analysis_cache
+            analysis_cache.invalidate_cache(strategy_id=strategy_id)
+            app.logger.info(f"策略 {strategy_id} 配置已更新，相关缓存已清理")
+            
             return jsonify({
                 'success': True,
                 'message': f'策略 {strategy_id} 配置已更新'
             })
         except Exception as e:
+            app.logger.error(f'更新策略配置失败: {str(e)}')
             return jsonify({
                 'success': False,
                 'error': f'更新策略配置失败: {str(e)}'
@@ -116,134 +122,6 @@ def toggle_strategy(strategy_id):
         return jsonify({
             'success': False,
             'error': f'切换策略状态失败: {str(e)}'
-        }), 500
-
-@app.route('/api/strategies/<strategy_id>/stocks')
-def get_strategy_stocks(strategy_id):
-    """获取指定策略的股票列表"""
-    try:
-        print(f"🎯 收到策略股票列表请求: strategy_id={strategy_id}")
-        # 策略ID映射 - 处理前端使用的不同ID格式
-        strategy_mapping = {
-            'PRE_CROSS': '临界金叉_v1.0',
-            'TRIPLE_CROSS': '三重金叉_v1.0', 
-            'MACD_ZERO_AXIS': 'MACD零轴启动_v1.0',
-            'WEEKLY_GOLDEN_CROSS_MA': '周线金叉+日线MA_v1.0',
-            'ABYSS_BOTTOMING': '深渊筑底策略_v2.0',
-            'VALUE_REVERSAL': '价值反转策略（最终版）_v1.0',
-            'REVERSED_SHORT': '反转做多策略（优化版）_v1.0',
-            # 修复映射以匹配前端
-            'ANNUAL_BOTTOM_OPPORTUNITY': '年度见底机会策略_v1.0',
-            'ANNUAL_BOTTOM': '年度见底机会策略_v1.0',  # 保持向后兼容
-            'STRONG_STOCK_MA13_PULLBACK': '强势股MA13回调策略_v1.0',
-            'STRONG_PULLBACK': '强势股MA13回调策略_v1.0',  # 保持向后兼容
-            'LONG_TERM_CONSOLIDATION_BREAKOUT': '长周期横盘突破策略_v1.0',
-            'BREAKOUT': '长周期横盘突破策略_v1.0'  # 保持向后兼容
-        }
-        
-        # 尝试映射策略ID
-        mapped_strategy_id = strategy_mapping.get(strategy_id, strategy_id)
-        print(f"📋 策略ID映射: {strategy_id} -> {mapped_strategy_id}")
-        
-        # 导入筛选器并运行指定策略
-        from universal_screener import UniversalScreener
-        screener = UniversalScreener()
-        
-        print(f"🔍 开始筛选策略: {mapped_strategy_id}")
-        results = screener.run_screening([mapped_strategy_id])
-        print(f"📊 筛选结果数量: {len(results) if results else 0}")
-        
-        # 检查结果是否为空或None
-        if not results:
-            print(f"⚠️ 策略 {mapped_strategy_id} 没有返回任何结果")
-            return jsonify({
-                'success': True,
-                'strategy_id': strategy_id,
-                'mapped_strategy_id': mapped_strategy_id,
-                'total_count': 0,
-                'data': [],
-                'stocks': [],
-                'message': f'策略 {strategy_id} 今日无信号'
-            })
-        
-        # 转换结果格式
-        stocks = []
-        stock_codes = []
-        
-        for result in results:
-            # 确保所有字段都有有效值
-            stock_data = {
-                'stock_code': str(result.stock_code) if result.stock_code else '',
-                'date': str(result.date) if result.date else '',
-                'signal_type': str(result.signal_type) if result.signal_type else '',
-                'signal_strength': int(result.signal_strength) if result.signal_strength is not None else 0,
-                'current_price': float(result.current_price) if result.current_price is not None else 0.0,
-                'strategy_name': str(result.strategy_name) if result.strategy_name else '',
-                'price': float(result.current_price) if result.current_price is not None else 0.0  # 兼容旧版API字段名
-            }
-            stocks.append(stock_data)
-            if result.stock_code:
-                stock_codes.append(result.stock_code)
-        
-        # 批量获取股票基本信息
-        if stock_codes:
-            try:
-                stock_info_map = get_multiple_stock_info(stock_codes, use_cache=True)
-                # 将股票信息合并到结果中
-                for stock_data in stocks:
-                    stock_code = stock_data['stock_code']
-                    stock_info = stock_info_map.get(stock_code)
-                    if stock_info:
-                        stock_data.update({
-                            'name': stock_info.name,
-                            'sector': stock_info.sector,
-                            'industry': stock_info.industry,
-                            'market': stock_info.market
-                        })
-                    else:
-                        stock_data.update({
-                            'name': f'股票{stock_code}',
-                            'sector': '未知板块',
-                            'industry': '未知行业',
-                            'market': 'A股'
-                        })
-            except Exception as e:
-                print(f"获取股票信息失败: {e}")
-                # 即使获取股票信息失败，也要确保stocks有基本信息
-                for stock_data in stocks:
-                    if 'name' not in stock_data:
-                        stock_code = stock_data['stock_code']
-                        stock_data.update({
-                            'name': f'股票{stock_code}',
-                            'sector': '未知板块',
-                            'industry': '未知行业',
-                            'market': 'A股'
-                        })
-        
-        # 确保返回的数据格式正确
-        response_data = {
-            'success': True,
-            'strategy_id': strategy_id,
-            'mapped_strategy_id': mapped_strategy_id,
-            'total_count': len(stocks),
-            'data': stocks if stocks else [],  # 确保data字段始终是数组
-            'stocks': stocks if stocks else []  # 保持向后兼容
-        }
-        
-        return jsonify(response_data)
-        
-    except Exception as e:
-        import traceback
-        error_details = traceback.format_exc()
-        print(f"获取策略股票列表失败: {e}")
-        print(f"详细错误信息: {error_details}")
-        
-        return jsonify({
-            'success': False,
-            'error': f'获取策略股票列表失败: {str(e)}',
-            'data': [],  # 确保前端有data字段
-            'stocks': [],  # 确保前端有stocks字段
-            'total_count': 0
         }), 500
 
 @app.route('/api/config/unified')
@@ -285,23 +163,13 @@ def get_signals_summary():
             # 导入筛选器
             from universal_screener import UniversalScreener
             
-            # 策略ID映射 - 添加新迁移的策略
+            # 策略ID映射
             strategy_mapping = {
                 'PRE_CROSS': '临界金叉_v1.0',
                 'TRIPLE_CROSS': '三重金叉_v1.0', 
-                'MACD_ZERO_AXIS': 'MACD零轴启动_v1.0',
-                'WEEKLY_GOLDEN_CROSS_MA': '周线金叉+日线MA_v1.0',
-                'ABYSS_BOTTOMING': '深渊筑底策略_v2.0',
-                # 新迁移的策略
-                'VALUE_REVERSAL': '价值反转策略（最终版）_v1.0',
-                'REVERSED_SHORT': '反转做多策略（优化版）_v1.0',
-                # 人工分析逻辑策略
-                'ANNUAL_BOTTOM_OPPORTUNITY': '年度见底机会策略_v1.0',
-                'ANNUAL_BOTTOM': '年度见底机会策略_v1.0',
-                'STRONG_STOCK_MA13_PULLBACK': '强势股MA13回调策略_v1.0',
-                'STRONG_PULLBACK': '强势股MA13回调策略_v1.0',
-                'LONG_TERM_CONSOLIDATION_BREAKOUT': '长周期横盘突破策略_v1.0',
-                'BREAKOUT': '长周期横盘突破策略_v1.0'
+                'MACD_ZERO_AXIS': 'macd零轴启动_v1.0',
+                'WEEKLY_GOLDEN_CROSS_MA': '周线金叉+日线ma_v1.0',
+                'ABYSS_BOTTOMING': '深渊筑底策略_v2.0'
             }
             
             new_strategy_id = strategy_mapping.get(strategy, strategy)
@@ -310,57 +178,148 @@ def get_signals_summary():
             screener = UniversalScreener()
             results = screener.run_screening([new_strategy_id])
             
-            # 转换为旧版API格式并收集股票代码
+            # 转换为旧版API格式
             stock_list = []
-            stock_codes = []
             for result in results:
-                stock_data = {
+                stock_list.append({
                     'stock_code': result.stock_code,
                     'date': str(result.date),  # 使用正确的字段名
                     'signal_type': result.signal_type,
                     'price': result.current_price  # 使用正确的字段名
-                }
-                stock_list.append(stock_data)
-                stock_codes.append(result.stock_code)
-            
-            # 批量获取股票基本信息
-            if stock_codes:
-                try:
-                    stock_info_map = get_multiple_stock_info(stock_codes, use_cache=True)
-                    # 将股票信息合并到结果中
-                    for stock_data in stock_list:
-                        stock_code = stock_data['stock_code']
-                        stock_info = stock_info_map.get(stock_code)
-                        if stock_info:
-                            stock_data.update({
-                                'name': stock_info.name,
-                                'sector': stock_info.sector,
-                                'industry': stock_info.industry,
-                                'market': stock_info.market
-                            })
-                        else:
-                            stock_data.update({
-                                'name': f'股票{stock_code}',
-                                'sector': '未知板块',
-                                'industry': '未知行业',
-                                'market': 'A股'
-                            })
-                except Exception as info_error:
-                    print(f"获取股票基本信息失败: {info_error}，使用默认信息")
-                    # 如果获取失败，至少提供默认信息
-                    for stock_data in stock_list:
-                        stock_code = stock_data['stock_code']
-                        stock_data.update({
-                            'name': f'股票{stock_code}',
-                            'sector': '未知板块',
-                            'industry': '未知行业',
-                            'market': 'A股'
-                        })
+                })
             
             return jsonify(stock_list)
             
         except Exception as e:
             return jsonify({"error": f"无法获取策略 '{strategy}' 的信号: {str(e)}"}), 500
+
+@app.route('/api/strategies/<strategy_id>/stocks')
+def get_stocks_for_strategy(strategy_id):
+    """
+    【缓存优化版】获取策略的信号股票列表。
+    优先从策略筛选缓存读取，若无缓存或数据已更新则重新筛选。
+    """
+    try:
+        from strategy_screening_cache import strategy_screening_cache
+        from stock_pool_manager import StockPoolManager
+        
+        # 1. 优先从策略筛选缓存中获取结果
+        cached_results = strategy_screening_cache.get_cached_screening_results(strategy_id)
+        
+        if cached_results:
+            print(f"⚡️ 策略筛选缓存命中: 直接返回策略 '{strategy_id}' 的 {len(cached_results)} 个结果。")
+            return jsonify({'success': True, 'data': cached_results, 'from_cache': True})
+
+        # 2. 如果缓存未命中，则启动筛选
+        print(f"⏳ 策略筛选缓存未命中: 为策略 '{strategy_id}' 启动筛选...")
+        from universal_screener import UniversalScreener
+        
+        screener = UniversalScreener()
+        results = screener.run_screening([strategy_id])
+        
+        # 3. 构建返回数据
+        pool_manager = StockPoolManager()
+        stock_list = []
+        for result in results:
+            stock_profile = pool_manager.get_stock_by_code(result.stock_code)
+            stock_name = stock_profile.get('stock_name', result.stock_code) if stock_profile else result.stock_code
+            
+            stock_data = {
+                'stock_code': result.stock_code,
+                'stock_name': stock_name,
+                'date': str(result.date),
+                'signal_type': result.signal_type,
+                'price': result.current_price
+            }
+            stock_list.append(stock_data)
+        
+        # 4. 保存到缓存
+        strategy_screening_cache.save_screening_results(strategy_id, stock_list)
+        
+        return jsonify({'success': True, 'data': stock_list, 'from_cache': False})
+        
+    except Exception as e:
+        app.logger.error(f"为策略 {strategy_id} 获取股票列表失败: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"success": False, "error": f"无法获取策略 '{strategy_id}' 的股票列表: {str(e)}"}), 500
+
+@app.route('/api/cache/strategy_screening/stats')
+def get_strategy_screening_cache_stats():
+    """获取策略筛选缓存统计信息"""
+    try:
+        from strategy_screening_cache import strategy_screening_cache
+        stats = strategy_screening_cache.get_cache_stats()
+        return jsonify({'success': True, 'stats': stats})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/cache/strategy_screening/clear', methods=['POST'])
+def clear_strategy_screening_cache():
+    """清理策略筛选缓存"""
+    try:
+        from strategy_screening_cache import strategy_screening_cache
+        data = request.get_json() or {}
+        
+        strategy_id = data.get('strategy_id')
+        older_than_days = data.get('older_than_days')
+        
+        deleted_count = strategy_screening_cache.invalidate_cache(
+            strategy_id=strategy_id,
+            older_than_days=older_than_days
+        )
+        
+        return jsonify({
+            'success': True,
+            'message': f'已清理 {deleted_count} 条缓存记录',
+            'deleted_count': deleted_count
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/cache/strategy_screening/refresh/<strategy_id>', methods=['POST'])
+def refresh_strategy_screening_cache(strategy_id):
+    """强制刷新指定策略的筛选缓存"""
+    try:
+        from strategy_screening_cache import strategy_screening_cache
+        from universal_screener import UniversalScreener
+        from stock_pool_manager import StockPoolManager
+        
+        # 清理旧缓存
+        strategy_screening_cache.invalidate_cache(strategy_id)
+        
+        # 重新筛选
+        screener = UniversalScreener()
+        results = screener.run_screening([strategy_id])
+        
+        # 构建数据并保存到缓存
+        pool_manager = StockPoolManager()
+        stock_list = []
+        for result in results:
+            stock_profile = pool_manager.get_stock_by_code(result.stock_code)
+            stock_name = stock_profile.get('stock_name', result.stock_code) if stock_profile else result.stock_code
+            
+            stock_data = {
+                'stock_code': result.stock_code,
+                'stock_name': stock_name,
+                'date': str(result.date),
+                'signal_type': result.signal_type,
+                'price': result.current_price
+            }
+            stock_list.append(stock_data)
+        
+        strategy_screening_cache.save_screening_results(strategy_id, stock_list)
+        
+        return jsonify({
+            'success': True,
+            'message': f'策略 {strategy_id} 的缓存已刷新',
+            'stock_count': len(stock_list),
+            'data': stock_list
+        })
+        
+    except Exception as e:
+        app.logger.error(f"刷新策略 {strategy_id} 缓存失败: {str(e)}")
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 def get_timeframe_data(stock_code, timeframe='daily'):
     """获取指定周期的数据"""
@@ -500,38 +459,46 @@ def get_stock_analysis(stock_code):
         df['rsi24'] = indicators.calculate_rsi(df, 24)
         
         # 应用策略和回测
-        # 使用统一配置管理器查找策略ID
-        strategy_id = config_manager.find_strategy_by_old_id(strategy_name)
         signals = None
         
-        if strategy_id:
-            try:
-                # 使用策略管理器获取策略实例
-                strategy_instance = strategy_manager.get_strategy_instance(strategy_id)
-                if strategy_instance:
-                    signals = strategy_instance.apply_strategy(df)
-                    if signals is None:
-                        signals = pd.Series([False] * len(df), index=df.index)
-                else:
-                    print(f"策略实例未找到: {strategy_id}")
-                    print(f"可用策略: {list(strategy_manager.registered_strategies.keys())}")
-            except Exception as e:
-                print(f"策略管理器错误: {e}")
-                import traceback
-                traceback.print_exc()
+        # --- 新增的保护性代码 ---
+        if strategy_name:
+            # 使用统一配置管理器查找策略ID
+            strategy_id = config_manager.find_strategy_by_old_id(strategy_name)
+            
+            if strategy_id:
+                try:
+                    # 使用策略管理器获取策略实例
+                    strategy_instance = strategy_manager.get_strategy_instance(strategy_id)
+                    if strategy_instance:
+                        signals = strategy_instance.apply_strategy(df)
+                        if signals is None:
+                            signals = pd.Series([False] * len(df), index=df.index)
+                    else:
+                        print(f"策略实例未找到: {strategy_id}")
+                        print(f"可用策略: {list(strategy_manager.registered_strategies.keys())}")
+                except Exception as e:
+                    print(f"策略管理器错误: {e}")
+                    import traceback
+                    traceback.print_exc()
         
-        # 如果策略管理器失败，尝试使用传统方法
-        if signals is None:
-            try:
-                if hasattr(strategies, 'apply_strategy'):
-                    signals = strategies.apply_strategy(strategy_name, df)
-                else:
-                    # 最后的回退方案
+            # 如果策略管理器失败，尝试使用传统方法
+            if signals is None:
+                try:
+                    if hasattr(strategies, 'apply_strategy'):
+                        signals = strategies.apply_strategy(strategy_name, df)
+                    else:
+                        # 最后的回退方案
+                        signals = pd.Series([False] * len(df), index=df.index)
+                        print(f"警告: 策略 {strategy_name} 未找到，返回空信号")
+                except Exception as e:
+                    print(f"传统策略调用失败: {e}")
                     signals = pd.Series([False] * len(df), index=df.index)
-                    print(f"警告: 策略 {strategy_name} 未找到，返回空信号")
-            except Exception as e:
-                print(f"传统策略调用失败: {e}")
-                signals = pd.Series([False] * len(df), index=df.index)
+        else:
+            # 如果策略名为空，直接创建一个空的信号序列
+            print(f"警告: 未提供策略名称，将不应用任何信号。")
+            signals = pd.Series([''] * len(df), index=df.index)
+        # --- 保护性代码结束 ---
         # ---新增的防御性代码---
         #检查 signals是否为元组，如果是，则只取第一个元素
         if isinstance(signals, tuple) and len(signals) > 0:
@@ -763,62 +730,6 @@ def run_deep_scan_from_signals():
     # ... (此部分逻辑无需修改，保持原样)
     return jsonify({"success": True, "message": "深度扫描已触发"})
 
-# --- 股票信息API ---
-@app.route('/api/stock_info/<stock_code>')
-def get_single_stock_info(stock_code):
-    """获取单个股票的基本信息"""
-    try:
-        # 获取股票信息
-        stock_info = get_stock_info(stock_code, use_cache=True)
-        
-        return jsonify({
-            'success': True,
-            'data': stock_info.to_dict()
-        })
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': f'获取股票信息失败: {str(e)}'
-        }), 500
-
-@app.route('/api/stock_info/batch', methods=['POST'])
-def get_batch_stock_info():
-    """批量获取股票信息"""
-    try:
-        data = request.get_json()
-        stock_codes = data.get('stock_codes', [])
-        
-        if not stock_codes:
-            return jsonify({
-                'success': False,
-                'error': '股票代码列表不能为空'
-            }), 400
-        
-        # 限制批量查询数量，避免请求过大
-        if len(stock_codes) > 50:
-            return jsonify({
-                'success': False,
-                'error': '单次最多查询50只股票'
-            }), 400
-        
-        # 批量获取股票信息
-        stock_info_map = get_multiple_stock_info(stock_codes, use_cache=True)
-        
-        # 转换为前端需要的格式
-        results = {}
-        for code, info in stock_info_map.items():
-            results[code] = info.to_dict()
-        
-        return jsonify({
-            'success': True,
-            'data': results
-        })
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': f'批量获取股票信息失败: {str(e)}'
-        }), 500
-
 # --- 核心池管理 (统一版本) ---
 @app.route('/api/core_pool', methods=['GET', 'POST', 'DELETE'])
 def manage_core_pool():
@@ -862,6 +773,40 @@ def manage_core_pool():
         return jsonify({'success': True, 'message': f'股票 {stock_code} 已删除'})
 
     return jsonify({'error': '不支持的请求方法'}), 405
+
+@app.route('/api/core_pool/analysis')
+def get_core_pool_analysis():
+    """
+    【新增API】获取核心池股票的完整分析列表
+    """
+    try:
+        core_pool_stocks = load_core_pool_from_file()
+        
+        analysis_results = []
+        for stock_info in core_pool_stocks:
+            stock_code = stock_info['stock_code']
+            
+            # 为每只股票调用深度分析
+            # 注意：这里为了性能，应该利用缓存
+            # _get_or_generate_backtest_analysis 内部有缓存机制
+            pm = create_portfolio_manager()
+            df = pm.get_stock_data(stock_code)
+            if df is None:
+                analysis = {'error': '数据加载失败'}
+            else:
+                df = pm.calculate_technical_indicators(df, stock_code)
+                analysis = pm._get_or_generate_backtest_analysis(stock_code, df)
+
+            # 合并基础信息和分析结果
+            merged_info = {**stock_info, **analysis}
+            analysis_results.append(merged_info)
+        
+        return jsonify({'success': True, 'core_pool': analysis_results})
+        
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': f'核心池分析失败: {str(e)}'}), 500
 
 # --- 持仓管理API ---
 @app.route('/api/portfolio', methods=['GET', 'POST', 'PUT', 'DELETE'])
@@ -981,8 +926,121 @@ def get_position_analysis(stock_code):
         traceback.print_exc()
         return jsonify({'error': f'获取持仓分析失败: {str(e)}'}), 500
 
+@app.route('/api/unified_analysis/<stock_code>')
+def get_unified_stock_analysis(stock_code):
+    """
+    【统一分析接口 - 数据库缓存版】
+    整合所有分析功能并实现数据库缓存机制，避免重复计算
+    包含增强版交易建议功能
+    """
+    try:
+        from unified_analysis_service import get_or_run_analysis
+        
+        # 获取请求参数
+        strategy_name = request.args.get('strategy', 'PRE_CROSS')
+        app.logger.info(f"统一分析请求: {stock_code}, 策略: {strategy_name}")
+        
+        # 使用统一配置管理器查找策略ID
+        strategy_id = config_manager.find_strategy_by_old_id(strategy_name)
+        if not strategy_id:
+            app.logger.warning(f"策略映射失败，使用原名: {strategy_name}")
+            strategy_id = strategy_name  # 如果找不到映射，直接使用原名
+        else:
+            app.logger.info(f"策略映射成功: {strategy_name} -> {strategy_id}")
+        
+        # 调用统一分析服务（包含缓存机制）
+        result = get_or_run_analysis(stock_code, strategy_id)
+        
+        if result['success']:
+            app.logger.info(f"统一分析成功: {stock_code}, 缓存状态: {result['data'].get('from_cache', False)}")
+            return jsonify(result)
+        else:
+            app.logger.error(f"统一分析失败: {stock_code}, 错误: {result.get('error', '未知错误')}")
+            return jsonify(result), 500
+
+    except Exception as e:
+        import traceback
+        app.logger.error(f"统一分析接口异常: {stock_code}, 错误: {str(e)}")
+        traceback.print_exc()
+        return jsonify({
+            'success': False, 
+            'error': f'统一分析接口错误: {str(e)}'
+        }), 500
+
+
+# --- 缓存管理API ---
+
+
+@app.route('/api/cache/clear_expired', methods=['POST'])
+def clear_expired_cache_api():
+    """清理过期的缓存（例如，7天前的数据）"""
+    try:
+        # This function is no longer defined in the service, call the cache directly
+        from analysis_cache import analysis_cache
+        data = request.get_json() or {}
+        days_old = data.get('days_old', 7)
+        
+        deleted_count = analysis_cache.clear_old_cache(days_old)
+        
+        return jsonify({
+            'success': True,
+            'message': f'Expired cache cleared, {deleted_count} records deleted.',
+            'deleted_count': deleted_count
+        })
+    except Exception as e:
+        app.logger.error(f'清理过期缓存失败: {str(e)}')
+        return jsonify({
+            'success': False,
+            'error': f'清理过期缓存失败: {str(e)}'
+        }), 500
+
+# --- 缓存管理API ---
+@app.route('/api/cache/clear', methods=['POST'])
+def clear_cache():
+    """清理缓存"""
+    try:
+        data = request.get_json() or {}
+        stock_code = data.get('stock_code')
+        strategy_id = data.get('strategy_id')
+        
+        from analysis_cache import analysis_cache
+        deleted_count = analysis_cache.invalidate_cache(stock_code=stock_code, strategy_id=strategy_id)
+        
+        app.logger.info(f"缓存清理完成，删除 {deleted_count} 条记录")
+        
+        return jsonify({
+            'success': True,
+            'message': f'缓存清理完成，删除 {deleted_count} 条记录',
+            'deleted_count': deleted_count
+        })
+    except Exception as e:
+        app.logger.error(f'缓存清理失败: {str(e)}')
+        return jsonify({
+            'success': False,
+            'error': f'缓存清理失败: {str(e)}'
+        }), 500
+
+@app.route('/api/cache/stats', methods=['GET'])
+def get_cache_stats():
+    """获取缓存统计信息"""
+    try:
+        from analysis_cache import analysis_cache
+        stats = analysis_cache.get_cache_stats()
+        
+        return jsonify({
+            'success': True,
+            'stats': stats
+        })
+    except Exception as e:
+        app.logger.error(f'获取缓存统计失败: {str(e)}')
+        return jsonify({
+            'success': False,
+            'error': f'获取缓存统计失败: {str(e)}'
+        }), 500
 
 if __name__ == '__main__':
     print("量化分析平台后端启动...")
+    print("🚀 新功能：数据库缓存系统已启用")
+    print("📊 增强版交易建议已集成")
     print("请在浏览器中打开 http://127.0.0.1:5000")
     app.run(host='0.0.0.0', port=5000, debug=True)

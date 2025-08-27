@@ -15,6 +15,7 @@ import logging
 from typing import Optional
 import data_loader
 import indicators
+from typing import List
 from adjustment_processor import create_adjustment_config, create_adjustment_processor
 
 from config import BASE_PATH
@@ -44,7 +45,7 @@ def _get_market_from_stock_code(stock_code: str) -> str:
     # 默认返回前两位作为市场代码
     return prefix
 
-def get_full_data_with_indicators(stock_code: str, adjustment_type: str = 'forward') -> Optional[pd.DataFrame]:
+def get_full_data_with_indicators(stock_code: str, adjustment_type: str = 'forward', **indicator_params) -> Optional[pd.DataFrame]:
     """
     【统一数据入口】
     获取单只股票的完整历史数据，并计算好所有通用技术指标。
@@ -74,7 +75,7 @@ def get_full_data_with_indicators(stock_code: str, adjustment_type: str = 'forwa
             df = adj_processor.process_data(df, stock_code)
 
         # 3. 计算所有通用技术指标
-        df = calculate_all_indicators(df, stock_code, adjustment_type)
+        df = calculate_all_indicators(df, stock_code, adjustment_type, **indicator_params)
 
         return df
     except Exception as e:
@@ -140,7 +141,7 @@ def read_day_file(file_path: str, stock_code: str = None) -> Optional[pd.DataFra
         logger.error(f"读取文件失败 {file_path}: {e}")
         return None
 
-def calculate_all_indicators(df: pd.DataFrame, stock_code: str, adjustment_type: str = 'forward') -> pd.DataFrame:
+def calculate_all_indicators(df: pd.DataFrame, stock_code: str, adjustment_type: str = 'forward', **indicator_params) -> pd.DataFrame:
     """
     计算所有通用技术指标
     
@@ -153,29 +154,52 @@ def calculate_all_indicators(df: pd.DataFrame, stock_code: str, adjustment_type:
         包含所有指标的DataFrame
     """
     try:
-        # 基础均线指标
+        # 基础均线指标 - 计算完整的MA系列 (7, 13, 30, 45, 60, 90, 150, 240)
+        ma_periods = [7, 13, 30, 45, 60, 90, 150, 240]
+        for period in ma_periods:
+            df[f'ma{period}'] = indicators.calculate_ma(df, period)
+        
+        # 保持向后兼容性
         df['ma5'] = indicators.calculate_ma(df, 5)
-        df['ma13'] = indicators.calculate_ma(df, 13)
         df['ma21'] = indicators.calculate_ma(df, 21)
-        df['ma45'] = indicators.calculate_ma(df, 45)
-        df['ma60'] = indicators.calculate_ma(df, 60)
+        
+        # 添加优化的均线
+        ma_short = indicator_params.get('ma_short', 5)
+        ma_long = indicator_params.get('ma_long', 21)
+        if ma_short not in [5, 7, 13, 30, 45, 60, 90, 150, 240]:
+            df[f'ma{ma_short}'] = indicators.calculate_ma(df, ma_short)
+        if ma_long not in [5, 21, 7, 13, 30, 45, 60, 90, 150, 240]:
+            df[f'ma{ma_long}'] = indicators.calculate_ma(df, ma_long)
         
         # 创建复权配置
         adjustment_config = create_adjustment_config(adjustment_type) if adjustment_type != 'none' else None
         
-        # MACD指标
-        macd_config = indicators.MACDIndicatorConfig(adjustment_config=adjustment_config)
+        # MACD指标 - 使用优化参数
+        macd_fast = indicator_params.get('macd_fast', 12)
+        macd_slow = indicator_params.get('macd_slow', 26)
+        macd_config = indicators.MACDIndicatorConfig(
+            fast_period=macd_fast,
+            slow_period=macd_slow,
+            adjustment_config=adjustment_config
+        )
         df['dif'], df['dea'] = indicators.calculate_macd(df, config=macd_config, stock_code=stock_code)
         df['macd'] = df['dif'] - df['dea']
         
-        # KDJ指标
-        kdj_config = indicators.KDJIndicatorConfig(adjustment_config=adjustment_config)
-        df['k'], df['d'], df['j'] = indicators.calculate_kdj(df, config=kdj_config, stock_code=stock_code)
+        # KDJ指标 - 使用优化参数
+        kdj_n = indicator_params.get('kdj_n', 9)
+        kdj_config = indicators.KDJIndicatorConfig(
+            n_period=kdj_n,
+            adjustment_config=adjustment_config
+        )
+        df['k'], df['d'], df['j'] = indicators.calculate_kdj(df, config=kdj_config, stock_code=stock_code, n=kdj_n)
         
-        # RSI指标
+        # RSI指标 - 使用优化参数
+        rsi_period = indicator_params.get('rsi_period', 14)
         df['rsi6'] = indicators.calculate_rsi(df, 6)
         df['rsi12'] = indicators.calculate_rsi(df, 12)
         df['rsi24'] = indicators.calculate_rsi(df, 24)
+        if rsi_period not in [6, 12, 24]:
+            df[f'rsi{rsi_period}'] = indicators.calculate_rsi(df, rsi_period)
         
         # 布林带
         df['bb_upper'], df['bb_middle'], df['bb_lower'] = indicators.calculate_bollinger_bands(df)
@@ -202,3 +226,24 @@ def get_stock_data_simple(stock_code: str) -> Optional[pd.DataFrame]:
     except Exception as e:
         logger.error(f"获取股票基础数据失败 {stock_code}: {e}")
         return None
+    
+def get_all_stock_codes_from_filesystem() -> List[str]:
+    """从本地数据目录扫描所有A股和港股的股票代码"""
+    all_codes = []
+    market_folders = {
+        'sh': 'lday',
+        'sz': 'lday',
+        'ds': 'lday' # 港股
+    }
+    
+    for market, folder in market_folders.items():
+        market_path = os.path.join(BASE_PATH, market, folder)
+        if not os.path.isdir(market_path):
+            continue
+        
+        for filename in os.listdir(market_path):
+            if filename.endswith('.day'):
+                stock_code = filename.split('.')[0]
+                all_codes.append(stock_code)
+                
+    return all_codes    

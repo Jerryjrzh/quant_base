@@ -1,0 +1,50 @@
+# 【V3】多指标融合评分系统配置
+# 引入了更灵活的价格位置评分标准
+
+# 评分权重配置
+weights:
+  price_position: 40
+  macd_state: 30
+  kdj_state: 20
+  rsi_state: 10
+
+# 阈值配置
+thresholds:
+  # V3: 价格位置评分分层标准 (90日区间)
+  price_position_tiers:
+    tier1: 0.4  # 位置 < 40%
+    tier2: 0.6  # 位置 < 60%
+    tier3: 0.8  # 位置 < 80%
+  
+  # V3: 价格位置分层对应的分数
+  price_position_scores:
+    tier1: 40   # 满分
+    tier2: 30   # 优秀
+    tier3: 15   # 可接受
+  
+  # 52周高点快速过滤器阈值 (可适当放宽至85%)
+  price_ratio_filter: 0.85
+  
+  # MACD, KDJ, RSI 阈值
+  macd_zero_threshold: 0.1
+  kdj_low_threshold: 50
+  kdj_oversold: 20
+  rsi_bullish_low: 50
+  rsi_bullish_high: 75
+  rsi_oversold: 30
+
+# 评分标准
+scoring:
+  min_confluence_score: 70
+  max_possible_score: 110
+
+# 历史状态检查配置
+stateful_checks:
+  lookback_days: 10
+  macd_consolidation_ratio: 0.6
+  kdj_oversold_min_days: 2
+  
+# 奖励分配置
+bonus_scores:
+  macd_consolidation: 5
+  kdj_oversold_period: 5
