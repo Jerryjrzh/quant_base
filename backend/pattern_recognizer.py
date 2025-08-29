@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
-技术形态识别器
-基于screener_test_gmini_review.md的建议实施
-实现从"信号猎取"到"形态识别"的转变
+【V4.1 - 市场阶段自适应】技术形态识别器
+根据Grok的深度分析建议（scorer_grok_review.md）进行优化：
+1. 集成市场阶段识别，应用动态阈值
+2. 移除冗余的"双重"质量检查
+3. 调整评分逻辑，使其更适应不同市场环境
 """
 
 import pandas as pd
@@ -15,360 +17,179 @@ logger = logging.getLogger(__name__)
 
 class PatternRecognizer:
     """
-    技术形态识别器
-    专门识别"整理突破"和"底部反转"等经典形态
+    【V4.1】技术形态识别器
+    核心优化：根据市场阶段（积累/上升/分配/下跌）自适应调整识别逻辑
     """
     
     def __init__(self):
-        self.min_consolidation_days = 10  # 最小整理天数
-        self.max_consolidation_days = 60  # 最大整理天数
-        self.consolidation_range_threshold = 0.15  # 整理区间阈值（15%）
-        self.breakout_volume_multiplier = 1.2  # 突破成交量倍数
+        self.min_consolidation_days = 10
+        self.max_consolidation_days = 60
+        self.consolidation_range_threshold = 0.15
+        self.breakout_volume_multiplier = 1.2
     
+    # ... (detect_consolidation_period, detect_ma_compression, detect_volume_breakout remain the same) ...
     def detect_consolidation_period(self, df: pd.DataFrame, end_index: int) -> Optional[Dict]:
-        """
-        检测整理期
-        识别价格在一定区间内横盘整理的时期
-        """
         try:
-            if end_index < self.min_consolidation_days:
-                return None
-            
-            # 向前查找整理期
-            for lookback_days in range(self.min_consolidation_days, 
-                                     min(self.max_consolidation_days, end_index)):
+            if end_index < self.min_consolidation_days: return None
+            for lookback_days in range(self.min_consolidation_days, min(self.max_consolidation_days, end_index)):
                 start_pos = end_index - lookback_days
                 consolidation_data = df.iloc[start_pos:end_index]
-                
-                if len(consolidation_data) < self.min_consolidation_days:
-                    continue
-                
-                # 计算整理区间
+                if len(consolidation_data) < self.min_consolidation_days: continue
                 high_price = consolidation_data['high'].max()
                 low_price = consolidation_data['low'].min()
-                
-                if high_price <= low_price:
-                    continue
-                
-                # 检查价格波动是否在合理范围内
+                if high_price <= low_price: continue
                 price_range = (high_price - low_price) / low_price
                 if price_range <= self.consolidation_range_threshold:
-                    # 检查是否大部分时间在此区间内
-                    in_range_count = 0
-                    for _, row in consolidation_data.iterrows():
-                        if low_price <= row['close'] <= high_price:
-                            in_range_count += 1
-                    
+                    in_range_count = ((consolidation_data['close'] >= low_price) & (consolidation_data['close'] <= high_price)).sum()
                     in_range_ratio = in_range_count / len(consolidation_data)
-                    if in_range_ratio >= 0.8:  # 80%的时间在区间内
-                        return {
-                            'start_date': consolidation_data.index[0],
-                            'end_date': consolidation_data.index[-1],
-                            'duration_days': lookback_days,
-                            'high_price': high_price,
-                            'low_price': low_price,
-                            'price_range_pct': price_range,
-                            'in_range_ratio': in_range_ratio
-                        }
-            
+                    if in_range_ratio >= 0.8:
+                        return {'start_date': consolidation_data.index[0], 'end_date': consolidation_data.index[-1], 'duration_days': lookback_days, 'high_price': high_price, 'low_price': low_price, 'price_range_pct': price_range, 'in_range_ratio': in_range_ratio}
             return None
-            
         except Exception as e:
-            logger.warning(f"检测整理期失败: {e}")
-            return None
+            logger.warning(f"检测整理期失败: {e}"); return None
     
     def detect_ma_compression(self, df: pd.DataFrame, index: int) -> Dict:
-        """
-        检测均线收敛
-        识别短中期均线聚集的情况
-        """
         try:
-            if index < 30:
-                return {'is_compressed': False, 'compression_ratio': 0}
-            
-            # 获取多条均线
+            if index < 30: return {'is_compressed': False, 'compression_ratio': 0}
             ma_columns = ['ma7', 'ma13', 'ma30']
-            current_mas = []
-            
-            for ma_col in ma_columns:
-                if ma_col in df.columns:
-                    ma_value = df.iloc[index].get(ma_col)
-                    if pd.notna(ma_value):
-                        current_mas.append(ma_value)
-            
-            if len(current_mas) < 3:
-                return {'is_compressed': False, 'compression_ratio': 0}
-            
-            # 计算均线间的最大差异
-            max_ma = max(current_mas)
-            min_ma = min(current_mas)
-            
-            if min_ma <= 0:
-                return {'is_compressed': False, 'compression_ratio': 0}
-            
+            current_mas = [df.iloc[index].get(ma_col) for ma_col in ma_columns if pd.notna(df.iloc[index].get(ma_col))]
+            if len(current_mas) < 3: return {'is_compressed': False, 'compression_ratio': 0}
+            max_ma = max(current_mas); min_ma = min(current_mas)
+            if min_ma <= 0: return {'is_compressed': False, 'compression_ratio': 0}
             compression_ratio = (max_ma - min_ma) / min_ma
-            is_compressed = compression_ratio <= 0.05  # 5%以内认为收敛
-            
-            return {
-                'is_compressed': is_compressed,
-                'compression_ratio': compression_ratio,
-                'ma_values': current_mas
-            }
-            
+            return {'is_compressed': compression_ratio <= 0.05, 'compression_ratio': compression_ratio, 'ma_values': current_mas}
         except Exception as e:
-            logger.warning(f"检测均线收敛失败: {e}")
-            return {'is_compressed': False, 'compression_ratio': 0}
+            logger.warning(f"检测均线收敛失败: {e}"); return {'is_compressed': False, 'compression_ratio': 0}
     
-    def detect_volume_breakout(self, df: pd.DataFrame, index: int, 
-                             consolidation_info: Dict) -> Dict:
-        """
-        检测成交量突破
-        确认突破的有效性
-        """
+    def detect_volume_breakout(self, df: pd.DataFrame, index: int) -> Dict:
         try:
-            if index < 5:
-                return {'is_volume_breakout': False, 'volume_ratio': 0}
-            
-            # 计算近期平均成交量
+            if index < 5 or 'volume' not in df.columns: return {'is_volume_breakout': False, 'volume_ratio': 0}
             recent_volume = df.iloc[max(0, index-5):index]['volume'].mean()
             current_volume = df.iloc[index]['volume']
-            
-            if recent_volume <= 0:
-                return {'is_volume_breakout': False, 'volume_ratio': 0}
-            
+            if recent_volume <= 0: return {'is_volume_breakout': False, 'volume_ratio': 0}
             volume_ratio = current_volume / recent_volume
-            is_volume_breakout = volume_ratio >= self.breakout_volume_multiplier
-            
-            return {
-                'is_volume_breakout': is_volume_breakout,
-                'volume_ratio': volume_ratio,
-                'current_volume': current_volume,
-                'avg_volume': recent_volume
-            }
-            
+            return {'is_volume_breakout': volume_ratio >= self.breakout_volume_multiplier, 'volume_ratio': volume_ratio, 'current_volume': current_volume, 'avg_volume': recent_volume}
         except Exception as e:
-            logger.warning(f"检测成交量突破失败: {e}")
-            return {'is_volume_breakout': False, 'volume_ratio': 0}
-    
-    def is_consolidation_breakout(self, df: pd.DataFrame, index: int) -> Dict:
+            logger.warning(f"检测成交量突破失败: {e}"); return {'is_volume_breakout': False, 'volume_ratio': 0}
+
+    def is_consolidation_breakout(self, df: pd.DataFrame, index: int, phase: str, score_threshold: int) -> Dict:
         """
-        识别整理突破形态
-        这是核心的形态识别函数
+        【V4.1】识别整理突破形态 (使用动态阈值)
         """
         try:
-            # 1. 价格位置快速过滤
-            price_filter_result, price_reason = confluence_scorer.filter_by_price_position(df, index)
-            if not price_filter_result:
-                return {
-                    'pattern_detected': False,
-                    'pattern_type': 'consolidation_breakout',
-                    'reason': price_reason,
-                    'confidence': 0
-                }
-            
-            # 2. 检测整理期
             consolidation_info = self.detect_consolidation_period(df, index)
             if not consolidation_info:
-                return {
-                    'pattern_detected': False,
-                    'pattern_type': 'consolidation_breakout',
-                    'reason': '未发现有效整理期',
-                    'confidence': 0
-                }
-            
-            # 3. 检测均线收敛
+                return {'pattern_detected': False, 'reason': '未发现有效整理期'}
+
             ma_compression = self.detect_ma_compression(df, index)
-            
-            # 4. 检测价格突破
             current_price = df.iloc[index]['close']
-            breakout_threshold = consolidation_info['high_price']
-            is_price_breakout = current_price > breakout_threshold
-            
-            # 5. 检测成交量确认
-            volume_info = self.detect_volume_breakout(df, index, consolidation_info)
-            
-            # 6. 计算多指标融合评分
+            is_price_breakout = current_price > consolidation_info['high_price']
+            volume_info = self.detect_volume_breakout(df, index)
             confluence_result = confluence_scorer.calculate_confluence_score(df, index)
             
-            # 7. 综合判断
-            pattern_score = 0
-            reasons = []
+            pattern_score = 0; reasons = []
             
-            # 整理期评分（30分）
-            if consolidation_info['duration_days'] >= 15:
-                pattern_score += 30
-                reasons.append(f"发现{consolidation_info['duration_days']}天整理期")
-            else:
-                pattern_score += 15
-                reasons.append(f"发现{consolidation_info['duration_days']}天短期整理")
-            
-            # 价格突破评分（25分）
-            if is_price_breakout:
-                pattern_score += 25
-                reasons.append("价格突破整理区间上沿")
-            
-            # 均线收敛评分（15分）
-            if ma_compression['is_compressed']:
-                pattern_score += 15
-                reasons.append("均线收敛，趋势不明")
-            
-            # 成交量确认评分（10分）
+            # 评分逻辑
+            pattern_score += 30 if consolidation_info['duration_days'] >= 15 else 15
+            reasons.append(f"发现{consolidation_info['duration_days']}天整理期")
+            if is_price_breakout: pattern_score += 25; reasons.append("价格突破整理区间上沿")
+            if ma_compression['is_compressed']: pattern_score += 15; reasons.append("均线收敛")
             if volume_info['is_volume_breakout']:
-                pattern_score += 10
+                # 在上升期，成交量突破更重要
+                volume_weight = 1.5 if phase == 'markup' else 1.0
+                pattern_score += 10 * volume_weight
                 reasons.append(f"成交量放大{volume_info['volume_ratio']:.1f}倍")
-            
-            # 多指标融合评分（20分）
+
+            # 融合评分贡献
             pattern_score += confluence_result['total_score'] * 0.2
             
-            # 最终判断
-            is_pattern_detected = (pattern_score >= 70 and 
-                                 confluence_result['is_high_quality'] and
-                                 is_price_breakout)
+            # --- [核心修改] 使用动态阈值，移除冗余的 is_high_quality 检查 ---
+            is_pattern_detected = (pattern_score >= score_threshold and is_price_breakout)
             
             return {
-                'pattern_detected': is_pattern_detected,
-                'pattern_type': 'consolidation_breakout',
-                'pattern_score': pattern_score,
-                'confidence': min(pattern_score / 100, 1.0),
-                'reasons': reasons,
-                'consolidation_info': consolidation_info,
-                'ma_compression': ma_compression,
-                'volume_info': volume_info,
-                'confluence_result': confluence_result,
-                'price_breakout': is_price_breakout
+                'pattern_detected': is_pattern_detected, 'pattern_type': 'consolidation_breakout',
+                'pattern_score': pattern_score, 'confidence': min(pattern_score / 100, 1.0), 'reasons': reasons
             }
-            
         except Exception as e:
-            logger.error(f"识别整理突破形态失败: {e}")
-            return {
-                'pattern_detected': False,
-                'pattern_type': 'consolidation_breakout',
-                'reason': f'识别失败: {str(e)}',
-                'confidence': 0
-            }
+            logger.error(f"识别整理突破形态失败: {e}"); return {'pattern_detected': False, 'reason': f'识别失败: {str(e)}'}
     
-    def is_bottom_reversal(self, df: pd.DataFrame, index: int) -> Dict:
+    def is_bottom_reversal(self, df: pd.DataFrame, index: int, score_threshold: int) -> Dict:
         """
-        识别底部反转形态
+        【V4.1】识别底部反转形态 (使用动态阈值)
         """
         try:
-            # 1. 价格位置过滤
-            price_filter_result, price_reason = confluence_scorer.filter_by_price_position(df, index)
-            if not price_filter_result:
-                return {
-                    'pattern_detected': False,
-                    'pattern_type': 'bottom_reversal',
-                    'reason': price_reason,
-                    'confidence': 0
-                }
-            
-            # 2. 检查是否在相对低位
             confluence_result = confluence_scorer.calculate_confluence_score(df, index)
             price_position_score = confluence_result['breakdown'].get('price_position', 0)
             
-            if price_position_score < 20:  # 价格位置评分太低
-                return {
-                    'pattern_detected': False,
-                    'pattern_type': 'bottom_reversal',
-                    'reason': '价格位置不够低',
-                    'confidence': 0
-                }
-            
-            # 3. 检查技术指标反转信号
+            if price_position_score < confluence_scorer.weights['price_position'] * 0.5: # 价格位置评分必须达到权重的一半
+                return {'pattern_detected': False, 'reason': '价格位置不够低'}
+
             macd_score = confluence_result['breakdown'].get('macd_state', 0)
             kdj_score = confluence_result['breakdown'].get('kdj_state', 0)
             
-            # 4. 检查K线形态（简化版）
-            if index >= 2:
-                current_candle = df.iloc[index]
-                prev_candle = df.iloc[index-1]
-                
-                # 检查是否有反弹K线
-                is_bullish_candle = current_candle['close'] > current_candle['open']
-                has_momentum = current_candle['close'] > prev_candle['close']
-            else:
-                is_bullish_candle = False
-                has_momentum = False
+            # 简化K线分析
+            is_bullish_candle = False
+            if index >= 1: is_bullish_candle = df.iloc[index]['close'] > df.iloc[index-1]['close']
             
-            # 5. 综合评分
-            pattern_score = 0
-            reasons = []
+            pattern_score = price_position_score + macd_score + kdj_score
+            reasons = [f"价格位置得分{price_position_score:.1f}", f"MACD得分{macd_score:.1f}", f"KDJ得分{kdj_score:.1f}"]
+            if is_bullish_candle: pattern_score += 10; reasons.append("出现反弹K线")
             
-            # 价格位置（40分）
-            pattern_score += price_position_score
-            if price_position_score >= 30:
-                reasons.append("价格处于相对低位")
-            
-            # MACD反转（30分）
-            pattern_score += macd_score
-            if macd_score >= 15:
-                reasons.append("MACD显示反转信号")
-            
-            # KDJ反转（20分）
-            pattern_score += kdj_score
-            if kdj_score >= 10:
-                reasons.append("KDJ显示反转信号")
-            
-            # K线形态（10分）
-            if is_bullish_candle and has_momentum:
-                pattern_score += 10
-                reasons.append("出现反弹K线")
-            
-            # 最终判断
-            is_pattern_detected = (pattern_score >= 60 and 
-                                 confluence_result['is_high_quality'])
+            # --- [核心修改] 使用动态阈值，移除冗余的 is_high_quality 检查 ---
+            is_pattern_detected = (pattern_score >= score_threshold)
             
             return {
-                'pattern_detected': is_pattern_detected,
-                'pattern_type': 'bottom_reversal',
-                'pattern_score': pattern_score,
-                'confidence': min(pattern_score / 100, 1.0),
-                'reasons': reasons,
-                'confluence_result': confluence_result,
-                'candle_analysis': {
-                    'is_bullish_candle': is_bullish_candle,
-                    'has_momentum': has_momentum
-                }
+                'pattern_detected': is_pattern_detected, 'pattern_type': 'bottom_reversal',
+                'pattern_score': pattern_score, 'confidence': min(pattern_score / 100, 1.0), 'reasons': reasons
             }
-            
         except Exception as e:
-            logger.error(f"识别底部反转形态失败: {e}")
-            return {
-                'pattern_detected': False,
-                'pattern_type': 'bottom_reversal',
-                'reason': f'识别失败: {str(e)}',
-                'confidence': 0
-            }
-    
-    def recognize_pattern(self, df: pd.DataFrame, index: int, 
-                         pattern_types: List[str] = None) -> Dict:
+            logger.error(f"识别底部反转形态失败: {e}"); return {'pattern_detected': False, 'reason': f'识别失败: {str(e)}'}
+
+    def recognize_pattern(self, df: pd.DataFrame, index: int) -> Dict:
         """
-        通用形态识别接口
+        【V4.1 - 核心升级】通用形态识别接口 (市场阶段自适应)
         """
-        if pattern_types is None:
-            pattern_types = ['consolidation_breakout', 'bottom_reversal']
-        
         results = {}
         best_pattern = None
         best_confidence = 0
         
-        for pattern_type in pattern_types:
+        # --- [新增逻辑] 1. 首先获取当前的市场阶段 ---
+        phase_result = confluence_scorer.detect_market_phase(df, index)
+        phase = phase_result.get('phase', 'accumulation')
+        
+        # --- [新增逻辑] 2. 根据阶段设置不同的识别策略和阈值 ---
+        if phase in ['accumulation', 'decline']:
+            # 在积累期或下跌期，优先寻找底部反转，且阈值可以更宽松
+            pattern_priority = ['bottom_reversal', 'consolidation_breakout']
+            thresholds = {'bottom_reversal': 55, 'consolidation_breakout': 65}
+        elif phase == 'markup':
+            # 在上升期，优先寻找整理突破（回调后的机会）
+            pattern_priority = ['consolidation_breakout', 'bottom_reversal']
+            thresholds = {'bottom_reversal': 65, 'consolidation_breakout': 60}
+        else: # distribution
+            return {'has_pattern': False, 'best_pattern': None, 'reason': f'高风险阶段: {phase}'}
+
+        # --- [修改后逻辑] 3. 按优先级和动态阈值进行识别 ---
+        for pattern_type in pattern_priority:
+            score_threshold = thresholds.get(pattern_type, 70)
+            
             if pattern_type == 'consolidation_breakout':
-                result = self.is_consolidation_breakout(df, index)
+                result = self.is_consolidation_breakout(df, index, phase, score_threshold)
             elif pattern_type == 'bottom_reversal':
-                result = self.is_bottom_reversal(df, index)
+                result = self.is_bottom_reversal(df, index, score_threshold)
             else:
                 continue
             
             results[pattern_type] = result
             
-            if result['pattern_detected'] and result['confidence'] > best_confidence:
+            if result.get('pattern_detected') and result.get('confidence', 0) > best_confidence:
                 best_pattern = pattern_type
                 best_confidence = result['confidence']
         
         return {
             'best_pattern': best_pattern,
             'best_confidence': best_confidence,
+            'market_phase': phase,
             'all_results': results,
             'has_pattern': best_pattern is not None
         }

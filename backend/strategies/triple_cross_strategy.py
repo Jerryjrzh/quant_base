@@ -132,8 +132,8 @@ class TripleCrossStrategy(BaseStrategy):
             )
             
             # 三重金叉信号
-            signals = macd_cross & kdj_cross & rsi_cross
-            
+            #signals = (macd_cross | kdj_cross) | rsi_cross
+            signals = rsi_cross
             signal_details = {
                 'strategy': self.name,
                 'version': self.version,

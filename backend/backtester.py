@@ -1,17 +1,25 @@
 #!/usr/bin/env python3
+"""
+【V4.1 - 深度分析中心】
+此模块现在是统一的深度分析和交易建议生成中心。
+完全集成 V4.0 Confluence Scorer 的所有智能分析功能。
+"""
 import numpy as np
 import pandas as pd
 import os
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
+import logging
 
 # 导入必要的模块 (原portfolio_manager中的依赖)
 import data_loader
 import indicators
 from adjustment_processor import create_adjustment_config, create_adjustment_processor
-# --- 新增：导入多指标融合评分系统 ---
+# --- 核心依赖：导入V4.0评分系统和形态识别器 ---
 from confluence_scorer import confluence_scorer
 from pattern_recognizer import pattern_recognizer
+
+logger = logging.getLogger(__name__)
 
 # --- 回测配置 ---
 # 信号出现后，向后观察的最大天数
@@ -610,115 +618,105 @@ def _optimize_coefficients_historically(df: pd.DataFrame) -> dict:
 
 # backend/backtester.py
 
-def _generate_forward_advice(df: pd.DataFrame, backtest_results: dict) -> dict:
+def _generate_forward_advice_v4(df: pd.DataFrame) -> dict:
     """
-    【增强版】基于多指标融合评分系统生成高质量交易建议
-    集成价格位置、形态识别和技术指标一致性分析
+    【V4.1 核心函数】基于 V4.0 Confluence Scorer 生成高质量、可解释的交易建议
     """
-    current_price = float(df.iloc[-1]['close'])
-    price_targets = _calculate_price_targets(df, current_price)
-    support_level = price_targets.get('next_support')
-    resistance_level = price_targets.get('next_resistance')
-    
-    # 获取最新数据索引
-    latest_index = len(df) - 1
-    
-    # === 核心增强：多指标融合分析 ===
-    
-    # 1. 价格位置分析
-    price_filter_passed, price_reason = confluence_scorer.filter_by_price_position(df, latest_index)
-    
-    # 2. 多指标融合评分
-    confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
-    
-    # 3. 形态识别
-    pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
-    
-    # 4. 传统价格目标计算
-    best_add_coefficient = backtest_results.get('best_add_coefficient')
-    optimal_add_price = None
-    if support_level and best_add_coefficient:
-        optimal_add_price = support_level * best_add_coefficient
-    
-    best_sell_coefficient = backtest_results.get('best_sell_coefficient')
-    optimal_sell_price = None
-    if best_sell_coefficient:
-        optimal_sell_price = current_price * best_sell_coefficient
+    try:
+        latest_index = len(df) - 1
+        current_price = float(df.iloc[latest_index]['close'])
+        
+        # 1. 调用 V4.0 评分系统获取最全面的分析结果
+        confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
+        
+        # 2. 调用形态识别器
+        pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
 
-    # === 增强版建议生成逻辑 ===
-    action = 'HOLD'
-    reasons = []
-    confidence = confluence_result['confidence']  # 使用融合评分的置信度
-    
-    # 基于融合评分和形态识别生成建议
-    if not price_filter_passed:
-        action = 'AVOID'
-        reasons.append(f"价格位置过高: {price_reason}")
-        confidence = 0.3
-    elif confluence_result['is_high_quality']:
-        # 高质量信号
-        if pattern_result['has_pattern']:
-            action = 'BUY'
-            reasons.append(f"发现{pattern_result['best_pattern']}形态，融合评分{confluence_result['total_score']:.1f}")
-            reasons.append(f"多指标一致性良好，置信度{confluence_result['confidence']:.1%}")
-            confidence = min(confluence_result['confidence'] + 0.1, 0.95)
+        # 3. 初始化建议
+        action = 'HOLD'
+        reasons = []
+        confidence = confluence_result['confidence']
+        quality_grade = 'D'
+
+        # 4. 构建层次化的决策逻辑
+        
+        # 第一层：基于市场阶段的宏观判断
+        market_phase = confluence_result.get('market_phase', 'unknown')
+        reasons.append(f"宏观判断：当前处于 {market_phase.upper()} 阶段。")
+        if market_phase in ['distribution', 'decline']:
+            action = 'AVOID'
+            reasons.append("风险提示：市场处于高风险或下跌阶段，建议规避。")
+            confidence *= 0.7 # 降低置信度
+
+        # 第二层：基于融合评分的核心决策
+        total_score = confluence_result.get('total_score', 0)
+        if total_score >= 85:
+            quality_grade = 'A'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (A级)，技术面高度共振。")
+        elif total_score >= 70:
+            quality_grade = 'B'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (B级)，技术面较为一致。")
+        elif total_score >= 55:
+            quality_grade = 'C'
+            action = 'WATCH' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (C级)，建议保持观察。")
         else:
-            action = 'BUY'
-            reasons.append(f"多指标融合评分{confluence_result['total_score']:.1f}，技术指标一致性好")
-            confidence = confluence_result['confidence']
-    elif confluence_result['total_score'] >= 50:
-        # 中等质量信号
-        action = 'WATCH'
-        reasons.append(f"融合评分{confluence_result['total_score']:.1f}，建议观察等待更好时机")
-        confidence = confluence_result['confidence'] * 0.8
-    else:
-        # 低质量信号
-        action = 'AVOID'
-        reasons.append(f"融合评分{confluence_result['total_score']:.1f}过低，技术指标不一致")
-        confidence = 0.3
-    
-    # 添加具体的技术指标分析
-    breakdown = confluence_result.get('breakdown', {})
-    if breakdown.get('price_position', 0) >= 30:
-        reasons.append("价格处于相对低位，安全边际较高")
-    if breakdown.get('macd_state', 0) >= 20:
-        reasons.append("MACD显示动能转强信号")
-    if breakdown.get('kdj_state', 0) >= 15:
-        reasons.append("KDJ指标显示超卖反弹")
-    
-    # 状态历史条件
-    stateful_conditions = confluence_result.get('stateful_conditions', {})
-    if stateful_conditions.get('macd_consolidation'):
-        reasons.append("MACD经历充分整理，反转信号更可靠")
-    if stateful_conditions.get('kdj_oversold_period'):
-        reasons.append("KDJ经历超卖期，反弹概率增加")
+            quality_grade = 'D'
+            action = 'AVOID'
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (D级)，技术指标不一致，建议规避。")
 
-    # 动态调整价格目标
-    if confluence_result['is_high_quality']:
-        # 高质量信号可以适当提高目标价
-        if optimal_sell_price:
-            optimal_sell_price *= 1.1
-        if resistance_level:
-            resistance_level *= 1.05
-    
-    # 映射键名以匹配前端和命令行工具的期望
-    return {
-        'action': action,
-        'confidence': confidence,
-        'analysis_logic': reasons,
-        'current_price': current_price,
-        'entry_price': optimal_add_price or (support_level or current_price * 0.98),
-        'target_price': optimal_sell_price or resistance_level or current_price * 1.1,
-        'stop_price': support_level * 0.95 if support_level else current_price * 0.92,
-        'resistance_level': resistance_level,
-        'support_level': support_level,
-        # 新增：融合评分相关信息
-        'confluence_score': confluence_result['total_score'],
-        'quality_grade': 'A' if confluence_result['total_score'] >= 85 else 'B' if confluence_result['total_score'] >= 70 else 'C',
-        'pattern_detected': pattern_result.get('has_pattern', False),
-        'pattern_type': pattern_result.get('best_pattern', None),
-        'price_position_safe': price_filter_passed
-    }
+        # 第三层：基于具体分析的细化理由
+        
+        # 形态分析
+        if pattern_result.get('has_pattern'):
+            reasons.append(f"形态分析：识别到 {pattern_result['best_pattern']} 形态 (置信度: {pattern_result['best_confidence']:.1%})。")
+            confidence = (confidence + pattern_result['best_confidence']) / 2 # 结合形态置信度
+
+        # 历史对齐分析
+        alignment = confluence_result.get('alignment_analysis', {})
+        if alignment.get('alignment_score', 0) > 5:
+            reasons.append(f"历史对齐：价格与指标底部同步性良好 (得分: {alignment['alignment_score']})。")
+        
+        # 回测验证
+        backtest_val = confluence_result.get('backtest_analysis', {})
+        if backtest_val.get('signal_count', 0) > 0:
+            reasons.append(f"历史回测：基于对齐信号的历史胜率为 {backtest_val['win_rate']:.1%} (共{backtest_val['signal_count']}次)。")
+
+        # 5. 计算支撑位和阻力位
+        price_targets = _calculate_price_targets(df, current_price)
+        support_level = price_targets.get('next_support')
+        resistance_level = price_targets.get('next_resistance')
+        
+        # 6. 生成价格目标 (基于最新价格和ATR波动率)
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+        target_price = round(current_price * (1 + atr / current_price * 4), 2)  # 目标：4倍ATR
+        stop_price = round(current_price * (1 - atr / current_price * 2), 2)   # 止损：2倍ATR
+        
+        # 如果有技术支撑阻力位，优先使用
+        if resistance_level and resistance_level > current_price:
+            target_price = min(target_price, resistance_level)
+        if support_level and support_level < current_price:
+            stop_price = max(stop_price, support_level * 0.98)  # 支撑位下方2%作为止损
+
+        return {
+            'action': action,
+            'confidence': float(confidence),
+            'quality_grade': quality_grade,
+            'analysis_logic': reasons,
+            'current_price': current_price,
+            'entry_price': round(current_price * 0.99, 2), # 建议在当前价附近稍作等待
+            'target_price': target_price,
+            'stop_price': stop_price,
+            'resistance_level': resistance_level,
+            'support_level': support_level,
+            'full_confluence_result': confluence_result # 传递完整的分析结果以供前端展示
+        }
+    except Exception as e:
+        logger.error(f"V4.1交易建议生成失败: {e}")
+        import traceback; traceback.print_exc();
+        return {'action': 'ERROR', 'analysis_logic': [f'分析时发生错误: {e}'], 'confidence': 0}
 
 def _generate_forward_advice_b1(df: pd.DataFrame, backtest_results: dict) -> dict:
     """
@@ -824,38 +822,25 @@ def _generate_forward_advice_b(df: pd.DataFrame, backtest_results: dict) -> dict
 
 def get_deep_analysis(stock_code: str, df: pd.DataFrame = None) -> dict:
     """
-    【统一入口函数】
-    对单只股票进行深度回测分析，并生成前瞻性交易建议。
-    现在包含增强版交易建议功能。
+    【V4.1 统一入口】
+    对单只股票进行深度分析，并生成V4.1版前瞻性交易建议。
     """
     try:
-        # 1. 获取和准备数据
         if df is None:
-            # 使用统一的数据处理模块
             from data_handler import get_full_data_with_indicators
             df = get_full_data_with_indicators(stock_code)
             if df is None:
                 return {'error': '无法获取股票数据或数据不足'}
 
-        # 2. 执行风险评估
-        risk_assessment = _assess_risk_profile(df)
+        # 核心改变：直接调用 V4.1 的建议生成函数
+        forward_advice = _generate_forward_advice_v4(df)
 
-        # 3. 执行历史回测，优化系数
-        backtest_results = _optimize_coefficients_historically(df)
-        
-        # 4. 基于最新数据和回测结果，生成前瞻性建议
-        forward_advice = _generate_forward_advice(df, backtest_results)
-
-        # 5. 组装最终结果
-        analysis_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         return {
             'stock_code': stock_code,
-            'analysis_time': analysis_time,
+            'analysis_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             'current_price': float(df.iloc[-1]['close']),
-            'backtest_analysis': backtest_results,
-            'trading_advice': forward_advice,
-            'risk_assessment': risk_assessment,
-            'from_cache': False # 默认实时计算
+            'trading_advice': forward_advice, # 这是唯一的建议来源
+            'from_cache': False
         }
     except Exception as e:
         import traceback

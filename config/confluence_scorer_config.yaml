@@ -1,42 +1,70 @@
-# 【V3】多指标融合评分系统配置
-# 引入了更灵活的价格位置评分标准
+# 【V4.0】智能自适应多指标融合评分系统配置
+# 核心创新：市场阶段识别、趋势导向评分、历史形态对齐
 
-# 评分权重配置
+# 基础评分权重配置（将根据市场阶段动态调整）
 weights:
   price_position: 40
   macd_state: 30
   kdj_state: 20
   rsi_state: 10
 
+# V4.0 新增：市场阶段特定权重配置
+phase_weights:
+  accumulation:    # 积累期：重视价格位置
+    price_position: 45
+    macd_state: 25
+    kdj_state: 20
+    rsi_state: 10
+  markup:          # 上升期：重视MACD动量
+    price_position: 20
+    macd_state: 40
+    kdj_state: 25
+    rsi_state: 15
+  distribution:    # 分配期：均衡配置
+    price_position: 30
+    macd_state: 35
+    kdj_state: 20
+    rsi_state: 15
+  decline:         # 下跌期：重视价格位置
+    price_position: 50
+    macd_state: 20
+    kdj_state: 20
+    rsi_state: 10
+
 # 阈值配置
 thresholds:
-  # V3: 价格位置评分分层标准 (90日区间)
+  # 价格位置评分分层标准 (90日区间)
   price_position_tiers:
     tier1: 0.4  # 位置 < 40%
     tier2: 0.6  # 位置 < 60%
     tier3: 0.8  # 位置 < 80%
   
-  # V3: 价格位置分层对应的分数
+  # 价格位置分层对应的分数
   price_position_scores:
     tier1: 40   # 满分
     tier2: 30   # 优秀
     tier3: 15   # 可接受
   
-  # 52周高点快速过滤器阈值 (可适当放宽至85%)
+  # 52周高点快速过滤器阈值
   price_ratio_filter: 0.85
   
-  # MACD, KDJ, RSI 阈值
+  # 传统指标阈值
   macd_zero_threshold: 0.1
   kdj_low_threshold: 50
   kdj_oversold: 20
   rsi_bullish_low: 50
   rsi_bullish_high: 75
   rsi_oversold: 30
+  
+  # V4.0 新增：趋势分析参数
+  trend_slope_days: 5           # 趋势斜率计算天数
+  min_slope_threshold: 0.1      # 最小斜率阈值
+  alignment_tolerance_days: 3   # 历史对齐容忍天数
 
 # 评分标准
 scoring:
   min_confluence_score: 70
-  max_possible_score: 110
+  max_possible_score: 130       # V4.0 增加历史对齐奖励
 
 # 历史状态检查配置
 stateful_checks:
@@ -44,7 +72,11 @@ stateful_checks:
   macd_consolidation_ratio: 0.6
   kdj_oversold_min_days: 2
   
-# 奖励分配置
+# V4.0 增强奖励分配置
 bonus_scores:
   macd_consolidation: 5
   kdj_oversold_period: 5
+  long_term_trend: 5
+  kdj_trend_bonus: 3            # V4.0 新增：KDJ趋势奖励
+  rsi_trend_bonus: 2            # V4.0 新增：RSI趋势奖励
+  historical_alignment: 10      # V4.0 新增：历史对齐奖励

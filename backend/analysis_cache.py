@@ -9,6 +9,7 @@ import os
 from datetime import date, datetime
 from typing import Dict, Optional, Any
 import pandas as pd
+import numpy as np
 
 # 数据库路径
 DATABASE_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'quant_analysis.db')
@@ -127,6 +128,30 @@ class AnalysisCache:
         cursor = conn.cursor()
         
         # 使用 REPLACE 语句，如果主键已存在则更新，否则插入新行
+        # 使用自定义序列化函数处理numpy类型
+        def safe_json_dumps(obj):
+            """【已修复】安全的JSON序列化，增加对Timestamp的处理"""
+            def convert_types(item):
+                if isinstance(item, dict):
+                    return {k: convert_types(v) for k, v in item.items()}
+                if isinstance(item, list):
+                    return [convert_types(i) for i in item]
+                # --- [核心修复逻辑] ---
+                if isinstance(item, (datetime, date, pd.Timestamp)):
+                    return item.isoformat()
+                # --- [numpy 类型处理] ---
+                if hasattr(item, 'item'): 
+                    return item.item()
+                if isinstance(item, (np.bool_, bool)): 
+                    return bool(item)
+                if isinstance(item, (np.integer)): 
+                    return int(item)
+                if isinstance(item, (np.floating)): 
+                    return float(item)
+                return item
+            
+            return json.dumps(convert_types(obj), ensure_ascii=False, default=str)
+        
         cursor.execute('''
             REPLACE INTO analysis_results 
             (stock_code, strategy_id, analysis_date, backtest_result, 
@@ -136,9 +161,9 @@ class AnalysisCache:
             stock_code,
             strategy_id,
             today_str,
-            json.dumps(backtest_results, ensure_ascii=False),
-            json.dumps(deep_analysis, ensure_ascii=False),
-            json.dumps(chart_data, ensure_ascii=False)
+            safe_json_dumps(backtest_results),
+            safe_json_dumps(deep_analysis),
+            safe_json_dumps(chart_data)
         ))
         
         conn.commit()

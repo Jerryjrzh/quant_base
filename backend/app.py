@@ -26,6 +26,37 @@ CORE_POOL_FILE = os.path.join(RESULT_PATH, 'core_pool.json')
 app = Flask(__name__, static_folder=frontend_dir, static_url_path='')
 CORS(app)
 
+# --- JSON序列化修复函数 ---
+def safe_jsonify(data):
+    """
+    【修复】安全的Flask JSON响应，处理numpy类型和Timestamp
+    """
+    def convert_types(item):
+        if isinstance(item, dict):
+            return {k: convert_types(v) for k, v in item.items()}
+        if isinstance(item, list):
+            return [convert_types(i) for i in item]
+        # --- [核心修复逻辑] ---
+        if isinstance(item, (datetime, pd.Timestamp)):
+            return item.isoformat()
+        # --- [numpy 类型处理] ---
+        if hasattr(item, 'item'): 
+            return item.item()
+        if isinstance(item, (np.bool_, bool)): 
+            return bool(item)
+        if isinstance(item, (np.integer)): 
+            return int(item)
+        if isinstance(item, (np.floating)): 
+            return float(item)
+        return item
+    
+    try:
+        converted_data = convert_types(data)
+        return jsonify(converted_data)
+    except Exception as e:
+        app.logger.error(f"JSON序列化失败: {e}")
+        return jsonify({'success': False, 'error': f'数据序列化失败: {str(e)}'})
+
 # --- 核心池管理辅助函数 (合并后的版本) ---
 def load_core_pool_from_file():
     """从文件加载核心池数据"""
@@ -208,7 +239,7 @@ def get_stocks_for_strategy(strategy_id):
         
         if cached_results:
             print(f"⚡️ 策略筛选缓存命中: 直接返回策略 '{strategy_id}' 的 {len(cached_results)} 个结果。")
-            return jsonify({'success': True, 'data': cached_results, 'from_cache': True})
+            return safe_jsonify({'success': True, 'data': cached_results, 'from_cache': True})
 
         # 2. 如果缓存未命中，则启动筛选
         print(f"⏳ 策略筛选缓存未命中: 为策略 '{strategy_id}' 启动筛选...")
@@ -236,7 +267,7 @@ def get_stocks_for_strategy(strategy_id):
         # 4. 保存到缓存
         strategy_screening_cache.save_screening_results(strategy_id, stock_list)
         
-        return jsonify({'success': True, 'data': stock_list, 'from_cache': False})
+        return safe_jsonify({'success': True, 'data': stock_list, 'from_cache': False})
         
     except Exception as e:
         app.logger.error(f"为策略 {strategy_id} 获取股票列表失败: {str(e)}")
@@ -570,7 +601,7 @@ def get_stock_analysis(stock_code):
         if isinstance(backtest_results, dict):
             backtest_results = json.loads(json.dumps(backtest_results, default=lambda x: x.item() if isinstance(x, (np.integer, np.floating)) else bool(x) if isinstance(x, np.bool_) else None))
 
-        return jsonify({
+        return safe_jsonify({
             'kline_data': kline_data,
             'indicator_data': indicator_data,
             'signal_points': signal_points,
@@ -657,7 +688,7 @@ def get_trading_advice(stock_code):
         resistance = recent_data['high'].max()
         support = recent_data['low'].min()
         
-        return jsonify({
+        return safe_jsonify({
             'action': action,
             'confidence': confidence,
             'current_price': float(latest['close']),
@@ -727,8 +758,32 @@ def get_deep_scan_results():
 
 @app.route('/api/run_deep_scan', methods=['POST'])
 def run_deep_scan_from_signals():
-    # ... (此部分逻辑无需修改，保持原样)
-    return jsonify({"success": True, "message": "深度扫描已触发"})
+    """运行深度扫描"""
+    try:
+        import threading
+        from universal_screener import UniversalScreener
+        
+        def run_screening_task():
+            """后台运行筛选任务"""
+            try:
+                screener = UniversalScreener()
+                # 使用多个策略进行筛选
+                strategy_ids = ['PRE_CROSS', 'MACD_ZERO_AXIS', 'RSI_BOTTOM']
+                results = screener.run_screening(strategy_ids, max_workers=16)
+                app.logger.info(f"深度扫描完成，发现 {len(results)} 个高质量信号")
+            except Exception as e:
+                app.logger.error(f"深度扫描任务失败: {e}")
+        
+        # 在后台线程中运行筛选
+        thread = threading.Thread(target=run_screening_task)
+        thread.daemon = True
+        thread.start()
+        
+        return jsonify({"success": True, "message": "深度扫描已启动，正在后台处理中..."})
+        
+    except Exception as e:
+        app.logger.error(f"启动深度扫描失败: {e}")
+        return jsonify({"success": False, "error": f"启动深度扫描失败: {str(e)}"}), 500
 
 # --- 核心池管理 (统一版本) ---
 @app.route('/api/core_pool', methods=['GET', 'POST', 'DELETE'])
@@ -953,16 +1008,16 @@ def get_unified_stock_analysis(stock_code):
         
         if result['success']:
             app.logger.info(f"统一分析成功: {stock_code}, 缓存状态: {result['data'].get('from_cache', False)}")
-            return jsonify(result)
+            return safe_jsonify(result)
         else:
             app.logger.error(f"统一分析失败: {stock_code}, 错误: {result.get('error', '未知错误')}")
-            return jsonify(result), 500
+            return safe_jsonify(result), 500
 
     except Exception as e:
         import traceback
         app.logger.error(f"统一分析接口异常: {stock_code}, 错误: {str(e)}")
         traceback.print_exc()
-        return jsonify({
+        return safe_jsonify({
             'success': False, 
             'error': f'统一分析接口错误: {str(e)}'
         }), 500

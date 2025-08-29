@@ -68,16 +68,45 @@ class StrategyScreeningCache:
     def _calculate_data_hash(self) -> str:
         """计算当前数据的哈希值，用于检测数据是否更新"""
         try:
-            # 这里可以根据实际情况计算数据哈希
-            # 例如：检查股票数据文件的最后修改时间
-            import data_handler
+            from config import BASE_PATH, ALL_MARKETS
             
-            # 简单的实现：使用当前日期作为哈希
-            # 在实际应用中，可以检查数据文件的修改时间或内容哈希
-            today = date.today().strftime('%Y-%m-%d')
-            return hashlib.md5(today.encode()).hexdigest()
-        except Exception:
-            return hashlib.md5(str(datetime.now()).encode()).hexdigest()
+            # 收集所有数据文件的修改时间
+            modification_times = []
+            
+            # 检查各个市场的数据目录
+            for market in ALL_MARKETS:
+                market_path = os.path.join(BASE_PATH, market, 'lday')
+                if os.path.exists(market_path):
+                    # 获取目录的最后修改时间
+                    dir_mtime = os.path.getmtime(market_path)
+                    modification_times.append(str(dir_mtime))
+                    
+                    # 检查最近修改的几个文件（避免检查所有文件影响性能）
+                    try:
+                        files = os.listdir(market_path)
+                        # 按修改时间排序，取最新的10个文件
+                        file_paths = [os.path.join(market_path, f) for f in files if f.endswith('.day')]
+                        if file_paths:
+                            file_paths.sort(key=os.path.getmtime, reverse=True)
+                            for file_path in file_paths[:10]:  # 只检查最新的10个文件
+                                mtime = os.path.getmtime(file_path)
+                                modification_times.append(str(mtime))
+                    except (OSError, PermissionError):
+                        pass
+            
+            # 如果没有找到任何数据文件，使用当前日期
+            if not modification_times:
+                today = date.today().strftime('%Y-%m-%d')
+                return hashlib.md5(today.encode()).hexdigest()
+            
+            # 使用所有修改时间生成哈希
+            combined_times = ''.join(sorted(modification_times))
+            return hashlib.md5(combined_times.encode()).hexdigest()
+            
+        except Exception as e:
+            # 发生异常时，使用当前时间戳确保缓存失效
+            print(f"⚠️ 计算数据哈希失败: {e}")
+            return hashlib.md5(str(datetime.now().timestamp()).encode()).hexdigest()
     
     def get_cached_screening_results(self, strategy_id: str) -> Optional[List[Dict[str, Any]]]:
         """
@@ -276,6 +305,70 @@ class StrategyScreeningCache:
         conn.close()
         
         print(f"📊 数据跟踪已更新: {data_type}")
+    
+    def force_invalidate_all_cache(self):
+        """
+        强制失效所有缓存
+        用于数据更新后手动触发缓存清理
+        """
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # 清空所有策略筛选缓存
+        cursor.execute('DELETE FROM strategy_screening_results')
+        deleted_screening = cursor.rowcount
+        
+        # 清空数据跟踪记录
+        cursor.execute('DELETE FROM data_update_tracking')
+        deleted_tracking = cursor.rowcount
+        
+        conn.commit()
+        conn.close()
+        
+        print(f"🗑️ 强制清理完成: 筛选缓存 {deleted_screening} 条, 跟踪记录 {deleted_tracking} 条")
+        return deleted_screening + deleted_tracking
+    
+    def check_data_freshness(self) -> Dict[str, Any]:
+        """
+        检查数据新鲜度
+        返回数据是否需要更新的信息
+        """
+        current_hash = self._calculate_data_hash()
+        
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # 获取最后的数据跟踪记录
+        cursor.execute('''
+            SELECT data_type, last_update_date, update_hash 
+            FROM data_update_tracking 
+            ORDER BY last_update_date DESC 
+            LIMIT 1
+        ''')
+        
+        result = cursor.fetchone()
+        conn.close()
+        
+        if not result:
+            return {
+                'needs_update': True,
+                'reason': '无数据跟踪记录',
+                'current_hash': current_hash,
+                'cached_hash': None
+            }
+        
+        cached_hash = result[2]
+        last_update = result[1]
+        
+        needs_update = current_hash != cached_hash
+        
+        return {
+            'needs_update': needs_update,
+            'reason': '数据已更新' if needs_update else '数据未变化',
+            'current_hash': current_hash,
+            'cached_hash': cached_hash,
+            'last_update': last_update
+        }
 
 # 创建全局实例
 strategy_screening_cache = StrategyScreeningCache()

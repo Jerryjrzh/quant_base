@@ -18,7 +18,7 @@ import indicators
 from typing import List
 from adjustment_processor import create_adjustment_config, create_adjustment_processor
 
-from config import BASE_PATH
+from config import BASE_PATH, ENABLE_HK_STOCKS, ALL_MARKETS
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -33,7 +33,7 @@ def _get_market_from_stock_code(stock_code: str) -> str:
     Returns:
         市场代码 ('sh', 'sz', 'bj', 'ds')
     """
-    # 港股代码以数字+#开头
+    # 港股代码以数字+#开头，如 31#00700, 43#09988
     if '#' in stock_code:
         return 'ds'
     
@@ -44,6 +44,32 @@ def _get_market_from_stock_code(stock_code: str) -> str:
     
     # 默认返回前两位作为市场代码
     return prefix
+
+def _get_hk_price_divisor(stock_code: str) -> float:
+    """
+    根据港股代码确定价格除数
+    
+    Args:
+        stock_code: 港股代码，如 31#00700
+        
+    Returns:
+        价格除数
+    """
+    if not '#' in stock_code:
+        return 100.0  # 非港股默认除数
+    
+    # 港股不同交易所可能有不同的价格除数
+    prefix = stock_code.split('#')[0]
+    
+    # 根据前缀确定除数
+    if prefix == '31':  # 港股主板
+        return 1000.0
+    elif prefix == '43':  # 港股创业板
+        return 1000.0
+    elif prefix == '48':  # 港股其他
+        return 1000.0
+    else:
+        return 1000.0  # 默认港股除数
 
 def get_full_data_with_indicators(stock_code: str, adjustment_type: str = 'forward', **indicator_params) -> Optional[pd.DataFrame]:
     """
@@ -58,6 +84,11 @@ def get_full_data_with_indicators(stock_code: str, adjustment_type: str = 'forwa
         包含所有技术指标的DataFrame，失败时返回None
     """
     try:
+        # 检查是否为港股且港股功能是否启用
+        if is_hk_stock(stock_code) and not ENABLE_HK_STOCKS:
+            #logger.warning(f"港股功能未启用，跳过 {stock_code}")
+            return None
+        
         # 1. 加载数据 - 修复港股市场识别
         market = _get_market_from_stock_code(stock_code)
         file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
@@ -84,7 +115,7 @@ def get_full_data_with_indicators(stock_code: str, adjustment_type: str = 'forwa
 
 def read_day_file(file_path: str, stock_code: str = None) -> Optional[pd.DataFrame]:
     """
-    读取通达信.day文件
+    读取通达信.day文件，支持A股和港股
     
     Args:
         file_path: .day文件路径
@@ -95,10 +126,10 @@ def read_day_file(file_path: str, stock_code: str = None) -> Optional[pd.DataFra
     """
     try:
         # 根据市场确定价格除数
-        price_divisor = 100.0  # A股默认除以100
         if stock_code and '#' in stock_code:
-            # 港股价格除数可能不同，先尝试1000
-            price_divisor = 1000.0
+            price_divisor = _get_hk_price_divisor(stock_code)
+        else:
+            price_divisor = 100.0  # A股默认除以100
         
         with open(file_path, 'rb') as f:
             data = []
@@ -114,6 +145,10 @@ def read_day_file(file_path: str, stock_code: str = None) -> Optional[pd.DataFra
                 year = date // 10000
                 month = (date % 10000) // 100
                 day = date % 100
+                
+                # 验证日期有效性
+                if year < 1990 or year > 2030 or month < 1 or month > 12 or day < 1 or day > 31:
+                    continue
                 
                 # 根据市场类型处理价格
                 data.append({
@@ -134,6 +169,10 @@ def read_day_file(file_path: str, stock_code: str = None) -> Optional[pd.DataFra
         df['date'] = pd.to_datetime(df['date'])
         df.set_index('date', inplace=True)
         df.sort_index(inplace=True)
+        
+        # 数据质量检查
+        df = df[df['close'] > 0]  # 过滤无效价格
+        df = df.dropna()  # 删除空值
         
         return df
         
@@ -220,6 +259,11 @@ def get_stock_data_simple(stock_code: str) -> Optional[pd.DataFrame]:
         基础数据DataFrame或None
     """
     try:
+        # 检查是否为港股且港股功能是否启用
+        if is_hk_stock(stock_code) and not ENABLE_HK_STOCKS:
+            #logger.warning(f"港股功能未启用，跳过 {stock_code}")
+            return None
+            
         market = _get_market_from_stock_code(stock_code)
         file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
         return read_day_file(file_path, stock_code)
@@ -227,14 +271,32 @@ def get_stock_data_simple(stock_code: str) -> Optional[pd.DataFrame]:
         logger.error(f"获取股票基础数据失败 {stock_code}: {e}")
         return None
     
-def get_all_stock_codes_from_filesystem() -> List[str]:
-    """从本地数据目录扫描所有A股和港股的股票代码"""
+def get_all_stock_codes_from_filesystem(include_hk: bool = None) -> List[str]:
+    """
+    从本地数据目录扫描所有股票代码
+    
+    Args:
+        include_hk: 是否包含港股，None时使用全局配置
+    
+    Returns:
+        股票代码列表
+    """
     all_codes = []
+    
+    # 确定是否包含港股
+    if include_hk is None:
+        include_hk = ENABLE_HK_STOCKS
+    
+    # 基础市场
     market_folders = {
         'sh': 'lday',
         'sz': 'lday',
-        'ds': 'lday' # 港股
+        'bj': 'lday',  # 北交所
     }
+    
+    # 如果启用港股，添加港股市场
+    if include_hk:
+        market_folders['ds'] = 'lday'  # 港股
     
     for market, folder in market_folders.items():
         market_path = os.path.join(BASE_PATH, market, folder)
@@ -246,4 +308,165 @@ def get_all_stock_codes_from_filesystem() -> List[str]:
                 stock_code = filename.split('.')[0]
                 all_codes.append(stock_code)
                 
-    return all_codes    
+    return all_codes
+
+def get_hk_stock_codes() -> List[str]:
+    """
+    获取所有港股代码
+    
+    Returns:
+        港股代码列表，如果港股功能未启用则返回空列表
+    """
+    if not ENABLE_HK_STOCKS:
+        logger.info("港股功能未启用")
+        return []
+        
+    hk_codes = []
+    ds_path = os.path.join(BASE_PATH, 'ds', 'lday')
+    
+    if os.path.isdir(ds_path):
+        for filename in os.listdir(ds_path):
+            if filename.endswith('.day') and '#' in filename:
+                stock_code = filename.split('.')[0]
+                hk_codes.append(stock_code)
+    
+    return sorted(hk_codes)
+
+def is_hk_stock(stock_code: str) -> bool:
+    """判断是否为港股代码"""
+    return '#' in stock_code
+
+def get_stock_market_info(stock_code: str) -> dict:
+    """获取股票市场信息"""
+    market = _get_market_from_stock_code(stock_code)
+    
+    market_info = {
+        'code': stock_code,
+        'market': market,
+        'is_hk': is_hk_stock(stock_code),
+        'hk_enabled': ENABLE_HK_STOCKS,
+        'price_divisor': _get_hk_price_divisor(stock_code) if is_hk_stock(stock_code) else 100.0
+    }
+    
+    if is_hk_stock(stock_code):
+        prefix = stock_code.split('#')[0]
+        market_info['hk_prefix'] = prefix
+        market_info['hk_code'] = stock_code.split('#')[1]
+        
+        # 港股市场分类
+        if prefix == '31':
+            market_info['hk_market'] = '港股主板'
+        elif prefix == '43':
+            market_info['hk_market'] = '港股创业板'
+        elif prefix == '48':
+            market_info['hk_market'] = '港股其他'
+        else:
+            market_info['hk_market'] = '港股未知'
+    
+    return market_info
+
+def get_data_handler_config() -> dict:
+    """获取数据处理器配置信息"""
+    return {
+        'hk_stocks_enabled': ENABLE_HK_STOCKS,
+        'supported_markets': ALL_MARKETS,
+        'base_path': BASE_PATH,
+        'hk_stock_count': len(get_hk_stock_codes()) if ENABLE_HK_STOCKS else 0,
+        'total_stock_count': len(get_all_stock_codes_from_filesystem())
+    }
+
+def set_hk_stocks_enabled(enabled: bool):
+    """
+    动态设置港股功能开关（仅在当前会话有效）
+    
+    Args:
+        enabled: 是否启用港股功能
+    """
+    global ENABLE_HK_STOCKS
+    import config
+    config.ENABLE_HK_STOCKS = enabled
+    logger.info(f"港股功能已{'启用' if enabled else '禁用'}")
+
+def filter_stocks_by_market(stock_codes: List[str], include_hk: bool = None) -> List[str]:
+    """
+    根据市场配置过滤股票代码
+    
+    Args:
+        stock_codes: 股票代码列表
+        include_hk: 是否包含港股，None时使用全局配置
+    
+    Returns:
+        过滤后的股票代码列表
+    """
+    if include_hk is None:
+        include_hk = ENABLE_HK_STOCKS
+    
+    if include_hk:
+        return stock_codes
+    else:
+        return [code for code in stock_codes if not is_hk_stock(code)]
+
+def test_hk_data_loading():
+    """测试港股数据加载功能"""
+    print("=== 港股数据加载测试 ===")
+    
+    # 显示配置信息
+    config_info = get_data_handler_config()
+    print(f"配置信息: {config_info}")
+    
+    if not ENABLE_HK_STOCKS:
+        print("港股功能未启用，测试跳过")
+        return
+    
+    # 获取港股代码列表
+    hk_codes = get_hk_stock_codes()
+    print(f"发现港股数量: {len(hk_codes)}")
+    
+    if hk_codes:
+        # 测试前3只港股
+        test_codes = hk_codes[:3]
+        print(f"测试股票: {test_codes}")
+        
+        for code in test_codes:
+            print(f"\n--- 测试 {code} ---")
+            
+            # 获取市场信息
+            market_info = get_stock_market_info(code)
+            print(f"市场信息: {market_info}")
+            
+            # 加载数据
+            df = get_full_data_with_indicators(code)
+            if df is not None:
+                print(f"数据行数: {len(df)}")
+                print(f"日期范围: {df.index[0]} 到 {df.index[-1]}")
+                print(f"最新价格: {df['close'].iloc[-1]:.3f}")
+                print(f"包含指标: {[col for col in df.columns if col not in ['open', 'high', 'low', 'close', 'volume', 'amount']]}")
+            else:
+                print("数据加载失败")
+    else:
+        print("未找到港股数据")
+
+def test_configurable_loading():
+    """测试可配置的数据加载功能"""
+    print("\n=== 可配置数据加载测试 ===")
+    
+    # 测试不同配置下的股票数量
+    all_stocks = get_all_stock_codes_from_filesystem(include_hk=True)
+    a_stocks_only = get_all_stock_codes_from_filesystem(include_hk=False)
+    
+    print(f"包含港股的总股票数: {len(all_stocks)}")
+    print(f"仅A股的股票数: {len(a_stocks_only)}")
+    print(f"港股数量: {len(all_stocks) - len(a_stocks_only)}")
+    
+    # 测试过滤功能
+    sample_codes = ['sh600000', '31#00700', 'sz000001', '43#09988']
+    filtered_no_hk = filter_stocks_by_market(sample_codes, include_hk=False)
+    filtered_with_hk = filter_stocks_by_market(sample_codes, include_hk=True)
+    
+    print(f"\n原始代码: {sample_codes}")
+    print(f"不含港股: {filtered_no_hk}")
+    print(f"包含港股: {filtered_with_hk}")
+
+if __name__ == "__main__":
+    test_hk_data_loading()
+    test_configurable_loading()

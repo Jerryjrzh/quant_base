@@ -1292,31 +1292,93 @@ document.addEventListener('DOMContentLoaded', function () {
     function runDeepScan() {
         if (!confirm('深度扫描需要较长时间，确定要开始吗？')) return;
 
+        // 显示扫描状态
+        if (deepScanSection) {
+            deepScanSection.innerHTML = `
+                <h3>深度扫描进行中...</h3>
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #007bff; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    <p style="margin-top: 1rem; color: #6c757d;">正在执行深度扫描，请耐心等待...</p>
+                </div>
+                <style>
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                </style>
+            `;
+            deepScanSection.style.display = 'block';
+        }
+
         fetch('/api/run_deep_scan', { method: 'POST' })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('深度扫描已启动，请稍后查看结果');
-                    setTimeout(loadDeepScanResults, 5000); // 5秒后刷新结果
+                    showNotification('深度扫描已启动，正在处理中...', 3000);
+                    
+                    // 定期检查结果，最多等待5分钟
+                    let checkCount = 0;
+                    const maxChecks = 60; // 5分钟，每5秒检查一次
+                    
+                    const checkResults = () => {
+                        checkCount++;
+                        
+                        fetch('/api/deep_scan_results')
+                            .then(response => response.json())
+                            .then(resultData => {
+                                if (!resultData.error && resultData.results && resultData.results.length > 0) {
+                                    // 找到结果，立即刷新显示
+                                    showNotification('深度扫描完成！', 2000);
+                                    loadDeepScanResults();
+                                } else if (checkCount < maxChecks) {
+                                    // 继续等待
+                                    setTimeout(checkResults, 5000);
+                                } else {
+                                    // 超时
+                                    showNotification('扫描超时，请手动刷新查看结果', 3000);
+                                    loadDeepScanResults();
+                                }
+                            })
+                            .catch(() => {
+                                if (checkCount < maxChecks) {
+                                    setTimeout(checkResults, 5000);
+                                } else {
+                                    loadDeepScanResults();
+                                }
+                            });
+                    };
+                    
+                    // 5秒后开始检查结果
+                    setTimeout(checkResults, 5000);
+                    
                 } else {
-                    alert(`启动失败: ${data.error || '未知错误'}`);
+                    showNotification(`启动失败: ${data.error || '未知错误'}`, 3000);
+                    if (deepScanSection) {
+                        deepScanSection.innerHTML = `<p style="color: #dc3545; text-align: center; padding: 2rem;">启动失败: ${data.error || '未知错误'}</p>`;
+                    }
                 }
             })
             .catch(error => {
                 console.error('Error running deep scan:', error);
-                alert(`启动出错: ${error.message}`);
+                showNotification(`启动出错: ${error.message}`, 3000);
+                if (deepScanSection) {
+                    deepScanSection.innerHTML = `<p style="color: #dc3545; text-align: center; padding: 2rem;">启动出错: ${error.message}</p>`;
+                }
             });
     }
 
     function loadDeepScanResults() {
         if (!deepScanSection) return;
 
+        // 显示加载状态
+        deepScanSection.innerHTML = '<div style="text-align: center; padding: 2rem; color: #6c757d;">正在加载深度扫描结果...</div>';
+        deepScanSection.style.display = 'block';
+
         fetch('/api/deep_scan_results')
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
                     deepScanSection.innerHTML = `<p>暂无深度扫描结果: ${data.error}</p>`;
-                    deepScanSection.style.display = 'block';
                     return;
                 }
 
@@ -1324,27 +1386,68 @@ document.addEventListener('DOMContentLoaded', function () {
                 const summary = data.summary || {};
 
                 let html = `
-                    <h3>深度扫描结果</h3>
+                    <h3>深度扫描结果 <button onclick="loadDeepScanResults()" style="float: right; padding: 0.3rem 0.8rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">🔄 刷新</button></h3>
                     <div class="scan-summary" style="margin-bottom: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
                         <p>总分析数: ${summary.total_analyzed || 0} | A级股票: ${summary.a_grade_count || 0} | 买入推荐: ${summary.buy_recommendations || 0}</p>
                     </div>
                 `;
 
                 if (results.length > 0) {
-                    html += '<table class="scan-results-table"><thead><tr><th>股票代码</th><th>评分</th><th>等级</th><th>建议</th><th>置信度</th><th>当前价格</th></tr></thead><tbody>';
-                    results.slice(0, 20).forEach(result => { // 只显示前20个结果
+                    // 按分数排序（确保前端也按分数排序）
+                    results.sort((a, b) => (b.score || 0) - (a.score || 0));
+                    
+                    html += `
+                        <table class="scan-results-table">
+                            <thead>
+                                <tr>
+                                    <th>排名</th>
+                                    <th>股票代码</th>
+                                    <th>股票名称</th>
+                                    <th>评分</th>
+                                    <th>等级</th>
+                                    <th>建议</th>
+                                    <th>置信度</th>
+                                    <th>当前价格</th>
+                                    <th>市场阶段</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    results.slice(0, 30).forEach((result, index) => { // 显示前30个结果
+                        const rankClass = index < 5 ? 'top-rank' : index < 10 ? 'good-rank' : '';
                         html += `
-                            <tr>
-                                <td><a href="#" class="stock-code-link" data-stock-code="${result.stock_code}" style="color: #007bff; text-decoration: none; cursor: pointer;">${result.stock_code}</a></td>
-                                <td>${result.score.toFixed(2)}</td>
-                                <td><span class="grade-${result.grade.toLowerCase()}">${result.grade}</span></td>
-                                <td>${result.action}</td>
-                                <td>${(result.confidence * 100).toFixed(0)}%</td>
+                            <tr class="${rankClass}">
+                                <td style="font-weight: bold; color: ${index < 5 ? '#dc3545' : index < 10 ? '#fd7e14' : '#6c757d'};">${index + 1}</td>
+                                <td><a href="#" class="stock-code-link" data-stock-code="${result.stock_code}" style="color: #007bff; text-decoration: none; cursor: pointer; font-weight: bold;">${result.stock_code}</a></td>
+                                <td style="font-size: 0.9em; color: #6c757d;">${result.stock_name || '--'}</td>
+                                <td style="font-weight: bold; color: ${result.score >= 85 ? '#28a745' : result.score >= 70 ? '#17a2b8' : '#6c757d'};">${result.score.toFixed(1)}</td>
+                                <td><span class="grade-${result.grade.toLowerCase()}" style="font-weight: bold;">${result.grade}</span></td>
+                                <td><span class="action-${result.action.toLowerCase()}">${result.action}</span></td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 5px;">
+                                        <div style="width: 30px; height: 4px; background: #e9ecef; border-radius: 2px; overflow: hidden;">
+                                            <div style="width: ${(result.confidence * 100)}%; height: 100%; background: linear-gradient(90deg, #dc3545 0%, #ffc107 50%, #28a745 100%);"></div>
+                                        </div>
+                                        <span style="font-size: 0.8em;">${(result.confidence * 100).toFixed(0)}%</span>
+                                    </div>
+                                </td>
                                 <td>¥${result.current_price.toFixed(2)}</td>
+                                <td style="font-size: 0.8em; color: #6c757d;">${result.market_phase || '--'}</td>
                             </tr>
                         `;
                     });
                     html += '</tbody></table>';
+
+                    // 添加样式
+                    html += `
+                        <style>
+                            .scan-results-table .top-rank { background-color: #fff5f5; }
+                            .scan-results-table .good-rank { background-color: #fffbf0; }
+                            .scan-results-table th { background-color: #f8f9fa; font-weight: 600; }
+                            .scan-results-table td, .scan-results-table th { padding: 0.5rem; border-bottom: 1px solid #dee2e6; }
+                        </style>
+                    `;
 
                     // 添加点击事件监听器
                     setTimeout(() => {
@@ -1357,16 +1460,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
                     }, 100);
                 } else {
-                    html += '<p>暂无扫描结果</p>';
+                    html += '<p style="text-align: center; color: #6c757d; padding: 2rem;">暂无扫描结果</p>';
                 }
 
                 deepScanSection.innerHTML = html;
-                deepScanSection.style.display = 'block';
             })
             .catch(error => {
                 console.error('Error loading deep scan results:', error);
-                deepScanSection.innerHTML = `<p>加载深度扫描结果失败: ${error.message}</p>`;
-                deepScanSection.style.display = 'block';
+                deepScanSection.innerHTML = `<p style="color: #dc3545; text-align: center; padding: 2rem;">加载深度扫描结果失败: ${error.message}</p>`;
             });
     }
 

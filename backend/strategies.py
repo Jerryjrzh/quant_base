@@ -89,7 +89,7 @@ def apply_triple_cross(df, config=None):
         (rsi_short > rsi_long)
     )
     
-    return macd_cross & kdj_cross & rsi_cross
+    return macd_cross | kdj_cross | rsi_cross
 
 def apply_pre_cross(df, config=None):
     """应用"临界金叉"策略 - 支持可配置参数"""
