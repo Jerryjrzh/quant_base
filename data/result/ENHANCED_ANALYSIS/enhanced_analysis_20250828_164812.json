@@ -1,0 +1,182 @@
+{
+  "sh601825": {
+    "overall_score": {
+      "total_score": 148.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 8.76,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "SELL",
+    "signal_date": "2025-08-28T00:00:00",
+    "stock_name": "股票sh601825"
+  },
+  "sz123038": {
+    "overall_score": {
+      "total_score": 139.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 13929.9,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "SELL",
+    "signal_date": "2025-08-06T00:00:00",
+    "stock_name": "股票sz123038"
+  },
+  "sh508056": {
+    "overall_score": {
+      "total_score": 137.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 36.2,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "SELL",
+    "signal_date": "2025-08-28T00:00:00",
+    "stock_name": "股票sh508056"
+  },
+  "sh688291": {
+    "overall_score": {
+      "total_score": 136.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 38.5,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "SELL",
+    "signal_date": "2025-08-28T00:00:00",
+    "stock_name": "股票sh688291"
+  },
+  "sz002919": {
+    "overall_score": {
+      "total_score": 133.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 16.3,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "SELL",
+    "signal_date": "2025-08-28T00:00:00",
+    "stock_name": "股票sz002919"
+  },
+  "sh601838": {
+    "overall_score": {
+      "total_score": 132.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 18.54,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "SELL",
+    "signal_date": "2025-08-28T00:00:00",
+    "stock_name": "股票sh601838"
+  },
+  "sh508001": {
+    "overall_score": {
+      "total_score": 131.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 72.18,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "SELL",
+    "signal_date": "2025-08-28T00:00:00",
+    "stock_name": "股票sh508001"
+  },
+  "sh508009": {
+    "overall_score": {
+      "total_score": 131.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 76.82,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "SELL",
+    "signal_date": "2025-08-28T00:00:00",
+    "stock_name": "股票sh508009"
+  },
+  "sz160323": {
+    "overall_score": {
+      "total_score": 86.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6615384615384615
+    },
+    "basic_analysis": {
+      "current_price": 17.11,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "distribution",
+    "signal_type": "SELL",
+    "signal_date": "2025-08-25T00:00:00",
+    "stock_name": "股票sz160323"
+  }
+}

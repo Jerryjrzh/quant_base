@@ -15,6 +15,7 @@ from data_handler import get_full_data_with_indicators
 from stock_pool_manager import StockPoolManager
 # 核心依赖
 from confluence_scorer import confluence_scorer
+from strategies.ma13_short_term_strategy import MA13ShortTermStrategy
 
 logger = logging.getLogger(__name__)
 
@@ -57,8 +58,31 @@ def _unified_screening_worker(args_tuple: tuple) -> Optional[HighQualityResult]:
         # --- 步骤 2: 基础策略信号发现 ---
         latest_signal_date = None
         latest_signal_type = None
+        ma13_result = None
         
+        # 检查MA13短线策略
+        if 'MA13_SHORT_TERM' in strategy_ids:
+            try:
+                ma13_strategy = MA13ShortTermStrategy()
+                ma13_result = ma13_strategy.analyze_stock(df, stock_code)
+                
+                if ma13_result and ma13_result.get('success', False):
+                    # MA13策略成功，使用当前日期作为信号日期
+                    latest_signal_date = df.index.max()
+                    recommendation = ma13_result.get('recommendation', {})
+                    action = recommendation.get('action', 'wait')
+                    confidence = recommendation.get('confidence', 0)
+                    
+                    if action in ['buy_light', 'buy_heavy'] and confidence >= 50:
+                        latest_signal_type = f"MA13_{action}_{confidence}%"
+            except Exception as e:
+                logger.error(f"MA13策略分析失败 {stock_code}: {e}")
+        
+        # 检查其他策略
         for strategy_id in strategy_ids:
+            if strategy_id == 'MA13_SHORT_TERM':
+                continue  # 已经处理过
+                
             strategy_instance = strategy_manager.get_strategy_instance(strategy_id)
             if not strategy_instance: continue
 
@@ -93,14 +117,36 @@ def _unified_screening_worker(args_tuple: tuple) -> Optional[HighQualityResult]:
         # --- 步骤 5: 构建并返回高质量结果 ---
         grade = 'A' if total_score >= 85 else 'B'
         
+        # 如果是MA13策略，使用其特殊的评分逻辑
+        if ma13_result and ma13_result.get('success', False):
+            recommendation = ma13_result.get('recommendation', {})
+            ma13_confidence = recommendation.get('confidence', 0) / 100.0  # 转换为0-1范围
+            
+            # 结合MA13信心度和汇合评分
+            combined_confidence = (ma13_confidence + confidence) / 2
+            combined_score = (ma13_confidence * 100 + total_score) / 2
+            
+            # MA13策略的特殊等级评定
+            if recommendation.get('action') == 'buy_heavy' and ma13_confidence >= 0.8:
+                grade = 'A+'
+            elif recommendation.get('action') == 'buy_heavy' and ma13_confidence >= 0.6:
+                grade = 'A'
+            elif recommendation.get('action') == 'buy_light' and ma13_confidence >= 0.5:
+                grade = 'B+'
+            else:
+                grade = 'B'
+        else:
+            combined_confidence = confidence
+            combined_score = total_score
+        
         return HighQualityResult(
             stock_code=stock_code,
             stock_name=stock_name,
             date=latest_signal_date,
             signal_type=latest_signal_type,
             current_price=df.loc[latest_signal_date, 'close'],
-            confluence_score=total_score,
-            confidence=confidence,
+            confluence_score=combined_score,
+            confidence=combined_confidence,
             market_phase=confluence_result.get('market_phase', 'unknown'),
             quality_grade=grade
         )
@@ -198,6 +244,49 @@ class UniversalScreener:
 
         except Exception as e:
             logger.error(f"更新策略筛选缓存失败: {e}")
+
+    def run_ma13_screening(self, max_workers: Optional[int] = None) -> List[HighQualityResult]:
+        """
+        专门的MA13短线策略筛选
+        """
+        logger.info("🎯 启动MA13短线策略专项筛选...")
+        return self.run_screening(['MA13_SHORT_TERM'], max_workers)
+
+    def get_ma13_candidates(self, min_confidence: float = 0.6) -> List[dict]:
+        """
+        获取MA13策略候选股票，返回详细信息
+        """
+        results = self.run_ma13_screening()
+        
+        candidates = []
+        for result in results:
+            if result.confidence >= min_confidence:
+                # 重新分析以获取详细信息
+                try:
+                    df = get_full_data_with_indicators(result.stock_code)
+                    if df is not None:
+                        ma13_strategy = MA13ShortTermStrategy()
+                        detailed_result = ma13_strategy.analyze_stock(df, result.stock_code)
+                        
+                        if detailed_result and detailed_result.get('success', False):
+                            candidate = {
+                                'stock_code': result.stock_code,
+                                'stock_name': result.stock_name,
+                                'current_price': result.current_price,
+                                'signal_type': result.signal_type,
+                                'confluence_score': result.confluence_score,
+                                'confidence': result.confidence,
+                                'quality_grade': result.quality_grade,
+                                'recommendation': detailed_result.get('recommendation', {}),
+                                'key_levels': detailed_result.get('key_levels', {}),
+                                'signals': detailed_result.get('signals', {}),
+                                'analysis_date': detailed_result.get('analysis_date', '')
+                            }
+                            candidates.append(candidate)
+                except Exception as e:
+                    logger.error(f"获取 {result.stock_code} 详细信息失败: {e}")
+        
+        return candidates
     
     def _save_deep_scan_results(self, results: List[HighQualityResult]):
         """保存深度扫描结果到文件，供前端API使用"""

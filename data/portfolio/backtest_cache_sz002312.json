@@ -1,0 +1,51 @@
+{
+  "cache_time": "2025-08-18 10:21:36",
+  "analysis_results": {
+    "stock_code": "sz002312",
+    "analysis_time": "2025-08-18 10:21:36",
+    "current_price": 11.2,
+    "backtest_analysis": {
+      "best_add_coefficient": 0.96,
+      "best_add_score": 65.88706709915293,
+      "add_coefficient_analysis": {
+        "0.96": {
+          "success_rate": 100.0,
+          "avg_return": 14.717667747882327,
+          "score": 65.88706709915293
+        },
+        "0.97": {
+          "success_rate": 100.0,
+          "avg_return": 13.800165290644506,
+          "score": 65.52006611625781
+        },
+        "0.98": {
+          "success_rate": 100.0,
+          "avg_return": 13.763440503763926,
+          "score": 65.50537620150557
+        },
+        "0.99": {
+          "success_rate": 99.86945169712794,
+          "avg_return": 13.082587232449045,
+          "score": 65.15470591125639
+        },
+        "1.0": {
+          "success_rate": 99.75124378109453,
+          "avg_return": 13.406663881235035,
+          "score": 65.21341182115073
+        }
+      }
+    },
+    "trading_advice": {
+      "action": "AVOID",
+      "confidence": 0.5,
+      "optimal_add_price": 10.7232,
+      "support_level": 11.17,
+      "resistance_level": 11.98,
+      "reasons": [
+        "价格位于长期均线MA60下方，趋势偏弱。"
+      ],
+      "stop_loss_price": 10.6115
+    },
+    "from_cache": false
+  }
+}

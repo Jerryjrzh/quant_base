@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单图表测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #chart { width: 100%; height: 400px; border: 1px solid #ddd; }
+        .controls { margin: 20px 0; }
+        button { margin: 5px; padding: 10px; }
+        .log { margin: 10px 0; padding: 10px; background: #f5f5f5; font-family: monospace; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>简单图表测试</h1>
+    
+    <div class="controls">
+        <button onclick="testBasicChart()">测试基础图表</button>
+        <button onclick="testRealData()">测试真实数据</button>
+        <button onclick="clearChart()">清空图表</button>
+    </div>
+    
+    <div id="chart"></div>
+    <div class="log" id="log">等待测试...</div>
+
+    <script>
+        const chart = echarts.init(document.getElementById('chart'));
+        const logDiv = document.getElementById('log');
+        
+        function log(message) {
+            console.log(message);
+            logDiv.textContent += new Date().toLocaleTimeString() + ': ' + message + '\n';
+        }
+        
+        function testBasicChart() {
+            log('开始测试基础图表...');
+            
+            const option = {
+                title: { text: '基础测试图表' },
+                xAxis: { type: 'category', data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'] },
+                yAxis: { type: 'value' },
+                series: [{
+                    data: [120, 200, 150, 80, 70],
+                    type: 'line'
+                }]
+            };
+            
+            chart.setOption(option);
+            log('基础图表渲染完成');
+        }
+        
+        async function testRealData() {
+            log('开始测试真实数据...');
+            
+            try {
+                const response = await fetch('/api/unified_analysis/sh600006?strategy=WEEKLY_GOLDEN_CROSS_MA');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const result = await response.json();
+                log(`API响应: success=${result.success}`);
+                
+                if (!result.success) {
+                    throw new Error(result.error || '未知错误');
+                }
+                
+                const chartData = result.data.chart_data;
+                log(`图表数据: K线${chartData.kline_data.length}条, 指标${chartData.indicator_data.length}条`);
+                
+                // 简化的图表配置
+                const dates = chartData.kline_data.slice(-60).map(item => item.date);
+                const closeData = chartData.kline_data.slice(-60).map(item => item.close);
+                const ma13Data = chartData.indicator_data.slice(-60).map(item => item.ma13);
+                const ma45Data = chartData.indicator_data.slice(-60).map(item => item.ma45);
+                
+                log(`最近60天数据: 日期${dates.length}, 收盘${closeData.length}, MA13${ma13Data.filter(v=>v).length}, MA45${ma45Data.filter(v=>v).length}`);
+                
+                const option = {
+                    title: { text: 'sh600006 - 最近60天' },
+                    tooltip: { trigger: 'axis' },
+                    legend: { data: ['收盘价', 'MA13', 'MA45'] },
+                    xAxis: { type: 'category', data: dates },
+                    yAxis: { type: 'value', scale: true },
+                    series: [
+                        {
+                            name: '收盘价',
+                            type: 'line',
+                            data: closeData,
+                            lineStyle: { color: '#000' }
+                        },
+                        {
+                            name: 'MA13',
+                            type: 'line',
+                            data: ma13Data,
+                            lineStyle: { color: '#ff6b6b' }
+                        },
+                        {
+                            name: 'MA45',
+                            type: 'line',
+                            data: ma45Data,
+                            lineStyle: { color: '#4ecdc4' }
+                        }
+                    ]
+                };
+                
+                chart.setOption(option);
+                log('真实数据图表渲染完成');
+                
+            } catch (error) {
+                log(`错误: ${error.message}`);
+                console.error('详细错误:', error);
+            }
+        }
+        
+        function clearChart() {
+            chart.clear();
+            logDiv.textContent = '图表已清空\n';
+        }
+    </script>
+</body>
+</html>

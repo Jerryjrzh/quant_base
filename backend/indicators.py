@@ -48,6 +48,32 @@ class RSIIndicatorConfig(IndicatorConfig):
 @dataclass
 class VolumeIndicatorConfig(IndicatorConfig):
     """成交量指标配置"""
+    pass
+
+class TechnicalIndicators:
+    """技术指标计算类 - 为MA13策略提供简化接口"""
+    
+    def __init__(self):
+        pass
+    
+    def calculate_ma(self, df: pd.DataFrame, period: int) -> pd.Series:
+        """计算移动平均线"""
+        return calculate_ma(df, period)
+    
+    def calculate_macd(self, df: pd.DataFrame, fast=12, slow=26, signal=9) -> Tuple[pd.Series, pd.Series]:
+        """计算MACD指标"""
+        config = MACDIndicatorConfig(fast_period=fast, slow_period=slow, signal_period=signal)
+        return calculate_macd(df, config)
+    
+    def calculate_kdj(self, df: pd.DataFrame, n=27, k=3, d=3) -> Tuple[pd.Series, pd.Series, pd.Series]:
+        """计算KDJ指标"""
+        config = KDJIndicatorConfig(n_period=n, k_period=k, d_period=d)
+        return calculate_kdj(df, config)
+    
+    def calculate_rsi(self, df: pd.DataFrame, period: int = 14) -> pd.Series:
+        """计算RSI指标"""
+        config = RSIIndicatorConfig(period=period)
+        return calculate_rsi(df, config)
     ma_period: int = 30
     ma_type: str = 'sma'  # 'sma', 'ema'
 

@@ -15,6 +15,7 @@ from adjustment_processor import create_adjustment_config, create_adjustment_pro
 from portfolio_manager import create_portfolio_manager
 from strategy_manager import strategy_manager
 from config_manager import config_manager
+from ma13_strategy_api import ma13_bp
 
 # --- 配置路径 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
@@ -25,6 +26,9 @@ CORE_POOL_FILE = os.path.join(RESULT_PATH, 'core_pool.json')
 
 app = Flask(__name__, static_folder=frontend_dir, static_url_path='')
 CORS(app)
+
+# 注册MA13策略蓝图
+app.register_blueprint(ma13_bp)
 
 # --- JSON序列化修复函数 ---
 def safe_jsonify(data):
@@ -78,6 +82,11 @@ def save_core_pool_to_file(core_pool_data):
 @app.route('/')
 def index():
     return send_from_directory(frontend_dir, 'index.html')
+
+@app.route('/ma13_strategy')
+def ma13_strategy_page():
+    """MA13短线策略页面"""
+    return send_from_directory(os.path.join(backend_dir, '..', 'templates'), 'ma13_strategy.html')
 
 # --- API 端点 ---
 

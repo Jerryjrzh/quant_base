@@ -1,0 +1,25 @@
+{
+  "evaluation_time": "2025-08-27T10:17:07.368931",
+  "stock_code": "sz300761",
+  "current_price": 20.5,
+  "grade": "A",
+  "evaluation_details": {
+    "entry_strategy": "参数化分批建仓",
+    "target_price_1": 19.47,
+    "target_price_2": 19.47,
+    "position_allocation": "首次30%，回调后加仓20%",
+    "discount_1": 0.05024390243902445,
+    "discount_2": 0.05024390243902445,
+    "stop_loss": {
+      "conservative": 19.88,
+      "moderate": 18.86,
+      "aggressive": 18.86,
+      "technical": 19.47
+    },
+    "take_profit": {
+      "conservative": 22.14,
+      "moderate": 22.55,
+      "aggressive": 24.6
+    }
+  }
+}

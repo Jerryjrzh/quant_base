@@ -23,6 +23,41 @@ from config import BASE_PATH, ENABLE_HK_STOCKS, ALL_MARKETS
 # 配置日志
 logger = logging.getLogger(__name__)
 
+class DataHandler:
+    """数据处理类 - 为MA13策略提供数据接口"""
+    
+    def __init__(self):
+        pass
+    
+    def get_stock_data(self, stock_code: str, days: int = 150) -> Optional[pd.DataFrame]:
+        """获取股票数据 - 使用统一数据接口"""
+        try:
+            # 使用统一的数据获取接口
+            df = get_full_data_with_indicators(stock_code)
+            
+            if df is not None and len(df) > 0:
+                # 只返回最近的days天数据
+                df = df.tail(days).copy()
+                return df
+            
+            return None
+        except Exception as e:
+            logger.error(f"获取股票数据失败 {stock_code}: {str(e)}")
+            return None
+    
+    def get_stock_data_range(self, stock_code: str, start_date: str, end_date: str) -> Optional[pd.DataFrame]:
+        """获取指定日期范围的股票数据"""
+        try:
+            # 先获取足够的数据，然后筛选日期范围
+            df = self.get_stock_data(stock_code, 500)  # 获取更多数据
+            if df is not None:
+                df = df[(df['date'] >= start_date) & (df['date'] <= end_date)]
+                return df.reset_index(drop=True)
+            return None
+        except Exception as e:
+            logger.error(f"获取股票数据范围失败 {stock_code}: {str(e)}")
+            return None
+
 def _get_market_from_stock_code(stock_code: str) -> str:
     """
     根据股票代码确定市场

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干净的图表测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .controls { margin: 20px 0; }
+        button { margin: 5px; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #chart-container { width: 100%; height: 600px; border: 1px solid #ddd; margin: 20px 0; }
+        .log { margin: 10px 0; padding: 10px; background: #f5f5f5; font-family: monospace; white-space: pre-wrap; max-height: 200px; overflow-y: auto; }
+        select { padding: 5px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>干净的图表测试</h1>
+    
+    <div class="controls">
+        <label for="stock-select">股票:</label>
+        <select id="stock-select">
+            <option value="">请选择股票</option>
+            <option value="sh600006">sh600006</option>
+            <option value="sz000001">sz000001</option>
+        </select>
+        
+        <button onclick="testCleanChart()">测试干净图表</button>
+        <button onclick="clearChart()">清空图表</button>
+    </div>
+    
+    <div id="chart-container"></div>
+    <div class="log" id="log">等待测试...</div>
+
+    <script>
+        const logDiv = document.getElementById('log');
+        let myChart = null;
+        
+        function log(message) {
+            console.log(message);
+            logDiv.textContent += new Date().toLocaleTimeString() + ': ' + message + '\n';
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        // 捕获所有console输出
+        const originalLog = console.log;
+        const originalWarn = console.warn;
+        const originalError = console.error;
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            log('LOG: ' + args.join(' '));
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            log('WARN: ' + args.join(' '));
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            log('ERROR: ' + args.join(' '));
+        };
+        
+        async function testCleanChart() {
+            log('开始测试干净图表...');
+            
+            const stockSelect = document.getElementById('stock-select');
+            if (!stockSelect.value) {
+                log('请先选择股票');
+                return;
+            }
+            
+            try {
+                // 初始化图表
+                const chartContainer = document.getElementById('chart-container');
+                if (myChart) {
+                    myChart.dispose();
+                }
+                myChart = echarts.init(chartContainer);
+                log('图表实例初始化完成');
+                
+                // 显示加载状态
+                myChart.showLoading();
+                
+                // 获取数据
+                const response = await fetch(`/api/unified_analysis/${stockSelect.value}?strategy=WEEKLY_GOLDEN_CROSS_MA`);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const result = await response.json();
+                log(`API响应: success=${result.success}`);
+                
+                if (!result.success) {
+                    throw new Error(result.error || '未知错误');
+                }
+                
+                const chartData = result.data.chart_data;
+                log(`数据获取成功: K线${chartData.kline_data.length}条, 指标${chartData.indicator_data.length}条`);
+                
+                // 准备数据
+                const dates = chartData.kline_data.map(item => item.date);
+                const klineData = chartData.kline_data.map(item => [item.open, item.close, item.low, item.high]);
+                
+                // MA数据
+                const ma7Data = chartData.indicator_data.map(item => item.ma7);
+                const ma13Data = chartData.indicator_data.map(item => item.ma13);
+                const ma30Data = chartData.indicator_data.map(item => item.ma30);
+                const ma45Data = chartData.indicator_data.map(item => item.ma45);
+                const ma60Data = chartData.indicator_data.map(item => item.ma60);
+                const ma90Data = chartData.indicator_data.map(item => item.ma90);
+                const ma150Data = chartData.indicator_data.map(item => item.ma150);
+                const ma240Data = chartData.indicator_data.map(item => item.ma240);
+                
+                log(`MA数据统计:`);
+                log(`  MA7有效: ${ma7Data.filter(v => v !== null && v !== undefined).length}`);
+                log(`  MA13有效: ${ma13Data.filter(v => v !== null && v !== undefined).length}`);
+                log(`  MA240有效: ${ma240Data.filter(v => v !== null && v !== undefined).length}`);
+                
+                // 计算显示范围
+                const totalDataPoints = dates.length;
+                const defaultShowCount = Math.min(252, totalDataPoints);
+                const startPercent = Math.max(0, ((totalDataPoints - defaultShowCount) / totalDataPoints) * 100);
+                
+                // 最简化的图表配置
+                const option = {
+                    title: {
+                        text: `${stockSelect.value} - MA指标图表`,
+                        left: 'center',
+                        textStyle: { fontSize: 16 }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: { type: 'cross' }
+                    },
+                    legend: {
+                        data: ['K线', 'MA7', 'MA13', 'MA30', 'MA45', 'MA60', 'MA90', 'MA150', 'MA240'],
+                        top: 30
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '15%',
+                        top: '15%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: dates,
+                        boundaryGap: false
+                    },
+                    yAxis: {
+                        type: 'value',
+                        scale: true
+                    },
+                    dataZoom: [
+                        {
+                            type: 'inside',
+                            start: startPercent,
+                            end: 100
+                        },
+                        {
+                            show: true,
+                            type: 'slider',
+                            bottom: '5%',
+                            height: 20,
+                            start: startPercent,
+                            end: 100
+                        }
+                    ],
+                    series: [
+                        {
+                            name: 'K线',
+                            type: 'candlestick',
+                            data: klineData
+                        },
+                        {
+                            name: 'MA7',
+                            type: 'line',
+                            data: ma7Data,
+                            smooth: true,
+                            symbol: 'none',
+                            lineStyle: { width: 1, color: '#ff6b6b' }
+                        },
+                        {
+                            name: 'MA13',
+                            type: 'line',
+                            data: ma13Data,
+                            smooth: true,
+                            symbol: 'none',
+                            lineStyle: { width: 1, color: '#4ecdc4' }
+                        },
+                        {
+                            name: 'MA30',
+                            type: 'line',
+                            data: ma30Data,
+                            smooth: true,
+                            symbol: 'none',
+                            lineStyle: { width: 1, color: '#45b7d1' }
+                        },
+                        {
+                            name: 'MA45',
+                            type: 'line',
+                            data: ma45Data,
+                            smooth: true,
+                            symbol: 'none',
+                            lineStyle: { width: 1, color: '#f39c12' }
+                        },
+                        {
+                            name: 'MA60',
+                            type: 'line',
+                            data: ma60Data,
+                            smooth: true,
+                            symbol: 'none',
+                            lineStyle: { width: 1, color: '#e74c3c' }
+                        },
+                        {
+                            name: 'MA90',
+                            type: 'line',
+                            data: ma90Data,
+                            smooth: true,
+                            symbol: 'none',
+                            lineStyle: { width: 1, color: '#9b59b6' }
+                        },
+                        {
+                            name: 'MA150',
+                            type: 'line',
+                            data: ma150Data,
+                            smooth: true,
+                            symbol: 'none',
+                            lineStyle: { width: 1, color: '#2ecc71' }
+                        },
+                        {
+                            name: 'MA240',
+                            type: 'line',
+                            data: ma240Data,
+                            smooth: true,
+                            symbol: 'none',
+                            lineStyle: { width: 1, color: '#e67e22' }
+                        }
+                    ]
+                };
+                
+                log('开始设置图表选项...');
+                myChart.setOption(option, true);
+                log('图表渲染完成');
+                
+            } catch (error) {
+                log(`测试失败: ${error.message}`);
+                console.error('详细错误:', error);
+            } finally {
+                if (myChart) {
+                    myChart.hideLoading();
+                }
+            }
+        }
+        
+        function clearChart() {
+            if (myChart) {
+                myChart.clear();
+                log('图表已清空');
+            } else {
+                log('图表实例不存在');
+            }
+        }
+        
+        // 股票选择变化时自动测试
+        document.getElementById('stock-select').addEventListener('change', function() {
+            if (this.value) {
+                setTimeout(testCleanChart, 100);
+            }
+        });
+        
+        log('页面初始化完成');
+    </script>
+</body>
+</html>

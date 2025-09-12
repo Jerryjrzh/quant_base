@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA13短线交易策略</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .strategy-card {
+            border-left: 4px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .stage-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .stage-pass { background-color: #28a745; }
+        .stage-fail { background-color: #dc3545; }
+        .stage-pending { background-color: #6c757d; }
+        
+        .signal-strength {
+            height: 20px;
+            background: linear-gradient(90deg, #dc3545 0%, #ffc107 50%, #28a745 100%);
+            border-radius: 10px;
+            position: relative;
+        }
+        .signal-indicator {
+            position: absolute;
+            top: -2px;
+            width: 4px;
+            height: 24px;
+            background: #000;
+            border-radius: 2px;
+        }
+        
+        .price-level {
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .support-level { background-color: #d4edda; color: #155724; }
+        .target-level { background-color: #d1ecf1; color: #0c5460; }
+        .stop-level { background-color: #f8d7da; color: #721c24; }
+        
+        .confidence-meter {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        .confidence-fill {
+            height: 100%;
+            border-radius: 15px;
+            transition: width 0.5s ease;
+        }
+        .confidence-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .loading-spinner {
+            display: none;
+        }
+        
+        .result-section {
+            display: none;
+        }
+        
+        .batch-result-item {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        .batch-result-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .batch-result-qualified {
+            border-left: 4px solid #28a745;
+        }
+        .batch-result-unqualified {
+            border-left: 4px solid #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">
+                    <i class="fas fa-chart-line text-primary"></i>
+                    MA13强势回调短线交易策略
+                </h1>
+            </div>
+        </div>
+
+        <!-- 策略信息卡片 -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card strategy-card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-info-circle"></i>
+                            策略说明
+                        </h5>
+                        <p class="card-text">
+                            MA13强势回调趋势系统是一个基于13日均线支撑的短线交易策略，通过5个步骤筛选和确认交易机会：
+                            <strong>底部稳定 → 日线爆发 → MA13回调 → 超跌反弹/中继确认</strong>
+                        </p>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <small class="text-muted">适用标的</small><br>
+                                <span class="badge bg-info">中小盘股</span>
+                                <span class="badge bg-info">50-200亿市值</span>
+                            </div>
+                            <div class="col-md-3">
+                                <small class="text-muted">持仓周期</small><br>
+                                <span class="badge bg-warning">3-10个交易日</span>
+                            </div>
+                            <div class="col-md-3">
+                                <small class="text-muted">预期收益</small><br>
+                                <span class="badge bg-success">10-20%</span>
+                            </div>
+                            <div class="col-md-3">
+                                <small class="text-muted">风险等级</small><br>
+                                <span class="badge bg-danger">中等风险</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分析工具 -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-search"></i> 单股分析</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="stockCode" class="form-label">股票代码</label>
+                            <input type="text" class="form-control" id="stockCode" placeholder="例如: 002021" value="002021">
+                        </div>
+                        <div class="mb-3">
+                            <label for="analysisDays" class="form-label">分析天数</label>
+                            <select class="form-select" id="analysisDays">
+                                <option value="120">120天</option>
+                                <option value="150" selected>150天</option>
+                                <option value="200">200天</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="analyzeSingleStock()">
+                            <i class="fas fa-play"></i> 开始分析
+                        </button>
+                        <button type="button" class="btn btn-success ms-2" onclick="generateExecutionPlan()" id="planBtn" disabled>
+                            <i class="fas fa-clipboard-list"></i> 生成执行计划
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-list"></i> 批量扫描</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="batchCodes" class="form-label">股票代码列表</label>
+                            <textarea class="form-control" id="batchCodes" rows="3" 
+                                placeholder="输入股票代码，用逗号或换行分隔&#10;例如: 002021,600618,300739&#10;或点击"全市场扫描"自动获取所有股票"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="maxStocks" class="form-label">最大扫描数量</label>
+                            <select class="form-select" id="maxStocks">
+                                <option value="100">100只</option>
+                                <option value="300">300只</option>
+                                <option value="500" selected>500只</option>
+                                <option value="1000">1000只</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-info" onclick="batchScanStocks()">
+                            <i class="fas fa-search-plus"></i> 批量扫描
+                        </button>
+                        <button type="button" class="btn btn-success ms-2" onclick="fullMarketScan()">
+                            <i class="fas fa-globe"></i> 全市场扫描
+                        </button>
+                        <button type="button" class="btn btn-secondary ms-2" onclick="loadSampleCodes()">
+                            <i class="fas fa-file-import"></i> 加载示例
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 加载指示器 -->
+        <div class="row loading-spinner" id="loadingSpinner">
+            <div class="col-12 text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">分析中...</span>
+                </div>
+                <p class="mt-2">正在分析中，请稍候...</p>
+            </div>
+        </div>
+
+        <!-- 单股分析结果 -->
+        <div class="row result-section" id="singleResult">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5><i class="fas fa-chart-bar"></i> 分析结果</h5>
+                        <span id="resultStockCode" class="badge bg-primary fs-6"></span>
+                    </div>
+                    <div class="card-body">
+                        <!-- 策略阶段 -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h6>策略阶段分析</h6>
+                                <div id="stageAnalysis"></div>
+                            </div>
+                        </div>
+
+                        <!-- 信号强度 -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h6>信号强度</h6>
+                                <div class="signal-strength">
+                                    <div class="signal-indicator" id="signalIndicator"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-1">
+                                    <small>弱</small>
+                                    <small id="signalStrengthText">0</small>
+                                    <small>强</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>信心度</h6>
+                                <div class="confidence-meter">
+                                    <div class="confidence-fill" id="confidenceFill"></div>
+                                    <div class="confidence-text" id="confidenceText">0%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 关键价位 -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h6>支撑位</h6>
+                                <div id="supportLevels"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>目标位</h6>
+                                <div id="targetLevels"></div>
+                            </div>
+                        </div>
+
+                        <!-- 交易建议 -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h6>交易建议</h6>
+                                <div id="tradingRecommendation"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 执行计划结果 -->
+        <div class="row result-section" id="executionPlanResult">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-clipboard-list"></i> 执行计划</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- 支撑位分析 -->
+                            <div class="col-md-6 mb-4">
+                                <h6><i class="fas fa-shield-alt"></i> 支撑位分析</h6>
+                                <div id="supportAnalysis"></div>
+                            </div>
+                            
+                            <!-- 目标位分析 -->
+                            <div class="col-md-6 mb-4">
+                                <h6><i class="fas fa-bullseye"></i> 目标位分析</h6>
+                                <div id="targetAnalysis"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- 时间窗口 -->
+                            <div class="col-md-4 mb-4">
+                                <h6><i class="fas fa-clock"></i> 时间窗口</h6>
+                                <div id="timeWindow"></div>
+                            </div>
+                            
+                            <!-- 仓位管理 -->
+                            <div class="col-md-4 mb-4">
+                                <h6><i class="fas fa-coins"></i> 仓位管理</h6>
+                                <div id="positionPlan"></div>
+                            </div>
+                            
+                            <!-- 风险控制 -->
+                            <div class="col-md-4 mb-4">
+                                <h6><i class="fas fa-exclamation-triangle"></i> 风险控制</h6>
+                                <div id="riskControl"></div>
+                            </div>
+                        </div>
+
+                        <!-- 执行总结表 -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h6><i class="fas fa-table"></i> 执行总结</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="executionSummaryTable">
+                                        <thead>
+                                            <tr>
+                                                <th>项目</th>
+                                                <th>关键价位/时间</th>
+                                                <th>战术应对</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 批量扫描结果 -->
+        <div class="row result-section" id="batchResult">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5><i class="fas fa-list-check"></i> 批量扫描结果</h5>
+                        <span id="batchSummary" class="badge bg-info fs-6"></span>
+                    </div>
+                    <div class="card-body">
+                        <div id="batchResults"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentAnalysisResult = null;
+
+        function showLoading() {
+            document.querySelectorAll('.result-section').forEach(el => el.style.display = 'none');
+            document.getElementById('loadingSpinner').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingSpinner').style.display = 'none';
+        }
+
+        function showError(message) {
+            hideLoading();
+            alert('错误: ' + message);
+        }
+
+        async function analyzeSingleStock() {
+            const stockCode = document.getElementById('stockCode').value.trim();
+            const days = document.getElementById('analysisDays').value;
+
+            if (!stockCode) {
+                alert('请输入股票代码');
+                return;
+            }
+
+            showLoading();
+
+            try {
+                const response = await fetch('/api/ma13/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        stock_code: stockCode,
+                        days: parseInt(days)
+                    })
+                });
+
+                const result = await response.json();
+                hideLoading();
+
+                if (result.success) {
+                    currentAnalysisResult = result;
+                    displaySingleResult(result);
+                    document.getElementById('planBtn').disabled = false;
+                } else {
+                    showError(result.message);
+                }
+            } catch (error) {
+                hideLoading();
+                showError('网络请求失败: ' + error.message);
+            }
+        }
+
+        function displaySingleResult(result) {
+            document.getElementById('singleResult').style.display = 'block';
+            document.getElementById('resultStockCode').textContent = result.stock_code || '未知';
+
+            // 显示策略阶段
+            displayStageAnalysis(result);
+
+            // 显示信号强度
+            displaySignalStrength(result.signals || {});
+
+            // 显示信心度
+            displayConfidence(result.recommendation || {});
+
+            // 显示关键价位
+            displayKeyLevels(result.key_levels || {});
+
+            // 显示交易建议
+            displayTradingRecommendation(result.recommendation || {});
+        }
+
+        function displayStageAnalysis(result) {
+            const container = document.getElementById('stageAnalysis');
+            const stages = [
+                { key: 'stage_1', name: '海选-底部稳定' },
+                { key: 'stage_2', name: '精选-日线爆发' },
+                { key: 'stage_3', name: '择时-MA13回调' }
+            ];
+
+            let html = '';
+            stages.forEach(stage => {
+                const stageResult = result[stage.key] || {};
+                const qualified = stageResult.qualified || false;
+                const statusClass = qualified ? 'stage-pass' : 'stage-fail';
+                const icon = qualified ? 'fas fa-check' : 'fas fa-times';
+
+                html += `
+                    <div class="mb-2">
+                        <span class="stage-indicator ${statusClass}"></span>
+                        <i class="${icon}"></i>
+                        <strong>${stage.name}</strong>
+                        ${qualified ? '<span class="text-success">✓ 通过</span>' : '<span class="text-danger">✗ 未通过</span>'}
+                    </div>
+                `;
+            });
+
+            // 添加信号模型
+            const signals = result.signals || {};
+            if (signals.oversold_model) {
+                html += `
+                    <div class="mb-2">
+                        <span class="stage-indicator stage-pass"></span>
+                        <i class="fas fa-check"></i>
+                        <strong>超跌反弹模型</strong>
+                        <span class="text-success">✓ 触发</span>
+                    </div>
+                `;
+            }
+            if (signals.continuation_model) {
+                html += `
+                    <div class="mb-2">
+                        <span class="stage-indicator stage-pass"></span>
+                        <i class="fas fa-check"></i>
+                        <strong>中继确认模型</strong>
+                        <span class="text-success">✓ 触发</span>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+        }
+
+        function displaySignalStrength(signals) {
+            const strength = signals.signal_strength || 0;
+            const indicator = document.getElementById('signalIndicator');
+            const text = document.getElementById('signalStrengthText');
+
+            indicator.style.left = `${strength}%`;
+            text.textContent = strength;
+        }
+
+        function displayConfidence(recommendation) {
+            const confidence = recommendation.confidence || 0;
+            const fill = document.getElementById('confidenceFill');
+            const text = document.getElementById('confidenceText');
+
+            fill.style.width = `${confidence}%`;
+            text.textContent = `${confidence}%`;
+
+            // 根据信心度设置颜色
+            if (confidence >= 80) {
+                fill.style.background = '#28a745';
+            } else if (confidence >= 60) {
+                fill.style.background = '#ffc107';
+            } else {
+                fill.style.background = '#dc3545';
+            }
+        }
+
+        function displayKeyLevels(keyLevels) {
+            // 支撑位
+            const supportContainer = document.getElementById('supportLevels');
+            let supportHtml = '';
+            
+            if (keyLevels.support_1_lower) {
+                supportHtml += `<div class="price-level support-level">核心支撑: ${keyLevels.support_1_lower.toFixed(2)}元</div>`;
+            }
+            if (keyLevels.stop_loss) {
+                supportHtml += `<div class="price-level stop-level">止损位: ${keyLevels.stop_loss.toFixed(2)}元</div>`;
+            }
+            supportContainer.innerHTML = supportHtml;
+
+            // 目标位
+            const targetContainer = document.getElementById('targetLevels');
+            let targetHtml = '';
+            
+            if (keyLevels.target_1) {
+                targetHtml += `<div class="price-level target-level">第一目标: ${keyLevels.target_1.toFixed(2)}元</div>`;
+            }
+            if (keyLevels.target_2) {
+                targetHtml += `<div class="price-level target-level">第二目标: ${keyLevels.target_2.toFixed(2)}元</div>`;
+            }
+            targetContainer.innerHTML = targetHtml;
+        }
+
+        function displayTradingRecommendation(recommendation) {
+            const container = document.getElementById('tradingRecommendation');
+            const action = recommendation.action || 'wait';
+            const positionSize = (recommendation.position_size || 0) * 100;
+            const riskRewardRatio = recommendation.risk_reward_ratio || 0;
+
+            let actionText = '';
+            let actionClass = '';
+            
+            switch (action) {
+                case 'buy_heavy':
+                    actionText = '重仓买入';
+                    actionClass = 'success';
+                    break;
+                case 'buy_light':
+                    actionText = '轻仓试探';
+                    actionClass = 'warning';
+                    break;
+                default:
+                    actionText = '观望等待';
+                    actionClass = 'secondary';
+            }
+
+            const html = `
+                <div class="alert alert-${actionClass}">
+                    <h6><i class="fas fa-lightbulb"></i> 操作建议: ${actionText}</h6>
+                    <p class="mb-1"><strong>建议仓位:</strong> ${positionSize.toFixed(0)}%</p>
+                    <p class="mb-1"><strong>风险收益比:</strong> 1:${riskRewardRatio.toFixed(2)}</p>
+                    <p class="mb-0"><strong>入场时机:</strong> ${recommendation.entry_timing || '等待'}</p>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        async function generateExecutionPlan() {
+            if (!currentAnalysisResult) {
+                alert('请先进行股票分析');
+                return;
+            }
+
+            const stockCode = currentAnalysisResult.stock_code;
+            showLoading();
+
+            try {
+                const response = await fetch('/api/ma13/execution_plan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        stock_code: stockCode,
+                        days: 150
+                    })
+                });
+
+                const result = await response.json();
+                hideLoading();
+
+                if (result.success) {
+                    displayExecutionPlan(result);
+                } else {
+                    showError(result.message);
+                }
+            } catch (error) {
+                hideLoading();
+                showError('网络请求失败: ' + error.message);
+            }
+        }
+
+        function displayExecutionPlan(result) {
+            document.getElementById('executionPlanResult').style.display = 'block';
+
+            // 支撑位分析
+            displaySupportAnalysis(result.support_analysis || {});
+
+            // 目标位分析
+            displayTargetAnalysis(result.target_analysis || {});
+
+            // 时间窗口
+            displayTimeWindow(result.time_window || {});
+
+            // 仓位管理
+            displayPositionPlan(result.position_plan || {});
+
+            // 风险控制
+            displayRiskControl(result.risk_control || {});
+
+            // 执行总结表
+            displayExecutionSummary(result.execution_summary || {});
+        }
+
+        function displaySupportAnalysis(supportAnalysis) {
+            const container = document.getElementById('supportAnalysis');
+            const coreZone = supportAnalysis.core_support_zone || {};
+            const finalZone = supportAnalysis.final_support_zone || {};
+
+            const html = `
+                <div class="mb-3">
+                    <strong>${coreZone.description || ''}</strong>
+                    <p class="text-muted small">${coreZone.tactical_meaning || ''}</p>
+                </div>
+                <div class="mb-3">
+                    <strong>${finalZone.description || ''}</strong>
+                    <p class="text-muted small">${finalZone.tactical_meaning || ''}</p>
+                </div>
+                <div class="alert alert-info">
+                    <strong>当前位置:</strong> ${supportAnalysis.current_position || ''}
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function displayTargetAnalysis(targetAnalysis) {
+            const container = document.getElementById('targetAnalysis');
+            let html = '';
+
+            ['target_1', 'target_2', 'target_3'].forEach(key => {
+                const target = targetAnalysis[key];
+                if (target) {
+                    html += `
+                        <div class="mb-3">
+                            <strong>${target.description || ''}</strong>
+                            <p class="text-muted small">依据: ${target.basis || ''}</p>
+                            <p class="text-muted small">操作: ${target.operation || ''}</p>
+                            <span class="badge bg-primary">概率: ${target.probability || 0}%</span>
+                        </div>
+                    `;
+                }
+            });
+
+            container.innerHTML = html;
+        }
+
+        function displayTimeWindow(timeWindow) {
+            const container = document.getElementById('timeWindow');
+            const html = `
+                <div class="mb-2"><strong>持仓周期:</strong> ${timeWindow.window_description || ''}</div>
+                <div class="mb-2"><strong>黄金期:</strong> ${timeWindow.golden_period || ''}</div>
+                <div class="mb-2"><strong>预期交易日:</strong> ${timeWindow.expected_trading_days || 0}天</div>
+                <div class="alert alert-warning small">
+                    ${timeWindow.time_risk_warning || ''}
+                </div>
+            `;
+            container.innerHTML = html;
+        }
+
+        function displayPositionPlan(positionPlan) {
+            const container = document.getElementById('positionPlan');
+            const initialEntry = positionPlan.initial_entry || {};
+            const addPosition = positionPlan.add_position || {};
+
+            const html = `
+                <div class="mb-2"><strong>${initialEntry.description || ''}</strong></div>
+                <div class="mb-2 text-muted small">触发: ${initialEntry.trigger || ''}</div>
+                <div class="mb-2"><strong>${addPosition.description || ''}</strong></div>
+                <div class="mb-2 text-muted small">触发: ${addPosition.trigger || ''}</div>
+                <div class="alert alert-info small">
+                    ${positionPlan.risk_control || ''}
+                </div>
+            `;
+            container.innerHTML = html;
+        }
+
+        function displayRiskControl(riskControl) {
+            const container = document.getElementById('riskControl');
+            const stopLoss = riskControl.stop_loss || {};
+            const takeProfitPlan = riskControl.take_profit_1 || {};
+
+            const html = `
+                <div class="mb-2"><strong>${stopLoss.description || ''}</strong></div>
+                <div class="mb-2 text-muted small">${stopLoss.trigger || ''}</div>
+                <div class="mb-2"><strong>风险收益比:</strong> 1:${riskControl.risk_reward_ratio || 0}</div>
+                <div class="mb-2"><strong>最大亏损:</strong> ${riskControl.max_loss_pct || 0}%</div>
+                <div class="alert alert-${riskControl.risk_assessment === '低风险' ? 'success' : riskControl.risk_assessment === '中等风险' ? 'warning' : 'danger'}">
+                    风险评估: ${riskControl.risk_assessment || ''}
+                </div>
+            `;
+            container.innerHTML = html;
+        }
+
+        function displayExecutionSummary(executionSummary) {
+            const tbody = document.querySelector('#executionSummaryTable tbody');
+            const summaryTable = executionSummary.summary_table || [];
+
+            let html = '';
+            summaryTable.forEach(item => {
+                html += `
+                    <tr>
+                        <td><strong>${item.item || ''}</strong></td>
+                        <td>${item.key_level || ''}</td>
+                        <td>${item.tactical_response || ''}</td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = html;
+        }
+
+        async function batchScanStocks() {
+            const codesText = document.getElementById('batchCodes').value.trim();
+            if (!codesText) {
+                alert('请输入股票代码列表');
+                return;
+            }
+
+            // 解析股票代码
+            const stockCodes = codesText.split(/[,\n\r\s]+/).filter(code => code.trim());
+            if (stockCodes.length === 0) {
+                alert('未找到有效的股票代码');
+                return;
+            }
+
+            showLoading();
+
+            try {
+                const response = await fetch('/api/ma13/batch_scan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        stock_codes: stockCodes,
+                        days: 150
+                    })
+                });
+
+                const result = await response.json();
+                hideLoading();
+
+                if (result.success) {
+                    displayBatchResults(result);
+                } else {
+                    showError(result.message);
+                }
+            } catch (error) {
+                hideLoading();
+                showError('网络请求失败: ' + error.message);
+            }
+        }
+
+        function displayBatchResults(result) {
+            document.getElementById('batchResult').style.display = 'block';
+            
+            const summary = result.summary || {};
+            document.getElementById('batchSummary').textContent = 
+                `${summary.qualified_count || 0}/${summary.total_scanned || 0} 符合条件 (${(summary.qualified_rate || 0).toFixed(1)}%)`;
+
+            const container = document.getElementById('batchResults');
+            const results = result.results || [];
+
+            let html = '';
+            results.forEach(item => {
+                const qualified = item.success || false;
+                const itemClass = qualified ? 'batch-result-qualified' : 'batch-result-unqualified';
+                const summary = item.summary || {};
+
+                html += `
+                    <div class="batch-result-item ${itemClass}">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <strong>${item.stock_code || ''}</strong>
+                                ${qualified ? '<span class="badge bg-success ms-2">符合</span>' : '<span class="badge bg-danger ms-2">不符合</span>'}
+                            </div>
+                            <div class="col-md-2">
+                                <small class="text-muted">当前价格</small><br>
+                                <strong>${item.current_price ? item.current_price.toFixed(2) + '元' : 'N/A'}</strong>
+                            </div>
+                            <div class="col-md-2">
+                                <small class="text-muted">操作建议</small><br>
+                                <span class="badge ${summary.action === 'buy_heavy' ? 'bg-success' : summary.action === 'buy_light' ? 'bg-warning' : 'bg-secondary'}">
+                                    ${summary.action === 'buy_heavy' ? '重仓' : summary.action === 'buy_light' ? '轻仓' : '观望'}
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+                                <small class="text-muted">信心度</small><br>
+                                <strong>${summary.confidence || 0}%</strong>
+                            </div>
+                            <div class="col-md-2">
+                                <small class="text-muted">信号强度</small><br>
+                                <strong>${summary.signal_strength || 0}</strong>
+                            </div>
+                            <div class="col-md-2">
+                                <small class="text-muted">状态</small><br>
+                                <small class="text-muted">${qualified ? '策略匹配' : (item.message || '不符合条件')}</small>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function loadSampleCodes() {
+            const sampleCodes = [
+                '002021', '600618', '002796', '300739', '000858',
+                '002415', '600036', '000002', '300015', '002230'
+            ];
+            document.getElementById('batchCodes').value = sampleCodes.join(',');
+        }
+
+        async function fullMarketScan() {
+            const maxStocks = document.getElementById('maxStocks').value;
+            
+            if (!confirm(`确定要进行全市场扫描吗？将扫描最多 ${maxStocks} 只股票，这可能需要较长时间。`)) {
+                return;
+            }
+
+            showLoading();
+
+            try {
+                const response = await fetch('/api/ma13/full_market_scan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        max_stocks: parseInt(maxStocks),
+                        days: 150
+                    })
+                });
+
+                const result = await response.json();
+                hideLoading();
+
+                if (result.success) {
+                    displayBatchResults(result);
+                    
+                    // 显示扫描统计信息
+                    const stats = result.scan_stats || {};
+                    const message = `全市场扫描完成！\n` +
+                        `总股票数: ${stats.total_stocks || 0}\n` +
+                        `实际扫描: ${stats.processed_stocks || 0}\n` +
+                        `符合条件: ${stats.qualified_stocks || 0}\n` +
+                        `符合率: ${((stats.qualified_stocks || 0) / (stats.processed_stocks || 1) * 100).toFixed(1)}%`;
+                    
+                    alert(message);
+                } else {
+                    showError(result.message);
+                }
+            } catch (error) {
+                hideLoading();
+                showError('全市场扫描失败: ' + error.message);
+            }
+        }
+
+        async function getAllStockCodes() {
+            try {
+                const response = await fetch('/api/ma13/all_stocks');
+                const result = await response.json();
+                
+                if (result.success) {
+                    return result.stock_codes || [];
+                } else {
+                    console.error('获取股票代码失败:', result.message);
+                    return [];
+                }
+            } catch (error) {
+                console.error('获取股票代码出错:', error);
+                return [];
+            }
+        }
+
+        async function loadAllStockCodes() {
+            const codes = await getAllStockCodes();
+            if (codes.length > 0) {
+                document.getElementById('batchCodes').value = codes.slice(0, 100).join(',');
+                alert(`已加载 ${Math.min(codes.length, 100)} 只股票代码（共 ${codes.length} 只可用）`);
+            } else {
+                alert('无法获取股票代码列表');
+            }
+        }
+
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('MA13策略页面已加载');
+            
+            // 添加"加载所有股票"按钮的事件处理
+            const loadAllBtn = document.createElement('button');
+            loadAllBtn.type = 'button';
+            loadAllBtn.className = 'btn btn-outline-info ms-2';
+            loadAllBtn.innerHTML = '<i class="fas fa-download"></i> 加载所有股票';
+            loadAllBtn.onclick = loadAllStockCodes;
+            
+            // 将按钮添加到批量扫描卡片中
+            const buttonContainer = document.querySelector('.card-body .btn-secondary').parentNode;
+            if (buttonContainer) {
+                buttonContainer.appendChild(loadAllBtn);
+            }
+        });
+    </script>
+</body>
+</html>

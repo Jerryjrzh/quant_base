@@ -1,0 +1,758 @@
+2025-08-18 13:33:20,214 - __main__ - INFO - 运行全量更新模式
+2025-08-18 13:33:20,214 - __main__ - INFO - ============================================================
+2025-08-18 13:33:20,214 - __main__ - INFO - 开始批量个股画像生成
+2025-08-18 13:33:20,214 - __main__ - INFO - ============================================================
+2025-08-18 13:33:20,214 - stock_pool_manager - INFO - 数据库初始化完成
+2025-08-18 13:33:20,214 - stock_pool_manager - INFO - 数据库初始化完成
+2025-08-18 13:33:20,215 - stock_pool_manager - INFO - 数据库初始化完成
+2025-08-18 13:33:20,215 - __main__ - INFO - 核心池股票总数: 46
+2025-08-18 13:33:20,215 - __main__ - INFO - 需要处理的股票数量: 46
+2025-08-18 13:33:20,215 - __main__ - INFO - 处理进度 [1/46]: sh601186
+2025-08-18 13:33:20,215 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:33:20,215 - data_enricher - INFO - 开始丰富数据: sh601186
+2025-08-18 13:33:21,472 - data_enricher - WARNING - 获取 sh601186 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:35:39,720 - data_enricher - INFO - sh601186 发现分红送配数据
+2025-08-18 13:35:39,720 - data_enricher - WARNING - 获取 sh601186 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:35:39,732 - data_enricher - INFO - sh601186 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:35:39,732 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:35:39,732 - data_enricher - ERROR - 更新 sh601186 数据到数据库失败
+2025-08-18 13:35:39,733 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:35:39,733 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:35:39,733 - stock_profiler - INFO - 开始为 sh601186 生成参数画像
+2025-08-18 13:35:39,793 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:35:39,807 - stock_pool_manager - INFO - 股票 sh601186 画像数据已更新
+2025-08-18 13:35:39,807 - stock_profiler - INFO - 成功为 sh601186 生成参数画像，验证分数: 0.000
+2025-08-18 13:35:39,808 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:35:39,808 - __main__ - INFO - 处理进度 [2/46]: sh601668
+2025-08-18 13:35:39,808 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:35:39,808 - data_enricher - INFO - 开始丰富数据: sh601668
+2025-08-18 13:35:40,013 - data_enricher - WARNING - 获取 sh601668 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:35:43,030 - data_enricher - INFO - sh601668 发现分红送配数据
+2025-08-18 13:35:43,030 - data_enricher - WARNING - 获取 sh601668 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:35:43,040 - data_enricher - INFO - sh601668 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:35:43,040 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:35:43,040 - data_enricher - ERROR - 更新 sh601668 数据到数据库失败
+2025-08-18 13:35:43,041 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:35:43,041 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:35:43,041 - stock_profiler - INFO - 开始为 sh601668 生成参数画像
+2025-08-18 13:35:43,101 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:35:43,133 - stock_pool_manager - INFO - 股票 sh601668 画像数据已更新
+2025-08-18 13:35:43,133 - stock_profiler - INFO - 成功为 sh601668 生成参数画像，验证分数: 0.000
+2025-08-18 13:35:43,133 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:35:43,133 - __main__ - INFO - 处理进度 [3/46]: sz300124
+2025-08-18 13:35:43,133 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:35:43,133 - data_enricher - INFO - 开始丰富数据: sz300124
+2025-08-18 13:35:43,241 - data_enricher - WARNING - 获取 sz300124 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:35:47,034 - data_enricher - INFO - sz300124 发现分红送配数据
+2025-08-18 13:35:47,034 - data_enricher - WARNING - 获取 sz300124 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:35:47,046 - data_enricher - INFO - sz300124 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:35:47,047 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:35:47,047 - data_enricher - ERROR - 更新 sz300124 数据到数据库失败
+2025-08-18 13:35:47,047 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:35:47,047 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:35:47,047 - stock_profiler - INFO - 开始为 sz300124 生成参数画像
+2025-08-18 13:35:47,109 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:35:47,141 - stock_pool_manager - INFO - 股票 sz300124 画像数据已更新
+2025-08-18 13:35:47,142 - stock_profiler - INFO - 成功为 sz300124 生成参数画像，验证分数: 0.000
+2025-08-18 13:35:47,142 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:35:47,142 - __main__ - INFO - 处理进度 [4/46]: sz002415
+2025-08-18 13:35:47,142 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:35:47,142 - data_enricher - INFO - 开始丰富数据: sz002415
+2025-08-18 13:35:47,257 - data_enricher - WARNING - 获取 sz002415 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:35:49,833 - data_enricher - INFO - sz002415 发现分红送配数据
+2025-08-18 13:35:49,833 - data_enricher - WARNING - 获取 sz002415 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:35:49,842 - data_enricher - INFO - sz002415 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:35:49,843 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:35:49,843 - data_enricher - ERROR - 更新 sz002415 数据到数据库失败
+2025-08-18 13:35:49,843 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:35:49,843 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:35:49,843 - stock_profiler - INFO - 开始为 sz002415 生成参数画像
+2025-08-18 13:35:49,902 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:35:49,915 - stock_pool_manager - INFO - 股票 sz002415 画像数据已更新
+2025-08-18 13:35:49,915 - stock_profiler - INFO - 成功为 sz002415 生成参数画像，验证分数: 0.000
+2025-08-18 13:35:49,915 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:35:49,915 - __main__ - INFO - 处理进度 [5/46]: sz300760
+2025-08-18 13:35:49,915 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:35:49,915 - data_enricher - INFO - 开始丰富数据: sz300760
+2025-08-18 13:35:50,416 - data_enricher - WARNING - 获取 sz300760 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:35:53,167 - data_enricher - INFO - sz300760 发现分红送配数据
+2025-08-18 13:35:53,167 - data_enricher - WARNING - 获取 sz300760 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:35:53,177 - data_enricher - INFO - sz300760 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:35:53,177 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:35:53,177 - data_enricher - ERROR - 更新 sz300760 数据到数据库失败
+2025-08-18 13:35:53,177 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:35:53,177 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:35:53,178 - stock_profiler - INFO - 开始为 sz300760 生成参数画像
+2025-08-18 13:35:53,237 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:35:53,269 - stock_pool_manager - INFO - 股票 sz300760 画像数据已更新
+2025-08-18 13:35:53,269 - stock_profiler - INFO - 成功为 sz300760 生成参数画像，验证分数: 0.000
+2025-08-18 13:35:53,269 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:35:53,269 - __main__ - INFO - 处理进度 [6/46]: sh600030
+2025-08-18 13:35:53,269 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:35:53,269 - data_enricher - INFO - 开始丰富数据: sh600030
+2025-08-18 13:35:53,377 - data_enricher - WARNING - 获取 sh600030 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:35:58,045 - data_enricher - INFO - sh600030 发现分红送配数据
+2025-08-18 13:35:58,045 - data_enricher - WARNING - 获取 sh600030 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:35:58,056 - data_enricher - INFO - sh600030 健康分数: 0.620 (基础0.5 -> 最终0.620)
+2025-08-18 13:35:58,056 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:35:58,056 - data_enricher - ERROR - 更新 sh600030 数据到数据库失败
+2025-08-18 13:35:58,057 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:35:58,057 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:35:58,057 - stock_profiler - INFO - 开始为 sh600030 生成参数画像
+2025-08-18 13:35:58,116 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:35:58,148 - stock_pool_manager - INFO - 股票 sh600030 画像数据已更新
+2025-08-18 13:35:58,148 - stock_profiler - INFO - 成功为 sh600030 生成参数画像，验证分数: 0.000
+2025-08-18 13:35:58,148 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:35:58,148 - __main__ - INFO - 处理进度 [7/46]: sh601888
+2025-08-18 13:35:58,148 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:35:58,148 - data_enricher - INFO - 开始丰富数据: sh601888
+2025-08-18 13:35:58,365 - data_enricher - WARNING - 获取 sh601888 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:36:08,525 - data_enricher - INFO - sh601888 发现分红送配数据
+2025-08-18 13:36:08,525 - data_enricher - WARNING - 获取 sh601888 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:36:08,535 - data_enricher - INFO - sh601888 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:36:08,535 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:36:08,535 - data_enricher - ERROR - 更新 sh601888 数据到数据库失败
+2025-08-18 13:36:08,536 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:36:08,536 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:36:08,536 - stock_profiler - INFO - 开始为 sh601888 生成参数画像
+2025-08-18 13:36:08,595 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:36:08,627 - stock_pool_manager - INFO - 股票 sh601888 画像数据已更新
+2025-08-18 13:36:08,627 - stock_profiler - INFO - 成功为 sh601888 生成参数画像，验证分数: 0.000
+2025-08-18 13:36:08,627 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:36:08,627 - __main__ - INFO - 处理进度 [8/46]: sh600893
+2025-08-18 13:36:08,627 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:36:08,627 - data_enricher - INFO - 开始丰富数据: sh600893
+2025-08-18 13:36:08,771 - data_enricher - WARNING - 获取 sh600893 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:36:16,357 - data_enricher - INFO - sh600893 发现分红送配数据
+2025-08-18 13:36:16,357 - data_enricher - WARNING - 获取 sh600893 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:36:16,369 - data_enricher - INFO - sh600893 健康分数: 0.600 (基础0.5 -> 最终0.600)
+2025-08-18 13:36:16,369 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:36:16,370 - data_enricher - ERROR - 更新 sh600893 数据到数据库失败
+2025-08-18 13:36:16,370 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:36:16,370 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:36:16,370 - stock_profiler - INFO - 开始为 sh600893 生成参数画像
+2025-08-18 13:36:16,433 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:36:16,465 - stock_pool_manager - INFO - 股票 sh600893 画像数据已更新
+2025-08-18 13:36:16,465 - stock_profiler - INFO - 成功为 sh600893 生成参数画像，验证分数: 0.000
+2025-08-18 13:36:16,465 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:36:16,465 - __main__ - INFO - 处理进度 [9/46]: sh600585
+2025-08-18 13:36:16,465 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:36:16,465 - data_enricher - INFO - 开始丰富数据: sh600585
+2025-08-18 13:36:16,654 - data_enricher - WARNING - 获取 sh600585 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:36:22,384 - data_enricher - INFO - sh600585 发现分红送配数据
+2025-08-18 13:36:22,385 - data_enricher - WARNING - 获取 sh600585 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:36:22,394 - data_enricher - INFO - sh600585 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:36:22,394 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:36:22,394 - data_enricher - ERROR - 更新 sh600585 数据到数据库失败
+2025-08-18 13:36:22,395 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:36:22,395 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:36:22,395 - stock_profiler - INFO - 开始为 sh600585 生成参数画像
+2025-08-18 13:36:22,455 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:36:22,468 - stock_pool_manager - INFO - 股票 sh600585 画像数据已更新
+2025-08-18 13:36:22,468 - stock_profiler - INFO - 成功为 sh600585 生成参数画像，验证分数: 0.000
+2025-08-18 13:36:22,468 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:36:22,468 - __main__ - INFO - 处理进度 [10/46]: sh601169
+2025-08-18 13:36:22,468 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:36:22,468 - data_enricher - INFO - 开始丰富数据: sh601169
+2025-08-18 13:36:22,777 - data_enricher - WARNING - 获取 sh601169 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:36:32,325 - data_enricher - INFO - sh601169 发现分红送配数据
+2025-08-18 13:36:32,325 - data_enricher - WARNING - 获取 sh601169 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:36:32,335 - data_enricher - INFO - sh601169 健康分数: 0.660 (基础0.5 -> 最终0.660)
+2025-08-18 13:36:32,335 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:36:32,336 - data_enricher - ERROR - 更新 sh601169 数据到数据库失败
+2025-08-18 13:36:32,336 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:36:32,336 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:36:32,336 - stock_profiler - INFO - 开始为 sh601169 生成参数画像
+2025-08-18 13:36:32,397 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:36:32,429 - stock_pool_manager - INFO - 股票 sh601169 画像数据已更新
+2025-08-18 13:36:32,429 - stock_profiler - INFO - 成功为 sh601169 生成参数画像，验证分数: 0.000
+2025-08-18 13:36:32,429 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:36:32,429 - __main__ - INFO - 处理进度 [11/46]: sh600809
+2025-08-18 13:36:32,429 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:36:32,429 - data_enricher - INFO - 开始丰富数据: sh600809
+2025-08-18 13:36:32,589 - data_enricher - WARNING - 获取 sh600809 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:36:38,018 - data_enricher - INFO - sh600809 发现分红送配数据
+2025-08-18 13:36:38,018 - data_enricher - WARNING - 获取 sh600809 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:36:38,028 - data_enricher - INFO - sh600809 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:36:38,029 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:36:38,029 - data_enricher - ERROR - 更新 sh600809 数据到数据库失败
+2025-08-18 13:36:38,029 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:36:38,029 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:36:38,029 - stock_profiler - INFO - 开始为 sh600809 生成参数画像
+2025-08-18 13:36:38,090 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:36:38,104 - stock_pool_manager - INFO - 股票 sh600809 画像数据已更新
+2025-08-18 13:36:38,104 - stock_profiler - INFO - 成功为 sh600809 生成参数画像，验证分数: 0.000
+2025-08-18 13:36:38,104 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:36:38,104 - __main__ - INFO - 处理进度 [12/46]: sh601229
+2025-08-18 13:36:38,104 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:36:38,105 - data_enricher - INFO - 开始丰富数据: sh601229
+2025-08-18 13:36:38,268 - data_enricher - WARNING - 获取 sh601229 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:36:46,530 - data_enricher - INFO - sh601229 发现分红送配数据
+2025-08-18 13:36:46,530 - data_enricher - WARNING - 获取 sh601229 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:36:46,540 - data_enricher - INFO - sh601229 健康分数: 0.660 (基础0.5 -> 最终0.660)
+2025-08-18 13:36:46,540 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:36:46,540 - data_enricher - ERROR - 更新 sh601229 数据到数据库失败
+2025-08-18 13:36:46,541 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:36:46,541 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:36:46,541 - stock_profiler - INFO - 开始为 sh601229 生成参数画像
+2025-08-18 13:36:46,600 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:36:46,632 - stock_pool_manager - INFO - 股票 sh601229 画像数据已更新
+2025-08-18 13:36:46,632 - stock_profiler - INFO - 成功为 sh601229 生成参数画像，验证分数: 0.000
+2025-08-18 13:36:46,632 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:36:46,632 - __main__ - INFO - 处理进度 [13/46]: sh601398
+2025-08-18 13:36:46,632 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:36:46,632 - data_enricher - INFO - 开始丰富数据: sh601398
+2025-08-18 13:36:47,092 - data_enricher - WARNING - 获取 sh601398 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:36:55,075 - data_enricher - INFO - sh601398 发现分红送配数据
+2025-08-18 13:36:55,075 - data_enricher - WARNING - 获取 sh601398 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:36:55,106 - data_enricher - INFO - sh601398 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:36:55,107 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:36:55,107 - data_enricher - ERROR - 更新 sh601398 数据到数据库失败
+2025-08-18 13:36:55,107 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:36:55,107 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:36:55,107 - stock_profiler - INFO - 开始为 sh601398 生成参数画像
+2025-08-18 13:36:55,168 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:36:55,200 - stock_pool_manager - INFO - 股票 sh601398 画像数据已更新
+2025-08-18 13:36:55,200 - stock_profiler - INFO - 成功为 sh601398 生成参数画像，验证分数: 0.000
+2025-08-18 13:36:55,200 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:36:55,200 - __main__ - INFO - 处理进度 [14/46]: sh601998
+2025-08-18 13:36:55,200 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:36:55,200 - data_enricher - INFO - 开始丰富数据: sh601998
+2025-08-18 13:36:56,243 - data_enricher - WARNING - 获取 sh601998 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:00,030 - data_enricher - INFO - sh601998 发现分红送配数据
+2025-08-18 13:37:00,030 - data_enricher - WARNING - 获取 sh601998 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:00,040 - data_enricher - INFO - sh601998 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:37:00,040 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:00,040 - data_enricher - ERROR - 更新 sh601998 数据到数据库失败
+2025-08-18 13:37:00,040 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:00,040 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:00,040 - stock_profiler - INFO - 开始为 sh601998 生成参数画像
+2025-08-18 13:37:00,099 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:00,114 - stock_pool_manager - INFO - 股票 sh601998 画像数据已更新
+2025-08-18 13:37:00,114 - stock_profiler - INFO - 成功为 sh601998 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:00,114 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:00,114 - __main__ - INFO - 处理进度 [15/46]: sh601211
+2025-08-18 13:37:00,114 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:00,114 - data_enricher - INFO - 开始丰富数据: sh601211
+2025-08-18 13:37:00,902 - data_enricher - WARNING - 获取 sh601211 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:04,041 - data_enricher - INFO - sh601211 发现分红送配数据
+2025-08-18 13:37:04,041 - data_enricher - WARNING - 获取 sh601211 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:04,053 - data_enricher - INFO - sh601211 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:37:04,053 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:04,054 - data_enricher - ERROR - 更新 sh601211 数据到数据库失败
+2025-08-18 13:37:04,054 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:04,054 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:04,054 - stock_profiler - INFO - 开始为 sh601211 生成参数画像
+2025-08-18 13:37:04,113 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:04,145 - stock_pool_manager - INFO - 股票 sh601211 画像数据已更新
+2025-08-18 13:37:04,145 - stock_profiler - INFO - 成功为 sh601211 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:04,145 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:04,145 - __main__ - INFO - 处理进度 [16/46]: sh601688
+2025-08-18 13:37:04,145 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:04,145 - data_enricher - INFO - 开始丰富数据: sh601688
+2025-08-18 13:37:04,323 - data_enricher - WARNING - 获取 sh601688 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:10,591 - data_enricher - INFO - sh601688 发现分红送配数据
+2025-08-18 13:37:10,591 - data_enricher - WARNING - 获取 sh601688 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:10,600 - data_enricher - INFO - sh601688 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:37:10,601 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:10,601 - data_enricher - ERROR - 更新 sh601688 数据到数据库失败
+2025-08-18 13:37:10,601 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:10,601 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:10,601 - stock_profiler - INFO - 开始为 sh601688 生成参数画像
+2025-08-18 13:37:10,659 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:10,673 - stock_pool_manager - INFO - 股票 sh601688 画像数据已更新
+2025-08-18 13:37:10,673 - stock_profiler - INFO - 成功为 sh601688 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:10,673 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:10,673 - __main__ - INFO - 处理进度 [17/46]: sh601138
+2025-08-18 13:37:10,673 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:10,673 - data_enricher - INFO - 开始丰富数据: sh601138
+2025-08-18 13:37:10,902 - data_enricher - WARNING - 获取 sh601138 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:15,976 - data_enricher - INFO - sh601138 发现分红送配数据
+2025-08-18 13:37:15,977 - data_enricher - WARNING - 获取 sh601138 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:15,986 - data_enricher - INFO - sh601138 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:37:15,987 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:15,987 - data_enricher - ERROR - 更新 sh601138 数据到数据库失败
+2025-08-18 13:37:15,987 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:15,987 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:15,987 - stock_profiler - INFO - 开始为 sh601138 生成参数画像
+2025-08-18 13:37:16,046 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:16,058 - stock_pool_manager - INFO - 股票 sh601138 画像数据已更新
+2025-08-18 13:37:16,058 - stock_profiler - INFO - 成功为 sh601138 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:16,058 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:16,058 - __main__ - INFO - 处理进度 [18/46]: sh601166
+2025-08-18 13:37:16,058 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:16,058 - data_enricher - INFO - 开始丰富数据: sh601166
+2025-08-18 13:37:16,238 - data_enricher - WARNING - 获取 sh601166 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:19,645 - data_enricher - INFO - sh601166 发现分红送配数据
+2025-08-18 13:37:19,645 - data_enricher - WARNING - 获取 sh601166 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:19,654 - data_enricher - INFO - sh601166 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:37:19,655 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:19,655 - data_enricher - ERROR - 更新 sh601166 数据到数据库失败
+2025-08-18 13:37:19,655 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:19,655 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:19,655 - stock_profiler - INFO - 开始为 sh601166 生成参数画像
+2025-08-18 13:37:19,715 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:19,729 - stock_pool_manager - INFO - 股票 sh601166 画像数据已更新
+2025-08-18 13:37:19,729 - stock_profiler - INFO - 成功为 sh601166 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:19,729 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:19,729 - __main__ - INFO - 处理进度 [19/46]: sh600887
+2025-08-18 13:37:19,729 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:19,729 - data_enricher - INFO - 开始丰富数据: sh600887
+2025-08-18 13:37:19,910 - data_enricher - WARNING - 获取 sh600887 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:25,716 - data_enricher - INFO - sh600887 发现分红送配数据
+2025-08-18 13:37:25,716 - data_enricher - WARNING - 获取 sh600887 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:25,726 - data_enricher - INFO - sh600887 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:37:25,726 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:25,726 - data_enricher - ERROR - 更新 sh600887 数据到数据库失败
+2025-08-18 13:37:25,727 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:25,727 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:25,727 - stock_profiler - INFO - 开始为 sh600887 生成参数画像
+2025-08-18 13:37:25,785 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:25,817 - stock_pool_manager - INFO - 股票 sh600887 画像数据已更新
+2025-08-18 13:37:25,817 - stock_profiler - INFO - 成功为 sh600887 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:25,817 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:25,817 - __main__ - INFO - 处理进度 [20/46]: sh601988
+2025-08-18 13:37:25,817 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:25,817 - data_enricher - INFO - 开始丰富数据: sh601988
+2025-08-18 13:37:25,986 - data_enricher - WARNING - 获取 sh601988 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:32,616 - data_enricher - INFO - sh601988 发现分红送配数据
+2025-08-18 13:37:32,616 - data_enricher - WARNING - 获取 sh601988 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:32,626 - data_enricher - INFO - sh601988 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:37:32,627 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:32,627 - data_enricher - ERROR - 更新 sh601988 数据到数据库失败
+2025-08-18 13:37:32,627 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:32,627 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:32,627 - stock_profiler - INFO - 开始为 sh601988 生成参数画像
+2025-08-18 13:37:32,685 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:32,699 - stock_pool_manager - INFO - 股票 sh601988 画像数据已更新
+2025-08-18 13:37:32,699 - stock_profiler - INFO - 成功为 sh601988 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:32,699 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:32,699 - __main__ - INFO - 处理进度 [21/46]: sh601066
+2025-08-18 13:37:32,699 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:32,700 - data_enricher - INFO - 开始丰富数据: sh601066
+2025-08-18 13:37:32,867 - data_enricher - WARNING - 获取 sh601066 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:40,601 - data_enricher - INFO - sh601066 发现分红送配数据
+2025-08-18 13:37:40,601 - data_enricher - WARNING - 获取 sh601066 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:40,611 - data_enricher - INFO - sh601066 健康分数: 0.620 (基础0.5 -> 最终0.620)
+2025-08-18 13:37:40,611 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:40,611 - data_enricher - ERROR - 更新 sh601066 数据到数据库失败
+2025-08-18 13:37:40,612 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:40,612 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:40,612 - stock_profiler - INFO - 开始为 sh601066 生成参数画像
+2025-08-18 13:37:40,670 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:40,684 - stock_pool_manager - INFO - 股票 sh601066 画像数据已更新
+2025-08-18 13:37:40,684 - stock_profiler - INFO - 成功为 sh601066 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:40,684 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:40,684 - __main__ - INFO - 处理进度 [22/46]: sh600276
+2025-08-18 13:37:40,684 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:40,684 - data_enricher - INFO - 开始丰富数据: sh600276
+2025-08-18 13:37:40,842 - data_enricher - WARNING - 获取 sh600276 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:48,418 - data_enricher - INFO - sh600276 发现分红送配数据
+2025-08-18 13:37:48,418 - data_enricher - WARNING - 获取 sh600276 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:48,429 - data_enricher - INFO - sh600276 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:37:48,429 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:48,429 - data_enricher - ERROR - 更新 sh600276 数据到数据库失败
+2025-08-18 13:37:48,430 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:48,430 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:48,430 - stock_profiler - INFO - 开始为 sh600276 生成参数画像
+2025-08-18 13:37:48,489 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:48,502 - stock_pool_manager - INFO - 股票 sh600276 画像数据已更新
+2025-08-18 13:37:48,502 - stock_profiler - INFO - 成功为 sh600276 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:48,502 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:48,502 - __main__ - INFO - 处理进度 [23/46]: sh601857
+2025-08-18 13:37:48,502 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:48,503 - data_enricher - INFO - 开始丰富数据: sh601857
+2025-08-18 13:37:48,762 - data_enricher - WARNING - 获取 sh601857 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:37:52,658 - data_enricher - INFO - sh601857 发现分红送配数据
+2025-08-18 13:37:52,658 - data_enricher - WARNING - 获取 sh601857 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:37:52,668 - data_enricher - INFO - sh601857 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:37:52,668 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:37:52,668 - data_enricher - ERROR - 更新 sh601857 数据到数据库失败
+2025-08-18 13:37:52,669 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:37:52,669 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:37:52,669 - stock_profiler - INFO - 开始为 sh601857 生成参数画像
+2025-08-18 13:37:52,728 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:37:52,742 - stock_pool_manager - INFO - 股票 sh601857 画像数据已更新
+2025-08-18 13:37:52,742 - stock_profiler - INFO - 成功为 sh601857 生成参数画像，验证分数: 0.000
+2025-08-18 13:37:52,742 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:37:52,742 - __main__ - INFO - 处理进度 [24/46]: sh600690
+2025-08-18 13:37:52,742 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:37:52,742 - data_enricher - INFO - 开始丰富数据: sh600690
+2025-08-18 13:37:52,901 - data_enricher - WARNING - 获取 sh600690 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:38:04,512 - data_enricher - INFO - sh600690 发现分红送配数据
+2025-08-18 13:38:04,513 - data_enricher - WARNING - 获取 sh600690 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:38:04,522 - data_enricher - INFO - sh600690 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:38:04,522 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:38:04,522 - data_enricher - ERROR - 更新 sh600690 数据到数据库失败
+2025-08-18 13:38:04,523 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:38:04,523 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:38:04,523 - stock_profiler - INFO - 开始为 sh600690 生成参数画像
+2025-08-18 13:38:04,581 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:38:04,617 - stock_pool_manager - INFO - 股票 sh600690 画像数据已更新
+2025-08-18 13:38:04,617 - stock_profiler - INFO - 成功为 sh600690 生成参数画像，验证分数: 0.000
+2025-08-18 13:38:04,617 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:38:04,617 - __main__ - INFO - 处理进度 [25/46]: sz000002
+2025-08-18 13:38:04,617 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:38:04,617 - data_enricher - INFO - 开始丰富数据: sz000002
+2025-08-18 13:38:04,830 - data_enricher - WARNING - 获取 sz000002 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:38:09,152 - data_enricher - WARNING - 获取 sz000002 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:38:09,162 - data_enricher - INFO - sz000002 健康分数: 0.520 (基础0.5 -> 最终0.520)
+2025-08-18 13:38:09,163 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: health_score
+2025-08-18 13:38:09,163 - data_enricher - ERROR - 更新 sz000002 数据到数据库失败
+2025-08-18 13:38:09,163 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:38:09,163 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:38:09,164 - stock_profiler - INFO - 开始为 sz000002 生成参数画像
+2025-08-18 13:38:09,223 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:38:09,237 - stock_pool_manager - INFO - 股票 sz000002 画像数据已更新
+2025-08-18 13:38:09,237 - stock_profiler - INFO - 成功为 sz000002 生成参数画像，验证分数: 0.000
+2025-08-18 13:38:09,237 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:38:09,237 - __main__ - INFO - 处理进度 [26/46]: sh601939
+2025-08-18 13:38:09,237 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:38:09,237 - data_enricher - INFO - 开始丰富数据: sh601939
+2025-08-18 13:38:11,572 - data_enricher - WARNING - 获取 sh601939 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:38:19,699 - data_enricher - INFO - sh601939 发现分红送配数据
+2025-08-18 13:38:19,699 - data_enricher - WARNING - 获取 sh601939 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:38:19,709 - data_enricher - INFO - sh601939 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:38:19,710 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:38:19,710 - data_enricher - ERROR - 更新 sh601939 数据到数据库失败
+2025-08-18 13:38:19,710 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:38:19,710 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:38:19,710 - stock_profiler - INFO - 开始为 sh601939 生成参数画像
+2025-08-18 13:38:19,769 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:38:19,775 - stock_pool_manager - INFO - 股票 sh601939 画像数据已更新
+2025-08-18 13:38:19,775 - stock_profiler - INFO - 成功为 sh601939 生成参数画像，验证分数: 0.000
+2025-08-18 13:38:19,776 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:38:19,776 - __main__ - INFO - 处理进度 [27/46]: sh601788
+2025-08-18 13:38:19,776 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:38:19,776 - data_enricher - INFO - 开始丰富数据: sh601788
+2025-08-18 13:38:19,967 - data_enricher - WARNING - 获取 sh601788 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:38:27,141 - data_enricher - INFO - sh601788 发现分红送配数据
+2025-08-18 13:38:27,141 - data_enricher - WARNING - 获取 sh601788 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:38:27,150 - data_enricher - INFO - sh601788 健康分数: 0.620 (基础0.5 -> 最终0.620)
+2025-08-18 13:38:27,151 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:38:27,151 - data_enricher - ERROR - 更新 sh601788 数据到数据库失败
+2025-08-18 13:38:27,151 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:38:27,151 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:38:27,151 - stock_profiler - INFO - 开始为 sh601788 生成参数画像
+2025-08-18 13:38:27,211 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:38:27,223 - stock_pool_manager - INFO - 股票 sh601788 画像数据已更新
+2025-08-18 13:38:27,223 - stock_profiler - INFO - 成功为 sh601788 生成参数画像，验证分数: 0.000
+2025-08-18 13:38:27,223 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:38:27,223 - __main__ - INFO - 处理进度 [28/46]: sh601766
+2025-08-18 13:38:27,223 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:38:27,223 - data_enricher - INFO - 开始丰富数据: sh601766
+2025-08-18 13:38:27,393 - data_enricher - WARNING - 获取 sh601766 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:38:33,412 - data_enricher - INFO - sh601766 发现分红送配数据
+2025-08-18 13:38:33,412 - data_enricher - WARNING - 获取 sh601766 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:38:33,421 - data_enricher - INFO - sh601766 健康分数: 0.600 (基础0.5 -> 最终0.600)
+2025-08-18 13:38:33,422 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:38:33,422 - data_enricher - ERROR - 更新 sh601766 数据到数据库失败
+2025-08-18 13:38:33,423 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:38:33,423 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:38:33,423 - stock_profiler - INFO - 开始为 sh601766 生成参数画像
+2025-08-18 13:38:33,481 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:38:33,495 - stock_pool_manager - INFO - 股票 sh601766 画像数据已更新
+2025-08-18 13:38:33,495 - stock_profiler - INFO - 成功为 sh601766 生成参数画像，验证分数: 0.000
+2025-08-18 13:38:33,495 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:38:33,495 - __main__ - INFO - 处理进度 [29/46]: sh601628
+2025-08-18 13:38:33,495 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:38:33,495 - data_enricher - INFO - 开始丰富数据: sh601628
+2025-08-18 13:38:33,658 - data_enricher - WARNING - 获取 sh601628 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:38:41,823 - data_enricher - INFO - sh601628 发现分红送配数据
+2025-08-18 13:38:41,824 - data_enricher - WARNING - 获取 sh601628 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:38:41,834 - data_enricher - INFO - sh601628 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:38:41,834 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:38:41,834 - data_enricher - ERROR - 更新 sh601628 数据到数据库失败
+2025-08-18 13:38:41,834 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:38:41,834 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:38:41,834 - stock_profiler - INFO - 开始为 sh601628 生成参数画像
+2025-08-18 13:38:41,894 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:38:41,909 - stock_pool_manager - INFO - 股票 sh601628 画像数据已更新
+2025-08-18 13:38:41,909 - stock_profiler - INFO - 成功为 sh601628 生成参数画像，验证分数: 0.000
+2025-08-18 13:38:41,909 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:38:41,909 - __main__ - INFO - 处理进度 [30/46]: sz300498
+2025-08-18 13:38:41,909 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:38:41,909 - data_enricher - INFO - 开始丰富数据: sz300498
+2025-08-18 13:38:42,521 - data_enricher - WARNING - 获取 sz300498 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:38:50,520 - data_enricher - INFO - sz300498 发现分红送配数据
+2025-08-18 13:38:50,520 - data_enricher - WARNING - 获取 sz300498 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:38:50,531 - data_enricher - INFO - sz300498 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:38:50,531 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:38:50,531 - data_enricher - ERROR - 更新 sz300498 数据到数据库失败
+2025-08-18 13:38:50,532 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:38:50,532 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:38:50,532 - stock_profiler - INFO - 开始为 sz300498 生成参数画像
+2025-08-18 13:38:50,593 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:38:50,607 - stock_pool_manager - INFO - 股票 sz300498 画像数据已更新
+2025-08-18 13:38:50,607 - stock_profiler - INFO - 成功为 sz300498 生成参数画像，验证分数: 0.000
+2025-08-18 13:38:50,607 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:38:50,608 - __main__ - INFO - 处理进度 [31/46]: sh600519
+2025-08-18 13:38:50,608 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:38:50,608 - data_enricher - INFO - 开始丰富数据: sh600519
+2025-08-18 13:38:51,384 - data_enricher - WARNING - 获取 sh600519 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:38:56,760 - data_enricher - INFO - sh600519 发现分红送配数据
+2025-08-18 13:38:56,760 - data_enricher - WARNING - 获取 sh600519 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:38:56,769 - data_enricher - INFO - sh600519 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:38:56,770 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:38:56,770 - data_enricher - ERROR - 更新 sh600519 数据到数据库失败
+2025-08-18 13:38:56,770 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:38:56,770 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:38:56,770 - stock_profiler - INFO - 开始为 sh600519 生成参数画像
+2025-08-18 13:38:56,831 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:38:56,863 - stock_pool_manager - INFO - 股票 sh600519 画像数据已更新
+2025-08-18 13:38:56,863 - stock_profiler - INFO - 成功为 sh600519 生成参数画像，验证分数: 0.000
+2025-08-18 13:38:56,863 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:38:56,863 - __main__ - INFO - 处理进度 [32/46]: sh601088
+2025-08-18 13:38:56,863 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:38:56,863 - data_enricher - INFO - 开始丰富数据: sh601088
+2025-08-18 13:38:57,021 - data_enricher - WARNING - 获取 sh601088 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:38:59,740 - data_enricher - INFO - sh601088 发现分红送配数据
+2025-08-18 13:38:59,740 - data_enricher - WARNING - 获取 sh601088 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:38:59,750 - data_enricher - INFO - sh601088 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:38:59,751 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:38:59,751 - data_enricher - ERROR - 更新 sh601088 数据到数据库失败
+2025-08-18 13:38:59,751 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:38:59,751 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:38:59,751 - stock_profiler - INFO - 开始为 sh601088 生成参数画像
+2025-08-18 13:38:59,811 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:38:59,843 - stock_pool_manager - INFO - 股票 sh601088 画像数据已更新
+2025-08-18 13:38:59,843 - stock_profiler - INFO - 成功为 sh601088 生成参数画像，验证分数: 0.000
+2025-08-18 13:38:59,843 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:38:59,843 - __main__ - INFO - 处理进度 [33/46]: sh601601
+2025-08-18 13:38:59,843 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:38:59,843 - data_enricher - INFO - 开始丰富数据: sh601601
+2025-08-18 13:39:00,292 - data_enricher - WARNING - 获取 sh601601 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:39:13,179 - data_enricher - INFO - sh601601 发现分红送配数据
+2025-08-18 13:39:13,179 - data_enricher - WARNING - 获取 sh601601 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:39:13,188 - data_enricher - INFO - sh601601 健康分数: 0.620 (基础0.5 -> 最终0.620)
+2025-08-18 13:39:13,189 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:39:13,189 - data_enricher - ERROR - 更新 sh601601 数据到数据库失败
+2025-08-18 13:39:13,189 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:39:13,189 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:39:13,189 - stock_profiler - INFO - 开始为 sh601601 生成参数画像
+2025-08-18 13:39:13,250 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:39:13,264 - stock_pool_manager - INFO - 股票 sh601601 画像数据已更新
+2025-08-18 13:39:13,264 - stock_profiler - INFO - 成功为 sh601601 生成参数画像，验证分数: 0.000
+2025-08-18 13:39:13,264 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:39:13,264 - __main__ - INFO - 处理进度 [34/46]: sh601919
+2025-08-18 13:39:13,264 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:39:13,264 - data_enricher - INFO - 开始丰富数据: sh601919
+2025-08-18 13:39:13,433 - data_enricher - WARNING - 获取 sh601919 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:39:17,836 - data_enricher - INFO - sh601919 发现分红送配数据
+2025-08-18 13:39:17,836 - data_enricher - WARNING - 获取 sh601919 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:39:17,847 - data_enricher - INFO - sh601919 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:39:17,847 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:39:17,847 - data_enricher - ERROR - 更新 sh601919 数据到数据库失败
+2025-08-18 13:39:17,848 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:39:17,848 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:39:17,848 - stock_profiler - INFO - 开始为 sh601919 生成参数画像
+2025-08-18 13:39:17,909 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:39:17,921 - stock_pool_manager - INFO - 股票 sh601919 画像数据已更新
+2025-08-18 13:39:17,921 - stock_profiler - INFO - 成功为 sh601919 生成参数画像，验证分数: 0.000
+2025-08-18 13:39:17,921 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:39:17,921 - __main__ - INFO - 处理进度 [35/46]: sh600000
+2025-08-18 13:39:17,921 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:39:17,921 - data_enricher - INFO - 开始丰富数据: sh600000
+2025-08-18 13:39:18,195 - data_enricher - WARNING - 获取 sh600000 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:39:23,505 - data_enricher - INFO - sh600000 发现分红送配数据
+2025-08-18 13:39:23,505 - data_enricher - WARNING - 获取 sh600000 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:39:23,515 - data_enricher - INFO - sh600000 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:39:23,516 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:39:23,516 - data_enricher - ERROR - 更新 sh600000 数据到数据库失败
+2025-08-18 13:39:23,516 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:39:23,516 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:39:23,516 - stock_profiler - INFO - 开始为 sh600000 生成参数画像
+2025-08-18 13:39:23,575 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:39:23,590 - stock_pool_manager - INFO - 股票 sh600000 画像数据已更新
+2025-08-18 13:39:23,590 - stock_profiler - INFO - 成功为 sh600000 生成参数画像，验证分数: 0.000
+2025-08-18 13:39:23,590 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:39:23,590 - __main__ - INFO - 处理进度 [36/46]: sz300408
+2025-08-18 13:39:23,590 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:39:23,590 - data_enricher - INFO - 开始丰富数据: sz300408
+2025-08-18 13:39:24,108 - data_enricher - WARNING - 获取 sz300408 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:39:30,390 - data_enricher - INFO - sz300408 发现分红送配数据
+2025-08-18 13:39:30,390 - data_enricher - WARNING - 获取 sz300408 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:39:30,401 - data_enricher - INFO - sz300408 健康分数: 0.620 (基础0.5 -> 最终0.620)
+2025-08-18 13:39:30,402 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:39:30,402 - data_enricher - ERROR - 更新 sz300408 数据到数据库失败
+2025-08-18 13:39:30,402 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:39:30,402 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:39:30,402 - stock_profiler - INFO - 开始为 sz300408 生成参数画像
+2025-08-18 13:39:30,464 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:39:30,471 - stock_pool_manager - INFO - 股票 sz300408 画像数据已更新
+2025-08-18 13:39:30,471 - stock_profiler - INFO - 成功为 sz300408 生成参数画像，验证分数: 0.000
+2025-08-18 13:39:30,471 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:39:30,471 - __main__ - INFO - 处理进度 [37/46]: sh600900
+2025-08-18 13:39:30,471 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:39:30,471 - data_enricher - INFO - 开始丰富数据: sh600900
+2025-08-18 13:39:30,676 - data_enricher - WARNING - 获取 sh600900 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:39:34,034 - data_enricher - INFO - sh600900 发现分红送配数据
+2025-08-18 13:39:34,035 - data_enricher - WARNING - 获取 sh600900 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:39:34,045 - data_enricher - INFO - sh600900 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:39:34,045 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:39:34,045 - data_enricher - ERROR - 更新 sh600900 数据到数据库失败
+2025-08-18 13:39:34,045 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:39:34,045 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:39:34,045 - stock_profiler - INFO - 开始为 sh600900 生成参数画像
+2025-08-18 13:39:34,104 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:39:34,136 - stock_pool_manager - INFO - 股票 sh600900 画像数据已更新
+2025-08-18 13:39:34,136 - stock_profiler - INFO - 成功为 sh600900 生成参数画像，验证分数: 0.000
+2025-08-18 13:39:34,136 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:39:34,136 - __main__ - INFO - 处理进度 [38/46]: sz000001
+2025-08-18 13:39:34,136 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:39:34,136 - data_enricher - INFO - 开始丰富数据: sz000001
+2025-08-18 13:39:34,317 - data_enricher - WARNING - 获取 sz000001 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:39:40,127 - data_enricher - INFO - sz000001 发现分红送配数据
+2025-08-18 13:39:40,127 - data_enricher - WARNING - 获取 sz000001 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:39:40,137 - data_enricher - INFO - sz000001 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:39:40,137 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:39:40,137 - data_enricher - ERROR - 更新 sz000001 数据到数据库失败
+2025-08-18 13:39:40,138 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:39:40,138 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:39:40,138 - stock_profiler - INFO - 开始为 sz000001 生成参数画像
+2025-08-18 13:39:40,197 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:39:40,229 - stock_pool_manager - INFO - 股票 sz000001 画像数据已更新
+2025-08-18 13:39:40,229 - stock_profiler - INFO - 成功为 sz000001 生成参数画像，验证分数: 0.000
+2025-08-18 13:39:40,229 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:39:40,229 - __main__ - INFO - 处理进度 [39/46]: sh600745
+2025-08-18 13:39:40,229 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:39:40,229 - data_enricher - INFO - 开始丰富数据: sh600745
+2025-08-18 13:39:40,524 - data_enricher - WARNING - 获取 sh600745 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:39:45,185 - data_enricher - WARNING - 获取 sh600745 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:39:45,195 - data_enricher - INFO - sh600745 健康分数: 0.520 (基础0.5 -> 最终0.520)
+2025-08-18 13:39:45,196 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: health_score
+2025-08-18 13:39:45,196 - data_enricher - ERROR - 更新 sh600745 数据到数据库失败
+2025-08-18 13:39:45,196 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:39:45,196 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:39:45,196 - stock_profiler - INFO - 开始为 sh600745 生成参数画像
+2025-08-18 13:39:45,256 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:39:45,290 - stock_pool_manager - INFO - 股票 sh600745 画像数据已更新
+2025-08-18 13:39:45,290 - stock_profiler - INFO - 成功为 sh600745 生成参数画像，验证分数: 0.000
+2025-08-18 13:39:45,290 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:39:45,290 - __main__ - INFO - 处理进度 [40/46]: sh601318
+2025-08-18 13:39:45,290 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:39:45,290 - data_enricher - INFO - 开始丰富数据: sh601318
+2025-08-18 13:39:45,516 - data_enricher - WARNING - 获取 sh601318 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:39:51,995 - data_enricher - INFO - sh601318 发现分红送配数据
+2025-08-18 13:39:51,995 - data_enricher - WARNING - 获取 sh601318 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:39:52,005 - data_enricher - INFO - sh601318 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:39:52,006 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:39:52,006 - data_enricher - ERROR - 更新 sh601318 数据到数据库失败
+2025-08-18 13:39:52,006 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:39:52,006 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:39:52,006 - stock_profiler - INFO - 开始为 sh601318 生成参数画像
+2025-08-18 13:39:52,066 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:39:52,080 - stock_pool_manager - INFO - 股票 sh601318 画像数据已更新
+2025-08-18 13:39:52,080 - stock_profiler - INFO - 成功为 sh601318 生成参数画像，验证分数: 0.000
+2025-08-18 13:39:52,080 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:39:52,081 - __main__ - INFO - 处理进度 [41/46]: sz300059
+2025-08-18 13:39:52,081 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:39:52,081 - data_enricher - INFO - 开始丰富数据: sz300059
+2025-08-18 13:39:52,230 - data_enricher - WARNING - 获取 sz300059 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:40:00,264 - data_enricher - INFO - sz300059 发现分红送配数据
+2025-08-18 13:40:00,264 - data_enricher - WARNING - 获取 sz300059 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:40:00,281 - data_enricher - INFO - sz300059 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:40:00,281 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:40:00,281 - data_enricher - ERROR - 更新 sz300059 数据到数据库失败
+2025-08-18 13:40:00,282 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:40:00,282 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:40:00,282 - stock_profiler - INFO - 开始为 sz300059 生成参数画像
+2025-08-18 13:40:00,347 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:40:00,379 - stock_pool_manager - INFO - 股票 sz300059 画像数据已更新
+2025-08-18 13:40:00,379 - stock_profiler - INFO - 成功为 sz300059 生成参数画像，验证分数: 0.000
+2025-08-18 13:40:00,379 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:40:00,379 - __main__ - INFO - 处理进度 [42/46]: sz000858
+2025-08-18 13:40:00,379 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:40:00,379 - data_enricher - INFO - 开始丰富数据: sz000858
+2025-08-18 13:40:00,787 - data_enricher - WARNING - 获取 sz000858 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:40:05,270 - data_enricher - INFO - sz000858 发现分红送配数据
+2025-08-18 13:40:05,270 - data_enricher - WARNING - 获取 sz000858 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:40:05,280 - data_enricher - INFO - sz000858 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:40:05,280 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:40:05,281 - data_enricher - ERROR - 更新 sz000858 数据到数据库失败
+2025-08-18 13:40:05,281 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:40:05,281 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:40:05,281 - stock_profiler - INFO - 开始为 sz000858 生成参数画像
+2025-08-18 13:40:05,340 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:40:05,372 - stock_pool_manager - INFO - 股票 sz000858 画像数据已更新
+2025-08-18 13:40:05,372 - stock_profiler - INFO - 成功为 sz000858 生成参数画像，验证分数: 0.000
+2025-08-18 13:40:05,372 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:40:05,372 - __main__ - INFO - 处理进度 [43/46]: sh601899
+2025-08-18 13:40:05,372 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:40:05,372 - data_enricher - INFO - 开始丰富数据: sh601899
+2025-08-18 13:40:05,778 - data_enricher - WARNING - 获取 sh601899 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:40:12,410 - data_enricher - INFO - sh601899 发现分红送配数据
+2025-08-18 13:40:12,410 - data_enricher - WARNING - 获取 sh601899 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:40:12,420 - data_enricher - INFO - sh601899 健康分数: 0.620 (基础0.5 -> 最终0.620)
+2025-08-18 13:40:12,420 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:40:12,420 - data_enricher - ERROR - 更新 sh601899 数据到数据库失败
+2025-08-18 13:40:12,421 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:40:12,421 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:40:12,421 - stock_profiler - INFO - 开始为 sh601899 生成参数画像
+2025-08-18 13:40:12,479 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:40:12,486 - stock_pool_manager - INFO - 股票 sh601899 画像数据已更新
+2025-08-18 13:40:12,486 - stock_profiler - INFO - 成功为 sh601899 生成参数画像，验证分数: 0.000
+2025-08-18 13:40:12,486 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:40:12,486 - __main__ - INFO - 处理进度 [44/46]: sh601390
+2025-08-18 13:40:12,486 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:40:12,486 - data_enricher - INFO - 开始丰富数据: sh601390
+2025-08-18 13:40:13,598 - data_enricher - WARNING - 获取 sh601390 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:40:22,711 - data_enricher - INFO - sh601390 发现分红送配数据
+2025-08-18 13:40:22,711 - data_enricher - WARNING - 获取 sh601390 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:40:22,721 - data_enricher - INFO - sh601390 健康分数: 0.670 (基础0.5 -> 最终0.670)
+2025-08-18 13:40:22,722 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:40:22,722 - data_enricher - ERROR - 更新 sh601390 数据到数据库失败
+2025-08-18 13:40:22,723 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:40:22,723 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:40:22,723 - stock_profiler - INFO - 开始为 sh601390 生成参数画像
+2025-08-18 13:40:22,781 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:40:22,813 - stock_pool_manager - INFO - 股票 sh601390 画像数据已更新
+2025-08-18 13:40:22,813 - stock_profiler - INFO - 成功为 sh601390 生成参数画像，验证分数: 0.000
+2025-08-18 13:40:22,813 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:40:22,813 - __main__ - INFO - 处理进度 [45/46]: sz300015
+2025-08-18 13:40:22,813 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:40:22,813 - data_enricher - INFO - 开始丰富数据: sz300015
+2025-08-18 13:40:23,102 - data_enricher - WARNING - 获取 sz300015 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:40:27,792 - data_enricher - INFO - sz300015 发现分红送配数据
+2025-08-18 13:40:27,792 - data_enricher - WARNING - 获取 sz300015 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:40:27,806 - data_enricher - INFO - sz300015 健康分数: 0.620 (基础0.5 -> 最终0.620)
+2025-08-18 13:40:27,807 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:40:27,807 - data_enricher - ERROR - 更新 sz300015 数据到数据库失败
+2025-08-18 13:40:27,807 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:40:27,808 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:40:27,808 - stock_profiler - INFO - 开始为 sz300015 生成参数画像
+2025-08-18 13:40:27,872 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:40:27,905 - stock_pool_manager - INFO - 股票 sz300015 画像数据已更新
+2025-08-18 13:40:27,905 - stock_profiler - INFO - 成功为 sz300015 生成参数画像，验证分数: 0.000
+2025-08-18 13:40:27,905 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:40:27,905 - __main__ - INFO - 处理进度 [46/46]: sh600036
+2025-08-18 13:40:27,905 - __main__ - INFO -   正在丰富数据...
+2025-08-18 13:40:27,905 - data_enricher - INFO - 开始丰富数据: sh600036
+2025-08-18 13:40:28,065 - data_enricher - WARNING - 获取 sh600036 龙虎榜数据失败: 'NoneType' object is not subscriptable
+2025-08-18 13:40:31,956 - data_enricher - INFO - sh600036 发现分红送配数据
+2025-08-18 13:40:31,956 - data_enricher - WARNING - 获取 sh600036 涨停原因失败: module 'craw.stock_limitup_reason' has no attribute 'get_limit_up_reason'
+2025-08-18 13:40:31,966 - data_enricher - INFO - sh600036 健康分数: 0.650 (基础0.5 -> 最终0.650)
+2025-08-18 13:40:31,966 - stock_pool_manager - ERROR - 更新股票画像数据失败: no such column: eps
+2025-08-18 13:40:31,966 - data_enricher - ERROR - 更新 sh600036 数据到数据库失败
+2025-08-18 13:40:31,967 - __main__ - WARNING -   数据丰富失败
+2025-08-18 13:40:31,967 - __main__ - INFO -   正在生成参数画像...
+2025-08-18 13:40:31,967 - stock_profiler - INFO - 开始为 sh600036 生成参数画像
+2025-08-18 13:40:32,027 - stock_profiler - ERROR - 验证参数时出错: calculate_rsi() got an unexpected keyword argument 'period'
+2025-08-18 13:40:32,039 - stock_pool_manager - INFO - 股票 sh600036 画像数据已更新
+2025-08-18 13:40:32,039 - stock_profiler - INFO - 成功为 sh600036 生成参数画像，验证分数: 0.000
+2025-08-18 13:40:32,039 - __main__ - INFO -   参数画像生成成功
+2025-08-18 13:40:32,039 - __main__ - INFO - ============================================================
+2025-08-18 13:40:32,039 - __main__ - INFO - 批量个股画像生成完成
+2025-08-18 13:40:32,040 - __main__ - INFO - ============================================================
+2025-08-18 13:40:32,040 - __main__ - INFO - 处理时间: 431.8 秒
+2025-08-18 13:40:32,040 - __main__ - INFO - 核心池总数: 46
+2025-08-18 13:40:32,040 - __main__ - INFO - 处理股票数: 46
+2025-08-18 13:40:32,040 - __main__ - INFO - 画像生成成功: 46
+2025-08-18 13:40:32,040 - __main__ - INFO - 画像生成失败: 0
+2025-08-18 13:40:32,040 - __main__ - INFO - 数据丰富成功: 0
+2025-08-18 13:40:32,040 - __main__ - INFO - 数据丰富失败: 46
+2025-08-18 13:40:32,040 - __main__ - INFO - 当前画像覆盖率: 46/46
+2025-08-18 13:40:32,040 - __main__ - INFO - 平均验证分数: 0.000
+2025-08-18 13:40:32,040 - __main__ - INFO - 数据丰富覆盖率: 0/46
+2025-08-18 13:40:32,040 - __main__ - INFO - 平均健康分数: 0.000
+2025-08-18 13:40:32,040 - __main__ - INFO - 所有股票处理成功

@@ -1,0 +1,622 @@
+{
+  "sh603557": {
+    "overall_score": {
+      "total_score": 147.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 2.57,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh603557"
+  },
+  "sh603559": {
+    "overall_score": {
+      "total_score": 147.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 8.22,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh603559"
+  },
+  "sh603693": {
+    "overall_score": {
+      "total_score": 147.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 13.56,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh603693"
+  },
+  "sz002318": {
+    "overall_score": {
+      "total_score": 147.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 22.74,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz002318"
+  },
+  "sz000656": {
+    "overall_score": {
+      "total_score": 147.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 1.36,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz000656"
+  },
+  "sz002124": {
+    "overall_score": {
+      "total_score": 145,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 3.09,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz002124"
+  },
+  "sh508006": {
+    "overall_score": {
+      "total_score": 143.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 38.89,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "POST",
+    "signal_date": "2025-09-05T00:00:00",
+    "stock_name": "股票sh508006"
+  },
+  "sz001313": {
+    "overall_score": {
+      "total_score": 142.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 7.73,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz001313"
+  },
+  "sh603167": {
+    "overall_score": {
+      "total_score": 140,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 10.42,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh603167"
+  },
+  "sz000598": {
+    "overall_score": {
+      "total_score": 140.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 6.81,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz000598"
+  },
+  "sh601330": {
+    "overall_score": {
+      "total_score": 138.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 7.22,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "POST",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh601330"
+  },
+  "sz300694": {
+    "overall_score": {
+      "total_score": 137.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 13.9,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz300694"
+  },
+  "sz000809": {
+    "overall_score": {
+      "total_score": 137.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 3.01,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "POST",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz000809"
+  },
+  "sz180501": {
+    "overall_score": {
+      "total_score": 135.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 35.79,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-05T00:00:00",
+    "stock_name": "股票sz180501"
+  },
+  "sh603885": {
+    "overall_score": {
+      "total_score": 133.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 12.96,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "POST",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh603885"
+  },
+  "sh600032": {
+    "overall_score": {
+      "total_score": 132.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 7.74,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh600032"
+  },
+  "sh605266": {
+    "overall_score": {
+      "total_score": 132.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 21.96,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh605266"
+  },
+  "sh688633": {
+    "overall_score": {
+      "total_score": 132.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 27.82,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh688633"
+  },
+  "sz399320": {
+    "overall_score": {
+      "total_score": 132.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 2195.62,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz399320"
+  },
+  "sz300382": {
+    "overall_score": {
+      "total_score": 132.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 15.03,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-05T00:00:00",
+    "stock_name": "股票sz300382"
+  },
+  "sh600358": {
+    "overall_score": {
+      "total_score": 131.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 5.73,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh600358"
+  },
+  "sz002314": {
+    "overall_score": {
+      "total_score": 130.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6
+    },
+    "basic_analysis": {
+      "current_price": 3.0,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "markup",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz002314"
+  },
+  "sh900934": {
+    "overall_score": {
+      "total_score": 123.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6307692307692307
+    },
+    "basic_analysis": {
+      "current_price": 13.64,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "accumulation",
+    "signal_type": "PRE",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh900934"
+  },
+  "sh600622": {
+    "overall_score": {
+      "total_score": 121.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6205128205128205
+    },
+    "basic_analysis": {
+      "current_price": 2.98,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "accumulation",
+    "signal_type": "PRE",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh600622"
+  },
+  "sz301256": {
+    "overall_score": {
+      "total_score": 121.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6205128205128205
+    },
+    "basic_analysis": {
+      "current_price": 10.65,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "accumulation",
+    "signal_type": "PRE",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz301256"
+  },
+  "sz300169": {
+    "overall_score": {
+      "total_score": 121.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6205128205128205
+    },
+    "basic_analysis": {
+      "current_price": 7.62,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "accumulation",
+    "signal_type": "PRE",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz300169"
+  },
+  "sz301024": {
+    "overall_score": {
+      "total_score": 120.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6153846153846154
+    },
+    "basic_analysis": {
+      "current_price": 43.34,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "accumulation",
+    "signal_type": "MID",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz301024"
+  },
+  "sh600971": {
+    "overall_score": {
+      "total_score": 119.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6102564102564102
+    },
+    "basic_analysis": {
+      "current_price": 6.76,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "accumulation",
+    "signal_type": "PRE",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh600971"
+  },
+  "sh601666": {
+    "overall_score": {
+      "total_score": 119.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6102564102564102
+    },
+    "basic_analysis": {
+      "current_price": 7.83,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "accumulation",
+    "signal_type": "PRE",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sh601666"
+  },
+  "sz002208": {
+    "overall_score": {
+      "total_score": 119.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6102564102564102
+    },
+    "basic_analysis": {
+      "current_price": 6.7,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "accumulation",
+    "signal_type": "PRE",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz002208"
+  },
+  "sz300021": {
+    "overall_score": {
+      "total_score": 119.0,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.6102564102564102
+    },
+    "basic_analysis": {
+      "current_price": 5.14,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "accumulation",
+    "signal_type": "PRE",
+    "signal_date": "2025-09-08T00:00:00",
+    "stock_name": "股票sz300021"
+  }
+}

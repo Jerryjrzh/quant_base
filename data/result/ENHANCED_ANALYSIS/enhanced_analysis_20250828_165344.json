@@ -1,0 +1,22 @@
+{
+  "sz000001": {
+    "overall_score": {
+      "total_score": 85.5,
+      "grade": "A"
+    },
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 0.85
+    },
+    "basic_analysis": {
+      "current_price": 12.34,
+      "price_change_30d": 0,
+      "volatility": 0,
+      "signal_count": 1
+    },
+    "market_phase": "上升趋势",
+    "signal_type": "买入信号",
+    "signal_date": "2025-01-01T00:00:00",
+    "stock_name": "平安银行"
+  }
+}

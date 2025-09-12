@@ -723,6 +723,94 @@
                 height: 400px;
             }
         }
+        
+        /* MA13策略按钮样式 */
+        .ma13-strategy-button {
+            background: #ff6b35 !important;
+            font-weight: 600;
+        }
+        
+        .ma13-strategy-button:hover {
+            background: #e55a2b !important;
+        }
+        
+        /* MA13快速面板样式 */
+        .ma13-quick-panel {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .ma13-stages-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .ma13-stage-item {
+            display: flex;
+            align-items: center;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .ma13-stage-item.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .ma13-stage-item.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .signal-bar {
+            position: relative;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .signal-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #dc3545 0%, #ffc107 50%, #28a745 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .signal-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .ma13-recommendation-content {
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .ma13-recommendation-content.buy-heavy {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .ma13-recommendation-content.buy-light {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .ma13-recommendation-content.wait {
+            background: #f8f9fa;
+            color: #6c757d;
+        }
     </style>
 </head>
 <body>
@@ -765,6 +853,7 @@
             <button id="deep-scan-btn" class="deep-scan-button">🔍 深度扫描</button>
             <button id="core-pool-btn" class="core-pool-button">⭐ 核心池</button>
             <button id="portfolio-btn" class="portfolio-button">💼 持仓管理</button>
+            <button id="ma13-strategy-btn" class="ma13-strategy-button">🎯 MA13短线</button>
             <button id="strategy-config-btn" class="strategy-config-button">⚙️ 策略配置</button>
             <button id="cache-manager-btn" class="cache-manager-button">💾 缓存管理</button>
             <button id="history-btn" class="history-button">📊 历史报告</button>
@@ -849,6 +938,38 @@
                         <div class="analysis-logic">
                             <h4>分析逻辑</h4>
                             <div id="analysis-logic"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ma13-quick-panel" class="ma13-quick-panel" style="display: none;">
+                    <div class="advice-header">
+                        <h3>🎯 MA13短线分析</h3>
+                        <button id="ma13-refresh" style="float: right; padding: 0.3rem 0.8rem; background: #ff6b35; color: white; border: none; border-radius: 4px; cursor: pointer;">分析</button>
+                    </div>
+                    <div class="ma13-content">
+                        <div id="ma13-result" class="ma13-result">
+                            <div class="ma13-status">
+                                <div class="status-text">点击分析按钮开始MA13策略分析</div>
+                            </div>
+                            
+                            <div id="ma13-stages" class="ma13-stages" style="display: none;">
+                                <h4>策略阶段</h4>
+                                <div id="ma13-stages-content"></div>
+                            </div>
+                            
+                            <div id="ma13-signals" class="ma13-signals" style="display: none;">
+                                <h4>信号强度</h4>
+                                <div class="signal-bar">
+                                    <div id="ma13-signal-fill" class="signal-fill"></div>
+                                    <div id="ma13-signal-text" class="signal-text">0</div>
+                                </div>
+                            </div>
+                            
+                            <div id="ma13-recommendation" class="ma13-recommendation" style="display: none;">
+                                <h4>交易建议</h4>
+                                <div id="ma13-recommendation-content"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

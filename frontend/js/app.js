@@ -114,6 +114,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (multiTimeframeClose) multiTimeframeClose.addEventListener('click', hideMultiTimeframeModal);
     if (strategyConfigBtn) strategyConfigBtn.addEventListener('click', showStrategyConfigModal);
     if (strategyConfigClose) strategyConfigClose.addEventListener('click', hideStrategyConfigModal);
+    
+    // MA13策略按钮事件
+    const ma13StrategyBtn = document.getElementById('ma13-strategy-btn');
+    if (ma13StrategyBtn) ma13StrategyBtn.addEventListener('click', openMA13StrategyPage);
+    
+    // MA13快速面板事件
+    const ma13RefreshBtn = document.getElementById('ma13-refresh');
+    if (ma13RefreshBtn) ma13RefreshBtn.addEventListener('click', runMA13QuickAnalysis);
 
     // 点击模态框外部关闭
     window.addEventListener('click', (event) => {
@@ -209,6 +217,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // 重置所有信息面板
         backtestContainer.style.display = 'none';
         updateAdvicePanel({ action: 'LOADING' });
+        
+        // 显示MA13快速面板
+        const ma13Panel = document.getElementById('ma13-quick-panel');
+        if (ma13Panel) {
+            ma13Panel.style.display = 'block';
+        }
 
         try {
             // --- 核心修改：调用统一API ---
@@ -2920,6 +2934,138 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     window.showPositionDetailModal = showPositionDetailModal;
+
+    // --- MA13策略相关函数 ---
+    function openMA13StrategyPage() {
+        // 在新窗口中打开MA13策略页面
+        window.open('/ma13_strategy', '_blank');
+    }
+
+    async function runMA13QuickAnalysis() {
+        const stockCode = stockSelect.value;
+        if (!stockCode) {
+            alert('请先选择股票');
+            return;
+        }
+
+        const ma13Panel = document.getElementById('ma13-quick-panel');
+        const ma13Result = document.getElementById('ma13-result');
+        
+        // 显示面板和加载状态
+        ma13Panel.style.display = 'block';
+        ma13Result.innerHTML = '<div class="ma13-status"><div class="status-text">正在分析中...</div></div>';
+
+        try {
+            const response = await fetch('/api/ma13/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    stock_code: stockCode,
+                    days: 150
+                })
+            });
+
+            const result = await response.json();
+            displayMA13QuickResult(result);
+
+        } catch (error) {
+            console.error('MA13分析失败:', error);
+            ma13Result.innerHTML = '<div class="ma13-status"><div class="status-text" style="color: #dc3545;">分析失败: ' + error.message + '</div></div>';
+        }
+    }
+
+    function displayMA13QuickResult(result) {
+        const ma13Result = document.getElementById('ma13-result');
+        
+        if (!result.success) {
+            ma13Result.innerHTML = `
+                <div class="ma13-status">
+                    <div class="status-text" style="color: #dc3545;">❌ ${result.message}</div>
+                </div>
+            `;
+            return;
+        }
+
+        // 显示策略阶段
+        const stages = ['stage_1', 'stage_2', 'stage_3'];
+        const stageNames = ['海选-底部稳定', '精选-日线爆发', '择时-MA13回调'];
+        let stagesHtml = '';
+        
+        stages.forEach((stage, index) => {
+            const stageResult = result[stage] || {};
+            const qualified = stageResult.qualified || false;
+            const statusClass = qualified ? 'pass' : 'fail';
+            const icon = qualified ? '✅' : '❌';
+            
+            stagesHtml += `
+                <div class="ma13-stage-item ${statusClass}">
+                    ${icon} ${stageNames[index]}
+                </div>
+            `;
+        });
+
+        // 显示信号强度
+        const signals = result.signals || {};
+        const signalStrength = signals.signal_strength || 0;
+        
+        // 显示交易建议
+        const recommendation = result.recommendation || {};
+        const action = recommendation.action || 'wait';
+        const confidence = recommendation.confidence || 0;
+        
+        let actionText = '';
+        let actionClass = '';
+        
+        switch (action) {
+            case 'buy_heavy':
+                actionText = '🔥 重仓买入';
+                actionClass = 'buy-heavy';
+                break;
+            case 'buy_light':
+                actionText = '⚡ 轻仓试探';
+                actionClass = 'buy-light';
+                break;
+            default:
+                actionText = '⏳ 观望等待';
+                actionClass = 'wait';
+        }
+
+        ma13Result.innerHTML = `
+            <div class="ma13-status">
+                <div class="status-text" style="color: #28a745;">✅ 策略分析完成</div>
+            </div>
+            
+            <div id="ma13-stages" class="ma13-stages">
+                <h4>策略阶段</h4>
+                <div class="ma13-stages-content">
+                    ${stagesHtml}
+                </div>
+            </div>
+            
+            <div id="ma13-signals" class="ma13-signals">
+                <h4>信号强度</h4>
+                <div class="signal-bar">
+                    <div class="signal-fill" style="width: ${signalStrength}%"></div>
+                    <div class="signal-text">${signalStrength}</div>
+                </div>
+            </div>
+            
+            <div id="ma13-recommendation" class="ma13-recommendation">
+                <h4>交易建议</h4>
+                <div class="ma13-recommendation-content ${actionClass}">
+                    <div><strong>${actionText}</strong></div>
+                    <div>信心度: ${confidence}%</div>
+                    <div>建议仓位: ${(recommendation.position_size || 0) * 100}%</div>
+                </div>
+            </div>
+        `;
+    }
+
+    // 全局函数，供其他地方调用
+    window.openMA13StrategyPage = openMA13StrategyPage;
+    window.runMA13QuickAnalysis = runMA13QuickAnalysis;
 
     // --- 初始化 ---
     populateStockList();
