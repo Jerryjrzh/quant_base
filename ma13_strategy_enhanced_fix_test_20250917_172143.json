@@ -1,0 +1,112 @@
+{
+  "test_time": "2025-09-17T17:21:43.723260",
+  "screener_config": {
+    "min_daily_score": 50,
+    "min_total_score": 65,
+    "scoring_weights": {
+      "daily_stage_weight": 0.4,
+      "hourly_model_weight": 0.3,
+      "technical_signals_weight": 0.25,
+      "market_phase_weight": 0.05
+    }
+  },
+  "test_stocks": [
+    "sz002021",
+    "sz002796",
+    "sh601388",
+    "sh688291",
+    "sz000001",
+    "sz300015",
+    "sh600036"
+  ],
+  "results": [
+    {
+      "stock_code": "sz002021",
+      "success": true,
+      "daily_qualified": false,
+      "daily_score": 10.477214679392402,
+      "hourly_score": 0.0,
+      "total_score": 0.0,
+      "qualified": false,
+      "confidence": 0.0,
+      "market_phase": "",
+      "recommendation": {}
+    },
+    {
+      "stock_code": "sz002796",
+      "success": true,
+      "daily_qualified": false,
+      "daily_score": 53.31432267288856,
+      "hourly_score": 0.0,
+      "total_score": 0.0,
+      "qualified": false,
+      "confidence": 0.0,
+      "market_phase": "",
+      "recommendation": {}
+    },
+    {
+      "stock_code": "sh601388",
+      "success": true,
+      "daily_qualified": false,
+      "daily_score": 10.282326369282885,
+      "hourly_score": 0.0,
+      "total_score": 0.0,
+      "qualified": false,
+      "confidence": 0.0,
+      "market_phase": "",
+      "recommendation": {}
+    },
+    {
+      "stock_code": "sh688291",
+      "success": true,
+      "daily_qualified": false,
+      "daily_score": 20.0,
+      "hourly_score": 0.0,
+      "total_score": 0.0,
+      "qualified": false,
+      "confidence": 0.0,
+      "market_phase": "",
+      "recommendation": {}
+    },
+    {
+      "stock_code": "sz000001",
+      "success": true,
+      "daily_qualified": false,
+      "daily_score": 15.453894103317323,
+      "hourly_score": 0.0,
+      "total_score": 0.0,
+      "qualified": false,
+      "confidence": 0.0,
+      "market_phase": "",
+      "recommendation": {}
+    },
+    {
+      "stock_code": "sz300015",
+      "success": true,
+      "daily_qualified": false,
+      "daily_score": 10.0,
+      "hourly_score": 0.0,
+      "total_score": 0.0,
+      "qualified": false,
+      "confidence": 0.0,
+      "market_phase": "",
+      "recommendation": {}
+    },
+    {
+      "stock_code": "sh600036",
+      "success": true,
+      "daily_qualified": false,
+      "daily_score": 20.0,
+      "hourly_score": 0.0,
+      "total_score": 0.0,
+      "qualified": false,
+      "confidence": 0.0,
+      "market_phase": "",
+      "recommendation": {}
+    }
+  ],
+  "batch_screening": {
+    "qualified_count": 0,
+    "qualified_stocks": []
+  }
+}

@@ -47,7 +47,7 @@ def test_single_stock_analysis():
         from backend.enhanced_ma13_screener import enhanced_ma13_screener
         
         # 测试股票
-        test_stocks = ['sz002021', 'sh600000', 'sz000001']
+        test_stocks = ['sh601388', 'sh688291', 'sz002796']
         
         for stock_code in test_stocks:
             print(f"\n   测试股票: {stock_code}")
@@ -94,7 +94,7 @@ def test_batch_screening():
         from backend.enhanced_ma13_screener import enhanced_ma13_screener
         
         # 测试股票列表
-        test_codes = ['sz002021', 'sh600000', 'sz000001', 'sz300015', 'sh600036']
+        test_codes = ['sh601388', 'sh688291', 'sz002796']
         
         print(f"   批量筛选 {len(test_codes)} 只股票...")
         results = enhanced_ma13_screener.screen_stocks(test_codes)
@@ -126,7 +126,7 @@ def test_daily_screening_stages():
         screener = EnhancedMA13Screener()
         
         # 测试股票
-        stock_code = 'sz002021'
+        stock_code = 'sh688291'
         df = get_full_data_with_indicators(stock_code)
         
         if df is None:
@@ -174,7 +174,7 @@ def test_hourly_models():
         screener = EnhancedMA13Screener()
         
         # 测试股票
-        stock_code = 'sz002021'
+        stock_code = 'sh688291'
         daily_df = get_full_data_with_indicators(stock_code)
         
         if daily_df is None:
@@ -194,8 +194,8 @@ def test_hourly_models():
         else:
             print(f"   ⚠️  小时线分析失败")
         
-        # 测试模拟分析
-        simulated = screener._simulate_hourly_analysis(daily_df)
+        # 测试后备分析
+        simulated = screener._hourly_fallback_analysis(daily_df)
         print(f"   模拟小时线分析:")
         print(f"      得分: {simulated['score']:.1f}")
         print(f"      模型: {simulated['model']}")
@@ -370,7 +370,7 @@ def main():
         print("   - 关键价位计算：支撑位/阻力位/目标位/止损位")
         print("\n📖 使用方法:")
         print("   1. 访问 http://localhost:5000/ma13_strategy")
-        print("   2. 点击"全市场扫描"按钮")
+        print("   2. 点击\"全市场扫描\"按钮")
         print("   3. 系统自动使用增强筛选器")
         print("   4. 查看详细的筛选结果和评分")
     else:

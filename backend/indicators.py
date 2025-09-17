@@ -434,6 +434,122 @@ def calculate_all_indicators(df: pd.DataFrame,
     
     return results
 
+# MA13短线策略专用：指标位置判断逻辑
+def get_indicator_position(indicator_value: float, category: str) -> str:
+    """
+    将指标的绝对数值分类为相对位置，解决僵化阈值问题
+    专为MA13强势回调趋势系统设计
+    
+    Args:
+        indicator_value: 指标数值
+        category: 指标类别 ('kdj_j', 'rsi_6', 'macd_dif')
+    
+    Returns:
+        str: 位置分类 ('oversold', 'relay', 'overbought', 'strong_support', 'above_zero', 'below_zero', 'neutral')
+    """
+    if category == 'kdj_j':
+        # KDJ的J值位置判断
+        if indicator_value < 40:
+            return 'oversold'  # 超卖区域，适合超跌反弹模型
+        elif 40 <= indicator_value <= 90:
+            return 'relay'     # 中继区域，适合中继确认模型
+        else:
+            return 'overbought'  # 超买区域，但强势股可能钝化
+    
+    elif category == 'rsi_6':
+        # RSI6的位置判断（6周期RSI更敏感）
+        if indicator_value > 60:
+            return 'strong_support'  # 强势支撑位
+        elif indicator_value < 30:
+            return 'oversold'
+        else:
+            return 'neutral'
+    
+    elif category == 'macd_dif':
+        # MACD DIF线的零轴位置判断
+        if indicator_value > 0:
+            return 'above_zero'  # 零轴上方，多头趋势
+        else:
+            return 'below_zero'  # 零轴下方，空头趋势
+    
+    return 'neutral'
+
+def check_macd_golden_cross(dif: pd.Series, dea: pd.Series, lookback: int = 3) -> bool:
+    """
+    检查MACD是否出现金叉信号
+    
+    Args:
+        dif: MACD DIF线
+        dea: MACD DEA线  
+        lookback: 回看周期数
+    
+    Returns:
+        bool: 是否出现金叉
+    """
+    if len(dif) < lookback + 1 or len(dea) < lookback + 1:
+        return False
+    
+    # 检查最近是否有金叉：DIF从下方穿越DEA
+    for i in range(1, lookback + 1):
+        if (dif.iloc[-i-1] <= dea.iloc[-i-1] and 
+            dif.iloc[-i] > dea.iloc[-i]):
+            return True
+    
+    return False
+
+def check_volume_amplification(volume: pd.Series, ma_period: int = 20, multiplier: float = 1.1) -> bool:
+    """
+    检查成交量是否放大
+    
+    Args:
+        volume: 成交量序列
+        ma_period: 均量周期
+        multiplier: 放大倍数
+    
+    Returns:
+        bool: 成交量是否放大
+    """
+    if len(volume) < ma_period + 1:
+        return False
+    
+    vol_ma = volume.rolling(window=ma_period).mean()
+    current_vol = volume.iloc[-1]
+    avg_vol = vol_ma.iloc[-1]
+    
+    return current_vol > avg_vol * multiplier
+
+def get_ma13_support_level(close: pd.Series, ma_period: int = 13, tolerance: float = 0.02) -> dict:
+    """
+    获取MA13支撑位信息
+    
+    Args:
+        close: 收盘价序列
+        ma_period: MA周期
+        tolerance: 支撑容忍度（2%）
+    
+    Returns:
+        dict: 支撑位信息
+    """
+    if len(close) < ma_period + 1:
+        return {'supported': False, 'distance': None, 'ma13_value': None}
+    
+    ma13 = close.rolling(window=ma_period).mean()
+    current_price = close.iloc[-1]
+    current_ma13 = ma13.iloc[-1]
+    
+    # 计算距离MA13的百分比
+    distance_pct = (current_price - current_ma13) / current_ma13
+    
+    # 判断是否在支撑位上方
+    supported = distance_pct >= -tolerance
+    
+    return {
+        'supported': supported,
+        'distance': distance_pct,
+        'ma13_value': current_ma13,
+        'current_price': current_price
+    }
+
 # 指标验证函数
 def validate_indicator_data(df: pd.DataFrame) -> Tuple[bool, list]:
     """验证数据是否适合计算指标"""

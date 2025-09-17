@@ -2956,14 +2956,16 @@ document.addEventListener('DOMContentLoaded', function () {
         ma13Result.innerHTML = '<div class="ma13-status"><div class="status-text">正在分析中...</div></div>';
 
         try {
-            const response = await fetch('/api/ma13/analyze', {
+            // 默认使用增强模式进行快速分析
+            const response = await fetch('/api/enhanced_ma13/analyze', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     stock_code: stockCode,
-                    days: 150
+                    use_enhanced: true,
+                    use_two_stage: false  // 快速分析不使用两阶段
                 })
             });
 
@@ -2988,6 +2990,10 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        // 获取增强数据
+        const enhanced = result.enhanced_data || {};
+        const analysisMode = result.analysis_mode || 'standard';
+        
         // 显示策略阶段
         const stages = ['stage_1', 'stage_2', 'stage_3'];
         const stageNames = ['海选-底部稳定', '精选-日线爆发', '择时-MA13回调'];
@@ -2998,17 +3004,33 @@ document.addEventListener('DOMContentLoaded', function () {
             const qualified = stageResult.qualified || false;
             const statusClass = qualified ? 'pass' : 'fail';
             const icon = qualified ? '✅' : '❌';
+            const score = stageResult.score ? ` (${stageResult.score.toFixed(1)}分)` : '';
             
             stagesHtml += `
                 <div class="ma13-stage-item ${statusClass}">
-                    ${icon} ${stageNames[index]}
+                    ${icon} ${stageNames[index]}${score}
                 </div>
             `;
         });
 
+        // 显示增强信息
+        let enhancedInfoHtml = '';
+        if (enhanced.market_phase) {
+            enhancedInfoHtml += `
+                <div class="ma13-enhanced-info">
+                    <h4>增强分析</h4>
+                    <div class="enhanced-details">
+                        <div>市场阶段: <span class="badge bg-info">${enhanced.market_phase}</span></div>
+                        <div>小时线模型: <span class="badge bg-success">${enhanced.hourly_model || 'N/A'}</span></div>
+                        <div>综合得分: <strong>${enhanced.total_score ? enhanced.total_score.toFixed(1) : 'N/A'}</strong>/100</div>
+                    </div>
+                </div>
+            `;
+        }
+
         // 显示信号强度
         const signals = result.signals || {};
-        const signalStrength = signals.signal_strength || 0;
+        const signalStrength = enhanced.total_score || signals.signal_strength || 0;
         
         // 显示交易建议
         const recommendation = result.recommendation || {};
@@ -3034,7 +3056,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         ma13Result.innerHTML = `
             <div class="ma13-status">
-                <div class="status-text" style="color: #28a745;">✅ 策略分析完成</div>
+                <div class="status-text" style="color: #28a745;">✅ ${analysisMode.includes('enhanced') ? '增强' : '标准'}策略分析完成</div>
             </div>
             
             <div id="ma13-stages" class="ma13-stages">
@@ -3044,11 +3066,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             </div>
             
+            ${enhancedInfoHtml}
+            
             <div id="ma13-signals" class="ma13-signals">
                 <h4>信号强度</h4>
                 <div class="signal-bar">
-                    <div class="signal-fill" style="width: ${signalStrength}%"></div>
-                    <div class="signal-text">${signalStrength}</div>
+                    <div class="signal-fill" style="width: ${Math.min(signalStrength, 100)}%"></div>
+                    <div class="signal-text">${signalStrength.toFixed(1)}</div>
                 </div>
             </div>
             
@@ -3056,8 +3080,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h4>交易建议</h4>
                 <div class="ma13-recommendation-content ${actionClass}">
                     <div><strong>${actionText}</strong></div>
-                    <div>信心度: ${confidence}%</div>
-                    <div>建议仓位: ${(recommendation.position_size || 0) * 100}%</div>
+                    <div>信心度: ${confidence.toFixed(0)}%</div>
+                    <div>建议仓位: ${((recommendation.position_size || 0) * 100).toFixed(0)}%</div>
                 </div>
             </div>
         `;

@@ -1,0 +1,26 @@
+{
+  "test_time": "2025-09-17T18:24:22.230110",
+  "screener_config": {
+    "min_daily_score": 40,
+    "min_total_score": 60,
+    "scoring_weights": {
+      "daily_stage_weight": 0.4,
+      "hourly_model_weight": 0.3,
+      "technical_signals_weight": 0.25,
+      "market_phase_weight": 0.05
+    }
+  },
+  "test_stocks": [
+    "sz002021",
+    "sz002796",
+    "sh601388",
+    "sh688291",
+    "sz000001",
+    "sz300015",
+    "sh600036"
+  ],
+  "results": [
+    {
+      "stock_code": "sz002021",
+      "success": true,
+      "daily_qualified": 

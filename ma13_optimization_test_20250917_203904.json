@@ -1,0 +1,109 @@
+{
+  "test_time": "20250917_203904",
+  "optimization_version": "v2.0_based_on_0917_short_analysis",
+  "test_stocks": [
+    "sh601388",
+    "sz002021",
+    "sz002796",
+    "sh688291",
+    "sz000001",
+    "sh600036"
+  ],
+  "qualified_pool": {},
+  "total_results": 4,
+  "qualified_count": 3,
+  "results": [
+    {
+      "stock_code": "sh688291",
+      "daily_stage": "breakout_failed",
+      "daily_score": 22.33826709203495,
+      "hourly_model": "continuation_confirm",
+      "hourly_score": 45.0,
+      "market_phase": "markup",
+      "total_score": 95.33826709203495,
+      "confidence": 0.7720296025522096,
+      "qualified": true,
+      "recommendation": {
+        "action": "buy_continuation",
+        "position_size": 0.5,
+        "confidence": 77.20296025522096,
+        "risk_reward_ratio": 2.625285233076166,
+        "entry_timing": "continuation_confirm",
+        "hold_days": "3-8天",
+        "stop_loss_pct": 5.713664866207248,
+        "target_gain_pct": 14.999999999999995
+      },
+      "stage1_qual": null
+    },
+    {
+      "stock_code": "sh601388",
+      "daily_stage": "accumulation_failed",
+      "daily_score": 15.0,
+      "hourly_model": "continuation_confirm",
+      "hourly_score": 50.0,
+      "market_phase": "distribution",
+      "total_score": 94.80952380952381,
+      "confidence": 0.6688571428571428,
+      "qualified": true,
+      "recommendation": {
+        "action": "buy_continuation",
+        "position_size": 0.5,
+        "confidence": 66.88571428571429,
+        "risk_reward_ratio": 0.810066900286716,
+        "entry_timing": "continuation_confirm",
+        "hold_days": "3-8天",
+        "stop_loss_pct": 18.516989145823487,
+        "target_gain_pct": 14.999999999999996
+      },
+      "stage1_qual": null
+    },
+    {
+      "stock_code": "sz002796",
+      "daily_stage": "accumulation_failed",
+      "daily_score": 15.0,
+      "hourly_model": "continuation_confirm",
+      "hourly_score": 25.0,
+      "market_phase": "distribution",
+      "total_score": 68.70317498704355,
+      "confidence": 0.5122190499222613,
+      "qualified": true,
+      "recommendation": {
+        "action": "buy_continuation",
+        "position_size": 0.5,
+        "confidence": 51.22190499222613,
+        "risk_reward_ratio": 0.5996538794346692,
+        "entry_timing": "continuation_confirm",
+        "hold_days": "3-8天",
+        "stop_loss_pct": 25.014430014430015,
+        "target_gain_pct": 14.999999999999988
+      },
+      "stage1_qual": null
+    },
+    {
+      "stock_code": "sz002021",
+      "daily_stage": "accumulation_failed",
+      "daily_score": 15.0,
+      "hourly_model": "oversold_rebound",
+      "hourly_score": 20.0,
+      "market_phase": "distribution",
+      "total_score": 53.8412657164986,
+      "confidence": 0.42304759429899164,
+      "qualified": false,
+      "recommendation": {
+        "action": "watch",
+        "position_size": 0.0,
+        "confidence": 42.304759429899164,
+        "risk_reward_ratio": 1.238095238095237,
+        "entry_timing": "oversold_rebound",
+        "hold_days": "3-8天",
+        "stop_loss_pct": 12.115384615384613,
+        "target_gain_pct": 14.999999999999982
+      },
+      "stage1_qual": null
+    }
+  ],
+  "key_validations": {
+    "sh601388_passed": true,
+    "sz002021_passed": false
+  }
+}

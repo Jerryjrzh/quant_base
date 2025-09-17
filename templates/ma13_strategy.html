@@ -163,6 +163,22 @@
                                 <option value="200">200天</option>
                             </select>
                         </div>
+                        
+                        <!-- 新增功能选项 -->
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="useEnhanced" checked>
+                                <label class="form-check-label" for="useEnhanced">
+                                    使用增强筛选器 (推荐)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="useTwoStage">
+                                <label class="form-check-label" for="useTwoStage">
+                                    启用两阶段架构 (历史资格审查 + 实时择时)
+                                </label>
+                            </div>
+                        </div>
                         <button type="button" class="btn btn-primary" onclick="analyzeSingleStock()">
                             <i class="fas fa-play"></i> 开始分析
                         </button>
@@ -382,6 +398,8 @@
         async function analyzeSingleStock() {
             const stockCode = document.getElementById('stockCode').value.trim();
             const days = document.getElementById('analysisDays').value;
+            const useEnhanced = document.getElementById('useEnhanced').checked;
+            const useTwoStage = document.getElementById('useTwoStage').checked;
 
             if (!stockCode) {
                 alert('请输入股票代码');
@@ -391,15 +409,26 @@
             showLoading();
 
             try {
-                const response = await fetch('/api/ma13/analyze', {
+                // 根据是否使用增强模式选择不同的API端点
+                const apiEndpoint = useEnhanced ? '/api/enhanced_ma13/analyze' : '/api/ma13/analyze';
+                
+                const requestBody = {
+                    stock_code: stockCode,
+                    days: parseInt(days)
+                };
+                
+                // 如果使用增强模式，添加额外参数
+                if (useEnhanced) {
+                    requestBody.use_enhanced = true;
+                    requestBody.use_two_stage = useTwoStage;
+                }
+
+                const response = await fetch(apiEndpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        stock_code: stockCode,
-                        days: parseInt(days)
-                    })
+                    body: JSON.stringify(requestBody)
                 });
 
                 const result = await response.json();
@@ -447,6 +476,12 @@
             ];
 
             let html = '';
+            
+            // 显示增强数据（如果存在）
+            if (result.enhanced_data) {
+                displayEnhancedData(result);
+            }
+            
             stages.forEach(stage => {
                 const stageResult = result[stage.key] || {};
                 const qualified = stageResult.qualified || false;
@@ -459,6 +494,7 @@
                         <i class="${icon}"></i>
                         <strong>${stage.name}</strong>
                         ${qualified ? '<span class="text-success">✓ 通过</span>' : '<span class="text-danger">✗ 未通过</span>'}
+                        ${stageResult.score ? `<small class="text-muted ms-2">(${stageResult.score.toFixed(1)}分)</small>` : ''}
                     </div>
                 `;
             });
@@ -487,6 +523,75 @@
             }
 
             container.innerHTML = html;
+        }
+
+        function displayEnhancedData(result) {
+            if (!result.enhanced_data) return;
+            
+            const enhanced = result.enhanced_data;
+            const container = document.getElementById('stageAnalysis');
+            
+            // 显示两阶段结果
+            if (enhanced.stage1_qualification) {
+                const stage1Html = `
+                    <div class="alert alert-info mb-3">
+                        <h6><i class="fas fa-history"></i> 历史资格审查</h6>
+                        <p class="mb-1">资格得分: <strong>${enhanced.stage1_qualification.toFixed(1)}</strong>/100</p>
+                        <p class="mb-0">该股票具备良好的历史形态基础</p>
+                    </div>
+                `;
+                container.insertAdjacentHTML('afterbegin', stage1Html);
+            }
+            
+            // 显示市场阶段
+            if (enhanced.market_phase) {
+                const phaseHtml = `
+                    <div class="mb-2">
+                        <span class="badge bg-${getPhaseColor(enhanced.market_phase)}">${enhanced.market_phase}</span>
+                        <strong>市场阶段: ${getPhaseDescription(enhanced.market_phase)}</strong>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', phaseHtml);
+            }
+            
+            // 显示详细评分
+            const scoreHtml = `
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <small class="text-muted">日线得分</small><br>
+                        <strong>${enhanced.daily_score ? enhanced.daily_score.toFixed(1) : 'N/A'}</strong>/100
+                    </div>
+                    <div class="col-md-4">
+                        <small class="text-muted">小时线得分</small><br>
+                        <strong>${enhanced.hourly_score ? enhanced.hourly_score.toFixed(1) : 'N/A'}</strong>/100
+                    </div>
+                    <div class="col-md-4">
+                        <small class="text-muted">综合得分</small><br>
+                        <strong>${enhanced.total_score ? enhanced.total_score.toFixed(1) : 'N/A'}</strong>/100
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', scoreHtml);
+        }
+
+        function getPhaseColor(phase) {
+            switch(phase) {
+                case 'markup': return 'success';
+                case 'accumulation': return 'info';
+                case 'distribution': return 'warning';
+                case 'decline': return 'danger';
+                default: return 'secondary';
+            }
+        }
+
+        function getPhaseDescription(phase) {
+            switch(phase) {
+                case 'markup': return '上升阶段';
+                case 'accumulation': return '积累阶段';
+                case 'distribution': return '分发阶段';
+                case 'decline': return '下跌阶段';
+                default: return '中性阶段';
+            }
         }
 
         function displaySignalStrength(signals) {
@@ -744,6 +849,9 @@
 
         async function batchScanStocks() {
             const codesText = document.getElementById('batchCodes').value.trim();
+            const useEnhanced = document.getElementById('useEnhanced').checked;
+            const useTwoStage = document.getElementById('useTwoStage').checked;
+            
             if (!codesText) {
                 alert('请输入股票代码列表');
                 return;
@@ -759,15 +867,25 @@
             showLoading();
 
             try {
-                const response = await fetch('/api/ma13/batch_scan', {
+                // 根据是否使用增强模式选择不同的API端点
+                const apiEndpoint = useEnhanced ? '/api/enhanced_ma13/batch_scan' : '/api/ma13/batch_scan';
+                
+                const requestBody = {
+                    stock_codes: stockCodes,
+                    days: 150
+                };
+                
+                // 如果使用增强模式，添加额外参数
+                if (useEnhanced) {
+                    requestBody.use_two_stage = useTwoStage;
+                }
+
+                const response = await fetch(apiEndpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        stock_codes: stockCodes,
-                        days: 150
-                    })
+                    body: JSON.stringify(requestBody)
                 });
 
                 const result = await response.json();
@@ -798,36 +916,35 @@
             results.forEach(item => {
                 const qualified = item.success || false;
                 const itemClass = qualified ? 'batch-result-qualified' : 'batch-result-unqualified';
-                const summary = item.summary || {};
+                const enhanced = item.enhanced_data || {};
+                const recommendation = item.recommendation || {};
 
                 html += `
                     <div class="batch-result-item ${itemClass}">
-                        <div class="row align-items-center">
-                            <div class="col-md-2">
-                                <strong>${item.stock_code || ''}</strong>
-                                ${qualified ? '<span class="badge bg-success ms-2">符合</span>' : '<span class="badge bg-danger ms-2">不符合</span>'}
-                            </div>
-                            <div class="col-md-2">
-                                <small class="text-muted">当前价格</small><br>
-                                <strong>${item.current_price ? item.current_price.toFixed(2) + '元' : 'N/A'}</strong>
-                            </div>
-                            <div class="col-md-2">
-                                <small class="text-muted">操作建议</small><br>
-                                <span class="badge ${summary.action === 'buy_heavy' ? 'bg-success' : summary.action === 'buy_light' ? 'bg-warning' : 'bg-secondary'}">
-                                    ${summary.action === 'buy_heavy' ? '重仓' : summary.action === 'buy_light' ? '轻仓' : '观望'}
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h6>${item.stock_code || ''}</h6>
+                                <span class="badge bg-${qualified ? 'success' : 'secondary'}">
+                                    ${qualified ? '✓ 合格' : '✗ 不合格'}
                                 </span>
                             </div>
-                            <div class="col-md-2">
-                                <small class="text-muted">信心度</small><br>
-                                <strong>${summary.confidence || 0}%</strong>
+                            <div class="col-md-3">
+                                <small class="text-muted">综合得分</small><br>
+                                <strong>${enhanced.total_score ? enhanced.total_score.toFixed(1) : 'N/A'}</strong>
+                                <br>
+                                <small class="text-muted">信心度: ${(recommendation.confidence || 0).toFixed(0)}%</small>
                             </div>
-                            <div class="col-md-2">
-                                <small class="text-muted">信号强度</small><br>
-                                <strong>${summary.signal_strength || 0}</strong>
+                            <div class="col-md-3">
+                                <small class="text-muted">小时线模型</small><br>
+                                <span class="badge bg-info">${enhanced.hourly_model || 'N/A'}</span>
+                                <br>
+                                <small class="text-muted">市场阶段: ${enhanced.market_phase || 'N/A'}</small>
                             </div>
-                            <div class="col-md-2">
-                                <small class="text-muted">状态</small><br>
-                                <small class="text-muted">${qualified ? '策略匹配' : (item.message || '不符合条件')}</small>
+                            <div class="col-md-3">
+                                <small class="text-muted">操作建议</small><br>
+                                <strong>${recommendation.action || 'wait'}</strong>
+                                <br>
+                                <small class="text-muted">建议仓位: ${((recommendation.position_size || 0) * 100).toFixed(0)}%</small>
                             </div>
                         </div>
                     </div>
@@ -847,23 +964,36 @@
 
         async function fullMarketScan() {
             const maxStocks = document.getElementById('maxStocks').value;
+            const useEnhanced = document.getElementById('useEnhanced').checked;
+            const useTwoStage = document.getElementById('useTwoStage').checked;
             
-            if (!confirm(`确定要进行全市场扫描吗？将扫描最多 ${maxStocks} 只股票，这可能需要较长时间。`)) {
+            const analysisMode = useEnhanced ? (useTwoStage ? '两阶段增强' : '增强') : '标准';
+            if (!confirm(`确定要进行${analysisMode}全市场扫描吗？将扫描最多 ${maxStocks} 只股票，这可能需要较长时间。`)) {
                 return;
             }
 
             showLoading();
 
             try {
-                const response = await fetch('/api/ma13/full_market_scan', {
+                // 根据是否使用增强模式选择不同的API端点
+                const apiEndpoint = useEnhanced ? '/api/enhanced_ma13/full_market_scan' : '/api/ma13/full_market_scan';
+                
+                const requestBody = {
+                    max_stocks: parseInt(maxStocks),
+                    days: 150
+                };
+                
+                // 如果使用增强模式，添加额外参数
+                if (useEnhanced) {
+                    requestBody.use_two_stage = useTwoStage;
+                }
+
+                const response = await fetch(apiEndpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        max_stocks: parseInt(maxStocks),
-                        days: 150
-                    })
+                    body: JSON.stringify(requestBody)
                 });
 
                 const result = await response.json();
@@ -874,11 +1004,19 @@
                     
                     // 显示扫描统计信息
                     const stats = result.scan_stats || {};
-                    const message = `全市场扫描完成！\n` +
+                    let message = `${analysisMode}全市场扫描完成！\n` +
                         `总股票数: ${stats.total_stocks || 0}\n` +
                         `实际扫描: ${stats.processed_stocks || 0}\n` +
                         `符合条件: ${stats.qualified_stocks || 0}\n` +
                         `符合率: ${((stats.qualified_stocks || 0) / (stats.processed_stocks || 1) * 100).toFixed(1)}%`;
+                    
+                    // 如果是增强模式，显示额外统计信息
+                    if (useEnhanced && stats.stage_distribution) {
+                        message += '\n\n阶段分布:';
+                        Object.entries(stats.stage_distribution).forEach(([stage, count]) => {
+                            message += `\n${stage}: ${count}只`;
+                        });
+                    }
                     
                     alert(message);
                 } else {

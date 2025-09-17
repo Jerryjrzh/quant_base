@@ -3,7 +3,13 @@
 所有函数接收一个包含OHLCV的DataFrame，并返回一个标记了信号日的布尔型或字符串型Series。
 """
 import pandas as pd
-import indicators
+try:
+    from . import indicators
+except ImportError:
+    import sys
+    import os
+    sys.path.append(os.path.dirname(__file__))
+    import indicators
 
 # 默认配置类
 class DefaultConfig:

@@ -180,14 +180,22 @@ def resample_5min_to_other_timeframes(df_5min):
     if df_5min is None or df_5min.empty:
         return {}
     
-    # 设置datetime为索引
-    df_5min = df_5min.set_index('datetime')
+    # 确保datetime为索引（如果还不是的话）
+    if 'datetime' in df_5min.columns:
+        df_5min = df_5min.set_index('datetime')
+    elif not isinstance(df_5min.index, pd.DatetimeIndex):
+        # 如果索引不是datetime类型，尝试转换
+        if hasattr(df_5min.index, 'name') and df_5min.index.name in ['datetime', 'date']:
+            df_5min.index = pd.to_datetime(df_5min.index)
+        else:
+            print("警告: 5分钟数据没有有效的datetime索引")
+            return {}
     
     timeframes = {}
     
     try:
         # 15分钟线
-        timeframes['15min'] = df_5min.resample('15T').agg({
+        timeframes['15min'] = df_5min.resample('15min').agg({
             'open': 'first',
             'high': 'max',
             'low': 'min',
@@ -197,7 +205,7 @@ def resample_5min_to_other_timeframes(df_5min):
         }).dropna()
         
         # 30分钟线
-        timeframes['30min'] = df_5min.resample('30T').agg({
+        timeframes['30min'] = df_5min.resample('30min').agg({
             'open': 'first',
             'high': 'max',
             'low': 'min',
@@ -207,7 +215,7 @@ def resample_5min_to_other_timeframes(df_5min):
         }).dropna()
         
         # 60分钟线
-        timeframes['60min'] = df_5min.resample('60T').agg({
+        timeframes['60min'] = df_5min.resample('60min').agg({
             'open': 'first',
             'high': 'max',
             'low': 'min',
@@ -227,3 +235,72 @@ def resample_5min_to_other_timeframes(df_5min):
         return {}
     
     return timeframes
+
+def fetch_hourly_kline(stock_code, start_date=None, end_date=None, base_path=None):
+    """
+    通过聚合本地5分钟数据生成60分钟K线数据
+    专为MA13短线策略优化的小时线数据接口
+    
+    Args:
+        stock_code: 股票代码
+        start_date: 开始日期 (可选)
+        end_date: 结束日期 (可选)
+        base_path: 数据路径 (可选)
+    
+    Returns:
+        pd.DataFrame: 包含['date', 'open', 'high', 'low', 'close', 'volume']的小时线数据
+    """
+    try:
+        # 获取多时间框架数据
+        multi_data = get_multi_timeframe_data(stock_code, base_path)
+        
+        if not multi_data['data_status']['min5_available']:
+            print(f"无法获取 {stock_code} 的5分钟数据，跳过小时线聚合")
+            return pd.DataFrame()
+        
+        df_5min = multi_data['min5_data']
+        
+        # 直接对5分钟数据进行小时线聚合（datetime已经是索引）
+        try:
+            hourly_df = df_5min.resample('1h').agg({
+                'open': 'first',
+                'high': 'max',
+                'low': 'min',
+                'close': 'last',
+                'volume': 'sum',
+                'amount': 'sum'
+            }).dropna()
+            
+            # 重置索引，将datetime从索引变为列
+            hourly_df = hourly_df.reset_index()
+            
+        except Exception as e:
+            print(f"重采样失败: {e}")
+            return pd.DataFrame()
+        
+        if hourly_df.empty:
+            print(f"无法为 {stock_code} 生成小时线数据")
+            return pd.DataFrame()
+        
+        # 日期过滤
+        if start_date or end_date:
+            if start_date:
+                start_date = pd.to_datetime(start_date)
+                hourly_df = hourly_df[hourly_df['datetime'] >= start_date]
+            if end_date:
+                end_date = pd.to_datetime(end_date)
+                hourly_df = hourly_df[hourly_df['datetime'] <= end_date]
+        
+        # 过滤无效数据
+        hourly_df = hourly_df[hourly_df['volume'] > 0]
+        
+        # 保持datetime列名以符合策略接口期望
+        # 同时提供date列作为兼容性支持
+        hourly_df['date'] = hourly_df['datetime'].dt.date
+        
+        print(f"成功为 {stock_code} 从5分钟数据聚合生成 {len(hourly_df)} 条小时线")
+        return hourly_df[['datetime', 'date', 'open', 'high', 'low', 'close', 'volume']]
+        
+    except Exception as e:
+        print(f"生成 {stock_code} 小时线数据时出错: {e}")
+        return pd.DataFrame()

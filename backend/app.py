@@ -15,7 +15,23 @@ from adjustment_processor import create_adjustment_config, create_adjustment_pro
 from portfolio_manager import create_portfolio_manager
 from strategy_manager import strategy_manager
 from config_manager import config_manager
-from ma13_strategy_api import ma13_bp
+# 尝试导入MA13策略API
+try:
+    from ma13_strategy_api import ma13_bp
+    ma13_available = True
+except ImportError as e:
+    print(f"警告: 无法导入ma13_strategy_api: {e}")
+    ma13_bp = None
+    ma13_available = False
+
+# 导入增强MA13 API
+try:
+    from enhanced_ma13_api import enhanced_ma13_bp
+    enhanced_ma13_available = True
+except ImportError as e:
+    print(f"警告: 无法导入enhanced_ma13_api: {e}")
+    enhanced_ma13_bp = None
+    enhanced_ma13_available = False
 
 # --- 配置路径 ---
 backend_dir = os.path.dirname(os.path.abspath(__file__))
@@ -28,7 +44,14 @@ app = Flask(__name__, static_folder=frontend_dir, static_url_path='')
 CORS(app)
 
 # 注册MA13策略蓝图
-app.register_blueprint(ma13_bp)
+if ma13_available and ma13_bp:
+    app.register_blueprint(ma13_bp)
+    print("已注册原版MA13策略API")
+
+# 注册增强MA13策略蓝图
+if enhanced_ma13_available and enhanced_ma13_bp:
+    app.register_blueprint(enhanced_ma13_bp)
+    print("已注册增强MA13策略API")
 
 # --- JSON序列化修复函数 ---
 def safe_jsonify(data):

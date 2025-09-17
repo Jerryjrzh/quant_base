@@ -18,30 +18,55 @@ from typing import List
 # 添加当前目录到路径
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from strategies.ma13_short_term_strategy import MA13ShortTermStrategy
-from short_term_execution_planner import ShortTermExecutionPlanner
-from data_handler import DataHandler, get_full_data_with_indicators
-import indicators
-
 logger = logging.getLogger(__name__)
 
 # 创建蓝图
 ma13_bp = Blueprint('ma13_strategy', __name__, url_prefix='/api/ma13')
 
-# 全局实例
-strategy = MA13ShortTermStrategy()
-planner = ShortTermExecutionPlanner()
-data_handler = DataHandler()
+# 延迟初始化全局实例
+strategy = None
+planner = None
+data_handler = None
+
+def _init_instances():
+    """延迟初始化实例"""
+    global strategy, planner, data_handler
+    
+    if strategy is None:
+        try:
+            from strategies.ma13_short_term_strategy import MA13ShortTermStrategy
+            strategy = MA13ShortTermStrategy()
+        except ImportError as e:
+            logger.error(f"无法导入MA13ShortTermStrategy: {e}")
+            strategy = None
+    
+    if planner is None:
+        try:
+            from short_term_execution_planner import ShortTermExecutionPlanner
+            planner = ShortTermExecutionPlanner()
+        except ImportError as e:
+            logger.error(f"无法导入ShortTermExecutionPlanner: {e}")
+            planner = None
+    
+    if data_handler is None:
+        try:
+            from data_handler import DataHandler
+            data_handler = DataHandler()
+        except ImportError as e:
+            logger.error(f"无法导入DataHandler: {e}")
+            data_handler = None
 
 @ma13_bp.route('/analyze', methods=['POST'])
 def analyze_stock():
     """
-    分析股票是否符合MA13短线策略
+    分析股票是否符合MA13短线策略 - 使用优化后的增强筛选器
     
     POST /api/ma13/analyze
     {
         "stock_code": "002021",
-        "days": 150  // 可选，默认150天
+        "days": 150,  // 可选，默认150天
+        "use_enhanced": true,  // 可选，是否使用增强筛选器
+        "use_two_stage": true  // 可选，是否使用两阶段架构
     }
     """
     try:
@@ -55,37 +80,95 @@ def analyze_stock():
         
         stock_code = data['stock_code']
         days = data.get('days', 150)
+        use_enhanced = data.get('use_enhanced', True)
+        use_two_stage = data.get('use_two_stage', False)
         
-        logger.info(f"开始分析股票 {stock_code} 的MA13策略")
+        logger.info(f"开始分析股票 {stock_code} 的MA13策略 (增强模式: {use_enhanced}, 两阶段: {use_two_stage})")
         
-        # 获取股票数据（使用统一接口，已包含所有技术指标）
-        df = get_full_data_with_indicators(stock_code)
-        
-        if df is None or len(df) < 100:
-            return jsonify({
-                'success': False,
-                'message': f'无法获取足够的股票数据: {stock_code}'
-            }), 404
-        
-        # 如果需要限制天数，截取最近的数据
-        if days < len(df):
-            df = df.tail(days).copy()
-        
-        # 运行策略分析
-        result = strategy.analyze_stock(df, stock_code)
-        
-        # 添加额外信息
-        if result['success']:
-            latest = df.iloc[-1]
-            result['current_data'] = {
-                'date': latest['date'],
-                'price': latest['close'],
-                'ma13': latest.get('ma13', 0),
-                'ma30': latest.get('ma30', 0),
-                'rsi6': latest.get('rsi6', 0),
-                'kdj_j': latest.get('j', 0),
-                'volume': latest['volume']
-            }
+        if use_enhanced:
+            # 使用优化后的增强筛选器
+            try:
+                from enhanced_ma13_screener import enhanced_ma13_screener
+            except ImportError:
+                logger.error("无法导入enhanced_ma13_screener，回退到原版策略")
+                use_enhanced = False
+            
+            if use_two_stage:
+                # 两阶段模式：先历史资格审查，再实时择时
+                qualified_pool = enhanced_ma13_screener.run_historical_qualification([stock_code])
+                if stock_code not in qualified_pool:
+                    return jsonify({
+                        'success': False,
+                        'message': f'股票 {stock_code} 未通过历史资格审查',
+                        'stage1_qualification': 0,
+                        'analysis_mode': 'two_stage_enhanced'
+                    })
+                
+                # 第二阶段分析
+                screen_result = enhanced_ma13_screener.analyze_single_stock(
+                    stock_code, 
+                    stage1_qual=qualified_pool[stock_code]
+                )
+            else:
+                # 单阶段增强模式
+                screen_result = enhanced_ma13_screener.analyze_single_stock(stock_code)
+            
+            if screen_result is None:
+                return jsonify({
+                    'success': False,
+                    'message': f'无法获取足够的股票数据: {stock_code}'
+                }), 404
+            
+            # 转换为前端兼容格式
+            result = _convert_enhanced_result_to_api_format(screen_result, use_two_stage)
+            
+        if not use_enhanced:
+            # 使用原版策略（保持向后兼容）
+            _init_instances()
+            
+            if strategy is None:
+                return jsonify({
+                    'success': False,
+                    'message': '策略初始化失败'
+                }), 500
+            
+            try:
+                from data_handler import get_full_data_with_indicators
+            except ImportError:
+                return jsonify({
+                    'success': False,
+                    'message': '数据处理模块导入失败'
+                }), 500
+            
+            df = get_full_data_with_indicators(stock_code)
+            
+            if df is None or len(df) < 100:
+                return jsonify({
+                    'success': False,
+                    'message': f'无法获取足够的股票数据: {stock_code}'
+                }), 404
+            
+            # 如果需要限制天数，截取最近的数据
+            if days < len(df):
+                df = df.tail(days).copy()
+            
+            # 运行原版策略分析
+            result = strategy.analyze_stock(df, stock_code)
+            
+            # 添加额外信息
+            if result['success']:
+                latest = df.iloc[-1]
+                result['current_data'] = {
+                    'date': latest.get('date', ''),
+                    'price': latest['close'],
+                    'ma13': latest.get('ma13', 0),
+                    'ma30': latest.get('ma30', 0),
+                    'rsi6': latest.get('rsi6', 0),
+                    'kdj_j': latest.get('j', 0),
+                    'volume': latest['volume']
+                }
+            
+            result['analysis_mode'] = 'legacy'
         
         logger.info(f"股票 {stock_code} 分析完成: {result['success']}")
         return jsonify(result)
@@ -97,6 +180,93 @@ def analyze_stock():
             'success': False,
             'message': f'分析过程中出错: {str(e)}'
         }), 500
+
+def _convert_enhanced_result_to_api_format(screen_result, use_two_stage=False):
+    """
+    将增强筛选器结果转换为前端兼容的API格式
+    
+    Args:
+        screen_result: EnhancedMA13Screener的结果
+        use_two_stage: 是否使用两阶段模式
+        
+    Returns:
+        前端兼容的结果格式
+    """
+    # 基础成功判断
+    success = screen_result.daily_qualified and screen_result.total_score >= 60
+    
+    # 构建前端兼容的结果
+    result = {
+        'success': success,
+        'stock_code': screen_result.stock_code,
+        'analysis_mode': 'two_stage_enhanced' if use_two_stage else 'single_stage_enhanced',
+        'message': f'总分 {screen_result.total_score:.1f}，{"符合" if success else "不符合"}条件',
+        
+        # 阶段分析（前端兼容格式）
+        'stage_1': {
+            'qualified': screen_result.daily_score >= 30,
+            'score': screen_result.daily_score,
+            'stage': screen_result.daily_stage,
+            'description': '底部稳定分析'
+        },
+        'stage_2': {
+            'qualified': screen_result.hourly_score >= 25,
+            'score': screen_result.hourly_score,
+            'model': screen_result.hourly_model,
+            'description': '小时线模型确认'
+        },
+        'stage_3': {
+            'qualified': success,
+            'score': screen_result.total_score,
+            'phase': screen_result.market_phase,
+            'description': '综合评分'
+        },
+        
+        # 信号分析
+        'signals': {
+            'signal_strength': min(screen_result.total_score, 100),
+            'oversold_model': screen_result.hourly_model == 'oversold_rebound',
+            'continuation_model': screen_result.hourly_model == 'continuation_confirm',
+            'hourly_signals': screen_result.hourly_signals,
+            'market_phase': screen_result.market_phase
+        },
+        
+        # 操作建议
+        'recommendation': {
+            'action': screen_result.recommendation.get('action', 'wait'),
+            'position_size': screen_result.recommendation.get('position_size', 0),
+            'confidence': screen_result.confidence * 100,
+            'entry_timing': screen_result.hourly_model or 'wait',
+            'hold_days': screen_result.recommendation.get('hold_days', '3-8天'),
+            'risk_reward_ratio': screen_result.recommendation.get('risk_reward_ratio', 0)
+        },
+        
+        # 关键价位
+        'key_levels': screen_result.key_levels,
+        
+        # 当前数据
+        'current_data': {
+            'date': datetime.now().strftime('%Y-%m-%d'),
+            'price': screen_result.key_levels.get('current_price', 0),
+            'ma13': screen_result.key_levels.get('support_1_upper', 0),
+            'ma30': screen_result.key_levels.get('support_2_upper', 0),
+            'volume': 0  # 需要从原始数据获取
+        },
+        
+        # 增强数据（新增）
+        'enhanced_data': {
+            'daily_stage': screen_result.daily_stage,
+            'daily_score': screen_result.daily_score,
+            'hourly_model': screen_result.hourly_model,
+            'hourly_score': screen_result.hourly_score,
+            'market_phase': screen_result.market_phase,
+            'total_score': screen_result.total_score,
+            'confidence': screen_result.confidence,
+            'stage1_qualification': getattr(screen_result, 'stage1_qualification', None)
+        }
+    }
+    
+    return result
 
 @ma13_bp.route('/execution_plan', methods=['POST'])
 def generate_execution_plan():
@@ -400,7 +570,7 @@ def _enhanced_market_scan(filtered_codes: List[str], all_codes: List[str]) -> di
     Returns:
         扫描结果
     """
-    from enhanced_ma13_screener import enhanced_ma13_screener
+    from .enhanced_ma13_screener import enhanced_ma13_screener
     
     logger.info("使用增强版MA13筛选器进行扫描")
     

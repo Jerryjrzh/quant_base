@@ -160,6 +160,106 @@
         "old_id": "WEEKLY_GOLDEN_CROSS_MA",
         "api_id": "WEEKLY_GOLDEN_CROSS_MA"
       }
+    },
+    "MA13强势回调_v2.0": {
+      "id": "MA13强势回调_v2.0",
+      "name": "MA13强势回调趋势系统",
+      "version": "2.0",
+      "enabled": true,
+      "description": "专为捕捉强势股回调后的精准入场时机设计，结合日线趋势和小时线双模型确认，支持增强筛选和两阶段架构",
+      "priority": 6,
+      "config": {
+        "callback_range": [3, 15],
+        "vol_multiplier": 1.1,
+        "kdj_relay_range": [40, 90],
+        "ma13_tolerance": 0.02,
+        "min_rise_pct": 15,
+        "lookback_days": 60,
+        "hourly_lookback_days": 10,
+        "timeframe": {
+          "day": true,
+          "60min": true
+        },
+        "indicators": {
+          "macd": {
+            "fast": 8,
+            "slow": 21,
+            "signal": 6
+          },
+          "kdj": {
+            "n": 27,
+            "k": 3,
+            "d": 3
+          },
+          "rsi": {
+            "period": 6
+          }
+        },
+        "risk_management": {
+          "stop_loss_pct": 0.03,
+          "hold_days_range": [5, 8],
+          "position_size": {
+            "super_fall": 0.3,
+            "relay": 0.7
+          },
+          "risk_reward_ratio": 2.0
+        },
+        "news_keywords": ["国资", "国际业务", "重组", "并购"],
+        
+        "enhanced_screening": {
+          "use_two_stage_architecture": true,
+          "relaxed_thresholds": {
+            "accumulation_days": 45,
+            "box_volatility_max": 0.25,
+            "pullback_tolerance": 0.03,
+            "min_total_score": 60
+          },
+          "bonus_mechanisms": {
+            "shallow_pullback_bonus": 25,
+            "momentum_bonus_threshold": 10,
+            "markup_phase_bonus": 15,
+            "signal_bonus_per_signal": 2
+          },
+          "stage1_params": {
+            "backtrack_days": 30,
+            "explosion_vol_multiplier": 1.5,
+            "explosion_rise_threshold": 0.15,
+            "pool_qualification_threshold": 70
+          }
+        }
+      },
+      "risk_level": "medium-high",
+      "expected_signals_per_day": "3-10",
+      "suitable_market": [
+        "牛市",
+        "震荡市上升阶段",
+        "强势个股行情"
+      ],
+      "tags": [
+        "MA13",
+        "强势回调",
+        "多时间框架",
+        "小时线确认",
+        "双模型",
+        "增强筛选",
+        "两阶段架构"
+      ],
+      "models": {
+        "super_fall_rebound": {
+          "description": "超跌反弹模型：KDJ超卖+MACD金叉+放量",
+          "conditions": ["kdj_j < 40", "macd_golden_cross", "volume_amplified"],
+          "strength": 0.7
+        },
+        "relay_confirmation": {
+          "description": "中继确认模型：MACD零轴上+KDJ中继+RSI强支撑+放量",
+          "conditions": ["macd_above_zero", "kdj_relay_40_90", "rsi_strong_support", "volume_amplified"],
+          "strength": 0.9
+        }
+      },
+      "legacy_mapping": {
+        "old_id": "MA13_CALLBACK",
+        "api_id": "MA13_CALLBACK"
+      }
     }
   },
   "global_settings": {

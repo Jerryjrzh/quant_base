@@ -13,12 +13,27 @@ import pandas as pd
 import struct
 import logging
 from typing import Optional
-import data_loader
-import indicators
-from typing import List
-from adjustment_processor import create_adjustment_config, create_adjustment_processor
+try:
+    from . import data_loader
+except ImportError:
+    import data_loader
 
-from config import BASE_PATH, ENABLE_HK_STOCKS, ALL_MARKETS
+try:
+    from . import indicators
+except ImportError:
+    import indicators
+
+from typing import List
+
+try:
+    from .adjustment_processor import create_adjustment_config, create_adjustment_processor
+except ImportError:
+    from adjustment_processor import create_adjustment_config, create_adjustment_processor
+
+try:
+    from .config import BASE_PATH, ENABLE_HK_STOCKS, ALL_MARKETS
+except ImportError:
+    from config import BASE_PATH, ENABLE_HK_STOCKS, ALL_MARKETS
 
 # 配置日志
 logger = logging.getLogger(__name__)
