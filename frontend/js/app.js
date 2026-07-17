@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const timeframeSelect = document.getElementById('timeframe-select');
     const chartContainer = document.getElementById('chart-container');
     const myChart = echarts.init(chartContainer);
+
+    // 自适应浏览器窗口宽度
+    window.addEventListener('resize', () => {
+        myChart.resize();
+    });
     const refreshBtn = document.getElementById('refresh-btn');
     const forceRefreshBtn = document.getElementById('force-refresh-btn');
     const multiTimeframeBtn = document.getElementById('multi-timeframe-btn');
@@ -226,8 +231,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         try {
             // --- 核心修改：调用统一API ---
-            console.log(`调用统一API: /api/unified_analysis/${stockCode}?strategy=${encodeURIComponent(strategy)}`);
-            const response = await fetch(`/api/unified_analysis/${stockCode}?strategy=${encodeURIComponent(strategy)}`);
+            const timeframe = timeframeSelect ? timeframeSelect.value : 'daily';
+            const adjustment = adjustmentSelect ? adjustmentSelect.value : 'forward';
+            console.log(`调用统一API: /api/unified_analysis/${stockCode}?strategy=${encodeURIComponent(strategy)}&timeframe=${timeframe}&adjustment=${adjustment}`);
+            const response = await fetch(`/api/unified_analysis/${stockCode}?strategy=${encodeURIComponent(strategy)}&timeframe=${encodeURIComponent(timeframe)}&adjustment=${encodeURIComponent(adjustment)}`, {
+                cache: 'no-store'
+            });
             
             if (!response.ok) {
                 const errorText = await response.text();
@@ -252,6 +261,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 strategy, 
                 unifiedData.stock_name
             );
+
+            // 更新下拉框中该股票的显示名称（补齐名称）
+            if (unifiedData.stock_name && unifiedData.stock_name !== stockCode) {
+                const opt = Array.from(stockSelect.options).find(o => o.value === stockCode);
+                if (opt && !opt.textContent.includes(unifiedData.stock_name)) {
+                    // 保留日期和缓存标记，只在代码后插入名称
+                    opt.textContent = opt.textContent.replace(stockCode, `${stockCode} ${unifiedData.stock_name}`);
+                }
+            }
             
             // 2. 渲染回测结果
             if (unifiedData.analysis && unifiedData.analysis.backtest_results) {
@@ -297,6 +315,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('数据来源：实时计算');
             }
 
+            // 加载板块和公告信息
+            loadStockBlockInfo(stockCode);
+            loadStockAnnouncements(stockCode);
+
         } catch (error) {
             console.error('统一数据加载失败:', error);
             myChart.clear();
@@ -315,9 +337,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function renderEchart(chartData, stockCode, strategy, stockName) {
+        // 每次渲染前先清空，确保周期切换时图表完全刷新
+        myChart.clear();
+
         const dates = chartData.kline_data.map(item => item.date);
         const klineData = chartData.kline_data.map(item => [item.open, item.close, item.low, item.high]);
         const volumeData = chartData.kline_data.map(item => item.volume);
+
+        console.log(`[renderEchart] 周期: ${timeframeSelect ? timeframeSelect.value : 'daily'}, K线数量: ${dates.length}, 首日: ${dates[0]}, 末日: ${dates[dates.length-1]}`);
 
         // 技术指标数据 - 完整MA系列
         const ma7Data = chartData.indicator_data.map(item => item.ma7);
@@ -338,12 +365,53 @@ document.addEventListener('DOMContentLoaded', function () {
         const rsi12Data = chartData.indicator_data.map(item => item.rsi12);
         const rsi24Data = chartData.indicator_data.map(item => item.rsi24);
 
+        // 金钻趋势双轨数据
+        const gtUpperData = chartData.indicator_data.map(item => item.gt_upper);
+        const gtLowerData = chartData.indicator_data.map(item => item.gt_lower);
+        const gtMidData = chartData.indicator_data.map(item => item.gt_mid);
+        const gtMeta = chartData.golden_trend_meta || {};
+
+        // 趋势EMA数据
+        const mtlData = chartData.indicator_data.map(item => item.mtl);
+        const mtlRisingData = chartData.indicator_data.map(item => item.mtl_rising);
+        const ema5Data = chartData.indicator_data.map(item => item.ema5);
+        const ema10Data = chartData.indicator_data.map(item => item.ema10);
+        const ema20Data = chartData.indicator_data.map(item => item.ema20);
+        const candleColorData = chartData.indicator_data.map(item => item.candle_color);
+        const trendBuyData = chartData.indicator_data.map(item => item.trend_buy);
+        const trendSellData = chartData.indicator_data.map(item => item.trend_sell);
+
+        const hasCandleColor = candleColorData.some(v => v !== null && v !== undefined);
+
+        // 计算 MTL 趋势线分段颜色 (用于 visualMap)
+        const mtlPieces = [];
+        if (mtlRisingData && mtlRisingData.length > 0) {
+            let currentTrend = mtlRisingData[0];
+            let startIndex = 0;
+            for (let i = 1; i < mtlRisingData.length; i++) {
+                if (mtlRisingData[i] !== currentTrend) {
+                    mtlPieces.push({
+                        gte: startIndex,
+                        lt: i,
+                        color: currentTrend === 1 ? '#FF0000' : '#00CC00'
+                    });
+                    currentTrend = mtlRisingData[i];
+                    startIndex = i;
+                }
+            }
+            mtlPieces.push({
+                gte: startIndex,
+                lte: mtlRisingData.length - 1,
+                color: currentTrend === 1 ? '#FF0000' : '#00CC00'
+            });
+        }
+
         // 信号点数据
         const signalData = chartData.signal_points || [];
 
         // 计算合理的数据显示范围
         const totalDataPoints = dates.length;
-        const defaultShowCount = Math.min(252, totalDataPoints); // 默认显示最近60个交易日
+        const defaultShowCount = Math.min(505, totalDataPoints); // 默认显示最近60个交易日
         const startPercent = Math.max(0, ((totalDataPoints - defaultShowCount) / totalDataPoints) * 100);
 
         // 计算各指标的动态范围 - 修复版本
@@ -403,11 +471,20 @@ document.addEventListener('DOMContentLoaded', function () {
             '60min': '60分钟'
         }[timeframe] || '日线';
 
+        // GT 参数信息
+        const gtInfoText = gtMeta.n
+            ? `GT(N=${gtMeta.n}, k=${gtMeta.k}, off=${gtMeta.offset}${gtMeta.double_smooth ? ', 双平滑' : ''})`
+              + ` 通道${(gtMeta.channel_ratio * 100).toFixed(1)}%`
+              + (gtMeta.rail_overlap ? ' ⚠双轨重叠' : '')
+            : '';
+
         const option = {
             title: {
                 text: `${stockCode} ${stockName || ''} - ${strategy}策略分析 (${timeframeText})`,
+                subtext: gtInfoText,
                 left: 'center',
-                textStyle: { fontSize: 16 }
+                textStyle: { fontSize: 16 },
+                subtextStyle: { fontSize: 11, color: gtMeta.rail_overlap ? '#e74c3c' : '#888' }
             },
             tooltip: {
                 trigger: 'axis',
@@ -416,7 +493,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 textStyle: { color: '#fff' }
             },
             legend: {
-                data: ['K线', 'MA7', 'MA13', 'MA30', 'MA45', 'MA60', 'MA90', 'MA150', 'MA240', 'DIF', 'DEA', 'K', 'D', 'J', 'RSI6', 'RSI12', 'RSI24'],
+                data: ['K线', 'MA7', 'MA13', 'MA30', 'MA45', 'MA60', 'MA90', 'MA150', 'MA240', 'GT上轨', 'GT下轨', 'GT中轨', 'MTL', 'EMA5', 'EMA10', 'EMA20', 'DIF', 'DEA', 'K', 'D', 'J', 'RSI6', 'RSI12', 'RSI24', '趋势买入', '趋势卖出'],
                 top: 30,
                 textStyle: { fontSize: 10 }
             },
@@ -463,6 +540,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     handleStyle: { color: '#007bff' }
                 }
             ],
+
+            visualMap: {
+                type: 'piecewise',
+                show: false,
+                dimension: 0,
+                seriesIndex: 12,
+                pieces: mtlPieces
+            },
+
             series: [
                 // 主图：K线和移动平均线
                 {
@@ -470,7 +556,79 @@ document.addEventListener('DOMContentLoaded', function () {
                     type: 'candlestick',
                     data: klineData,
                     xAxisIndex: 0,
-                    yAxisIndex: 0
+                    yAxisIndex: 0,
+                    itemStyle: {
+                        color: function(params) {
+                            const cc = candleColorData[params.dataIndex];
+                            const open = params.value[0];
+                            const close = params.value[1];
+                            if (cc === 1) return '#e74c3c';
+                            if (cc === -1) return '#2ecc71';
+                            if (cc === 0 && hasCandleColor) return '#b0b0b0';
+                            return close >= open ? '#e74c3c' : '#2ecc71';
+                        },
+                        color0: function(params) {
+                            const cc = candleColorData[params.dataIndex];
+                            const open = params.value[0];
+                            const close = params.value[1];
+                            if (cc === 1) return '#e74c3c';
+                            if (cc === -1) return '#2ecc71';
+                            if (cc === 0 && hasCandleColor) return '#b0b0b0';
+                            return close >= open ? '#e74c3c' : '#2ecc71';
+                        },
+                        borderColor: function(params) {
+                            const cc = candleColorData[params.dataIndex];
+                            const open = params.value[0];
+                            const close = params.value[1];
+                            if (cc === 1) return '#e74c3c';
+                            if (cc === -1) return '#2ecc71';
+                            if (cc === 0 && hasCandleColor) return '#b0b0b0';
+                            return close >= open ? '#e74c3c' : '#2ecc71';
+                        },
+                        borderColor0: function(params) {
+                            const cc = candleColorData[params.dataIndex];
+                            const open = params.value[0];
+                            const close = params.value[1];
+                            if (cc === 1) return '#e74c3c';
+                            if (cc === -1) return '#2ecc71';
+                            if (cc === 0 && hasCandleColor) return '#b0b0b0';
+                            return close >= open ? '#e74c3c' : '#2ecc71';
+                        }
+                    },
+                    markPoint: {
+                        symbolSize: 30,
+                        itemStyle: {
+                            shadowBlur: 8,
+                            shadowColor: 'rgba(0,0,0,0.4)'
+                        },
+                        data: (function() {
+                            const points = [];
+                            trendBuyData.forEach(function(val, idx) {
+                                if (val === 1 && klineData[idx]) {
+                                    points.push({
+                                        coord: [idx, klineData[idx][2]],
+                                        symbolOffset: [0, '60%'],
+                                        symbol: 'triangle',
+                                        itemStyle: { color: '#FF0000' },
+                                        name: '趋势买入'
+                                    });
+                                }
+                            });
+                            trendSellData.forEach(function(val, idx) {
+                                if (val === 1 && klineData[idx]) {
+                                    points.push({
+                                        coord: [idx, klineData[idx][3]],
+                                        symbolOffset: [0, '-60%'],
+                                        symbol: 'pin',
+                                        symbolRotate: 180,
+                                        itemStyle: { color: '#00CC00' },
+                                        name: '趋势卖出'
+                                    });
+                                }
+                            });
+                            return points;
+                        })()
+                    }
                 },
                 {
                     name: 'MA7',
@@ -552,7 +710,82 @@ document.addEventListener('DOMContentLoaded', function () {
                     xAxisIndex: 0,
                     yAxisIndex: 0
                 },
-                
+
+                // 金钻趋势双轨
+                {
+                    name: 'GT上轨',
+                    type: 'line',
+                    data: gtUpperData,
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 2, color: '#FFD700', type: 'dashed' },
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
+                },
+                {
+                    name: 'GT下轨',
+                    type: 'line',
+                    data: gtLowerData,
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 2, color: '#FF4500', type: 'dashed' },
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
+                },
+                {
+                    name: 'GT中轨',
+                    type: 'line',
+                    data: gtMidData,
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 1, color: '#FFD700', opacity: 0.3 },
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
+                },
+
+                // 趋势EMA指标
+                {
+                    name: 'MTL',
+                    type: 'line',
+                    data: mtlData,
+                    smooth: false,
+                    symbol: 'none',
+                    lineStyle: { width: 4 },
+                    z: 3,
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
+                },
+                {
+                    name: 'EMA5',
+                    type: 'line',
+                    data: ema5Data,
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 1, color: '#ff6b6b', type: 'dotted' },
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
+                },
+                {
+                    name: 'EMA10',
+                    type: 'line',
+                    data: ema10Data,
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 1, color: '#4ecdc4', type: 'dotted' },
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
+                },
+                {
+                    name: 'EMA20',
+                    type: 'line',
+                    data: ema20Data,
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: { width: 1, color: '#9b59b6', type: 'dotted' },
+                    xAxisIndex: 0,
+                    yAxisIndex: 0
+                },
+
                 // RSI指标
                 {
                     name: 'RSI6',
@@ -732,6 +965,77 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         myChart.setOption(option, true);
+
+        // 更新操作栏
+        updateStockActionBar(stockCode, stockName);
+    }
+
+    // 更新图表上方的股票操作栏（+自选 / +持仓）
+    function updateStockActionBar(stockCode, stockName) {
+        const bar = document.getElementById('stock-action-bar');
+        const title = document.getElementById('stock-action-title');
+        const btnWatchlist = document.getElementById('btn-add-watchlist');
+        const btnPosition = document.getElementById('btn-add-position');
+        if (!bar) return;
+
+        const displayCode = stockCode.slice(2);  // 去掉 sh/sz/bj 前缀
+        title.textContent = `${displayCode}  ${stockName || ''}`;
+        bar.style.display = 'flex';
+
+        // 更新自选按钮状态
+        const inWatchlist = corePoolSet.has(stockCode);
+        btnWatchlist.textContent = inWatchlist ? '⭐ 已自选' : '⭐ +自选';
+        btnWatchlist.style.background = inWatchlist ? '#6c757d' : '#17a2b8';
+
+        // 绑定点击事件（每次重新绑定，避免旧 stockCode 残留）
+        btnWatchlist.onclick = () => addToWatchlist(stockCode, stockName);
+        btnPosition.onclick = () => addCurrentToPosition(stockCode, stockName);
+    }
+
+    // +自选：复用 toggleCorePool 逻辑
+    function addToWatchlist(stockCode, stockName) {
+        const inWatchlist = corePoolSet.has(stockCode);
+        if (inWatchlist) {
+            if (!confirm(`从自选移除 ${stockCode} ${stockName || ''}？`)) return;
+            fetch(`/api/core_pool?stock_code=${stockCode}`, { method: 'DELETE' })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        corePoolSet.delete(stockCode);
+                        showNotification(`已从自选移除 ${stockCode}`);
+                        updateStockActionBar(stockCode, stockName);
+                    } else {
+                        showNotification(`移除失败: ${data.error}`, 3000);
+                    }
+                });
+        } else {
+            fetch('/api/core_pool', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ stock_code: stockCode, note: `${stockName || ''} 搜索添加` })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    corePoolSet.add(stockCode);
+                    showNotification(`已添加到自选: ${stockCode} ${stockName || ''}`);
+                    updateStockActionBar(stockCode, stockName);
+                } else {
+                    showNotification(`添加失败: ${data.error}`, 3000);
+                }
+            });
+        }
+    }
+
+    // +持仓：预填股票代码后打开持仓弹窗
+    function addCurrentToPosition(stockCode, stockName) {
+        showAddPositionModal();
+        // 预填股票代码（格式与持仓管理一致，去掉前缀）
+        const codeInput = document.getElementById('position-stock-code');
+        if (codeInput) {
+            codeInput.value = stockCode;
+            codeInput.readOnly = true;  // 防止误改
+        }
     }
 
     function renderBacktestResults(backtest) {
@@ -1535,7 +1839,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 强制加载股票数据的函数（即使不在策略信号列表中）
     async function loadUnifiedStockDataForced(stockCode) {
-        const strategy = strategySelect.value || 'RSI_BOTTOM'; // 使用默认策略
+        // 取当前策略，若无则取第一个可用策略
+        const strategy = strategySelect.value ||
+            (strategySelect.options.length > 1 ? strategySelect.options[1].value : '');
+        if (!strategy) {
+            showNotification('暂无可用策略，请稍后重试', 2000);
+            return;
+        }
 
         myChart.showLoading();
         // 重置所有信息面板
@@ -1544,7 +1854,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         try {
             console.log(`强制调用统一API: /api/unified_analysis/${stockCode}?strategy=${encodeURIComponent(strategy)}`);
-            const response = await fetch(`/api/unified_analysis/${stockCode}?strategy=${encodeURIComponent(strategy)}`);
+            const timeframe = timeframeSelect ? timeframeSelect.value : 'daily';
+            const adjustment = adjustmentSelect ? adjustmentSelect.value : 'forward';
+            const response = await fetch(`/api/unified_analysis/${stockCode}?strategy=${encodeURIComponent(strategy)}&timeframe=${encodeURIComponent(timeframe)}&adjustment=${encodeURIComponent(adjustment)}`, {
+                cache: 'no-store'
+            });
             
             if (!response.ok) {
                 const errorText = await response.text();
@@ -1569,6 +1883,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 unifiedData.stock_name
             );
             
+            // 更新下拉框中该股票的显示名称
+            const opt = Array.from(stockSelect.options).find(o => o.value === stockCode);
+            if (opt && unifiedData.stock_name && unifiedData.stock_name !== stockCode) {
+                opt.textContent = `${stockCode} ${unifiedData.stock_name} (深度扫描)`;
+            }
+
             // 渲染回测结果
             if (unifiedData.analysis && unifiedData.analysis.backtest_results) {
                 renderBacktestResults(unifiedData.analysis.backtest_results);
@@ -1899,8 +2219,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function hideAddPositionModal() {
         if (addPositionModal) {
             addPositionModal.style.display = 'none';
-            // 清空表单
             document.getElementById('add-position-form').reset();
+            // 解除股票代码输入框的只读锁定
+            const codeInput = document.getElementById('position-stock-code');
+            if (codeInput) codeInput.readOnly = false;
         }
     }
 
@@ -3091,6 +3413,366 @@ document.addEventListener('DOMContentLoaded', function () {
     window.openMA13StrategyPage = openMA13StrategyPage;
     window.runMA13QuickAnalysis = runMA13QuickAnalysis;
 
+    // ── 板块归属 ──────────────────────────────────────────────────────────────
+
+    async function loadStockBlockInfo(stockCode) {
+        const panel = document.getElementById('block-info-panel');
+        const conceptEl = document.getElementById('block-concept-tags');
+        const specialEl = document.getElementById('block-special-tags');
+        if (!panel || !conceptEl || !specialEl) return;
+
+        try {
+            const res = await fetch(`/api/stock/${stockCode}/blocks`);
+            const data = await res.json();
+            if (!data.success) return;
+
+            const renderTags = (tags, color, blockType) => tags.map(t =>
+                `<span onclick="openBlockScreener('${t.replace(/'/g,"\\'")}','${blockType}')"
+                 title="点击筛选板块个股"
+                 style="display:inline-block;margin:2px 4px 2px 0;padding:2px 8px;
+                 background:${color};color:white;border-radius:10px;font-size:0.72rem;
+                 cursor:pointer;transition:opacity .15s;" 
+                 onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">${t}</span>`
+            ).join('');
+
+            const concepts = data.concept_blocks || [];
+            const specials = data.special_blocks || [];
+
+            if (concepts.length === 0 && specials.length === 0) {
+                panel.style.display = 'none';
+                return;
+            }
+
+            conceptEl.innerHTML = concepts.length
+                ? `<div style="margin-bottom:4px;font-size:0.75rem;color:#6c757d;">概念</div>${renderTags(concepts, '#5b8dee', 'concept')}`
+                : '';
+            specialEl.innerHTML = specials.length
+                ? `<div style="margin-top:6px;margin-bottom:4px;font-size:0.75rem;color:#6c757d;">指数/特殊</div>${renderTags(specials, '#20c997', 'special')}`
+                : '';
+
+            panel.style.display = 'block';
+        } catch (e) {
+            console.warn('板块信息加载失败:', e);
+        }
+    }
+
+    // ── 板块筛选弹窗 ──────────────────────────────────────────────────────────
+
+    // 最小化板块筛选弹窗（保留列表，缩到右下角）
+    window.bsmMinimize = function() {
+        const modal = document.getElementById('block-screener-modal');
+        if (!modal) return;
+        const inner = modal.querySelector('div');
+        // 改为右上角悬浮
+        modal.style.alignItems = 'flex-start';
+        modal.style.justifyContent = 'flex-end';
+        modal.style.background = 'transparent';
+        modal.style.pointerEvents = 'none';
+        inner.style.pointerEvents = 'auto';
+        inner.style.width = '280px';
+        inner.style.maxHeight = '52px';
+        inner.style.overflow = 'hidden';
+        inner.style.margin = '16px 16px 0 0';
+        inner.style.cursor = 'pointer';
+        inner.style.borderRadius = '10px';
+        inner.title = '点击展开板块筛选列表';
+        inner.onclick = window.bsmExpand;
+    };
+
+    // 展开板块筛选弹窗
+    window.bsmExpand = function(e) {
+        if (e) e.stopPropagation();
+        const modal = document.getElementById('block-screener-modal');
+        if (!modal) return;
+        const inner = modal.querySelector('div');
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.style.background = 'rgba(0,0,0,.55)';
+        modal.style.pointerEvents = '';
+        inner.style.width = 'min(820px,95vw)';
+        inner.style.maxHeight = '85vh';
+        inner.style.overflow = 'hidden';
+        inner.style.margin = '';
+        inner.style.cursor = 'default';
+        inner.title = '';
+        inner.onclick = null;
+    };
+
+    // 点击列表个股：最小化弹窗并加载该股票
+    window.bsmSelectStock = function(stockCode) {
+        window.bsmMinimize();
+        const sel = document.getElementById('stock-select');
+        if (sel) {
+            let opt = sel.querySelector('option[value="' + stockCode + '"]');
+            if (!opt) {
+                opt = document.createElement('option');
+                opt.value = stockCode;
+                opt.textContent = stockCode;
+                sel.appendChild(opt);
+            }
+            sel.value = stockCode;
+            sel.dispatchEvent(new Event('change'));
+        }
+    };
+
+    window.openBlockScreener = async function(blockName, blockType) {
+        // 创建或复用弹窗
+        let modal = document.getElementById('block-screener-modal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'block-screener-modal';
+            modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;' +
+                'background:rgba(0,0,0,.55);z-index:9999;display:flex;' +
+                'align-items:center;justify-content:center;';
+            modal.innerHTML =
+                '<div style="background:#fff;border-radius:10px;width:min(820px,95vw);' +
+                'max-height:85vh;display:flex;flex-direction:column;overflow:hidden;' +
+                'box-shadow:0 8px 32px rgba(0,0,0,.25);">' +
+                '<div style="padding:14px 18px;border-bottom:1px solid #e9ecef;' +
+                'display:flex;align-items:center;gap:10px;flex-wrap:wrap;">' +
+                '<span id="bsm-title" style="font-weight:600;font-size:1rem;flex:1;"></span>' +
+                '<select id="bsm-strategy" style="padding:4px 8px;border:1px solid #ced4da;' +
+                'border-radius:6px;font-size:0.82rem;">' +
+                '<option value="PRE_CROSS">PRE_CROSS（预金叉）</option>' +
+                '<option value="TRIPLE_CROSS">TRIPLE_CROSS（三重金叉）</option>' +
+                '<option value="MACD_ZERO_AXIS">MACD_ZERO_AXIS（零轴启动）</option>' +
+                '<option value="WEEKLY_GOLDEN_CROSS_MA">WEEKLY_GOLDEN_CROSS_MA（周线金叉）</option>' +
+                '</select>' +
+                '<button id="bsm-run" style="padding:4px 14px;background:#5b8dee;color:#fff;' +
+                'border:none;border-radius:6px;cursor:pointer;font-size:0.82rem;">筛选</button>' +
+                '<button onclick="window.bsmMinimize()" style="padding:4px 10px;background:#fd7e14;' +
+                'color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.82rem;" ' +
+                'title="最小化，保留列表">—</button>' +
+                '<button onclick="document.getElementById(\'block-screener-modal\').style.display=\'none\'" ' +
+                'style="padding:4px 10px;background:#6c757d;color:#fff;border:none;' +
+                'border-radius:6px;cursor:pointer;font-size:0.82rem;">关闭</button>' +
+                '</div>' +
+                '<div id="bsm-status" style="padding:6px 18px;font-size:0.78rem;color:#6c757d;' +
+                'border-bottom:1px solid #f0f0f0;min-height:26px;"></div>' +
+                '<div id="bsm-body" style="overflow-y:auto;flex:1;padding:0 18px 14px;"></div>' +
+                '</div>';
+            document.body.appendChild(modal);
+            modal.addEventListener('click', function(e) {
+                // 只在全屏模式（有遮罩背景）时点击遮罩才关闭
+                if (e.target === modal && modal.style.background !== 'transparent') {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        modal.style.display = 'flex';
+        document.getElementById('bsm-title').textContent = `板块筛选：${blockName}`;
+        document.getElementById('bsm-status').textContent = '';
+        document.getElementById('bsm-body').innerHTML = '';
+
+        // 存储当前板块信息供筛选按钮使用
+        modal._blockName = blockName;
+        modal._blockType = blockType;
+
+        // 绑定筛选按钮（每次重新绑定避免重复）
+        const runBtn = document.getElementById('bsm-run');
+        runBtn.onclick = () => _runBlockScreen(blockName, blockType);
+
+        // 自动触发一次筛选
+        await _runBlockScreen(blockName, blockType);
+    };
+
+    async function _runBlockScreen(blockName, blockType) {
+        const strategy = document.getElementById('bsm-strategy').value;
+        const statusEl = document.getElementById('bsm-status');
+        const bodyEl = document.getElementById('bsm-body');
+
+        statusEl.textContent = '筛选中，请稍候...';
+        bodyEl.innerHTML = `<div style="text-align:center;padding:40px;color:#6c757d;">
+            <div style="display:inline-block;width:32px;height:32px;border:3px solid #f3f3f3;
+                 border-top:3px solid #5b8dee;border-radius:50%;animation:spin 1s linear infinite;"></div>
+            <div style="margin-top:10px;font-size:0.85rem;">正在对板块内个股运行策略筛选...</div></div>`;
+
+        try {
+            const encodedName = encodeURIComponent(blockName);
+            const res = await fetch(`/api/blocks/${encodedName}/screen?type=${blockType}&strategy=${strategy}`);
+            const data = await res.json();
+
+            if (!data.success) {
+                statusEl.textContent = `筛选失败: ${data.error || '未知错误'}`;
+                bodyEl.innerHTML = '';
+                return;
+            }
+
+            const results = data.results || [];
+            statusEl.textContent = `策略: ${strategy} | 命中 ${results.length} 只 / 共扫描板块内个股`;
+
+            if (results.length === 0) {
+                bodyEl.innerHTML = `<div style="text-align:center;padding:40px;color:#6c757d;font-size:0.9rem;">
+                    当前策略在该板块内未发现信号</div>`;
+                return;
+            }
+
+            const rows = results.map((r, i) => {
+                const profitColor = parseFloat((r.avg_max_profit || '0').replace('%','')) >= 0 ? '#28a745' : '#dc3545';
+                return `<tr style="border-bottom:1px solid #f0f0f0;${i%2===0?'background:#fafafa':''}">
+                    <td style="padding:7px 10px;font-size:0.82rem;font-weight:600;color:#333;">${i+1}</td>
+                    <td style="padding:7px 10px;">
+                        <a href="#" onclick="event.preventDefault();window.bsmSelectStock('${r.stock_code}');"
+                           style="color:#5b8dee;font-size:0.85rem;text-decoration:none;font-weight:600;">
+                           ${r.stock_code}</a>
+                    </td>
+                    <td style="padding:7px 10px;font-size:0.82rem;color:#333;">${r.stock_name || '-'}</td>
+                    <td style="padding:7px 10px;font-size:0.78rem;">
+                        <span style="background:#e8f4fd;color:#5b8dee;padding:2px 7px;border-radius:8px;">
+                        ${r.signal_state || '-'}</span>
+                    </td>
+                    <td style="padding:7px 10px;font-size:0.82rem;color:${profitColor};font-weight:600;">
+                        ${r.avg_max_profit || '-'}</td>
+                    <td style="padding:7px 10px;font-size:0.82rem;color:#555;">${r.win_rate || '-'}</td>
+                    <td style="padding:7px 10px;font-size:0.82rem;color:#888;">${r.total_signals || 0}</td>
+                    <td style="padding:7px 10px;font-size:0.78rem;color:#aaa;">${r.avg_days_to_peak || '-'}</td>
+                </tr>`;
+            }).join('');
+
+            bodyEl.innerHTML = `
+                <table style="width:100%;border-collapse:collapse;margin-top:8px;">
+                    <thead>
+                        <tr style="background:#f8f9fa;font-size:0.78rem;color:#6c757d;">
+                            <th style="padding:8px 10px;text-align:left;">#</th>
+                            <th style="padding:8px 10px;text-align:left;">代码</th>
+                            <th style="padding:8px 10px;text-align:left;">名称</th>
+                            <th style="padding:8px 10px;text-align:left;">信号</th>
+                            <th style="padding:8px 10px;text-align:left;">均收益↓</th>
+                            <th style="padding:8px 10px;text-align:left;">胜率</th>
+                            <th style="padding:8px 10px;text-align:left;">历史信号</th>
+                            <th style="padding:8px 10px;text-align:left;">达峰天数</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>`;
+        } catch (e) {
+            statusEl.textContent = '请求失败，请检查后端服务';
+            bodyEl.innerHTML = '';
+            console.error('板块筛选失败:', e);
+        }
+    }
+
+    // ── 个股公告 ──────────────────────────────────────────────────────────────
+
+    async function loadStockAnnouncements(stockCode) {
+        const panel = document.getElementById('announcement-panel');
+        const listEl = document.getElementById('announcement-list');
+        const loadingEl = document.getElementById('announcement-loading');
+        if (!panel || !listEl) return;
+
+        loadingEl && (loadingEl.textContent = '加载中...');
+        panel.style.display = 'block';
+        listEl.innerHTML = '<div style="color:#6c757d;font-size:0.8rem;padding:0.5rem 0;">加载中...</div>';
+
+        try {
+            const res = await fetch(`/api/stock/${stockCode}/announcements?page_size=8`);
+            const data = await res.json();
+            loadingEl && (loadingEl.textContent = '');
+
+            if (!data.success || !data.announcements.length) {
+                listEl.innerHTML = '<div style="color:#6c757d;font-size:0.8rem;">暂无公告</div>';
+                return;
+            }
+
+            listEl.innerHTML = data.announcements.map(ann => `
+                <div style="padding:0.5rem 0;border-bottom:1px solid #f0f2f5;">
+                    <a href="${ann.url}" target="_blank" rel="noopener"
+                       style="font-size:0.78rem;color:#2c3e50;text-decoration:none;line-height:1.4;
+                              display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+                       title="${ann.title}">
+                        ${ann.title}
+                    </a>
+                    <span style="font-size:0.7rem;color:#adb5bd;">${ann.date}</span>
+                </div>
+            `).join('');
+        } catch (e) {
+            loadingEl && (loadingEl.textContent = '');
+            listEl.innerHTML = '<div style="color:#dc3545;font-size:0.8rem;">加载失败</div>';
+            console.warn('公告加载失败:', e);
+        }
+    }
+
     // --- 初始化 ---
     populateStockList();
+
+    // --- 股票搜索框 ---
+    (function initStockSearch() {
+        const searchInput = document.getElementById('stock-search-input');
+        const dropdown = document.getElementById('stock-search-dropdown');
+        if (!searchInput || !dropdown) return;
+
+        let debounceTimer = null;
+
+        searchInput.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            const q = searchInput.value.trim();
+            if (!q) { dropdown.style.display = 'none'; return; }
+            debounceTimer = setTimeout(() => fetchSearchResults(q), 200);
+        });
+
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') { dropdown.style.display = 'none'; searchInput.blur(); }
+            if (e.key === 'ArrowDown') {
+                const first = dropdown.querySelector('.search-item');
+                if (first) { first.focus(); e.preventDefault(); }
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        async function fetchSearchResults(q) {
+            try {
+                const res = await fetch(`/api/stock_search?q=${encodeURIComponent(q)}&limit=20`);
+                const data = await res.json();
+                if (!data.success) return;
+                renderDropdown(data.results);
+            } catch (e) {
+                console.warn('股票搜索失败:', e);
+            }
+        }
+
+        function renderDropdown(results) {
+            if (!results.length) {
+                dropdown.innerHTML = '<div style="padding:0.6rem 1rem;color:#6c757d;font-size:0.85rem;">无匹配结果</div>';
+                dropdown.style.display = 'block';
+                return;
+            }
+            dropdown.innerHTML = results.map(r => `
+                <div class="search-item" tabindex="0" data-code="${r.code}"
+                     style="padding:0.5rem 1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f0f2f5;font-size:0.88rem;">
+                    <span style="font-weight:600;color:#2c3e50;min-width:60px;">${r.code.slice(2)}</span>
+                    <span style="color:#495057;flex:1;padding:0 0.5rem;">${r.name}</span>
+                    <span style="color:#adb5bd;font-size:0.75rem;">${r.pinyin || ''}</span>
+                </div>
+            `).join('');
+            dropdown.style.display = 'block';
+
+            dropdown.querySelectorAll('.search-item').forEach(item => {
+                item.addEventListener('mouseenter', () => item.style.background = '#f0f4ff');
+                item.addEventListener('mouseleave', () => item.style.background = '');
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowDown') { (item.nextElementSibling || item).focus(); e.preventDefault(); }
+                    if (e.key === 'ArrowUp') { (item.previousElementSibling || searchInput).focus(); e.preventDefault(); }
+                    if (e.key === 'Enter') selectStock(item.dataset.code, item);
+                });
+                item.addEventListener('click', () => selectStock(item.dataset.code, item));
+            });
+        }
+
+        function selectStock(fullCode, itemEl) {
+            const nameEl = itemEl ? itemEl.querySelector('span:nth-child(2)') : null;
+            const name = nameEl ? nameEl.textContent.trim() : '';
+            searchInput.value = `${fullCode.slice(2)} ${name}`.trim();
+            dropdown.style.display = 'none';
+
+            // 直接强制加载，不依赖策略下拉框
+            loadUnifiedStockDataForced(fullCode);
+            chartContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    })();
 });
