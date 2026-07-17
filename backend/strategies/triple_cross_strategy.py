@@ -34,8 +34,8 @@ class TripleCrossStrategy(BaseStrategy):
                 'dea_threshold': 0.0
             },
             'kdj': {
-                'n_period': 9,
-                'k_period': 9,
+                'n_period': 27,
+                'k_period': 3,
                 'd_period': 3,
                 'd_low_threshold': 50
             },

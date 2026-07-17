@@ -11,7 +11,8 @@ import indicators
 import strategies
 import backtester
 import multi_timeframe
-from adjustment_processor import create_adjustment_config, create_adjustment_processor
+from golden_trend import calculate_golden_trend, GoldenTrendConfig
+from adjustment_processor import create_adjustment_config, create_adjustment_processor, AdjustmentProcessor, AdjustmentConfig
 from portfolio_manager import create_portfolio_manager
 from strategy_manager import strategy_manager
 from config_manager import config_manager
@@ -42,6 +43,35 @@ CORE_POOL_FILE = os.path.join(RESULT_PATH, 'core_pool.json')
 
 app = Flask(__name__, static_folder=frontend_dir, static_url_path='')
 CORS(app)
+
+# --- 复权处理器单例（按类型缓存，避免每次请求重建）---
+_adj_processors: dict = {}
+
+def get_adj_processor(adjustment_type: str) -> AdjustmentProcessor:
+    # 等待后台预热完成（最多等 60s，正常 10s 内完成）
+    _gbbq_ready.wait(timeout=60)
+    if adjustment_type not in _adj_processors:
+        _adj_processors[adjustment_type] = AdjustmentProcessor(
+            AdjustmentConfig(adjustment_type=adjustment_type)
+        )
+    return _adj_processors[adjustment_type]
+
+# --- gbbq 后台预热：模块导入时立即在后台线程加载，不 block 启动也不 block 请求 ---
+import threading as _threading
+
+_gbbq_ready = _threading.Event()
+
+def _preload_gbbq():
+    try:
+        from gbbq_reader import read_gbbq
+        read_gbbq()
+        print("✅ 复权数据加载完成（后台）")
+    except Exception as e:
+        print(f"⚠️ 复权数据预加载失败: {e}")
+    finally:
+        _gbbq_ready.set()
+
+_threading.Thread(target=_preload_gbbq, daemon=True, name='gbbq-preload').start()
 
 # 注册MA13策略蓝图
 if ma13_available and ma13_bp:
@@ -112,6 +142,21 @@ def ma13_strategy_page():
     return send_from_directory(os.path.join(backend_dir, '..', 'templates'), 'ma13_strategy.html')
 
 # --- API 端点 ---
+
+
+@app.route("/api/stock_search")
+def search_stocks_api():
+    """按代码、名称、拼音首字母或全拼搜索股票"""
+    from stock_name_reader import search_stocks
+    query = request.args.get("q", "").strip()
+    limit = min(int(request.args.get("limit", 20)), 50)
+    if not query:
+        return jsonify({"success": True, "results": []})
+    try:
+        results = search_stocks(query, limit=limit)
+        return jsonify({"success": True, "results": results})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
 
 @app.route('/api/strategies')
 def get_available_strategies():
@@ -281,15 +326,12 @@ def get_stocks_for_strategy(strategy_id):
         results = screener.run_screening([strategy_id])
         
         # 3. 构建返回数据
-        pool_manager = StockPoolManager()
+        from stock_name_reader import get_stock_name
         stock_list = []
         for result in results:
-            stock_profile = pool_manager.get_stock_by_code(result.stock_code)
-            stock_name = stock_profile.get('stock_name', result.stock_code) if stock_profile else result.stock_code
-            
             stock_data = {
                 'stock_code': result.stock_code,
-                'stock_name': stock_name,
+                'stock_name': get_stock_name(result.stock_code),
                 'date': str(result.date),
                 'signal_type': result.signal_type,
                 'price': result.current_price
@@ -356,15 +398,12 @@ def refresh_strategy_screening_cache(strategy_id):
         results = screener.run_screening([strategy_id])
         
         # 构建数据并保存到缓存
-        pool_manager = StockPoolManager()
+        from stock_name_reader import get_stock_name
         stock_list = []
         for result in results:
-            stock_profile = pool_manager.get_stock_by_code(result.stock_code)
-            stock_name = stock_profile.get('stock_name', result.stock_code) if stock_profile else result.stock_code
-            
             stock_data = {
                 'stock_code': result.stock_code,
-                'stock_name': stock_name,
+                'stock_name': get_stock_name(result.stock_code),
                 'date': str(result.date),
                 'signal_type': result.signal_type,
                 'price': result.current_price
@@ -495,10 +534,7 @@ def get_stock_analysis(stock_code):
         
         # 应用复权处理
         if adjustment_type != 'none':
-            adjustment_config = create_adjustment_config(adjustment_type)
-            adjustment_processor = create_adjustment_processor(adjustment_config)
-            df = adjustment_processor.process_data(df, stock_code)
-            print(f"📊 复权处理 {stock_code}: {adjustment_type}")  # 调试信息
+            df = get_adj_processor(adjustment_type).process_data(df, stock_code)
 
         # 计算指标（使用复权后的数据）
         df['ma13'] = indicators.calculate_ma(df, 13)
@@ -516,11 +552,53 @@ def get_stock_analysis(stock_code):
         kdj_config = indicators.KDJIndicatorConfig(adjustment_config=adjustment_config)
         df['k'], df['d'], df['j'] = indicators.calculate_kdj(df, config=kdj_config, stock_code=stock_code)
         
-        # 计算多个周期的RSI
-        df['rsi6'] = indicators.calculate_rsi(df, 6)
-        df['rsi12'] = indicators.calculate_rsi(df, 12)
-        df['rsi24'] = indicators.calculate_rsi(df, 24)
-        
+        # 计算多个周期的RSI（使用复权配置，与MACD/KDJ保持一致）
+        rsi6_config = indicators.RSIIndicatorConfig(period=6, adjustment_config=adjustment_config)
+        rsi12_config = indicators.RSIIndicatorConfig(period=12, adjustment_config=adjustment_config)
+        rsi24_config = indicators.RSIIndicatorConfig(period=24, adjustment_config=adjustment_config)
+        df['rsi6'] = indicators.calculate_rsi(df, config=rsi6_config, stock_code=stock_code)
+        df['rsi12'] = indicators.calculate_rsi(df, config=rsi12_config, stock_code=stock_code)
+        df['rsi24'] = indicators.calculate_rsi(df, config=rsi24_config, stock_code=stock_code)
+
+        # 金钻趋势双轨 (自适应参数)
+        gt_config = GoldenTrendConfig(adaptive=True)
+        gt_series, ema_h, ema_l, gt_meta = calculate_golden_trend(df, config=gt_config, stock_code=stock_code)
+        df['gt_upper'] = ema_h
+        df['gt_lower'] = gt_series
+        df['gt_mid'] = (ema_h + ema_l) / 2
+
+        # 趋势EMA指标 (通达信双EMA策略)
+        close = df['close'].astype(float)
+        ema13 = close.ewm(span=13, adjust=False).mean()
+        df['mtl'] = ema13.ewm(span=13, adjust=False).mean()
+        df['mtl_rising'] = (df['mtl'] > df['mtl'].shift(1)).astype(int)
+
+        df['ema5'] = close.ewm(span=5, adjust=False).mean()
+        df['ema10'] = close.ewm(span=10, adjust=False).mean()
+        df['ema20'] = close.ewm(span=20, adjust=False).mean()
+
+        aa = df['ema5'] > df['ema20']
+        bb = df['ema5'] < df['ema20']
+        cc = df['ema5'] > df['ema10']
+        cc1 = df['ema5'] < df['ema10']
+
+        candle_color = pd.Series(0, index=df.index)
+        candle_color[aa] = 1
+        candle_color[bb] = -1
+        candle_color[bb & cc] = 0
+        candle_color[aa & cc1] = 0
+        df['candle_color'] = candle_color
+
+        buy_sig = (
+            (close > df['mtl']) &
+            (close.shift(1) <= df['mtl'].shift(1)) &
+            (df['mtl_rising'] == 1)
+        )
+        sell_cond = (candle_color == -1) & (close < df['low'].shift(1))
+        sell_sig = sell_cond & ~sell_cond.shift(1).fillna(False)
+        df['trend_buy'] = buy_sig.astype(int)
+        df['trend_sell'] = sell_sig.astype(int)
+
         # 应用策略和回测
         signals = None
         
@@ -627,7 +705,7 @@ def get_stock_analysis(stock_code):
             df_reset['date'] = pd.to_datetime(df_reset['date']).dt.strftime('%Y-%m-%d')
         
         kline_data = df_reset[['date', 'open', 'close', 'low', 'high', 'volume']].to_dict('records')
-        indicator_data = df_reset[['date', 'ma13', 'ma45', 'dif', 'dea', 'macd', 'k', 'd', 'j', 'rsi6', 'rsi12', 'rsi24']].to_dict('records')
+        indicator_data = df_reset[['date', 'ma13', 'ma45', 'dif', 'dea', 'macd', 'k', 'd', 'j', 'rsi6', 'rsi12', 'rsi24', 'gt_upper', 'gt_lower', 'gt_mid', 'mtl', 'mtl_rising', 'ema5', 'ema10', 'ema20', 'candle_color', 'trend_buy', 'trend_sell']].to_dict('records')
         
         # 序列化回测结果
         if isinstance(backtest_results, dict):
@@ -637,7 +715,8 @@ def get_stock_analysis(stock_code):
             'kline_data': kline_data,
             'indicator_data': indicator_data,
             'signal_points': signal_points,
-            'backtest_results': backtest_results
+            'backtest_results': backtest_results,
+            'golden_trend_meta': gt_meta,
         })
     except Exception as e:
         import traceback
@@ -662,10 +741,7 @@ def get_trading_advice(stock_code):
         
         # 应用复权处理
         if adjustment_type != 'none':
-            adjustment_config = create_adjustment_config(adjustment_type)
-            adjustment_processor = create_adjustment_processor(adjustment_config)
-            df = adjustment_processor.process_data(df, stock_code)
-            print(f"📊 交易建议复权处理 {stock_code}: {adjustment_type}")  # 调试信息
+            df = get_adj_processor(adjustment_type).process_data(df, stock_code)
         
         # 计算技术指标
         df['ma13'] = indicators.calculate_ma(df, 13)
@@ -764,8 +840,13 @@ def get_deep_scan_results():
         latest_file = max(json_files, key=os.path.getctime)
         with open(latest_file, 'r', encoding='utf-8') as f: results = json.load(f)
 
+        # 批量获取股票名称
+        from stock_name_reader import get_stock_name
+
         processed = [{
-            'stock_code': k, 'score': v.get('overall_score', {}).get('total_score', 0),
+            'stock_code': k,
+            'stock_name': get_stock_name(k),
+            'score': v.get('overall_score', {}).get('total_score', 0),
             'grade': v.get('overall_score', {}).get('grade', 'F'),
             'action': v.get('recommendation', {}).get('action', 'UNKNOWN'),
             'confidence': v.get('recommendation', {}).get('confidence', 0),
@@ -1025,18 +1106,20 @@ def get_unified_stock_analysis(stock_code):
         
         # 获取请求参数
         strategy_name = request.args.get('strategy', 'PRE_CROSS')
-        app.logger.info(f"统一分析请求: {stock_code}, 策略: {strategy_name}")
+        timeframe = request.args.get('timeframe', 'daily')
+        adjustment_type = request.args.get('adjustment', 'forward')
+        app.logger.info(f"统一分析请求: {stock_code}, 策略: {strategy_name}, 周期: {timeframe}, 复权: {adjustment_type}")
         
         # 使用统一配置管理器查找策略ID
         strategy_id = config_manager.find_strategy_by_old_id(strategy_name)
         if not strategy_id:
             app.logger.warning(f"策略映射失败，使用原名: {strategy_name}")
-            strategy_id = strategy_name  # 如果找不到映射，直接使用原名
+            strategy_id = strategy_name
         else:
             app.logger.info(f"策略映射成功: {strategy_name} -> {strategy_id}")
         
         # 调用统一分析服务（包含缓存机制）
-        result = get_or_run_analysis(stock_code, strategy_id)
+        result = get_or_run_analysis(stock_code, strategy_id, timeframe=timeframe, adjustment_type=adjustment_type)
         
         if result['success']:
             app.logger.info(f"统一分析成功: {stock_code}, 缓存状态: {result['data'].get('from_cache', False)}")
@@ -1125,9 +1208,253 @@ def get_cache_stats():
             'error': f'获取缓存统计失败: {str(e)}'
         }), 500
 
+# ── 板块数据 API ──────────────────────────────────────────────────────────────
+
+@app.route('/api/stock/<stock_code>/blocks')
+def get_stock_block_info(stock_code):
+    """获取个股所属板块信息"""
+    try:
+        from block_reader import get_stock_all_blocks
+        blocks = get_stock_all_blocks(stock_code)
+        # 合并 concept + special，去重
+        concept = blocks.get('concept', [])
+        special = blocks.get('special', [])
+        return jsonify({
+            'success': True,
+            'stock_code': stock_code,
+            'concept_blocks': concept,
+            'special_blocks': special,
+            'all_blocks': concept + [b for b in special if b not in concept],
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/blocks/list')
+def get_blocks_list():
+    """获取所有板块列表"""
+    try:
+        from block_reader import list_all_blocks
+        block_type = request.args.get('type', 'concept')
+        df = list_all_blocks(block_type)
+        return jsonify({
+            'success': True,
+            'block_type': block_type,
+            'blocks': df.to_dict('records'),
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/blocks/<block_name>/stocks')
+def get_block_stock_list(block_name):
+    """获取板块内所有股票"""
+    try:
+        from block_reader import get_block_stocks
+        block_type = request.args.get('type', 'concept')
+        codes = get_block_stocks(block_name, block_type)
+        return jsonify({
+            'success': True,
+            'block_name': block_name,
+            'stock_count': len(codes),
+            'stocks': codes,
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/blocks/<block_name>/screen')
+def screen_block_stocks(block_name):
+    """对板块内股票运行策略筛选，按评分排列返回"""
+    try:
+        from block_reader import get_block_stocks
+        from stock_name_reader import get_stock_name
+        import data_loader as _dl
+        import strategies as _strat
+        import indicators as _ind
+        import backtester as _bt
+        from adjustment_processor import AdjustmentProcessor, AdjustmentConfig
+
+        block_type = request.args.get('type', 'concept')
+        strategy_id = request.args.get('strategy', 'PRE_CROSS').upper()
+
+        codes = get_block_stocks(block_name, block_type)
+        if not codes:
+            return jsonify({'success': True, 'block_name': block_name,
+                            'strategy': strategy_id, 'results': [], 'total': 0})
+
+        adj_processor = AdjustmentProcessor(AdjustmentConfig(adjustment_type='forward'))
+        _gbbq_ready.wait(timeout=30)
+
+        valid_prefixes = ('600', '601', '603', '000', '001', '002', '003', '300', '688')
+        results = []
+
+        for code in codes:
+            try:
+                if code.startswith('sh'):
+                    market, pure = 'sh', code[2:]
+                elif code.startswith('sz'):
+                    market, pure = 'sz', code[2:]
+                elif code.startswith('bj'):
+                    market, pure = 'bj', code[2:]
+                else:
+                    continue
+
+                if not pure.startswith(valid_prefixes):
+                    continue
+
+                file_path = os.path.join(BASE_PATH, market, 'lday', f'{code}.day')
+                if not os.path.exists(file_path):
+                    continue
+
+                df = _dl.get_daily_data(file_path)
+                if df is None or len(df) < 150:
+                    continue
+
+                df = adj_processor.process_data(df, pure)
+
+                signal_series = None
+                signal_state = None
+
+                if strategy_id == 'PRE_CROSS':
+                    signal_series = _strat.apply_pre_cross(df)
+                    if signal_series is None or not signal_series.iloc[-1]:
+                        continue
+                elif strategy_id == 'TRIPLE_CROSS':
+                    signal_series = _strat.apply_triple_cross(df)
+                    if signal_series is None or not signal_series.iloc[-1]:
+                        continue
+                elif strategy_id == 'MACD_ZERO_AXIS':
+                    signal_series = _strat.apply_macd_zero_axis_strategy(df)
+                    signal_state = signal_series.iloc[-1] if signal_series is not None else None
+                    if signal_state not in ['PRE', 'MID', 'POST']:
+                        continue
+                elif strategy_id == 'WEEKLY_GOLDEN_CROSS_MA':
+                    signal_series = _strat.apply_weekly_golden_cross_ma_strategy(df)
+                    signal_state = signal_series.iloc[-1] if signal_series is not None else None
+                    if signal_state not in ['BUY', 'HOLD', 'SELL']:
+                        continue
+                else:
+                    continue
+
+                if 'dif' not in df.columns:
+                    mv = _ind.calculate_macd(df)
+                    df['dif'], df['dea'] = mv[0], mv[1]
+                if 'k' not in df.columns:
+                    kv = _ind.calculate_kdj(df)
+                    df['k'], df['d'], df['j'] = kv[0], kv[1], kv[2]
+
+                bt = _bt.run_backtest(df, signal_series)
+                win_rate_str = bt.get('win_rate', '0.0%') if isinstance(bt, dict) else '0.0%'
+                profit_str = bt.get('avg_max_profit', '0.0%') if isinstance(bt, dict) else '0.0%'
+                total_signals = bt.get('total_signals', 0) if isinstance(bt, dict) else 0
+
+                try:
+                    profit_val = float(profit_str.replace('%', ''))
+                except Exception:
+                    profit_val = 0.0
+                try:
+                    win_val = float(win_rate_str.replace('%', ''))
+                except Exception:
+                    win_val = 0.0
+
+                results.append({
+                    'stock_code': code,
+                    'stock_name': get_stock_name(code),
+                    'signal_state': signal_state or 'BUY',
+                    'total_signals': total_signals,
+                    'win_rate': win_rate_str,
+                    'avg_max_profit': profit_str,
+                    'avg_max_drawdown': bt.get('avg_max_drawdown', '0.0%') if isinstance(bt, dict) else '0.0%',
+                    'avg_days_to_peak': bt.get('avg_days_to_peak', '0.0 天') if isinstance(bt, dict) else '0.0 天',
+                    '_profit_val': profit_val,
+                    '_win_val': win_val,
+                })
+            except Exception:
+                continue
+
+        results.sort(key=lambda x: (x['_profit_val'], x['_win_val']), reverse=True)
+        for r in results:
+            r.pop('_profit_val', None)
+            r.pop('_win_val', None)
+
+        return safe_jsonify({
+            'success': True,
+            'block_name': block_name,
+            'strategy': strategy_id,
+            'total': len(results),
+            'results': results,
+        })
+
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+
+# ── 个股公告/快讯 API ─────────────────────────────────────────────────────────
+
+@app.route('/api/stock/<stock_code>/announcements')
+def get_stock_announcements(stock_code):
+    """获取个股最新公告（东方财富）"""
+    try:
+        import requests as req
+        # 提取纯数字代码
+        pure_code = stock_code.replace('sh', '').replace('sz', '').replace('bj', '')
+        page_size = int(request.args.get('page_size', 10))
+        ann_type = request.args.get('ann_type', 'A')  # A=全部
+
+        url = 'https://np-anotice-stock.eastmoney.com/api/security/ann'
+        params = {
+            'sr': -1,
+            'page_size': page_size,
+            'page_index': 1,
+            'ann_type': ann_type,
+            'client_source': 'web',
+            'stock_list': pure_code,
+        }
+        r = req.get(url, params=params, timeout=8)
+        data = r.json()
+
+        if not data.get('success', False) and data.get('error'):
+            return jsonify({'success': False, 'error': data['error']}), 500
+
+        items = data.get('data', {}).get('list', [])
+        announcements = []
+        for item in items:
+            announcements.append({
+                'title': item.get('title', ''),
+                'date': item.get('notice_date', '')[:10],
+                'art_code': item.get('art_code', ''),
+                'url': f"https://data.eastmoney.com/notices/detail/{item.get('art_code', '')}.html",
+            })
+
+        return jsonify({
+            'success': True,
+            'stock_code': stock_code,
+            'total': len(announcements),
+            'announcements': announcements,
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/stock_names', methods=['POST'])
+def get_stock_names_batch():
+    """批量获取股票名称，body: {"codes": ["sh600519", ...]}"""
+    try:
+        from stock_name_reader import get_stock_names
+        codes = (request.get_json() or {}).get('codes', [])
+        return jsonify({'success': True, 'names': get_stock_names(codes)})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     print("量化分析平台后端启动...")
     print("🚀 新功能：数据库缓存系统已启用")
     print("📊 增强版交易建议已集成")
+    print("⏳ 复权数据正在后台加载中...")
     print("请在浏览器中打开 http://127.0.0.1:5000")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)

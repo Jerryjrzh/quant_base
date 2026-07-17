@@ -18,6 +18,7 @@ from adjustment_processor import create_adjustment_config, create_adjustment_pro
 # --- 核心依赖：导入V4.0评分系统和形态识别器 ---
 from confluence_scorer import confluence_scorer
 from pattern_recognizer import pattern_recognizer
+from data_handler import get_full_data_with_indicators
 
 logger = logging.getLogger(__name__)
 
@@ -284,6 +285,7 @@ def find_cycle_bottom_and_top(df, cycle_info):
         print(f"寻找周期底部和顶部失败: {e}")
         return None, None, None, None
 
+
 def run_backtest(df, signal_series):
     """
     优化的回测函数：按周期分组，从底部到顶部计算收益，添加趋势确认
@@ -503,7 +505,133 @@ def _assess_risk_profile(df: pd.DataFrame) -> Dict:
     except Exception as e:
         return {'error': f'风险评估失败: {str(e)}', 'risk_level': 'UNKNOWN'}
 
-def _calculate_price_targets(df: pd.DataFrame, current_price: float) -> dict:
+def _calculate_price_targets(df: pd.DataFrame, current_price: float, atr: float = None, trend_phase: str = 'unknown', board_limit: float = 0.10) -> dict:
+    """
+    【V4.3 终极融合版】结构化支撑/阻力 + 强趋势敏感过滤
+    """
+    try:
+        # 1. 扩大视野：看 120 天的数据找真正的结构性大底/大顶
+        lookback = min(150, len(df))
+        recent_data = df.tail(lookback)
+        
+        support_levels = []
+        resistance_levels = []
+        
+        # 2. 寻找波段极值 (Pivot Points) - 更加严格的 V 型反转点
+        # 要求比前后 3 天都低/高 才算有效结构
+        for i in range(5, len(recent_data) - 5):
+            window_low = recent_data['low'].iloc[i-5:i+6]
+            if recent_data['low'].iloc[i] == window_low.min():
+                support_levels.append(recent_data['low'].iloc[i])
+            
+            window_high = recent_data['high'].iloc[i-5:i+6]
+            if recent_data['high'].iloc[i] == window_high.max():
+                resistance_levels.append(recent_data['high'].iloc[i])
+        
+        # 3. 引入长线均线作为宏观心理支撑/阻力
+        latest = df.iloc[-1]
+        for ma in ['ma60', 'ma120', 'ma250']:
+            if ma in latest and pd.notna(latest[ma]) and latest[ma] > 0:
+                if latest[ma] < current_price * 1.05:
+                    support_levels.append(latest[ma])
+                else:
+                    resistance_levels.append(latest[ma])
+                    
+        # 去重并排序
+        support_levels = sorted(list(set(support_levels)))
+        resistance_levels = sorted(list(set(resistance_levels)),reverse=True)
+        
+        # 4. 🚀 修复点 1：彻底消灭 ATR 的绝对值兜底硬编码
+        if not atr or atr <= 0:
+            # 如果真没取到ATR，用板块涨跌幅的 20% 作为动态兜底 (10CM是2%, 30CM是6%)
+            atr = current_price * board_limit * 0.20 
+            
+        # 3. 🚀 Grok 优化：使用显式字典进行趋势敏感缓冲
+        # 下跌期要求支撑位必须极远(1.4倍ATR)才算有效；吸筹期要求极低(0.6倍)即可
+        buffer_mult = {'decline': 1.4, 'distribution': 1.2, 'accumulation': 0.6, 'markup': 0.8}.get(trend_phase, 1.0)
+        buffer_dist = atr * buffer_mult
+        
+        valid_supports = [s for s in support_levels if s <= current_price - buffer_dist]
+        next_support = valid_supports[-1] if valid_supports else None
+        
+        valid_resistances = [r for r in resistance_levels if r >= current_price + (buffer_dist * 0.7)]
+        next_resistance = valid_resistances[0] if valid_resistances else None
+        
+        return {
+            'next_support': next_support,
+            'next_resistance': next_resistance,
+            'buffer_dist': buffer_dist
+        }
+    except Exception:
+        import traceback; traceback.print_exc()
+        return {'next_support': None, 'next_resistance': None}
+    
+def _calculate_price_targets_v1(df: pd.DataFrame, current_price: float, atr: float = None, trend_risk_score: float = 1.0, board_limit: float = 0.10) -> dict:
+    """
+    【V4.2 重构】计算动态结构性支撑与阻力位 (融入 ATR 波动率过滤)
+    """
+    try:
+        # 1. 扩大视野：看 120 天的数据找真正的结构性大底/大顶
+        lookback = min(120, len(df))
+        recent_data = df.tail(lookback)
+        
+        support_levels = []
+        resistance_levels = []
+        
+        # 2. 寻找波段极值 (Pivot Points) - 更加严格的 V 型反转点
+        # 要求比前后 3 天都低/高 才算有效结构
+        for i in range(5, len(recent_data) - 5):
+            window_low = recent_data['low'].iloc[i-5:i+6]
+            if recent_data['low'].iloc[i] == window_low.min():
+                support_levels.append(recent_data['low'].iloc[i])
+            
+            window_high = recent_data['high'].iloc[i-5:i+6]
+            if recent_data['high'].iloc[i] == window_high.max():
+                resistance_levels.append(recent_data['high'].iloc[i])
+        
+        # 3. 引入长线均线作为宏观心理支撑/阻力
+        latest = df.iloc[-1]
+        for ma in ['ma60', 'ma120', 'ma250']:
+            if ma in latest and pd.notna(latest[ma]) and latest[ma] > 0:
+                if latest[ma] < current_price * 1.05:
+                    support_levels.append(latest[ma])
+                else:
+                    resistance_levels.append(latest[ma])
+                    
+        # 去重并排序
+        support_levels = sorted(list(set(support_levels)))
+        resistance_levels = sorted(list(set(resistance_levels)),reverse=True)
+        
+        # 4. 🚀 修复点 1：彻底消灭 ATR 的绝对值兜底硬编码
+        if not atr or atr <= 0:
+            # 如果真没取到ATR，用板块涨跌幅的 20% 作为动态兜底 (10CM是2%, 30CM是6%)
+            atr = current_price * board_limit * 0.20 
+            
+        # 5. 🚀 修复点 2：引入趋势敏感过滤 (Trend-Sensitive Filtering)
+        # 趋势风险分(trend_risk_score): 吸筹期最安全(0.5)，主升浪次之(0.8)，派发期(1.5)，下跌期极危险(1.8)
+        # 我们用基础 0.5 * 风险分。
+        # 意味着：吸筹期只需 0.25 倍 ATR 就是有效支撑；下跌期需要 0.9 倍 ATR 才是有效支撑！
+        dynamic_buffer_mult = 0.5 * trend_risk_score
+        buffer_dist = atr * dynamic_buffer_mult
+        
+        valid_supports = [s for s in support_levels if s <= current_price - buffer_dist]
+        next_support = valid_supports[-1] if valid_supports else None
+        
+        valid_resistances = [r for r in resistance_levels if r >= current_price + buffer_dist]
+        next_resistance = valid_resistances[0] if valid_resistances else None
+        
+        return {
+            'next_support': next_support,
+            'next_resistance': next_resistance,
+            'buffer_dist': buffer_dist # 暴露出去方便调试
+        }
+        
+    except Exception as e:
+        import traceback; traceback.print_exc()
+        return {'next_support': None, 'next_resistance': None}
+    
+    
+def _calculate_price_targets_v0(df: pd.DataFrame, current_price: float) -> dict:
     """计算价格目标（支撑位和阻力位），这是一个辅助函数"""
     recent_data = df.tail(60)
     resistance_levels = []
@@ -527,14 +655,24 @@ def _calculate_price_targets(df: pd.DataFrame, current_price: float) -> dict:
     
     return {'next_resistance': next_resistance, 'next_support': next_support}
 
-def _optimize_coefficients_historically(df: pd.DataFrame) -> dict:
+def _optimize_coefficients_historically(df: pd.DataFrame, stock_code: str = "") -> dict:
     """
     通过历史数据回测，优化补仓和卖出系数。
     【已增强】增加了卖出系数的优化逻辑。
     """
     add_coefficients = [0.96, 0.97, 0.98, 0.99, 1.00]
     sell_coefficients = [1.03, 1.05, 1.08, 1.10, 1.15, 1.20] # 卖出系数
-    
+    # ==========================================
+    # 1. 提取板块涨跌幅限制 (在循环外部只执行一次，极省性能)
+    # ==========================================
+    board_limit = 0.10
+    if stock_code:
+        try:
+            from data_handler import get_market_volatility_profile
+            market_profile = get_market_volatility_profile(stock_code)
+            board_limit = market_profile.get('limit', 0.10)
+        except Exception:
+            pass
     # --- 补仓系数回测 (逻辑不变) ---
     add_results = {}
     best_add_coefficient = None
@@ -546,7 +684,35 @@ def _optimize_coefficients_historically(df: pd.DataFrame) -> dict:
             future_data = df.iloc[i+1:i+31]
             if len(future_data) < 15: continue
             hist_price = float(current_data.iloc[-1]['close'])
-            price_targets = _calculate_price_targets(current_data, hist_price)
+            # ==========================================
+            # 2. 极速计算历史当天的截面 ATR 与 趋势分
+            # ==========================================
+            # 快速 ATR：如果有算好的列直接取，没有则用最近 14天的高低点均值
+            if 'atr' in current_data.columns:
+                hist_atr = float(current_data['atr'].iloc[-1])
+            else:
+                hist_atr = (current_data['high'].tail(14) - current_data['low'].tail(14)).mean()
+                if pd.isna(hist_atr) or hist_atr <= 0:
+                    hist_atr = hist_price * 0.03
+                    
+            # 快速趋势分：依托 MA60 牛熊分界线极速判定 (省略繁重的 confluence_scorer)
+            hist_trend_score = 1.0
+            if 'ma60' in current_data.columns:
+                ma60 = current_data['ma60'].iloc[-1]
+                if pd.notna(ma60) and ma60 > 0:
+                    # 跌破 MA60 视为高风险(1.8)，在之上视为主升/强势区(0.8)
+                    hist_trend_score = 1.8 if hist_price < ma60 else 0.8
+            
+            # ==========================================
+            # 3. 完美装填 V4.2 引擎所需的全部参数
+            # ==========================================
+            price_targets = _calculate_price_targets(
+                df=current_data, 
+                current_price=hist_price,
+                atr=hist_atr,
+                trend_risk_score=hist_trend_score,
+                board_limit=board_limit
+            )
             support_level = price_targets.get('next_support')
             if not support_level: continue
             add_price = support_level * add_coeff
@@ -617,8 +783,1639 @@ def _optimize_coefficients_historically(df: pd.DataFrame) -> dict:
 # backend/backtester.py
 
 # backend/backtester.py
+def _generate_forward_advice_v4(df: pd.DataFrame, stock_code: str) -> dict:
+    """
+    【V4.5 优化版】基于 Test 1-10 + 打分分层回测的因子反转改造
+    核心变更: decline 改为 BUY (超跌反弹甜点区), markup+高乖离 强制 AVOID,
+             distribution 由 AVOID 降为 WATCH。打分/定价框架保留。
+    """
+    try:
+        latest_index = len(df) - 1
+        current_price = float(df.iloc[latest_index]['close'])
 
-def _generate_forward_advice_v4(df: pd.DataFrame) -> dict:
+        # 1. 调用 V4.0 评分系统获取最全面的分析结果
+        confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
+
+        # 2. 调用形态识别器
+        pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
+
+        # 3. 初始化建议
+        action = 'HOLD'
+        reasons = []
+        confidence = confluence_result['confidence']
+        quality_grade = 'D'
+
+        # ==========================================
+        # 第一阶段：基础特征提取与评分逻辑
+        # ==========================================
+        market_phase = confluence_result.get('market_phase', 'unknown')
+        trend_phase = market_phase
+
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+        atr_pct = atr / current_price
+
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code)
+        board_limit = market_profile.get('limit', 0.10)
+        board_type = market_profile.get('board_type', '10CM')
+
+        is_high_vol = atr_pct > (board_limit * 0.35)
+
+        reasons.append(f"宏观判断：当前处于 {market_phase.upper()} 阶段。")
+        # ==========================================
+        # v4.5 阶段-动作映射反转 (Test 2/3/MKT 实测)
+        # decline: 超跌反弹甜点区 (MKT 测试 PF=4.82), 改为 BUY
+        # distribution: 中性偏弱, 改为 WATCH (原 AVOID 过严, 实测仍有 alpha)
+        # markup: 高位追涨毒药区 (Test 10 b20=-0.44), 后续按乖离判定 AVOID
+        # accumulation: 保留默认 HOLD (由 total_score 决定 BUY/WATCH)
+        # ==========================================
+        if market_phase == 'decline':
+            action = 'BUY'
+            reasons.append("v4.5 反转信号：decline 阶段为超跌反弹甜点区，主动入场。")
+            confidence *= 1.1
+        elif market_phase == 'distribution':
+            action = 'WATCH'
+            reasons.append("v4.5 调整：distribution 阶段中性偏弱，保持观察但不再一刀切规避。")
+            confidence *= 0.9
+        elif market_phase == 'markup':
+            action = 'HOLD'
+            reasons.append("v4.5 警示：markup 阶段需结合乖离率判定是否追高。")
+
+        total_score = confluence_result.get('total_score', 0)
+        if total_score >= 85:
+            quality_grade = 'A'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (A级)，技术面高度共振。")
+        elif total_score >= 70:
+            quality_grade = 'B'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (B级)，技术面较为一致。")
+        elif total_score >= 55:
+            quality_grade = 'C'
+            action = 'WATCH' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (C级)，建议保持观察。")
+        else:
+            quality_grade = 'D'
+            action = 'AVOID'
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (D级)，技术指标不一致，建议规避。")
+
+        pattern_name = pattern_result.get('best_pattern', 'None') if pattern_result.get('has_pattern') else 'None'
+        if pattern_result.get('has_pattern'):
+            reasons.append(f"形态分析：识别到 {pattern_name} 形态 (置信度: {pattern_result['best_confidence']:.1%})。")
+            confidence = (confidence + pattern_result['best_confidence']) / 2
+
+        # ==========================================
+        # 第二阶段：多维特征标签构造
+        # ==========================================
+        latest_ma60 = df.iloc[latest_index].get('ma60')
+        bias_pct = (current_price - latest_ma60) / latest_ma60 if pd.notna(latest_ma60) and latest_ma60 != 0 else 0.0
+            
+        if bias_pct > 0.15:
+            bias_tier = "高位极度乖离(>15%)"
+        elif bias_pct > 0.05:
+            bias_tier = "多头偏离(5%~15%)"
+        elif bias_pct < -0.15:
+            bias_tier = "深渊超跌(<-15%)"
+        elif bias_pct < -0.05:
+            bias_tier = "空头偏离(-15%~-5%)"
+        else:
+            bias_tier = "均值回归(±5%)"
+
+        # ==========================================
+        # v4.5 乖离率强制覆盖 (Test 10: b20 系数 -0.44, 高乖离 = 毒药)
+        # 当 markup 阶段 + 多头乖离 >5% 时, 强制 AVOID 防追高
+        # 当 decline 阶段 + 深渊超跌 <-15% 时, 强化 BUY 信号
+        # ==========================================
+        if market_phase == 'markup' and bias_pct > 0.05:
+            action = 'AVOID'
+            reasons.append(f"v4.5 乖离强制: markup + 多头偏离 {bias_pct:+.1%}, 追高风险极大, 强制 AVOID。")
+        if market_phase == 'decline' and bias_pct < -0.15:
+            if action != 'AVOID':
+                action = 'BUY'
+                reasons.append(f"v4.5 乖离强化: decline + 深渊超跌 {bias_pct:+.1%}, 超跌反弹最优场景。")
+
+        # ==========================================
+        # 第三阶段：V4.6 扫描器驱动定价 (基于 price_param_sweeper 回测验证)
+        # ==========================================
+        # 核心发现: 入场价越浅越好(T0收盘), 止损要宽(-10~-12%), TP按趋势分层
+        # 20CM 专属: SL=-12%(高波动需宽止损), TP按趋势分化
+
+        price_targets = _calculate_price_targets(
+            df=df,
+            current_price=current_price,
+            atr=atr,
+            trend_phase=trend_phase,
+            board_limit=board_limit
+        )
+        support_level = price_targets.get('next_support')
+        resistance_level = price_targets.get('next_resistance')
+
+        # ----------- V4.6 入场价: T0 收盘浅挂 (扫描器最优: entry=0%) -----------
+        entry_price = round(current_price * 0.99, 2)
+
+        # ----------- V4.6 止损价: 20CM=-12%, 10CM=-10% -----------
+        if board_type == '20CM':
+            sl_pct = -0.12
+        elif board_type == '30CM':
+            sl_pct = -0.12
+        else:
+            sl_pct = -0.10
+
+        # markup + 空头偏离: 扫描器显示 SL=-7% 更优 (波动相对可控)
+        if trend_phase == 'markup' and bias_tier == '空头偏离(-15%~-5%)':
+            sl_pct = -0.07
+
+        stop_price = round(entry_price * (1.0 + sl_pct), 2)
+        if support_level and support_level < entry_price:
+            stop_price = max(stop_price, round(support_level * 0.98, 2))
+
+        # ----------- V4.8 止盈价: 统一 TP=10% (验证回测: 87.1%胜率) -----------
+        tp_pct = 0.10
+
+        target_price = round(entry_price * (1.0 + tp_pct), 2)
+
+        # 阻力位保护: 仅高位风险时压制
+        if resistance_level and entry_price < resistance_level:
+            if trend_phase in ['distribution'] or bias_pct > 0.10:
+                target_price = min(target_price, round(resistance_level * 0.99, 2))
+                reasons.append(f"风控动作：高位风险，逃顶至阻力下方 ({resistance_level:.2f})")
+            else:
+                reasons.append(f"动能逻辑：预期突破阻力 ({resistance_level:.2f})，不设压制。")
+
+        # ----------- V4.8 entry_pos 过滤: 7日区间位置 > 0.5 → AVOID -----------
+        recent_7d = df.tail(7)
+        range_high = float(recent_7d['high'].max())
+        range_low = float(recent_7d['low'].min())
+        price_range = range_high - range_low
+        entry_pos = (entry_price - range_low) / price_range if price_range > 0 else 0.5
+        if entry_pos > 0.5:
+            action = 'AVOID'
+            reasons.append(f"V4.8风控: entry_pos={entry_pos:.3f}>0.5, 信号位于7日区间高位，历史EV为负，强制AVOID。")
+
+        # ==========================================
+        # 第四阶段：时间风控
+        # ==========================================
+        reasons.append(f"V4.9定价: 入场={entry_price:.2f} 止盈={target_price:.2f}({tp_pct:+.0%}) "
+                       f"止损={stop_price:.2f}({sl_pct:+.0%}) entry_pos={entry_pos:.3f} [{board_type}]")
+        reasons.append("⏳ 风控军规：T+15 时间止损 — 持仓15天未触及止盈强制清仓 (T+7仅MFE<-5%退出, T+10仅MFE<1%退出)。")
+
+        return {
+            'action': action,
+            'confidence': float(confidence),
+            'quality_grade': quality_grade,
+            'analysis_logic': reasons,
+            'current_price': current_price,
+            'entry_price': entry_price,
+            'target_price': target_price,
+            'stop_price': stop_price,
+            'resistance_level': resistance_level,
+            'support_level': support_level,
+            'entry_pos': round(entry_pos, 4),
+            'feature_trend': trend_phase,
+            'feature_pattern': pattern_name,
+            'feature_bias_val': round(bias_pct, 4),
+            'feature_bias_tier': bias_tier,
+            'full_confluence_result': confluence_result,
+            'time_stop_days': 15,
+            'trailing_stop_trigger': 0.99,
+        }
+    except Exception as e:
+        logger.error(f"V4.4交易建议生成失败: {e}")
+        import traceback
+        traceback.print_exc()
+        return {'action': 'ERROR', 'analysis_logic': [f'分析时发生错误: {e}'], 'confidence': 0}
+
+def _generate_forward_advice_v4_b7(df: pd.DataFrame, stock_code: str) -> dict:
+    """
+    【V4.4 优化版】基于最新回测数据驱动的参数调优
+    重点解决 distribution + 高位乖离 下的止盈命中率问题
+    """
+    try:
+        latest_index = len(df) - 1
+        current_price = float(df.iloc[latest_index]['close'])
+        
+        # 1. 调用 V4.0 评分系统获取最全面的分析结果
+        confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
+        
+        # 2. 调用形态识别器
+        pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
+
+        # 3. 初始化建议
+        action = 'HOLD'
+        reasons = []
+        confidence = confluence_result['confidence']
+        quality_grade = 'D'
+
+        # ==========================================
+        # 第一阶段：基础特征提取与评分逻辑
+        # ==========================================
+        market_phase = confluence_result.get('market_phase', 'unknown')
+        trend_phase = market_phase
+        
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+        atr_pct = atr / current_price
+        
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code)
+        board_limit = market_profile.get('limit', 0.10)
+        board_type = market_profile.get('board_type', '10CM')
+        
+        is_high_vol = atr_pct > (board_limit * 0.35)
+
+        reasons.append(f"宏观判断：当前处于 {market_phase.upper()} 阶段。")
+        if market_phase in ['distribution', 'decline']:
+            action = 'AVOID'
+            reasons.append("风险提示：市场处于高风险或下跌阶段，建议规避。")
+            confidence *= 0.7
+
+        total_score = confluence_result.get('total_score', 0)
+        if total_score >= 85:
+            quality_grade = 'A'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (A级)，技术面高度共振。")
+        elif total_score >= 70:
+            quality_grade = 'B'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (B级)，技术面较为一致。")
+        elif total_score >= 55:
+            quality_grade = 'C'
+            action = 'WATCH' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (C级)，建议保持观察。")
+        else:
+            quality_grade = 'D'
+            action = 'AVOID'
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (D级)，技术指标不一致，建议规避。")
+
+        pattern_name = pattern_result.get('best_pattern', 'None') if pattern_result.get('has_pattern') else 'None'
+        if pattern_result.get('has_pattern'):
+            reasons.append(f"形态分析：识别到 {pattern_name} 形态 (置信度: {pattern_result['best_confidence']:.1%})。")
+            confidence = (confidence + pattern_result['best_confidence']) / 2
+
+        # ==========================================
+        # 第二阶段：多维特征标签构造
+        # ==========================================
+        latest_ma60 = df.iloc[latest_index].get('ma60')
+        bias_pct = (current_price - latest_ma60) / latest_ma60 if pd.notna(latest_ma60) and latest_ma60 != 0 else 0.0
+            
+        if bias_pct > 0.15:
+            bias_tier = "高位极度乖离(>15%)"
+        elif bias_pct > 0.05:
+            bias_tier = "多头偏离(5%~15%)"
+        elif bias_pct < -0.15:
+            bias_tier = "深渊超跌(<-15%)"
+        elif bias_pct < -0.05:
+            bias_tier = "空头偏离(-15%~-5%)"
+        else:
+            bias_tier = "均值回归(±5%)"
+
+        # ==========================================
+        # v4.5 乖离率强制覆盖 (Test 10: b20 系数 -0.44, 高乖离 = 毒药)
+        # 当 markup 阶段 + 多头乖离 >5% 时, 强制 AVOID 防追高
+        # 当 decline 阶段 + 深渊超跌 <-15% 时, 强化 BUY 信号
+        # ==========================================
+        if market_phase == 'markup' and bias_pct > 0.05:
+            action = 'AVOID'
+            reasons.append(f"v4.5 乖离强制: markup + 多头偏离 {bias_pct:+.1%}, 追高风险极大, 强制 AVOID。")
+        if market_phase == 'decline' and bias_pct < -0.15:
+            if action != 'AVOID':
+                action = 'BUY'
+                reasons.append(f"v4.5 乖离强化: decline + 深渊超跌 {bias_pct:+.1%}, 超跌反弹最优场景。")
+
+        # ==========================================
+        # 第三阶段：自适应网格定价（V4.4 核心优化）
+        # ==========================================
+        trend_risk_score = {'decline': 1.85, 'distribution': 0.85, 'accumulation': 0.55, 'markup': 0.9}.get(trend_phase, 1.0)
+        
+        price_targets = _calculate_price_targets(
+            df=df, 
+            current_price=current_price, 
+            atr=atr, 
+            trend_phase=trend_phase, 
+            board_limit=board_limit
+        )
+        support_level = price_targets.get('next_support')
+        resistance_level = price_targets.get('next_resistance')
+        
+        # 乖离惩罚
+        if bias_pct > 0.15:
+            bias_penalty = max(-0.35, bias_pct * -1.6)
+        else:
+            bias_penalty = max(-0.7, bias_pct * -2.0)
+
+        vol_penalty = 0.20 if is_high_vol else 0.0
+
+        # ----------- 动态入场价 (Entry) - V4.5 修复版 -----------
+        raw_pullback_mult = trend_risk_score + bias_penalty + vol_penalty
+        pullback_multiplier = max(0.25, min(raw_pullback_mult, 2.2))
+        # 20CM/30CM 高波动时不盲目深挂 (减少挂单超时)
+        if board_type == '30CM' or (board_type == '20CM' and is_high_vol):
+            pullback_multiplier *= 0.75
+        elif bias_pct > 0.15:
+            pullback_multiplier = max(0.25, pullback_multiplier * 0.90)
+
+        MAX_DRAWDOWN_CAP = board_limit * 1.3 
+        max_allowed_drawdown = current_price * MAX_DRAWDOWN_CAP
+        pullback = min(atr * pullback_multiplier, max_allowed_drawdown)
+        dynamic_entry = current_price - pullback
+        
+        # 支撑位交互
+        if support_level:
+            supp_distance = (current_price - support_level) / current_price
+            if supp_distance < market_profile.get('limit', 0.1):
+                if trend_risk_score > 1.0:
+                    dynamic_entry = min(dynamic_entry, support_level * 0.97)
+                else:
+                    dynamic_entry = max(dynamic_entry, support_level + (atr * 0.1))
+
+        # 最终买入价兜底保护
+        min_price_floor = current_price * {
+            'distribution': 0.78,
+            'decline': 0.76,
+            'accumulation': 0.72,
+            'markup': 0.75
+        }.get(trend_phase, 0.75)
+        
+        entry_price = round(max(min(dynamic_entry, current_price * 0.99), min_price_floor), 2)
+
+        # ----------- 动态止损价 (Stop) -----------
+        volatility_ratio = atr / current_price
+        stop_mult = 1.2 + (volatility_ratio * 10)
+        max_stop_distance = entry_price * (board_limit * 0.8)
+        stop_price = round(entry_price - min(atr * stop_mult, max_stop_distance), 2)
+        if support_level and support_level < entry_price:
+            stop_price = max(stop_price, round(support_level * 0.98, 2))
+
+        # ----------- 动态止盈价 (Target) - V4.4 场景化优化 -----------
+        base_target_mult_map = {
+            'accumulation': 3.35,
+            'markup': 3.25,
+            'distribution': 2.35,      # 重点压制
+            'decline': 2.65
+        }
+        base_target_mult = base_target_mult_map.get(trend_phase, 2.8)
+        
+        risk_deduction = (trend_risk_score - 0.5) * {
+            'distribution': 1.55,
+            'decline': 1.35,
+            'accumulation': 0.75,
+            'markup': 1.05
+        }.get(trend_phase, 1.10)
+        
+        bias_adjust = bias_penalty * 0.42
+        target_multiplier = max(1.22, base_target_mult - risk_deduction + bias_adjust)
+        
+        # 高波 + 高风险阶段额外压制
+        if is_high_vol:
+            target_multiplier *= 0.85
+        elif trend_phase in ['distribution', 'decline']:
+            target_multiplier *= 0.88
+        
+        # 板块差异化利润天花板
+        MAX_PROFIT_CAP = board_limit * {
+            '10CM': 1.92,
+            '20CM': 1.55,
+            '30CM': 1.30
+        }.get(board_type, 1.55)
+        
+        target_add = min(atr * target_multiplier, entry_price * MAX_PROFIT_CAP)
+        target_price = round(entry_price + target_add, 2)
+
+        reasons.append(f"止盈建议：[V4.4场景化] 弹性系数 {target_multiplier:.2f}x ATR，天花板 {MAX_PROFIT_CAP*100:.0f}%")
+
+        # 阻力位严格逃顶
+        if resistance_level and entry_price < resistance_level:
+            if trend_phase == 'accumulation' and not is_high_vol and bias_pct < 0.08:
+                target_price = max(target_price, round(resistance_level * 1.03, 2))
+            else:
+                target_price = min(target_price, round(resistance_level * 0.98, 2))
+                reasons.append(f"风控动作：严格逃顶至阻力下方 ({resistance_level:.2f})")
+
+        # ==========================================
+        # 第四阶段：时间风控
+        # ==========================================
+        if board_type == '10CM':
+            reasons.append("⏳ 风控军规：[10CM] T+2 极易诱多A杀，T+3 未达止盈必须强制平仓。")
+        else:
+            reasons.append("⏳ 风控军规：T+3 时间止损 — 持仓3天未触及止盈强制清仓。")
+
+        return {
+            'action': action,
+            'confidence': float(confidence),
+            'quality_grade': quality_grade,
+            'analysis_logic': reasons,
+            'current_price': current_price,
+            'entry_price': entry_price,
+            'target_price': target_price,
+            'stop_price': stop_price,
+            'resistance_level': resistance_level,
+            'support_level': support_level,
+            'feature_trend': trend_phase,
+            'feature_pattern': pattern_name,
+            'feature_bias_val': round(bias_pct, 4),
+            'feature_bias_tier': bias_tier,
+            'full_confluence_result': confluence_result,
+            'time_stop_days': 3,
+            'trailing_stop_trigger': 0.05,
+        }
+    except Exception as e:
+        logger.error(f"V4.4交易建议生成失败: {e}")
+        import traceback
+        traceback.print_exc()
+        return {'action': 'ERROR', 'analysis_logic': [f'分析时发生错误: {e}'], 'confidence': 0}
+
+def _generate_forward_advice_v4_b6(df: pd.DataFrame, stock_code: str) -> dict:
+    """
+    【V4.3 终极核心函数】基于 V4.0 Confluence Scorer 生成高质量、可解释的交易建议
+    融入自适应数学网格、动态支撑/阻力过滤、多维特征标签与时间风控体系。
+    """
+    try:
+        latest_index = len(df) - 1
+        current_price = float(df.iloc[latest_index]['close'])
+        
+        # 1. 调用 V4.0 评分系统获取最全面的分析结果
+        confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
+        
+        # 2. 调用形态识别器
+        pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
+
+        # 3. 初始化建议
+        action = 'HOLD'
+        reasons = []
+        confidence = confluence_result['confidence']
+        quality_grade = 'D'
+
+        # ==========================================
+        # 第一阶段：基础特征提取与评分逻辑
+        # ==========================================
+        # 提取趋势与市场环境
+        market_phase = confluence_result.get('market_phase', 'unknown')
+        trend_phase = market_phase  # 统一变量名
+        
+        # 获取 ATR 及板块信息
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+        atr_pct = atr / current_price
+        
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code)
+        board_limit = market_profile.get('limit', 0.10)
+        board_type = market_profile.get('board_type', '10CM')
+        
+        is_high_vol = atr_pct > (board_limit * 0.35)
+
+        reasons.append(f"宏观判断：当前处于 {market_phase.upper()} 阶段。")
+        if market_phase in ['distribution', 'decline']:
+            action = 'AVOID'
+            reasons.append("风险提示：市场处于高风险或下跌阶段，建议规避。")
+            confidence *= 0.7
+
+        total_score = confluence_result.get('total_score', 0)
+        if total_score >= 85:
+            quality_grade = 'A'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (A级)，技术面高度共振。")
+        elif total_score >= 70:
+            quality_grade = 'B'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (B级)，技术面较为一致。")
+        elif total_score >= 55:
+            quality_grade = 'C'
+            action = 'WATCH' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (C级)，建议保持观察。")
+        else:
+            quality_grade = 'D'
+            action = 'AVOID'
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (D级)，技术指标不一致，建议规避。")
+
+        pattern_name = pattern_result.get('best_pattern', 'None') if pattern_result.get('has_pattern') else 'None'
+        if pattern_result.get('has_pattern'):
+            reasons.append(f"形态分析：识别到 {pattern_name} 形态 (置信度: {pattern_result['best_confidence']:.1%})。")
+            confidence = (confidence + pattern_result['best_confidence']) / 2
+
+        alignment = confluence_result.get('alignment_analysis', {})
+        if alignment.get('alignment_score', 0) > 5:
+            reasons.append(f"历史对齐：价格与指标底部同步性良好 (得分: {alignment['alignment_score']})。")
+        
+        backtest_val = confluence_result.get('backtest_analysis', {})
+        if backtest_val.get('signal_count', 0) > 0:
+            reasons.append(f"历史回测：基于对齐信号的历史胜率为 {backtest_val['win_rate']:.1%} (共{backtest_val['signal_count']}次)。")
+
+        # ==========================================
+        # 第二阶段：多维特征标签构造 (供深度回测透视使用)
+        # ==========================================
+        # 乖离率特征 (Bias - 距离MA60的偏离程度)
+        latest_ma60 = df.iloc[latest_index].get('ma60')
+        if pd.isna(latest_ma60) or latest_ma60 == 0:
+            bias_pct = 0.0
+        else:
+            bias_pct = (current_price - latest_ma60) / latest_ma60
+            
+        if bias_pct > 0.15:
+            bias_tier = "高位极度乖离(>15%)"
+        elif bias_pct > 0.05:
+            bias_tier = "多头偏离(5%~15%)"
+        elif bias_pct < -0.15:
+            bias_tier = "深渊超跌(<-15%)"
+        elif bias_pct < -0.05:
+            bias_tier = "空头偏离(-15%~-5%)"
+        else:
+            bias_tier = "均值回归(±5%)"
+
+        # ==========================================
+        # 第三阶段：自适应网格定价与支撑阻力过滤
+        # ==========================================
+        # 提前计算趋势风险分，用于支撑位过滤
+        trend_risk_score = {'decline': 1.85, 'distribution': 0.85, 'accumulation': 0.55, 'markup': 0.9}.get(trend_phase, 1.0)
+        
+        # 动态计算有效支撑位和阻力位 (调用最新的 V4.3 函数)
+        price_targets = _calculate_price_targets(
+            df=df, 
+            current_price=current_price, 
+            atr=atr, 
+            trend_phase=trend_phase, 
+            board_limit=board_limit
+        )
+        support_level = price_targets.get('next_support')
+        resistance_level = price_targets.get('next_resistance')
+        
+        # 乖离惩罚：给超跌折扣，超买加深防守。控制在物理极限内。
+        #raw_bias_penalty = bias_pct * 2.5 
+        #bias_penalty = max(-0.8, min(1.5, raw_bias_penalty))
+        if bias_pct > 0.15:
+            bias_penalty = max(-0.35, bias_pct * -1.6)
+        else:
+            bias_penalty = max(-0.7, bias_pct * -2.0)
+
+        # 波动率温和惩罚
+        vol_penalty = 0.20 if is_high_vol else 0.0
+
+        # ----------- 动态入场价 (Entry) -----------
+        # 核心方程：挂单深度 = 趋势风险 + 乖离惩罚 + 波动惩罚
+        raw_pullback_mult = trend_risk_score + bias_penalty + vol_penalty
+        pullback_multiplier = max(0.25, min(raw_pullback_mult, 2.2))
+        # 30CM 减少回撤深度（避免挂太深）
+        if board_type == '30CM':
+            pullback_multiplier = max(0.15, pullback_multiplier * 0.55)   # 新增：30CM浅回撤
+
+        MAX_DRAWDOWN_CAP = board_limit * 1.3 
+        MAX_PROFIT_CAP = board_limit * 1.3
+
+        max_allowed_drawdown = current_price * MAX_DRAWDOWN_CAP
+        pullback = min(atr * pullback_multiplier, max_allowed_drawdown)
+        dynamic_entry = current_price - pullback
+        
+        supp_distance = (current_price - support_level) / current_price if support_level else 1
+        
+        # 智能支撑位交互方程
+        if support_level and supp_distance < market_profile['limit']:
+            if trend_risk_score > 1.0:
+                dynamic_entry = min(dynamic_entry, support_level * 0.97)
+                reasons.append(f"入场建议：[自适应] 行情偏弱，任由价格击穿支撑位({support_level:.2f})吸筹，限价 ¥{dynamic_entry:.2f}。")
+            else:
+                dynamic_entry = max(dynamic_entry, support_level + (atr * 0.1))
+                reasons.append(f"入场建议：[自适应] 行情强势，依托技术支撑位({support_level:.2f})上方拦截，限价 ¥{dynamic_entry:.2f}。")
+        else:
+            reasons.append(f"入场建议：[自适应] 依据趋势分({trend_risk_score:.1f})与乖离，自动计算回撤系数 {pullback_multiplier:.1f}x ATR。")
+
+        if pullback_multiplier >= 2.8:
+            action = 'AVOID'
+            reasons.append("⚠️风险警示：系统测算趋势破位且乖离过大，风险收益比极差，强烈建议规避。")
+
+        #entry_price = round(max(min(dynamic_entry, current_price * 0.99), current_price * (1 - board_limit)), 2)
+                # distribution 高位乖离时略微放宽下限保护
+        min_price_floor = current_price * 0.78 if (trend_phase == 'distribution' and bias_pct > 0.12) else current_price * 0.75
+        entry_price = round(max(min(dynamic_entry, current_price * 0.99), min_price_floor), 2)
+
+        volatility_ratio = atr / current_price # 动态日内波动率评估
+        is_high_vol = volatility_ratio > 0.06  
+        # ----------- 动态止损价 (Stop) -----------
+        stop_mult = 1.2 + (volatility_ratio * 10)  
+        max_stop_distance = entry_price * (board_limit * 0.8) 
+        
+        stop_price = round(entry_price - min(atr * stop_mult, max_stop_distance), 2)  
+        if support_level and support_level < entry_price:
+            stop_price = max(stop_price, round(support_level * 0.98, 2)) 
+
+        # ----------- 动态止盈价 (Target) -----------
+        base_target_mult = 2 - (trend_risk_score - 0.5) * 1.4 - (bias_penalty * 0.3)
+        target_multiplier = max(1.2, base_target_mult * (0.7 if is_high_vol else 1.0))
+        #base_target_mult = 3.2 - (trend_risk_score - 0.5) * 1.8 - (bias_penalty * 0.6)
+        #target_multiplier = max(1.2, base_target_mult * (0.6 if is_high_vol else 1.0))
+        
+        target_add = min(atr * target_multiplier, entry_price * MAX_PROFIT_CAP)
+        target_price = round(entry_price + target_add, 2)
+        
+        reasons.append(f"止盈建议：[动态弹性] 算法预期弹性系数为 {target_multiplier:.1f}x ATR，最高锁定天花板为 {MAX_PROFIT_CAP*100:.0f}%。")
+
+        if resistance_level and entry_price < resistance_level:
+             # Grok 逃顶逻辑融合
+             if trend_phase == 'accumulation' and not is_high_vol and bias_pct < 0.08:
+                 target_price = max(target_price, round(resistance_level * 1.015, 2))
+                 reasons.append(f"风控动作：底部蓄力坚实且未超买，预期突破上行阻力({resistance_level:.2f})。")
+             else:
+                 target_price = min(target_price, round(resistance_level * 0.975, 2))
+                 reasons.append(f"风控动作：历史大数据显示该位置阻力突破胜率极低，严格压低目标至强阻力({resistance_level:.2f})下方逃顶。")
+
+        # ==========================================
+        # 第四阶段：引入时间风控 (Time-in-Market Risk)
+        # ==========================================
+        if board_type == '10CM':
+             reasons.append("⏳ 风控军规：[10CM A杀高危区] 历史数据显示该板块 T+1/T+2 极易诱多A杀。若 T+2 冲高未能触及止盈，必须手动下调目标价，利润回撤至 3% 时无条件强制平仓，严禁格局！")
+        else:
+             reasons.append("⏳ 风控军规：历史大数据表明，当前交易模型的绝对高点均在 T+2 左右出现。严格执行【T+3 时间止损法】：若持仓 3 天仍未触及止盈，无论盈亏，强制清仓释放资金！")
+             
+        return {
+            'action': action,
+            'confidence': float(confidence),
+            'quality_grade': quality_grade,
+            'analysis_logic': reasons,
+            'current_price': current_price,
+            'entry_price': entry_price,      
+            'target_price': target_price,    
+            'stop_price': stop_price,        
+            'resistance_level': resistance_level,
+            'support_level': support_level,
+            'feature_trend': trend_phase,
+            'feature_pattern': pattern_name,
+            'feature_bias_val': round(bias_pct, 4),
+            'feature_bias_tier': bias_tier,
+            'full_confluence_result': confluence_result,
+            'time_stop_days': 3, 
+            'trailing_stop_trigger': 0.05, 
+        }
+    except Exception as e:
+        logger.error(f"V4.3交易建议生成失败: {e}")
+        import traceback; traceback.print_exc()
+        return {'action': 'ERROR', 'analysis_logic': [f'分析时发生错误: {e}'], 'confidence': 0}
+    
+def _generate_forward_advice_v4_b5(df: pd.DataFrame, stock_code: str) -> dict:
+    """
+    【V4.1 核心函数】基于 V4.0 Confluence Scorer 生成高质量、可解释的交易建议（已修复参数传递）
+    """
+    try:
+        latest_index = len(df) - 1
+        current_price = float(df.iloc[latest_index]['close'])
+        
+        # 1. 调用 V4.0 评分系统获取最全面的分析结果
+        confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
+        
+        # 2. 调用形态识别器
+        pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
+
+        # 3. 初始化建议
+        action = 'HOLD'
+        reasons = []
+        confidence = confluence_result['confidence']
+        quality_grade = 'D'
+
+        # 4. 构建层次化的决策逻辑
+        market_phase = confluence_result.get('market_phase', 'unknown')
+        reasons.append(f"宏观判断：当前处于 {market_phase.upper()} 阶段。")
+        if market_phase in ['distribution', 'decline']:
+            action = 'AVOID'
+            reasons.append("风险提示：市场处于高风险或下跌阶段，建议规避。")
+            confidence *= 0.7
+
+        total_score = confluence_result.get('total_score', 0)
+        if total_score >= 85:
+            quality_grade = 'A'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (A级)，技术面高度共振。")
+        elif total_score >= 70:
+            quality_grade = 'B'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (B级)，技术面较为一致。")
+        elif total_score >= 55:
+            quality_grade = 'C'
+            action = 'WATCH' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (C级)，建议保持观察。")
+        else:
+            quality_grade = 'D'
+            action = 'AVOID'
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (D级)，技术指标不一致，建议规避。")
+
+        if pattern_result.get('has_pattern'):
+            reasons.append(f"形态分析：识别到 {pattern_result['best_pattern']} 形态 (置信度: {pattern_result['best_confidence']:.1%})。")
+            confidence = (confidence + pattern_result['best_confidence']) / 2
+
+        alignment = confluence_result.get('alignment_analysis', {})
+        if alignment.get('alignment_score', 0) > 5:
+            reasons.append(f"历史对齐：价格与指标底部同步性良好 (得分: {alignment['alignment_score']})。")
+        
+        backtest_val = confluence_result.get('backtest_analysis', {})
+        if backtest_val.get('signal_count', 0) > 0:
+            reasons.append(f"历史回测：基于对齐信号的历史胜率为 {backtest_val['win_rate']:.1%} (共{backtest_val['signal_count']}次)。")
+
+        # 5. 计算支撑位和阻力位
+        price_targets = _calculate_price_targets(df, current_price)
+        support_level = price_targets.get('next_support')
+        resistance_level = price_targets.get('next_resistance')
+        
+        # 🚀 引入市场波动画像 (完美接入传入的 stock_code)
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code)
+        board_type = market_profile['board_type']
+        atr_adj = market_profile['atr_entry_mult']
+        # ==========================================
+        # 🏷️ 核心新增：提取“位置决定性质”的多维特征标签
+        # ==========================================
+        # 1. 趋势特征 (Trend)
+        trend_phase = confluence_result.get('market_phase', 'unknown')
+        
+        # 2. 形态特征 (Pattern)
+        pattern_name = pattern_result.get('best_pattern', 'None') if pattern_result.get('has_pattern') else 'None'
+        
+        # 3. 乖离率特征 (Bias - 距离MA60的偏离程度)
+        latest_ma60 = df.iloc[latest_index].get('ma60')
+        if pd.isna(latest_ma60) or latest_ma60 == 0:
+            bias_pct = 0.0
+        else:
+            bias_pct = (current_price - latest_ma60) / latest_ma60
+            
+        # 乖离率离散化（方便后续分组统计）
+        if bias_pct > 0.15:
+            bias_tier = "高位极度乖离(>15%)"
+        elif bias_pct > 0.05:
+            bias_tier = "多头偏离(5%~15%)"
+        elif bias_pct < -0.15:
+            bias_tier = "深渊超跌(<-15%)"
+        elif bias_pct < -0.05:
+            bias_tier = "空头偏离(-15%~-5%)"
+        else:
+            bias_tier = "均值回归(±5%)"
+        # 6. 获取基础 ATR 和 计算高波因子
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+        volatility_ratio = atr / current_price # 动态日内波动率评估
+        is_high_vol = volatility_ratio > 0.06  
+        
+        # ==========================================
+        # 🚀 进化：引入【最大偏离封顶(Cap)】的自适应网格
+        # ==========================================
+        
+        # ----------- 动态入场价 (Entry) -----------
+        if board_type == '10CM':
+            if bias_pct < -0.15 and trend_phase == 'accumulation':
+                pullback = atr * 0.5
+                reasons.append("入场建议：[10CM 黄金坑] 深渊超跌，小幅回撤极速上车。")
+            elif is_high_vol and trend_phase in ['distribution', 'decline']:
+                # 限制最大回撤深度，防止挂单深到离谱（不超过现价的8%）
+                pullback = min(atr * 2.0, current_price * 0.08)
+                reasons.append("入场建议：[10CM 高波防守] 波动极大，启用封顶防守深度挂单。")
+            else:
+                pullback = atr * (0.8 if action == 'BUY' else 1.2)
+                reasons.append("入场建议：[10CM 常规] 基于均值回归逻辑寻找稳定买点。")
+                
+        elif board_type == '30CM':
+            if trend_phase == 'accumulation' or bias_tier == '均值回归(±5%)':
+                pullback = atr * 0.3 
+                reasons.append("入场建议：[30CM 底部洗盘] 支撑极强，缩小挂单深度防止踏空。")
+            elif trend_phase in ['distribution', 'markup']:
+                action = 'AVOID'
+                pullback = atr * 3.0
+                reasons.append("⚠️风险警示：[30CM 高位崩塌区] 胜率极低，强烈建议规避。")
+            else:
+                # 修复30CM踏空：最大回撤深度硬性封顶于 12%
+                pullback = min(atr * 1.5, current_price * 0.12)
+                reasons.append("入场建议：[30CM 冰点区] 限制最大防守深度，防止脱离实际行情。")
+                
+        else: # 20CM
+            if trend_phase == 'decline':
+                pullback = atr * 0.5
+                reasons.append("入场建议：[20CM 超跌反弹] 缩小接针深度。")
+            elif is_high_vol and bias_pct > 0.05:
+                pullback = min(atr * 1.5, current_price * 0.10)
+                reasons.append("入场建议：[20CM 高波震荡] 乖离过高，限价深调。")
+            else:
+                pullback = atr * 0.8
+                reasons.append("入场建议：[20CM 稳健区] 依托 ATR 构建常规安全垫。")
+       # ----------- 绝对空间封顶 (Cap) 配置 -----------
+        MAX_PROFIT_CAP = {'10CM': 0.24, '20CM': 0.28, '30CM': 0.45}.get(board_type, 0.25)
+        MAX_DRAWDOWN_CAP = {'10CM': 0.18, '20CM': 0.18, '30CM': 0.22}.get(board_type, 0.18)
+        
+        # 1. 基础深度护栏
+        max_allowed_drawdown = current_price * MAX_DRAWDOWN_CAP
+        pullback = min(pullback, max_allowed_drawdown)
+        
+        # 2. 计算初步买点
+        dynamic_entry = current_price - pullback
+        supp_distance = (current_price - support_level) / current_price if support_level else 1
+        
+        # 3. 支撑位防穿透与抢跑重构
+        if support_level and supp_distance < market_profile['limit']:
+            # 防穿透：无论 ATR 算出多深的跌幅，最多只允许跌穿支撑位 2%
+            support_floor = support_level * 0.98
+            dynamic_entry = max(dynamic_entry, support_floor)
+            
+            # 抢跑：如果初步买点已经掉进了支撑位附近的“引力区”，则在支撑位上方 0.1 ATR 处抢跑拦截
+            if dynamic_entry < support_level + (atr * 0.3):
+                dynamic_entry = max(dynamic_entry, support_level + (atr * 0.1))
+
+        # 4. 跌停板托底与现价防呆
+        entry_price = round(max(min(dynamic_entry, current_price * 0.99), current_price * 0.7), 2) 
+
+        # ----------- 动态止损价 (Stop) -----------
+        stop_multiplier = {'10CM': 1.2, '20CM': 1.5, '30CM': 2.0}.get(board_type, 1.5) if is_high_vol else {'10CM': 1.5, '20CM': 1.8, '30CM': 2.5}.get(board_type, 1.5)
+        
+        # 绝对止损护栏：单笔最大止损不得超过 15%
+        max_stop_loss_distance = entry_price * 0.15
+        stop_price = round(entry_price - min(atr * stop_multiplier, max_stop_loss_distance), 2)  
+        
+        if support_level and support_level < entry_price:
+            tech_stop = round(support_level * (1 - market_profile['sr_tolerance']), 2)
+            stop_price = max(stop_price, tech_stop) 
+
+        # ----------- 动态止盈价 (Target) -----------
+        if board_type == '10CM':
+            if is_high_vol:
+                target_add = atr * 1.5 
+                reasons.append("止盈建议：[10CM 高波快打] ATR臃肿，强行降速，微利即走。")
+            elif bias_pct < -0.15 or bias_pct > 0.05:
+                target_add = atr * 4.0 
+                reasons.append("止盈建议：[10CM 稳态主升] 目标放大至波段高点。")
+            else:
+                target_add = atr * 2.5
+                
+        elif board_type == '30CM':
+            if trend_phase == 'accumulation':
+                target_add = atr * 3.5 
+                reasons.append("止盈建议：[30CM 底部起爆] 配合高胜率底仓锁定波段。")
+            else:
+                target_add = atr * 1.2 
+                reasons.append("止盈建议：[30CM 快进快出] 弱势区微利即走。")
+                
+        else: # 20CM
+            if is_high_vol:
+                target_add = atr * 2.0
+                reasons.append("止盈建议：[20CM 高波短打] 剧烈震荡目标收敛。")
+            elif bias_pct > 0.15 and trend_phase in ['distribution', 'markup']:
+                target_add = atr * 3.5 
+                reasons.append("止盈建议：[20CM 龙头首阴] 高位反抽强劲。")
+            else:
+                target_add = atr * 2.5
+
+        # 应用绝对天花板：防止高波股出现不可能达到的预期
+        final_target_add = min(target_add, entry_price * MAX_PROFIT_CAP)
+        target_price = round(entry_price + final_target_add, 2)
+        
+        if resistance_level and entry_price < resistance_level:
+             if "稳态主升" in reasons[-1] or "底部起爆" in reasons[-1]:
+                 pass
+             else:
+                 target_price = min(target_price, round(resistance_level * 0.98, 2))
+        # ----------- 引入时间风控 (Time-in-Market Risk) -----------
+        if board_type == '10CM':
+             reasons.append("⏳ 风控军规：[10CM A杀高危区] 历史数据显示该板块 T+1/T+2 极易诱多A杀。若 T+2 冲高未能触及止盈，必须手动下调目标价，利润回撤至 3% 时无条件强制平仓，严禁格局！")
+        else:
+             reasons.append("⏳ 风控军规：历史大数据表明，当前交易模型的绝对高点均在 T+2 左右出现。严格执行【T+3 时间止损法】：若持仓 3 天仍未触及止盈，无论盈亏，强制清仓释放资金！")
+
+        return {
+            'action': action,
+            'confidence': float(confidence),
+            'quality_grade': quality_grade,
+            'analysis_logic': reasons,
+            'current_price': current_price,
+            'entry_price': entry_price,      
+            'target_price': target_price,    
+            'stop_price': stop_price,        
+            'resistance_level': resistance_level,
+            'support_level': support_level,
+            'feature_trend': trend_phase,
+            'feature_pattern': pattern_name,
+            'feature_bias_val': round(bias_pct, 4),
+            'feature_bias_tier': bias_tier,
+            'full_confluence_result': confluence_result ,
+            'time_stop_days': 3, # 强制时间止损：3个交易日
+            'trailing_stop_trigger': 0.05, # 利润回撤触发线：涨幅超5%后开启保护
+        }
+    except Exception as e:
+        logger.error(f"V4.1交易建议生成失败: {e}")
+        import traceback; traceback.print_exc()
+        return {'action': 'ERROR', 'analysis_logic': [f'分析时发生错误: {e}'], 'confidence': 0}
+    
+def _generate_forward_advice_v4_b4(df: pd.DataFrame, stock_code: str) -> dict:
+    """
+    【V4.1 核心函数】基于 V4.0 Confluence Scorer 生成高质量、可解释的交易建议（已修复参数传递）
+    """
+    try:
+        latest_index = len(df) - 1
+        current_price = float(df.iloc[latest_index]['close'])
+        
+        # 1. 调用 V4.0 评分系统获取最全面的分析结果
+        confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
+        
+        # 2. 调用形态识别器
+        pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
+
+        # 3. 初始化建议
+        action = 'HOLD'
+        reasons = []
+        confidence = confluence_result['confidence']
+        quality_grade = 'D'
+
+        # 4. 构建层次化的决策逻辑
+        market_phase = confluence_result.get('market_phase', 'unknown')
+        reasons.append(f"宏观判断：当前处于 {market_phase.upper()} 阶段。")
+        if market_phase in ['distribution', 'decline']:
+            action = 'AVOID'
+            reasons.append("风险提示：市场处于高风险或下跌阶段，建议规避。")
+            confidence *= 0.7
+
+        total_score = confluence_result.get('total_score', 0)
+        if total_score >= 85:
+            quality_grade = 'A'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (A级)，技术面高度共振。")
+        elif total_score >= 70:
+            quality_grade = 'B'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (B级)，技术面较为一致。")
+        elif total_score >= 55:
+            quality_grade = 'C'
+            action = 'WATCH' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (C级)，建议保持观察。")
+        else:
+            quality_grade = 'D'
+            action = 'AVOID'
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (D级)，技术指标不一致，建议规避。")
+
+        if pattern_result.get('has_pattern'):
+            reasons.append(f"形态分析：识别到 {pattern_result['best_pattern']} 形态 (置信度: {pattern_result['best_confidence']:.1%})。")
+            confidence = (confidence + pattern_result['best_confidence']) / 2
+
+        alignment = confluence_result.get('alignment_analysis', {})
+        if alignment.get('alignment_score', 0) > 5:
+            reasons.append(f"历史对齐：价格与指标底部同步性良好 (得分: {alignment['alignment_score']})。")
+        
+        backtest_val = confluence_result.get('backtest_analysis', {})
+        if backtest_val.get('signal_count', 0) > 0:
+            reasons.append(f"历史回测：基于对齐信号的历史胜率为 {backtest_val['win_rate']:.1%} (共{backtest_val['signal_count']}次)。")
+
+        # 5. 计算支撑位和阻力位
+        price_targets = _calculate_price_targets(df, current_price)
+        support_level = price_targets.get('next_support')
+        resistance_level = price_targets.get('next_resistance')
+        
+        # 🚀 引入市场波动画像 (完美接入传入的 stock_code)
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code)
+        board_type = market_profile['board_type']
+        atr_adj = market_profile['atr_entry_mult']
+        # ==========================================
+        # 🏷️ 核心新增：提取“位置决定性质”的多维特征标签
+        # ==========================================
+        # 1. 趋势特征 (Trend)
+        trend_phase = confluence_result.get('market_phase', 'unknown')
+        
+        # 2. 形态特征 (Pattern)
+        pattern_name = pattern_result.get('best_pattern', 'None') if pattern_result.get('has_pattern') else 'None'
+        
+        # 3. 乖离率特征 (Bias - 距离MA60的偏离程度)
+        latest_ma60 = df.iloc[latest_index].get('ma60')
+        if pd.isna(latest_ma60) or latest_ma60 == 0:
+            bias_pct = 0.0
+        else:
+            bias_pct = (current_price - latest_ma60) / latest_ma60
+            
+        # 乖离率离散化（方便后续分组统计）
+        if bias_pct > 0.15:
+            bias_tier = "高位极度乖离(>15%)"
+        elif bias_pct > 0.05:
+            bias_tier = "多头偏离(5%~15%)"
+        elif bias_pct < -0.15:
+            bias_tier = "深渊超跌(<-15%)"
+        elif bias_pct < -0.05:
+            bias_tier = "空头偏离(-15%~-5%)"
+        else:
+            bias_tier = "均值回归(±5%)"
+        # 6. 获取基础 ATR
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+        supp_distance = (current_price - support_level) / current_price if support_level else 1
+
+        # ==========================================
+        # 🚀 终极进化：基于多维特征 (板块+趋势+乖离) 的精准自适应挂单系统
+        # ==========================================
+        
+        # ----------- 动态入场价 (Entry) -----------
+        if board_type == '10CM':
+            if bias_pct < -0.15 and trend_phase == 'accumulation':
+                # [黄金坑] 买点极准，坚决不上浮也不深潜，保持现状
+                pullback_multiplier = 0.5
+                reasons.append("入场建议：[10CM 黄金坑] 深渊超跌且处于吸筹区，按现价小幅回撤极速上车。")
+            elif trend_phase == 'decline':
+                # [下跌期修复] 之前偏离 -3.07% 导致严重踏空，将买点拉高
+                pullback_multiplier = 0.4 if action == 'BUY' else 0.8
+                reasons.append("入场建议：[10CM 弱势抵抗] 下跌趋势中不宜过度深挂，防止踏空有效反弹。")
+            else:
+                # 常规趋势，适度防守
+                pullback_multiplier = 0.8 if action == 'BUY' else 1.2
+                reasons.append("入场建议：[10CM 常规] 基于均值回归逻辑，在现价下方寻找稳定买点。")
+                
+        elif board_type == '30CM':
+            if bias_pct > 0.15:
+                # [高位狂飙] 之前偏离 -2.77% 踏空，拉高买点
+                pullback_multiplier = 0.2
+                reasons.append("入场建议：[30CM 极度狂热] 强势动能股，极浅回撤挂单，拥抱高波动。")
+            else:
+                # [低位死水] 维持深挂防守
+                pullback_multiplier = 1.8
+                reasons.append("入场建议：[30CM 冰点区] 动能匮乏，必须在极深处限价伏击。")
+                
+        else: # 20CM
+            if trend_phase == 'decline':
+                # [下跌期修复] 之前偏离 -5.57% 严重踏空
+                pullback_multiplier = 0.5
+                reasons.append("入场建议：[20CM 超跌反弹] 缩小接针深度，捕捉日内急跌反抽。")
+            elif bias_pct > 0.15:
+                # 高位回撤
+                pullback_multiplier = 1.0
+                reasons.append("入场建议：[20CM 高位震荡] 乖离过高，耐心等待一倍 ATR 的健康回调。")
+            else:
+                pullback_multiplier = 0.8
+                reasons.append("入场建议：[20CM 稳健区] 依托 ATR 构建常规安全垫。")
+
+        # 结合支撑位与动态计算的买点
+        dynamic_entry = current_price - (atr * pullback_multiplier)
+        # 无论哪个板块，如果有很近的技术支撑位，优先尊重支撑位托底
+        if support_level and supp_distance < market_profile['limit']:
+             dynamic_entry = min(dynamic_entry, support_level + (atr * 0.1))
+
+        entry_price = round(min(dynamic_entry, current_price * 0.99), 2)
+
+        # ----------- 动态止损价 (Stop) -----------
+        stop_multiplier_map = {'10CM': 1.5, '20CM': 1.8, '30CM': 2.5} # 结合位置适当放宽止损
+        stop_price = round(entry_price - atr * stop_multiplier_map.get(board_type, 1.5), 2)  
+        if support_level and support_level < entry_price:
+            tech_stop = round(support_level * (1 - market_profile['sr_tolerance']), 2)
+            stop_price = max(stop_price, tech_stop) 
+
+        # ----------- 动态止盈价 (Target) -----------
+        
+        if board_type == '10CM':
+            # 全面纠错：10CM 此前止盈触及率极高但溢出过大（+7.92%）
+            if bias_pct < -0.15 or bias_pct > 0.05:
+                target_multiplier = 4.5 # 黄金坑或主升浪，让利润狂奔
+                reasons.append(f"止盈建议：[10CM 极值动能] 统计胜率极高区域，无视小阻力，目标极度放大至 {round(entry_price + atr * target_multiplier, 2)}。")
+            else:
+                target_multiplier = 3.5 # 恢复到较高水平
+                reasons.append("止盈建议：[10CM 稳健波段] 顺势而为，目标定于合理波段高点。")
+                
+        elif board_type == '30CM':
+            if bias_pct > 0.15 or trend_phase == 'markup':
+                target_multiplier = 6.0 # 之前高位卖飞 +9.23%，直接暴力上调
+                reasons.append(f"止盈建议：[30CM 龙妖模式] 绝对主升浪特征，拥抱泡沫，看高一线至 {round(entry_price + atr * target_multiplier, 2)}。")
+            else:
+                target_multiplier = 1.5 # 之前低位止盈极其惨烈(-10.53%)，断崖式下调
+                reasons.append("止盈建议：[30CM 冰点模式] 弱势无主升，微利即走，坚决执行日内超短套利。")
+                
+        else: # 20CM
+            if bias_pct > 0.15 and trend_phase in ['distribution', 'markup']:
+                target_multiplier = 4.5 # 派发期龙头首阴，反弹极强，之前卖飞 +6.5%
+                reasons.append(f"止盈建议：[20CM 龙头首阴] 高位宽幅震荡反抽强劲，上调利润预期至 {round(entry_price + atr * target_multiplier, 2)}。")
+            elif bias_pct < -0.15 and trend_phase == 'accumulation':
+                target_multiplier = 3.0 # 此处之前偏离 +0.73%，完美卡位，维持不动
+                reasons.append("止盈建议：[20CM 底部吸筹] 完美卡位历史数据测算极值。")
+            else:
+                target_multiplier = 3.5 
+                reasons.append("止盈建议：[20CM 常规波段] 锁定正常 ATR 震荡空间。")
+
+        target_price = round(entry_price + atr * target_multiplier, 2)
+        
+        # 阻力位压制逻辑（最后防线）
+        if resistance_level and entry_price < resistance_level:
+             # 如果模型认定此时是"让利润狂奔"的极值动能区，则忽略阻力位
+             if "极值动能" in reasons[-1] or "龙妖模式" in reasons[-1]:
+                 pass
+             else:
+                 # 否则，尊重阻力位，但允许略微突破 (0.99 改为 1.01，吃掉一部分溢出利润)
+                 target_price = min(target_price, round(resistance_level * 1.01, 2))
+
+        return {
+            'action': action,
+            'confidence': float(confidence),
+            'quality_grade': quality_grade,
+            'analysis_logic': reasons,
+            'current_price': current_price,
+            'entry_price': entry_price,      
+            'target_price': target_price,    
+            'stop_price': stop_price,        
+            'resistance_level': resistance_level,
+            'support_level': support_level,
+            'feature_trend': trend_phase,
+            'feature_pattern': pattern_name,
+            'feature_bias_val': round(bias_pct, 4),
+            'feature_bias_tier': bias_tier,
+            'full_confluence_result': confluence_result 
+        }
+    except Exception as e:
+        logger.error(f"V4.1交易建议生成失败: {e}")
+        import traceback; traceback.print_exc()
+        return {'action': 'ERROR', 'analysis_logic': [f'分析时发生错误: {e}'], 'confidence': 0}
+    
+def _generate_forward_advice_v4_b3(df: pd.DataFrame, stock_code: str) -> dict:
+    """
+    【V4.1 核心函数】基于 V4.0 Confluence Scorer 生成高质量、可解释的交易建议（已修复参数传递）
+    """
+    try:
+        latest_index = len(df) - 1
+        current_price = float(df.iloc[latest_index]['close'])
+        
+        # 1. 调用 V4.0 评分系统获取最全面的分析结果
+        confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
+        
+        # 2. 调用形态识别器
+        pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
+
+        # 3. 初始化建议
+        action = 'HOLD'
+        reasons = []
+        confidence = confluence_result['confidence']
+        quality_grade = 'D'
+
+        # 4. 构建层次化的决策逻辑
+        market_phase = confluence_result.get('market_phase', 'unknown')
+        reasons.append(f"宏观判断：当前处于 {market_phase.upper()} 阶段。")
+        if market_phase in ['distribution', 'decline']:
+            action = 'AVOID'
+            reasons.append("风险提示：市场处于高风险或下跌阶段，建议规避。")
+            confidence *= 0.7
+
+        total_score = confluence_result.get('total_score', 0)
+        if total_score >= 85:
+            quality_grade = 'A'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (A级)，技术面高度共振。")
+        elif total_score >= 70:
+            quality_grade = 'B'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (B级)，技术面较为一致。")
+        elif total_score >= 55:
+            quality_grade = 'C'
+            action = 'WATCH' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (C级)，建议保持观察。")
+        else:
+            quality_grade = 'D'
+            action = 'AVOID'
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (D级)，技术指标不一致，建议规避。")
+
+        if pattern_result.get('has_pattern'):
+            reasons.append(f"形态分析：识别到 {pattern_result['best_pattern']} 形态 (置信度: {pattern_result['best_confidence']:.1%})。")
+            confidence = (confidence + pattern_result['best_confidence']) / 2
+
+        alignment = confluence_result.get('alignment_analysis', {})
+        if alignment.get('alignment_score', 0) > 5:
+            reasons.append(f"历史对齐：价格与指标底部同步性良好 (得分: {alignment['alignment_score']})。")
+        
+        backtest_val = confluence_result.get('backtest_analysis', {})
+        if backtest_val.get('signal_count', 0) > 0:
+            reasons.append(f"历史回测：基于对齐信号的历史胜率为 {backtest_val['win_rate']:.1%} (共{backtest_val['signal_count']}次)。")
+
+        # 5. 计算支撑位和阻力位
+        price_targets = _calculate_price_targets(df, current_price)
+        support_level = price_targets.get('next_support')
+        resistance_level = price_targets.get('next_resistance')
+        
+        # 🚀 引入市场波动画像 (完美接入传入的 stock_code)
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code)
+        board_type = market_profile['board_type']
+        atr_adj = market_profile['atr_entry_mult']
+        
+        # 6. 获取ATR波动率
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+        
+        # 获取市场特征画像
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code)
+        board_type = market_profile['board_type']
+
+        # ==========================================
+        # 🚀 基于全量8万条回测数据的降维打击：板块个性化参数校准
+        # ==========================================
+        
+        supp_distance = (current_price - support_level) / current_price if support_level else 1
+        
+        # ----------- 动态入场价 (Entry) -----------
+        # 诊断报告：10CM买入太容易(偏离+5.77%)需要加深防守；30CM买点极准(偏离+0.33%)保持不动
+        
+        if board_type == '10CM':
+            # 10CM重构：极度防守。强行剥离当前价格虚高，基于ATR加深回调预期。
+            pullback_multiplier = 1.4 if action == 'BUY' else 1.6 # 大幅增加回撤倍数1.2 -> 1.4 1.8 -> 1.6
+            dynamic_entry = current_price - (atr * pullback_multiplier)
+            
+            # 即便有支撑位，也不抢跑，甚至要在支撑位下方要折扣（因为10CM假跌破太多）
+            if support_level and supp_distance < 0.05:
+                dynamic_entry = min(dynamic_entry, support_level * 0.99)
+            reasons.append(f"入场建议：[10CM弱势重构] 防御为主，在现价下方深潜 {abs(current_price - dynamic_entry):.2f} 元挂单，宁可错过绝不追高。")
+            
+        elif board_type == '30CM':
+            # 30CM重构：保持当前的神级命中率参数
+            if support_level and supp_distance < market_profile['limit']:
+                dynamic_entry = support_level + (atr * 0.2)
+                reasons.append(f"入场建议：[30CM高波市] 支撑极强，依托技术支撑 {support_level:.2f} 附近限价伏击。")
+            else:
+                dynamic_entry = current_price - (atr * 1.5)
+                reasons.append("入场建议：[30CM高波市] 等待日内大波幅回调再介入。")
+                
+        else: # 20CM
+            # 20CM重构：适度防守，抵消 3.75% 的买入安全垫虚高
+            pullback_multiplier = 0.8 if action == 'BUY' else 1.5
+            dynamic_entry = current_price - (atr * pullback_multiplier)
+            
+            if support_level and supp_distance < market_profile['limit']:
+                 # 不再在支撑位上方抢跑，直接贴紧支撑位
+                 dynamic_entry = min(dynamic_entry, support_level)
+            reasons.append(f"入场建议：[20CM震荡市] 贴紧支撑位或按近期波动率在下方 {abs(current_price - dynamic_entry):.2f} 元处耐心等候。")
+
+        # 确保入场价不高于现价下方一点，防止下错单
+        entry_price = round(min(dynamic_entry, current_price * 0.99), 2)
+
+        # ----------- 动态止损价 (Stop) -----------
+        # 既然10CM和20CM都买得深了，止损的ATR倍数可以稍微收窄，盈亏比就上来了 30cm 2.0 -> 1.9
+        stop_multiplier_map = {'10CM': 1.2, '20CM': 1.5, '30CM': 1.9}
+        stop_multiplier = stop_multiplier_map.get(board_type, 1.5)
+        stop_price = round(entry_price - atr * stop_multiplier, 2)  
+        
+        # 托底止损（给技术派留个颜面）
+        if support_level and support_level < entry_price:
+            tech_stop = round(support_level * (1 - market_profile['sr_tolerance']), 2)
+            stop_price = max(stop_price, tech_stop) 
+
+        # ----------- 动态止盈价 (Target) -----------
+        # 诊断报告：10CM/20CM 止盈目标严重挂高（偏离极值 -12.85% / -8.45%），导致触及率低下
+        
+        if board_type == '10CM':
+            # 10CM重构：放弃格局，降维打击。基础目标从 4xATR 直降为 2xATR。
+            target_price = round(entry_price + atr * 2.5, 2)
+            if resistance_level and entry_price < resistance_level:
+                # 碰到阻力位，直接提前 1.5% 跑路，绝对不赌突破
+                target_price = min(target_price, round(resistance_level * 0.985, 2))
+                reasons.append(f"止盈建议：[10CM弱势重构] 放弃幻想，在阻力位 {resistance_level:.2f} 下方提前减仓锁利 ({target_price:.2f})。")
+            else:
+                reasons.append(f"止盈建议：[10CM弱势重构] 执行短波段快进快出，目标价位 {target_price:.2f}。")
+                
+        elif board_type == '20CM':
+            # 20CM重构：目标收敛。基础目标从 4xATR 降为 3xATR。
+            target_price = round(entry_price + atr * 3.0, 2)
+            if resistance_level and entry_price < resistance_level:
+                target_price = min(target_price, round(resistance_level * 0.99, 2))
+                reasons.append(f"止盈建议：[20CM震荡市] 目标收敛，在阻力位 {resistance_level:.2f} 附近落袋为安 ({target_price:.2f})。")
+            else:
+                reasons.append(f"止盈建议：[20CM震荡市] 按收敛的波动率预期，目标设为 {target_price:.2f}。")
+                
+        else: # 30CM
+            # 30CM重构：保持原有高压迫感逻辑，目标依然锚定 4xATR
+            target_price = round(entry_price + atr * 4.0, 2)
+            if resistance_level and entry_price < resistance_level:
+                # 30CM 阻力极其有效，一定要在阻力前下车
+                target_price = min(target_price, round(resistance_level - atr * 0.5, 2))
+                reasons.append(f"止盈建议：[30CM高波市] 阻力压制强劲，于 {target_price:.2f} 提前止盈。")
+            else:
+                reasons.append(f"止盈建议：[30CM高波市] 维持高波动预期目标 {target_price:.2f}。")
+
+        # ==========================================
+        # 🏷️ 核心新增：提取“位置决定性质”的多维特征标签
+        # ==========================================
+        # 1. 趋势特征 (Trend)
+        trend_phase = confluence_result.get('market_phase', 'unknown')
+        
+        # 2. 形态特征 (Pattern)
+        pattern_name = pattern_result.get('best_pattern', 'None') if pattern_result.get('has_pattern') else 'None'
+        
+        # 3. 乖离率特征 (Bias - 距离MA60的偏离程度)
+        latest_ma60 = df.iloc[latest_index].get('ma60')
+        if pd.isna(latest_ma60) or latest_ma60 == 0:
+            bias_pct = 0.0
+        else:
+            bias_pct = (current_price - latest_ma60) / latest_ma60
+            
+        # 乖离率离散化（方便后续分组统计）
+        if bias_pct > 0.15:
+            bias_tier = "高位极度乖离(>15%)"
+        elif bias_pct > 0.05:
+            bias_tier = "多头偏离(5%~15%)"
+        elif bias_pct < -0.15:
+            bias_tier = "深渊超跌(<-15%)"
+        elif bias_pct < -0.05:
+            bias_tier = "空头偏离(-15%~-5%)"
+        else:
+            bias_tier = "均值回归(±5%)"
+
+        return {
+            'action': action,
+            'confidence': float(confidence),
+            'quality_grade': quality_grade,
+            'analysis_logic': reasons,
+            'current_price': current_price,
+            'entry_price': entry_price,      
+            'target_price': target_price,    
+            'stop_price': stop_price,        
+            'resistance_level': resistance_level,
+            'support_level': support_level,
+            # 👇 新增输出的特征矩阵
+            'feature_trend': trend_phase,
+            'feature_pattern': pattern_name,
+            'feature_bias_val': round(bias_pct, 4),
+            'feature_bias_tier': bias_tier,
+            'full_confluence_result': confluence_result 
+        }
+    except Exception as e:
+        logger.error(f"V4.1交易建议生成失败: {e}")
+        import traceback; traceback.print_exc()
+        return {'action': 'ERROR', 'analysis_logic': [f'分析时发生错误: {e}'], 'confidence': 0}
+    
+def _generate_forward_advice_v4_b2(df: pd.DataFrame, stock_code: str) -> dict:
+    """
+    【V4.1 核心函数】基于 V4.0 Confluence Scorer 生成高质量、可解释的交易建议（已修复参数传递）
+    """
+    try:
+        latest_index = len(df) - 1
+        current_price = float(df.iloc[latest_index]['close'])
+        
+        # 1. 调用 V4.0 评分系统获取最全面的分析结果
+        confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
+        
+        # 2. 调用形态识别器
+        pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
+
+        # 3. 初始化建议
+        action = 'HOLD'
+        reasons = []
+        confidence = confluence_result['confidence']
+        quality_grade = 'D'
+
+        # 4. 构建层次化的决策逻辑
+        market_phase = confluence_result.get('market_phase', 'unknown')
+        reasons.append(f"宏观判断：当前处于 {market_phase.upper()} 阶段。")
+        if market_phase in ['distribution', 'decline']:
+            action = 'AVOID'
+            reasons.append("风险提示：市场处于高风险或下跌阶段，建议规避。")
+            confidence *= 0.7
+
+        total_score = confluence_result.get('total_score', 0)
+        if total_score >= 85:
+            quality_grade = 'A'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (A级)，技术面高度共振。")
+        elif total_score >= 70:
+            quality_grade = 'B'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (B级)，技术面较为一致。")
+        elif total_score >= 55:
+            quality_grade = 'C'
+            action = 'WATCH' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (C级)，建议保持观察。")
+        else:
+            quality_grade = 'D'
+            action = 'AVOID'
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (D级)，技术指标不一致，建议规避。")
+
+        if pattern_result.get('has_pattern'):
+            reasons.append(f"形态分析：识别到 {pattern_result['best_pattern']} 形态 (置信度: {pattern_result['best_confidence']:.1%})。")
+            confidence = (confidence + pattern_result['best_confidence']) / 2
+
+        alignment = confluence_result.get('alignment_analysis', {})
+        if alignment.get('alignment_score', 0) > 5:
+            reasons.append(f"历史对齐：价格与指标底部同步性良好 (得分: {alignment['alignment_score']})。")
+        
+        backtest_val = confluence_result.get('backtest_analysis', {})
+        if backtest_val.get('signal_count', 0) > 0:
+            reasons.append(f"历史回测：基于对齐信号的历史胜率为 {backtest_val['win_rate']:.1%} (共{backtest_val['signal_count']}次)。")
+
+        # 5. 计算支撑位和阻力位
+        price_targets = _calculate_price_targets(df, current_price)
+        support_level = price_targets.get('next_support')
+        resistance_level = price_targets.get('next_resistance')
+        
+        # 🚀 引入市场波动画像 (完美接入传入的 stock_code)
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code)
+        board_type = market_profile['board_type']
+        atr_adj = market_profile['atr_entry_mult']
+        
+        # 6. 获取ATR波动率
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+
+        # ==========================================
+        # 🚀 终极版：基于全量回测数据的自适应交易策略
+        # ==========================================
+        supp_distance = (current_price - support_level) / current_price if support_level else 1
+        
+        # ----------- 动态入场价 (Entry) -----------
+        if board_type == '10CM':
+            # 10CM特征：支撑极易跌破(62.8%)，尽量少在支撑位接飞刀，多用波动率回调
+            if support_level and supp_distance < 0.08: # 距离极近才参考
+                dynamic_entry = support_level - (atr * 0.5) # 甚至要在支撑位下方去接（防止假跌破洗盘）
+                reasons.append("入场建议：[10CM趋势市] 支撑易破，建议在支撑位下方极限位埋伏，或等确认企稳。")
+            else:
+                dynamic_entry = current_price - (atr * (0.5 if action == 'BUY' else 1.0))
+                reasons.append(f"入场建议：[10CM趋势市] 基于波动率，建议现价下方约 {abs(current_price - dynamic_entry):.2f} 元挂单。")
+                
+        elif board_type == '30CM':
+            # 30CM特征：支撑极其有效(73.5%)，深跌就是机会，果断在支撑位上方抢跑
+            if support_level and supp_distance < market_profile['limit']:
+                dynamic_entry = support_level + (atr * 0.2)
+                reasons.append(f"入场建议：[30CM边界市] 支撑极强，果断在支撑位 {support_level:.2f} 上方抢跑买入。")
+            else:
+                dynamic_entry = current_price - (atr * 1.5) # 没有支撑就挂深一点
+                reasons.append("入场建议：[30CM高波市] 暂无支撑，挂深单等待日内大波幅回调。")
+                
+        else: # 20CM
+            # 20CM特征：标准震荡，支撑有59%的防守力
+            if support_level and supp_distance < market_profile['limit']:
+                dynamic_entry = support_level + (atr * 0.1)
+                reasons.append(f"入场建议：[20CM震荡市] 依托技术支撑 {support_level:.2f} 附近限价买入。")
+            else:
+                dynamic_entry = current_price - (atr * (0.6 if action == 'BUY' else 1.2))
+                reasons.append("入场建议：[20CM震荡市] 基于 ATR 在现价下方寻找买点。")
+
+        # 确保入场价不高于现价
+        entry_price = round(min(dynamic_entry, current_price * 0.995), 2)
+
+        # ----------- 动态止损价 (Stop) -----------
+        stop_multiplier = 1.5 * atr_adj
+        stop_price = round(entry_price - atr * stop_multiplier, 2)  
+        
+        # 10CM不迷信技术止损，20CM/30CM严格执行技术止损
+        if board_type in ['20CM', '30CM'] and support_level and support_level < entry_price:
+            tech_stop = round(support_level * (1 - market_profile['sr_tolerance']), 2)
+            stop_price = max(stop_price, tech_stop) # 托底止损
+
+        # ----------- 动态止盈价 (Target) -----------
+        # 默认基础目标
+        target_price = round(current_price + atr * 4, 2)
+        
+        if resistance_level and current_price < resistance_level:
+            if board_type == '10CM':
+                # 10CM 突破率 62.2%，拥抱突破，目标设在阻力位上方
+                breakout_target = round(resistance_level + atr * 1.5, 2)
+                target_price = max(target_price, breakout_target)
+                reasons.append(f"止盈建议：[10CM突破市] 历史突破率高达62%，目标价设于阻力位上方 ({target_price:.2f}) 扩大盈利。")
+                
+            elif board_type == '30CM':
+                # 30CM 压制率 70.2%，绝不格局，阻力位下方提前抢跑下车
+                front_run_target = round(resistance_level - atr * 0.5, 2)
+                target_price = min(target_price, front_run_target)
+                reasons.append(f"止盈建议：[30CM边界市] 阻力压制力极强，切勿贪高，在 {target_price:.2f} 提前止盈。")
+                
+            else: # 20CM
+                # 20CM 压制率 59.0%，比较纠结，在阻力位精准卖出
+                target_price = round(resistance_level * 0.99, 2)
+                reasons.append(f"止盈建议：[20CM震荡市] 尊重阻力位压制，在 {target_price:.2f} 附近离场。")
+
+        return {
+            'action': action,
+            'confidence': float(confidence),
+            'quality_grade': quality_grade,
+            'analysis_logic': reasons,
+            'current_price': current_price,
+            'entry_price': entry_price,      
+            'target_price': target_price,    
+            'stop_price': stop_price,        
+            'resistance_level': resistance_level,
+            'support_level': support_level,
+            'full_confluence_result': confluence_result 
+        }
+    except Exception as e:
+        logger.error(f"V4.1交易建议生成失败: {e}")
+        import traceback; traceback.print_exc()
+        return {'action': 'ERROR', 'analysis_logic': [f'分析时发生错误: {e}'], 'confidence': 0}
+        
+def _generate_forward_advice_v4_b1(df: pd.DataFrame, stock_code: str) -> dict:
+    """
+    【V4.1 核心函数】基于 V4.0 Confluence Scorer 生成高质量、可解释的交易建议（已修复参数传递）
+    """
+    try:
+        latest_index = len(df) - 1
+        current_price = float(df.iloc[latest_index]['close'])
+        
+        # 1. 调用 V4.0 评分系统获取最全面的分析结果
+        confluence_result = confluence_scorer.calculate_confluence_score(df, latest_index)
+        
+        # 2. 调用形态识别器
+        pattern_result = pattern_recognizer.recognize_pattern(df, latest_index)
+
+        # 3. 初始化建议
+        action = 'HOLD'
+        reasons = []
+        confidence = confluence_result['confidence']
+        quality_grade = 'D'
+
+        # 4. 构建层次化的决策逻辑
+        market_phase = confluence_result.get('market_phase', 'unknown')
+        reasons.append(f"宏观判断：当前处于 {market_phase.upper()} 阶段。")
+        if market_phase in ['distribution', 'decline']:
+            action = 'AVOID'
+            reasons.append("风险提示：市场处于高风险或下跌阶段，建议规避。")
+            confidence *= 0.7
+
+        total_score = confluence_result.get('total_score', 0)
+        if total_score >= 85:
+            quality_grade = 'A'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (A级)，技术面高度共振。")
+        elif total_score >= 70:
+            quality_grade = 'B'
+            action = 'BUY' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (B级)，技术面较为一致。")
+        elif total_score >= 55:
+            quality_grade = 'C'
+            action = 'WATCH' if action != 'AVOID' else action
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (C级)，建议保持观察。")
+        else:
+            quality_grade = 'D'
+            action = 'AVOID'
+            reasons.append(f"核心决策：融合评分 {total_score:.1f} (D级)，技术指标不一致，建议规避。")
+
+        if pattern_result.get('has_pattern'):
+            reasons.append(f"形态分析：识别到 {pattern_result['best_pattern']} 形态 (置信度: {pattern_result['best_confidence']:.1%})。")
+            confidence = (confidence + pattern_result['best_confidence']) / 2
+
+        alignment = confluence_result.get('alignment_analysis', {})
+        if alignment.get('alignment_score', 0) > 5:
+            reasons.append(f"历史对齐：价格与指标底部同步性良好 (得分: {alignment['alignment_score']})。")
+        
+        backtest_val = confluence_result.get('backtest_analysis', {})
+        if backtest_val.get('signal_count', 0) > 0:
+            reasons.append(f"历史回测：基于对齐信号的历史胜率为 {backtest_val['win_rate']:.1%} (共{backtest_val['signal_count']}次)。")
+
+        # 5. 计算支撑位和阻力位
+        price_targets = _calculate_price_targets(df, current_price)
+        support_level = price_targets.get('next_support')
+        resistance_level = price_targets.get('next_resistance')
+        
+        # 🚀 引入市场波动画像 (完美接入传入的 stock_code)
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code)
+        board_type = market_profile['board_type']
+        atr_adj = market_profile['atr_entry_mult']
+        
+        # 6. 获取ATR波动率
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+
+        # ==========================================
+        # 结合板块特性的动态入场价与止损计算
+        # ==========================================
+        pullback_multiplier = (0.4 if action == 'BUY' else 0.8) * atr_adj
+        base_entry = current_price - (atr * pullback_multiplier)
+
+        supp_distance = (current_price - support_level) / current_price if support_level else 1
+        
+        if support_level and (supp_distance < market_profile['limit']): 
+            dynamic_entry = support_level + (atr * 0.1 * atr_adj)
+            dynamic_entry = min(dynamic_entry, current_price * 0.995)
+            dynamic_entry = max(dynamic_entry, support_level)
+            reasons.append(f"入场建议：[{board_type}特性] 靠近支撑位 {support_level:.2f} 附近限价挂单。")
+        else:
+            dynamic_entry = base_entry
+            reasons.append(f"入场建议：[{board_type}特性] 基于近期波动率，建议在现价下方回调约 {atr*pullback_multiplier:.2f} 元处挂单。")
+
+        entry_price = round(dynamic_entry, 2)
+
+        # 动态止损
+        stop_multiplier = 1.5 * atr_adj
+        stop_price = round(entry_price - atr * stop_multiplier, 2)  
+        
+        if support_level and support_level < entry_price:
+            tech_stop = round(support_level * (1 - market_profile['sr_tolerance']/2), 2)
+            stop_price = max(stop_price, tech_stop)
+
+        # ==========================================
+        # 🎯 优化：拥抱高突破率的攻击性止盈逻辑
+        # ==========================================
+        # 默认基础目标：4倍ATR（如果市场波动大，这就已经很高了）
+        target_price = round(current_price + atr * 4, 2)
+        
+        if resistance_level and current_price < resistance_level:
+            # 既然历史数据显示高达 71.4% 的概率会强势突破阻力位
+            # 我们不再在阻力位下方卖出，而是将阻力位视为“加速器”
+            # 目标价取 【基础ATR目标】 和 【阻力位突破后再加1倍ATR】 的最大值
+            breakout_target = round(resistance_level + atr, 2)
+            
+            if target_price < breakout_target:
+                target_price = breakout_target
+                reasons.append(f"止盈建议：[{board_type}特性] 鉴于系统选股的高突破率，目标价设于阻力位上方突破区域 ({target_price:.2f})。")
+            else:
+                reasons.append(f"止盈建议：[{board_type}特性] 保持大波段目标 ({target_price:.2f})，无视近期小阻力。")
+
+        return {
+            'action': action,
+            'confidence': float(confidence),
+            'quality_grade': quality_grade,
+            'analysis_logic': reasons,
+            'current_price': current_price,
+            'entry_price': entry_price,      
+            'target_price': target_price,    
+            'stop_price': stop_price,        
+            'resistance_level': resistance_level,
+            'support_level': support_level,
+            'full_confluence_result': confluence_result 
+        }
+    except Exception as e:
+        logger.error(f"V4.1交易建议生成失败: {e}")
+        import traceback; traceback.print_exc()
+        return {'action': 'ERROR', 'analysis_logic': [f'分析时发生错误: {e}'], 'confidence': 0}
+    
+
+def _generate_forward_advice_v4_b(df: pd.DataFrame) -> dict:
     """
     【V4.1 核心函数】基于 V4.0 Confluence Scorer 生成高质量、可解释的交易建议
     """
@@ -689,16 +2486,50 @@ def _generate_forward_advice_v4(df: pd.DataFrame) -> dict:
         support_level = price_targets.get('next_support')
         resistance_level = price_targets.get('next_resistance')
         
-        # 6. 生成价格目标 (基于最新价格和ATR波动率)
-        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
-        target_price = round(current_price * (1 + atr / current_price * 4), 2)  # 目标：4倍ATR
-        stop_price = round(current_price * (1 - atr / current_price * 2), 2)   # 止损：2倍ATR
+        # 获取市场波动画像
+        from data_handler import get_market_volatility_profile
+        market_profile = get_market_volatility_profile(stock_code) # 注意确保函数有传入 stock_code
+        board_type = market_profile['board_type']
+        atr_adj = market_profile['atr_entry_mult']
         
-        # 如果有技术支撑阻力位，优先使用
-        if resistance_level and resistance_level > current_price:
-            target_price = min(target_price, resistance_level)
-        if support_level and support_level < current_price:
-            stop_price = max(stop_price, support_level * 0.98)  # 支撑位下方2%作为止损
+        # 6. 获取ATR波动率 (默认为股价的3%)
+        atr = confluence_result.get('phase_analysis', {}).get('atr', current_price * 0.03)
+
+        # ==========================================
+        # 🚀 核心优化：结合板块特性的动态入场价
+        # ==========================================
+        # 基础回撤系数结合板块波动率放大
+        pullback_multiplier = (0.4 if action == 'BUY' else 0.8) * atr_adj
+        base_entry = current_price - (atr * pullback_multiplier)
+
+        # 支撑位判定也要加入板块容忍度
+        supp_distance = (current_price - support_level) / current_price if support_level else 1
+        
+        if support_level and (supp_distance < market_profile['limit']): 
+            # 策略 A：基于支撑位抢跑。波动越大的市场，抢跑的垫子(0.1*atr_adj)要稍微厚一点
+            dynamic_entry = support_level + (atr * 0.1 * atr_adj)
+            dynamic_entry = min(dynamic_entry, current_price * 0.995)
+            dynamic_entry = max(dynamic_entry, support_level)
+            reasons.append(f"入场建议：[{board_type}特性] 靠近支撑位 {support_level:.2f} 附近限价挂单。")
+        else:
+            # 策略 B：无有效支撑，基于波动率回调
+            dynamic_entry = base_entry
+            reasons.append(f"入场建议：[{board_type}特性] 基于近期波动率，建议在现价下方回调约 {atr*pullback_multiplier:.2f} 元处挂单。")
+
+        entry_price = round(dynamic_entry, 2)
+
+        # 动态计算止损 (根据板块放大止损容忍度，防止被日常洗盘洗掉)
+        stop_multiplier = 1.5 * atr_adj
+        stop_price = round(entry_price - atr * stop_multiplier, 2)  
+        
+        if support_level and support_level < entry_price:
+            # 技术止损位同样赋予板块特性的缓冲
+            tech_stop = round(support_level * (1 - market_profile['sr_tolerance']/2), 2)
+            stop_price = max(stop_price, tech_stop)
+
+        target_price = round(current_price * (1 + atr / current_price * 4), 2)
+        if resistance_level and current_price < resistance_level < target_price:
+            target_price = round(resistance_level * 0.99, 2)
 
         return {
             'action': action,
@@ -706,12 +2537,12 @@ def _generate_forward_advice_v4(df: pd.DataFrame) -> dict:
             'quality_grade': quality_grade,
             'analysis_logic': reasons,
             'current_price': current_price,
-            'entry_price': round(current_price * 0.99, 2), # 建议在当前价附近稍作等待
-            'target_price': target_price,
-            'stop_price': stop_price,
+            'entry_price': entry_price,      # ⬅️ 完美接入动态挂单价
+            'target_price': target_price,    # ⬅️ 优化后的抢跑止盈价
+            'stop_price': stop_price,        # ⬅️ 基于买入价的严谨止损位
             'resistance_level': resistance_level,
             'support_level': support_level,
-            'full_confluence_result': confluence_result # 传递完整的分析结果以供前端展示
+            'full_confluence_result': confluence_result
         }
     except Exception as e:
         logger.error(f"V4.1交易建议生成失败: {e}")
@@ -820,7 +2651,7 @@ def _generate_forward_advice_b(df: pd.DataFrame, backtest_results: dict) -> dict
     # --- [FIX END] ---
 
 
-def get_deep_analysis(stock_code: str, df: pd.DataFrame = None) -> dict:
+def get_deep_analysis_V0(stock_code: str, df: pd.DataFrame = None) -> dict:
     """
     【V4.1 统一入口】
     对单只股票进行深度分析，并生成V4.1版前瞻性交易建议。
@@ -847,4 +2678,39 @@ def get_deep_analysis(stock_code: str, df: pd.DataFrame = None) -> dict:
         traceback.print_exc()
         return {'error': f'深度分析失败: {str(e)}'}
 
+def get_deep_analysis(stock_code: str, analysis_date: str = None, df: pd.DataFrame = None) -> dict:
+    """
+    【V4.1 统一入口 - 已支持历史日期】
+    analysis_date: 指定历史分析日期 (YYYY-MM-DD)，None 为最新数据
+    """
+    try:
+        if df is None:
+            # 调用增强后的 data_handler，支持 end_date
+            df = get_full_data_with_indicators(
+                stock_code, 
+                adjustment_type='forward', 
+                end_date=analysis_date
+            )
+            if df is None or len(df) < 100:
+                return {'error': f'无法获取 {stock_code} 在 {analysis_date or "最新"} 的足够数据'}
 
+        # 确保数据按时间排序
+        df = df.sort_index()
+        
+        # 调用 V4.1 前瞻建议生成
+        forward_advice = _generate_forward_advice_v4(df, stock_code)
+
+        return {
+            'stock_code': stock_code,
+            'analysis_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'analysis_date': analysis_date or str(df.index[-1].date()),
+            'current_price': float(df.iloc[-1]['close']),
+            'trading_advice': forward_advice,
+            'data_points': len(df),
+            'from_cache': False
+        }
+        
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return {'error': f'深度分析失败: {str(e)}'}

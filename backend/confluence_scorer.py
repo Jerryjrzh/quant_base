@@ -520,7 +520,7 @@ class ConfluenceScorer:
                 'phase_analysis': phase_result,        # V4.1 新增
                 'dynamic_thresholds': dynamic_thresholds,  # V4.1 新增
                 'phase_weights_used': phase_weights,
-                'is_high_quality': total_score >= min_score_threshold and combined_confidence >= 0.6
+                'is_high_quality': bool(total_score >= min_score_threshold and combined_confidence >= 0.6)
             }
         except Exception as e:
             logger.error(f"计算融合评分失败: {e}")
@@ -715,7 +715,7 @@ class ConfluenceScorer:
             k_values = window_data.get('k', pd.Series())
             min_oversold_days = self.stateful_checks.get('kdj_oversold_min_days', 2)
             kdj_oversold_period = (k_values <= 30).sum() >= min_oversold_days
-            return {'macd_consolidation': macd_consolidation, 'kdj_oversold_period': kdj_oversold_period}
+            return {'macd_consolidation': bool(macd_consolidation), 'kdj_oversold_period': bool(kdj_oversold_period)}
         except Exception as e:
             logger.warning(f"检查状态历史条件失败: {e}"); return {'macd_consolidation': False, 'kdj_oversold_period': False}
 
