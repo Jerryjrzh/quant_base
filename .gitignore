@@ -4,8 +4,9 @@ env/
 .env
 
 # Python cache files
+__pycache__/
 backend/__pycache__/
-
+backend/strategies/__pycache__/
 # IDE files
 .vscode/
 .idea/
@@ -18,7 +19,7 @@ Thumbs.db
 
 # Logs
 #*.log
-
+test/
 # Data files - ignore all data except results
 backend/data/
 !backend/data/result/
