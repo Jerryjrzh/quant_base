@@ -1,0 +1,197 @@
+{
+  "params": {
+    "max_wait_days": 3,
+    "stop_loss_atr_multiplier": 1.0,
+    "max_stop_loss_pct": 0.05,
+    "default_tp1_pct": 0.1,
+    "default_tp2_pct": 0.2,
+    "tp1_reduce_ratio": 0.5,
+    "trailing_atr_multiplier": 2.0,
+    "max_hold_days": 22,
+    "structure_lookback_days": 60,
+    "swing_lookback": 5,
+    "capital": 1000000,
+    "max_risk_per_trade": 0.005
+  },
+  "elapsed_seconds": 37.8,
+  "total_signals": 4423,
+  "traded": 963,
+  "filtered": 527,
+  "expired": 2933,
+  "errors": 0,
+  "struct_avg_pnl": 0.003375,
+  "struct_median_pnl": -0.05,
+  "struct_win_rate": 0.3531,
+  "struct_max_profit": 0.589229,
+  "struct_max_loss": -0.05,
+  "struct_std": 0.083083,
+  "struct_profit_factor": 1.1,
+  "struct_avg_hold_days": 2.7,
+  "entry_type_dist": {
+    "pullback": 879,
+    "breakout": 84
+  },
+  "exit_reason_dist": {
+    "stop_loss": 623,
+    "take_profit_2": 171,
+    "breakeven_stop": 158,
+    "expiry": 11
+  },
+  "baseline_avg_pnl": -0.008218,
+  "baseline_win_rate": 0.2285,
+  "all_signals_hold_return": -0.034109,
+  "all_signals_win_rate": 0.3339,
+  "pnl_improvement": 0.011593,
+  "win_rate_improvement": 0.1246,
+  "by_pattern": {
+    "ma_glue|pit_rebound": {
+      "count": 4,
+      "avg_pnl": 0.000735,
+      "win_rate": 0.25,
+      "stop_loss_rate": 0.75,
+      "baseline_avg_pnl": -0.0815
+    },
+    "ma_glue|washout|pit_rebound": {
+      "count": 103,
+      "avg_pnl": -0.00663,
+      "win_rate": 0.3107,
+      "stop_loss_rate": 0.6893,
+      "baseline_avg_pnl": -0.024518
+    },
+    "no_pattern": {
+      "count": 1,
+      "avg_pnl": -0.05,
+      "win_rate": 0.0,
+      "stop_loss_rate": 1.0,
+      "baseline_avg_pnl": -0.0815
+    },
+    "pit_rebound": {
+      "count": 396,
+      "avg_pnl": 0.01094,
+      "win_rate": 0.3763,
+      "stop_loss_rate": 0.6263,
+      "baseline_avg_pnl": -0.013148
+    },
+    "washout|pit_rebound": {
+      "count": 459,
+      "avg_pnl": -0.000767,
+      "win_rate": 0.3442,
+      "stop_loss_rate": 0.6536,
+      "baseline_avg_pnl": 0.000491
+    }
+  },
+  "by_trend": {
+    "RANGE": {
+      "count": 217,
+      "avg_pnl": -0.006271,
+      "win_rate": 0.3456
+    },
+    "UP": {
+      "count": 746,
+      "avg_pnl": 0.006181,
+      "win_rate": 0.3552
+    }
+  },
+  "by_support_source": {
+    "breakout_support": {
+      "count": 84,
+      "avg_pnl": -0.001269,
+      "win_rate": 0.4167
+    },
+    "ma60_washed": {
+      "count": 73,
+      "avg_pnl": -0.006128,
+      "win_rate": 0.3288
+    },
+    "ma_cluster": {
+      "count": 1,
+      "avg_pnl": -0.05,
+      "win_rate": 0.0
+    },
+    "ma_ma20": {
+      "count": 172,
+      "avg_pnl": 0.006623,
+      "win_rate": 0.343
+    },
+    "ma_ma60": {
+      "count": 13,
+      "avg_pnl": 0.107741,
+      "win_rate": 0.6154
+    },
+    "pit_bottom": {
+      "count": 306,
+      "avg_pnl": -0.002067,
+      "win_rate": 0.3203
+    },
+    "poc": {
+      "count": 240,
+      "avg_pnl": 0.00435,
+      "win_rate": 0.3625
+    },
+    "swing_low": {
+      "count": 74,
+      "avg_pnl": 0.012201,
+      "win_rate": 0.3919
+    }
+  },
+  "by_month": {
+    "2025-02": {
+      "count": 30,
+      "avg_pnl": 0.057091
+    },
+    "2025-03": {
+      "count": 111,
+      "avg_pnl": 0.002819
+    },
+    "2025-04": {
+      "count": 157,
+      "avg_pnl": 0.031753
+    },
+    "2025-05": {
+      "count": 66,
+      "avg_pnl": -0.012282
+    },
+    "2025-06": {
+      "count": 66,
+      "avg_pnl": 0.010059
+    },
+    "2025-07": {
+      "count": 89,
+      "avg_pnl": -0.009095
+    },
+    "2025-08": {
+      "count": 56,
+      "avg_pnl": 0.000627
+    },
+    "2025-09": {
+      "count": 43,
+      "avg_pnl": -0.024467
+    },
+    "2025-10": {
+      "count": 63,
+      "avg_pnl": -0.0187
+    },
+    "2025-11": {
+      "count": 62,
+      "avg_pnl": 0.004846
+    },
+    "2025-12": {
+      "count": 87,
+      "avg_pnl": -0.001007
+    },
+    "2026-01": {
+      "count": 70,
+      "avg_pnl": -0.000938
+    },
+    "2026-02": {
+      "count": 39,
+      "avg_pnl": -0.006827
+    },
+    "2026-03": {
+      "count": 24,
+      "avg_pnl": -0.020426
+    }
+  },
+  "v2_matched": 4423,
+  "v2_unmatched": 0
+}

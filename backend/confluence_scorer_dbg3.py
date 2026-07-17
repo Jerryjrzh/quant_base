@@ -161,8 +161,7 @@ class ConfluenceScorer:
             k_values = window_data.get('k', pd.Series())
             min_oversold_days = self.stateful_checks.get('kdj_oversold_min_days', 2)
             kdj_oversold_period = (k_values <= 30).sum() >= min_oversold_days
-            return {'macd_consolidation': macd_consolidation, 'kdj_oversold_period': kdj_oversold_period}
-        except Exception as e:
+            return {'macd_consolidation': bool(macd_consolidation), 'kdj_oversold_period': bool(kdj_oversold_period)}        except Exception as e:
             logger.warning(f"检查状态历史条件失败: {e}"); return {'macd_consolidation': False, 'kdj_oversold_period': False}
     
     def calculate_confluence_score(self, df: pd.DataFrame, index: int) -> Dict:
@@ -183,7 +182,7 @@ class ConfluenceScorer:
             return {
                 'total_score': total_score, 'confidence': confidence,
                 'breakdown': {'price_position': price_score, 'macd_state': macd_score, 'kdj_state': kdj_score, 'rsi_state': rsi_score, 'bonus_score': bonus_score},
-                'stateful_conditions': stateful_conditions, 'is_high_quality': total_score >= min_score_threshold
+                'stateful_conditions': stateful_conditions, 'is_high_quality': bool(total_score >= min_score_threshold)
             }
         except Exception as e:
             logger.error(f"计算融合评分失败: {e}"); return {'total_score': 0, 'confidence': 0, 'breakdown': {}, 'stateful_conditions': {}, 'is_high_quality': False, 'error': str(e)}

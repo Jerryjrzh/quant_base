@@ -1,0 +1,446 @@
+{
+  "groups": {
+    "traded_baseline": {
+      "label": "traded_baseline",
+      "count": 445,
+      "mfe": {
+        "mean": 0.1943,
+        "median": 0.1383,
+        "std": 0.2037,
+        "p25": 0.0445,
+        "p75": 0.2708,
+        "gt_5pct": 321,
+        "gt_15pct": 217,
+        "gt_5pct_rate": 0.7213
+      },
+      "hold_return": {
+        "mean": -0.035,
+        "median": -0.054,
+        "std": 0.1732,
+        "positive_rate": 0.3775,
+        "gt_5pct": 110,
+        "lt_neg5pct": 225
+      },
+      "max_drawdown": {
+        "mean": -0.1738,
+        "median": -0.1462,
+        "mild_gt_neg5pct": 57,
+        "severe_lt_neg10pct": 320
+      },
+      "by_fine_score": [
+        {
+          "fs_range": "0.8+",
+          "count": 445,
+          "mfe_mean": 0.1943,
+          "mfe_median": 0.1383,
+          "hr_mean": -0.035,
+          "hr_median": -0.054,
+          "hr_positive_rate": 0.3775
+        }
+      ]
+    },
+    "fine_score_filtered": {
+      "label": "fine_score_filtered",
+      "count": 1666,
+      "mfe": {
+        "mean": 0.204,
+        "median": 0.1425,
+        "std": 0.2212,
+        "p25": 0.0527,
+        "p75": 0.2706,
+        "gt_5pct": 1271,
+        "gt_15pct": 798,
+        "gt_5pct_rate": 0.7629
+      },
+      "hold_return": {
+        "mean": -0.0203,
+        "median": -0.0703,
+        "std": 0.2337,
+        "positive_rate": 0.3463,
+        "gt_5pct": 458,
+        "lt_neg5pct": 892
+      },
+      "max_drawdown": {
+        "mean": -0.1653,
+        "median": -0.1593,
+        "mild_gt_neg5pct": 201,
+        "severe_lt_neg10pct": 1208
+      },
+      "by_fine_score": [
+        {
+          "fs_range": "<0.3",
+          "count": 345,
+          "mfe_mean": 0.2096,
+          "mfe_median": 0.1499,
+          "hr_mean": -0.0054,
+          "hr_median": -0.0409,
+          "hr_positive_rate": 0.3913
+        },
+        {
+          "fs_range": "0.3-0.5",
+          "count": 1321,
+          "mfe_mean": 0.2026,
+          "mfe_median": 0.1393,
+          "hr_mean": -0.0242,
+          "hr_median": -0.0768,
+          "hr_positive_rate": 0.3346
+        }
+      ]
+    },
+    "operable_filtered": {
+      "label": "operable_filtered",
+      "count": 1360,
+      "mfe": {
+        "mean": 0.2004,
+        "median": 0.129,
+        "std": 0.2294,
+        "p25": 0.0514,
+        "p75": 0.2709,
+        "gt_5pct": 1027,
+        "gt_15pct": 610,
+        "gt_5pct_rate": 0.7551
+      },
+      "hold_return": {
+        "mean": -0.0333,
+        "median": -0.0726,
+        "std": 0.215,
+        "positive_rate": 0.3309,
+        "gt_5pct": 336,
+        "lt_neg5pct": 773
+      },
+      "max_drawdown": {
+        "mean": -0.1696,
+        "median": -0.1615,
+        "mild_gt_neg5pct": 147,
+        "severe_lt_neg10pct": 997
+      },
+      "by_fine_score": [
+        {
+          "fs_range": "0.5-0.7",
+          "count": 932,
+          "mfe_mean": 0.204,
+          "mfe_median": 0.1305,
+          "hr_mean": -0.0315,
+          "hr_median": -0.0716,
+          "hr_positive_rate": 0.3369
+        },
+        {
+          "fs_range": "0.7-0.8",
+          "count": 353,
+          "mfe_mean": 0.2067,
+          "mfe_median": 0.136,
+          "hr_mean": -0.0264,
+          "hr_median": -0.0715,
+          "hr_positive_rate": 0.3399
+        },
+        {
+          "fs_range": "0.8+",
+          "count": 75,
+          "mfe_mean": 0.1256,
+          "mfe_median": 0.0776,
+          "hr_mean": -0.0876,
+          "hr_median": -0.0955,
+          "hr_positive_rate": 0.2133
+        }
+      ]
+    },
+    "structure_filtered": {
+      "label": "structure_filtered",
+      "count": 183,
+      "mfe": {
+        "mean": 0.2035,
+        "median": 0.1744,
+        "std": 0.1623,
+        "p25": 0.0798,
+        "p75": 0.2769,
+        "gt_5pct": 152,
+        "gt_15pct": 105,
+        "gt_5pct_rate": 0.8306
+      },
+      "hold_return": {
+        "mean": -0.0458,
+        "median": -0.051,
+        "std": 0.1666,
+        "positive_rate": 0.3661,
+        "gt_5pct": 53,
+        "lt_neg5pct": 92
+      },
+      "max_drawdown": {
+        "mean": -0.1555,
+        "median": -0.1436,
+        "mild_gt_neg5pct": 20,
+        "severe_lt_neg10pct": 127
+      },
+      "by_fine_score": [
+        {
+          "fs_range": "0.8+",
+          "count": 183,
+          "mfe_mean": 0.2035,
+          "mfe_median": 0.1744,
+          "hr_mean": -0.0458,
+          "hr_median": -0.051,
+          "hr_positive_rate": 0.3661
+        }
+      ]
+    },
+    "expired": {
+      "label": "expired",
+      "count": 769,
+      "mfe": {
+        "mean": 0.2009,
+        "median": 0.1412,
+        "std": 0.2207,
+        "p25": 0.0493,
+        "p75": 0.2844,
+        "gt_5pct": 573,
+        "gt_15pct": 368,
+        "gt_5pct_rate": 0.7451
+      },
+      "hold_return": {
+        "mean": -0.0623,
+        "median": -0.0986,
+        "std": 0.2007,
+        "positive_rate": 0.2796,
+        "gt_5pct": 161,
+        "lt_neg5pct": 480
+      },
+      "max_drawdown": {
+        "mean": -0.193,
+        "median": -0.1778,
+        "mild_gt_neg5pct": 64,
+        "severe_lt_neg10pct": 613
+      },
+      "by_fine_score": [
+        {
+          "fs_range": "0.8+",
+          "count": 769,
+          "mfe_mean": 0.2009,
+          "mfe_median": 0.1412,
+          "hr_mean": -0.0623,
+          "hr_median": -0.0986,
+          "hr_positive_rate": 0.2796
+        }
+      ]
+    }
+  },
+  "expired_deep_analysis": {
+    "count": 769,
+    "mfe_mean": 0.2009,
+    "mfe_median": 0.1412,
+    "mfe_gt_10pct": 451,
+    "mfe_gt_20pct": 291,
+    "hr_mean": -0.0623,
+    "hr_median": -0.0986,
+    "hr_positive_rate": 0.2796,
+    "by_fine_score": [
+      {
+        "fs_range": "0.8+",
+        "count": 769,
+        "mfe_mean": 0.2009,
+        "mfe_gt_10pct": 451,
+        "hr_mean": -0.0623,
+        "hr_positive_rate": 0.2796
+      }
+    ],
+    "by_operable_score": [
+      {
+        "op_range": "0.2+",
+        "count": 769,
+        "mfe_mean": 0.2009,
+        "hr_mean": -0.0623,
+        "hr_positive_rate": 0.2796
+      }
+    ]
+  },
+  "diagnosis": {
+    "fine_score_filtered": {
+      "verdict": "low_value",
+      "recommendation": "低价值: MFE 不足, 挽回成本高",
+      "count": 1666,
+      "mfe_mean": 0.204,
+      "mfe_median": 0.1425,
+      "mfe_gt5pct_rate": 0.7629,
+      "hr_mean": -0.0203,
+      "hr_median": -0.0703,
+      "hr_positive_rate": 0.3463,
+      "style_hints": [
+        "MFE>5% 过半, 可考虑追涨或更长等待",
+        "MFE 中位数 >5%, 多数信号有上行空间",
+        "平均回撤 >10%, 需宽止损或直接过滤"
+      ]
+    },
+    "operable_filtered": {
+      "verdict": "low_value",
+      "recommendation": "低价值: MFE 不足, 挽回成本高",
+      "count": 1360,
+      "mfe_mean": 0.2004,
+      "mfe_median": 0.129,
+      "mfe_gt5pct_rate": 0.7551,
+      "hr_mean": -0.0333,
+      "hr_median": -0.0726,
+      "hr_positive_rate": 0.3309,
+      "style_hints": [
+        "MFE>5% 过半, 可考虑追涨或更长等待",
+        "MFE 中位数 >5%, 多数信号有上行空间",
+        "平均回撤 >10%, 需宽止损或直接过滤"
+      ]
+    },
+    "structure_filtered": {
+      "verdict": "moderate_value_recoverable",
+      "recommendation": "有条件挽回: MFE 存在, 需精准手法",
+      "count": 183,
+      "mfe_mean": 0.2035,
+      "mfe_median": 0.1744,
+      "mfe_gt5pct_rate": 0.8306,
+      "hr_mean": -0.0458,
+      "hr_median": -0.051,
+      "hr_positive_rate": 0.3661,
+      "style_hints": [
+        "MFE>5% 过半, 可考虑追涨或更长等待",
+        "MFE 中位数 >5%, 多数信号有上行空间",
+        "平均回撤 >10%, 需宽止损或直接过滤"
+      ]
+    },
+    "expired": {
+      "verdict": "low_value",
+      "recommendation": "低价值: MFE 不足, 挽回成本高",
+      "count": 769,
+      "mfe_mean": 0.2009,
+      "mfe_median": 0.1412,
+      "mfe_gt5pct_rate": 0.7451,
+      "hr_mean": -0.0623,
+      "hr_median": -0.0986,
+      "hr_positive_rate": 0.2796,
+      "style_hints": [
+        "MFE>5% 过半, 可考虑追涨或更长等待",
+        "MFE 中位数 >5%, 多数信号有上行空间",
+        "平均回撤 >10%, 需宽止损或直接过滤",
+        "过期组 hold_return 负, 延长等待无意义"
+      ]
+    }
+  },
+  "fine_score_detail": [
+    {
+      "fs_range": "<0.2",
+      "count": 30,
+      "mfe_mean": 0.2271,
+      "mfe_median": 0.1401,
+      "hr_mean": 0.0069,
+      "hr_median": -0.0348,
+      "hr_positive_rate": 0.3667,
+      "dd_mean": -0.1555
+    },
+    {
+      "fs_range": "0.2-0.3",
+      "count": 315,
+      "mfe_mean": 0.2079,
+      "mfe_median": 0.1499,
+      "hr_mean": -0.0066,
+      "hr_median": -0.0409,
+      "hr_positive_rate": 0.3937,
+      "dd_mean": -0.1567
+    },
+    {
+      "fs_range": "0.3-0.4",
+      "count": 640,
+      "mfe_mean": 0.1978,
+      "mfe_median": 0.1357,
+      "hr_mean": -0.0194,
+      "hr_median": -0.0713,
+      "hr_positive_rate": 0.3359,
+      "dd_mean": -0.1639
+    },
+    {
+      "fs_range": "0.4-0.5",
+      "count": 681,
+      "mfe_mean": 0.2071,
+      "mfe_median": 0.1405,
+      "hr_mean": -0.0286,
+      "hr_median": -0.083,
+      "hr_positive_rate": 0.3333,
+      "dd_mean": -0.171
+    },
+    {
+      "fs_range": "0.5-0.6",
+      "count": 510,
+      "mfe_mean": 0.1944,
+      "mfe_median": 0.1203,
+      "hr_mean": -0.0405,
+      "hr_median": -0.0828,
+      "hr_positive_rate": 0.3137,
+      "dd_mean": -0.1675
+    },
+    {
+      "fs_range": "0.6-0.7",
+      "count": 422,
+      "mfe_mean": 0.2157,
+      "mfe_median": 0.1395,
+      "hr_mean": -0.0206,
+      "hr_median": -0.0641,
+      "hr_positive_rate": 0.3649,
+      "dd_mean": -0.173
+    },
+    {
+      "fs_range": "0.7-0.8",
+      "count": 353,
+      "mfe_mean": 0.2067,
+      "mfe_median": 0.136,
+      "hr_mean": -0.0264,
+      "hr_median": -0.0715,
+      "hr_positive_rate": 0.3399,
+      "dd_mean": -0.1582
+    },
+    {
+      "fs_range": "0.8-1.0",
+      "count": 546,
+      "mfe_mean": 0.2023,
+      "mfe_median": 0.1517,
+      "hr_mean": -0.0393,
+      "hr_median": -0.0693,
+      "hr_positive_rate": 0.3553,
+      "dd_mean": -0.167
+    },
+    {
+      "fs_range": "1.0-1.5",
+      "count": 728,
+      "mfe_mean": 0.1909,
+      "mfe_median": 0.1435,
+      "hr_mean": -0.0562,
+      "hr_median": -0.0783,
+      "hr_positive_rate": 0.2967,
+      "dd_mean": -0.1886
+    },
+    {
+      "fs_range": "1.5+",
+      "count": 198,
+      "mfe_mean": 0.1929,
+      "mfe_median": 0.1279,
+      "hr_mean": -0.081,
+      "hr_median": -0.1039,
+      "hr_positive_rate": 0.2828,
+      "dd_mean": -0.2127
+    }
+  ],
+  "operable_score_detail": [
+    {
+      "op_range": "0.15-0.20",
+      "count": 1360,
+      "mfe_mean": 0.2004,
+      "mfe_median": 0.129,
+      "hr_mean": -0.0333,
+      "hr_median": -0.0726,
+      "hr_positive_rate": 0.3309,
+      "dd_mean": -0.1696
+    },
+    {
+      "op_range": "0.20-0.30",
+      "count": 1397,
+      "mfe_mean": 0.1991,
+      "mfe_median": 0.1479,
+      "hr_mean": -0.0514,
+      "hr_median": -0.081,
+      "hr_positive_rate": 0.3221,
+      "dd_mean": -0.182
+    }
+  ]
+}

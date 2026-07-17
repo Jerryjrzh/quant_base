@@ -1,0 +1,119 @@
+{
+  "params": {
+    "max_wait_days": 5,
+    "stop_loss_atr_multiplier": 1.0,
+    "max_stop_loss_pct": 0.08,
+    "default_tp1_pct": 0.1,
+    "default_tp2_pct": 0.2,
+    "tp1_reduce_ratio": 0.5,
+    "trailing_atr_multiplier": 2.0,
+    "max_hold_days": 22,
+    "structure_lookback_days": 60,
+    "swing_lookback": 5,
+    "capital": 1000000,
+    "max_risk_per_trade": 0.005
+  },
+  "elapsed_seconds": 39.9,
+  "total_signals": 4423,
+  "traded": 924,
+  "filtered": 527,
+  "expired": 2972,
+  "errors": 0,
+  "struct_avg_pnl": 0.00215,
+  "struct_median_pnl": -0.077717,
+  "struct_win_rate": 0.4437,
+  "struct_max_profit": 0.717453,
+  "struct_max_loss": -0.08,
+  "struct_std": 0.102278,
+  "struct_profit_factor": 1.05,
+  "struct_avg_hold_days": 5.3,
+  "entry_type_dist": {
+    "pullback": 824,
+    "breakout": 100
+  },
+  "exit_reason_dist": {
+    "stop_loss": 502,
+    "take_profit_2": 196,
+    "breakeven_stop": 183,
+    "expiry": 43
+  },
+  "baseline_avg_pnl": -0.018606,
+  "baseline_win_rate": 0.1991,
+  "baseline_max_profit": 0.2985,
+  "baseline_max_loss": -0.0815,
+  "all_signals_hold_return": -0.034109,
+  "all_signals_win_rate": 0.3339,
+  "pnl_improvement": 0.020756,
+  "win_rate_improvement": 0.2446,
+  "filtered_avg_baseline_pnl": -0.005684,
+  "by_trend": {
+    "RANGE": {
+      "count": 252,
+      "avg_pnl": -0.001648,
+      "win_rate": 0.4643
+    },
+    "UP": {
+      "count": 672,
+      "avg_pnl": 0.003574,
+      "win_rate": 0.436
+    }
+  },
+  "by_month": {
+    "2025-02": {
+      "count": 29,
+      "avg_pnl": 0.057325
+    },
+    "2025-03": {
+      "count": 109,
+      "avg_pnl": 0.007951
+    },
+    "2025-04": {
+      "count": 180,
+      "avg_pnl": 0.028712
+    },
+    "2025-05": {
+      "count": 65,
+      "avg_pnl": -0.002357
+    },
+    "2025-06": {
+      "count": 57,
+      "avg_pnl": -0.02435
+    },
+    "2025-07": {
+      "count": 57,
+      "avg_pnl": 0.013106
+    },
+    "2025-08": {
+      "count": 44,
+      "avg_pnl": -0.000805
+    },
+    "2025-09": {
+      "count": 49,
+      "avg_pnl": -0.014538
+    },
+    "2025-10": {
+      "count": 69,
+      "avg_pnl": -0.029289
+    },
+    "2025-11": {
+      "count": 50,
+      "avg_pnl": 0.006958
+    },
+    "2025-12": {
+      "count": 87,
+      "avg_pnl": -0.002109
+    },
+    "2026-01": {
+      "count": 67,
+      "avg_pnl": -0.022363
+    },
+    "2026-02": {
+      "count": 33,
+      "avg_pnl": -0.014499
+    },
+    "2026-03": {
+      "count": 28,
+      "avg_pnl": -0.011981
+    }
+  }
+}

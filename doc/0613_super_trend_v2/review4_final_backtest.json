@@ -1,0 +1,243 @@
+{
+  "version": "Review4_Final",
+  "config": {
+    "min_fine_score": 0.5,
+    "min_operable_score": 0.2,
+    "max_wait_days": 7,
+    "max_stop_loss_pct": 0.08,
+    "enabled_signals": [
+      "D1",
+      "D2",
+      "D4",
+      "D5",
+      "E1",
+      "E2",
+      "S1"
+    ],
+    "deep_config": {
+      "support_tolerance": 0.01,
+      "bullish_body_ratio": 0.3,
+      "lower_shadow_ratio": 1.5
+    },
+    "shallow_config": {
+      "support_tolerance": 0.02,
+      "bullish_body_ratio": 0.1,
+      "lower_shadow_ratio": 0.8
+    }
+  },
+  "elapsed_seconds": 19.9,
+  "funnel": {
+    "total_signals": 4423,
+    "after_fine_score_filter": 2757,
+    "fine_score_filtered": 1666,
+    "after_operable_filter": 1397,
+    "operable_filtered": 1360,
+    "structure_filtered": 183,
+    "expired": 769,
+    "traded": 394
+  },
+  "errors": 0,
+  "overall": {
+    "trades": 394,
+    "avg_pnl": 0.036378,
+    "median_pnl": 0.008734,
+    "win_rate": 0.5431,
+    "max_profit": 0.3505,
+    "max_loss": -0.08,
+    "std_pnl": 0.0947,
+    "profit_factor": 2.99,
+    "avg_hold_days": 2.9
+  },
+  "by_style": {
+    "deep_pullback": {
+      "count": 337,
+      "avg_pnl": 0.0334,
+      "median_pnl": 0.0086,
+      "win_rate": 0.5371,
+      "profit_factor": 2.76,
+      "avg_hold_days": 2.9
+    },
+    "shallow_pullback": {
+      "count": 57,
+      "avg_pnl": 0.0542,
+      "median_pnl": 0.0157,
+      "win_rate": 0.5789,
+      "profit_factor": 4.76,
+      "avg_hold_days": 2.8
+    }
+  },
+  "entry_day_dist": {
+    "day_1": 84,
+    "day_2_3": 115,
+    "day_4_5": 91,
+    "day_6_7": 104
+  },
+  "exit_reason_dist": {
+    "dynamic_stop": 200,
+    "initial_stop": 117,
+    "initial_tp": 77
+  },
+  "trigger_signal_dist": {
+    "D4": 174,
+    "D2": 24,
+    "D1": 2
+  },
+  "by_support_source": {
+    "ma60_washed": {
+      "count": 55,
+      "avg_pnl": 0.0294,
+      "win_rate": 0.5091
+    },
+    "ma_ma20": {
+      "count": 143,
+      "avg_pnl": 0.0324,
+      "win_rate": 0.5315
+    },
+    "ma_ma60": {
+      "count": 5,
+      "avg_pnl": 0.1172,
+      "win_rate": 0.6
+    },
+    "poc": {
+      "count": 150,
+      "avg_pnl": 0.042,
+      "win_rate": 0.56
+    },
+    "swing_low": {
+      "count": 41,
+      "avg_pnl": 0.0294,
+      "win_rate": 0.561
+    }
+  },
+  "trades_fs_0.8+": {
+    "count": 394,
+    "avg_pnl": 0.0364,
+    "win_rate": 0.5431
+  },
+  "by_month": {
+    "2025-02": {
+      "count": 27,
+      "avg_pnl": 0.0778
+    },
+    "2025-03": {
+      "count": 80,
+      "avg_pnl": 0.0566
+    },
+    "2025-04": {
+      "count": 131,
+      "avg_pnl": 0.0322
+    },
+    "2025-05": {
+      "count": 36,
+      "avg_pnl": 0.0454
+    },
+    "2025-06": {
+      "count": 22,
+      "avg_pnl": 0.0253
+    },
+    "2025-07": {
+      "count": 13,
+      "avg_pnl": 0.0156
+    },
+    "2025-08": {
+      "count": 8,
+      "avg_pnl": 0.0372
+    },
+    "2025-09": {
+      "count": 12,
+      "avg_pnl": -0.0184
+    },
+    "2025-10": {
+      "count": 10,
+      "avg_pnl": -0.0232
+    },
+    "2025-11": {
+      "count": 7,
+      "avg_pnl": -0.0021
+    },
+    "2025-12": {
+      "count": 3,
+      "avg_pnl": 0.0568
+    },
+    "2026-01": {
+      "count": 29,
+      "avg_pnl": 0.0469
+    },
+    "2026-02": {
+      "count": 7,
+      "avg_pnl": -0.0317
+    },
+    "2026-03": {
+      "count": 9,
+      "avg_pnl": -0.0054
+    }
+  },
+  "by_trend": {
+    "RANGE": {
+      "count": 94,
+      "avg_pnl": 0.0275,
+      "win_rate": 0.5319
+    },
+    "UP": {
+      "count": 300,
+      "avg_pnl": 0.0392,
+      "win_rate": 0.5467
+    }
+  },
+  "shallow_feature_analysis": {
+    "shallow_count": 57,
+    "deep_count": 388,
+    "shallow_structure_strength": {
+      "mean": 0.7918,
+      "median": 0.7917,
+      "min": 0.525,
+      "max": 1.0
+    },
+    "shallow_atr_ratio": {
+      "mean": 0.1051,
+      "median": 0.104,
+      "min": 0.0559,
+      "max": 0.1986
+    },
+    "shallow_fine_score": {
+      "mean": 1.2101,
+      "median": 1.1511,
+      "min": 0.8029,
+      "max": 2.1684
+    },
+    "shallow_operable_score": {
+      "mean": 0.2444,
+      "median": 0.245,
+      "min": 0.2076,
+      "max": 0.2798
+    },
+    "shallow_entry_day": {
+      "mean": 4.4561,
+      "median": 4.0,
+      "min": 1.0,
+      "max": 8.0
+    },
+    "shallow_trend_dist": {
+      "UP": 50,
+      "RANGE": 7
+    },
+    "shallow_top_support_source_dist": {
+      "ma60_washed": 36,
+      "swing_low": 18,
+      "ma_ma20": 2,
+      "poc": 1
+    },
+    "shallow_v2_pattern_dist": {
+      "": 57
+    },
+    "shallow_entry_day_dist": {
+      "day_1_3": 23,
+      "day_4_5": 11,
+      "day_6_7": 23
+    },
+    "shallow_support_dist": {
+      "mean": -0.2038,
+      "median": -0.188
+    }
+  }
+}

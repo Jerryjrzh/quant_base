@@ -1,0 +1,85 @@
+{
+  "total_trades": 924,
+  "dynamic_triggered": 505,
+  "avg_dynamic_pnl": 0.025637,
+  "avg_fixed_pnl": 0.006695,
+  "avg_original_pnl": 0.013687,
+  "improvement_vs_fixed": 0.018942,
+  "improvement_vs_original": 0.01195,
+  "by_signal": {
+    "D1": {
+      "count": 5,
+      "avg_dynamic_pnl": 0.080662,
+      "avg_fixed_pnl": -0.048,
+      "improvement": 0.128662,
+      "win_rate_vs_fixed": 1.0
+    },
+    "D2": {
+      "count": 45,
+      "avg_dynamic_pnl": -0.001637,
+      "avg_fixed_pnl": -0.009798,
+      "improvement": 0.008161,
+      "win_rate_vs_fixed": 0.6222
+    },
+    "D4": {
+      "count": 453,
+      "avg_dynamic_pnl": -0.006287,
+      "avg_fixed_pnl": -0.039578,
+      "improvement": 0.033291,
+      "win_rate_vs_fixed": 0.7351
+    },
+    "D5": {
+      "count": 0
+    },
+    "E1": {
+      "count": 0
+    },
+    "E2": {
+      "count": 1,
+      "avg_dynamic_pnl": -0.020281,
+      "avg_fixed_pnl": 0.247517,
+      "improvement": -0.267798,
+      "win_rate_vs_fixed": 0.0
+    },
+    "E3": {
+      "count": 1,
+      "avg_dynamic_pnl": 0.000387,
+      "avg_fixed_pnl": -0.08,
+      "improvement": 0.080387,
+      "win_rate_vs_fixed": 1.0
+    },
+    "S1": {
+      "count": 63,
+      "avg_dynamic_pnl": 0.117171,
+      "avg_fixed_pnl": 0.113059,
+      "improvement": 0.004112,
+      "win_rate_vs_fixed": 0.3617
+    },
+    "S2": {
+      "count": 31,
+      "avg_dynamic_pnl": 0.018804,
+      "avg_fixed_pnl": 0.037397,
+      "improvement": -0.018592,
+      "win_rate_vs_fixed": 0.5806
+    },
+    "S3": {
+      "count": 2,
+      "avg_dynamic_pnl": 0.020225,
+      "avg_fixed_pnl": 0.261854,
+      "improvement": -0.241629,
+      "win_rate_vs_fixed": 0.0
+    }
+  },
+  "recommendations": {
+    "D1": "keep",
+    "D2": "keep",
+    "D4": "keep",
+    "D5": "no_data",
+    "E1": "no_data",
+    "E2": "discard",
+    "E3": "keep",
+    "S1": "keep",
+    "S2": "discard",
+    "S3": "discard"
+  }
+}

@@ -202,8 +202,18 @@ class PortfolioManager:
                 'cache_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                 'analysis_results': analysis_results
             }
+
+            class NumpyEncoder(json.JSONEncoder):
+                def default(self, obj):
+                    import numpy as np
+                    if isinstance(obj, np.bool_): return bool(obj)
+                    if isinstance(obj, np.integer): return int(obj)
+                    if isinstance(obj, np.floating): return float(obj)
+                    if isinstance(obj, np.ndarray): return obj.tolist()
+                    return super().default(obj)
+
             with open(backtest_cache_file, 'w', encoding='utf-8') as f:
-                json.dump(cache_data, f, ensure_ascii=False, indent=2)
+                json.dump(cache_data, f, ensure_ascii=False, indent=2, cls=NumpyEncoder)
             
             analysis_results['from_cache'] = False
             return analysis_results

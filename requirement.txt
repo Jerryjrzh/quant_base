@@ -8,3 +8,5 @@ matplotlib
 requests
 python-dotenv
 gunicorn
+PyYAML
+TA-Lib

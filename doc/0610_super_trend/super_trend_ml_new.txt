@@ -1,0 +1,108 @@
+=== Super Trend机器学习模型训练 ===
+加载训练数据: data/result/super_trend/super_trend_training_data.csv
+数据维度: (723693, 18)
+时序排序完成: 2020-05-26 00:00:00 → 2026-03-11 00:00:00
+特征数: 13
+样本数: 723693
+正样本比例: 6.23%
+
+执行 5-折时序交叉验证 (TimeSeriesSplit)...
+Training until validation scores don't improve for 100 rounds
+Did not meet early stopping. Best iteration is:
+[989]	valid_0's auc: 0.670361
+  Fold 1: 训练 120618 样本, 验证 120615 样本, AUC=0.6704, trees=989
+Training until validation scores don't improve for 100 rounds
+Early stopping, best iteration is:
+[664]	valid_0's auc: 0.700303
+  Fold 2: 训练 241233 样本, 验证 120615 样本, AUC=0.7003, trees=664
+Training until validation scores don't improve for 100 rounds
+Did not meet early stopping. Best iteration is:
+[979]	valid_0's auc: 0.805171
+  Fold 3: 训练 361848 样本, 验证 120615 样本, AUC=0.8052, trees=979
+Training until validation scores don't improve for 100 rounds
+Did not meet early stopping. Best iteration is:
+[1000]	valid_0's auc: 0.623454
+  Fold 4: 训练 482463 样本, 验证 120615 样本, AUC=0.6235, trees=1000
+Training until validation scores don't improve for 100 rounds
+Early stopping, best iteration is:
+[350]	valid_0's auc: 0.686409
+  Fold 5: 训练 603078 样本, 验证 120615 样本, AUC=0.6864, trees=350
+
+时序CV结果: AUC = 0.6971 (+/- 0.0599)
+
+开始训练LightGBM模型...
+时序切分完成:
+  训练集: 578954 样本 (前段历史)
+  测试集: 144739 样本 (后段未来)
+  正样本: 36377 (6.3%), 负样本: 542577
+  scale_pos_weight: 3.86 (全比率 14.9 的平方根)
+训练中...
+Training until validation scores don't improve for 100 rounds
+[50]	valid_0's auc: 0.683096
+[100]	valid_0's auc: 0.684503
+[150]	valid_0's auc: 0.686995
+[200]	valid_0's auc: 0.687891
+[250]	valid_0's auc: 0.688523
+[300]	valid_0's auc: 0.689113
+[350]	valid_0's auc: 0.689752
+[400]	valid_0's auc: 0.689789
+[450]	valid_0's auc: 0.689863
+[500]	valid_0's auc: 0.690323
+[550]	valid_0's auc: 0.690652
+[600]	valid_0's auc: 0.69068
+[650]	valid_0's auc: 0.690803
+[700]	valid_0's auc: 0.690945
+[750]	valid_0's auc: 0.691103
+[800]	valid_0's auc: 0.691053
+[850]	valid_0's auc: 0.691029
+Early stopping, best iteration is:
+[765]	valid_0's auc: 0.691189
+
+模型评估:
+
+============================================================
+    阈值 |      精确率 |      召回率 |       F1 |    触发数 |      准确率
+------------------------------------------------------------
+  0.50 |   0.2504 |   0.0533 |   0.0879 |   1853 |   0.9335
+  0.65 |   0.3245 |   0.0140 |   0.0269 |    376 |   0.9390
+  0.70 |   0.3502 |   0.0087 |   0.0170 |    217 |   0.9394
+============================================================
+
+AUC: 0.6912
+
+预测概率分布:
+  min=0.0079, max=0.9621, mean=0.1620, median=0.1363
+  P10: 0.0594  P25: 0.0894  P50: 0.1363  P75: 0.2071  P90: 0.2997  P95: 0.3688  P99: 0.5248
+  正样本平均概率: 0.2352
+  负样本平均概率: 0.1573
+
+分类报告 (阈值=0.65):
+              precision    recall  f1-score   support
+
+         负样本       0.94      1.00      0.97    136038
+         正样本       0.32      0.01      0.03      8701
+
+    accuracy                           0.94    144739
+   macro avg       0.63      0.51      0.50    144739
+weighted avg       0.90      0.94      0.91    144739
+
+
+特征重要性分析:
+Top 10 最重要特征:
+  price_rebound_from_pit: 1048234.0766
+  t0_rsi: 812528.7167
+  t0_close: 571628.4631
+  t0_macd: 450183.5465
+  macd_pit_depth: 353263.1860
+  rsi_explosion_force: 287051.1199
+  days_below_ma30: 215524.7153
+  vol_dryup_count: 213310.5703
+  t0_volume: 175641.2163
+  days_underwater: 142101.7539
+特征重要性已保存: data/result/super_trend/analysis/feature_importance.csv
+特征重要性图表已保存: data/result/super_trend/analysis/feature_importance_plot.png
+模型已保存: data/result/super_trend/models/trend_gbm_v1.pkl
+
+✅ 训练完成!
+模型文件: data/result/super_trend/models/trend_gbm_v1.pkl
+特征重要性文件: data/result/super_trend/analysis/feature_importance.csv

@@ -1,100 +1,38 @@
 {
-  "cache_time": "2025-08-27 11:47:01",
+  "cache_time": "2026-04-04 21:14:59",
   "analysis_results": {
     "stock_code": "sz002021",
-    "analysis_time": "2025-08-27 11:47:01",
-    "current_price": 2.52,
-    "backtest_analysis": {
-      "best_add_coefficient": 0.96,
-      "best_add_score": 67.19583583730147,
-      "add_coefficient_analysis": {
-        "0.96": {
-          "success_rate": 100.0,
-          "avg_return": 17.989589593253676,
-          "score": 67.19583583730147
-        },
-        "0.97": {
-          "success_rate": 100.0,
-          "avg_return": 17.61575686652846,
-          "score": 67.04630274661139
-        },
-        "0.98": {
-          "success_rate": 99.74193548387098,
-          "avg_return": 16.930675326308503,
-          "score": 66.61743142084597
-        },
-        "0.99": {
-          "success_rate": 99.76218787158146,
-          "avg_return": 16.663495873656846,
-          "score": 66.52271107241161
-        },
-        "1.0": {
-          "success_rate": 99.23830250272034,
-          "avg_return": 16.667790528369924,
-          "score": 66.21009771298017
-        }
-      },
-      "best_sell_coefficient": 1.03,
-      "best_sell_score": 36.33592492379354,
-      "sell_coefficient_analysis": {
-        "1.03": {
-          "success_rate": 100.0,
-          "avg_return": 3.0000000000000004,
-          "avg_hold_days": 8.346601941747572,
-          "score": 36.33592492379354
-        },
-        "1.05": {
-          "success_rate": 100.0,
-          "avg_return": 5.000000000000001,
-          "avg_hold_days": 12.05849889624724,
-          "score": 32.752625236701675
-        },
-        "1.08": {
-          "success_rate": 100.0,
-          "avg_return": 8.0,
-          "avg_hold_days": 15.086253369272237,
-          "score": 30.78128601060152
-        },
-        "1.1": {
-          "success_rate": 100.0,
-          "avg_return": 10.0,
-          "avg_hold_days": 17.059001512859304,
-          "score": 29.6823971260614
-        },
-        "1.15": {
-          "success_rate": 100.0,
-          "avg_return": 15.0,
-          "avg_hold_days": 20.62309368191721,
-          "score": 28.309020701490933
-        },
-        "1.2": {
-          "success_rate": 100.0,
-          "avg_return": 20.0,
-          "avg_hold_days": 23.279411764705884,
-          "score": 27.726809378185525
-        }
-      }
-    },
+    "analysis_time": "2026-04-04 21:14:59",
+    "current_price": 2.96,
     "trading_advice": {
-      "action": "HOLD",
-      "confidence": 0.6,
+      "action": "BUY",
+      "confidence": 0.4432051282051282,
+      "quality_grade": "A",
       "analysis_logic": [
-        "当前技术指标处于中性区域，建议继续观察。"
+        "宏观判断：当前处于 ACCUMULATION 阶段。",
+        "核心决策：融合评分 86.0 (A级)，技术面高度共振。",
+        "形态分析：识别到 bottom_reversal 形态 (置信度: 71.0%)。",
+        "历史回测：基于对齐信号的历史胜率为 49.6% (共1425次)。"
       ],
-      "current_price": 2.52,
-      "entry_price": 2.2944,
-      "target_price": 2.5956,
-      "stop_price": 2.2705,
-      "resistance_level": null,
-      "support_level": 2.39
-    },
-    "risk_assessment": {
-      "volatility": 0.43541824175467414,
-      "max_drawdown": -0.5741324921135647,
-      "price_position_pct": 0.4976076555023924,
-      "overall_risk_score": 0.6674698864275763,
-      "risk_level": "HIGH"
-    },
-    "from_cache": false
-  }
-}
+      "current_price": 2.96,
+      "entry_price": 2.93,
+      "target_price": 3.62,
+      "stop_price": 2.8028,
+      "resistance_level": 3.89,
+      "support_level": 2.86,
+      "full_confluence_result": {
+        "total_score": 86.0,
+        "confidence": 0.1764102564102564,
+        "base_confidence": 0.6615384615384615,
+        "market_phase": "accumulation",
+        "phase_confidence": 0.26666666666666666,
+        "breakdown": {
+          "price_position": 40,
+          "macd_state": 20.0,
+          "kdj_state": 11.0,
+          "rsi_state": 0,
+          "bonus_score": 15,
+          "alignment_bonus": 5
+        },
+        "stateful_conditions": {
+          "macd_consolidation": 

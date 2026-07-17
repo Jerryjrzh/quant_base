@@ -22,6 +22,10 @@ try:
     from . import indicators
 except ImportError:
     import indicators
+try:
+    from .golden_trend import calculate_golden_trend, GoldenTrendConfig
+except ImportError:
+    from golden_trend import calculate_golden_trend, GoldenTrendConfig
 
 from typing import List
 
@@ -121,7 +125,57 @@ def _get_hk_price_divisor(stock_code: str) -> float:
     else:
         return 1000.0  # 默认港股除数
 
-def get_full_data_with_indicators(stock_code: str, adjustment_type: str = 'forward', **indicator_params) -> Optional[pd.DataFrame]:
+def get_full_data_with_indicators(stock_code: str, 
+                                  adjustment_type: str = 'forward', 
+                                  end_date: str = None, 
+                                  **indicator_params) -> Optional[pd.DataFrame]:
+    """
+    【统一数据入口 - 已增强】支持指定截止日期（用于历史时点回测）
+    
+    Args:
+        stock_code: 股票代码
+        adjustment_type: 复权类型
+        end_date: 指定分析截止日期 (YYYY-MM-DD)，None表示使用全部最新数据
+        **indicator_params: 指标计算参数
+    """
+    try:
+        # 检查是否为港股且港股功能是否启用
+        if is_hk_stock(stock_code) and not ENABLE_HK_STOCKS:
+            return None
+        
+        # 1. 加载原始数据
+        market = _get_market_from_stock_code(stock_code)
+        file_path = os.path.join(BASE_PATH, market, 'lday', f'{stock_code}.day')
+        if not os.path.exists(file_path):
+            return None
+        
+        df = data_loader.get_daily_data(file_path, stock_code)
+        if df is None or len(df) < 100:
+            return None
+        
+        # 2. 按日期切片（核心新增）
+        if end_date:
+            end_dt = pd.to_datetime(end_date)
+            df = df[df.index <= end_dt].copy()
+            if len(df) < 100:
+                print(f"⚠️ {stock_code} 在 {end_date} 前数据不足 ({len(df)} 条)")
+                return None
+        
+        # 3. 复权处理
+        if adjustment_type != 'none':
+            adj_config = create_adjustment_config(adjustment_type)
+            adj_processor = create_adjustment_processor(adj_config)
+            df = adj_processor.process_data(df, stock_code)
+
+        # 4. 计算技术指标
+        df = calculate_all_indicators(df, stock_code, adjustment_type, **indicator_params)
+
+        return df
+    except Exception as e:
+        logger.error(f"获取股票数据失败 {stock_code}: {e}")
+        return None
+
+def get_full_data_with_indicators_0(stock_code: str, adjustment_type: str = 'forward', **indicator_params) -> Optional[pd.DataFrame]:
     """
     【统一数据入口】
     获取单只股票的完整历史数据，并计算好所有通用技术指标。
@@ -163,6 +217,43 @@ def get_full_data_with_indicators(stock_code: str, adjustment_type: str = 'forwa
         logger.error(f"获取股票数据失败 {stock_code}: {e}")
         return None
 
+def get_market_volatility_profile(stock_code: str) -> dict:
+    """
+    根据股票代码返回不同市场的波动特征画像
+    """
+    # 剥离前缀(如果有)，如 'sh688306' -> '688306', '31#00700' 处理
+    if '#' in stock_code:
+        code_num = stock_code.split('#')[1]
+    elif stock_code.startswith(('sh', 'sz', 'bj')):
+        code_num = stock_code[2:]
+    else:
+        code_num = stock_code
+        
+    # 科创板 (688) 和 创业板 (300) - 20% 涨跌幅
+    if code_num.startswith(('688', '30')):
+        return {
+            'board_type': '20CM',
+            'limit': 0.20,
+            'atr_entry_mult': 1.5,   # 挂单回撤倍数放大，需要更深的钩子
+            'sr_tolerance': 0.04     # 支撑阻力容错带放宽至 4%
+        }
+    # 北交所 (8, 4, 9开头，如920) - 30% 涨跌幅
+    elif code_num.startswith(( '9')):
+        return {
+            'board_type': '30CM',
+            'limit': 0.30,
+            'atr_entry_mult': 2.0,   # 北交所波动极大，挂单需要更耐心
+            'sr_tolerance': 0.06     # 容错带放宽至 6%
+        }
+    # 主板 (60, 00开头) - 10% 涨跌幅
+    else:
+        return {
+            'board_type': '10CM',
+            'limit': 0.10,
+            'atr_entry_mult': 1.0,   # 主板波动较小，标准倍数
+            'sr_tolerance': 0.02     # 容错带收紧至 2%
+        }
+    
 def read_day_file(file_path: str, stock_code: str = None) -> Optional[pd.DataFrame]:
     """
     读取通达信.day文件，支持A股和港股
@@ -247,9 +338,11 @@ def calculate_all_indicators(df: pd.DataFrame, stock_code: str, adjustment_type:
         ma_periods = [7, 13, 30, 45, 60, 90, 150, 240]
         for period in ma_periods:
             df[f'ma{period}'] = indicators.calculate_ma(df, period)
-        
-        # 保持向后兼容性
+
+        # 市场共识均线：MA5/MA10/MA20（技术分析标准周期）
         df['ma5'] = indicators.calculate_ma(df, 5)
+        df['ma10'] = indicators.calculate_ma(df, 10)
+        df['ma20'] = indicators.calculate_ma(df, 20)
         df['ma21'] = indicators.calculate_ma(df, 21)
         
         # 添加优化的均线
@@ -264,18 +357,20 @@ def calculate_all_indicators(df: pd.DataFrame, stock_code: str, adjustment_type:
         adjustment_config = create_adjustment_config(adjustment_type) if adjustment_type != 'none' else None
         
         # MACD指标 - 使用优化参数
-        macd_fast = indicator_params.get('macd_fast', 12)
-        macd_slow = indicator_params.get('macd_slow', 26)
+        macd_fast = indicator_params.get('macd_fast', 8)
+        macd_slow = indicator_params.get('macd_slow', 21)
+        macd_signal = indicator_params.get('macd_signal', 6)
         macd_config = indicators.MACDIndicatorConfig(
             fast_period=macd_fast,
             slow_period=macd_slow,
+            signal_period=macd_signal,
             adjustment_config=adjustment_config
         )
         df['dif'], df['dea'] = indicators.calculate_macd(df, config=macd_config, stock_code=stock_code)
         df['macd'] = df['dif'] - df['dea']
         
         # KDJ指标 - 使用优化参数
-        kdj_n = indicator_params.get('kdj_n', 9)
+        kdj_n = indicator_params.get('kdj_n', 27)
         kdj_config = indicators.KDJIndicatorConfig(
             n_period=kdj_n,
             adjustment_config=adjustment_config
@@ -290,9 +385,61 @@ def calculate_all_indicators(df: pd.DataFrame, stock_code: str, adjustment_type:
         if rsi_period not in [6, 12, 24]:
             df[f'rsi{rsi_period}'] = indicators.calculate_rsi(df, rsi_period)
         
+        # ATR（平均真实波幅）
+        df['atr'] = indicators.calculate_atr(df)
+
         # 布林带
         df['bb_upper'], df['bb_middle'], df['bb_lower'] = indicators.calculate_bollinger_bands(df)
-        
+
+        # 金钻趋势双轨 (自适应参数)
+        try:
+            gt_config = GoldenTrendConfig(adaptive=True)
+            gt_series, ema_h, ema_l, gt_meta = calculate_golden_trend(df, config=gt_config, stock_code=stock_code)
+            df['gt_upper'] = ema_h
+            df['gt_lower'] = gt_series
+            df['gt_mid'] = (ema_h + ema_l) / 2
+            df.attrs['golden_trend_meta'] = gt_meta
+        except Exception as gt_e:
+            logger.warning(f"GT计算失败 {stock_code}: {gt_e}")
+            df['gt_upper'] = None
+            df['gt_lower'] = None
+            df['gt_mid'] = None
+
+        # 趋势EMA指标 (通达信双EMA策略)
+        try:
+            close = df['close'].astype(float)
+            ema13 = close.ewm(span=13, adjust=False).mean()
+            df['mtl'] = ema13.ewm(span=13, adjust=False).mean()
+            df['mtl_rising'] = (df['mtl'] > df['mtl'].shift(1)).astype(int)
+
+            df['ema5'] = close.ewm(span=5, adjust=False).mean()
+            df['ema10'] = close.ewm(span=10, adjust=False).mean()
+            df['ema20'] = close.ewm(span=20, adjust=False).mean()
+
+            aa = df['ema5'] > df['ema20']
+            bb = df['ema5'] < df['ema20']
+            cc = df['ema5'] > df['ema10']
+            cc1 = df['ema5'] < df['ema10']
+
+            candle_color = pd.Series(0, index=df.index)
+            candle_color[aa] = 1
+            candle_color[bb] = -1
+            candle_color[bb & cc] = 0
+            candle_color[aa & cc1] = 0
+            df['candle_color'] = candle_color
+
+            buy_sig = (
+                (close > df['mtl']) &
+                (close.shift(1) <= df['mtl'].shift(1)) &
+                (df['mtl_rising'] == 1)
+            )
+            sell_cond = (candle_color == -1) & (close < df['low'].shift(1))
+            sell_sig = sell_cond & ~sell_cond.shift(1).fillna(False)
+            df['trend_buy'] = buy_sig.astype(int)
+            df['trend_sell'] = sell_sig.astype(int)
+        except Exception as te:
+            logger.warning(f"趋势EMA计算失败 {stock_code}: {te}")
+
         return df
     except Exception as e:
         logger.error(f"计算技术指标失败 {stock_code}: {e}")

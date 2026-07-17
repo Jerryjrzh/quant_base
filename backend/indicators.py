@@ -22,9 +22,9 @@ class IndicatorConfig:
 @dataclass
 class MACDIndicatorConfig(IndicatorConfig):
     """MACD指标配置"""
-    fast_period: int = 12
-    slow_period: int = 26
-    signal_period: int = 9
+    fast_period: int = 8
+    slow_period: int = 21
+    signal_period: int = 6
     price_type: str = 'close'  # 'close', 'hl2', 'hlc3', 'ohlc4'
     adjustment_config: Optional[AdjustmentConfig] = None  # 复权配置
 
@@ -60,7 +60,7 @@ class TechnicalIndicators:
         """计算移动平均线"""
         return calculate_ma(df, period)
     
-    def calculate_macd(self, df: pd.DataFrame, fast=12, slow=26, signal=9) -> Tuple[pd.Series, pd.Series]:
+    def calculate_macd(self, df: pd.DataFrame, fast=8, slow=21, signal=6) -> Tuple[pd.Series, pd.Series]:
         """计算MACD指标"""
         config = MACDIndicatorConfig(fast_period=fast, slow_period=slow, signal_period=signal)
         return calculate_macd(df, config)
@@ -132,9 +132,9 @@ def calculate_macd(df: pd.DataFrame,
     
     # 向后兼容：如果传入了单独参数，使用它们
     if fast is not None or slow is not None or signal is not None:
-        fast = fast or 12
-        slow = slow or 26
-        signal = signal or 9
+        fast = fast or 8
+        slow = slow or 21
+        signal = signal or 6
         price_type = 'close'
         adjustment_config = None
     elif config is not None:

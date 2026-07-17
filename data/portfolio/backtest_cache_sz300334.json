@@ -1,100 +1,40 @@
 {
-  "cache_time": "2025-08-27 11:47:01",
+  "cache_time": "2026-04-04 21:15:00",
   "analysis_results": {
     "stock_code": "sz300334",
-    "analysis_time": "2025-08-27 11:47:01",
-    "current_price": 7.7,
-    "backtest_analysis": {
-      "best_add_coefficient": 0.96,
-      "best_add_score": 68.31480666388488,
-      "add_coefficient_analysis": {
-        "0.96": {
-          "success_rate": 100.0,
-          "avg_return": 20.78701665971221,
-          "score": 68.31480666388488
-        },
-        "0.97": {
-          "success_rate": 100.0,
-          "avg_return": 19.799761033052594,
-          "score": 67.91990441322103
-        },
-        "0.98": {
-          "success_rate": 100.0,
-          "avg_return": 18.767289262812366,
-          "score": 67.50691570512495
-        },
-        "0.99": {
-          "success_rate": 99.7794928335171,
-          "avg_return": 18.089879210915804,
-          "score": 67.10364738447657
-        },
-        "1.0": {
-          "success_rate": 99.6845425867508,
-          "avg_return": 17.236324375482102,
-          "score": 66.70525530224332
-        }
-      },
-      "best_sell_coefficient": 1.03,
-      "best_sell_score": 37.168873059606206,
-      "sell_coefficient_analysis": {
-        "1.03": {
-          "success_rate": 100.0,
-          "avg_return": 3.0000000000000004,
-          "avg_hold_days": 7.711359404096834,
-          "score": 37.168873059606206
-        },
-        "1.05": {
-          "success_rate": 100.0,
-          "avg_return": 5.000000000000001,
-          "avg_hold_days": 11.56811301715439,
-          "score": 33.261411584196395
-        },
-        "1.08": {
-          "success_rate": 100.0,
-          "avg_return": 8.000000000000002,
-          "avg_hold_days": 15.872706422018348,
-          "score": 30.10645439723794
-        },
-        "1.1": {
-          "success_rate": 100.0,
-          "avg_return": 10.000000000000002,
-          "avg_hold_days": 18.03622250970246,
-          "score": 28.919801374056185
-        },
-        "1.15": {
-          "success_rate": 100.0,
-          "avg_return": 14.999999999999996,
-          "avg_hold_days": 20.72313296903461,
-          "score": 28.23947756854676
-        },
-        "1.2": {
-          "success_rate": 100.0,
-          "avg_return": 19.999999999999996,
-          "avg_hold_days": 21.994169096209912,
-          "score": 28.575395723410164
-        }
-      }
-    },
+    "analysis_time": "2026-04-04 21:15:00",
+    "current_price": 6.87,
     "trading_advice": {
-      "action": "HOLD",
-      "confidence": 0.6,
+      "action": "AVOID",
+      "confidence": 0.3381538461538462,
+      "quality_grade": "B",
       "analysis_logic": [
-        "当前技术指标处于中性区域，建议继续观察。"
+        "宏观判断：当前处于 DECLINE 阶段。",
+        "风险提示：市场处于高风险或下跌阶段，建议规避。",
+        "核心决策：融合评分 81.0 (B级)，技术面较为一致。",
+        "形态分析：识别到 bottom_reversal 形态 (置信度: 56.0%)。",
+        "历史对齐：价格与指标底部同步性良好 (得分: 15)。",
+        "历史回测：基于对齐信号的历史胜率为 51.7% (共1344次)。"
       ],
-      "current_price": 7.7,
-      "entry_price": 6.96,
-      "target_price": 7.931,
-      "stop_price": 6.887499999999999,
-      "resistance_level": null,
-      "support_level": 7.25
-    },
-    "risk_assessment": {
-      "volatility": 0.5160690604149412,
-      "max_drawdown": -0.8320968190712286,
-      "price_position_pct": 0.9648775521746509,
-      "overall_risk_score": 0.7545222854249357,
-      "risk_level": "HIGH"
-    },
-    "from_cache": false
-  }
-}
+      "current_price": 6.87,
+      "entry_price": 6.8,
+      "target_price": 8.25,
+      "stop_price": 6.7032,
+      "resistance_level": 8.38,
+      "support_level": 6.84,
+      "full_confluence_result": {
+        "total_score": 81.0,
+        "confidence": 0.16615384615384615,
+        "base_confidence": 0.6230769230769231,
+        "market_phase": "decline",
+        "phase_confidence": 0.26666666666666666,
+        "breakdown": {
+          "price_position": 40,
+          "macd_state": 16.0,
+          "kdj_state": 0,
+          "rsi_state": 0,
+          "bonus_score": 25,
+          "alignment_bonus": 15
+        },
+        "stateful_conditions": {
+          "macd_consolidation": 

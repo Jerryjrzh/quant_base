@@ -1,0 +1,1219 @@
+{
+  "configs": [
+    {
+      "config_name": "P1C_w3_op02",
+      "min_fine_score": 0.5,
+      "min_operable_score": 0.2,
+      "max_wait_days": 3,
+      "elapsed_seconds": 19.9,
+      "total_signals": 4423,
+      "traded": 258,
+      "expired": 956,
+      "filtered": 3209,
+      "errors": 0,
+      "avg_pnl": 0.03116,
+      "median_pnl": 0.001436,
+      "win_rate": 0.5039,
+      "max_profit": 0.3315,
+      "max_loss": -0.08,
+      "profit_factor": 2.39,
+      "avg_hold_days": 2.7,
+      "entry_day_dist": {
+        "day_1": 72,
+        "day_2_3": 143,
+        "day_4_5": 43,
+        "day_6_7": 0
+      },
+      "exit_reason_dist": {
+        "dynamic_stop": 134,
+        "initial_stop": 70,
+        "initial_tp": 54
+      },
+      "by_support_source": {
+        "breakout_support": {
+          "count": 45,
+          "avg_pnl": -0.0035,
+          "win_rate": 0.3111
+        },
+        "ma60_washed": {
+          "count": 40,
+          "avg_pnl": 0.0184,
+          "win_rate": 0.5
+        },
+        "ma_ma20": {
+          "count": 50,
+          "avg_pnl": 0.0422,
+          "win_rate": 0.58
+        },
+        "ma_ma60": {
+          "count": 1,
+          "avg_pnl": 0.3315,
+          "win_rate": 1.0
+        },
+        "poc": {
+          "count": 93,
+          "avg_pnl": 0.0424,
+          "win_rate": 0.5269
+        },
+        "swing_low": {
+          "count": 29,
+          "avg_pnl": 0.037,
+          "win_rate": 0.5862
+        }
+      },
+      "trades_fs_0.8+": {
+        "count": 258,
+        "avg_pnl": 0.0312,
+        "win_rate": 0.5039
+      },
+      "by_month": {
+        "2025-02": {
+          "count": 20,
+          "avg_pnl": 0.0832
+        },
+        "2025-03": {
+          "count": 31,
+          "avg_pnl": 0.075
+        },
+        "2025-04": {
+          "count": 104,
+          "avg_pnl": 0.0235
+        },
+        "2025-05": {
+          "count": 27,
+          "avg_pnl": 0.0413
+        },
+        "2025-06": {
+          "count": 14,
+          "avg_pnl": 0.0148
+        },
+        "2025-07": {
+          "count": 7,
+          "avg_pnl": 0.0031
+        },
+        "2025-08": {
+          "count": 3,
+          "avg_pnl": 0.073
+        },
+        "2025-09": {
+          "count": 3,
+          "avg_pnl": -0.017
+        },
+        "2025-10": {
+          "count": 8,
+          "avg_pnl": -0.0309
+        },
+        "2025-11": {
+          "count": 4,
+          "avg_pnl": -0.0325
+        },
+        "2025-12": {
+          "count": 5,
+          "avg_pnl": 0.0688
+        },
+        "2026-01": {
+          "count": 23,
+          "avg_pnl": 0.0138
+        },
+        "2026-02": {
+          "count": 4,
+          "avg_pnl": -0.0377
+        },
+        "2026-03": {
+          "count": 5,
+          "avg_pnl": -0.0087
+        }
+      }
+    },
+    {
+      "config_name": "P1C_w5_op02",
+      "min_fine_score": 0.5,
+      "min_operable_score": 0.2,
+      "max_wait_days": 5,
+      "elapsed_seconds": 4.0,
+      "total_signals": 4423,
+      "traded": 334,
+      "expired": 880,
+      "filtered": 3209,
+      "errors": 0,
+      "avg_pnl": 0.030121,
+      "median_pnl": 0.002475,
+      "win_rate": 0.509,
+      "max_profit": 0.3315,
+      "max_loss": -0.08,
+      "profit_factor": 2.47,
+      "avg_hold_days": 2.7,
+      "entry_day_dist": {
+        "day_1": 72,
+        "day_2_3": 143,
+        "day_4_5": 88,
+        "day_6_7": 31
+      },
+      "exit_reason_dist": {
+        "dynamic_stop": 177,
+        "initial_stop": 93,
+        "initial_tp": 64
+      },
+      "by_support_source": {
+        "breakout_support": {
+          "count": 47,
+          "avg_pnl": -0.0044,
+          "win_rate": 0.3191
+        },
+        "ma60_washed": {
+          "count": 46,
+          "avg_pnl": 0.019,
+          "win_rate": 0.5
+        },
+        "ma_ma20": {
+          "count": 87,
+          "avg_pnl": 0.038,
+          "win_rate": 0.5517
+        },
+        "ma_ma60": {
+          "count": 1,
+          "avg_pnl": 0.3315,
+          "win_rate": 1.0
+        },
+        "poc": {
+          "count": 115,
+          "avg_pnl": 0.0404,
+          "win_rate": 0.5391
+        },
+        "swing_low": {
+          "count": 38,
+          "avg_pnl": 0.0291,
+          "win_rate": 0.5526
+        }
+      },
+      "trades_fs_0.8+": {
+        "count": 334,
+        "avg_pnl": 0.0301,
+        "win_rate": 0.509
+      },
+      "by_month": {
+        "2025-02": {
+          "count": 24,
+          "avg_pnl": 0.0778
+        },
+        "2025-03": {
+          "count": 47,
+          "avg_pnl": 0.063
+        },
+        "2025-04": {
+          "count": 128,
+          "avg_pnl": 0.0248
+        },
+        "2025-05": {
+          "count": 32,
+          "avg_pnl": 0.033
+        },
+        "2025-06": {
+          "count": 21,
+          "avg_pnl": 0.0179
+        },
+        "2025-07": {
+          "count": 8,
+          "avg_pnl": -0.0001
+        },
+        "2025-08": {
+          "count": 5,
+          "avg_pnl": 0.046
+        },
+        "2025-09": {
+          "count": 6,
+          "avg_pnl": -0.0206
+        },
+        "2025-10": {
+          "count": 10,
+          "avg_pnl": -0.0333
+        },
+        "2025-11": {
+          "count": 6,
+          "avg_pnl": -0.0232
+        },
+        "2025-12": {
+          "count": 5,
+          "avg_pnl": 0.0688
+        },
+        "2026-01": {
+          "count": 30,
+          "avg_pnl": 0.0293
+        },
+        "2026-02": {
+          "count": 4,
+          "avg_pnl": -0.0377
+        },
+        "2026-03": {
+          "count": 8,
+          "avg_pnl": -0.0099
+        }
+      }
+    },
+    {
+      "config_name": "P1C_w7_op02",
+      "min_fine_score": 0.5,
+      "min_operable_score": 0.2,
+      "max_wait_days": 7,
+      "elapsed_seconds": 4.1,
+      "total_signals": 4423,
+      "traded": 388,
+      "expired": 826,
+      "filtered": 3209,
+      "errors": 0,
+      "avg_pnl": 0.028815,
+      "median_pnl": 0.001476,
+      "win_rate": 0.5077,
+      "max_profit": 0.3315,
+      "max_loss": -0.08,
+      "profit_factor": 2.39,
+      "avg_hold_days": 2.8,
+      "entry_day_dist": {
+        "day_1": 72,
+        "day_2_3": 143,
+        "day_4_5": 88,
+        "day_6_7": 85
+      },
+      "exit_reason_dist": {
+        "dynamic_stop": 205,
+        "initial_stop": 113,
+        "initial_tp": 70
+      },
+      "by_support_source": {
+        "breakout_support": {
+          "count": 51,
+          "avg_pnl": -0.0013,
+          "win_rate": 0.3137
+        },
+        "ma60_washed": {
+          "count": 51,
+          "avg_pnl": 0.0273,
+          "win_rate": 0.5294
+        },
+        "ma_ma20": {
+          "count": 118,
+          "avg_pnl": 0.028,
+          "win_rate": 0.5169
+        },
+        "ma_ma60": {
+          "count": 3,
+          "avg_pnl": 0.203,
+          "win_rate": 1.0
+        },
+        "poc": {
+          "count": 125,
+          "avg_pnl": 0.038,
+          "win_rate": 0.544
+        },
+        "swing_low": {
+          "count": 40,
+          "avg_pnl": 0.0297,
+          "win_rate": 0.55
+        }
+      },
+      "trades_fs_0.8+": {
+        "count": 388,
+        "avg_pnl": 0.0288,
+        "win_rate": 0.5077
+      },
+      "by_month": {
+        "2025-02": {
+          "count": 25,
+          "avg_pnl": 0.0715
+        },
+        "2025-03": {
+          "count": 63,
+          "avg_pnl": 0.0546
+        },
+        "2025-04": {
+          "count": 143,
+          "avg_pnl": 0.0257
+        },
+        "2025-05": {
+          "count": 37,
+          "avg_pnl": 0.037
+        },
+        "2025-06": {
+          "count": 24,
+          "avg_pnl": 0.0168
+        },
+        "2025-07": {
+          "count": 10,
+          "avg_pnl": -0.0054
+        },
+        "2025-08": {
+          "count": 6,
+          "avg_pnl": 0.052
+        },
+        "2025-09": {
+          "count": 11,
+          "avg_pnl": -0.0186
+        },
+        "2025-10": {
+          "count": 11,
+          "avg_pnl": -0.0284
+        },
+        "2025-11": {
+          "count": 7,
+          "avg_pnl": -0.02
+        },
+        "2025-12": {
+          "count": 5,
+          "avg_pnl": 0.0688
+        },
+        "2026-01": {
+          "count": 32,
+          "avg_pnl": 0.0251
+        },
+        "2026-02": {
+          "count": 5,
+          "avg_pnl": -0.0391
+        },
+        "2026-03": {
+          "count": 9,
+          "avg_pnl": -0.0054
+        }
+      }
+    },
+    {
+      "config_name": "P1C_w3_op15",
+      "min_fine_score": 0.5,
+      "min_operable_score": 0.15,
+      "max_wait_days": 3,
+      "elapsed_seconds": 13.9,
+      "total_signals": 4423,
+      "traded": 435,
+      "expired": 1985,
+      "filtered": 2003,
+      "errors": 0,
+      "avg_pnl": 0.019173,
+      "median_pnl": -0.008439,
+      "win_rate": 0.4437,
+      "max_profit": 0.3315,
+      "max_loss": -0.08,
+      "profit_factor": 1.77,
+      "avg_hold_days": 2.5,
+      "entry_day_dist": {
+        "day_1": 128,
+        "day_2_3": 233,
+        "day_4_5": 74,
+        "day_6_7": 0
+      },
+      "exit_reason_dist": {
+        "dynamic_stop": 247,
+        "initial_stop": 118,
+        "initial_tp": 70
+      },
+      "by_support_source": {
+        "breakout_support": {
+          "count": 60,
+          "avg_pnl": -0.005,
+          "win_rate": 0.3
+        },
+        "ma60_washed": {
+          "count": 57,
+          "avg_pnl": 0.0105,
+          "win_rate": 0.4211
+        },
+        "ma_ma20": {
+          "count": 102,
+          "avg_pnl": 0.0326,
+          "win_rate": 0.4804
+        },
+        "ma_ma60": {
+          "count": 3,
+          "avg_pnl": 0.0579,
+          "win_rate": 0.3333
+        },
+        "poc": {
+          "count": 170,
+          "avg_pnl": 0.0223,
+          "win_rate": 0.4765
+        },
+        "swing_low": {
+          "count": 43,
+          "avg_pnl": 0.0177,
+          "win_rate": 0.4651
+        }
+      },
+      "trades_fs_0.5-0.6": {
+        "count": 61,
+        "avg_pnl": 0.0137,
+        "win_rate": 0.4426
+      },
+      "trades_fs_0.6-0.7": {
+        "count": 65,
+        "avg_pnl": 0.0061,
+        "win_rate": 0.3538
+      },
+      "trades_fs_0.7-0.8": {
+        "count": 42,
+        "avg_pnl": -0.0119,
+        "win_rate": 0.3095
+      },
+      "trades_fs_0.8+": {
+        "count": 267,
+        "avg_pnl": 0.0285,
+        "win_rate": 0.4869
+      },
+      "by_month": {
+        "2025-02": {
+          "count": 21,
+          "avg_pnl": 0.0758
+        },
+        "2025-03": {
+          "count": 54,
+          "avg_pnl": 0.0575
+        },
+        "2025-04": {
+          "count": 124,
+          "avg_pnl": 0.0204
+        },
+        "2025-05": {
+          "count": 47,
+          "avg_pnl": 0.0082
+        },
+        "2025-06": {
+          "count": 26,
+          "avg_pnl": 0.0026
+        },
+        "2025-07": {
+          "count": 22,
+          "avg_pnl": 0.0292
+        },
+        "2025-08": {
+          "count": 11,
+          "avg_pnl": -0.002
+        },
+        "2025-09": {
+          "count": 8,
+          "avg_pnl": 0.0088
+        },
+        "2025-10": {
+          "count": 21,
+          "avg_pnl": -0.0051
+        },
+        "2025-11": {
+          "count": 13,
+          "avg_pnl": -0.0066
+        },
+        "2025-12": {
+          "count": 22,
+          "avg_pnl": 0.0233
+        },
+        "2026-01": {
+          "count": 44,
+          "avg_pnl": 0.0027
+        },
+        "2026-02": {
+          "count": 11,
+          "avg_pnl": -0.0395
+        },
+        "2026-03": {
+          "count": 11,
+          "avg_pnl": -0.0022
+        }
+      }
+    },
+    {
+      "config_name": "P1C_w3_op10",
+      "min_fine_score": 0.5,
+      "min_operable_score": 0.1,
+      "max_wait_days": 3,
+      "elapsed_seconds": 7.6,
+      "total_signals": 4423,
+      "traded": 435,
+      "expired": 1985,
+      "filtered": 2003,
+      "errors": 0,
+      "avg_pnl": 0.019173,
+      "median_pnl": -0.008439,
+      "win_rate": 0.4437,
+      "max_profit": 0.3315,
+      "max_loss": -0.08,
+      "profit_factor": 1.77,
+      "avg_hold_days": 2.5,
+      "entry_day_dist": {
+        "day_1": 128,
+        "day_2_3": 233,
+        "day_4_5": 74,
+        "day_6_7": 0
+      },
+      "exit_reason_dist": {
+        "dynamic_stop": 247,
+        "initial_stop": 118,
+        "initial_tp": 70
+      },
+      "by_support_source": {
+        "breakout_support": {
+          "count": 60,
+          "avg_pnl": -0.005,
+          "win_rate": 0.3
+        },
+        "ma60_washed": {
+          "count": 57,
+          "avg_pnl": 0.0105,
+          "win_rate": 0.4211
+        },
+        "ma_ma20": {
+          "count": 102,
+          "avg_pnl": 0.0326,
+          "win_rate": 0.4804
+        },
+        "ma_ma60": {
+          "count": 3,
+          "avg_pnl": 0.0579,
+          "win_rate": 0.3333
+        },
+        "poc": {
+          "count": 170,
+          "avg_pnl": 0.0223,
+          "win_rate": 0.4765
+        },
+        "swing_low": {
+          "count": 43,
+          "avg_pnl": 0.0177,
+          "win_rate": 0.4651
+        }
+      },
+      "trades_fs_0.5-0.6": {
+        "count": 61,
+        "avg_pnl": 0.0137,
+        "win_rate": 0.4426
+      },
+      "trades_fs_0.6-0.7": {
+        "count": 65,
+        "avg_pnl": 0.0061,
+        "win_rate": 0.3538
+      },
+      "trades_fs_0.7-0.8": {
+        "count": 42,
+        "avg_pnl": -0.0119,
+        "win_rate": 0.3095
+      },
+      "trades_fs_0.8+": {
+        "count": 267,
+        "avg_pnl": 0.0285,
+        "win_rate": 0.4869
+      },
+      "by_month": {
+        "2025-02": {
+          "count": 21,
+          "avg_pnl": 0.0758
+        },
+        "2025-03": {
+          "count": 54,
+          "avg_pnl": 0.0575
+        },
+        "2025-04": {
+          "count": 124,
+          "avg_pnl": 0.0204
+        },
+        "2025-05": {
+          "count": 47,
+          "avg_pnl": 0.0082
+        },
+        "2025-06": {
+          "count": 26,
+          "avg_pnl": 0.0026
+        },
+        "2025-07": {
+          "count": 22,
+          "avg_pnl": 0.0292
+        },
+        "2025-08": {
+          "count": 11,
+          "avg_pnl": -0.002
+        },
+        "2025-09": {
+          "count": 8,
+          "avg_pnl": 0.0088
+        },
+        "2025-10": {
+          "count": 21,
+          "avg_pnl": -0.0051
+        },
+        "2025-11": {
+          "count": 13,
+          "avg_pnl": -0.0066
+        },
+        "2025-12": {
+          "count": 22,
+          "avg_pnl": 0.0233
+        },
+        "2026-01": {
+          "count": 44,
+          "avg_pnl": 0.0027
+        },
+        "2026-02": {
+          "count": 11,
+          "avg_pnl": -0.0395
+        },
+        "2026-03": {
+          "count": 11,
+          "avg_pnl": -0.0022
+        }
+      }
+    },
+    {
+      "config_name": "P1C_w5_op15",
+      "min_fine_score": 0.5,
+      "min_operable_score": 0.15,
+      "max_wait_days": 5,
+      "elapsed_seconds": 7.8,
+      "total_signals": 4423,
+      "traded": 585,
+      "expired": 1835,
+      "filtered": 2003,
+      "errors": 0,
+      "avg_pnl": 0.019438,
+      "median_pnl": -0.007353,
+      "win_rate": 0.4496,
+      "max_profit": 0.5499,
+      "max_loss": -0.08,
+      "profit_factor": 1.83,
+      "avg_hold_days": 2.6,
+      "entry_day_dist": {
+        "day_1": 128,
+        "day_2_3": 233,
+        "day_4_5": 167,
+        "day_6_7": 57
+      },
+      "exit_reason_dist": {
+        "dynamic_stop": 333,
+        "initial_stop": 166,
+        "initial_tp": 86
+      },
+      "by_support_source": {
+        "breakout_support": {
+          "count": 70,
+          "avg_pnl": -0.0072,
+          "win_rate": 0.3
+        },
+        "ma60_washed": {
+          "count": 68,
+          "avg_pnl": 0.0088,
+          "win_rate": 0.4118
+        },
+        "ma_ma20": {
+          "count": 168,
+          "avg_pnl": 0.0298,
+          "win_rate": 0.4821
+        },
+        "ma_ma60": {
+          "count": 6,
+          "avg_pnl": 0.1084,
+          "win_rate": 0.3333
+        },
+        "poc": {
+          "count": 211,
+          "avg_pnl": 0.0211,
+          "win_rate": 0.4834
+        },
+        "swing_low": {
+          "count": 62,
+          "avg_pnl": 0.0189,
+          "win_rate": 0.4677
+        }
+      },
+      "trades_fs_0.5-0.6": {
+        "count": 92,
+        "avg_pnl": 0.0091,
+        "win_rate": 0.4022
+      },
+      "trades_fs_0.6-0.7": {
+        "count": 81,
+        "avg_pnl": 0.0178,
+        "win_rate": 0.3951
+      },
+      "trades_fs_0.7-0.8": {
+        "count": 63,
+        "avg_pnl": -0.0079,
+        "win_rate": 0.3333
+      },
+      "trades_fs_0.8+": {
+        "count": 349,
+        "avg_pnl": 0.0275,
+        "win_rate": 0.4957
+      },
+      "by_month": {
+        "2025-02": {
+          "count": 29,
+          "avg_pnl": 0.0694
+        },
+        "2025-03": {
+          "count": 82,
+          "avg_pnl": 0.0463
+        },
+        "2025-04": {
+          "count": 153,
+          "avg_pnl": 0.0223
+        },
+        "2025-05": {
+          "count": 57,
+          "avg_pnl": 0.0056
+        },
+        "2025-06": {
+          "count": 39,
+          "avg_pnl": -0.0002
+        },
+        "2025-07": {
+          "count": 27,
+          "avg_pnl": 0.0297
+        },
+        "2025-08": {
+          "count": 20,
+          "avg_pnl": 0.0186
+        },
+        "2025-09": {
+          "count": 17,
+          "avg_pnl": 0.0178
+        },
+        "2025-10": {
+          "count": 27,
+          "avg_pnl": -0.0091
+        },
+        "2025-11": {
+          "count": 20,
+          "avg_pnl": -0.0053
+        },
+        "2025-12": {
+          "count": 26,
+          "avg_pnl": 0.014
+        },
+        "2026-01": {
+          "count": 57,
+          "avg_pnl": 0.0118
+        },
+        "2026-02": {
+          "count": 14,
+          "avg_pnl": -0.0209
+        },
+        "2026-03": {
+          "count": 17,
+          "avg_pnl": -0.0016
+        }
+      }
+    },
+    {
+      "config_name": "P1C_w7_op15",
+      "min_fine_score": 0.5,
+      "min_operable_score": 0.15,
+      "max_wait_days": 7,
+      "elapsed_seconds": 8.0,
+      "total_signals": 4423,
+      "traded": 690,
+      "expired": 1730,
+      "filtered": 2003,
+      "errors": 0,
+      "avg_pnl": 0.01959,
+      "median_pnl": -0.006849,
+      "win_rate": 0.4565,
+      "max_profit": 0.5499,
+      "max_loss": -0.08,
+      "profit_factor": 1.85,
+      "avg_hold_days": 2.7,
+      "entry_day_dist": {
+        "day_1": 128,
+        "day_2_3": 233,
+        "day_4_5": 167,
+        "day_6_7": 162
+      },
+      "exit_reason_dist": {
+        "dynamic_stop": 390,
+        "initial_stop": 202,
+        "initial_tp": 98
+      },
+      "by_support_source": {
+        "breakout_support": {
+          "count": 79,
+          "avg_pnl": -0.0023,
+          "win_rate": 0.3165
+        },
+        "ma60_washed": {
+          "count": 83,
+          "avg_pnl": 0.0202,
+          "win_rate": 0.4699
+        },
+        "ma_ma20": {
+          "count": 222,
+          "avg_pnl": 0.0246,
+          "win_rate": 0.473
+        },
+        "ma_ma60": {
+          "count": 9,
+          "avg_pnl": 0.1031,
+          "win_rate": 0.4444
+        },
+        "poc": {
+          "count": 231,
+          "avg_pnl": 0.0194,
+          "win_rate": 0.4848
+        },
+        "swing_low": {
+          "count": 66,
+          "avg_pnl": 0.0174,
+          "win_rate": 0.4545
+        }
+      },
+      "trades_fs_0.5-0.6": {
+        "count": 107,
+        "avg_pnl": 0.0116,
+        "win_rate": 0.4299
+      },
+      "trades_fs_0.6-0.7": {
+        "count": 99,
+        "avg_pnl": 0.0159,
+        "win_rate": 0.3939
+      },
+      "trades_fs_0.7-0.8": {
+        "count": 78,
+        "avg_pnl": -0.0025,
+        "win_rate": 0.359
+      },
+      "trades_fs_0.8+": {
+        "count": 406,
+        "avg_pnl": 0.0268,
+        "win_rate": 0.4975
+      },
+      "by_month": {
+        "2025-02": {
+          "count": 30,
+          "avg_pnl": 0.0644
+        },
+        "2025-03": {
+          "count": 103,
+          "avg_pnl": 0.0428
+        },
+        "2025-04": {
+          "count": 172,
+          "avg_pnl": 0.023
+        },
+        "2025-05": {
+          "count": 69,
+          "avg_pnl": 0.0118
+        },
+        "2025-06": {
+          "count": 43,
+          "avg_pnl": 0.0013
+        },
+        "2025-07": {
+          "count": 32,
+          "avg_pnl": 0.028
+        },
+        "2025-08": {
+          "count": 23,
+          "avg_pnl": 0.0267
+        },
+        "2025-09": {
+          "count": 30,
+          "avg_pnl": 0.0157
+        },
+        "2025-10": {
+          "count": 28,
+          "avg_pnl": -0.008
+        },
+        "2025-11": {
+          "count": 23,
+          "avg_pnl": -0.0067
+        },
+        "2025-12": {
+          "count": 31,
+          "avg_pnl": 0.0162
+        },
+        "2026-01": {
+          "count": 65,
+          "avg_pnl": 0.011
+        },
+        "2026-02": {
+          "count": 20,
+          "avg_pnl": -0.0216
+        },
+        "2026-03": {
+          "count": 21,
+          "avg_pnl": -0.0012
+        }
+      }
+    },
+    {
+      "config_name": "P1C_w5_op10",
+      "min_fine_score": 0.5,
+      "min_operable_score": 0.1,
+      "max_wait_days": 5,
+      "elapsed_seconds": 7.8,
+      "total_signals": 4423,
+      "traded": 585,
+      "expired": 1835,
+      "filtered": 2003,
+      "errors": 0,
+      "avg_pnl": 0.019438,
+      "median_pnl": -0.007353,
+      "win_rate": 0.4496,
+      "max_profit": 0.5499,
+      "max_loss": -0.08,
+      "profit_factor": 1.83,
+      "avg_hold_days": 2.6,
+      "entry_day_dist": {
+        "day_1": 128,
+        "day_2_3": 233,
+        "day_4_5": 167,
+        "day_6_7": 57
+      },
+      "exit_reason_dist": {
+        "dynamic_stop": 333,
+        "initial_stop": 166,
+        "initial_tp": 86
+      },
+      "by_support_source": {
+        "breakout_support": {
+          "count": 70,
+          "avg_pnl": -0.0072,
+          "win_rate": 0.3
+        },
+        "ma60_washed": {
+          "count": 68,
+          "avg_pnl": 0.0088,
+          "win_rate": 0.4118
+        },
+        "ma_ma20": {
+          "count": 168,
+          "avg_pnl": 0.0298,
+          "win_rate": 0.4821
+        },
+        "ma_ma60": {
+          "count": 6,
+          "avg_pnl": 0.1084,
+          "win_rate": 0.3333
+        },
+        "poc": {
+          "count": 211,
+          "avg_pnl": 0.0211,
+          "win_rate": 0.4834
+        },
+        "swing_low": {
+          "count": 62,
+          "avg_pnl": 0.0189,
+          "win_rate": 0.4677
+        }
+      },
+      "trades_fs_0.5-0.6": {
+        "count": 92,
+        "avg_pnl": 0.0091,
+        "win_rate": 0.4022
+      },
+      "trades_fs_0.6-0.7": {
+        "count": 81,
+        "avg_pnl": 0.0178,
+        "win_rate": 0.3951
+      },
+      "trades_fs_0.7-0.8": {
+        "count": 63,
+        "avg_pnl": -0.0079,
+        "win_rate": 0.3333
+      },
+      "trades_fs_0.8+": {
+        "count": 349,
+        "avg_pnl": 0.0275,
+        "win_rate": 0.4957
+      },
+      "by_month": {
+        "2025-02": {
+          "count": 29,
+          "avg_pnl": 0.0694
+        },
+        "2025-03": {
+          "count": 82,
+          "avg_pnl": 0.0463
+        },
+        "2025-04": {
+          "count": 153,
+          "avg_pnl": 0.0223
+        },
+        "2025-05": {
+          "count": 57,
+          "avg_pnl": 0.0056
+        },
+        "2025-06": {
+          "count": 39,
+          "avg_pnl": -0.0002
+        },
+        "2025-07": {
+          "count": 27,
+          "avg_pnl": 0.0297
+        },
+        "2025-08": {
+          "count": 20,
+          "avg_pnl": 0.0186
+        },
+        "2025-09": {
+          "count": 17,
+          "avg_pnl": 0.0178
+        },
+        "2025-10": {
+          "count": 27,
+          "avg_pnl": -0.0091
+        },
+        "2025-11": {
+          "count": 20,
+          "avg_pnl": -0.0053
+        },
+        "2025-12": {
+          "count": 26,
+          "avg_pnl": 0.014
+        },
+        "2026-01": {
+          "count": 57,
+          "avg_pnl": 0.0118
+        },
+        "2026-02": {
+          "count": 14,
+          "avg_pnl": -0.0209
+        },
+        "2026-03": {
+          "count": 17,
+          "avg_pnl": -0.0016
+        }
+      }
+    },
+    {
+      "config_name": "P1C_w7_op10",
+      "min_fine_score": 0.5,
+      "min_operable_score": 0.1,
+      "max_wait_days": 7,
+      "elapsed_seconds": 8.0,
+      "total_signals": 4423,
+      "traded": 690,
+      "expired": 1730,
+      "filtered": 2003,
+      "errors": 0,
+      "avg_pnl": 0.01959,
+      "median_pnl": -0.006849,
+      "win_rate": 0.4565,
+      "max_profit": 0.5499,
+      "max_loss": -0.08,
+      "profit_factor": 1.85,
+      "avg_hold_days": 2.7,
+      "entry_day_dist": {
+        "day_1": 128,
+        "day_2_3": 233,
+        "day_4_5": 167,
+        "day_6_7": 162
+      },
+      "exit_reason_dist": {
+        "dynamic_stop": 390,
+        "initial_stop": 202,
+        "initial_tp": 98
+      },
+      "by_support_source": {
+        "breakout_support": {
+          "count": 79,
+          "avg_pnl": -0.0023,
+          "win_rate": 0.3165
+        },
+        "ma60_washed": {
+          "count": 83,
+          "avg_pnl": 0.0202,
+          "win_rate": 0.4699
+        },
+        "ma_ma20": {
+          "count": 222,
+          "avg_pnl": 0.0246,
+          "win_rate": 0.473
+        },
+        "ma_ma60": {
+          "count": 9,
+          "avg_pnl": 0.1031,
+          "win_rate": 0.4444
+        },
+        "poc": {
+          "count": 231,
+          "avg_pnl": 0.0194,
+          "win_rate": 0.4848
+        },
+        "swing_low": {
+          "count": 66,
+          "avg_pnl": 0.0174,
+          "win_rate": 0.4545
+        }
+      },
+      "trades_fs_0.5-0.6": {
+        "count": 107,
+        "avg_pnl": 0.0116,
+        "win_rate": 0.4299
+      },
+      "trades_fs_0.6-0.7": {
+        "count": 99,
+        "avg_pnl": 0.0159,
+        "win_rate": 0.3939
+      },
+      "trades_fs_0.7-0.8": {
+        "count": 78,
+        "avg_pnl": -0.0025,
+        "win_rate": 0.359
+      },
+      "trades_fs_0.8+": {
+        "count": 406,
+        "avg_pnl": 0.0268,
+        "win_rate": 0.4975
+      },
+      "by_month": {
+        "2025-02": {
+          "count": 30,
+          "avg_pnl": 0.0644
+        },
+        "2025-03": {
+          "count": 103,
+          "avg_pnl": 0.0428
+        },
+        "2025-04": {
+          "count": 172,
+          "avg_pnl": 0.023
+        },
+        "2025-05": {
+          "count": 69,
+          "avg_pnl": 0.0118
+        },
+        "2025-06": {
+          "count": 43,
+          "avg_pnl": 0.0013
+        },
+        "2025-07": {
+          "count": 32,
+          "avg_pnl": 0.028
+        },
+        "2025-08": {
+          "count": 23,
+          "avg_pnl": 0.0267
+        },
+        "2025-09": {
+          "count": 30,
+          "avg_pnl": 0.0157
+        },
+        "2025-10": {
+          "count": 28,
+          "avg_pnl": -0.008
+        },
+        "2025-11": {
+          "count": 23,
+          "avg_pnl": -0.0067
+        },
+        "2025-12": {
+          "count": 31,
+          "avg_pnl": 0.0162
+        },
+        "2026-01": {
+          "count": 65,
+          "avg_pnl": 0.011
+        },
+        "2026-02": {
+          "count": 20,
+          "avg_pnl": -0.0216
+        },
+        "2026-03": {
+          "count": 21,
+          "avg_pnl": -0.0012
+        }
+      }
+    }
+  ]
+}

@@ -21,8 +21,8 @@ class DefaultConfig:
         dea_threshold = 0.0  # DEA阈值
     
     class KDJ:
-        n_period = 9  # 修正属性名
-        k_period = 9
+        n_period = 27
+        k_period = 3
         d_period = 3
         j_period = 3
         oversold_threshold = 20

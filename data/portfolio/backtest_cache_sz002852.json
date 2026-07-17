@@ -1,100 +1,38 @@
 {
-  "cache_time": "2025-08-27 11:47:01",
+  "cache_time": "2026-04-04 21:14:59",
   "analysis_results": {
     "stock_code": "sz002852",
-    "analysis_time": "2025-08-27 11:47:01",
-    "current_price": 11.87,
-    "backtest_analysis": {
-      "best_add_coefficient": 0.96,
-      "best_add_score": 66.9062793567668,
-      "add_coefficient_analysis": {
-        "0.96": {
-          "success_rate": 99.85775248933145,
-          "avg_return": 17.47906965791984,
-          "score": 66.9062793567668
-        },
-        "0.97": {
-          "success_rate": 99.7340425531915,
-          "avg_return": 16.841042807967053,
-          "score": 66.57684265510171
-        },
-        "0.98": {
-          "success_rate": 99.62168978562421,
-          "avg_return": 15.940301537569193,
-          "score": 66.1491344864022
-        },
-        "0.99": {
-          "success_rate": 99.63503649635037,
-          "avg_return": 15.23420254316867,
-          "score": 65.87470291507769
-        },
-        "1.0": {
-          "success_rate": 99.34065934065934,
-          "avg_return": 15.564724956615384,
-          "score": 65.83028558704176
-        }
-      },
-      "best_sell_coefficient": 1.03,
-      "best_sell_score": 35.32822907367987,
-      "sell_coefficient_analysis": {
-        "1.03": {
-          "success_rate": 100.0,
-          "avg_return": 3.0,
-          "avg_hold_days": 9.155155155155155,
-          "score": 35.32822907367987
-        },
-        "1.05": {
-          "success_rate": 100.0,
-          "avg_return": 5.0,
-          "avg_hold_days": 12.220299884659747,
-          "score": 32.58815106497225
-        },
-        "1.08": {
-          "success_rate": 100.0,
-          "avg_return": 8.000000000000002,
-          "avg_hold_days": 16.271942446043166,
-          "score": 29.775080328454123
-        },
-        "1.1": {
-          "success_rate": 100.0,
-          "avg_return": 10.000000000000002,
-          "avg_hold_days": 18.755775577557756,
-          "score": 28.382866388486757
-        },
-        "1.15": {
-          "success_rate": 100.0,
-          "avg_return": 14.999999999999998,
-          "avg_hold_days": 21.992840095465393,
-          "score": 27.385620915032675
-        },
-        "1.2": {
-          "success_rate": 100.0,
-          "avg_return": 20.0,
-          "avg_hold_days": 22.94006309148265,
-          "score": 27.94593006171025
-        }
-      }
-    },
+    "analysis_time": "2026-04-04 21:14:59",
+    "current_price": 9.38,
     "trading_advice": {
-      "action": "HOLD",
-      "confidence": 0.6,
+      "action": "BUY",
+      "confidence": 0.48730769230769233,
+      "quality_grade": "A",
       "analysis_logic": [
-        "当前技术指标处于中性区域，建议继续观察。"
+        "宏观判断：当前处于 ACCUMULATION 阶段。",
+        "核心决策：融合评分 86.0 (A级)，技术面高度共振。",
+        "形态分析：识别到 bottom_reversal 形态 (置信度: 71.0%)。",
+        "历史回测：基于对齐信号的历史胜率为 48.0% (共1354次)。"
       ],
-      "current_price": 11.87,
-      "entry_price": 11.318399999999999,
-      "target_price": 12.226099999999999,
-      "stop_price": 11.200499999999998,
-      "resistance_level": 12.87,
-      "support_level": 11.79
-    },
-    "risk_assessment": {
-      "volatility": 0.46588509417636853,
-      "max_drawdown": -0.7556179775280899,
-      "price_position_pct": 0.8538011695906432,
-      "overall_risk_score": 0.7183226640472486,
-      "risk_level": "HIGH"
-    },
-    "from_cache": false
-  }
-}
+      "current_price": 9.38,
+      "entry_price": 9.29,
+      "target_price": 11.37,
+      "stop_price": 8.9866,
+      "resistance_level": 12.19,
+      "support_level": 9.17,
+      "full_confluence_result": {
+        "total_score": 86.0,
+        "confidence": 0.26461538461538464,
+        "base_confidence": 0.6615384615384615,
+        "market_phase": "accumulation",
+        "phase_confidence": 0.4,
+        "breakdown": {
+          "price_position": 40,
+          "macd_state": 20.0,
+          "kdj_state": 11.0,
+          "rsi_state": 0,
+          "bonus_score": 15,
+          "alignment_bonus": 0
+        },
+        "stateful_conditions": {
+          "macd_consolidation": 

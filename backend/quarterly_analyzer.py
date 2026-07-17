@@ -23,7 +23,7 @@ except ImportError:
     HAS_SEABORN = False
 
 # 设置中文字体
-plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']
+plt.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK SC', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
 class QuarterlyAnalyzer:

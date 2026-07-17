@@ -1,0 +1,53 @@
+{
+  "3": {
+    "trades_scanned": 258,
+    "v3_total": 178,
+    "v3_by_code": {
+      "E1": 155,
+      "E2": 19,
+      "E3": 4
+    },
+    "relaxed_total": 868,
+    "relaxed_by_code": {
+      "E1": 288,
+      "E3": 500,
+      "E2": 80
+    },
+    "v3_trigger_rate": 0.6899,
+    "relaxed_trigger_rate": 3.3643
+  },
+  "5": {
+    "trades_scanned": 334,
+    "v3_total": 258,
+    "v3_by_code": {
+      "E1": 227,
+      "E2": 24,
+      "E3": 7
+    },
+    "relaxed_total": 1160,
+    "relaxed_by_code": {
+      "E1": 402,
+      "E3": 650,
+      "E2": 108
+    },
+    "v3_trigger_rate": 0.7725,
+    "relaxed_trigger_rate": 3.4731
+  },
+  "7": {
+    "trades_scanned": 388,
+    "v3_total": 296,
+    "v3_by_code": {
+      "E1": 258,
+      "E2": 31,
+      "E3": 7
+    },
+    "relaxed_total": 1353,
+    "relaxed_by_code": {
+      "E1": 454,
+      "E3": 769,
+      "E2": 130
+    },
+    "v3_trigger_rate": 0.7629,
+    "relaxed_trigger_rate": 3.4871
+  }
+}

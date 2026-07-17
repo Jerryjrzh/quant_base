@@ -1,0 +1,77 @@
+{
+  "summary": {
+    "total_signals": 5,
+    "filtered_signals": 2,
+    "expired_signals": 2,
+    "traded_signals": 1,
+    "win_rate": 100.0,
+    "avg_pnl_pct": 10.0,
+    "max_profit_pct": 10.0,
+    "max_loss_pct": 10.0,
+    "avg_hold_days": 2.0,
+    "total_pnl_amount": 16710.5,
+    "profit_factor": 99.99,
+    "avg_risk_reward": 100.0,
+    "entry_distribution": {
+      "breakout": 1
+    },
+    "exit_distribution": {
+      "take_profit_1": 1
+    }
+  },
+  "trades": [
+    {
+      "entry_day_idx": 1149,
+      "entry_price": 1519.1364831014587,
+      "initial_stop": 1443.1796589463856,
+      "position_size": 100,
+      "risk_per_share": 75.95682415507304,
+      "total_risk_pct": 0.007595682415507303,
+      "take_profit_levels": [
+        1671.0501314116048,
+        1822.9637797217504
+      ],
+      "records": [
+        {
+          "exit_day": 1151,
+          "exit_price": 1671.0501314116048,
+          "exit_reason": "take_profit_1",
+          "shares": 100,
+          "pnl_pct": 10.0,
+          "pnl_amount": 16710.5,
+          "hold_days": 2
+        }
+      ],
+      "total_pnl_pct": 11.0,
+      "weighted_pnl_pct": 10.0,
+      "total_hold_days": 2,
+      "final_exit_reason": "take_profit_1",
+      "signal_day_idx": 1146,
+      "entry_type": "breakout",
+      "structure_info": {
+        "trend": "RANGE",
+        "strength": 0.575,
+        "supports_count": 1,
+        "resistances_count": 2
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "signal_day_idx": 121,
+      "reason": "等待期内未出现入场机会"
+    },
+    {
+      "signal_day_idx": 380,
+      "reason": "结构过滤: 下降趋势中不做多 (趋势: DOWN)"
+    },
+    {
+      "signal_day_idx": 421,
+      "reason": "等待期内未出现入场机会"
+    },
+    {
+      "signal_day_idx": 684,
+      "reason": "结构过滤: 下降趋势中不做多 (趋势: DOWN)"
+    }
+  ]
+}

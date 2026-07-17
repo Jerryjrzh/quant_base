@@ -1,0 +1,640 @@
+{
+  "baseline_monthly": {
+    "2025-02": {
+      "label": "2025-02",
+      "count": 27,
+      "avg_pnl": 0.0778,
+      "median_pnl": 0.0782,
+      "win_rate": 0.7407,
+      "pf": 5.46,
+      "max_profit": 0.2,
+      "max_loss": -0.08
+    },
+    "2025-03": {
+      "label": "2025-03",
+      "count": 80,
+      "avg_pnl": 0.0566,
+      "median_pnl": 0.0169,
+      "win_rate": 0.575,
+      "pf": 3.96,
+      "max_profit": 0.2,
+      "max_loss": -0.08
+    },
+    "2025-04": {
+      "label": "2025-04",
+      "count": 131,
+      "avg_pnl": 0.0322,
+      "median_pnl": 0.013,
+      "win_rate": 0.5802,
+      "pf": 2.8,
+      "max_profit": 0.3505,
+      "max_loss": -0.08
+    },
+    "2025-05": {
+      "label": "2025-05",
+      "count": 36,
+      "avg_pnl": 0.0454,
+      "median_pnl": 0.0027,
+      "win_rate": 0.5278,
+      "pf": 5.81,
+      "max_profit": 0.2835,
+      "max_loss": -0.08
+    },
+    "2025-06": {
+      "label": "2025-06",
+      "count": 22,
+      "avg_pnl": 0.0253,
+      "median_pnl": 0.016,
+      "win_rate": 0.5909,
+      "pf": 2.74,
+      "max_profit": 0.2,
+      "max_loss": -0.08
+    },
+    "2025-07": {
+      "label": "2025-07",
+      "count": 13,
+      "avg_pnl": 0.0156,
+      "median_pnl": 0.0016,
+      "win_rate": 0.5385,
+      "pf": 2.74,
+      "max_profit": 0.093,
+      "max_loss": -0.0549
+    },
+    "2025-08": {
+      "label": "2025-08",
+      "count": 8,
+      "avg_pnl": 0.0372,
+      "median_pnl": 0.0054,
+      "win_rate": 0.5,
+      "pf": 10.46,
+      "max_profit": 0.2,
+      "max_loss": -0.0125
+    },
+    "2025-09": {
+      "label": "2025-09",
+      "count": 12,
+      "avg_pnl": -0.0184,
+      "median_pnl": -0.0169,
+      "win_rate": 0.0833,
+      "pf": 0.32,
+      "max_profit": 0.1027,
+      "max_loss": -0.08
+    },
+    "2025-10": {
+      "label": "2025-10",
+      "count": 10,
+      "avg_pnl": -0.0232,
+      "median_pnl": -0.0637,
+      "win_rate": 0.3,
+      "pf": 0.51,
+      "max_profit": 0.2,
+      "max_loss": -0.08
+    },
+    "2025-11": {
+      "label": "2025-11",
+      "count": 7,
+      "avg_pnl": -0.0021,
+      "median_pnl": -0.0012,
+      "win_rate": 0.2857,
+      "pf": 0.85,
+      "max_profit": 0.0698,
+      "max_loss": -0.0734
+    },
+    "2025-12": {
+      "label": "2025-12",
+      "count": 3,
+      "avg_pnl": 0.0568,
+      "median_pnl": -0.0092,
+      "win_rate": 0.3333,
+      "pf": 6.78,
+      "max_profit": 0.2,
+      "max_loss": -0.0202
+    },
+    "2026-01": {
+      "label": "2026-01",
+      "count": 29,
+      "avg_pnl": 0.0469,
+      "median_pnl": 0.0072,
+      "win_rate": 0.5517,
+      "pf": 2.94,
+      "max_profit": 0.2286,
+      "max_loss": -0.08
+    },
+    "2026-02": {
+      "label": "2026-02",
+      "count": 7,
+      "avg_pnl": -0.0317,
+      "median_pnl": -0.0446,
+      "win_rate": 0.1429,
+      "pf": 0.05,
+      "max_profit": 0.0127,
+      "max_loss": -0.0462
+    },
+    "2026-03": {
+      "label": "2026-03",
+      "count": 9,
+      "avg_pnl": -0.0054,
+      "median_pnl": 0.0167,
+      "win_rate": 0.5556,
+      "pf": 0.77,
+      "max_profit": 0.0374,
+      "max_loss": -0.08
+    }
+  },
+  "weak_vs_strong": {
+    "weak": {
+      "label": "weak_months",
+      "count": 45,
+      "avg_pnl": -0.0164,
+      "median_pnl": -0.0174,
+      "win_rate": 0.2667,
+      "pf": 0.45,
+      "max_profit": 0.2,
+      "max_loss": -0.08
+    },
+    "strong": {
+      "label": "strong_months",
+      "count": 349,
+      "avg_pnl": 0.0432,
+      "median_pnl": 0.0154,
+      "win_rate": 0.5788,
+      "pf": 3.56,
+      "max_profit": 0.3505,
+      "max_loss": -0.08
+    }
+  },
+  "operable_threshold_test": {
+    "0.1": {
+      "overall": {
+        "label": "op>=0.1",
+        "count": 394,
+        "avg_pnl": 0.0364,
+        "median_pnl": 0.0087,
+        "win_rate": 0.5431,
+        "pf": 2.99,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "weak_op>=0.1",
+        "count": 45,
+        "avg_pnl": -0.0164,
+        "median_pnl": -0.0174,
+        "win_rate": 0.2667,
+        "pf": 0.45,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      }
+    },
+    "0.12": {
+      "overall": {
+        "label": "op>=0.12",
+        "count": 394,
+        "avg_pnl": 0.0364,
+        "median_pnl": 0.0087,
+        "win_rate": 0.5431,
+        "pf": 2.99,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "weak_op>=0.12",
+        "count": 45,
+        "avg_pnl": -0.0164,
+        "median_pnl": -0.0174,
+        "win_rate": 0.2667,
+        "pf": 0.45,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      }
+    },
+    "0.15": {
+      "overall": {
+        "label": "op>=0.15",
+        "count": 394,
+        "avg_pnl": 0.0364,
+        "median_pnl": 0.0087,
+        "win_rate": 0.5431,
+        "pf": 2.99,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "weak_op>=0.15",
+        "count": 45,
+        "avg_pnl": -0.0164,
+        "median_pnl": -0.0174,
+        "win_rate": 0.2667,
+        "pf": 0.45,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      }
+    },
+    "0.18": {
+      "overall": {
+        "label": "op>=0.18",
+        "count": 394,
+        "avg_pnl": 0.0364,
+        "median_pnl": 0.0087,
+        "win_rate": 0.5431,
+        "pf": 2.99,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "weak_op>=0.18",
+        "count": 45,
+        "avg_pnl": -0.0164,
+        "median_pnl": -0.0174,
+        "win_rate": 0.2667,
+        "pf": 0.45,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      }
+    },
+    "0.2": {
+      "overall": {
+        "label": "op>=0.2",
+        "count": 394,
+        "avg_pnl": 0.0364,
+        "median_pnl": 0.0087,
+        "win_rate": 0.5431,
+        "pf": 2.99,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "weak_op>=0.2",
+        "count": 45,
+        "avg_pnl": -0.0164,
+        "median_pnl": -0.0174,
+        "win_rate": 0.2667,
+        "pf": 0.45,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      }
+    },
+    "0.22": {
+      "overall": {
+        "label": "op>=0.22",
+        "count": 346,
+        "avg_pnl": 0.0384,
+        "median_pnl": 0.0134,
+        "win_rate": 0.5665,
+        "pf": 3.18,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "weak_op>=0.22",
+        "count": 41,
+        "avg_pnl": -0.02,
+        "median_pnl": -0.0175,
+        "win_rate": 0.2439,
+        "pf": 0.37,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      }
+    },
+    "0.25": {
+      "overall": {
+        "label": "op>=0.25",
+        "count": 218,
+        "avg_pnl": 0.0506,
+        "median_pnl": 0.0248,
+        "win_rate": 0.6514,
+        "pf": 4.46,
+        "max_profit": 0.3315,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "weak_op>=0.25",
+        "count": 24,
+        "avg_pnl": -0.0139,
+        "median_pnl": -0.0244,
+        "win_rate": 0.2083,
+        "pf": 0.53,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      }
+    }
+  },
+  "strategy_comparison": {
+    "A_baseline": {
+      "desc": "基线 (当前配置)",
+      "overall": {
+        "label": "A_baseline",
+        "count": 394,
+        "avg_pnl": 0.0364,
+        "median_pnl": 0.0087,
+        "win_rate": 0.5431,
+        "pf": 2.99,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "A_baseline_weak",
+        "count": 45,
+        "avg_pnl": -0.0164,
+        "median_pnl": -0.0174,
+        "win_rate": 0.2667,
+        "pf": 0.45,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      },
+      "strong_months": {
+        "label": "A_baseline_strong",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      }
+    },
+    "B_skip_weak": {
+      "desc": "完全跳过弱势月份",
+      "overall": {
+        "label": "B_skip_weak",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "B_skip_weak_weak",
+        "count": 0,
+        "avg_pnl": 0,
+        "win_rate": 0,
+        "pf": 0,
+        "median_pnl": 0
+      },
+      "strong_months": {
+        "label": "B_skip_weak_strong",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      }
+    },
+    "C_weak_up_only": {
+      "desc": "弱势月份仅允许 UP 趋势入场",
+      "overall": {
+        "label": "C_weak_up_only",
+        "count": 381,
+        "avg_pnl": 0.0387,
+        "median_pnl": 0.0119,
+        "win_rate": 0.5538,
+        "pf": 3.19,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "C_weak_up_only_weak",
+        "count": 32,
+        "avg_pnl": -0.01,
+        "median_pnl": -0.0169,
+        "win_rate": 0.2812,
+        "pf": 0.62,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      },
+      "strong_months": {
+        "label": "C_weak_up_only_strong",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      }
+    },
+    "D_weak_high_fs": {
+      "desc": "弱势月份 fine_score >= 0.8",
+      "overall": {
+        "label": "D_weak_high_fs",
+        "count": 394,
+        "avg_pnl": 0.0364,
+        "median_pnl": 0.0087,
+        "win_rate": 0.5431,
+        "pf": 2.99,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "D_weak_high_fs_weak",
+        "count": 45,
+        "avg_pnl": -0.0164,
+        "median_pnl": -0.0174,
+        "win_rate": 0.2667,
+        "pf": 0.45,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      },
+      "strong_months": {
+        "label": "D_weak_high_fs_strong",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      }
+    },
+    "E_weak_high_op": {
+      "desc": "弱势月份 operable_score >= 0.25",
+      "overall": {
+        "label": "E_weak_high_op",
+        "count": 373,
+        "avg_pnl": 0.0395,
+        "median_pnl": 0.0126,
+        "win_rate": 0.555,
+        "pf": 3.23,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "E_weak_high_op_weak",
+        "count": 24,
+        "avg_pnl": -0.0139,
+        "median_pnl": -0.0244,
+        "win_rate": 0.2083,
+        "pf": 0.53,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      },
+      "strong_months": {
+        "label": "E_weak_high_op_strong",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      }
+    },
+    "F_weak_tight_stop": {
+      "desc": "弱势月份止损收紧至 6%",
+      "overall": {
+        "label": "F_weak_tight_stop",
+        "count": 394,
+        "avg_pnl": 0.0366,
+        "median_pnl": 0.0087,
+        "win_rate": 0.5431,
+        "pf": 3.02,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "F_weak_tight_stop_weak",
+        "count": 45,
+        "avg_pnl": -0.0143,
+        "median_pnl": -0.0174,
+        "win_rate": 0.2667,
+        "pf": 0.48,
+        "max_profit": 0.2,
+        "max_loss": -0.06
+      },
+      "strong_months": {
+        "label": "F_weak_tight_stop_strong",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      }
+    },
+    "G_weak_strict_entry": {
+      "desc": "弱势月份严格入场 (body≥40%, shadow≥2x, wait≤5)",
+      "overall": {
+        "label": "G_weak_strict_entry",
+        "count": 380,
+        "avg_pnl": 0.0383,
+        "median_pnl": 0.0122,
+        "win_rate": 0.5553,
+        "pf": 3.14,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "G_weak_strict_entry_weak",
+        "count": 31,
+        "avg_pnl": -0.0162,
+        "median_pnl": -0.0175,
+        "win_rate": 0.2903,
+        "pf": 0.46,
+        "max_profit": 0.2,
+        "max_loss": -0.08
+      },
+      "strong_months": {
+        "label": "G_weak_strict_entry_strong",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      }
+    },
+    "H_combo": {
+      "desc": "组合: 弱势月 UP+fs≥0.8+止损6%, 其他月正常",
+      "overall": {
+        "label": "H_combo",
+        "count": 381,
+        "avg_pnl": 0.0388,
+        "median_pnl": 0.0119,
+        "win_rate": 0.5538,
+        "pf": 3.2,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "H_combo_weak",
+        "count": 32,
+        "avg_pnl": -0.0094,
+        "median_pnl": -0.0169,
+        "win_rate": 0.2812,
+        "pf": 0.63,
+        "max_profit": 0.2,
+        "max_loss": -0.06
+      },
+      "strong_months": {
+        "label": "H_combo_strong",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      }
+    },
+    "I_half_position": {
+      "desc": "弱势月份半仓 (pnl × 0.5)",
+      "overall": {
+        "label": "I_half_position",
+        "count": 394,
+        "avg_pnl": 0.0373,
+        "median_pnl": 0.0084,
+        "win_rate": 0.5431,
+        "pf": 3.24,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      },
+      "weak_months": {
+        "label": "I_half_position_weak",
+        "count": 45,
+        "avg_pnl": -0.0082,
+        "median_pnl": -0.0087,
+        "win_rate": 0.2667,
+        "pf": 0.45,
+        "max_profit": 0.1,
+        "max_loss": -0.04
+      },
+      "strong_months": {
+        "label": "I_half_position_strong",
+        "count": 349,
+        "avg_pnl": 0.0432,
+        "median_pnl": 0.0154,
+        "win_rate": 0.5788,
+        "pf": 3.56,
+        "max_profit": 0.3505,
+        "max_loss": -0.08
+      }
+    }
+  },
+  "weak_month_features": {
+    "trend_dist": {
+      "UP": 32,
+      "RANGE": 13
+    },
+    "style_dist": {
+      "deep_pullback": 39,
+      "shallow_pullback": 6
+    },
+    "support_dist": {
+      "poc": 17,
+      "ma_ma20": 15,
+      "swing_low": 3,
+      "ma60_washed": 10
+    },
+    "exit_dist": {
+      "initial_stop": 10,
+      "dynamic_stop": 34,
+      "initial_tp": 1
+    }
+  }
+}

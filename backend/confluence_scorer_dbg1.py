@@ -275,8 +275,8 @@ class ConfluenceScorer:
             kdj_oversold_period = (k_values <= 30).sum() >= min_oversold_days
             
             return {
-                'macd_consolidation': macd_consolidation,
-                'kdj_oversold_period': kdj_oversold_period
+                'macd_consolidation': bool(macd_consolidation),
+                'kdj_oversold_period': bool(kdj_oversold_period)
             }
             
         except Exception as e:
@@ -328,7 +328,7 @@ class ConfluenceScorer:
                     'bonus_score': bonus_score
                 },
                 'stateful_conditions': stateful_conditions,
-                'is_high_quality': total_score >= min_score_threshold
+                'is_high_quality': bool(total_score >= min_score_threshold)
             }
             
         except Exception as e:

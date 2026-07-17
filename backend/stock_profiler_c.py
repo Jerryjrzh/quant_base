@@ -69,7 +69,7 @@ class StockProfiler:
         
         # 默认参数
         self.default_params = {
-            'kdj_n': 9,
+            'kdj_n': 27,
             'rsi_period': 14,
             'macd_fast': 12,
             'macd_slow': 26,

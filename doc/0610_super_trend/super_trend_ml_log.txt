@@ -1,0 +1,93 @@
+=== Super Trend机器学习模型训练 ===
+加载训练数据: data/result/super_trend/super_trend_training_data.csv
+数据维度: (1208381, 18)
+时序排序完成: 2020-05-25 00:00:00 → 2026-03-11 00:00:00
+特征数: 13
+样本数: 1208381
+正样本比例: 15.84%
+
+执行 5-折时序交叉验证 (TimeSeriesSplit)...
+Training until validation scores don't improve for 50 rounds
+Early stopping, best iteration is:
+[7]	valid_0's binary_logloss: 0.39615
+  Fold 1: 训练 201401 样本, 验证 201396 样本, logloss=0.3961
+Training until validation scores don't improve for 50 rounds
+Early stopping, best iteration is:
+[1]	valid_0's binary_logloss: 0.302543
+  Fold 2: 训练 402797 样本, 验证 201396 样本, logloss=0.3025
+Training until validation scores don't improve for 50 rounds
+Early stopping, best iteration is:
+[5]	valid_0's binary_logloss: 0.332103
+  Fold 3: 训练 604193 样本, 验证 201396 样本, logloss=0.3321
+Training until validation scores don't improve for 50 rounds
+Early stopping, best iteration is:
+[176]	valid_0's binary_logloss: 0.502883
+  Fold 4: 训练 805589 样本, 验证 201396 样本, logloss=0.5029
+Training until validation scores don't improve for 50 rounds
+Did not meet early stopping. Best iteration is:
+[500]	valid_0's binary_logloss: 0.390949
+  Fold 5: 训练 1006985 样本, 验证 201396 样本, logloss=0.3909
+
+时序CV结果: logloss = 0.3849 (+/- 0.0688)
+
+开始训练LightGBM模型...
+时序切分完成:
+  训练集: 966704 样本 (前段历史)
+  测试集: 241677 样本 (后段未来)
+训练中...
+Training until validation scores don't improve for 50 rounds
+[50]	valid_0's binary_logloss: 0.404986
+[100]	valid_0's binary_logloss: 0.398441
+[150]	valid_0's binary_logloss: 0.393415
+[200]	valid_0's binary_logloss: 0.390805
+[250]	valid_0's binary_logloss: 0.389468
+[300]	valid_0's binary_logloss: 0.388394
+[350]	valid_0's binary_logloss: 0.387715
+[400]	valid_0's binary_logloss: 0.387074
+[450]	valid_0's binary_logloss: 0.38654
+[500]	valid_0's binary_logloss: 0.386197
+Did not meet early stopping. Best iteration is:
+[498]	valid_0's binary_logloss: 0.386184
+
+模型评估:
+
+============================================================
+    阈值 |      精确率 |      召回率 |       F1 |    触发数 |      准确率
+------------------------------------------------------------
+  0.50 |   0.6580 |   0.3486 |   0.4557 |  20555 |   0.8663
+  0.65 |   0.8414 |   0.2641 |   0.4021 |  12180 |   0.8739
+  0.70 |   0.8846 |   0.2432 |   0.3815 |  10667 |   0.8734
+============================================================
+
+AUC: 0.7481
+
+分类报告 (阈值=0.65):
+              precision    recall  f1-score   support
+
+         负样本       0.88      0.99      0.93    202879
+         正样本       0.84      0.26      0.40     38798
+
+    accuracy                           0.87    241677
+   macro avg       0.86      0.63      0.67    241677
+weighted avg       0.87      0.87      0.84    241677
+
+
+特征重要性分析:
+Top 10 最重要特征:
+  is_extreme_volume_dry: 1129705.9627
+  price_rebound_from_pit: 504399.8323
+  t0_rsi: 387720.8441
+  rsi_explosion_force: 356475.9317
+  t0_macd: 281502.5797
+  t0_close: 255922.7368
+  macd_pit_depth: 196637.3554
+  t0_volume: 176681.1094
+  vol_dryup_count: 135270.6827
+  days_below_ma30: 89630.5938
+特征重要性已保存: data/result/super_trend/analysis/feature_importance.csv
+特征重要性图表已保存: data/result/super_trend/analysis/feature_importance_plot.png
+模型已保存: data/result/super_trend/models/trend_gbm_v1.pkl
+
+✅ 训练完成!
+模型文件: data/result/super_trend/models/trend_gbm_v1.pkl
+特征重要性文件: data/result/super_trend/analysis/feature_importance.csv

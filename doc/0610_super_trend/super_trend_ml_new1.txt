@@ -1,0 +1,220 @@
+=== Super Trend 级联模型训练 (Gate + Precision) ===
+加载训练数据: data/result/super_trend/super_trend_training_data.csv
+数据维度: (1331523, 30)
+时序排序完成: 2020-05-26 00:00:00 → 2026-03-11 00:00:00
+三分类标签: Label 0=678615, 1=612818, 2=40090
+特征数: 24
+样本数: 1331523
+正样本比例: 52.05%
+
+执行 5-折时序交叉验证 (级联模型)...
+  [F1-Gate] 训练: 221923 样本 (正 111347, 负 110576, spw=1.00)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.576427
+[200]	valid_0's auc: 0.57878
+[300]	valid_0's auc: 0.580101
+[400]	valid_0's auc: 0.580692
+[500]	valid_0's auc: 0.581305
+[600]	valid_0's auc: 0.581592
+[700]	valid_0's auc: 0.581705
+Early stopping, best iteration is:
+[694]	valid_0's auc: 0.581749
+  [F1-Gate] AUC=0.5817, trees=694
+  [F1-Prec] 训练: 111347 样本 (正 6463, 负 104884, spw=4.03)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.654725
+[200]	valid_0's auc: 0.661549
+[300]	valid_0's auc: 0.664759
+[400]	valid_0's auc: 0.666253
+[500]	valid_0's auc: 0.666409
+[600]	valid_0's auc: 0.666874
+[700]	valid_0's auc: 0.666756
+[800]	valid_0's auc: 0.66708
+Early stopping, best iteration is:
+[765]	valid_0's auc: 0.66731
+  [F1-Prec] AUC=0.6673, trees=765
+  Fold 1: 级联 AUC=0.8345
+  [F2-Gate] 训练: 443843 样本 (正 222841, 负 221002, spw=1.00)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.59005
+[200]	valid_0's auc: 0.590915
+[300]	valid_0's auc: 0.591594
+[400]	valid_0's auc: 0.592015
+[500]	valid_0's auc: 0.59239
+[600]	valid_0's auc: 0.59252
+[700]	valid_0's auc: 0.592939
+[800]	valid_0's auc: 0.593065
+[900]	valid_0's auc: 0.593059
+Early stopping, best iteration is:
+[881]	valid_0's auc: 0.593136
+  [F2-Gate] AUC=0.5931, trees=881
+  [F2-Prec] 训练: 222841 样本 (正 12567, 负 210274, spw=4.09)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.68005
+[200]	valid_0's auc: 0.685317
+[300]	valid_0's auc: 0.688378
+[400]	valid_0's auc: 0.689898
+[500]	valid_0's auc: 0.690482
+[600]	valid_0's auc: 0.690938
+[700]	valid_0's auc: 0.690994
+Early stopping, best iteration is:
+[665]	valid_0's auc: 0.691128
+  [F2-Prec] AUC=0.6911, trees=665
+  Fold 2: 级联 AUC=0.8801
+  [F3-Gate] 训练: 665763 样本 (正 311201, 负 354562, spw=1.07)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.68918
+[200]	valid_0's auc: 0.690903
+[300]	valid_0's auc: 0.691876
+[400]	valid_0's auc: 0.692383
+[500]	valid_0's auc: 0.692679
+[600]	valid_0's auc: 0.692753
+Early stopping, best iteration is:
+[571]	valid_0's auc: 0.692833
+  [F3-Gate] AUC=0.6928, trees=571
+  [F3-Prec] 训练: 311201 样本 (正 15839, 负 295362, spw=4.32)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.710858
+[200]	valid_0's auc: 0.71271
+[300]	valid_0's auc: 0.715243
+[400]	valid_0's auc: 0.713486
+Early stopping, best iteration is:
+[302]	valid_0's auc: 0.715251
+  [F3-Prec] AUC=0.7153, trees=302
+  Fold 3: 级联 AUC=0.8746
+  [F4-Gate] 训练: 887683 样本 (正 412305, 负 475378, spw=1.07)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.575414
+[200]	valid_0's auc: 0.578707
+[300]	valid_0's auc: 0.582169
+[400]	valid_0's auc: 0.58516
+[500]	valid_0's auc: 0.587873
+[600]	valid_0's auc: 0.589798
+[700]	valid_0's auc: 0.591752
+[800]	valid_0's auc: 0.593172
+[900]	valid_0's auc: 0.593991
+[1000]	valid_0's auc: 0.594705
+Did not meet early stopping. Best iteration is:
+[998]	valid_0's auc: 0.594715
+  [F4-Gate] AUC=0.5947, trees=998
+  [F4-Prec] 训练: 412305 样本 (正 21610, 负 390695, spw=4.25)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.559847
+Early stopping, best iteration is:
+[2]	valid_0's auc: 0.565542
+  [F4-Prec] AUC=0.5655, trees=2
+  Fold 4: 级联 AUC=0.6948
+  [F5-Gate] 训练: 1109603 样本 (正 544130, 负 565473, spw=1.02)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.583628
+[200]	valid_0's auc: 0.585425
+[300]	valid_0's auc: 0.587058
+[400]	valid_0's auc: 0.587954
+[500]	valid_0's auc: 0.588507
+[600]	valid_0's auc: 0.588827
+[700]	valid_0's auc: 0.589002
+[800]	valid_0's auc: 0.589169
+[900]	valid_0's auc: 0.589285
+[1000]	valid_0's auc: 0.589337
+Did not meet early stopping. Best iteration is:
+[949]	valid_0's auc: 0.589372
+  [F5-Gate] AUC=0.5894, trees=949
+  [F5-Prec] 训练: 544130 样本 (正 33260, 负 510870, spw=3.92)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.650324
+[200]	valid_0's auc: 0.653909
+[300]	valid_0's auc: 0.655947
+[400]	valid_0's auc: 0.656753
+[500]	valid_0's auc: 0.656975
+Early stopping, best iteration is:
+[455]	valid_0's auc: 0.657335
+  [F5-Prec] AUC=0.6573, trees=455
+  Fold 5: 级联 AUC=0.8358
+
+时序CV结果: 级联AUC = 0.8240 (+/- 0.0673)
+
+开始训练级联模型...
+时序切分: 训练 1065218 / 测试 266305
+  Label 0: 训练 543313 (51.0%), 测试 135302 (50.8%)
+  Label 1: 训练 489532 (46.0%), 测试 123286 (46.3%)
+  Label 2: 训练 32373 (3.0%), 测试 7717 (2.9%)
+
+── Model A (Gate): 过滤死水 ──
+  [Gate] 训练: 1065218 样本 (正 521905, 负 543313, spw=1.02)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.595582
+[200]	valid_0's auc: 0.598176
+[300]	valid_0's auc: 0.600345
+[400]	valid_0's auc: 0.601792
+[500]	valid_0's auc: 0.602696
+[600]	valid_0's auc: 0.603265
+[700]	valid_0's auc: 0.603684
+[800]	valid_0's auc: 0.604051
+[900]	valid_0's auc: 0.604361
+[1000]	valid_0's auc: 0.604558
+Did not meet early stopping. Best iteration is:
+[1000]	valid_0's auc: 0.604558
+  [Gate] AUC=0.6046, trees=1000
+
+── Platt Scaling: Gate ──
+  [Gate] Platt校准后 AUC=0.6046
+
+── Model B (Precision): 识别超级主升 ──
+  [Precision] 训练: 521905 样本 (正 32373, 负 489532, spw=3.89)
+Training until validation scores don't improve for 100 rounds
+[100]	valid_0's auc: 0.650887
+[200]	valid_0's auc: 0.653955
+[300]	valid_0's auc: 0.655724
+[400]	valid_0's auc: 0.656295
+[500]	valid_0's auc: 0.656611
+[600]	valid_0's auc: 0.656747
+[700]	valid_0's auc: 0.656839
+Early stopping, best iteration is:
+[685]	valid_0's auc: 0.65709
+  [Precision] AUC=0.6571, trees=685
+
+── Platt Scaling: Precision ──
+  [Precision] Platt校准后 AUC=0.6571
+
+── 级联模型评估 ──
+
+单模型 AUC: Gate=0.6046, Precision=0.6571
+级联 AUC:   0.8306
+
+======================================================================
+    阈值 |      精确率 |      召回率 |       F1 |    触发数 |      准确率
+----------------------------------------------------------------------
+  0.10 |   0.1561 |   0.0393 |   0.0627 |   1941 |   0.9660
+  0.20 |   0.2270 |   0.0054 |   0.0106 |    185 |   0.9706
+  0.30 |   0.2113 |   0.0019 |   0.0039 |     71 |   0.9709
+  0.40 |   0.1000 |   0.0004 |   0.0008 |     30 |   0.9709
+  0.50 |   0.0833 |   0.0001 |   0.0003 |     12 |   0.9710
+  0.65 |      N/A |      N/A |      N/A |      0 |      N/A
+======================================================================
+
+级联概率分布:
+  min=0.0000, max=0.6004, mean=0.0154, median=0.0000
+  Label 0 平均概率: 0.0000
+  Label 1 平均概率: 0.0306
+  Label 2 平均概率: 0.0413
+
+特征重要性分析:
+Top 10 最重要特征:
+  bias_ma60: 551409.8589
+  vol_breakout_ratio: 371566.3024
+  t0_close: 216238.0242
+  price_position_120d: 182141.9939
+  vol_turnover_ratio: 152921.9160
+  volume_percentile_120d: 145363.5629
+  bias_ma20: 144330.2771
+  t0_macd: 137764.1668
+  atr_percentile: 137039.6121
+  t0_volume: 130117.9606
+特征重要性已保存: data/result/super_trend/analysis/feature_importance.csv
+特征重要性图表已保存: data/result/super_trend/analysis/feature_importance_plot.png
+级联模型已保存: data/result/super_trend/models/trend_gbm_cascade_v1.pkl
+
+✅ 级联模型训练完成!
+模型文件: data/result/super_trend/models/trend_gbm_cascade_v1.pkl
+特征重要性文件: data/result/super_trend/analysis/feature_importance.csv
+

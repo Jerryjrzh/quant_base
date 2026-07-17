@@ -204,7 +204,7 @@ class ReportGenerator:
         try:
             # 设置图表样式和中文字体
             plt.style.use('default')  # 使用默认样式
-            plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans', 'Arial Unicode MS', 'sans-serif']
+            plt.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Sans CJK SC', 'DejaVu Sans', 'Arial Unicode MS', 'sans-serif']
             plt.rcParams['axes.unicode_minus'] = False
             
             # 1. 观察池评级分布饼图

@@ -37,7 +37,7 @@ class MomentumConfig:
     rsi_overbought: float = 70
     rsi_oversold: float = 30
     
-    kdj_period: int = 9
+    kdj_period: int = 27
     kdj_overbought: float = 80
     kdj_oversold: float = 20
     
